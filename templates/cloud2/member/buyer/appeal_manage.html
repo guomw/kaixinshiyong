@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="Keywords" content="{$seo[keywords]}" />
+<meta name="Description" content="{$seo[description]}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_appeal_list.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src='{JS_PATH}dialog/jquery.artDialog.js?skin=default'></script>
+<script type="text/javascript" src='{THEME_STYLE_PATH}style/js/order.js'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+		
+		// 申诉记录数字高亮
+		numActive();
+	});
+</script>
+<script type="text/javascript">
+{php $userinfo = is_login();}
+var order_data = {
+    {loop $orders $r}
+    {if $n > 1},{/if}
+    {$r[id]}:{
+        "oid":"{$r[id]}",
+        "gid":"{$r[goods_id]}",
+        "title":"{$r[product_info]['title']}",
+        "url":"{$r[product_info][goods_url]}",
+        "userid":"<?php echo $this->userid;?>",
+        "modelid":"<?php echo $userinfo['modelid'];?>",
+        "price":"{$r[product_info]['goods_price']}",
+        "end_time" : "{php echo $r['create_time']+C('buyer_write_order_time')*60}",
+    }
+    {/loop}
+};
+</script>
+<style type="text/css">
+.operate-log {
+max-width: 520px;
+_width: 520px;
+max-height: 420px;
+_height: 420px;
+padding: 1px;
+overflow: auto;
+}
+.aui_state_focus .aui_content {
+color: #000;
+}
+.ui-table {
+border: 1px solid #ccc;
+table-layout: fixed;
+width: 100%;
+text-align: center;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+.ui-table th {
+height: 35px;
+font-size: 12px;
+color: #4c4c4c;
+text-shadow: 0 1px 1px #fff;
+background-color: #CCCCCC;
+background-image: -webkit-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -moz-linear-gradient(top, #eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -o-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#CCCCCC', GradientType=0);
+}
+.ui-table th {
+
+}
+textarea {
+font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+.ui-table td {
+border: 1px solid #ccc;
+border-bottom-style: dotted;
+border-top: none;
+padding: 12px 0;
+word-break: break-all;
+word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+{include template('toper','common')}
+	{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+	<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Appeal/appeal_manage')}" class="nav_active">申诉管理</a>
+	</div>			
+			{include template('member_left','member/common')}
+			<div class="content_right float_right">
+				<h2 class="right_title border_bottom_efefef">
+						申诉记录
+						<a href="{U('appeal_manage', array('state' => -1))}" {if $state==-1}class="a_link"{/if}>所有申诉(<span>{appeal_count($this->userid,$this->userinfo['modelid'],-1)}</span>)</a>
+						<a href="{U('appeal_manage', array('state' => 0))}" {if $state==0}class="a_link"{/if}>待商家处理(<span>{appeal_count($this->userid,$this->userinfo['modelid'],0)}</span>)</a>
+						<a href="{U('appeal_manage', array('state' => 1))}" {if $state==1}class="a_link"{/if}>待平台仲裁(<span>{appeal_count($this->userid,$this->userinfo['modelid'],1)}</span>)</a>
+						<a href="{U('appeal_manage', array('state' => 2))}" {if $state==2}class="a_link"{/if}>仲裁完毕(<span>{appeal_count($this->userid,$this->userinfo['modelid'],2)}</span>)</a>
+				</h2>
+				<table border="0" cellspacing="0" class="table_list">
+					<tr class="table_title">
+						<th class="tc">商品标题</th>
+						<th class="tc">申诉时间</th>
+						<th class="tc">申诉类型</th>
+						<th class="tc">申诉人</th>
+						<th class="tc">状态</th>
+						<th class="tc">操作</th>
+					</tr>
+					{loop $appeals $appeal}
+					<tr>
+						<td class="t_tr_w_1">
+							<img src="{$appeal['goods']['thumb']}" width="58px" height="58px" class="table_small">
+							<ol class="table_small_text">
+								<li>
+									<a href='{$appeal['url']}' target='_blank'>{$appeal['goods']['title']}</a>
+								</li>
+							</ol>
+						</td>
+						<td class="tc">
+							<span>{dgmdate($appeal['buyer_time'],'Y-m-d H:i')}</span>
+						</td>
+						<td class="tc">{$appealtypes[$appeal['appeal_type']]}</td>
+						<td class="tc">{$appeal['username']}</td>
+						<td class="tc">
+							{$appealstatus[$appeal['appeal_status']]}
+						</td>
+						<td class="tc">
+							<a href="javascript:;" onclick="order.view_appeal(<?php echo $appeal['id'];?>,'<?php echo U('Member/Appeal/read');?>')"><span>查看申诉</span></a>
+							<a href="javascript:;" onclick="order.view_log({$appeal['order_id']});"><span>操作记录</span></a>
+						</td>
+					</tr>
+					{/loop}
+				</table>
+				<p class="pages wiHe3 floatLeft">
+					{$pages}
+				</p>
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+	function numActive(){
+		$(".right_title span").each(function(){
+			var num = $(this).text();
+			if(num > 0){
+				$(this).css("color","red");
+			}
+		});
+	}
+</script>
+
+
+
+
+
+
+
+

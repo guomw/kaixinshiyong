@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="Keywords" content="{$SEO['keywords']},{C('WEBNAME')}" />
+		<meta name="Description" content="{$SEO['description']},{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setLogin.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_login.css" /> 
+	</head>
+	<body>
+		<div class="top">
+			<div class="wrap">
+				<h1 class="login_logo fontSize"><img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" /><span>注册完成</span></h1>
+				<ul class="login_nav">
+					<li><a href="{__APP__}">首页</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+					<li><a href="{U('document/Index/lists',array('catid'=>83))}">关于我们</a></li>
+				</ul>
+			</div>
+		</div>		
+		<div class="center center_bg">
+			<div class="wrap">
+				<ul class="schedule">
+					<li class="s_auto">1.填写注册信息</li>
+					<li class="s_on">2.验证身份信息</li>
+					<li class="s_on">3.注册成功</li>
+				</ul>
+				<div class="login_hint_two">
+					<p class="l_win_txt">恭喜您注册成功！</p>
+					<p>本页面即将在<b id="wait">3</b>秒后自动跳转到首页，</p>
+					<p>如果没有跳转，也可以直接<a href="{__ROOT__}/">进入首页</a></p>
+				</div>				
+			</div>
+		</div>
+		{include template('forget_footer', 'member')}
+<script type="text/javascript">
+(function(){
+var wait = document.getElementById('wait'),href = '{__ROOT__}/';
+var interval = setInterval(function(){	
+	var time = --wait.innerHTML;
+	$("#wait").text(time);
+	if(time <= 1) {
+		location.href = href;
+		clearInterval(interval);
+	};
+}, 1000);
+})();
+</script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+/*
+* @description：商家报名内容页
+* @author：熊锋
+* @update：2015/01/15 13:50
+*/
+
+#main{
+	padding: 30px 0 40px 0;
+}
+
+/* 活动列表 */
+#activity_list{
+	width: 1035px;
+}
+
+#activity_list ul{}
+
+#activity_list li{
+	width: 278px;
+	border: 2px solid #dddddd;
+	margin: 0 auto;
+	padding: 15px 19px 20px;
+}
+
+#activity_list .c3499da{
+	border-color: #3499da;
+}
+
+#activity_list .c30bbfe{
+	color: #30bbfe;
+}
+
+#activity_list dt{
+	border-bottom: 1px solid #dddddd;
+	margin-bottom: 15px;
+	padding-bottom: 12px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+}
+
+#activity_list dd{
+	height: 60px;
+	font-size: 14px;
+}
+
+#activity_con dl{
+	border: 1px solid #dddddd;
+	margin-top: 33px;
+}
+
+#activity_con dt{
+	border-bottom: 1px solid #dddddd;
+	padding: 10px 0 10px 15px;
+	background: #fafafa;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#activity_con dd{
+	padding: 20px 0 20px 20px;
+}
+
+.c999999{
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+

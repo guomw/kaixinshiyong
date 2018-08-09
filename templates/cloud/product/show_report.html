@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/sun_single_show.css" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//展示界面按钮显示隐藏
+				sMouBox('.hot_com_show','.hot_pages');
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();			
+				//首页中间展示大图制作
+				bannerPlay();
+				//商城公告部分
+				showSign();	
+				//新品热门部分插件
+				jQuery(".hot_com_show").slide({ mainCell:".hot_show_wrap", effect:"leftLoop",vis:5, autoPlay:true});
+				//缩略图商品移入出现按钮
+				shopsMouse();
+				//热门商品信息显示
+				setHorComShow();
+				//列表菜单点击样式			
+				//setShopsStyle(obj,getColor,getBackground,getBorder,setColor,setBackground,setBorder);
+				setShopsStyle('.jsone li a','#666','#f9f9f9','none','#fff','#ff6798','solid 1px #fe5991');				
+				setShopsStyle('.jstwo li a','#666','#f9f9f9','none','#fff','#fe8860','solid 1px #fe8860');				
+				setShopsStyle('.js_3 li a','#666','#f9f9f9','none','#fff','#ff73e0','solid 1px #ff73e0');			
+				setShopsStyle('.js_4 li a','#666','#f9f9f9','none','#fff','#60a2ff','solid 1px #60a2ff');
+				
+				//晒单达人展示
+				jQuery(".hot_shops_content").slide({ mainCell:".hot_shops_content_img_wrap", effect:"leftLoop",vis:2, autoPlay:true});	
+			});
+		</script>
+	</head>
+	<a name="top"></a>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+
+		<div class="top" style="padding-top:30px;margin:0;">
+			<div class="wrap">
+				<h1>试用报告</h1>
+				<ul class="login_nav">
+					<!-- <li><a href="#">试用报告首页</a></li>
+					<li><a href="#">最新报告</a></li>
+					<li><a href="#">精华报告</a></li> -->
+				</ul>				
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="main">
+			<div class="main_left">
+				<div class="main_goods">
+					<div class="goods_name">
+						<dl>
+							<dt>{$rs[title]}</dt>
+							<dd>推荐购买指数：<span><img src="{THEME_STYLE_PATH}style/images/star{$score}.png" /></span></dd>
+							<dd class="goods_comment">{str_cut(strip_tags($report['content']),100)}</dd>
+						</dl>
+					</div>
+					<div class="stamp">
+						<span class="stamp_stamp">
+							{if $good[appraised] == 1}
+							<img src="{THEME_STYLE_PATH}style/images/essence.png" width="76" height="61" />
+							{/if}
+						</span>
+						<dl>
+							<dt>标签：</dt>
+							{pc:document action="keyword" num="3"}
+							{loop $data $v}
+							<dd><a href="{$v[url]}" search-keyword="{$d[name]}" target="_blank">{$v[name]}</a></dd>
+							{/loop}
+							{/pc}
+							
+						</dl>
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+				<div class="main_try">
+					<div class="try_name">
+						<div class="try_name_info">
+							<div class="try_name_info_goods">
+								<img src="{$rs[thumb]}" width="100" height="100" />
+							</div>
+							<div class="try_name_info_info">
+								<p>
+									<span>试用活动：</span>
+									<span style="color: #4ba6d3;">{$rs[title]}</span>
+								</p>
+								<p>
+									<span>试用分数:</span>
+									<span><img src="{THEME_STYLE_PATH}style/images/star{if $baseinfo[star] == 4}4{elseif $baseinfo[star] == 5}5{elseif $baseinfo[star] == 3}3{elseif $baseinfo[star] == 2 }2{else}1{/if}.png" /></span>
+								</p>
+								<a href="{$rs[url]}" target="_blank">我也要试用</a>
+								<a href="{$rs[goods_url]}" target="_blank">直接购买</a>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+<!-- 						<a href="#" class="try_name_url">查看其它用户的试用报告 →</a>
+ -->					</div>
+					<div style="clear: both;"></div>
+					<div class="try_background">
+						<dl>
+							<dt>试客背景</dt>
+							<dd>
+								{$baseinfo[background]}
+								<div class="trial_info">
+									<p>
+										<span class="fw">试客ID：</span>
+										<span>{nickname($report[userid])}</span>
+									</p>
+									<p>
+										<span class="fw">年龄：</span>
+										<span>{$baseinfo[age]}</span>
+									</p>
+									<p>
+										<span class="fw">职业：</span>
+										<span>{$baseinfo[job]}</span>
+									</p>
+									<p>
+										<span class="fw">身高：</span>
+										<span>{$baseinfo[height]}</span>
+									</p>
+									<p>
+										<span class="fw">体重：</span>
+										<span>{$baseinfo[weight]}</span>
+									</p>
+								</div>
+							</dd>
+						</dl>
+					</div>
+					{if $report[thumb]}
+					<div class="try_experience">
+						<dl>
+							<dt>试用过程与体验</dt>
+							<dd>
+								试用过程与体验
+								<br />
+								<img src="{$report[thumb]}" />
+							</dd>
+						</dl>
+					</div>
+					{/if}
+					
+					<!-- <div class="try_comment">
+						<dl>
+							<dt>评论（{$comment_count}）</dt>
+							<dd>
+								<p>
+									<span>你需要登陆后才可以评论</span>
+									<a href="{U('Member/Index/login')}" style="color: #4ba6d3;">登陆</a> |
+									<a href="{U('Member/Index/register')}" style="color: #4ba6d3;">注册</a>
+								</p>
+							</dd>
+						</dl>
+					</div> -->
+				</div>
+			</div>
+			<div class="main_right">
+				<div class="main_right_member">
+					<span>
+						<img src="{getavatar($report['userid'],1)}" width="100" height="100" />
+					</span>
+					<p class="main_right_member_name">{nickname($report[userid])}</p>
+					<!-- <p><span class="member_rating"><img src="{THEME_STYLE_PATH}style/images/member_rating.jpg" /></span></p> -->
+					<p class="application">申请次数：{$alipay_count}次</p>
+					<p class="application">成功申请：{$success_count}次</p>
+				</div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		{include template('footer','common')}

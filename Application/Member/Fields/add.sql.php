@@ -1,0 +1,71 @@
+<?php
+defined('IN_ADMIN') or exit('No permission resources.');
+$defaultvalue = isset($_POST['setting']['defaultvalue']) ? $_POST['setting']['defaultvalue'] : '';
+//正整数 UNSIGNED && SIGNED
+$minnumber = isset($_POST['setting']['minnumber']) ? $_POST['setting']['minnumber'] : 1;
+$decimaldigits = isset($_POST['setting']['decimaldigits']) ? $_POST['setting']['decimaldigits'] : '';
+
+switch($field_type) {
+	case 'varchar':
+		if(!$maxlength) $maxlength = 255;
+		$maxlength = min($maxlength, 255);
+		$sql = "ALTER TABLE `$tablename` ADD `$field` VARCHAR( $maxlength ) NOT NULL DEFAULT '$defaultvalue'";
+		sqlexecute($sql);
+	break;
+
+	case 'tinyint':
+		if(!$maxlength) $maxlength = 3;
+		$minnumber = intval($minnumber);
+		$defaultvalue = intval($defaultvalue);
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` TINYINT( $maxlength ) ".($minnumber >= 0 ? 'UNSIGNED' : '')." NOT NULL DEFAULT '$defaultvalue'");
+	break;
+	
+	case 'number':
+		$minnumber = intval($minnumber);
+		$defaultvalue = $decimaldigits == 0 ? intval($defaultvalue) : floatval($defaultvalue);
+		$sql = "ALTER TABLE `$tablename` ADD `$field` ".($decimaldigits == 0 ? 'INT' : 'FLOAT')." ".($minnumber >= 0 ? 'UNSIGNED' : '')." NOT NULL DEFAULT '$defaultvalue'";
+		sqlexecute($sql);
+	break;
+
+	case 'smallint':
+		$minnumber = intval($minnumber);
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` SMALLINT ".($minnumber >= 0 ? 'UNSIGNED' : '')." NOT NULL");
+	break;
+
+	case 'int':
+		$minnumber = intval($minnumber);
+		$defaultvalue = intval($defaultvalue);
+		$sql = "ALTER TABLE `$tablename` ADD `$field` INT ".($minnumber >= 0 ? 'UNSIGNED' : '')." NOT NULL DEFAULT '$defaultvalue'";
+		sqlexecute($sql);
+	break;
+
+	case 'mediumtext':
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` MEDIUMTEXT NOT NULL");
+	break;
+	
+	case 'text':
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` TEXT NOT NULL");
+	break;
+
+	case 'date':
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` DATE NULL");
+	break;
+	
+	case 'datetime':
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` DATETIME NULL");
+	break;
+	
+	case 'timestamp':
+		sqlexecute("ALTER TABLE `$tablename` ADD `$field` TIMESTAMP NOT NULL");
+	break;
+	//特殊自定义字段
+	case 'pages':
+		sqlexecute("ALTER TABLE `$tablename` ADD `paginationtype` TINYINT( 1 ) NOT NULL DEFAULT '0'");
+		sqlexecute("ALTER TABLE `$tablename` ADD `maxcharperpage` MEDIUMINT( 6 ) NOT NULL DEFAULT '0'");
+	break;
+	case 'readpoint':
+		$defaultvalue = intval($defaultvalue);
+		sqlexecute("ALTER TABLE `$tablename` ADD `readpoint` smallint(5) unsigned NOT NULL default '$defaultvalue'");
+		sqlexecute("ALTER TABLE `$tablename` ADD `paytype` tinyint(1) unsigned NOT NULL default '0'");
+	break;
+}

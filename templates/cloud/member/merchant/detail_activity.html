@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$name}活动报名-卖家活动报名中心-{C('WBENAME')}</title>
+		<meta name="Keywords" content="{C('REBATE_NAME')}活动报名,卖家活动报名中心,{C('WBENAME')}" />
+		<meta name="Description" content="{C('SELLER_ACTIVITY_DESC')},{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/apply_list.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('merchant_sign_header','member/common')}
+		<script type="text/javascript">
+function checkclass (startclass,endclass) {//判断类名  
+var arr=startclass.split(" ");//多个类名用空格分隔成不同元素的数组;  
+for (var i=0; i<arr.length; i++) {  
+if(arr[i]==endclass){//1.2.被分割的数组元素里面如果有一个等于classname就返回真;  
+return true;  
+}  
+}  
+return false; 
+}
+		
+function getByClass (obj,classname) {//obj就是找的标签范围;  
+
+	var obj=obj||document;//如果obj没有参数传进来的话就为假,就返回document;  
+	var arr=[];//设置一个数组来存储在ie下标签的className属性值等于类名的元素;	
+	if(document.getElementsByClassName){//如果条件为真,就代表浏览器为火狐;  
+  		return document.getElementsByClassName(classname)//火狐下面直接返回结果;  
+	}else{
+		var alls=document.getElementsByTagName("*");//首先找到页面所有的标签;  
+		for (var i=0; i<alls.length; i++) {  
+			if(checkclass(alls[i].className,classname)){//1.1.回调函数判断类名,因为同一标签可能有多个类名;  
+				arr.push(alls[i])//1.3.如果是真的,就把这个元素推进数组里面;  
+ 			}  
+		}  
+  		return arr;  
+	} 	
+}  
+function gStyle(obj,attr){
+if(obj.currentStyle){
+	return obj.currentStyle[attr];
+}else{
+	return getComputedStyle(obj,false)[attr];
+}
+}
+			window.onload = function()
+			{
+				var aDiv = getByClass(document,'c_w_box');
+				var aImg = getByClass(document,'boult_icon')[0];
+				var imgWidth = parseInt(gStyle(aImg,'width'));
+				
+				for(var i=0;i<aDiv.length;i++)
+				{
+					aDiv[i].index = i;
+					
+					aDiv[i].onmouseover = function()
+					{
+						var bb = 0;
+						if([this.index] != 0){var bb = parseInt([this.index])-1;}
+						
+						var right = parseInt(gStyle(aDiv[this.index],'marginRight'));						
+						var aa = parseInt([this.index])+1;
+						var bb = parseInt([this.index]);
+						var width = aDiv[this.index].offsetWidth;						
+						var ss = right*bb;
+						if(bb == 0){move(aImg,{'left' :aa*(width-imgWidth+ss)/2 },5);}
+						else if(bb == aDiv.length-1){move(aImg,{'left' : aa*width-width/2+imgWidth*bb },5);}
+						else{move(aImg,{'left' : aa*(width-imgWidth)/2 + (bb*width)/2+right },5);}
+					}
+				}
+			}
+		</script>
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				<div class="apply_term">
+					<div class="show_hint">
+						<h2 class="a_t_title">{$name}</h2>
+						<div class="left">
+							<h6>频道介绍<a href="/{$mod}/">进入{$name}>></a></h6>
+							<p>{$actvity[seller_activity_desc]}</p>
+						</div>
+						{pc:announce action="lists" num="3" type="2" order="listorder"}
+						<ul class="right">
+							<h6>招商公告</h6>
+							{loop $data $d}
+							<li><a href="#" target="_blank">{$d['title']}</a></li>
+							{/loop}
+						</ul>
+						{/pc}
+					</div>
+					<h2 class="a_t_title margin_b_20">商家报名条件</h2>
+					{stripslashes($actvity[seller_detail_desc])}
+					<table width="960" class="aut_list">
+						<tr align="center">
+							<td width="480">报名活动所需条件</td>
+							<td width="480">您满足</td>
+						</tr>
+						{if $seller_join_condition['information'] == 6}
+						<tr>
+							<td width="480">完善店铺信息</td>
+							<td width="480">
+							{if is_attesta($userid,'information') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+							您还未完善店铺信息
+							<a href="{U('Member/Merchant/complete')}">去完善</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+						{if $seller_join_condition['phone'] == 1}
+						<tr>
+							<td width="480">手机认证</td>
+							<td width="480">
+							{if is_attesta($userid,'phone') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+							您还未认证手机，<a href="{U('Member/Attesta/phone_attesta')}">去认证</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+						{if $seller_join_condition['email'] == 2}
+						<tr>
+							<td width="480">邮箱认证</td>
+							<td width="480">
+							{if is_attesta($userid,'email') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+							您还未认证邮箱，<a href="{U('Member/Attesta/email_attesta')}">去认证</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+						{if $seller_join_condition['realname'] == 3}
+						<tr>
+							<td width="480">实名认证</td>
+							<td width="480">
+							{if is_attesta($userid,'identity') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+								您还未认证身份信息，<a href="{U('Member/Attesta/name_attesta')}">去认证</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+						{if $seller_join_condition['shop'] == 4}
+						<tr>
+							<td width="480">店铺认证</td>
+							<td width="480">
+							{if is_attesta($userid,'shop') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+							您还未认证店铺，<a href="{U('Member/Attesta/shop')}">去认证</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+						{if $seller_join_condition['brand'] == 5}
+						<tr>
+							<td width="480">品牌认证</td>
+							<td width="480">
+								{if is_attesta($userid,'brand') == 1}
+							<i><img src="{THEME_STYLE_PATH}style/images/iyes.gif" width="16" height="16" /></i>
+								已认证
+							{else}
+							您还未认证品牌，<a href="{U('Member/Attesta/brand')}">去认证</a>
+							{/if}
+							</td>
+						</tr>
+						{/if}
+					</table>
+				</div>
+				<div class="clear"></div>
+				<div id="sign_btn">
+					<a href="javascript:;" class="btn_style btn2" id="apply" data-type = "{$mod}" data-url="{U('Member/MerchantProduct/add',array('mod'=>$mod))}">马上报名</a>
+				</div>
+				<span id="msg" ></span>
+				<div style="display:none;" id="passed" ></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	{include template('merchant_sign_footer','member/common')}
+<script type="text/javascript">
+$(function(){
+	$("#apply").click(function(){
+		var type = $(this).attr('data-type');
+		var _url = $(this).attr('data-url');
+		$.ajax({
+			url:'{U('Member/EnterActivity/check')}',
+			type:'post',
+			dataType:'json',
+			data:{'type':type},
+			success:function(data){
+				if(data.status == 1){
+					location.href=_url;
+				}else{
+					$("#msg").html("<a href="+data.url+" target='_blank' style='color:red;'>"+data.info+"</a>");
+					$("#passed").show();
+				}
+			}
+		});
+	});
+});
+</script>
+<style type="text/css">
+	a img{
+		width:auto;
+		height:auto;
+	}
+</style>

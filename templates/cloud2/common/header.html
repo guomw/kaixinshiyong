@@ -1,0 +1,161 @@
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+<div class="logo_search">
+	<div class="wrap">
+		<div class="logo">
+			<a href="{__APP__}" style="display:block;float:left;"><img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" /></a>
+			<ul class="logo_text">
+				<li><h2>一站式导购平台</h2></li>
+				<li><h6>全场0.1-3折 万件精品 0 元试用</h6></li>
+			</ul>
+		</div>
+		<ul class="search">
+			<li class="se_main">
+				<ul class="search_menu">
+					<li class="menu_sum">
+						<a href="javascript:;" class="suffix" search-type="product">商品</a>
+						<ul class="search_menu_top">
+							<li><a href="javascript:;" search-type="product">商品</a></li>
+							<li><a href="javascript:;" search-type="commpany">商家</a></li>
+						</ul>
+					</li>
+				</ul>
+				<input type="text" class="search_content" search-keyword=""/>
+				<a href="javascript:;" class="search_btn"></a>
+			</li>
+			{pc:document action="keyword" num="6"}
+			<li class="search_hot">
+				{loop $data $d}
+				<span><a href="{$d[url]}" search-keyword="{$d[name]}">{$d[name]}</a></span>
+				{/loop}
+			</li>
+			{/pc}
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$(".menu_sum").mouseover(function(){
+		$(".search_menu_top,.search_menu_top li").show();menu_show();
+	})
+	$(".menu_sum").mouseout(function(){
+		$(".search_menu_top").hide();
+	})
+
+	$(".search_menu_top a").click(function(){
+		$(".menu_sum a.suffix").text($(this).text());
+		$(".menu_sum a.suffix").attr('search-type', $(this).attr('search-type'));
+		$(".search_menu_top").hide();
+	})
+	$('.search_content').keydown(function(e){
+		if(e.keyCode==13) localsearch();
+	})
+	$(".search_btn").click(function(){localsearch();})
+
+
+	function menu_show() {
+		$(".search_menu_top a").each(function(i, n){
+			if($(this).attr('search-type') == $(".menu_sum a.suffix").attr('search-type')) $(this).parent().hide();
+		})
+	}
+	function localsearch() {
+		var stype = $(".search_menu a[class='suffix']").attr('search-type');
+		var keyword = $("input[search-keyword]").val();
+		if($.trim(keyword).length == 0) {
+			alert('关键字不能为空');
+			return false;
+		}
+		window.location.href = site.site_root + "/?m=search&type=" + stype + '&keyword=' + keyword;
+	}
+
+})
+</script>
+
+<div class="top_content">
+	<div class="wrap">
+	<!-- 导航 -->
+		<div class="nav">
+			<span class="all_menu">
+				<font>全部分类</font>
+				<div class="banner_menu" style="position:relative;z-index:99;height:auto;float:left;background:#fff;">
+					<div class="menu_wrap" style="background:#fff;z-index:999;">
+						<div class="z_index">
+							<div class="menu_list">
+								<p class="right_icon"><img src="{THEME_STYLE_PATH}style/images/menu_j_img01.png" alt="" /><a href="#">热门分类</a></p>
+								{pc:product action="category" where="isrecommend = 1" num="6"}
+								{loop $data $r}
+								<span><a href="{$r[url]}" target="_blank">{$r[catname]}</a></span>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+					</div>
+					<div class="menu_content">
+						<div class="m_c_left">
+								{pc:product action="category" where="parentid=0"}
+								{loop $data $d}
+									<ul class="list_box_l">
+										<li class="l_b_title b_font_style">{$d[catname]}</li>
+										{pc:product action="category" catid="$d[catid]"}
+										<li class="l_b_c_t">
+											{loop $data $v}
+											<span><a href="{$v[url]}">{$v[catname]}</a></span>
+											{/loop}
+										</li>
+										{/pc}
+									</ul>
+									{/loop}
+									{/pc}
+								</div>
+								<div class="m_c_right">
+									<span class="b_font_style m_c_r_title">推荐商家</span>
+									{pc:member action="lists" num="4" where="`isrecommend` = 1" modelid="2"}
+									<div class="shops_rec">
+										{loop $data $d}
+										<a href="javascript:;"><img src="{getavatar($d[userid],2)}" alt="" /></a>
+										{/loop}
+									</div>
+									{/pc}
+									<span class="b_font_style m_c_r_title">促销活动</span>
+									{pc:announce action="lists" num="3"}
+									<ul class="act_list"><!--  class="l_hint_bg" -->
+										{loop $data $a}
+										<li class="l_hint_bg"><b></b><a href="{U('Announce/Index/show',array('id'=>$a[announceid]))}">{$a[title]}</a></li>
+										{/loop}
+									</ul>
+									{/pc}
+									<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 4))}"></script>
+								</div>
+								<script type="text/javascript">
+									$('.shops_rec a:even').addClass('border_l_s');
+								</script>
+							</div>
+						<div class="menu_w_none" >
+							<div class="menu_list">
+								<p class="right_icon"><img src="{THEME_STYLE_PATH}style/images/menu_j_img.png" alt="" /><a href="#">热门活动</a></p>
+								<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 1))}"></script>
+							</div>
+						</div>
+						<div class="menu_w_none" style="border-bottom:none;" >
+							<ul class="menu_list" >
+								<li>
+									<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 2))}"></script>
+								</li>
+								<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 3))}"></script>
+							</ul>
+						</div>
+					</div>
+			</span>
+			<?php $url = $_SERVER['REQUEST_URI'];?>
+			{pc:document action="navigate" navid="0" order="listorder ASC"}
+			<ul class="nav_a">
+				<li {if ACTION_NAME=='index'}class="int-focus" {/if}><a href="{__APP__}">首页</a></li>
+				{loop $data $d}
+				<li {if $url== $d[url]}class="int-focus"{/if}><a href="{$d[url]}" {if $d[isblank] == 1} target="_blank" {/if}>{$d[name]}</a></li>
+				{/loop}
+			</ul>
+			{/pc}
+		</div>
+	</div>
+</div>

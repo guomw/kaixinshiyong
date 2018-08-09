@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_bank_aut_show.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+		<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Attesta/person')}" class="nav_active">个人认证</a>&nbsp;>
+		<a href="{U('Member/Attesta/phone_attesta')}" class="nav_active">银行卡绑定</a>
+	</div>
+				
+				{include template("merchant_left","member/common")}
+			<div class="content_right float_right">
+				<h1>银行卡绑定</h1>
+				<form action="{U('Member/Attesta/bank_attesta')}" method="post" id="myform">
+				<div class="bank_form">
+					<div class="bank_input">
+						<dl class="bank_name">
+							<dt class="float_left">选择开户银行：</dt>
+							<dd class="float_left">
+								<select name="bank_name"  id="bank_name">
+										<option label="请选择银行" value="0">请选择银行</option>
+										{loop $banks $b}
+										<option {if $bankinfo[bank_name] =='工商银行'}selected{/if} value="{$b[linkageid]}">{$b[name]}</option>
+										{/loop}
+								</select>
+							</dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="account_name">
+							<dt class="float_left">开户人姓名：</dt>
+							<dd class="float_left">	
+								{if empty($infos[name])}
+								<span><font color="red">您还没有进行身份认证，</font><a href="{U('Member/Attesta/name_attesta')}">去认证</a></span>
+								<input type="hidden" id="bank_username" name="bank_username" value="{$infos[name]}"/>
+								{else}
+								<input type="text" id="bank_username" name="bank_username" value="{$infos[name]}" disabled/>
+								{/if}
+								
+							</dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="bank_id">
+							<dt class="float_left">银行卡卡号：</dt>
+							<dd class="float_left"><input type="text" name="account" id="bank_account"  value="{$account[bank_account]}" /></dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<script type="text/javascript">
+							$(document).ready(function(){
+								//查询省市
+								$("#province").change(function(){
+									$("#city").remove();
+									var _this = $(this).val();
+									$.ajax({
+										url:'{U('Member/Profile/get_area')}',
+										type:'post',
+										dataType:'json',
+										data:{'id':_this},
+										success:function(data){
+											var html = '';
+											html += '<select name="city" class="c999999" id="city">';
+											$.each(data ,function(i,item){
+												html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+											});
+											html += '</select>';
+											$("#province").after(html);
+										}
+									});
+								});
+								//查询城镇
+								$("#city").live('change', function(){
+									$("#area").remove();
+									var _this = $(this).val();
+									$.ajax({
+										url:'{U('Member/Profile/get_area')}',
+										type:'post',
+										dataType:'json',
+										data:{'id':_this},
+										success:function(data){
+											var html = '';
+											html += '<select name="area" class="c999999" id="area">';
+											$.each(data ,function(i,item){
+												html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+											});
+											html += '</select>';
+											$("#city").after(html);
+										}
+									});
+								});
+								
+								//默认地址 取得选中的省市id
+								var city = "<?php echo $city;?>"; 
+								var proid = $("#province").find("option:selected").val();
+								$.ajax({
+									url:'{U('Member/Profile/get_area')}',
+									type:'post',
+									dataType:'json',
+									data:{'id':proid},
+									success:function(data){
+										var html = '';
+										html += '<select name="city" class="c999999" id="city">';
+										$.each(data ,function(i,item){
+											if(item.linkageid == city){
+												html += '<option value="'+item.linkageid+'" selected>'+item.name+'</option>';
+											}else{
+												html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+											}
+										});
+										html += '</select>';
+										$("#province").after(html);
+									}
+								});
+								//alert(city);
+								//默认的乡镇
+								$.ajax({
+									url:'{U('Member/Profile/get_area')}',
+									type:'post',
+									dataType:'json',
+									data:{'id':city},
+									success:function(data){
+										var html = '';
+										html += '<select name="area" class="c999999" id="area">';
+										var area = "<?php echo $area;?>";//乡镇
+										$.each(data ,function(i,item){
+											if(item.linkageid == area){
+												html += '<option value="'+item.linkageid+'" selected>'+item.name+'</option>';
+											}else{
+												html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+											}
+										});
+										html += '</select>';
+										$("#city").after(html);
+									}
+								});
+							});						
+						</script>
+						<dl class="bank_address">
+							<dt class="float_left">开户行在地：</dt>
+							<dd class="float_left">
+								<select name="province" id="province">
+								<option value="-1">请选择</option>
+								<?php foreach ($region as $k => $v): ?>
+                              		 <option <?php if ($bankinfo['province'] == $v['linkageid']): ?>
+                             selected <?php endif; ?>value="<?php echo $v['linkageid'] ?>"><?php echo $v['name'] ?></option>
+                            <?php endforeach ?>
+								</select>
+							</dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="bank_branch_name">
+							<dt class="float_left">支行名称：</dt>
+							<dd class="float_left"><input type="text" name="sub_branch" id="sub_branch" value="{$bankinfo[sub_branch]}" /></dd>
+						</dl>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="submit"><input type="submit" name="" value="提交" /></div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+function loadarea(){
+    var Id = $("#city").val();
+    $('#area option').remove();
+    $.post("<?php echo U('Admin/Setting/get_area') ?>",{id:Id},function(data){
+        var region = eval(data);
+        if(region!=''){
+            $.each(region,function(no,items){
+                $('#area').append('<option value="'+items.linkageid+'">'+items.name+'</option>');
+            });
+        }
+    });
+}
+</script>
+<style type="text/css">
+	.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+	.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+	.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+	.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+	.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+	.onLamp{background-position:3px -200px}
+	.onTime{background-position:3px -1356px}
+</style>
+<script type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+
+$("#bank_username").formValidator({
+	empty:false,
+	onempty:'开户行不能为空',
+	onshow:"",
+	onfocus:"请输入开户行姓名"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"开户行姓名输入错误"
+}).inputValidator({
+	min:4,
+	max:50,
+	onerror:"不超过50个字符，汉字算两个字符"
+});
+
+$("#bank_account").formValidator({
+	empty:false,
+	onempty:'卡号不能为空',
+	onshow:"请输入银行卡号",
+	onfocus:"请输入银行卡号"
+}).regexValidator({
+	regexp:'bank_account',
+	datatype:'enum',
+	onerror:"银行卡号输入错误"
+});
+
+$("#sub_branch").formValidator({
+	empty:false,
+	onempty:'开户行不能为空',
+	onshow:"请输入开户行名称",
+	onfocus:"请输入开户行名称"
+}).regexValidator({
+	regexp:'ps_username',
+	datatype:'enum',
+	onerror:"开户行输入错误"
+});
+//-->
+</script>

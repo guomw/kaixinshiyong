@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{get_seo('postal_show','show_postal_title',$title)}</title>
+		<meta name="keywords" content="{get_seo('postal_show','show_postal_keyword',$title)}">
+		<meta name="description" content="{get_seo('postal_show','show_postal_description',$title)}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/gabalnara.css" /> 		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+		<style type="text/css">.banner_menu{ display: none;}</style>
+				<script>
+		(function(win,doc){
+		var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+		if (!win.alimamatk_show) {
+		s.charset = 'gbk';
+		s.async = true;
+		s.src = "http://a.alimama.cn/tkapi.js";
+		h.insertBefore(s, h.firstChild);
+		}
+		var o = {
+		pid: "<?php echo C('API_PID'); ?>", //淘宝客pid
+		appkey:"<?php echo C('API_KEY'); ?>",  //淘宝客key
+		unid:"",
+		evid:"",
+		type:"click",
+		plugins: [
+		{name: 'keyword'},
+		{name: 'aroundbox'}
+		]
+		}
+		win.alimamatk_onload = win.alimamatk_onload || [];
+		win.alimamatk_onload.push(o);
+		})(window, document);
+		</script>
+
+
+	</head>
+	<body>
+	{include template('toper','common')}
+	{include template('header','common')}
+<script type='text/javascript'>
+	<?php $goods = $rs;unset($goods['goods_content']); ?>
+	var goods = <?php echo json_encode($goods); ?> ;
+</script>
+		<div class="content">
+			<div class="wrap wrap_c">
+				<div class="w_left_box">
+					<div class="s_padding shop_introduce">
+						<img class="big_img" src="{$rs['thumb']}" alt="{$rs[title]}" />
+						<ul class="shop_txt">
+							<h2 class="title"><a href="javascript:;">{$rs[title]}</a></h2>
+							<!-- <li class="set_c">原价：<b class="set_c">328.00</b>元（0.8折）</li> -->
+							<li class="former_num"><em>￥</em>{$rs['goods_price']}</li>
+							<li class="buy_btn"><a isconvert=1 href="{$rs['goods_url']}" target="_blank">立即到{get_shop_set($rs[source], 'name')}购买</a></li>
+							<li class="time_remaining">剩余时间：</li>
+							<li class="share">
+								<span>分享到：</span>
+								<a href="#" class="sina"></a>
+								<a href="#" class="qq"></a>								
+								<a href="#" class="microblog"></a>								
+								<a href="#" class="add_share"></a>								
+							</li>
+						</ul>
+					</div>
+					<ul class="buy_flow">
+						<li class="quality_icon">{C('webname')}质检报告</li>
+						<li class="after_sale_icon">7天无条件退换</li>
+						<li class="gabalnara_icon">全国包邮&nbsp;低价保障</li>
+						<li class="consignment_icon">24小时闪电发货</li>
+					</ul>
+					<div class="shop_introduce ">
+						<ul class="content_title">
+							<li><a href="#" class="active clear_border">商品详情</a></li>
+							<!-- <li><a href="#">买家评论（<b>0</b>）</a></li> -->
+						</ul>
+						<div class="commodity_argument">{$rs[goods_content]}</div>
+					</div>
+				</div>
+				<div class="user_hint">
+					<h2 class="title">同类商品</h2>
+					{pc:product action="lists" num="5" mod="postal"}
+					{loop $data $r}
+					<div class="box"><a href="{$r[url]}" class="box_img"><img src="{$r[thumb]}" alt="{$r[title]}" /></a><p class="box_title"><a href="{$r[url]}">{str_cut($r[title],57)}</a></p>
+					</div>
+					{/loop}
+					{/pc}				
+				</div>
+			</div>	
+		</div>
+		{include template('footer','common')}
+
+<script type="text/javascript">
+var timestamp = parseInt($.now() / 1000);
+var time_remaining = $(".time_remaining");
+var buy_btn = $(".buy_btn > a");
+$(function(){
+	if(timestamp < goods.start_time) {
+		buy_btn.text('尚未开始');
+	} else if(timestamp > goods.end_time) {
+		buy_btn.text('已经结束');
+		time_remaining.hide();
+	} else {
+		show_remain_time(goods.end_time - timestamp);
+	}
+})
+
+function show_remain_time(sec) {
+	var timer = null;
+	timer = setInterval(function() {
+		sec -= 1;
+		if (sec <= 0) {
+			time_remaining.html('-');
+			clearInterval(timer);
+			location.reload();
+			return;
+		}
+		time_remaining.html(count_down(sec));
+	}, 1000);
+	time_remaining.html(count_down(sec));
+}
+
+function time_pad(s) {
+	return Number(s) > 9 ? String(s) : "0" + String(s);
+}
+    
+ 
+function count_down(sec) {
+	var s = sec;
+	var left_s = s % 60;
+	var m = Math.floor(s / 60);
+	var left_m = m % 60;
+	var h = Math.floor(m / 60);
+	var left_h = h % 24;
+	var d = Math.floor(h / 24);
+	var ret = [];
+	sec && ret.push('剩余时间：');
+	d && ret.push('<em class="d">', d, '</em>天');
+	left_h && ret.push('<em class="h">', time_pad(left_h), '</em>时');
+	left_m && ret.push('<em class="m">', time_pad(left_m), '</em>分');
+	left_s && ret.push('<em class="s">', time_pad(left_s), '</em>秒');
+	return ret.join('');
+}
+</script>
+	</body>
+</html>

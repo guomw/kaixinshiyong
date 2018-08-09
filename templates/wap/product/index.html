@@ -1,0 +1,355 @@
+{include template('header','common')}
+    <script>
+        (function(win,doc){
+        var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+        if (!win.alimamatk_show) {
+        s.charset = 'gbk';
+        s.async = true;
+        s.src = "http://a.alimama.cn/tkapi.js";
+        h.insertBefore(s, h.firstChild);
+        }
+        var o = {
+        pid: "<?php echo C('API_PID'); ?>", //淘宝客pid
+        appkey:"<?php echo C('API_KEY'); ?>",  //淘宝客key
+        unid:"",
+        evid:"",
+        type:"click",
+        plugins: [
+        {name: 'keyword'},
+        {name: 'aroundbox'}
+        ]
+        }
+        win.alimamatk_onload = win.alimamatk_onload || [];
+        win.alimamatk_onload.push(o);
+        })(window, document);
+        </script>
+<style type="text/css">
+	.s-int .int-t{ height: auto; }
+	.s-int em{ font-size: 1.7em; display: inline-block; padding: 8% 0; }
+	.int-mess .goods_num{ width: 32%; float: left; text-align: center; }
+	.int-mess b{ width: 32%; text-align: left; }
+</style>
+
+	<div id="wrapper">
+		<!-- 网页顶部 -->
+		<div id="header" class="clear">
+			<div class="logo">
+				<a href="{__APP__}">
+					<img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" />
+				</a>
+			</div>
+			<div class="search">
+				<a href="{U('Search/Index/search')}" onclick="calljojoo();">搜索宝贝、店铺</a>
+			</div>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<!--  banner 部分  -->
+		<script type="text/javascript">
+			$(function(){ bannerMove(); });
+		</script>
+		<div id="banner">
+            {pc:document action="turn_rund" order="listorder ASC"}
+            <ul class="big">
+                {loop $data $t}
+                	<li><a href="{$t[url]}"><img src="{$t[image]}" alt="" /></a></li>
+                {/loop}
+            </ul>
+            <ul class="small">
+                {loop $data $d}
+               	 <li class=""></li>
+                {/loop}
+            </ul>
+            {/pc}
+		</div>
+		<!-- 导航部分 -->
+		<div class="nav">
+			<ul class="clear">
+				<!--  水平线   -->
+				<span class="nav-hr"></span>
+
+				<li class="bg-e">
+					<a href="{U('Product/Index/lists',array('mod'=>rebate))}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_03.png" alt="" /></span>
+						<strong>{C('REBATE_NAME')}</strong>
+					</a>
+				</li>
+				<li>
+					<a href="{U('Product/Index/lists',array('mod'=>trial))}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_05.png" alt="" /></span>
+						<strong>{C_READ('TRIAL_NAME')}</strong>
+					</a>
+				</li>
+				<li class="bg-e">
+					<a href="{U('Product/Index/lists',array('mod'=>postal))}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_07.png" alt="" /></span>
+						<strong>{C_READ('POSTAL_NAME','POSTAL')}</strong>
+					</a>
+				</li>
+				<!--  水平线   -->
+				<span class="nav-hr"></span>
+
+				<li>
+					<a href="{U('Task/Index/broke')}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_12.png" alt="" /></span>
+						<strong>日赚任务</strong>
+					</a>
+				</li>
+				<li class="bg-e">
+					<a href="{U('Shop/Index/index')}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_14.png" alt="" /></span>
+						<strong>积分商城</strong>
+					</a>
+				</li>
+				<li>
+					<a href="{U('Product/Index/lists',array('mod'=>trial,'protype'=>2))}">
+						<span><img src="{THEME_STYLE_PATH}style/default/images/nav_100.png" alt="" /></span>
+						<strong>红包活动</strong>
+					</a>
+				</li>
+				<!--  水平线   -->
+				<span class="nav-hr"></span>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$('.content .title li').click(function(){
+					$('.content .title li').removeClass('focus');
+					$(this).addClass('focus');
+					$('.box .list').addClass('d-none');
+					$('.box .list:eq('+$(this).index()+')').removeClass('d-none');
+				});
+			});
+		</script>
+		<div class="content">
+			<div class="title">
+				<ul id="change">
+					<li class="focus" data-name="rebate">
+						<span>
+							<strong>
+								<a href="javascript:;">返利新品</a>
+							</strong>
+						</span>
+					</li>
+					<li data-name="trial">
+						<span>
+							<strong>
+								<a href="javascript:;">试用新品</a>
+							</strong>
+						</span>
+					</li>
+					<li data-name="postal">
+						<span>
+							<strong>
+								<a href="javascript:;">折扣新品</a>
+							</strong>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div class="box">
+				<ol class="list" id="rebate">
+                    <?php $_where = "`mod`='rebate'";?>
+                    {pc:product action="lists" num="7" status="1" thumb="1" where="$_where" addfields="1" order="start_time DESC"}
+                    {loop $data $r}
+                    <li class="clear">
+                        <a href="{$r[url]}" class="pr">
+							<span class="thumbnail">
+								<img src="{$r[thumb]}" alt="{$r[title]}" />
+							</span>
+							<span class="s-int">
+								<strong class="int-t">{str_cut($r[title],54)}</strong>
+								<em>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">￥{price($r[id])}</font>
+                            	</em>&nbsp;&nbsp;
+                                <em>
+                                	<font color="#808080" style="text-decoration: line-through;">￥{$r[goods_price]}</font>
+                                </em>
+								<strong class="int-mess">
+                                    <b>浏览(<i>{$r[hits]}</i>)</b>
+                                    <span class="goods_num">总数<b>{$r[goods_number]}</b>份</span>
+                                    <span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b><?php echo $r[goods_number] - $r[already_num];?></b>份</span>
+                                </strong>
+							</span>
+							<div class="pa new_ico">new</div>
+                        </a>
+                    </li>
+                    {/loop}
+                    {/pc}
+				</ol>
+				<ol class="list d-none" id="trial">
+                    <?php $_where = "`mod`='trial'"; ?>
+                    {pc:product action="lists" num="7" status="1" thumb="1" where="$_where" addfields="1" order="start_time DESC"}
+                    {loop $data $r}
+                    <li class="clear">
+                            <a href="{$r[url]}" class="pr">
+							<span class="thumbnail">
+								<img src="{$r[thumb]}" alt="{$r[title]}" />
+							</span>
+							<span class="s-int">
+								<strong class="int-t">{str_cut($r[title],54)}</strong>
+								<em>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d" style="text-decoration: line-through;">￥{price($r[id])}</font>
+                                </em>&nbsp;&nbsp;
+                                {if $r[mod] == 'trial' && $r[goods_bonus] != 0}
+                                <em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">￥{$r[goods_bonus]}</font></em>
+                                {/if}
+								<strong class="int-mess">
+                                    <b>浏览(<i>{$r[hits]}</i>)</b>
+                                    <span class="goods_num">总数<b>{$r[goods_number]}</b>份</span>
+                                    <span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b><?php echo $r[goods_number] - $r[already_num];?></b>份</span>
+                                </strong>
+							</span>
+							<div class="pa new_ico">new</div>
+                        </a>
+                    </li>
+                    {/loop}
+                    {/pc}
+				</ol>
+				<ol class="list d-none" id="postal">
+                    <?php $_where = "`mod`='postal'";?>
+                    {pc:product action="lists" num="7" status="1" thumb="1" where="$_where" addfields="1" order="start_time DESC"}
+                    {loop $data $r}
+                    <li class="clear">
+                        {if $r['mod'] == 'postal'}
+                            <a isconvert=1 href="{$r[goods_url]}" target="_blank" class="pr">
+                        {else}
+                            <a href="{$r[url]}" class="pr">
+                        {/if}
+							<span class="thumbnail">
+								<img src="{$r[thumb]}" alt="{$r[title]}" />
+							</span>
+							<span class="s-int">
+								<strong class="int-t">{str_cut($r[title],54)}</strong>
+								<em>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">￥{price($r[id])}</font>
+                                </em>
+								<strong class="int-mess">
+                                    <b>浏览(<i>{$r[hits]}</i>)</b>
+                                    <span class="goods_num">限量<b>{$r[goods_number]}</b>份</span>
+                                    <span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">包邮</span>
+                                </strong>
+							</span>
+							<div class="pa new_ico">new</div>
+                        </a>
+                    </li>
+                    {/loop}
+                    {/pc}
+				</ol>
+				<div class="end-hint" id="end-hint">下拉即可加载更多...</div>
+			</div>
+		</div>
+
+{include template('footer','common')}
+<script>
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+    var pages = {
+        rebate : 2,
+        trial : 2,
+        postal : 2
+     };
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+
+
+            if( ( bodyH-winH ) - now <= 2 ){
+
+                var type = $("#change").find(".focus").attr("data-name");
+                getContent(type)
+            }
+
+        });
+        $("#end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+
+    function getContent(type) {
+//        if(type == 'ji'){
+//            var param = {
+//                mod : '',
+//                orderby :'end_time',
+//                orderway : 'desc',
+//                status:-1,
+//                page:pages[type],
+//                num:7
+//            };
+//        }else{
+        var param = {
+            mod   : type,
+            orderby   :'start_time',
+            orderway : 'desc',
+            page:pages[type],
+            status:1,
+            num:7
+        };
+//        }
+        $.getJSON(site.site_root + '/index.php?m=product&c=api&a=getlists', param, function(ret) {
+            var _html = '';
+            if(ret.status == 1) {
+                $.each(ret.data.lists, function(i, n) {
+                    _html +='<li class="clear">';
+
+                    if(n.mod == 'postal'){
+                        _html +='<a isconvert=1  href="'+ n.goods_url+'" target="_blank">';
+                    }else{
+                        _html +='<a href="'+ n.url+'">';
+                    }
+
+                    _html +='<span class="thumbnail">';
+                    _html +='<img alt="'+ n.title+'" src="'+ n.thumb+'">';
+                    _html +='</span>';
+                    _html +='<span class="s-int">';
+                    _html +='<strong class="int-t">'+ n.title+'</strong>';
+                    if(n.mod == 'rebate'){
+                    	_html +='<em>'+n.mod_unit+'：<font color="#bb000d">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    	_html +='<em><font color="#808080" style="text-decoration: line-through;">￥'+ n.goods_price +'</font></em>';
+                    	_html +='<strong class="int-mess">';
+                    	_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
+                    	_html +='<span class="goods_num">总数<b>'+n.goods_number+'</b>份</span>';
+                    	_html +='<span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b>'+n.number+'</b>份</span>';
+                    }
+                    else{
+                    	if(n.mod == 'trial'){
+                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d" style="text-decoration: line-through;">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    		if(n.goods_bonus != 0){
+                    			_html +='<em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">￥'+n.goods_bonus+'</font></em>'
+                    		}
+                    		_html +='<strong class="int-mess">';
+                    		_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
+                    		_html +='<span class="goods_num">总数<b>'+n.goods_number+'</b>份</span>';
+                    		_html +='<span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b>'+n.number+'</b>份</span>';
+                    	}
+                    	else{
+                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    		_html +='<strong class="int-mess">';
+                    		_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
+                    		_html +='<span class="goods_num">限量<b>'+n.goods_number+'</b>份</span>';
+                    		_html +='<span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">包邮</span>';
+                    	}
+                    }
+                    _html +='</strong>';
+                    _html +='</span>';
+                    _html +='<div class="pa new_ico">new</div>';
+                    _html +='</a>';
+                    _html +='</li>';
+                });
+                $("#"+type+"").append(_html);
+                pages[type]++;
+            }else{
+                $("#end-hint").html(oHintArr[1]);
+            }
+        });
+    }
+</script>
+
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_integration.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+{include template('toper','common')}
+	{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+				<a href="{__APP__}">首页</a>&nbsp;>
+				<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+				<a href="{U('Member/Financial/point_log')}" class="nav_active">积分明细</a>
+			</div>
+			{include template("member_left","member/common")}
+			<div class="content_right float_right">
+				<h1>积分明细</h1>
+				<div class="content_right_data">
+					<!-- 我的积分start -->
+					<div class="my_integration">
+						<p class="f14 mt25 mb13">我的积分：</p>
+						<p>
+							<span class="f18 yh ff6600">{$userinfo[point]}</span>
+							<a href="{U('Shop/Index/index')}">兑换</a>
+						</p>
+					</div>
+					<!-- 我的积分 end -->
+					<!-- 获取积分 start -->
+					<div class="was_integral">
+						<dl>
+							<dt>您可以通过以下方式获得积分</dt>
+							<?php foreach ($task as $k => $v): ?>
+								<dd>
+									<div class="{if $k == 0}integration_phone{elseif $k == 1}integration_email{elseif $k == 2}integration_name{elseif $k == 3}integration_friend{else}integration_registration{/if} bg mb10"></div>
+									<p class="f14">{$v[task_name]}</p>
+									<p>可得<span>{$v[task_reward]}</span>{if $v['task_type'] == 'point'}积分{elseif $v['task_type'] == 'money'}元{elseif $v['task_type'] == 'exp'}经验值{/if}</p>
+									<p><a href="{__ROOT__}{$v[url]}">立即参与></a></p>
+								</dd>
+
+							<?php endforeach ?>
+						</dl>
+						<div style="clear: both;"></div>
+					</div>
+					<!-- 获取积分 end -->
+					<!-- 积分列表 start -->
+					<div class="integration_list">
+						<h1>积分明细</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>日期</th>
+									<th>收入/支出</th>
+									<th>名称/备注</th>
+								</tr>
+								{loop $point $v}
+								<tr>
+									<td><?php echo dgmdate($v['dateline']); ?></td>
+									<td {if $v[num] >0 }class="income"{else}class="expenditure"{/if}>{substr($v[num],0,-3)}</td>
+									<td>{$v[cause]}</td>
+								</tr>
+								{/loop}								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$pages}
+						</p>
+					</div>
+					<!-- 积分列表 end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template('footer','common')}
+	

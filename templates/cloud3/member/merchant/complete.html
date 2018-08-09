@@ -1,0 +1,868 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>完善店铺资料--{C('WEBNAME')}商家中心</title>
+	<meta name="keywords" content="完善店铺资料">
+	<meta name="description" content="完善店铺资料">
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+ 	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+	<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />
+	<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+
+
+
+<style type="text/css" media="screen">
+  @charset "utf-8";
+
+.i_businessman{ font-size:14px; color: #acacac; line-height:18px; font-family:"微软雅黑"; -webkit-text-size-adjust:none;}
+.i_businessman *{ margin:0px; padding:0px;} 
+.i_businessman  a{TEXT-DECORATION: none; color: #666;}
+.i_businessman i{ font-style:normal}
+.i_businessman b { font-weight:normal}
+.i_businessman ul{width:100%}
+.i_businessman ul ,.i_businessman li{list-style:none; }
+.i_businessman .clear{ font: 0px/0px sans-serif;clear:both;display: block; height:0px; overflow:hidden}
+.i_businessman img { border:none; vertical-align:middle}
+.i_businessman a:hover {text-decoration:underline;}
+.i_businessman .ibody{ width:1210px; margin:0px auto}
+
+
+.i_businessman .s_top{ height:29px; line-height:29px; background:#f0f0f0}
+.i_businessman .s_top .L{ float:left}
+.i_businessman .s_top .L .a1{ color:#2f9a00; }
+.i_businessman .s_top .L .a2{ display:inline-block; width:19px; height:19px; line-height:19px; text-align:center; color:#FFFFFF; background:#2f9a00; border-radius:50%}
+.i_businessman .s_top .L .a3{ color:#a3a3a3}
+
+.i_businessman .s_top .R{ float:right}
+.i_businessman .s_top .R a{ color:#999; margin-right:10px;}
+.i_businessman .s_top .R .a1{ color:#421818}
+
+.i_businessman .s_nav{ background:#2f9a00; height:109px;}
+.i_businessman .s_nav .L{ float:left}
+.i_businessman .s_nav .R{ float:right; line-height:109px;}
+.i_businessman .s_nav .R a{ color:#FFFFFF; font-size:16px; margin-right:64px; }
+
+.i_businessman  .s_weiz{ height:43px; line-height:43px; }
+.i_businessman  .s_left{ width:152px; float:left; border:1px solid #e9e9e9;padding-left:34px; padding-top:10px; padding-bottom:30px; }
+.i_businessman  .s_left .ti{ color:#222; font-size:18px; line-height:48px;}
+.i_businessman  .s_left .co{ }
+.i_businessman  .s_left .co a{ display:block; line-height:30px; font-size:14px; color:#A7A7A7}
+.i_businessman  .s_left .co a:hover{ color:#2f9a00; text-decoration:none}
+.i_businessman  .s_left .co .sel{ color:#2f9a00}
+
+.i_businessman  .s_right{ width:970px; float:right; border:1px solid  #e9e9e9; padding-left:31px;}
+.i_businessman  .s_right{ width:940px; float:right; border:1px solid  #e9e9e9;  padding-left:31px;padding-right:30px;}/*张正中改*/
+.i_businessman  .s_right .title{ font-size:32px; line-height:82px; padding-top:20px;}
+.i_businessman  .s_right .title{ font-size:32px; line-height:90px; border-bottom:1px solid #e9e9e9; padding-top:0px; }/*张正中改*/
+.
+
+.i_businessman  .s_tryout5 {padding-bottom:100px;}
+
+
+.i_businessman  .s_tryout5 .part3{ font-size:14px}
+.i_businessman  .s_tryout5 .part3 .h1 { height:60px;padding-top: 20px;}
+.i_businessman  .s_tryout5 .part3 .h1_note {padding-top: 20px;}
+.i_businessman  .s_tryout5 .part3 .h1  label{ width:207px;}
+
+.i_businessman  .s_tryout5 .part3 .h1 input{ color:#c2c2c2}
+.i_businessman  .s_tryout5 .part3 .h1 .L{ float:left; text-align:right; line-height:40px; font-size:16px; padding-right:20px;}
+.i_businessman  .s_tryout5 .part3 .h1_note .shop_type_z {float:left;padding-top:10px; color:#C2C2C2;}
+.i_businessman  .s_tryout5 .part3 .h1 .dorp_down_meun_z select{  border:solid #c2c2c2 1px;  min-width: 138px;height:40px; font-size:14px;color:#C2C2C2;padding-left:20px;}
+.i_businessman  .s_tryout5 .part3 .h1 .dorp_down_meun_z select option { }
+
+.i_businessman  .s_tryout5 .part3 .h1_note .L{ float:left; text-align:right; line-height:40px; font-size:16px; padding-right:20px;}
+.i_businessman  .s_tryout5 .part3 .h1_note .shop_type_z p{ display:block; }
+.i_businessman  .s_tryout5 .part3 .h1 .L span{ color:#ff3949}
+.i_businessman  .s_tryout5 .part3 .h1 .R2{ float:left;}
+.i_businessman  .s_tryout5 .part3 .h1 .R2 span{ float:left; height:40px; line-height:40px; border:1px solid #e9e9e9; padding:0px 25px; margin-right:5px; cursor:pointer  }
+.i_businessman  .s_tryout5 .part3 .h1 .R2 .sel{ border:1px solid #319a00}
+
+.i_businessman  .s_tryout5 .part3 .h1 .R1{ float:left;}
+.i_businessman  .s_tryout5 .part3 .h1 .R1 input{ width:207px; border:1px solid #d7d7d7; height:40px; line-height:40px; padding-left:10px; margin-right:10px;}
+
+.i_businessman  .s_tryout5 .part3 .h1 .R3{ float:left; padding-top:10px}
+.i_businessman  .s_tryout5 .part3 .h1 .shop_type_z span{width:116px; display:inline-block;line-height:40px;font-size:16px;border:solid #2f9a00 1px;text-align:center;margin-right:20px;}
+
+.i_businessman  .s_tryout5 .part3 .h2{ height:auto}
+.i_businessman  .s_tryout5 .part3 .h1 .R4{ float:left; padding-top:10px}
+.i_businessman  .s_tryout5 .part3 .h1 .R4 .p1{ padding-bottom:10px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R4 .p2{ padding-bottom:10px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R4 .p2 img{ width:88px; height:90px; }
+.i_businessman  .s_tryout5 .part3 .h1 .R4 .p3{ line-height:40px; padding-bottom:5px; color:#FF0004}
+.i_businessman  .s_tryout5 .part3 .h1 .R5{}
+.i_businessman  .s_tryout5 .part3 .h1 .R5 input{ width:60px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R6{ line-height:42px; float:left }
+.i_businessman  .s_tryout5 .part3 .h1 .R7{ line-height:42px; float:left; margin-right:10px;  }
+.i_businessman  .s_tryout5 .part3 .h1 .R7 a{ display:block; padding:0px 20px; background:#309b00; color:#FFFFFF }
+.i_businessman  .s_tryout5 .part3 .h1 .R8{ line-height:42px; float:left; color:#B5B5B5}
+.i_businessman  .s_tryout5 .part3 .h1 .R9 input{ width:220px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R10 input{ width:100px;}
+
+.i_businessman  .s_tryout5 .part3 .h1 .R11{float:left;}
+.i_businessman  .s_tryout5 .part3 .h1 .R11 .p1{ margin-bottom:10px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R11 .p1 input{width:220px; border:1px solid #d7d7d7; height:40px; line-height:40px; padding-left:10px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R11 .p2{ margin-bottom:20px; color:#FF0004}
+
+.i_businessman  .s_tryout5 .part3 .h1 .R12{float:left; margin-top:15px; margin-right:5px;}
+
+.i_businessman  .s_tryout5 .part3 .h1 .R13{float:left; margin-bottom:15px; }
+.i_businessman  .s_tryout5 .part3 .h1 .R13 textarea{ border:1px solid #d7d7d7; padding:10px; width:560px; height:150px; overflow:hidden; color:#727272}
+
+
+.i_businessman  .s_tryout5 .part3 .h1 .R14{float:left; margin-bottom:10px; }
+.i_businessman  .s_tryout5 .part3 .h1 .R14 .p1{ margin-bottom:10px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R14 .p1 .iL{ float:left; height:40px; line-height:40px; border:1px solid #e9e9e9; padding:0px 25px; margin-right:5px; cursor:pointer  }
+.i_businessman  .s_tryout5 .part3 .h1 .R14 .p1 .sel{ border:1px solid #319a00}
+.i_businessman  .s_tryout5 .part3 .h1 .R14 .p1 .iR{ float:left; line-height:42px; color:#ff232c }
+.i_businessman  .s_tryout5 .part3 .h1 .R15 input{width:207px;}
+.i_businessman  .s_tryout5 .part3 .h1 .R16{ margin-top:10px; float:left}
+ 
+.i_businessman  .s_tryout5 .part3 .h3{ine-height:35px; padding-left:235px;}
+.i_businessman  .s_tryout5 .part3 .h3 .L{ float:left; margin-top:3px; margin-right:10px; }
+.i_businessman  .s_tryout5 .part3 .h3 .R{ float:left }
+.i_businessman  .s_tryout5 .part3 .h3 .R a{ color:#309b00}
+
+.i_businessman  .s_tryout5 .part3 .h4{ border：solid red 1px;padding-left:106px; padding-top:18px;}
+.submit{ width:176px; height:42px; line-height:42px; border:none; background:#FF6C00; border-radius:5px; font-size:18px; cursor:pointer; color:#fff; }
+.i_businessman  .s_tryout5 .part3 .bangding_shop{ padding-top:70px; padding-bottom:40px;}
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_title{ height:90px; border-bottom:1px solid #C2C2C2}
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_title span{ line-height: 90px; font-size:30px;}
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_infomation{ padding-top:20px; }
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_infomation th { border:1px solid #e9e9e9; height:40px;line-height:40px;text-align:center ; font-size:18px;}
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_infomation td { border:1px solid #e9e9e9; height:60px; line-height:30px;text-align:center ; font-size:14px;  vertical-align: middle;}
+.i_businessman  .s_tryout5 .part3 .bangding_shop .bangding_shop_infomation td span { border-top:1px solid #e9e9e9; display:block;line-height: 30px; padding:0;margin: 0; text-align: center;}
+
+.i_businessman .s_tryout5 .part3 .h1 .R .sel{
+	border: 1px solid #319a00;
+
+}
+
+.i_businessman .s_tryout5 .part3 .h1 .R span {
+float: left;
+height: 52px;
+line-height: 52px;
+border: 1px solid #e9e9e9;
+padding: 0px 25px;
+margin-right: 5px;
+cursor: pointer;
+margin-left:14px;
+}
+
+  	
+  </style>
+
+  <style type="text/css">
+   .onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(/static/images/msg_bg.png) no-repeat; color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+    .onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+    .onFocus{background-position:3px -147px;border-color:#40B3FF;}
+    .onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+    .onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+    .onLamp{background-position:3px -200px}
+    .onTime{background-position:3px -1356px}
+    .aui_content ul li{font-size: 12px;}
+  </style>
+
+  <script type="text/javascript">
+//图片上传功能
+$(document).ready(function() {
+		var uploader = WebUploader.create({
+			auto:true,
+			fileVal:'Filedata',
+		    // swf文件路径
+		    swf: '<?php echo JS_PATH;?>webuploader/webuploader.swf',
+		    // 文件接收服务端。
+		    server: "<?php echo U('Attachment/Attachment/swfupload');?>",
+		    // 选择文件的按钮。可选
+		    formData:{
+		    	"module":"",
+		    	"catid":"",
+		    	"userid":"1",
+		    	"dosubmit":"1",
+		    	"thumb_width":"0",
+		    	"thumb_height":"0",
+		    	"watermark_enable":"1",
+		    	"filetype_post":"jpg|jpeg|gif|bmp|png",
+		    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+		    	"isadmin":"1",
+		    	"groupid":"2"
+		    },
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: {
+		    	id: '#goods_albums',
+		    	multiple:false
+		    },
+		    accept:{
+				title: '图片文件',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+		    },
+		    thumb:{
+		    	width: '120',
+		    	height: '100'
+		    },
+		    chunked: false,
+		    chunkSize:1000000,
+		    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+		    resize: false
+		});
+
+		uploader.onUploadSuccess = function( file, response ) {
+			var pickid = this.options.pick.id;
+			var data = response._raw;
+			var arr = data.split(',');
+			if(arr[0] > 0) {
+				$(pickid).children().find('img').attr('src', arr[1]);
+				$(pickid).children().find('input[type=hidden]').eq(0).attr('value', arr[1]);
+			}
+		}
+
+		uploader.onUploadError = function(file, reason) {
+			alert('文件上传错误：' + reason);
+		}
+	
+})
+</script>
+
+</head>
+
+<body>
+     	{include template('v2_merchant_header','member/common')}
+
+
+  <div class="i_businessman">
+    <!--s_nav-->
+    <div class="ibody">
+      <div class="s_weiz">
+       当前位置：<a href="{__APP__}">首页</a> > <a href="/user/">商家管理中心</a> > 绑定店铺
+      </div>
+      <!--s_weiz-->
+      				      {include template('v2_merchant_left','member/common')}
+     <!--s_left-->
+      <div class="s_right" >
+        <div  class="title" >绑定商铺</div>
+        <div class="s_tryout5">
+          <div class="part3" >
+
+            <form action="{U('Member/Merchant/store_info')}" name="myform" method="post" id="myform">
+            	<input type="hidden" name="id" value="{$store['id']}" id="ids">
+            
+              
+              <!--h1-->
+            
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                   <dfn>店铺名称&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="R1">
+                  <input type="text" name="info[store_name]" id="store_name" value="{$store[store_name]}" placeholder="请输入店铺名称"/>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+              <!--h1-->
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                   <dfn>店铺网站&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="R1">
+                  <input type="text" name="info[store_address]" id="store_address" value="{$store[store_address]}"  placeholder="请输入店铺网址" />
+                </div>
+                <div class="clear"></div>
+              </div>
+
+               <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                   <dfn>联系姓名&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="R1">
+                  <input type="text"  name="info[contact_name]" id="contact_name" value="{$store[contact_name]}" placeholder="请输入店铺联系人" />
+                </div>
+                <div class="clear"></div>
+              </div>
+              
+							 <!--h1-->
+             
+
+                <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                   <dfn>店铺旺旺&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="R1">
+                  <input type="text" name="info[contact_want]" id="contact_want" value="{$store[contact_want]}" placeholder="请输入店铺旺旺"/>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                   <dfn>联系QQ&nbsp;&nbsp;:&nbsp;</dfn>
+                </div>
+                <div class="R1">
+                  <input type="text" name="info[store_qq]" id="store_qq" value="{$store[store_qq]}"  placeholder="请输入联系QQ"/>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+           
+              <!--h1-->
+			<!-- <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  <dfn>店铺类型&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="shop_type_z">
+                  <span>亚马逊</span>
+                  <span>淘宝</span>
+                  <span>天猫</span>
+                  
+                  
+                </div>
+                
+                <div class="clear"></div>
+              </div> -->
+
+
+              <div class="h1">
+             <div class="L">
+                <span>*</span> 店铺类型
+             </div>
+             <div class="R js_store">
+               <span {if $store[store_type] == 1 || !$store[store_type]} class="sel" {/if} data-type="1">淘宝</span>
+               <span {if $store[store_type] == 2} class="sel" {/if}  data-type="2">天猫 </span>
+               <span {if $store[store_type] == 3} class="sel" {/if}  data-type="3">亚马逊 </span>
+               <input type="hidden" name="store_type" id="store_type" value="{if $store['store_type']}{$store['store_type']}{else}1{/if}">
+              </div>
+
+              <div class="clear"></div>
+           </div>
+             <script type="text/javascript">
+                 $(".i_businessman .s_tryout5 .part3 .h1 .js_store span").on("click", function(){
+                       $(this).parent().find('span').removeClass('sel');
+                       $(this).addClass('sel');
+                       var type = $('.js_store > .sel').attr('data-type');
+                       $('#store_type').val(type);
+
+
+                    });
+                
+
+                  </script>
+
+              <!--h1-->
+              <!--h1-->
+							 <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  <dfn>经营范围&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="dorp_down_meun_z">
+                 <select name="info[industry]" id="industry">
+                 	{loop $category $v}
+                 	<option  value="{$v['catid']}" {if $store['industry'] == $v['catid']}selected="selected"{/if}>{$v[catname]}</option>
+                 	{/loop}
+                 	
+                 </select>
+                  
+                </div>
+                
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+              
+
+              <!--h1-->
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  <dfn>店铺LOGO&nbsp;&nbsp;:</dfn>
+                </div>
+
+                <div class="R4" id="goods_albums" >
+                  <div class="a1">
+                  </div>
+                  <div class="p2" >
+                    <li id="filePicker" class="big_small_img float_left">
+                      <span class="border_dddddd">
+                      	<img src="<?php echo $store['store_logo'];?>
+							" style="border-radius:50%;"   onerror="javascript:this.src='/uploadfile/avatar/seller_logo.jpg'" width="112px" height="117px"/>
+						<input type="hidden" id="file_url" name="info[store_logo]"  value="<?php echo $store['store_logo'];?>"/>                     
+                      </span>
+                    </li>
+                  </div>
+                  
+                </div>
+                <div class="clear"></div>
+              </div>
+             
+
+              <!--h1-->
+    
+							 <div class="h1_note">
+                <div class="L">
+                  <dfn>注意事项&nbsp;&nbsp;:</dfn>
+                </div>
+                <div class="shop_type_z">
+                  <p>1、一个账户只能绑定{$num}个店铺</br>					2、商家在填写店铺名称的时候一定要填写正确</br>
+					<!-- 3、一定不要忘记上传店铺LOGO </br> -->
+					3、一定要记得选择店铺经营范围
+                  </p>
+                  
+                </div>
+                
+                <div class="clear"></div>
+              </div>
+                
+              <div class="h4" >
+                <input type="button" value="提交"  id="js_submit" class="submit">
+              </div>
+            </form>
+            <div class="bangding_shop">
+      					<div class="bangding_shop_title">
+      						<span>
+      							已绑定店铺
+      						</span>
+      					</div>
+      					<div class="bangding_shop_infomation" >
+      						
+      						<table border="1" cellspacing="" cellpadding="" >
+      							<tr>
+      								<th style="width:156px"  valign="middle">店铺名称</th>
+      								<th style="width:312px" >网店地址</th>
+      								<th style="width:162px">店铺旺旺</th>
+      								<th style="width:109px">类型</th>
+      								<th style="width:97px">经营范围</th>
+                      <th style="width:97px">默认状态</th>
+
+      								<th style="width:108px">操作</th>
+      							</tr>
+      						{loop $storeinfos $s}
+      							<tr>
+      								<td >{$s[store_name]}</td>
+      								<td  style="word-break: break-all;">{$s[store_address]}</td>
+      								<td>{$s['contact_want']}</td>
+      								<td>{if $s['store_type'] == 1}淘宝{else}天猫{/if}</td>
+      								<td>{$s[type]}</td>
+                      <td>{if $s[is_default] == 1}<font color="green">是</font>{else}否{/if}</td>
+
+      								<td>
+      									<a target="_blank" href="{$s[store_address]}"><span>访问店铺</span></a>
+                        <span class="js_default" data-id="{$s['id']}" style="cursor: pointer;">设置默认</span>
+                        <span class="js_del" data-id="{$s['id']}" style="cursor: pointer;">删除</span>
+
+
+      								</td>
+      								
+      							</tr>
+      						{/if}
+      							<!-- <tr>
+      								<td>qiubi服饰旗舰店</td>
+      								<td>https://qiubifs.tmall.com</td>
+      								<td>qiubi服饰旗舰店</td>
+      								<td>淘宝</td>
+      								<td>服饰鞋包</td>
+      								<td>
+      									<span >修改</span>
+      									<span >删除</span>
+      								</td>
+      							</tr> -->
+      						</table>
+      						
+      			
+      					</div>
+     				</div>
+          </div>
+          <!--part3-->
+
+    
+        </div>
+         </div>
+      
+
+      
+      <div class="clear"></div>
+    </div>
+  </div>
+  <!--ibody-->
+  <style type="text/css" media="screen">
+    .i_businessman .s_tryout5 .part3 .h4 .submit {
+    display: inline-block;
+    width: 176px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: #309b00;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    }
+  </style>
+
+  <!--i_businessman-->
+
+
+
+</body>
+    		<style>
+			#footer .footer-nav .footer-logo .l img{ width:auto; height:52px; }
+			#footer .footer-nav .footer-logo .l span{ display:block; position:static; }
+		</style>
+			{include template('footer','common')}
+	</body>
+
+</html>
+
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript"> 
+
+	$("input").addClass("txt fl");
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+{if empty($contact_name)}
+$("#contact_name").formValidator({
+	empty:false,
+	onempty:'联系人姓名不能为空',
+	onshow:true,
+	onfocus:"请输入联系人姓名"
+}).inputValidator({
+	min:4,
+	max:30,
+	onerror:"不超过50个字符，汉字算两个字符"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"联系人姓名输入错误"
+});
+{else}
+$("#contact_name").formValidator({
+	empty:false,
+	onempty:'联系人姓名不能为空',
+	onshow:true,
+	onfocus:"请输入联系人姓名"
+}).inputValidator({
+	min:4,
+	max:30,
+	onerror:"不超过50个字符，汉字算两个字符"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"联系人姓名输入错误"
+});
+{/if}
+
+{if empty($contact_want)}
+$("#contact_want").formValidator({
+	empty:false,
+	onempty:'联系人旺旺不能为空',
+	onshow:true,
+	onfocus:"请输入联系人旺旺"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"联系人旺旺输入错误"
+});
+{else}
+$("#contact_want").formValidator({
+	empty:false,
+	onempty:'联系人旺旺不能为空',
+	onshow:true,
+	onfocus:"请输入联系人旺旺"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"联系人旺旺输入错误"
+});
+{/if}
+
+
+
+{if empty($store_qq)}
+$("#store_qq").formValidator({
+	empty:false,
+	onempty:'联系QQ不能为空',
+	onshow:true,
+	onfocus:"请输入联系QQ"
+}).inputValidator({
+	min:5,
+	onerror:"联系人QQ输入错误"
+}).regexValidator({
+	regexp:'intege',
+	datatype:'enum',
+	onerror:"请输入联系QQ"
+});
+{else}
+$("#store_qq").formValidator({
+	empty:false,
+	onempty:'联系QQ不能为空',
+	onshow:true,
+	onfocus:"请输入联系QQ"
+}).inputValidator({
+	min:5,
+	onerror:"联系人QQ输入错误"
+}).regexValidator({
+	regexp:'intege',
+	datatype:'enum',
+	onerror:"请输入联系QQ"
+});
+{/if}
+
+{if empty($store_name)}
+$("#store_name").formValidator({
+	empty:false,
+	onempty:'店铺名称不能为空',
+	onshow:true,
+	onfocus:"请输入联系店铺名称"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"店铺名称不能为空"
+});
+{else}
+$("#store_name").formValidator({
+	empty:false,
+	onempty:'店铺名称不能为空',
+	onshow:true,
+	onfocus:"请输入联系店铺名称"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"店铺名称不能为空"
+});
+{/if}
+
+{if empty($store_address)}
+$("#store_address").formValidator({
+	empty:false,
+	onempty:'店铺网址不能为空',
+	onshow:true,
+	onfocus:"请输入店铺网址"
+}).regexValidator({
+	regexp:'url',
+	datatype:'enum',
+	onerror:"店铺网址输入错误"
+});
+{else}
+$("#store_address").formValidator({
+	empty:false,
+	onempty:'店铺网址不能为空',
+	onshow:true,
+	onfocus:"请输入店铺网址"
+}).regexValidator({
+	regexp:'url',
+	datatype:'enum',
+	onerror:"店铺网址输入错误"
+});
+{/if}
+/*{if empty($store_logo)}
+	$("#file_url").formValidator({
+		empty:false,
+		onempty:'店铺logo不能为空',
+		onshow:"请输入店铺logo",
+		onfocus:"请输入店铺logo"
+	})
+{else}
+$("#file_url").formValidator({
+	empty:false,
+	onempty:'店铺logo不能为空',
+	onshow:"请输入店铺logo",
+	onfocus:"请输入店铺logo"
+}).defaultPassed();
+{/if}*/
+//-->
+</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#loading").ajaxStart(function(){
+				$(".portrait").hide();
+	            $(this).show();
+	         }).ajaxComplete(function(){
+	            $(this).hide();
+	            $(".portrait").show();
+	         });
+			
+			$("#image").click(function (){
+				$("#file_upload").click();
+			});
+
+			$("#logo").click(function (){
+				$("#file_upload").click();
+			});
+		});
+
+			$("#js_submit").click(function(){
+
+
+				var name = $("#store_name").val();
+				var id = $("#ids").val();
+
+				var store_address = $("#store_address").val();
+				var contact_name = $("#contact_name").val();
+				var contact_want = $("#contact_want").val();
+				var store_qq = $("#store_qq").val();
+				var industry = $("#industry").val();
+                var store_logo = $("#file_url").val();
+                var store_type = $("#store_type").val();
+
+				if (name == '' ) {
+					$("#name").focus();
+					return false;
+				}
+
+				 if (store_address == '' ) {
+				 	$("#store_address").focus();
+				 	return false;
+				 }
+				 
+				 if (contact_name == '' ) {
+				 	$("#contact_name").focus();
+				 	return false;
+				 }
+				 
+				 if (store_qq == '' ) {
+				 	$("#store_qq").focus();
+				 	return false;
+				 }
+				 
+				 if (industry == '' ) {
+				 	$("#industry").focus();
+				 	return false;
+				 }
+				 
+
+				var info = {
+					id:id,
+					store_name:name,
+					store_address:store_address,
+					contact_name:contact_name,
+					contact_want:contact_want,
+					store_qq:store_qq,
+					industry:industry,
+					store_logo:store_logo,
+					store_type:store_type
+				}
+
+
+
+		$.post("{U('Member/Merchant/store_info')}",{info:info},function(data){
+								if (data.status == 1) {
+									art.dialog({
+									lock: true,
+									fixed: true,
+									icon: 'face-smile',
+									title: '提示',
+									content: data.info,
+									okVal: '确定',
+									ok:function() { 
+										location.href='{U('Member/Merchant/complete')}';
+										/*location.reload();*/
+									}
+								});
+		                       
+
+								}else{
+									art.dialog({
+									lock: true,
+									fixed: true,
+									icon: 'face-sad',
+									title: '错误提示',
+									content: data.info,
+									ok: true
+								});
+
+									};
+													
+							},'json');
+			});
+
+
+		$('.js_del').click(function(){
+			var id = $(this).attr('data-id');
+			$.post("{U('Member/Merchant/del')}",{id:id},function(data){
+				if (data.status == 1) {
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: data.info,
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+                   
+
+					}else{
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '错误提示',
+						content: data.info,
+						ok: true
+					});
+
+				};
+													
+
+			},'json');
+		});
+
+    $('.js_default').click(function(){
+      var id = $(this).attr('data-id');
+      $.post("{U('Member/Merchant/set_default')}",{id:id},function(data){
+        if (data.status == 1) {
+            art.dialog({
+            lock: true,
+            fixed: true,
+            icon: 'face-smile',
+            title: '提示',
+            content: data.info,
+            okVal: '确定',
+            ok:function() { 
+              location.reload();
+            }
+          });
+                   
+
+          }else{
+            art.dialog({
+            lock: true,
+            fixed: true,
+            icon: 'face-sad',
+            title: '错误提示',
+            content: data.info,
+            ok: true
+          });
+
+        };
+                          
+
+      },'json');
+    });
+
+
+		</script>

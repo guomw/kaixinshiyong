@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+     <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/user_bind.css" />
+	</head>
+	<body>
+		<style type="text/css" media="screen">
+		#header .logo img{
+			margin-top:10px !important;
+		}
+		.user-header .user-header-hint {
+margin: 36px 0;
+font-size: 30px;
+color: #5d5d5d;
+padding-left: 18px;
+margin-left: 20px;
+border-left: solid 1px #c5c5c5;
+}
+			
+		</style>
+					{include template('v2_register_header','member/common')}
+
+		<div class="content" style="overflow:hidden;width:100%;padding-bottom:30px;">
+			<div class="wrap c_wrap">
+				<div class="c_w_l">
+					<h6 class="l_title">只差一步，即可完成登录设置</h6>
+					<ul class="c_w_l_hint">
+						<li><img src="{$user[figureurl]}" style="vertical-align: middle;" />{$user[nickname]}，快速完成{C('webname')}账号创建</li>
+						<li>完成账号创建后，即可直接登录{C('webname')}哦！</li>
+					</ul>
+					<form action="{U('register')}" method="POST">
+					<ul class="imp_info">
+						<input type="hidden" name="register[token]" value="{$token_code}" />
+						<input type="hidden" name="register[nickname]" value="{$user[nickname]}" />
+						<li><span>Email：</span><input type="text" name="register[email]" /></li>
+						<li><span>请设置密码：</span><input type="password" name="register[password]" /></li>
+						<li><span>请确认密码：</span><input type="password" name="register[pwdconfirm]" /></li>
+						<li class="imp_info_w imp_info_w_2"><input type="submit" value="提交注册" class="btn" /><a href="{U('quick', array('token_code' => $token_code, 'nickname' => $user[nickname]))}" class="hint">跳过，以后再说</a></li>
+					</ul>
+					</form>
+				</div>
+				<div class="c_w_r">
+					<h6 class="c_w_r_t">已有{C('webname')}账号？直接绑定</h6>
+					<form action="{U('bind')}" method="POST">
+						<input type="hidden" name="login[token]" value="{$token_code}" />
+                        <input type="hidden" name="openid" value="{$openid}" />
+                    <ul class="user_enter">
+						<li><input type="text" class="user_bg" name="login[account]" placeholder="邮箱/已验证手机" /></li>
+						<li><input type="password" class="pass_bg" name="login[password]" placeholder="请输入密码" /></li>
+						<li><input type="text" class="verify"  placeholder="请输入验证码"/><img class="verify_img" src="{U('Api/Verify/create')}" alt="" /></li>
+						<li class="clear_m_b"><input type="submit" value="立即绑定" class="bind_btn" /><a href="#" class="hiver_t">忘记密码？</a></li>
+						<p class="c_hint">绑定后，您的QQ和邮箱账号账户都可以登录{C('webname')}</p>
+					</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+{include template('footer','common')}
+<script type="text/javascript">
+	$('.verify_img').click(function(){
+			$("img.verify_img").attr('src', 'index.php?m=api&c=verify&a=create&_t=' + Math.random());
+
+	});
+</script>

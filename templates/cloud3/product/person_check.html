@@ -1,0 +1,132 @@
+<script src="{THEME_STYLE_PATH}style/js/jquery-1.8.3.min.js" type="text/javascript"> </script>
+<link href="{THEME_STYLE_PATH}style/css/base.css" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen">
+    .weiwc{ width: 305px;/* border: 1px solid #e84c3d;*/margin: 0px auto 0 auto}
+.weiwc p {font-size: 14px; color: #333333; line-height: 25px;position: relative;}
+.weiwc a { color: #4e87c8;font-size: 12px}
+.weiwc img{position: relative;top: 2px;margin-right: 5px;}      
+.Grayb{ width: 98px; height: 34px;
+         color: #3c3d45; font-size: 14px;
+          margin: 20px auto 0 auto; border: 1px solid #b9b9b9;
+           text-align: center; font-family: 宋体;
+           line-height: 33px; border-radius: 3px;cursor: pointer
+           }
+.Choice{ text-align: center; color: #323232; font-size: 18px;margin-top: 20px;/*height: 40px*/}    
+.pulldown{ width: 186px; height: 26px;margin: -4px auto 0 auto} 
+.pull{ width: 185px; height: 26px; border: 1px solid #7f9db9; cursor: pointer;margin-top: 15px;}  
+.taobao{ text-align: center; margin-top: 26px;} 
+.taobao p{ font-size: 12px; color: #444444; line-height:8px;} /*e63c31*/
+
+</style>
+<script type='text/javascript'>
+<?php $goods = $rs;
+unset($rs['goods_content']);
+$goods['report_count'] = report_count_by_gid($id);
+$goods['buyer_count'] = buyer_count_by_gid($id);
+$userinfo = is_login();
+// 已绑定的淘宝账号
+$bind_tbs = get_bind_taobao($userinfo['userid']);
+// 活动后台设置
+$bind_set = string2array(C_READ('buyer_join_condition','trial'));
+?>
+var goods = {php echo json_encode($goods);};
+goods.goods_stock = goods.goods_number - goods.already_num;
+goods.buyer_good_buy_times = {php echo C_READ('buyer_good_buy_times','trial');};
+var bind_tbs = {php echo json_encode($bind_tbs ? $bind_tbs : 0);};
+var bind_set = {php echo $bind_set['bind_taobao'] ? $bind_set['bind_taobao'] : 0;};
+</script>
+
+<div>
+    <div class="ling_mian">
+        <div class="weiwc">
+            <div style="color: #e74c3c; font-size: 18px;">
+               	{if $num == 0} {else}啊哦，还有{$num}项未完善{/if}
+            </div>
+            	{if array_key_exists("num_trial", $buyer_join_condition)}
+                <p style="margin: 12px 0 0 0;{if $tiral_num <  $buyer_join_condition['num_trial_art']} {else} color: #888888; {/if}" >
+                    <span>●</span>&nbsp;已需完成过{$buyer_join_condition['num_trial_art']}次试用或佣金活动。
+                    {if $tiral_num <  $buyer_join_condition['num_trial_art']}
+                    <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="/trial/" target="_blank">去做活动</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                    {/if}
+                </p>
+                {/if}
+                {if array_key_exists("information", $buyer_join_condition)}
+                <p {if empty($information)} {else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已完善基本资料。
+                    {if empty($information)}
+                    <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Profile/infomation')}" target="_blank">去完善</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                    {/if}
+                </p>
+                {/if}
+                {if array_key_exists("phone", $buyer_join_condition)}
+                <p {if $buyer_join_condition['phone'] && !$this->user_info['phone_status']} {else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已完成手机认证。
+				   {if $buyer_join_condition['phone'] && !$this->user_info['phone_status']}
+				   	<img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Attesta/phone_attesta')}" target="_blank">去认证</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                   {/if}
+                </p>
+                {/if}
+                {if array_key_exists("email", $buyer_join_condition)}
+                <p {if $buyer_join_condition['email'] && !$this->user_info['email_status']} {else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已完成邮箱认证。
+					{if $buyer_join_condition['email'] && !$this->user_info['email_status']}
+					<img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Attesta/email_attesta')}" target="_blank">去认证</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                   {/if}
+                </p>
+                {/if}
+                
+                {if array_key_exists("realname", $buyer_join_condition)}
+                <p {if $buyer_join_condition['realname'] && $identity_count != 1} {else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已进行身份认证。
+                    {if $buyer_join_condition['realname'] && $identity_count != 1}
+                    <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Attesta/name_attesta')}" target="_blank">去认证</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                    {/if}
+                </p>
+                {/if}
+                
+                {if array_key_exists("bind_taobao", $buyer_join_condition)}
+                <p {if $buyer_join_condition['bind_taobao'] && $tb_count < 1} {else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已绑定淘宝账号。
+                    {if $buyer_join_condition['bind_taobao'] && $tb_count < 1}
+                    <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Attesta/bindtaobao')}" target="_blank">去认证</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                    {/if}
+                </p>
+                {/if}
+                
+                {if array_key_exists("bind_alipay", $buyer_join_condition)}
+                <p {if $buyer_join_condition['bind_alipay'] && $account != 1}{else} style="color: #888888" {/if}>
+                    <span>●</span>&nbsp;已绑定支付宝。
+                    {if $buyer_join_condition['bind_alipay'] && $account != 1}
+                    <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
+                    <a href="{U('Member/Attesta/alipay_attesta')}" target="_blank">去绑定</a>
+                    {else}
+                    <img src="{THEME_STYLE_PATH}style/images/gggou.jpg" />
+                    {/if}
+                </p>
+                {/if}
+                
+        </div>
+        <!-- <div class="Grayb" onclick=" parent.$.fancybox.close(); ">
+          	我已完善
+        </div> -->
+    </div>
+    <!--ling_mian-->
+</div>

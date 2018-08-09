@@ -1,0 +1,96 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+        <meta name="keywords" content="{$SEO['keyword']}">
+        <meta name="description" content="{$SEO['description']}">
+        <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+        <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+        <link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+        <link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+        <link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/oder_mange.css" /> 
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //首页顶部移入效果
+                setTopMouseover();  
+            });
+        </script>
+    </head>
+    <body>
+    <!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('header','member/common')}
+        <div class="content">
+            <div class="content_wrap overflow_hidden">
+                {include template("member_left","member/common")}
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('.right_title a').each(function(i,n){
+                            $(this).attr('index',i);
+                        });
+                        $('.right_title a').click(function(){                           
+                            $('.table_list').css('display','none');
+                            $('.right_title a').removeClass('a_link');
+                            $(this).addClass('a_link');
+                            $('.table_list:eq('+$(this).attr("index")+')').css('display','block');
+                        });
+                    });
+                </script>               
+                <div class="float_right right border_1_dddddd border_efefef">
+                    <h2 class="right_title border_bottom_efefef">
+                        兑换记录
+                       
+                    </h2>
+                    
+                    <table border="0" cellspacing="0" class="table_list exc_list">
+                        <tr class="table_title" style="float: none;">
+                            <th class="tc">积分商品</th>
+                            <th class="tc">所用积分</th>
+                            <th class="tc">备注/审核原因</th>
+                            <th class="tc">状态</th>
+                            <th class="tc">兑换时间</th>
+                            <th class="tc">审核时间</th>
+                           
+                           
+                        </tr>
+                      {loop $lists $v}
+                        <tr style="float: none;">
+                            <td class="t_tr_w_1 tc">
+                                <img class="table_small" src="{$v[images]}" alt="{$v[title]}" />
+                                <ol class="float_left table_small_text">
+                                    <li class="color_009de4">{$v[title]}</li>
+                                </ol>
+                            </td>
+                            <td class="t_tr_w_2 tc">
+                            	{$v[point]}
+                            </td>
+                            <td class="t_tr_w_2 tc">
+                            	{php echo  $v[remark] ?str_cut($v[remark],30):无}
+                            </td>
+                            <td class="t_tr_w_3 tc">
+                                {if $v[status] == 0}未审核{else}已审核{/if}
+                            </td>
+                            <td class="t_tr_w_4 tc">
+                                <ol class="float_left">
+                                    <li class="color_efefef">{dgmdate($v['apply_time'])}</li>
+                                </ol>
+                            </td>
+
+                            <td class="t_tr_w_5 tc">
+                                <ol class="float_left">
+                                    <li class="color_efefef">{if empty($v[complete_time])}无{else}{dgmdate($v['complete_time'])}{/if}</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        {/loop}
+
+                    </table>
+                     <p class='pages wiHe3 floatLeft'>{$pages}</p>
+                  
+                </div>              
+            </div>
+        </div>
+       {include template('footer','common')}

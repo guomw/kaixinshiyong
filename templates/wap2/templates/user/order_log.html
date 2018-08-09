@@ -1,0 +1,19 @@
+<ion-view view-title="订单日志">
+      <ion-content style="background-color:#F8F8F8">
+    <ion-list >
+
+      <div class="ibody">
+       <div class="i_orderDaily">
+         <div class="part" ng-repeat=" d in data_order_log">
+           <div class="a1"><span>时间：</span>{{  d.inputtime +'000' | date:"yyyy/MM/dd h:mm" }}</div>
+           <div class="a1"><span>备注：</span>{{d.cause}}</div>
+          </div>
+          <!--part-->
+          <!--part-->
+         </div>
+        <!--i_orderDaily-->
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,175 @@
+# 将 RewriteEngine 模式打开
+RewriteEngine On
+
+# 目录地址，如果程序放在根目录中，请将 /
+RewriteBase /
+
+# 禁止上传特定文件 
+<Files  ~  "php5"> 
+       Order  allow,deny 
+       Deny  from  all 
+</Files>  
+
+# 商城&活动
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^all/(.*)$ index.php?m=product&c=index&a=all&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(trial|rebate|commission|postal)/$ index.php?m=product&c=index&a=lists&mod=$1&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(trial|rebate|commission|postal)/([0-9]+)$ index.php?m=product&c=index&a=show&id=$2&mod=$1&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(trial|rebate|commission|postal)/([0-9]+)_([0-9]+)$ index.php?m=product&c=index&a=show&id=$2&mod=$1&page=$3&%1
+
+
+# 商城&活动
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^favourable/(.*)$ index.php?m=product&c=index&a=favourable&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^famous/(.*)$ index.php?m=product&c=index&a=famous&%1
+
+# 会员&商家中心
+# 产品分类
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^category/([0-9]+)$ index.php?m=product&c=index&a=all&catid=$1&%1
+
+#商家
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/attestation/$ index.php?m=member&c=attesta&a=person&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/shop/$ index.php?m=member&c=attesta&a=shop&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/brand/$ index.php?m=member&c=attesta&a=brand&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/profile/$ index.php?m=member&c=merchant&a=complete&%1 
+
+#商家 &活动报名
+RewriteRule ^user/seller/enroll/$ index.php?m=member&c=enter_activity&a=index&%1
+#商家 &活动报名详情页
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/show/(.*)$ index.php?m=member&c=enter_activity&a=detail_activity&%1
+
+#商家 &活动管理
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/manager/(.*)$ index.php?m=member&c=merchant_product&a=activity&%1
+
+
+#商家 &申诉管理
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/goods/appeal(.*)$ index.php?m=member&c=appeal&a=appeal_manage&%1
+
+#商家 &发布商品
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/goods(.*)$ index.php?m=member&c=merchant_product&a=add&%1
+
+#买家晒单
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^shai(.*)$ index.php?m=product&c=index&a=report&%1
+
+#商家 &编辑商品
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/edit(.*)$ index.php?m=member&c=merchant_product&a=edit&%1
+
+#商家 &支付费用
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/payment(.*)$ index.php?m=member&c=merchant_product&a=bailbond&%1
+
+#商家 &账单管理
+RewriteRule ^user/seller/pay/$ index.php?m=pay&c=index&a=pay&%1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/recharge_log(.*)$ index.php?m=member&c=financial&a=pay_log&%1
+
+#商家 &vip
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/seller/vip/$ index.php?m=member&c=merchant&a=becomevip&%1 
+
+#
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/$ index.php?m=member&c=profile&a=index&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/profile/$ index.php?m=member&c=profile&a=infomation&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/attesta/$ index.php?m=member&c=attesta&a=index&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/(name|email|phone|alipay|bank)(.*)$ index.php?m=member&c=attesta&a=$1_attesta&%1
+
+# 用户&订单管理
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/order(.*)$ index.php?m=member&c=order&a=manage&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/recommend(.*)$ index.php?m=member&c=recommend&a=index&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/message(.*)$ index.php?m=member&c=announce&a=announce&%1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/deposite/log(.*)$ index.php?m=member&c=financial&a=cash_log&%1
+
+RewriteRule ^user/deposite/$ index.php?m=pay&c=index&a=deposite&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/buyer/point(.*)$ index.php?m=member&c=financial&a=point_log&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/buyer/convert/$ index.php?m=member&c=financial&a=convert_log&%1
+
+
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^user/money/log(.*)$ index.php?m=member&c=financial&a=index&%1
+
+# 积分商城
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^shop/$ index.php?m=shop&c=index&a=index&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^shop/show(.*)$ index.php?m=shop&c=index&a=show&%1
+
+
+
+# 用户注册/登录
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(register|login)(.*)$ index.php?m=member&c=index&a=$1&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^userregister(.*)$ index.php?m=member&c=index&a=userregister&%1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^v2_register_phone(.*)$ index.php?m=member&c=index&a=v2_register_phone&%1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^qqlogin(.*)$ index.php?m=oauth&c=index&a=callback&%1
+
+# 任务中心
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^task(.*)$ index.php?m=task&c=index&a=index&%1
+
+#日赚任务
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^broke(.*)$ index.php?m=task&c=index&a=broke&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^broke/show/(.*)$ index.php?m=task&c=index&a=broke_show&%1
+
+# 帮助中心
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^help/show/(.*)$ index.php?m=document&c=index&a=show&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^help(.*)$ index.php?m=document&c=index&a=lists&%1
+
+#邀请好友
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^invitation(.*)$ index.php?m=member&c=member_friend&a=index&%1
+#试用报告
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^report(.*)$ index.php?m=product&c=index&a=report_list&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^try_report/show/(.*)$ index.php?m=product&c=index&a=report_show&%1
+
+RewriteCond %{HTTP_HOST} ^(m|wap|m2)(.|\n)+$ [NC]
+RewriteCond %{REQUEST_URI} !^/templates/wap2/ 
+RewriteRule ^(.*)$  /templates/wap2/$1 
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^yq/(.*)$ index.php?m=friends&c=index&a=index&userid=$1;
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^app/(.*)$ index.php?m=friends&c=Index&a=download
+
+#招商链接
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^zs/([0-9]+)$ register/?modelid=2&agent_id=$1

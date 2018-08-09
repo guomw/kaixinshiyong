@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>资料认证-店铺认证-{C('WEBNAME')}</title>
+		<meta name="Keywords" content="资料认证,店铺认证,{C('WEBNAME')}" />
+		<meta name="Description" content="资料认证,店铺认证,{C('WEBNAME')}" />	
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_branding.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+	
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+				<a href="{__APP__}">首页</a>&nbsp;>
+				<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+				<a href="{U('Member/Attesta/index')}" class="nav_active">经营认证</a>&nbsp;>
+				<a href="{U('Member/Attesta/shop')}" class="nav_active">店铺认证</a>
+			</div>
+				{include template('merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">店铺认证</h2>
+					<p class="margin6">温馨提示：</p>
+					<ul class="hint_content">
+						<li>认证店铺前须先完善商家资料 *</li>
+						<li>认证店铺发布的商品才能通过审核</li>
+						<li>使用他人店铺认证，或者使用其他非正常手段通过的验证，有可能会被冻结账号和保证金。</li>
+					</ul>
+					<form action="{U('Member/Attesta/shop')}" method="post" name="shopform" id="myform">
+						<p class="margin1">店铺认证请在店铺任意一件商品标题后面添加认证码，提交该商品链接进行验证。完成认证后即可删除标题后的验证码。</p>
+						<h6 class="margin1">添加验证码示意图:</h6>
+						<p class="shop_approve_img"><img src="{THEME_STYLE_PATH}style/images/shop_approve1.jpg" alt="" /></p>
+						<p  class="margin3">验证码：<font class="font_weight_700 color_ff6600" id="shop"><?php echo $verify;?></font>
+						</p>
+						<p class="margin4">商品链接：<input type="text" name="url" value="{$url['url']}" id="url" /></p>
+						<p class="margin5"><input type="submit" class="submit2" name="dosubmit"/><em> *店铺认证后无法更改，您只能报名被认证店铺的商品，请谨慎！</em></p>
+					</form>
+				</div>				
+			</div>
+		</div>
+			<style type="text/css">
+			.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+			.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+			.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+			.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+			.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+			.onLamp{background-position:3px -200px}
+			.onTime{background-position:3px -1356px}
+		</style>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+
+$("#url").formValidator({
+	empty:false,
+	onempty:'商品链接不能为空',
+	onshow:"请输入商品链接",
+	onfocus:"请输入商品链接"
+}).functionValidator({
+	fun:function(val,elem){
+		if(typeof(val) != 'underfind' ){
+			$.ajax({
+				url:val,
+				type: 'GET',
+				complete: function(response) {
+					if(response.status != 200) {
+						return '该链接为无效链接';
+					}
+					return true;
+				}
+			}); 
+		}
+		return true;
+	}
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"商品链接输入错误"
+});
+
+//-->
+</script>
+		<script type="text/javascript">
+		$(function(){
+			var a = $(".margin3").children().text();
+			$("#verify").val(a);
+			if($("#shop").text() == ''){
+				var userid = '<?php echo $this->userid;?>';
+				$.post("<?php echo U('Member/Attesta/check_shop_verify') ?>",{userid:userid},function(data){
+					$("#shop").text(data);
+			      }
+			    );
+			}
+		});
+		</script>
+{include template('footer','common')}

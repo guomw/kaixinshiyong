@@ -1,0 +1,133 @@
+<ion-view hide-nav-bar="true" >
+  <div class="bar bar-header bar-stable ">
+    <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">申请提现</h1>
+    <a class="button button-clear" ng-click="deposite_record()" >提现记录</a>
+
+  </div>
+  <div class="bar bar-subheader">
+    <div class="button-bar sub_header_list" id="sub_header_list">
+      <a class="button button-clear sub_button_select" ng-click="changeTab(0,1)">普通提现</a>
+      <a class="button button-clear " ng-click="changeTab(1,2)">快速提现</a>
+    </div>
+  </div>
+
+  <ion-content class="has-subheader padding-top" style="background-color:#F8F8F8">
+    <div ng-if="showloading" style="margin-top:60px; text-align: center">
+      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+    <ion-list ng-if= "showloading == false" >
+
+
+      <ion-item ng-if=" bank_status ==1 &&   alipay_status == 1  && c_status == 1 && a_status ==2 &&d_status != 2 " class="item item-avatar"  ng-click="Present_method1()"  ng-model="a_status">
+        <img ng-src="img/allpay.png" />
+        <h2>支付宝</h2>
+        <span class="badge"> <i class="icon ion-ios-arrow-right" style="font-size:20px;color:#666"></i>
+        </span>
+        <p>
+          <span ng-bind="user_Real_name" ></span>
+          {{alipay }}
+        </p>
+      </ion-item>
+
+      <ion-item ng-if=" d_status == 2 && alipay_status == 1 " class="item item-avatar"    ng-model="a_status">
+        <img ng-src="img/allpay.png" />
+        <h2>支付宝</h2>
+        <p>
+          <span ng-bind="user_Real_name" ></span>
+          {{alipay }}
+        </p>
+      </ion-item>
+
+      <ion-item ng-if=" d_status == 3 && alipay_status == 1 && bank_status !=1 " class="item item-avatar"    ng-model="a_status">
+        <img ng-src="img/allpay.png" />
+        <h2>支付宝</h2>
+        <p>
+          <span ng-bind="user_Real_name" ></span>
+          {{alipay }}
+        </p>
+      </ion-item>
+
+      <ion-item ng-if= " bank_status ==1 && d_status != 1 && a_status == 1 && alipay_status == 1 "     class="item item-avatar"  ng-click="Present_method2()"  ng-model="a_status">
+        <img ng-src="img/bank.png">
+        <h2>银行卡</h2>
+        <span class="badge"> <i class="icon ion-ios-arrow-right" style="font-size:20px;color:#666"></i>
+        </span>
+        <p>{{user_Real_name}}  {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if= "d_status == 1 && bank_status ==1 && alipay_status != 1  " class="item item-avatar"  ng-model="a_status">
+        <img ng-src="img/bank.png">
+        <h2>银行卡</h2>
+        <p>{{user_Real_name}}  {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if= "d_status == 1 && bank_status ==1  && alipay_status == 1 " class="item item-avatar"  ng-model="a_status">
+        <img ng-src="img/bank.png">
+        <h2>银行卡</h2>
+        <p>{{user_Real_name}}  {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if= "d_status == 3 && bank_status ==1  && alipay_status !=1    " class="item item-avatar"  ng-model="a_status">
+        <img ng-src="img/bank.png">
+        <h2>银行卡</h2>
+        <p>{{user_Real_name}}  {{bank }}</p>
+      </ion-item>
+
+      <p style="color:#A9A9A9" class="padding-left">{{deposite_status}}</p>
+
+      <ion-item class="item padding-top ">
+        到账时间
+        <i  ng-if="Present_method == 0 " class="item-note"><span ng-bind="bank_configure.common_time" ></span>
+          ,无手续费</i> 
+        <i ng-show="Present_method == 1 " class="item-note">{{bank_configure.quick_time}}, {{service_fee}}</i>
+      </ion-item>
+      <p style="color:#A9A9A9" class="padding-left">
+        可提现金额:
+        <span style ='color:red;font-size:14px;'  >{{money}}</span>
+        元
+      </p>
+
+      <form name ="myform" >
+        <label class="item item-input" >
+          <div class="input-label">提现金额</div>
+          <input type="text" ng-minlength="number" ng-pattern="/^[0-9]*$/"   ng-model=" t_money" name="sub_branch" placeholder="输入提现金额, 最低{{bank_configure.min_money}}元"  required   ></label>
+      </form>
+      <p ng-if ="Present_method == 1"  style="color:#A9A9A9" class="padding-left">
+        手续费{{  t_money * (service_Counter_Fee / 100) | currency:"￥" }} ,最终到账
+        <span style ='color:red;font-size:14px;'>
+          {{ t_money - (t_money * (service_Counter_Fee / 100))  | currency:"￥" }}
+        </span>
+      </p>
+
+      <p ng-if ="Present_method == 0"  style="color:#A9A9A9" class="padding-left">
+        不收手续费,最终到账
+        <span style ='color:red;font-size:14px;'>{{ t_money | currency:"￥" }}</span>
+      </p>
+
+      <h5 class="padding-left">温馨提醒</h5>
+
+      <div ng-show=" Present_method == 0">
+        <p style="color:#A9A9A9" class="padding-left">1.提现金额需是整数,不能包含小数点。</p>
+        <p style="color:#A9A9A9" class="padding-left">2.建议使用快速提现最快{{quick_time}}到账</p>
+        <p ng-show="Member_group ==0 "  style="color:#A9A9A9" class="padding-left">3.加入vip,快速提现减免手续费,还有更多特权。</p>
+      </div>
+
+      <div ng-show= "Present_method == 1">
+        <p style="color:#A9A9A9" class="padding-left">
+          1.提现金额需是整数,最少是{{bank_configure.min_money}} 的{{bank_configure.multiple_money}}倍
+        </p>
+        <p style="color:#A9A9A9" class="padding-left">2.非工作时间内,国家法定节假日,不受理快速提现申请</p>
+        <p style="color:#A9A9A9" class="padding-left">3.非工作时间内的快速提现申请,上班之后第一时间处理。</p>
+        <p ng-show="Member_group ==0 "  style="color:#A9A9A9" class="padding-left">4.加入vip,快速提现减免手续费,还有更多特权。</p>
+      </div>
+
+      <div class="padding-left padding-right" >
+        <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="person_cash(t_money,a_status,money)">确认申请</button>
+      </div>
+
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>

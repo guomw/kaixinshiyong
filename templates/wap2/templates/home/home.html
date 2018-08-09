@@ -1,0 +1,187 @@
+<ion-view hide-nav-bar="true" >
+  <div class="bar bar-header bar-color" ng-if=" quyu == 1 ">
+        <a href="#/tab/trial" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1"></a>
+        <h1 class="title">{{webinfo.webname}}</h1>
+        <a href="#/tab/so" style="color:#ffffff;" class="button icon ion-search button-clear head_buttonr1"></a >
+  </div>
+  <div ng-if="quyu == 1" >
+    <ion-content style="background-color:#F8F8F8;margin-top :0px;padding-top:45px;" >
+      <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="更新成功" 
+       refreshing-icon="ion-loading-c" on-refresh="doRefresh()">
+       </ion-refresher>
+      <!-- 首页幻灯 -->
+      <div class="home-slide">
+        <ion-slide-box does-continue="true" auto-play="true" slide-interval="3000">
+          <ion-slide ng-show = 'focus[0]'>
+            <img  ng-src="{{focus[0].image |imgUrl }}">
+          </ion-slide>
+          <ion-slide ng-show = 'focus[1]'>
+            <img  ng-src="{{focus[1].image | imgUrl}}">
+          </ion-slide>
+          <ion-slide ng-show = 'focus[2]'>
+            <img  ng-src="{{focus[2].image | imgUrl}}">
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+
+      <div class="indexNav padding-top  ">
+        <a class="part" href="#/tab/trial">
+          <div class="a1">
+            <img src="img/shiyong.png"></div>
+          <div class="a2">免费试用</div>
+        </a>
+        <a class="part" href="#/tab/rebate">
+          <div class="a1">
+            <img src="img/fanli.png"></div>
+          <div class="a2">超级返利</div>
+        </a>
+        <a ng-click="dianji()" class="part" href="#/tab/task">
+          <div class="a1">
+            <img src="img/renwu.png" ></div>
+          <div class="a2">日赚任务</div>
+        </a>
+        <a class="part" href="#/tab/commission">
+          <div class="a1">
+            <img src="img/shandian.png"></div>
+          <div class="a2">闪电试用</div>
+        </a>
+        <a class="part" href="#/tab/trial_red">
+          <div class="a1">
+            <img src="img/hongbao.png"></div>
+          <div class="a2">红包任务</div>
+        </a>
+        <a class="part" href="" ng-click="jifen()">
+          <div class="a1">
+            <img src="img/jifen.png"></div>
+          <div class="a2">积分商城</div>
+        </a>
+        <a class="part" href="#/tab/invitation">
+          <div class="a1">
+            <img src="img/tuijian.png"></div>
+          <div class="a2">推荐有奖</div>
+        </a>
+        <a class="part" href="#/tab/jiang">
+          <div class="a1">
+            <img src="img/xingyun.png"></div>
+          <div class="a2">幸运转盘</div>
+        </a>
+        <div class="clearfix"></div>
+      </div>
+      <!--indexNav-->
+      <!-- 精品推荐 -->
+      <div class="hot_title">
+        <span></span>
+        精品推荐
+      </div>
+
+      <div ng-if="tj_showloading" style="text-align: center">
+        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+      </div>
+
+      <ion-slide-box ng-if="!tj_showloading" does-continue="true" auto-play="true" slide-interval="5000" show-pager='false'>
+        <ion-slide class="slider-slide" >
+          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods.slice(0,3) "    >
+            <div class="co">
+              <div class="a1">
+                <img ng-src="{{d.thumb |imgUrl}}"></div>
+              <div class="a2 ng-binding ccc">{{d.title}}</div>
+              <div class="a3">
+                <div class="L cccc">￥{{d.goods_price}}</div>
+                <div class="R">{{ d.number}}份</div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </a>
+         </ion-slide>
+
+        <ion-slide class="slider-slide" ng-if="tj_goods2 != false  " >
+          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods2 "    >
+            <div class="co">
+              <div class="a1">
+                <img ng-src="{{d.thumb |imgUrl}}"></div>
+              <div class="a2 ng-binding">{{d.title}}</div>
+              <div class="a3">
+                <div class="L">￥{{d.goods_price}}</div>
+                <div class="R">{{ d.number}}份</div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+          </a>
+        </ion-slide>
+
+
+        <ion-slide class="slider-slide" ng-if="tj_goods3 != false " >
+          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods3 "    >
+            <div class="co">
+              <div class="a1">
+                <img ng-src="{{d.thumb |imgUrl}}"></div>
+              <div class="a2 ng-binding">{{d.title}}</div>
+              <div class="a3">
+                <div class="L">￥{{d.goods_price}}</div>
+                <div class="R">{{ d.number}}份</div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+          </a>
+        </ion-slide>
+
+      </ion-slide-box>
+
+      <!--  最新上线 -->
+
+      <div class="hot_title">
+        <span></span>
+        最新上线
+      </div>
+
+      <div ng-if="showloading" style="text-align: center">
+        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+      </div>
+
+      <div class="indexProList"  ng-if="showloading ==false" >
+
+        <a class="part" href="#/tab/trial/{{topic.id}}" ng-repeat="topic in goods "   >
+          <div class="co">
+            <div class="a1">
+              <img ng-src="{{topic.thumb |imgUrl}}" />
+            </div>
+            <div class="a2">{{ topic.title | limitTo:15 }}</div>
+            <div class="a3">
+              <div class="L">￥{{topic.goods_price}}</div>
+              <div class="R">限量{{topic.number}}份</div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          </a>
+        <div class="clearfix"></div>
+      </div>
+      <!--indexProList-->
+
+      <ion-infinite-scroll
+                    pulling-text="加载更多中"
+                    on-infinite="index_loadMore()"
+                    ng-if="index_hasNextPage"
+                    distance="1%">
+      </ion-infinite-scroll>
+
+      <div ng-if="index_hasNextPage == false" class="padding-top" style=" text-align: center">亲 已经没有了 每天10点会更新</div>
+
+  </ion-content>
+
+</div>
+<div ng-if="quyu == 2">
+  <div class="yindao-slide">   
+   <ion-slide-box auto-play="true" on-slide-changed="go_changed(index)">
+     <ion-slide>
+       <img src="img/yindao3.jpg" ></ion-slide>
+     <ion-slide>
+       <img src="img/yindao2.jpg" ></ion-slide>
+     <ion-slide >
+       <img src="img/yindao1.jpg" ng-click="qidongyu()">
+    </ion-slide>
+   </ion-slide-box>
+ </div>
+</div>
+</ion-view >

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家中心-品牌验证-{C('WEBNAME')}</title>
+		<meta name="keywords" content="商家中心,品牌验证,{C('WEBNAME')}" />
+        <meta name="description" content="商家中心,品牌验证,{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<!-- <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script> -->
+		<script language="javascript" type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_branding.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+		<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Attesta/index')}" class="nav_active">经营认证</a>&nbsp;>
+		<a href="{U('Member/Attesta/brand')}" class="nav_active">品牌认证</a>
+	</div>
+					
+				{include template('merchant_left','member/common')}
+				<form action="{U('Member/Attesta/brand')}" name="myform" method="post" id="myform">
+				<input type="hidden" name="id" value="{$rs[id]}"/>
+				<div class="float_right right border_1_dddddd border_efefef"  id="goods_albums">
+					<h2 class="right_title border_bottom_efefef">品牌认证</h2>
+					<p class="handle  margin4">
+						<span class="handle_name">品牌中文名：</span>
+						<input type="text" name="chinese" id="chinese" value="{$infos[chinese]}"/>
+					</p>
+					<p class="handle margin4" >
+						<span class="handle_name">品牌英文名：</span>
+						<input type="text" name="english" value="{$infos[english]}"/>
+					</p>
+					
+					<p class="handle">
+						<span class="handle_name">上传店铺LOGO：</span>
+						<span class="sub_btn" name="uploadify" id="img1">
+							<img src="{if empty($infos[img_logo])}{THEME_STYLE_PATH}style/images/signIn_14.jpg {else}{$infos[img_logo]} {/if}" alt="" onerror = "javascript:this.src='{THEME_STYLE_PATH}style/images/signIn_14.jpg';"/>
+							<input type="hidden" name="img_logo" value="{$infos[img_logo]}" />
+						</span>
+					</p>
+					<p class="handle"><span class="handle_name">上传授权文件：</span>
+						<span class="sub_btn"  name="uploadify" id="img2">
+							<img src="{if empty($infos[img_auth])}{THEME_STYLE_PATH}style/images/signIn_14.jpg {else} {$infos[img_auth]} {/if}" alt="" onerror="javascript:this.src='{THEME_STYLE_PATH}style/images/signIn_14.jpg';"/>
+							<input type="hidden" name="img_auth" value="{$infos[img_auth]}" />
+						</span>
+						
+						<a href="{U('Member/Attesta/download')}" class="sub_btn">下载授权书</a>
+						<font class="float_left">填写说明</font>
+						<img src="{THEME_STYLE_PATH}style/images/query_icon.jpg" alt="" />
+					</p>
+					<p class="handle"><span class="handle_name">品牌简介：</span><textarea name="content" id="" cols="60" rows="6">{$infos['content']}</textarea></p>
+					
+						{if empty($rs)}
+						<p class="handle submit"><input type="submit" value="提交"/><input type="checkbox" name="accord" checked />
+							<font>我已阅读本站<a href="#">认证协议</a></font>
+						</p>
+						{elseif $rs['status'] < 1 && $rs['status'] == -1}
+						<p class="handle submit"><input type="submit" value="提交"/><input type="checkbox" name="accord" checked />
+						<font>我已阅读本站<a href="#">认证协议</a></font>
+						<font color="red">您提交的信息验证没有通过，请重新提交</font>
+						</p>
+						{elseif $rs['status'] < 1 && $rs['status'] == 0}
+						<p class="handle submit"><input type="button" value="提交"/><input type="checkbox" name="accord" checked />
+							<font>我已阅读本站<a href="#">认证协议</a></font>
+							<font color="red">您提交的信息正在审核中，请耐心等待</font>
+						</p>
+						{/if}
+					
+				</div>
+				</form>				
+			</div>
+		</div>
+		
+<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" /> 
+<style type="text/css">
+	.webuploader-pick{color: #fff;cursor: pointer;display: inline-block;overflow: hidden;padding: 0 0px;position: relative;text-align: center;}
+	.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+	.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+	.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+	.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+	.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+	.onLamp{background-position:3px -200px}
+	.onTime{background-position:3px -1356px}
+</style>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+
+$("#chinese").formValidator({
+	empty:false,
+	onempty:'品牌中文名不能为空',
+	onshow:"请输入品牌中文名称",
+	onfocus:"请输入品牌中文名称"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"品牌中文名称输入错误"
+});
+
+//-->
+</script>
+<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+<script type="text/javascript">
+//图片上传功能
+$(document).ready(function() {
+	var goods_album = $("#goods_albums").find('span');
+	for(var i=0; i < goods_album.length; i++) {
+		var uploader = WebUploader.create({
+			auto:true,
+			fileVal:'Filedata',
+		    // swf文件路径
+		    swf: '{JS_PATH}webuploader/webuploader.swf',
+		    // 文件接收服务端。
+		    server: "{U('Attachment/Attachment/swfupload')}",
+		    // 选择文件的按钮。可选
+		    formData:{
+		    	"module":"",
+		    	"catid":"",
+		    	"userid":"1",
+		    	"dosubmit":"1",
+		    	"thumb_width":"0",
+		    	"thumb_height":"0",
+		    	"watermark_enable":"1",
+		    	"filetype_post":"jpg|jpeg|gif|bmp|png",
+		    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+		    	"isadmin":"1",
+		    	"groupid":"2"
+		    },
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: {
+		    	id: '#img' + (i+1),
+		    	multiple:false
+		    },
+		    accept:{
+				title: '图片文件',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+		    },
+		    thumb:{
+		    	width: '110',
+		    	height: '110'
+		    },
+		    chunked: false,
+		    chunkSize:1000000,
+		    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+		    resize: false
+		});
+
+		uploader.onUploadSuccess = function( file, response ) {
+			var pickid = this.options.pick.id;
+			var data = response._raw;
+			var arr = data.split(',');
+			if(arr[0] > 0) {
+				$(pickid).find('img').attr('src', arr[1]);
+				$(pickid).find('input[type=hidden]').eq(0).attr('value', arr[1]);
+			}
+		}
+
+		uploader.onUploadError = function(file, reason) {
+			alert('文件上传错误：' + reason);
+		}
+	}
+})
+</script>
+
+{include template('footer','common')}

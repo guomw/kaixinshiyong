@@ -1,0 +1,135 @@
+a.cursor{
+	background-color:#ff6600;
+	color:#ffffff;
+}
+ img{
+	vertical-align:middle;
+}
+div.content_right{
+	width:780px;
+	padding:20px 20px 45px 20px;
+	border:1px solid #efefef;
+}
+
+div.content_right h1{
+	font-size:14px;
+}
+
+div.content_right div.finance_information{
+	border-top:1px solid #efefef;
+	margin-top:10px;
+	padding-top:25px;
+}
+
+div.finance_information dt{
+	font-size:14px;
+	margin-bottom:15px;
+}
+
+div.finance_information dd span{
+	color:#ff6600;
+	font-size:24px;
+	font-weight:bold;
+}
+
+div.finance_information dd.recharge, div.finance_information dd.withdrawals{
+	border-radius:3px;
+}
+
+div.finance_information dd.recharge a, div.finance_information dd.withdrawals a{
+	display:block;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#ffffff;
+}
+
+div.finance_information dd.recharge{
+	margin:0 11px 0 23px;
+	background: #ff6600;
+}
+
+div.finance_information dd.withdrawals{
+	background:#1c8cff;
+}
+
+div.finance_information div.integration{
+	border-left:1px solid #efefef;
+	margin-left:42px;
+	padding-left:42px;
+}
+
+div.content_right div.transaction{
+	margin-top:42px;
+}
+
+div.transaction h1{
+	font-size:13px;
+	border-bottom:1px solid #efefef;
+	padding-bottom:10px;
+}
+
+div.transaction div.order_type{
+	margin:18px 0;
+}
+
+input.date, input.endDate {
+	width:150px;
+	height:27px;
+	border:1px solid #e8e8e8;
+    background: url("../images/input_date.png") no-repeat scroll right 3px #fff;
+    font-size: 12px;
+    padding:0 18px 0 10px;
+}
+
+div.transaction table.search-form select{
+	width:80px;
+	height:27px;
+	border:1px solid #e8e8e8;
+}
+
+div.transaction input.button{
+	width:60px;
+	height:25px;
+	background:#e2f9ff;
+	border:1px solid #77bbff;
+	border-radius:3px;
+	color:#30bbfe;
+	cursor:pointer;
+}
+
+div.order_list table{
+	border-top:1px solid #eeeeee;
+	border-spacing:0;
+	border-collapse:collapse;
+	width:100%;
+}
+
+div.order_list th{
+	height:40px;
+	background:#f3f3f3;
+}
+
+div.order_list td{
+	text-align:center;
+	line-height:40px;
+	border-bottom:1px solid #efefef;
+}
+
+div.order_list td.expenditure{
+	color:#ff7b0e;
+	font-weight:bold;
+}
+
+div.order_list td.income{
+	color:#00cd5b;
+	font-weight:bold;
+}
+
+div.order_list p.pages{
+	margin:37px 0 0 230px;
+}
+
+
+

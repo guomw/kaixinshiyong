@@ -1,0 +1,46 @@
+<?php
+return array(
+'send_message'            => '发送短消息',
+'all_send_message'        => '群发短消息',
+'message'                 => '短消息',
+'send'                    => '发送',
+'sendto'                  => '发送到',
+'subject'                 => '标题',
+'content'                 => '内容',
+'setting'                 => '配置',
+'touserid'                => '收件人',
+'fromuserid'              => '发件人',
+'send_time'               => '发信时间',
+'reply'                   => '回复',
+'is_reply'                => '是否回复',
+'remove_all_selected'     => '删除选中',
+'user_noempty'            => '收件人不能为空',
+'username'                => '用户名',
+'time'                    => '时 间',
+'see_info'                => '查看详情',
+'no_empty'                => '不能为空',
+'before_select_operation' => '请选择再执行操作', 
+
+'no_thisuser'             => '没有此用户', 
+'connecting'              => '正在连接，请稍候。', 
+
+'group'                   => '按会员组', 
+'role'                    => '按角色', 
+'send_num'                => '每轮发送次数', 
+
+'select'	=> array(
+	'send_from_id' => '发件人',
+	'send_to_id'	=> '收件人',
+),
+'not_myself'              => '禁止给自己或非注册用户发送消息', 
+'sendtime'                => '发送时间',
+'show_m'                  => '显示',
+'details'                 => '查看详情',
+'message_sender'          => '发 信 人',
+'query_type'              => '查询类型',
+'to'                      => '至',
+'message_not_exist'       => '短消息不存在',
+'mass_failure'            => '群发失败,请检查！',
+'target'	=> '目标',
+);
+?>

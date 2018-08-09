@@ -1,0 +1,34 @@
+﻿.SuperSlide { height: 386px; overflow: hidden; position: relative; width: 100%; border-bottom: 1px solid #ddd;}
+
+.SuperSlide .hd { bottom: 8px; height: 18px; overflow: hidden; position: absolute; text-align: center; width: 100%; z-index: 1;cursor: pointer;}
+
+.SuperSlide .hd span { background: #cccccc; border-radius: 50%; cursor: pointer; display: inline-block; height: 10px; line-height: 14px; margin-left: 7px; text-align: center; /*float: left;*/width: 10px; }
+
+.SuperSlide .hd span.on { background: #f25f55; color: #fff; }
+
+.SuperSlide .bd { height: 100%; position: relative; z-index: 0; }
+
+.SuperSlide .bd li { vertical-align: middle; zoom: 1; }
+.SuperSlide .bd a { display: block; height: 386px; /*width: 100%;*/width: 865px;margin: 0 auto;background-size: 100%;}
+.SuperSlide .superprev,
+.SuperSlide .supernext {background: #000000; display: none;z-index: 1; filter: alpha(opacity=20); height: 70px; margin-top: -25px; opacity: 0.2; position: absolute; top: 50%; width: 40px; }
+
+.SuperSlide .superprev i {background: url(zhizb.png)  12px 17px no-repeat; height: 50px; width: 31px; }
+
+.SuperSlide .supernext i {background: url(zhiyb.png) 12px */ 17px no-repeat; height: 50px; width: 31px; }
+
+
+.SuperSlide .supernext { background-position: 8px 5px; right: 50%;margin-right:-417px}
+.SuperSlide .superprev { left: 50%; margin-left: -433px;}
+
+.SuperSlide .superprev:hover,
+.SuperSlide .supernext:hover { display: block; filter: alpha(opacity=30); opacity: 0.3; }
+
+.SuperSlide:hover .superprev,
+.SuperSlide:hover .supernext { display: block; }
+
+.SuperSlide .superprevStop { display: block; }
+
+.SuperSlide .supernexttop { display: block; }
+
+.SuperSlide .bd img{display: block;margin: 0 auto;transform: scaleX(1) scaleY(1);}

@@ -1,0 +1,76 @@
+a.cursor{
+	background-color:#ff6600;
+	color:#ffffff;
+}
+
+div.content_right{
+	width:780px;
+	padding:20px 20px 45px 20px;
+	border:1px solid #efefef;
+}
+
+div.content_right h1{
+	font-size:14px;
+}
+
+div.content_right div.phone_form{
+	border-top:1px solid #efefef;
+	margin-top:10px;
+	padding-top:10px;
+}
+
+div.phone_input dt{
+	width:120px;
+	text-align:right;
+}
+
+div.phone_input dd{
+	margin-bottom:20px;
+}
+
+div.phone_input dt{
+	font-size:14px;
+	line-height:26px;
+}
+
+div.phone_input input{
+	height:28px;
+	border:1px solid #dddddd;
+	width:107px;
+	padding-left:10px;
+	color:#666666;
+}
+
+div.phone_input dd.code{
+	margin:3px 0 0 10px;
+}
+
+div.phone_input dd.code a{
+	display:block;
+	width:65px;
+	height:23px;
+	line-height:23px;
+	border:1px solid #ff5613;
+	background:#fff4c3;
+	color:#ff0000;
+	text-align:center;
+}
+
+div.phone_form div.submit{
+	padding:30px 0 0 17px;
+}
+
+div.phone_form div.submit input{
+	width:80px;
+	height:32px;
+	background:#ff6600;
+	color:#ffffff;
+	border:none;
+	padding:0;
+	font-size:14px;
+	border-radius:3px;
+	cursor:pointer;
+}
+
+
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+		<!-- 帮助中心头部 -->
+		{include template('help_header')}
+		<div class="content">
+			<div class="wrap">				
+				{include template('help_left')}
+				<script type="text/javascript">
+					$(function(){
+						var s_h = $('.h_c_m_c li').height()*$('.h_c_m_c li').length;
+						$('.h_c_menu').mouseover(function(){ $(this).children('ul').css({ 'height':s_h,'display':'block', }); });
+						$('.h_c_menu').mouseout(function(){ $(this).children('ul').css({ 'height':0,'display':'none', }); });
+					});
+
+				</script>
+				<div class="h_w_right">
+					<form method="get">
+						<input type="hidden" name="m" value="Document"></input>
+						<input type="hidden" name="c" value="Index"></input>
+						<input type="hidden" name="a" value="search_help"></input>
+						<input type="hidden" name="catids" value="1" class="catids"></input>
+					<ul class="h_search">
+						<li class="h_c_menu">
+							<a href="javascript:void(0);" id="search">全部</a>
+							<ul class="h_c_m_c">
+								<li><a href="javascript:;" class="search_name">我是买家</a></li>
+								<li><a href="javascript:;" class="search_name">我是卖家</a></li>
+							</ul>
+						</li>
+						<li><input class="h_value" name="keywords" id="key" value="{$_GET[keywords]}" placeholder="输入关键字查找" type="text" /></li>
+						<li><input  type="submit" class="h_btn" value=""></li>
+					</ul>
+					<form>
+					
+					<script type="text/javascript">
+						$(".search_name").click(function(){
+							var search_name = $(this).text();
+							if(search_name == "全部"){
+								$(this).text("我是买家");
+								$(this).parent().siblings().find("a").text("我是卖家");
+								$("#search").text("全部");
+								$(".catids").val("1");
+							}
+							
+							if(search_name == "我是买家"){
+								$("#search").text("我是买家");
+								$(this).text("全部");
+								$(this).parent().siblings().find("a").text("我是卖家");
+								$(".catids").val("2");
+							}
+							
+							if(search_name == "我是卖家"){
+								$("#search").text("我是卖家");
+								$(this).text("全部");
+								$(this).parent().siblings().find("a").text("我是买家");
+								$(".catids").val("3");
+							}
+							
+						});
+
+					</script>
+					<script type="text/javascript">
+						$(function(){
+							$('.user_acc_content li:last').css('margin-right',0);
+						});
+					</script>
+					<div class="issue_h">
+						<h4 class="hint_h_t hint_h_t_color">常见问题</h4>
+						<ul class="user_acc">
+							{pc:document action="lists"  catid="1" num="10" order="id DESC"}
+								{loop $data $r}
+							<li>
+								<ul class="user_acc_content">
+									<li><a href="{$r[url]}">{$n}.{$r[title]}</a></li>
+								</ul>
+							</li>
+
+								{/loop}
+								{/pc}
+						</ul>
+					
+					{/pc}
+					</div>
+					<h6 class="h_l_t h_l_t2 hint_h_t_color">没能解决您的问题？
+					<p class="auto_color">您可以联系 <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">在线客服</a> 或联系邮箱：{C("site_contact_email")} 或提意见建议</p>
+					</h6>
+				</div>
+				{if $catid == 2}
+				<div class="iss_flow">
+					<span class="flow_title">发布流程与返利流程</span>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_01.png" alt="" /><font>注册账户</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_02.png" alt="" /><font>抢到购买资格</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_03.png" alt="" /><font>去商家店铺下单购买</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_04.png" alt="" /><font>返回填写订单号</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_05.png" alt="" /><font>返回划算金</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_06.png" alt="" /><font>提现到支付宝或银行卡</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_07.png" alt="" /><font class="t_indent_01">交易完成！</font></p>
+				</div>
+				{else}
+				<div class="iss_flow">
+					<span class="flow_title">发布流程与返利流程</span>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_01.png" alt=""><font>注册账户</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_02.png" alt=""><font>用户登录</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_03.png" alt=""><font>发布商品</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_04.png" alt=""><font>核对买家订单号</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_05.png" alt=""><font>交易成功</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_06.png" alt=""><font>活动结算</font></p>
+					<p><img src="{THEME_STYLE_PATH}style/images/iss_flow_07.png" alt=""><font class="t_indent_01">退还费用</font></p>
+				</div>
+				{/if}
+			</div>	
+		</div>
+		{include template('footer','common')}
+		<script type="text/javascript">
+			$(function(){				
+				$('.h_btn').click(function(){
+					var keyword = $("#key").val();				
+					$.get("{U('Document/Index/search')}",{keywords:keyword});
+				});
+			});
+		</script>

@@ -1,0 +1,87 @@
+ <ion-view hide-nav-bar="true" >
+      <div class="bar bar-header  bar-stable ">
+      <h1 class="title">更多</h1>
+     </div>
+      <ion-content class="padding_head">
+
+		<ion-list>
+
+            <ul class="list" >
+            <ion-item class="item item-icon-left item-icon-right " href="#/tab/commission" >
+                <i class="icon ion-ios-bolt" style="font-size:1.5 em;color:#00c67e"></i>
+                <h3>闪电试用</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right " href="#/tab/task" >
+                <i class="icon ion-ios-bookmarks" style="font-size:1.5 em;color:#ff2d65"></i>
+                <h3>日赚任务</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right " href="#/tab/jifenduihuan" >
+                <i class="icon ion-ios-infinite" style="font-size:1.5 em;color:#2cb4ff"></i>
+                <h3>积分兑换</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right " href="#/tab/jiang" >
+                <i class="icon ion-disc" style="font-size:1.5 em;color:#ff2d65"></i>
+                <h3>幸运大转盘</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+            </ul>
+            <ul class="list" >
+		    <ion-item class="item item-icon-left item-icon-right " href="#/tab/article" >
+                <i class="icon ion-ios-help" style="font-size:1.5 em;color:#aaaaea"></i>
+                <h3>帮助中心</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+            </ul>
+<!-- 
+             <li class="item item-icon-left item-icon-right " style="font-size:1.5 em;color:#53a3e1">
+                <i class="icon ion-ios-people"></i>
+                <h3>一键加群</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </li>
+ -->
+            <ion-item  href="#/tab/invitation" class="item item-icon-left item-icon-right " style="font-size:1.5 em;color:#73bbee">
+                <i class="icon ion-ios-personadd"></i>
+                <h3>推荐好友</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666" ></i>
+            </ion-item>
+
+
+          <ul class="list" >
+
+            <ion-item class="item item-icon-left item-icon-right " style="font-size:1.5 em;color:#fe906e" ng-click="fenxiang()">
+                <i class="icon ion-ios-redo"></i>
+                <h3>分享好友</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item>
+
+            <li class="item item-icon-left item-icon-right " style="font-size:1.5 em;color:#ffbf59">
+                <i class="icon ion-ios-heart"></i>
+                <h3>给个好评</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </li>
+
+		</ul>
+       
+         <ul class="list" >
+
+             <ion-item class="item item-icon-left item-icon-right " ng-click="checkUpdate()" >
+                <i class="icon ion-ios-refresh" style="font-size:1.2 em;color:#80d45b"></i>
+                <h3>版本更新</h3>
+                <i class="badge light" style="color:#AAAAAA">{{version}}版</i>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+             </ion-item>
+
+			 <ion-item class="item item-icon-left item-icon-right " href="#/tab/help/about"  style="font-size:1.2 em;color:#73bbee">
+                <i class="icon ion-ios-information"></i>
+                <h3>关于我们</h3>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#f86570"></i>
+            </ion-item>
+		</ul>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

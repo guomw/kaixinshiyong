@@ -1,0 +1,124 @@
+/* 边框设置 */
+.border_none {border:none;}
+.border_dddddd {border:solid 1px #dddddd;}
+.border_efefef {border:solid 1px #efefef;}
+.border_bottom_dddddd {border-bottom:solid 1px #dddddd;}
+.border_bottom_efefef {border-bottom:solid 1px #efefef;}
+.border_right_dddddd {border-right:solid 1px #dddddd;}
+.border_right_efefef {border-right:solid 1px #efefef;}
+/* 圆角 */
+.border_radius_3 {border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+/* 列表设置 */
+.list_style_square {list-style-type:square;}
+/* 宽高设置 */
+.width_100 {width:100%;}
+.width_auto {width:auto;}
+.height_100 {height:100%;}
+.height_auto {height:auto;}
+/* padding设置 */
+.padding_5 {padding:5px;}
+/* overflow设置 */
+.overflow_hidden {overflow:hidden;}
+/* 背景设置 */
+li.background_img_square a{background:url(../images/vip_list_bg.jpg) no-repeat 35px center;}
+
+.background_bb000d {background:#bb000d;}
+.background_ff6600 {background:#ff6600;}
+.background_f3f3f3 {background:#f3f3f3;}
+.background_666666 {background:#666666;}
+.background_2ebcfe {background:#2ebcfe;}
+/* 字体颜色设置 */
+.color_ff6600 {color:#ff6600;}
+.color_red {color:red;}
+.color_ffffff {color:#ffffff;}
+.color_999999 {color:#999999;}
+.color_30bbfc {color:#30bbfc;}
+.color_009de4 { color:#009de4; }
+/* 字体位置 */
+.text_align_center {text-align:center;}
+.text_align_right {text-align:right;}
+/* 文本样式 */
+.font_famiy_01 {font-family:"微软雅黑";}
+/* 文本大小设置 */
+.font_size14 {font-size:14px;}
+.font_size16 {font-size:16px;}
+/* 文本粗细 */
+.font_weight_700 {font-weight:700;}
+.fw{ font-weight: bold;}
+/* 文本缩进 */
+.text_indent_10 {text-indent:10px;}
+/* 浮动位置 */
+.float_left {float:left;} 
+.float_right {float:right;}
+/* 外边距设置 */
+.margin_left_5 {margin-left:5px;}
+.margin_left_right_5 {margin-left:5px;margin-right:5px;}
+.margin_left_15 {margin-left:15px;}
+.margin_0_auto {margin:0 auto;}
+.margin_top_8 {margin-top:8px;}
+.margin_top_5 {margin-top:5px;}
+.margin_bottom_10 {margin-bottom:10px;} 
+/* 内边距设置 */
+.padding_left_right_10 {padding-left:10px;padding-right:10px;}
+/* display */
+.display_block {display:block;}
+.display_inline_block {display:inline-block;}
+.display_none {display:none;}
+
+.content {width:100%;height:auto;float:left;}
+.content_wrap {width:980px;height:auto;margin:0 auto;}
+/* 链接属性 */
+.link_no { pointer-events:none; }
+.link_hover_bg:hover{background:#ff6600 url(../images/vip_list_curbg.jpg) no-repeat 35px center; color:#fff;}
+a.cursor{ background:#ff6600 url(../images/vip_list_curbg.jpg) no-repeat 35px center !important; color:#ffffff;}
+/* 定位 */
+.position_relative {position:relative;}
+/* 鼠标样式 */
+.cursor_pointer {cursor:pointer}
+/* 子菜单 */
+.text_indent30 {text-indent:35px;}
+.text_indent35 {text-indent:35px;}
+.left {width:148px;height:auto;}
+.left .title_box {height:auto;}
+.left .title_box h2 {height:48px;}
+.left .title_box li {height:40px;line-height:40px;}
+/* 单个栏目导航设置 */
+.list_title a{height:39px;}
+/* nav title 行高 */
+.line_height48 {line-height:48px;}
+.line_height39 {line-height:39px;}
+.line_height32 {line-height:32px;}
+.right {width:774px;padding:10px 23px;height:auto;}
+/* 标记当前页面 */
+/*.curve_html {background:#ff6600;color:#fff;}*/
+/* 其他页面通用标记 */
+.right_title{width:780px;height:32px;line-height:32px;}
+.right_title a { font-weight:100; height:100%; display:inline-block; padding:0 5px; margin-left:5px; }
+.right_title .a_link { color:#009ee7; border-bottom:solid 2px #30bbfe;outline:none; }
+
+.title_box li a{ text-indent:45px;line-height:40px;}
+p.title_box a{ text-indent:45px;line-height:40px;}
+.top{border: none; margin-bottom: 0 !important;}
+div.nav_path{float:left; width: 970px; height: 28px; line-height: 28px; margin: 0 auto 15px; padding-left: 10px;
+margin-top:15px;
+ background: #fff1e8;}
+div.nav_path a.nav_active{ color: #ff7316;}
+#menu h2{ cursor: pointer; }
+#menu h2 span{ width: 13px; height: 13px; display: inline-block; }
+#menu h2 .open{ background: url(../images/open.gif) no-repeat; }
+#menu h2 .off{ background: url(../images/off.gif) no-repeat; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

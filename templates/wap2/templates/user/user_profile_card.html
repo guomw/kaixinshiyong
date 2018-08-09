@@ -1,0 +1,41 @@
+<ion-view view-title="实名认证">
+  <ion-content class="padding-top" style="background-color:#F8F8F8">
+    <ion-list >
+      <ion-item class="item item-icon-left item-icon-right " > <i style="font-size:18px;color:#73bbee" class="icon ion-iphone"></i>
+        实名认证状态: <i class="item-note"> ({{name_status | f_name_status}})</i> 
+      </ion-item>
+      <ion-item class="item item-divider" ng-if="user_emall && user_emall_state == 1 ">
+        <h2>修改认证</h2>
+      </ion-item>
+
+      <form name="myform" novalidate="false">
+
+        <div class="list list-inset new-form">
+          <label class="item item-input" >
+            <i style="font-size:18px;color:#aaaaea" class="icon ion-android-mail placeholder-icon" ></i>
+            <input type="text" ng-pattern="/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/" ng-model="user_Full_name" name="user_Full_name" placeholder="请输入您的真实姓名"  required></label>
+
+          <label   class="item item-input" >
+            <i style="font-size:18px;color:#aaaaea" class="icon ion-android-mail placeholder-icon" ></i>
+            <input ng-model-options=" {debounce:1000}" type="text" ng-pattern="/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/" ng-model="user_ID_number" name="user_ID_number" placeholder="请输入您的身份证号码"  required>
+
+          </label>
+
+        </div>
+<!--         <div class="row">
+          <div class="col"><img ng-model="face_img" ng-click="imgurl(1)" height="100%" width="100%" src="{{face_img}}" /></div>
+          <div class="col"><img ng-model="back_img"   ng-click="imgurl(2)" height="100%" width="100%"  src="{{back_img}}" /></div>
+          <div class="col"><img ng-model="person_img"  ng-click="imgurl(3)" height="100%" width="100%" src="{{person_img}}" /></div>
+        </div>
+        <p style="color:#A9A9A9" class="padding-left">1.（选传）上传身份证可加速审核，提高资金安全。</p>
+        <p style="color:#A9A9A9" class="padding-left">2. 身份证要求与必须与本人一致。</p> -->
+        <div class="padding-left padding-right" >
+          <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edit_identity(user_Full_name,user_ID_number,face_img,back_img,person_img,Gender,Year_birth,Birth_month,Date_birth,age)">提交</button>
+        </div>
+
+      </form>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

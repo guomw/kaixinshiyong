@@ -1,0 +1,20 @@
+.table_width_1 { width:238px; } 
+.table_width_2 { width:171px; } 
+.table_width_3 { width:130px; } 
+.table_width_4 { width:105px; } 
+.table_width_5 { width:140px; }
+.table_width_6 { width:448px; }
+.table_width_7 { width:202px; }
+.table_width_8 { width:125px; }
+.table_list { text-align:left; }
+.text_indent_50 { text-indent:50px; } 
+.table_list tr { width:100%; height:auto; float:left; border-bottom:solid 1px #efefef; }
+.table_list .border_none { border:none; }
+.table_list tr th { border:none; height:40px; }
+.table_list tr td { height:80px;}
+.table_list tr td .list_small_width { width:74px; height:49px; }
+.table_list tr td .table_text { width:150px; margin-left:10px; line-height:20px; }
+.table_list tr td .btn { display:inline-block; height:23px; width:48px; line-height:23px; }
+.table_list tr td .merge_btn { display:inline-block; height:30px; width:100px; line-height:30px; }
+.list_small_width { width:74px; height:49px; }
+.table_hint{line-height:20px;} 

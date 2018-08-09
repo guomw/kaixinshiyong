@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://www.huizhe.com/invitation -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Language" content="zh-cn">
+    <meta name="author" content="Huizhe-TID">
+    <meta name="Copyright" content="Huizhe">
+	<title>邀请好友-{C('WEBNAME')}</title>
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/comm.css">
+	<script src="{THEME_STYLE_PATH}style/js/hm.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/header.js"></script>
+    <!--<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/ZeroClipboard.js"></script>-->
+    
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.zclip.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/invitation.css" />
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/thickbox.css" />
+	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/hz_page.css" />
+    
+   
+    
+    <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/styles.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/thickbox.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/float_msg.js"></script>
+    
+    <link href="{THEME_STYLE_PATH}style/css/bdsstyle.css" rel="stylesheet" type="text/css">
+	<!--[if IE 6]>
+	<style>
+	.mi_act_nianhuo{
+		_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-516));
+	}
+	</style>
+	<![endif]-->
+    
+    <style type="text/css">
+.header .wrap span .name_hover{
+	color:green;
+}
+.login-tipMsg {
+	display: block;
+	margin-bottom: 10px;
+	padding: 4px 22px 4px;
+	border: 1px solid #FFAD77;
+	color: #f00;
+	word-wrap: break-word;
+}
+.login-uName p, .login-pwd p {
+	line-height: 24px;
+	font-size: 14px;
+}
+.login-pwd input, .login-uName input {
+	padding: 5px;
+	width: 240px;
+	border: 1px solid #ccc;
+	outline: none;
+}
+.login-pwd {
+	margin-top: 12px;
+}
+.login-other {
+	margin-top: 10px;
+}
+.login-otherL {
+	float: left;
+}
+.login-other a {
+	text-decoration: underline;
+}
+.login-btn {
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	width: 252px;
+	font-size: 18px;
+	background-size: cover;
+	color: #f9f9f9;
+	cursor: pointer;
+	text-align: center;
+	font-weight: normal;
+	font-weight: bold\0;
+	border: 0;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+	background-color: #E22627;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#F23C3D),to(#D51415));
+	background-image: -moz-linear-gradient(top,#F23C3D,#D51415);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F23C3D',endColorstr='#D51415');
+	background-image: -o-linear-gradient(top,#F23C3D,#D51415);
+	background-image: -ms-linear-gradient(top,#F23C3D 0,#D51415 100%);
+	background-image: linear-gradient(top,#F23C3D,#D51415);
+}
+.login-otherR {
+	float: right;
+}
+.login-QQlogin {
+	margin-right: 10px;
+}
+.login-QQlogin img{
+	width: 16px;
+	height:16px;
+}
+.login-btnDisabled,.login-btnDisabled:hover{text-shadow:1px 1px 0 #fff;color:#a0a0a0;background:#ccc;filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);cursor:default}
+
+.friend_signal{
+	width: 948px;
+	height: 294px;
+	border-left: 1px solid #cac5c4;
+	border-right: 1px solid #cac5c4;
+	background: url({THEME_STYLE_PATH}style/images/friend_signal_bg.jpg) no-repeat;
+}
+
+.friend_signal .friend_signal_lists{
+	padding-left: 55px;
+	float: left;
+}
+
+.friend_signal_lists li{
+	width: 140px;
+	float: left;
+}
+
+.friend_signal_lists .friend_signal_avatar{
+	width: 105px;
+	height: 65px;
+	margin-bottom: 12px;
+	background: url({THEME_STYLE_PATH}style/images/friend_signal_avatar.jpg) no-repeat center top;
+}
+
+.friend_signal_lists .friend_signal_text{
+	width: 105px;
+	line-height: 15px;
+	font-size: 15px;
+	text-align: center;
+	color: #aa6803;
+}
+
+.friend_signal_lists .arrow_bt{
+	width: 105px;
+	height: 80px;
+	background: url({THEME_STYLE_PATH}style/images/arrow_bt.jpg) no-repeat center;
+}
+
+.friend_signal_lists .reward_text{
+	width: 105px;
+	font-size: 15px;
+	text-align: center;
+	color: #aa6803;
+}
+
+.friend_signal_lists .fraction{
+	float: left;
+	font-size: 25px;
+	font-weight: 700;
+	color: #ff7d00;
+}
+
+.friend_signal_lists .plus{
+	float: left;
+	margin-left: 15px;
+	font-size: 24px;
+	font-weight: 700;
+	color: #aa6803;
+}
+
+.friend_signal_lists .reward_price{
+	width: 93px;
+	height: 36px;
+	line-height: 36px;
+	background: #ff7d00;
+	text-align: center;
+	float: left;
+	font-size: 15px;
+	color: #ffffff;
+}
+
+.friend_signal .total{
+	padding: 168px 85px 0 0;
+	float: right;
+	font-size: 12px;
+	color: #ffff00;
+}
+
+.total p{
+	line-height: 20px;
+}
+
+.lh30{
+	line-height: 30px;
+}
+
+.f20{
+	font-size: 20px;
+}
+
+.f24{
+	font-size: 24px;
+}
+
+.f35{
+	font-size: 35px;
+}
+
+.f42{
+	font-size: 42px;
+}
+
+.pr6{
+	padding-right: 6px;
+}
+
+.c_ffff00{
+	color: #ffff00;
+}
+
+.left_piao{
+	display: none;
+}
+
+
+.goto_topcommi{
+	left: 16px;
+    position: fixed;
+    top: 178px;
+}
+
+.float_left{
+	float: left;
+}
+
+.sy_dt{
+	background: none repeat scroll 0 0 rgb(240, 93, 78);
+    border-bottom: 0 solid #d8d8d8;
+    color: #3c3d45;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    border-top: 2px solid #eb5546;
+    font-family: "微软雅黑";
+    padding-right: 6px;
+    width: 198px;
+}
+
+.top_ranking{
+	background: none repeat scroll 0 0 #ffffff;
+    border-bottom: 1px dashed #e4e4e4;
+    height: 37px;
+    padding: 6px;
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+}
+
+.top_ranking .src_left{
+	margin-right: 14px;
+    width: 75px;
+    float: left;
+    height: 40px;
+}
+
+.top_ranking .ranking_icon{
+	float: left;
+}
+
+.top_ranking .ranking_pic{
+	float: left;
+    margin-left: 14px;
+}
+
+.top_ranking .src_right{
+	width: 95px;
+	color: #8b8b8b;
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.src_right .cm-hall-rk{
+	color: rgb(68, 68, 68);
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 95px;
+}
+
+.sy_dt strong{
+	color: #fff;
+    margin-left: 65px;
+}
+
+.forkyh{
+	color: #ffffff;
+    font-size: 14px;
+    height: 12px;
+    position: absolute;
+    right: -1px;
+    top: -11px;
+    width: 12px;
+}
+
+.forkyh:hover{
+	color: #ffffff;
+}
+
+.goto_topprice{
+	position: fixed;
+	top: 178px;
+	right: 16px;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".friend_signal_lists li:last .plus").text("=");
+	});
+</script>
+</head>
+<body class="xsqg_act">
+
+{include template('toper_2','common')}
+<!--banner和搜索-->
+{include template('header_2','common')}
+
+<div class="sec_main">
+<div>
+
+<div class="banner-w1920" style="height:281px;">
+    <div class="banner-inner">
+        <img src="{THEME_STYLE_PATH}style/images/toubu_h281.jpg"></div>
+    </div>    
+    <div class="w950">
+        {if !is_login()}
+        <div class="yaoq_h358">
+        	<div class="friend_signal">
+        		<div class="friend_signal_lists">
+	        		<ul>
+	        			<li>
+	        				<p class="friend_signal_avatar"></p>
+	        				<p class="friend_signal_text">好友手机认证</p>
+	        				<p class="arrow_bt"></p>
+	        				<p class="reward_text">奖励</p>
+	        				<div>
+	        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</p>
+	        					<p class="plus">+</p>
+	        				</div>
+	        			</li>
+	        			<?php $money = 0;$point=0;?>
+	        			{loop $setting $s}
+	        			<?php 
+	        			if($s[type] == 'money'){
+							$money = $money + $s['cost'];
+						}else{
+							$point = $point + $s['cost'];
+						}
+	        			?>
+	        			<li>
+	        				<p class="friend_signal_avatar"></p>
+	        				<p class="friend_signal_text">累积完成{$s[num]}单</p>
+	        				<p class="arrow_bt"></p>
+	        				<p class="reward_text">奖励</p>
+	        				<div>
+	        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}元&nbsp;&nbsp;现金{else}积分{/if}</p>
+	        					<p class="plus">+</p>
+	        				</div>
+	        			</li>
+	        			{/loop}
+	        		</ul>
+        		</div>
+        		<div class="total">
+        			<ul>
+        			{if $money != 0 && $point == 0}
+        				<li>
+        					<span class="f24">￥</span>
+        					<span class="f42">{$money}</span>
+        				</li>
+        			{elseif $point != 0 && $money == 0}	
+        				<li>
+        					<span class="f20 lh30 pr6">积分</span>
+        					<br />
+        					<span class="f35 lh30 pr6">{$point}</span>
+        				</li>
+        				{else}
+        				<li style="padding-top: 7px;">
+        					<p>
+        						<span class="c_ffff00">￥</span>
+        						<span class="c_ffff00 f24">{$money}</span>
+        					</p>
+        					<p>
+        						<span class="c_ffff00">积分</span>
+        						<span class="c_ffff00 f24">{$point}</span>
+        					</p>
+        				</li>
+        				{/if}
+        			</ul>
+        		</div>
+        		<div style="clear: both;"></div>
+        	</div>
+            <div class="yaoq_h358_d1">
+                {C('WEBNAME')}计划送出奖励<b>500</b>万现金做为邀请奖励，快去邀请你的好友吧。
+                <!--未登录 start-->
+                <p class="yaoq_h358_ddl_1">
+                    <a href="javascript:void(0);" onclick="member.login();">
+                        <img src="{THEME_STYLE_PATH}style/images/denglu_1.jpg" height="54" width="198" />
+                    </a>
+                </p>
+            <!--未登录 end-->
+            </div>
+        </div>
+        {else}
+           <div class="yaoq_h358">
+				<div class="friend_signal">
+	        		<div class="friend_signal_lists">
+		        		<ul>
+		        			<li>
+		        				<p class="friend_signal_avatar"></p>
+		        				<p class="friend_signal_text">好友手机认证</p>
+		        				<p class="arrow_bt"></p>
+		        				<p class="reward_text">奖励</p>
+		        				<div>
+		        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</p>
+		        					<p class="plus">+</p>
+		        				</div>
+		        			</li>
+		        			<?php $money = 0;$point=0;?>
+							{loop $setting $s}
+							<?php 
+							if($s[type] == 'money'){
+								$money = $money + $s['cost'];
+							}else{
+								$point = $point + $s['cost'];
+							}
+							?>
+		        			<li>
+		        				<p class="friend_signal_avatar"></p>
+		        				<p class="friend_signal_text">累积完成{$s[num]}单</p>
+		        				<p class="arrow_bt"></p>
+		        				<p class="reward_text">奖励</p>
+		        				<div>
+		        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}元&nbsp;&nbsp;现金{else}积分{/if}</p>
+		        					<p class="plus">+</p>
+		        				</div>
+		        			</li>
+		        			{/loop}
+		        		</ul>
+	        		</div>
+	        		<div class="total">
+	        			<ul>
+	        				{if $money != 0 && $point == 0}
+        				<li>
+        					<span class="f24">￥</span>
+        					<span class="f42">{$money}</span>
+        				</li>
+						{elseif $point != 0 && $money == 0}	
+        				<li>
+        					<span class="f20 lh30 pr6">积分</span>
+        					<br />
+        					<span class="f35 lh30 pr6">{$point}</span>
+        				</li>
+        				{else}
+        				<li style="padding-top: 7px;">
+        					<p>
+        						<span class="c_ffff00">￥</span>
+        						<span class="c_ffff00 f24">{$money}</span>
+        					</p>
+        					<p>
+        						<span class="c_ffff00">积分</span>
+        						<span class="c_ffff00 f24">{$point}</span>
+        					</p>
+        				</li>
+        				{/if}
+
+	        			</ul>
+	        		</div>
+	        		<div style="clear: both;"></div>
+	        	</div>
+                <div class="yaoq_h358_d1">
+				    {C('WEBNAME')}计划送出奖励<b>500</b>万现金做为邀请奖励，快去邀请你的好友吧。
+				</div>
+			</div>
+            <div class="yaoq_h218">
+	        	<div class="yaoq_h218_d1">通过专属链接邀请朋友，复制以下链接通过QQ，旺旺，微博，论坛发帖等方式发送给好友</div>
+	            <div class="yaoq_h218_d2">
+					<textarea id="fe_text" class="yaoq_textarea">哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&gt;&gt;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?></textarea>    
+					<button id="d_clip_button" class="yaoq_h218_a" data-clipboard-target="fe_text"><b>复制到剪贴板</b></button>
+					<script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#d_clip_button").zclip({
+                                 path:"{THEME_STYLE_PATH}style/js/ZeroClipboard.swf",
+                                 copy:function(){
+                                 	art.dialog({
+										lock: true,
+										fixed: true,
+										icon: 'face-smile',
+										title: '提示',
+										content: '复制成功',
+										ok: true
+									});
+                                 	return $("#fe_text").val();
+                                 }
+                            });
+                        });
+					</script>
+	            </div>
+	            <div>
+	                <div class="yaoq_h78_d1">
+	                    温馨提示：据{C('WEBNAME')}统计，QQ空间最容易邀请到好友，所以一定记得把您的专用邀请链接发到QQ空间里哦~
+	                </div>
+	                <div id="bdshare" style="width:124px; height:73px;position:relative;margin-left:20px;" class="bdshare_t bds_tools get-codes-bdshare" data="{&#39;text&#39;:&#39;&gt;&gt;{C('WEBNAME')}，帮你发现最多的优惠&#39;,&#39;comment&#39;:&#39;哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&#39;,&#39;url&#39;:&#39;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>&#39;, &#39;pic&#39;:&#39;&#39;,&#39;desc&#39;:&#39;{C('WEBNAME')}-免费试用-购物真的可以不花钱&#39;}"> 
+                    	<a class="bds_qzone yaoq_h78_a" id="sns_qzone" title="分享到QQ空间" style="width:94px; height:35px; position:absolute; z-index:500; right:0px; bottom:14px; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;" href="javascript:void(0);"></a>
+                    </div>
+                                        
+	                <div id="bdshare" style="width:124px; height:73px;position:relative;margin-left:20px;" class="bdshare_t bds_tools get-codes-bdshare" data="{&#39;text&#39;:&#39;哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&#39;,&#39;url&#39;:&#39;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>&#39;, &#39;pic&#39;:&#39;&#39;}"> 
+                    	<a class="bds_tsina yaoq_h78_a" id="sns_sina" title="分享到新浪微博" style="width:94px; height:35px; position:absolute; z-index:500; right:0px; bottom:14px; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;" href="javascript:void(0);"></a>
+                    </div>
+	                
+	                <div id="bdshare" style="width:124px; height:73px;position:relative;margin-left:25px;" class="bdshare_t bds_tools get-codes-bdshare" data="{&#39;text&#39;:&#39;哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&#39;,&#39;url&#39;:&#39;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>&#39;, &#39;pic&#39;:&#39; &#39;}"> 
+                    	<a class="bds_tqq yaoq_h78_a" id="sns_sina" title="分享到腾讯微博" style="width:94px; height:35px; position:absolute; z-index:500; right:0px; bottom:14px; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;" href="javascript:void(0);"></a>
+                    </div>
+	                    
+	                
+	               	<div id="bdshare" style="width:124px; height:73px;position:relative;" class="bdshare_t bds_tools get-codes-bdshare" data="{&#39;text&#39;:&#39;哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&#39;,&#39;url&#39;:&#39;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>&#39;, &#39;pic&#39;:&#39; &#39;}"> 
+                    	<a class="bds_renren yaoq_h78_a" id="sns_sina" title="分享到人人网" style="width:94px; height:35px; position:absolute; z-index:500; right:0px; bottom:14px; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;" href="javascript:void(0);"></a>
+                    </div>
+	                     
+	                  
+	                
+	                <div id="bdshare" style="width:124px; height:73px;position:relative;margin-left:20px;" class="bdshare_t bds_tools get-codes-bdshare" data="{&#39;text&#39;:&#39;哈，发现一个免费试用商品的网站，还能赚红包，我已经申请了好多东西，真的很不错哦。快去看看吧！&#39;,&#39;url&#39;:&#39;<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>&#39;, &#39;pic&#39;:&#39; &#39;}"> 
+                    	<a class="bds_douban yaoq_h78_a" id="sns_sina" title="分享到豆瓣" style="width:94px; height:35px; position:absolute; z-index:500; right:0px; bottom:14px; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;" href="javascript:void(0);"></a>
+                    </div>
+	                
+	                <script data="type=tools&amp;uid=2278263" id="bdshare_js" type="text/javascript" src="{THEME_STYLE_PATH}style/js/bds_s_v2.js"></script>
+	                
+	                <script type="text/javascript">
+						document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+					</script>           
+	            </div>
+	        </div>
+            <div id="inviteTable" style="margin-top:10px;">
+	        	<p class="yaoq_p">
+					<span class="yaoq_p_span">邀请好友记录</span>
+					<span class="yaoq_right">
+						您总共成功邀请 <span class="yaoq_color">{$count}</span> 位好友,
+						当前已获得 <span class="yaoq_color">{$money_count}</span> 元 及 <span class="yaoq_color">{$inter_count}</span> 个积分,
+						加油哦！
+					</span>
+				</p>
+	        	<script language="javascript">
+				$(function(){// dom元素加载完毕
+					$('#invite_table tbody tr:even').css("backgroundColor","whiteSmoke");
+				})
+				</script>
+
+
+				<table id="invite_table" border="0" cellspacing="0" cellpadding="0" class="yaoq_table">
+	        	<tbody>
+                	<tr style="background-color: rgb(245, 245, 245);">
+                    	<th>被邀请用户</th>
+                        <th>手机认证</th>
+                        {loop $setting $s}
+                        <th>累积完成{$s[num]}单</th>
+                        {/loop}
+                        
+                        <th class="yaoq_table_th336">注册时间</th>
+                    </tr>
+                    {loop $agent $v}
+					<tr class="yaoq_table_td1">			
+					    <td class="yaoq_td1_user">{if $v[nickname]}{$v[nickname]}{else}{$v[email]}{/if}</td>
+					    <td class="yaoq_td1_user">{if $v[phone_status]}<font color="green">已认证 + {$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</font>{else}未认证{/if}</td>
+                        {loop $setting $s}
+                        <td class="yaoq_td1_user">{if $v[order_count]>= $s[num]}<font color="green">获得{$s[cost]}元</font>{else}<font color="#DADADA">待获得{$s[cost]}元</font>{/if}</td>
+                        {/loop}
+					    <td class="yaoq_td1_user"><?php echo date('Y-m-d H:i:s',$v['regdate']);?></td>
+					</tr>
+                    {/loop}				  
+                 </tbody>
+                </table>
+	        </div>
+			
+			<div class="mod_pager" style="padding-top:0px;">
+				<div class="page-lists top3" id="pages">{$pages}</div>
+			</div>
+        {/if}        
+
+            
+    <p class="yaoq_p2">邀请规则</p>
+        <?php echo stripslashes(htmlspecialchars_decode($friend_setting['info']['friend_detail_desc'])); ?>
+    </div>
+</div>
+<!-- 积分排行列表 start -->
+<div id="left_float" class="float_left goto_topcommi" style="z-index: 999;">
+     <div class="sy_dt"style="position: relative;">
+         <strong style="font-family: 微软雅黑">积分排行榜</strong>
+          <a href="javascript:" class="forkyh" onclick="  $('.goto_topcommi').hide();">ｘ</a>
+     </div>
+     <!--sy_dt-->
+     <div class="">
+         <ul>
+         {loop $point_list $p}
+         	<li class="top_ranking" style="">
+         		<div class="src_left">
+         			<div class="ranking_icon">
+         				{if $n > 5}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_06_10.jpg" height="18" width="18" />
+         				{elseif $n == 1}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_0{$n}.jpg" height="30" width="20"  />
+         				{else}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_0{$n}.jpg" height="20" width="20"  />
+         				{/if}
+         			</div>
+         			<div class="ranking_pic">
+         				<img src="{$p[avatar]}" height="40" width="40" alt="1" />
+         			</div>
+         		</div>
+         		<!--src_left-->
+         		<div class="src_right">
+         			<p class="cm-hall-rk">{$p[nickname]}</p>
+         			<p>
+						<span style="color: rgb(139, 139, 139);">已获</span>
+						<span style="color: rgb(231, 76, 60); font-weight: bold;" class="point">{floor($p[num])}</span>
+						<span style="color: rgb(139, 139, 139);">积分</span>
+					</p>
+         		</div>
+         	</li>
+         	{/loop}
+         </ul>
+     </div>
+     <!--scrolltop-->
+ </div>
+<!-- 积分排行列表 end -->
+
+<!-- 佣金排行列表 start -->
+<div id="left_float" class="float_left goto_topprice" style="z-index: 999;">
+     <div class="sy_dt"style="position: relative;">
+         <strong style="font-family: 微软雅黑">佣金达人榜</strong>
+          <a href="javascript:" class="forkyh" onclick="  $('.goto_topprice').hide();">ｘ</a>
+     </div>
+     <!--sy_dt-->
+     <div class="">
+         <ul>
+         	{loop $friend_list $f}
+         	<li class="top_ranking" style="">
+         		<div class="src_left">
+         			<div class="ranking_icon">
+         				{if $n > 5}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_06_10.jpg" height="18" width="18" />
+         				{elseif $n == 1}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_0{$n}.jpg" height="30" width="20"  />
+         				{else}
+         				<img src="{THEME_STYLE_PATH}style/images/ranking_0{$n}.jpg" height="20" width="20"  />
+         				{/if}
+         			</div>
+         			<div class="ranking_pic">
+         				<img src="{$f[avatar]}" height="40" width="40" alt="1" />
+         			</div>
+         		</div>
+         		<!--src_left-->
+         		<div class="src_right">
+         			<p class="cm-hall-rk">{$f[nickname]}</p>
+         			<p>
+						<span style="color: rgb(139, 139, 139);">已赚</span>
+						<span style="color: rgb(231, 76, 60); font-weight: bold;">{$f[num]}</span>
+						<span style="color: rgb(139, 139, 139);">元</span>
+					</p>
+         		</div>
+         	</li>
+         	{/loop}
+         </ul>
+     </div>
+     <!--scrolltop-->
+ </div>
+<!-- 佣金排行列表 end -->
+{include template('footer_2','common')}

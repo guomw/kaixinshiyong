@@ -1,0 +1,43 @@
+em { font-style:normal; }
+.order_search { margin:20px 0 30px 0; height:30px; line-height:30px; }
+.order_search select { height:30px; line-height:30px; float:left; }
+.order_search select option { height:30px; line-height:30px; }
+.order_search .btn { display:block; float:left; width:61px; height:28px; border-radius:3px; background:#e2f9ff; border:solid 1px #77b7f7; text-align:center; color:#77b7f7; margin:0 10px; }
+
+/*.table_list { padding-bottom:30px; height:auto; float:left; width:100%; border-top:solid 1px #efefef; border-bottom:solid 1px #efefef; }
+
+.t_w_1 { width:222px; }
+.t_w_2 { width:135px; }
+.t_w_3 { width:150px; }
+.t_w_4 { width:192px; }
+.t_w_5 { width:75px; }
+
+.table tr { text-align:left; border-bottom:solid 1px #efefef; float:left; height:40px; line-height:40px; }
+.t_w_1 input[type=checkbox] { float:left; margin:12px 5px 0 5px; }
+
+*/
+.table { border-style:solid;border-color:#ddd; width:100%; float:left; border-collapse: collapse;  }
+.table .title { margin-top:1px; background:#efefef; }
+.table a { color:#77b7f7; }
+.table th{font-weight:400;}
+.table tr { border-color:#ddd;width:100%; height:40px; line-height:40px; }
+.table td{text-align:center;border-color:#ddd;}
+.set_odd_tr_bg{
+	background: #f4f4f4;
+}
+
+.pages { margin-left:200px; }
+.pages font { line-height:30px; margin-left:5px; color:#999; }
+.all_check { margin:10px 0; height:auto; width:100%; float:left; }
+.all_check input { float:left; margin:0 5px; padding:0 5px; color:#666; }
+.all_check input[class = che]{ margin-top:2px; }
+.table span{ display: block; }
+.table tbody tr{ border: 1px solid #dddddd; }
+.table tbody tr td{ border-right: 1px solid #dddddd;}
+/* table 内img添加 */
+td .icon{
+	height:30px;
+	width:30px;
+	padding:0 5px;
+	vertical-align:middle;
+}

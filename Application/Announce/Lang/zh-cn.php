@@ -1,0 +1,52 @@
+<?php
+
+/*Language Format:
+Add a new file(.lang.php) with your module name at /phpcms/languages/
+translation save at the array:$LANG
+*/
+return array(
+		'announce'						=>	'公告',
+		'announce_manage'				=>	'公告管理',
+		'announce_list'					=>	'公告列表',
+		'announce_add'					=>	'添加公告',
+		'announce_title'					=>	'公告标题：',
+		'title_cannot_empty'				=>	'公告标题不能为空',
+		'announcements_cannot_be_empty'	=>	'公告内容不能为空',
+		'announcement_successful_added'	=>	'公告添加成功',
+		'announced_a'					=>	'公告修改成功',
+		'announce_passed'				=>	'公告批量通过完成！',
+		'announce_deleted'				=>	'公告批量删除完成！',
+		'startdate'						=>	'起始日期',
+		'enddate'						=>	'截止日期',
+		'announce_content'				=>	'公告内容：',
+		'announce_status'				=>	'公告状态：',
+		'edit_announce'					=>	'编辑公告',
+		'inputer'						=>	'录入者',
+		'check_annonuce'					=>	'审核公告',
+		'preview'						=>	'前台预览',
+		'index'							=>	'前台',
+		'cancel_all_selected'			=>	'取消批准选定的公告',
+		'pass_all_selected'				=>	'通过选定的公告',
+		'remove_all_selected'			=>	'删除选定的公告',
+		'overdue_announce'				=>	'过期公告',
+		'no_pass_announce'				=>	'未审核公告',
+		'no_exists'						=>	'此公告不存在或已删除！',
+		'affirm_delete'					=>	'您确定要删除吗？',
+		'input_announce_title'			=>	'请输入公告标题!',
+		'title_min_3_chars'				=>	'公告标题至少3个汉字以上',
+		'right'							=>	'输入正确!',
+		'server_no_data'					=>	'服务器没有返回数据，可能服务器忙，请重试',
+		'announce_exist'					=>	'该公告已存在',
+		'checking'						=>	'正进行合法性校验...',
+		'select_stardate'				=>	'请选择开始时间!',
+		'right_all'						=>	'正确！',
+		'select_downdate'				=>	'请选择下线时间!',
+		'select_style'					=>	'请选择风格!',
+		'available_style'				=>	'可用风格',
+		'lists'							=>	'列表',
+		'sitename'						=>	'站点',
+		'pass'                        =>'通过',
+		'unpass'                       =>'未审核',
+		'announce_type'          =>'公告类型',
+);
+?>

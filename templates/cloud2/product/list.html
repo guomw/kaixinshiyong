@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/list_try.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+		<style type="text/css">
+			.sbment { height:36px; border-bottom:solid 1px #ddd; line-height:36px; }
+			.sbment span { color:#999; float:left; text-align:right; width:78px; height:100%; padding:0 12px; }
+			.sbment li { float:left; margin:0 12px; }
+			.sbment li a { color:#999; }
+			.sbment li .a_click { color:#ff6600; }
+		</style>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+	{include template('toper','common')}
+		<!-- logo和搜索部分 -->
+		{include template('header','common')} 
+		<div class="wrap">
+			<ul class="subnav">
+				<li  class="li_click"><a href="javascript:;" class="subnav_click_style a_click"  data-catid="0">所有宝贝</a></li>
+				<!-- <li><a href="#">时尚女装</a></li> -->
+					{pc:product action="category" catid="0" num="8"}
+					{loop $data $r}
+					<li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+					{/loop}
+					{/pc}
+			</ul>
+			<script type="text/javascript">
+				$('.wrap .subnav li a').click(function(){
+					$('.wrap .subnav li a').removeClass('subnav_click_style'); 
+					$(this).addClass('subnav_click_style');
+					
+					$(".sbment").hide();
+					 $(".sbment#cat_" + $(this).attr('data-catid')).show();                        
+                     $(this).addClass('a_click');
+                     $(this).parent().addClass('li_click');
+                     getContent();
+				});
+			</script>
+			{pc:product action="category" catid="0" num="8"}
+			{loop $data $r}
+			{php $catid = $r['catid'];}
+			<ul class="sbment" id="cat_{$catid}" style="display:none;">
+				<li><a href="javascript:;" class="a_click">全部</a></li>					
+				{pc:product action="category" catid="$catid" num="15"}
+				{loop $data $r}
+				<li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+				{/loop}
+				{/pc}
+			</ul>
+			{/loop}
+			{/pc}
+			<script type="text/javascript">
+				$('.sbment li a').click(function(){
+                       $('.sbment li a').removeClass('a_click');
+                       $(this).addClass('a_click');
+                       getContent();
+                   });
+			</script>
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<div class="wrap_left">
+					<div class="sub_select">
+						<ul class="sub_left">
+							<li><a href="javascript:;" class="a_click_style_1">最新上线</a></li>
+							<li><a href="javascript:;">即将上线</a></li>
+						</ul>
+						<script type="text/javascript">
+							$('.sub_select .sub_left li a').click(function(){$('.sub_select .sub_left li a').removeClass('a_click_style_1'); $(this).addClass('a_click_style_1');});
+						</script>
+						<ul class="sub_right">
+							<li><a href="javascript:;" class="a_click_style_2">时间</a></li>
+							<li><a href="javascript:;">价值</a></li>
+							<li><a href="javascript:;">人气</a></li>
+							<li><a href="javascript:;">份数</a></li>
+							<li><a href="javascript:;">剩余份数</a></li>
+							<span><a href="javascript:;">包邮</a></span>
+						</ul>
+						<script type="text/javascript">
+							$('.sub_select .sub_right li a').click(function(){$('.sub_select .sub_right li a').removeClass('a_click_style_2'); $(this).addClass('a_click_style_2');});
+							$(function(){
+								$('.left_list_content .list_box').each(function(i,n){ if((i+1)%3 == 0){$(this).css('margin-right','0'); }});
+								$('.try_over .list_box').each(function(i,n){ if((i+1)%4 == 0){$(this).css('margin-right','0'); }});
+								$('.wrap_right .list_box:last').removeClass('b_b_s_dddddd');
+								$('.wrap_right .list_box:last').removeClass('b_b_s_dddddd');
+							});
+						</script>
+					</div>
+					<div class="left_list_content">
+						<?php $_where = "`mod` = '$mod'";?>
+						{pc:product action="lists" catid="$catid" num="12" thumb="1" where="$_where" page="$page"}
+						{loop $data $r}
+						<ul class="list_box border_solid_dddddd">
+							<li><a href="{$r[url]}" target="_blank"><img class="small_img" src="{$r[thumb]}" alt="{$r[title]}" /></a></li>
+							<li class="shop_name"><a href="{$r[url]}" target="_blank">{str_cut($r[title],57)}</a></li>
+							<li class="shop_sum">试用价：
+								<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>36.8</font>
+								<font class="color_999999"> 剩余 <i class="color_30bbfe">23</i> 份</font>
+								<a href="{$r[url]}" class="btn_style">{if $r[mod] == "rebate"}我要抢购{/if}{if $r[mod] == "trial"}免费试用{/if}</a>
+							</li>
+						</ul>
+						{/loop}
+						{/pc}
+					</div>					
+				</div>
+				<div class="wrap_right border_solid_dddddd">
+					<h5 class="title">试用推广<a href="#">更多 ></a></h5>
+					<ul class="list_box b_b_s_dddddd margin_0">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>36.8</font>
+							<font class="color_999999"> 剩余 <i class="color_30bbfe">18</i> 份</font>
+							<a href="#" class="btn_style">免费试用</a>
+						</li>
+					</ul>
+					<ul class="list_box b_b_s_dddddd margin_0">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>36.8</font>
+							<font class="color_999999"> 剩余 <i class="color_30bbfe">18</i> 份</font>
+							<a href="#" class="btn_style">免费试用</a>
+						</li>
+					</ul>
+					<ul class="list_box b_b_s_dddddd  margin_0">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>36.8</font>
+							<font class="color_999999"> 剩余 <i class="color_30bbfe">18</i> 份</font>
+							<a href="#" class="btn_style">免费试用</a>
+						</li>
+					</ul>
+				</div>
+				<!-- 翻页 -->
+				<div class="list_box_wrap" id="goods_lists">loading...</div>
+				<p class="pages wiHe3 floatLeft" id="pages"></p>
+				<!-- <p class="pages wiHe3 floatLeft" >{$pages}</p> -->
+				<div class="try_over">
+					<h6 class="title">试用结束</h6>
+					<ul class="list_box border_solid_dddddd">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>36.8</font><font class="color_999999 text_style_1">18.00</font><span class="over_hint">已结束</span></li>
+					</ul>
+					<ul class="list_box border_solid_dddddd">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>36.8</font><font class="color_999999 text_style_1">18.00</font><span class="over_hint">已结束</span></li>
+					</ul>
+					<ul class="list_box border_solid_dddddd">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>36.8</font><font class="color_999999 text_style_1">18.00</font><span class="over_hint">已结束</span></li>
+					</ul>
+					<ul class="list_box border_solid_dddddd">
+						<li><a href="#"><img class="small_img" src="{THEME_STYLE_PATH}style/images/ceshi_one.jpg" alt="" /></a></li>
+						<li class="shop_name"><a href="#">秋冬新款羊绒女士保暖披风</a></li>
+						<li class="shop_sum">试用价：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>36.8</font><font class="color_999999 text_style_1">18.00</font><span class="over_hint">已结束</span></li>
+					</ul>					
+				</div>
+			</div>	
+		</div>
+		{include template('footer','common')}
+		<script type="text/javascript">
+		getContent(1);
+		function getContent(page) {
+		    var page = page || 1;
+		    var sort = $(".sort_right a[class~='a_color']");    
+		    var param = {
+		      catid : $("a[data-catid][class='a_click']:last").attr('data-catid'),
+		      mod   : "<?php echo $mod;?>",
+		      orderby   :sort.attr('data-orderby'),
+		      orderway : sort.attr('data-orderway'),
+		      page:page
+		    };
+		    $.getJSON('index.php?m=product&c=api&a=getlists', param, function(ret) {
+		       var _html = '';
+		       if(ret.status == 1) {
+		           $.each(ret.data.lists, function(i, n) {
+		               var _ul_margin = ((i + 1) % 4 == 0) ? 'style="margin-right:0;"' : '';
+		               var _ul_border = 0;
+		               if(n.mod == 'rebate') {
+		                   _ul_border = 2;
+		               } else if(n.mod == 'trial') {
+		                   _ul_border = 1;
+		               } else {
+		                   _ul_border = 3;
+		               }
+		               _html += '<ul class="list_box border_solid_dddddd" '+ _ul_margin +'>';
+		               _html += '<font class="sort_name sort_name_bg_0'+ _ul_border +'">'+ n.mod_name +'</font>';
+		               _html += '<li><a href="'+ n.url +'" target="_blank"><img class="small_img" src="'+ n.thumb +'" alt="'+ n.title +'"></a></li>';
+		               _html += '<li class="shop_name"><a href="'+ n.url +'" target="_blank"><img src="'+ n.img_source +'"/>'+ n.title +'</a></li>';
+		               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>'+ n.mod_price +'</font><font class="color_999999 text_style_1">'+n.goods_price+'</font>';
+		               _html += '</ul>';
+		           });
+		           $("#goods_lists").html(_html);
+		           $("#pages").html(ret.data.pages);
+		       } else {
+		           $("#goods_lists").html('');
+		           $("#pages").html('');
+		           return false;
+		       }
+		    });
+		}
+		
+		$('#pages a').live('click', function() {
+		    var urlstr = $(this).attr('href').toString();
+		    var page = $.urlParam('page', urlstr);
+		    if(page != false) {
+		    	getContent(page);
+		    }
+		    return false;
+		})
+		
+		$.urlParam = function(name, url){
+		    var url = url || window.location.href;
+		    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+		    if(!results) return false;
+		    return results[1] || 0;
+		}
+</script>

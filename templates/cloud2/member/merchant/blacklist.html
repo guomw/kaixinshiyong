@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商家中心-黑名单管理-{C('WEBNAME')}</title>
+<meta name="Keywords" content="{$SEO['keyword']}" />
+<meta name="Description" content="{$SEO['description']}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_bindtaobao.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/taobao.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("merchant_left","member/common")}
+			<div class="content_right float_right">
+				<h1>黑名单信息</h1>
+				<div class="content_right_main">
+					
+					<!-- 绑定列表 start -->
+			<div class="bind_taobao_lists">
+				<dl>
+					<dd>
+						<table>
+							<tr>
+								<th style="width: 155px;">id</th>
+								<th style="width: 146px;">黑名单用户</th>
+								<th style="width: 127px;">移入时间</th>
+								<th style="width: 135px;">状态</th>
+								<th style="border: none;">操作</th>
+							</tr>
+							{loop $blacklist $info}
+								<tr>
+									<td>{$info['id']}</td>
+									<td>{nickname($info['buyer_id'])}</td>
+									<td>{dgmdate($info['posttime'])}</td>
+									<td>{if $info['status']== 0}<span style="color:red;">【黑名单】</span>{/if}</td>
+									<td style="border: none;">
+										
+										<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Order/unbind_blacklist')}" id="unbind">解除黑名单</a>
+
+									</td>
+								</tr>
+							{/if}
+						</table>
+					</dd>
+				</dl>
+			</div>
+			<!-- 绑定列表 end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template('footer','common')}
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+	//解绑
+ $("#unbind").click(function(){
+	var id = parseInt($(this).attr('data-id'));
+	$.post("{U('Member/Order/unbind_blacklist')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '解除成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+
+ });
+
+
+
+
+</script>

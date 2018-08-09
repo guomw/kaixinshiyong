@@ -1,0 +1,87 @@
+/* 弹窗提示css */
+.CPM_style_2 {
+	width: 590px;
+}
+.CPM_style {
+	padding-bottom: 20px;
+	border: solid 1px #ddd;
+	background: #fff;
+	float: left;
+	height: auto;
+	position: fixed;
+	font-size: 12px;
+}
+.issue {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+}
+.issue a {
+	margin-right: 10px;
+	color: #2bc4fe;
+	text-decoration: none;
+	hide-focus: expression(this.hideFocus=true);
+	outline: none;
+}
+.CPM_style .font_2 {
+	font-size: 14px;
+	font-weight: 700;
+	font-family: "微软雅黑";
+	color: #ff6600;
+}
+.CPM_style .font {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+	font-size: 14px;
+	margin: 0 auto;
+	line-height: 36px;
+	height: 36px;
+}
+.f_bg_yes {
+	background: url(../images/verify_btn1.png) no-repeat 0 center;
+}
+.set_iss {
+	margin-left: 135px;
+	margin-bottom: 20px;
+}
+.set_iss li {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	margin: 5px 0;
+}
+em, i {
+	font-style: normal;
+}
+.iss_hint {
+	text-align: center;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+.iss_hint a {
+	color: #2bc4fe;
+}
+.set_iss li input {
+	height: 18px;
+	line-height: 18px;
+	width: 170px;
+}
+.set_iss li img {
+	width: 30px;
+	margin-top: -5px;
+}
+.CPM_style .hint_text_2 {
+margin-left: 50px;
+margin-bottom: 20px;
+}
+.CPM_style .hint_text_2 li em {
+color: #ff6600;
+}
+.CPM_style .hint_text_2 li {
+height: 20px;
+line-height: 20px;
+}

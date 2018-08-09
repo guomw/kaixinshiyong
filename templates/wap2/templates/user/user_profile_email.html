@@ -1,0 +1,44 @@
+<ion-view view-title="我的邮箱">
+  <ion-content class="padding-top" style="background-color:#F8F8F8">
+    <ion-list >
+      <ion-item class="item item-icon-left item-icon-right " > <i style="font-size:18px;color:#73bbee" class="icon ion-iphone"></i>
+        邮箱: <i class="item-note">{{user_old_email}} (
+          <span ng-bind-html = "user_email_state |user_email_state"></span>
+          )</i> 
+      </ion-item>
+
+      <form name="myform" novalidate="false">
+
+        <div class="list list-inset new-form">
+        <ion-item class="item item-divider" ng-if=" user_email_state == 1 ">
+        <h2>修改邮箱</h2>
+        </ion-item>
+          <label class="item item-input" >
+            <i style="font-size:18px;color:#aaaaea" class="icon ion-android-mail placeholder-icon" ></i>
+            <input type="text" ng-pattern="/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/" ng-model="user_email" name="user_email" placeholder="请输入您需要认证或者修改的邮箱"  required></label>
+
+          <label class="item item-input" >
+            <i style="font-size:18px;color:#aaaaea" class="icon ion-unlocked placeholder-icon" ></i>
+            <input type="number" ng-model="user_sms" name="user_sms" placeholder="请输入您邮箱验证码" ng-maxlength="6" ng-minlength="6" required>
+
+            <label  >
+              <span class="input-label">
+                <button  name="user_getsms" ng-disabled="myform.user_email.$invalid" class="button button-positive button-small " ng-click="get_emailsms(user_email)">获取验证码</button>
+              </span>
+            </label>
+          </label>
+
+        </div>
+        <p style="color:#A9A9A9" class="padding-left">1.如果未在邮箱收件箱收到，请到垃圾箱查看！</p>
+        <p style="color:#A9A9A9" class="padding-left">2.修改完成，请用新邮箱登录平台。</p>
+        <div class="padding-left padding-right" >
+          <button ng-disabled="myform.$invalid " class="button button-block button-assertive" 
+           ng-click="edit_email(user_email,user_sms)">提交</button>
+        </div>
+
+      </form>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

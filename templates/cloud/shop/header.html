@@ -1,0 +1,57 @@
+	<div class="header">
+		<!-- 顶部菜单 start -->
+		<div class="header_top">
+			<div class="top_box">
+				<div class="activity fl">
+					<ul>
+						<li class="fl"><span>|</span><a href="/rebate/">{C_READ('rebate_name','rebate')}</a><span>|</span></li>
+						<li class="fl"><a href="/postal/">{C_READ('POSTAL_NAME','postal')}</a><span>|</span></li>
+						<li class="fl"><a href="/trial/">{C_READ('TRIAL_NAME','trial')}</a><span>|</span></li>
+					<!-- 	<li class="fl"><a href="#">品牌折扣</a><span>|</span></li>
+						<li class="fl"><a href="#">专场活动</a><span>|</span></li> -->
+					</ul>
+				</div>
+				<div class="login fr">
+					<ul>
+
+						<li class="fl">
+							{if is_login() >0}
+							{php $userinfo = is_login()}
+							<span>您好，<a href="{U('member/profile/index')}">{$userinfo[nickname]}</a></span>
+							{else}
+							<span>您还未登录，请</span>
+							<a href="{U('member/index/login')}" style="color: #ffffff;">登录</a>
+							{/if}
+						</li>
+						<li class="fl"><a href="{if $userinfo[modelid] == 1}{U('member/order/manage',array('mod'=>'rebate'))}{else}{U('member/MerchantProduct/activity',array('mod'=>'rebate'))}{/if}">我的订单</a></li>
+						<li class="fl"><a href="{U('Member/Announce/announce',array('type'=>1))}">消息中心</a></li>
+						<li class="fl"><a href="{U('Member/EnterActivity/index')}">卖家报名</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 顶部菜单 end -->
+		<div style="clear: both;"></div>
+		<!-- 顶部导航 start -->
+		<div class="header_bottom">
+			<div class="bottom_box">
+				<div class="logo fl">
+					<span class="fl">
+						<a href="{__APP__}" title="返回{C('WEBNAME')}首页">
+							<img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" />
+						</a>
+					</span>
+					<span class="text fl">积分商城</span>
+				</div>
+				<div class="menu fr">
+					<ul>
+						<li class="fl"><a href="{U('shop/index/index')}" {if strtolower(MODULE_NAME) == 'shop' && ACTION_NAME == 'index'} class="active" {/if}>积分首页</a></li>
+						<!-- <li class="fl"><a href="javascript:;">积分抽奖</a></li> -->
+						<li class="fl"><a href="{U('task/index/index')}" {if strtolower(MODULE_NAME) == 'task' && ACTION_NAME == 'index'} class="active" {/if}>赚取积分</a></li>
+					</ul>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<!-- 顶部导航 end -->
+	</div>

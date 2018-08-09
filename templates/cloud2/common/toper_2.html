@@ -1,0 +1,72 @@
+<script type="text/javascript">
+{php $userinfo = is_login();}
+var site = {
+	"site_root" : '{__ROOT__}',
+	"js_path" : '{JS_PATH}',
+	"css_path" : '{CSS_PATH}',
+	"img_path" : '{IMG_PATH}',
+	"template_img" : '{THEME_STYLE_PATH}style/images',
+	"webname" : '{C("webname")}',
+	"order_url" : '{U("Order/DoOrder/manage")}',
+	"nickname" : '{nickname($userinfo["userid"])}',
+	"message":'{message_count($userinfo["userid"])}',
+	"user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+};
+var activity_set = <?php echo json_encode($activity_set); ?>;
+var good_buy_times = <?php echo json_encode($good_buy_times); ?>;
+var qq_ico = "{THEME_STYLE_PATH}style/images/qq_ico.png";
+var qq_url = "{U('Oauth/Index/login')}";
+$("#pages a").live('click',function(){
+  $(window).scrollTop(0);
+}); 
+</script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/member.js"></script>
+<div class="site-nav">
+    <div class="site-nav-bd">
+        <ul class="site-nav-bd-l">
+            <li class="menu">
+                <div id="uBar" class="menu-hd">
+					<span>
+						<a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}" target="_top" class="h">您好，请登录</a>
+					</span>
+					<span>
+						<a href="{U('Oauth/Index/login')}" class="nav-bottom"><img src="{THEME_STYLE_PATH}style/images/qq_denglu.jpg"></a>
+					</span>
+					<span>
+						<a href="{U('Member/Index/register_index')}">[注册]</a>
+					</span>
+					<span>
+						<a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}">[登录]</a>
+					</span>
+                </div>
+            </li>
+            <li class="menu weekend">
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">在线客服</a>
+			</li>
+        </ul>
+        <ul class="site-nav-bd-r">
+            <li class="menu home">
+                <div class="menu-hd">
+                    <a href="{U('Member/MemberFriend/index')}" style="color: red;">邀请好友得现金</a>
+                </div>
+            </li>
+            
+            <li class="menu home">
+                <div class="menu-hd">
+                    <a href="{__APP__}">返回首页</a>
+                </div>
+            </li>
+            <li class="menu home">
+                <div class="menu-hd">
+                    <a href="{U('Member/Profile/index')}">我的{C('WEBNAME')}</a>
+                </div>
+            </li>
+            <li class="menu home">
+                <div class="menu-hd">
+                    <a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>

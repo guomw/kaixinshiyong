@@ -1,0 +1,141 @@
+/*
+* @description：商家报名联系页
+* @author：熊锋
+* @update：2015/01/15 08:00
+*/
+
+#main{
+	width: 100%;
+	margin: 0;
+	padding-bottom: 40px;
+}
+/* 点我 */
+.point_me{
+	height: 234px;
+	background: #ebf5fb;
+}
+
+.point_me_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.point_me_box a{
+	width: 154px;
+	height: 154px;
+	margin: 40px 128px 0 0;
+	display: block;
+}
+
+.point_me_box span{
+	margin-top: 125px;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+	display: block;
+}
+
+.point_sellers{
+	background: url(../images/point_sellers.png) no-repeat;
+}
+
+.point_report{
+	background: url(../images/point_report.png) no-repeat;
+}
+
+.point_coo{
+	background: url(../images/point_coo.png) no-repeat;
+}
+
+.point_aft{
+	background: url(../images/point_aft.png) no-repeat;
+}
+
+.point_me_box .mr0{
+	margin-right: 0;
+}
+
+/* 合作方式 */
+#main_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.mt40{
+	margin-top: 40px;
+}
+
+.mb20{
+	margin-bottom: 20px;
+}
+
+.f22{
+	font-size: 22px;
+}
+
+.c3c3c3c{
+	color: #3c3c3c;
+}
+
+.coo dd{
+	padding: 40px 0 50px 40px;
+	background: #ebf5fe;
+}
+
+.coo ul{
+	width: 240px;
+}
+
+.coo_name{
+	width: 100px;
+	height: 30px;
+	line-height: 28px;
+	margin-bottom: 18px;
+	background: #4da5f4;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.f14{
+	font-size: 14px;
+}
+
+.mb5{
+	margin-bottom: 5px;
+}
+
+/* 联系方式 */
+.address{
+	padding: 25px 0 17px 30px;
+	background: #4aa4de;
+}
+
+.f20{
+	font-size: 20px;
+}
+
+.address p{
+	margin-bottom: 8px;
+	color: #ffffff;
+}
+
+.address span{
+	margin-left: 40px;
+	color: #ffffff;
+}
+
+.map{
+	width: 1000px;
+	height: 405px;
+}
+
+
+
+
+
+
+
+
+
+

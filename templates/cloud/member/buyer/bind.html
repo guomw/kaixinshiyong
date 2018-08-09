@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="Keywords" content="{$SEO['keyword']}" />
+<meta name="Description" content="{$SEO['description']}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_bindtaobao.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/taobao.js"></script>
+<script type="text/javascript" src="/static/js/jquery.shCircleLoader-min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("member_left","member/common")}
+			<div class="content_right float_right">
+				<h1>绑定淘宝账号</h1>
+				<div class="content_right_main">
+					<div class="main_content">
+						<div class="avatar">
+							<span class="avatar_avatar">
+								<img src="{THEME_STYLE_PATH}style/images/user_botton_icon.png" width="100" height="100" alt="" />
+							</span>
+							<span><img src="{THEME_STYLE_PATH}style/images/arrow.png" alt="" /></span>
+							<span><img src="{THEME_STYLE_PATH}style/images/taobao.png" alt="" /></span>
+						</div>
+						<div class="input">
+							<dl>
+								<dt><span>淘宝账号：</span>请填写您需要认证的淘宝账号<a href="#" class="help">如何认证?</a></dt>
+								<dd><input type="text" name="taobao" id="taobao" /></dd>
+							</dl>
+							<dl class="order_id">
+								<dt><span>温馨提示：</span></dt>
+								<dd>1、只有用绑定过的淘宝账号下单，才能获得返利或试用资格</dd>
+								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}淘宝账号</dd>
+								<div id="loader" style="width: 80px; height: 80px"></div>
+							</dl>
+							<span style="margin-left: 15px;" class="msg"></span>
+						</div>
+						<div>
+							<a href="javascript:;" class="aut_push" id="aut_push">立即绑定</a>
+							<!-- <a href="javascript:;" class="aut_push" data-id="{$taobao['userid']}" data-url="{U('Member/Attesta/unbind')}" onclick="bind.unbind(this)">解除绑定</a> -->
+						</div>
+					</div>
+					<div id="loader" style="width: 80px; height: 80px"></div>
+					<!-- 绑定列表 start -->
+			<div class="bind_taobao_lists">
+				<dl>
+					<dt>已绑定账号</dt>
+					<dd>
+						<table>
+							<tr>
+								<th style="width: 155px;">淘宝账号</th>
+								<th style="width: 146px;">买家信用</th>
+								<th style="width: 127px;">绑定时间</th>
+								<th style="width: 135px;">状态</th>
+								<th style="border: none;">操作</th>
+							</tr>
+							{loop $infos $info}
+								<tr>
+									<td>{$info['account']}</td>
+									<td>
+									{if $info['account_level'] !=""}
+									<img src="{$info['account_level']}" title="{$info['bLevel']}级" />
+									{/if}
+									</td>
+									<td>{dgmdate($info['inputtime'])}</td>
+									<td>{$arr[$info['safe_grade']]}{if $info['is_default']==1}<span style="color:red;">【默认】</span>{/if}</td>
+									<td style="border: none;">
+										<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Attesta/bind_del')}" data-account="{$info['account']} " class="bind_del">删除</a>
+										
+										<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Attesta/unbind')}" id="unbind">解绑</a>
+										
+
+										{if $info['status'] == 2}
+											<a href="javascript:;" onclick="again(this);" data-account="{$info['account']}">重绑</a>
+										{/if}
+
+										{if $info['is_default'] == 0}
+											<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Attesta/setdefault')}" onclick="bind.setdefault(this)">设为默认</a>
+										{/if}
+										<a href="http://cha.yunhuasuan.net/" target="_blank">手动查询</a>
+									</td>
+								</tr>
+							{/if}
+						</table>
+					</dd>
+				</dl>
+			</div>
+			<!-- 绑定列表 end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template('footer','common')}
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#taobao").focus(function(){
+		$(".msg").html("请输入淘宝账号");
+	});
+	$("#taobao").blur(function(){
+		var _this = $(this).val();
+		if(_this == ''){
+			$(".msg").html("淘宝账号不能为空");
+		}else{
+			$(".msg").html("<font color='green'>淘宝账号输入正确</font>");
+		}
+	});
+	//绑定
+	$("#aut_push").click(function(){
+		if("" == $("#taobao").val()){
+			$(".msg").html("请输入淘宝账号");
+		}else{
+			$(".msg").html("<font  color='green'>输入正确</font>");
+			  $('#loader').shCircleLoader();
+			  $('#loader').shCircleLoader('progress', "正在查询..");
+			$.post("{U('Member/Attesta/bindtaobao')}",{account:$("#taobao").val()},function(data){
+
+				if(data.status == 1){
+					$('#loader').shCircleLoader('destroy');
+					art.dialog({lock: true,fixed: true,icon: 'succeed',title: '绑定成功',time:3,content: data.info,ok: function (){location.reload();}});
+				}else{
+					$('#loader').shCircleLoader('destroy');
+					art.dialog({lock: true,fixed: true,icon: 'error',title: '绑定失败',content: data.info,ok: function (){location.reload();}});
+				}
+			},"json");
+		}
+	});
+	//绑定列表样式
+	$(".bind_taobao_lists tr:odd").css("background-color","#eeeeee");
+});
+
+
+	//删除
+ $(".bind_del").click(function(){
+	var id = $(this).attr('data-id');
+	$.post("{U('Member/Attesta/bind_del')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '删除成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+ 
+
+	//解绑
+ $("#unbind").click(function(){
+	var id = parseInt($(this).attr('data-id'));
+
+	$.post("{U('Member/Attesta/unbind')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '解绑成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+	
+/* 重新绑定 */
+function again(o){
+	var account = $(o).attr('data-account');
+	$.post("{U('Member/Attesta/bindtaobao')}",{account:account,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '重新绑定成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '重新绑定失败',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+}
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>联系方式-{C('WEBNAME')}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="j{THEME_STYLE_PATH}style/s/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+		<!-- 帮助中心头部 -->
+		<div class="help_head">
+			<div class="wrap">
+				<div class="h_logo">
+					<img src="{C('site_logo_zhu')}" alt="" />
+					<h1>联系方式</h1>
+				</div>
+				<ul class="h_nav">
+					<li><a href="{__APP__}">首页</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>83))}">关于我们</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>88))}">联系方式</a></li>
+					<li><a href="{U('navigation/index/index')}">站点导航</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<p class="cur_site"><a href="{__APP__}" class="m_right">首页</a>><a href="javascript:;" class="m_left">联系方式</a></p>
+				<h6 class="about_title">{$title}</h6>
+				<div class="about_content">
+					{dstripslashes($content)}
+					<dl>
+						<dt>新浪微博：</dt>
+						<dd>{C('xinlang')}</dd>
+					</dl>
+					<dl>
+						<dt>腾讯微博：</dt>
+						<dd>{C('tengxun')}</dd>
+					</dl>
+					<dl>
+						<dt>联系电话: </dt>
+						<dd>{C('site_contact_tel')}</dd>
+					</dl>
+					<dl>
+						<dt>联系邮箱: </dt>
+						<dd>{C('site_contact_email')}</dd>
+					</dl>
+					<dl>
+						<dt>详细地址：</dt>
+						<dd>{C('site_contact_address')}</dd>
+					</dl>
+					<dl>
+						<dt>工作日: </dt>
+						<dd>{C('site_work_day')}</dd>
+					</dl>
+					<dl>
+						<dt>客服QQ: </dt>
+						<dd>{C('site_contact_qq1')}</dd>
+					</dl>
+				</div>
+			</div>	
+		</div>
+		{include template('footer','common')}

@@ -1,0 +1,111 @@
+{include template('header','common')}
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+
+<style>
+    .add-box{
+        width: 130%;
+    }
+	.user{
+		display:table-cell;
+		width:16.875%;
+		height:1.1em;
+		position: absolute;
+		top: 0.6875em;
+		right: 0;
+	}
+		
+	.user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+	
+	.login-box > ul{
+		width: 90%;
+	}
+</style>
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">实名认证</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content bg-f0f0f0 min-height">
+
+            <form action="{U('Member/Attesta/name_attesta')}" method="post" id="myform">
+                <div class="login-box">
+                    <ul class="clear">
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">身份证姓名:</span>
+                                {if $name != '' && $identity[name] == ''}
+                                <input type="text" name="name" value="{$name}" id="name" class="fl"/>
+                                {else}
+                                <input type="text" name="name" value="{$identity[name]}" id="name" class="fl"/>
+                                {/if}
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">身份证号码:</span>
+                                <input type="text" name="id_number" value="{$identity[id_number]}" id="id_number" class="fl"/>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="at-login">
+                        <a href="javascript:;" class="btn-s-01 onsubmit f1_5">确定</a>
+                    </p>
+                </div>
+            </form>
+
+		</div>
+{include template('footer','common')}
+<script type="text/javascript">
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+    /*身份证姓名/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/*/
+    $("#name").formValidator({
+        onshow:"请输入身份证姓名",
+        onfocus:"请输入身份证姓名"
+    }).inputValidator({
+        min:2,
+        max:50,
+        onerrormin: "不能为空",
+        onerrormax: "不超过50个字符，汉字算两个字符"
+    }).regexValidator({
+        regexp:'chinese',
+        datatype:'enum',
+        onerror:"姓名输入错误"
+    });
+    /*身份证号验证*/
+    $("#id_number").formValidator({
+        empty:false,
+        onempty:'身份证号不能为空',
+        onshow:'请输入身份证号码' ,
+        onfocus:"请输入身份证号码"
+    }).regexValidator({
+        regexp:'idcard',
+        datatype:'enum',
+        onerror:'身份证号码错误'
+    });
+
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+</script>

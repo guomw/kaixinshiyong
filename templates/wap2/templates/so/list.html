@@ -1,0 +1,174 @@
+<ion-view hide-nav-bar="true" >
+	<div class="bar bar-header" style="height:auto">
+		<a href="#/tab/duo" style="min-height:45px" class="button icon ion-ios-arrow-back button-clear head_button1 soh">返回</a>
+		<div class="padding-left " style="width:60%">
+		<label class="item item-input"> 
+					<input type="text" ng-model="Keyword" name="Keyword" placeholder="请输入搜索关键词" ng-maxlength="11" ng-minlength="1" required>
+		</label>
+	    </div>
+	    <div class="padding-left solst" >
+				<button name="user_getsms" style="min-height:45px" ng-disabled="myform.user_phone.$invalid" class="button icon-left ion-ios-search-strong   button-outline  " ng-click="search(Keyword)">搜索</button>
+	   </div>			
+	</div>
+
+	<ion-content class="padding_head">
+       
+       <div ng-if="quyu == 1">
+       <div ng-if="hot_showloading" style="margin-top:60px; text-align: center">
+              <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+       </div>
+
+       
+		<ion-list  ng-if="hot_showloading==false">
+			<div class="padding-left padding-right padding-top" style="background-color:white">
+
+			<div class="padding-top">热门搜索:</div>
+			<hr style=" height:2px;border:none;border-top:2px dotted #d9d9d9;" />
+			<div class="so_list">
+			  <a ng-click="search(d.name)" ng-repeat="d in keyword_hot">{{d.name}}</a>
+			</div>
+			</div>
+			<div class="padding-top"></div>
+	      <ion-item  ng-repeat="d in data_keyword "   class="item item-icon-left " style="height:40px;" ng-click="search(d)" > 
+	      <i class="icon ion-ios-clock-outline"  style="font-size:16px;color:#CCC"></i>
+	        	<h3>{{d}}</h3> 
+	      </ion-item>
+	        
+	        <div style="margin-top:60px; text-align: center" ng-if="data_keyword">
+			<button name="user_getsms" class="button icon-left ion-ios-trash-outline button-outline  " ng-click="dedele()">清除历史记录</button>
+		   </div>
+		</ion-list>
+	</div>
+
+      <div ng-if="quyu == 2">
+
+		      <div ng-if="so_showloading" style="margin-top:60px; text-align: center">
+		             <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+		      </div>
+
+		<ion-list  ng-if="so_showloading==false">   
+                         
+	         <div class="muyou" ng-if="search_goods.status == 0">
+	          <img ng-src="img/muyou.png">
+	          <p> <span>亲 </span>没有搜索到关键词对应的商品</p>
+	          <p> 换个关键词试下</p>
+	         </div>
+
+              <div ng-repeat="topic in search_goods.lists " class="active" ng-if="search_goods.count > 0">
+
+                 <div ng-if="topic.mod == 'trial'">
+                    <a href="#/tab/trial/{{topic.id}}" class="list_w">
+                         <!-- <ion-item  > -->
+                          
+                          <div class="img">
+                          <img  ng-if="topic.thumb" ng-src="{{topic.thumb | imgUrl}}" />
+                          <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                          </div>
+                          <div style="position:absolute;width:100px;height:100px;z-indent:2;left:2%;">
+                          <span style="background-color: #FFFFFF;color:red">{{topic.mod_name}}</span>
+                          </div>
+                          <ul class="flex txt txt_wrap">
+                              <li class="txt-flow" style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
+                              <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;">价值：<b class="cc">¥ {{topic.goods_price }}</b></li>
+                              <li class="clear c2 txt-flow" style="font-size:0.85em;">
+                                  <p class="fl w1_4">剩余：<b> {{topic.number}} 份</b></p>
+                                  <p class="fl w1_6">关注人数：<b>{{ topic.hits}}</b>人</p>
+                              </li>
+                          </ul>
+                       
+                        <!-- </ion-item> -->
+                    </a>
+
+                   <a class="tryoutProListAdd" href="#/tab/trial/{{topic.id}}">
+                       <div class="hang1" ng-show="topic.protype == 3 "    >
+                         <div class="L" style="background:red">送</div>
+                         <div class="R">本单赠送红包<b class="cc">{{topic.goods_bonus}}</b>元</div>
+                         <div class="clearfix"></div>
+                       </div>
+
+                       <div class="hang1" ng-show="topic.protype == 2 " >
+                         <div class="L" style="background:#36C">B</div>
+                         <div class="R">拍A送<b class="cc">{{topic.goods_tryproduct}}</b></div>
+                         <div class="clearfix"></div>
+                       </div>
+
+                       <div class="hang1" ng-if="topic.subsidy> 0">                   
+                         <div class="L" style=" background:#36C">贴</div>
+                         <div class="R">完成本单平台额外补贴<b class="cc">{{topic.subsidy}}</b>{{topic.subsidy_type | f_bu }}</div>
+                         <div class="clearfix"></div>
+                       </div>
+                       <div class="hang1" ng-if="topic.point_num > 0">                   
+                         <div class="L" style=" background:#e42012">换</div>
+                         <div class="R">可使用<b class="cc">{{topic.point_num}}</b>积分兑换试用资格。</div>
+                         <div class="clearfix"></div>
+                       </div>
+                       <div class="hang1" ng-if="topic.goods_vipfree  == 1">                   
+                         <div class="L" style=" background:#e42012">vip</div>
+                         <div class="R">该活动<b class="cc">vip会员</b>可免审核 直接试用</div>
+                         <div class="clearfix"></div>
+                       </div>
+
+                   </a>
+                  </div>
+
+                  <div ng-if="topic.mod == 'rebate'">
+                  	
+                       <a href="#/tab/rebate/{{topic.id}}" class="list_w">
+                            <!-- <ion-item  > -->
+                             
+                             <div class="img">
+                             <img  ng-if="topic.thumb" ng-src="{{topic.thumb | imgUrl}}" />
+                             <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                             </div>
+                             <div style="position:absolute;width:100px;height:100px;z-indent:2;left:2%;">
+                             <span style="background-color: #FFFFFF;color:red">{{topic.mod_name}}</span>
+                             </div>
+                             <ul class="flex txt txt_wrap">
+                                 <li class="txt-flow" style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
+                                 <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;">下单价：<b class="cc">¥ {{topic.goods_price }} </b>  折扣：<span>{{topic.goods_discount}}</span>折</li>
+                                 <li class="clear c2 txt-flow" style="font-size:0.85em;">
+	                                  <p class="fl w1_4">剩余：<b> {{topic.number}} 份</b></p>
+	                                  <p class="fl w1_6">关注人数：<b>{{ topic.hits}}</b>人</p>
+                                 </li>
+                             </ul>
+                          
+                           <!-- </ion-item> -->
+                       </a>
+
+                  </div>
+
+                 <div ng-if="topic.mod == 'commission'">
+                 	
+                      <a href="#/tab/commission/{{topic.id}}" class="list_w">
+                           <!-- <ion-item  > -->
+                            
+                            <div class="img">
+                            <img  ng-if="topic.thumb" ng-src="{{topic.thumb | imgUrl}}" />
+                            <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                            </div>
+                            <div style="position:absolute;width:100px;height:100px;z-indent:2;left:2%;">
+                            <span style="background-color:black ;color:red">{{topic.mod_name}}</span>
+                            </div>
+                            <ul class="flex txt txt_wrap">
+                                <li class="txt-flow" style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
+                                <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;">下单价：<b class="cc">¥ {{topic.goods_price }} </b></li>
+                                <li class="clear c2 txt-flow" style="font-size:0.85em;">
+	                                  <p class="fl w1_4">剩余：<b> {{topic.number}} 份</b></p>
+	                                  <p class="fl w1_6">关注人数：<b>{{ topic.hits}}</b>人</p>
+                                </li>
+                            </ul>
+                         
+                          <!-- </ion-item> -->
+                      </a>
+
+                 </div>
+
+
+                 </div>
+
+                </ion-list>
+
+          </div>
+
+	</ion-content>
+</ion-view>

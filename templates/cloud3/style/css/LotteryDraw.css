@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px;} 
+body{font-size:14px; color: #666; line-height:18px; font-family:"宋体"; -webkit-text-size-adjust:none; background:#ffec8e}
+a{TEXT-DECORATION: none; color: #666;}
+i{ font-style:normal}
+b { font-weight:normal}
+ul{width:100%}
+ul ,li{list-style:none; }
+.clear{ font: 0px/0px sans-serif;clear:both;display: block; height:0px; overflow:hidden}
+img { border:none; vertical-align: middle; }
+.hidden{display:none;}
+a:hover {text-decoration:underline;}
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+ 
+.i_LotteryDrawIndex{ background:#ffec8e; } 
+.i_LotteryDrawIndex .ibody{ width:320px; margin:0px auto;} 
+.i_LotteryDrawIndex .s_part1{ background:url(../images/a1.png) no-repeat ; height:560px; padding-top:355px; text-align:center; background-size:320px;}
+.i_LotteryDrawIndex .s_part1 img{ width: 85px;}
+
+.i_LotteryDrawIndex .s_part2{ width:260px; margin:0px auto; height:35px; line-height:35px; background:#fb6010; text-align:center; color:#fff; font-weight:bolder;}
+.i_LotteryDrawIndex .s_part2 span { color:#fffeab; font-size:16px}
+.i_LotteryDrawIndex .s_part3{ width:260px; margin:0px auto; height:35px; line-height:35px; background:#ccc; text-align:center; color:#fff; font-weight:bolder;}
+.i_LotteryDrawIndex .s_part4{ width:260px; margin:0px auto; height:35px; line-height:35px; background:#fb6010; text-align:center; color:#fff; font-weight:bolder;}
+.i_LotteryDrawIndex .s_part4 span { color:#fffeab; font-size:16px}.s_tanc1{ display: none ; line-height:30px;}
+.i_LotteryDrawIndex .s_part5{ margin-top:10px;}
+.i_LotteryDrawIndex .s_part5 .ti{ text-align:center}
+.i_LotteryDrawIndex .s_part5 .ti img{ width:100px;}
+.i_LotteryDrawIndex .s_part5 .co { color:#000000; line-height:22px; padding-left:10px}
+.i_LotteryDrawIndex .s_part5 .co span{ color:#f96410}
+
+.i_LotteryDrawIndex .s_part6 { border-bottom:10px solid #fef0d5; padding-bottom:10px;}
+.i_LotteryDrawIndex .s_part6 .ti{ text-align:center}
+.i_LotteryDrawIndex .s_part6 .ti img{ width:100%;}
+.i_LotteryDrawIndex .s_part6 .co { color:#f9630c}
+.i_LotteryDrawIndex .s_part6 .co .h{ padding:10px 15px; border-bottom:1px solid #f9630c; }
+.i_LotteryDrawIndex .s_part6 .co .h .h1 .L{ float:left}
+.i_LotteryDrawIndex .s_part6 .co .h .h1 .R{ float:right}
+
+
+
+.i_LotteryDrawIndex  .s_tanc1{ }
+.i_LotteryDrawIndex  .s_tanc1 .bg{ width:100%; background:url(../images/a3.png) repeat; top:0px; left:0px; z-index:3; position: fixed} 
+.i_LotteryDrawIndex  .s_tanc1 .content{ border-radius:5px; background:#FFF; width:90%; position: fixed; top:40%; padding:10px;margin:0px 5%; z-index:6; }
+  @media screen  and (min-width: 1080px)  {
+  .i_LotteryDrawIndex  .s_tanc1 .content{ width:30%; margin-left:35%}
+}
+ 
+.i_LotteryDrawIndex  .s_tanc1 .content  .p1{ text-align:center; border-bottom:1px solid #CCC; font-size:16px  }
+.i_LotteryDrawIndex   .s_tanc1 .content .p2{ text-align:center; font-weight:bolder; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

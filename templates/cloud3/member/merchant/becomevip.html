@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家成为vip-{C('WEBNAME')}</title>
+		<meta name="keywords" content="商家成为vip,{C('WEBNAME')}">
+        <meta name="description" content="商家成为vip,{C('WEBNAME')}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/base.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+ 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/become_vip.css" /> 
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/taobao.js"></script>
+		<style type="text/css">
+			.referral{ width: 210px; }
+			.vip_name_hint{ width: 235px; }
+			.crown_vip_bg{ background-size: 100% 100%; }
+			.jewel_vip_bg{ background-size: 100% 100%; }
+			.common_shops_bg{ background-size: 100% 100%; }
+			.right{width: 954px;}
+			.referral{width: 221px;padding: 0 7px;}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				show_remain_time(<?php echo ( $endtime - NOW_TIME);?>);
+				/* 活动剩余时 */
+				function show_remain_time(sec) {
+					var timer = null;
+					timer = setInterval(function() {
+						sec -= 1;
+						if (sec <= 0) {
+							$("#remain_time").html('活动时间到');
+							clearInterval(timer);
+							return;
+						}
+						$("#remain_time").html(count_down(sec));
+					}, 1000);
+					$("#remain_time").html(count_down(sec));
+				}
+
+				function count_down(sec) {
+					var s = sec;
+					var left_s = s % 60;
+					var m = Math.floor(s / 60);
+					var left_m = m % 60;
+					var h = Math.floor(m / 60);
+					var left_h = h % 24;
+					var d = Math.floor(h / 24);
+					var ret = [];
+					d && ret.push('<em class="d"> ', d, '</em> 天');
+					left_h && ret.push('<em class="h"> ', time_pad(left_h), '</em> 小时');
+					left_m && ret.push('<em class="m"> ', time_pad(left_m), '</em> 分');
+					left_s && ret.push('<em class="s"> ', time_pad(left_s), '</em> 秒');
+					return ret.join('');
+				}
+
+				function time_pad(s) {
+					return Number(s) > 9 ? String(s) : "0" + String(s);
+				}
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+		{include template('v2_merchant_header','member/common')}
+
+		<div id="content">
+		<div class="wrap">
+			<p class="hint-wz clear hint_wz_2">
+				当前位置： 	<b>首页 > </b>
+							<b>商家中心 > </b>
+						     <b>成为vip</b>
+
+			</p>
+		</div>
+
+		<div class="user_index_content wrap-and clear">
+				{include template('v2_merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">成为VIP</h2>
+					<div class="new_hint float_left">
+						<p class="padding_5 shops_small_img float_left border_dddddd"><img src="<?php echo $store_logo;?>" onerror="javscript:this.src='/uploadfile/avatar/seller_logo.jpg'" alt="" width="100" height="100"/></p>
+						<ul class="shops_name_rank">
+							<li class="font_size14">{$store_name}</li>
+							<li class="color_ff6600">您目前是<?php echo $name;?></li>
+							{if $this->userinfo[groupid] != 1}
+							<li class="color_ff6600">到期时间:<span id="remain_time">loading...</span></li>
+							{/if}
+						</ul>
+					</div>
+					{pc:announce action="lists" type="5" num="3"}
+					<ul class="float_left vip_event_hint">
+						<h2 class="border_bottom_efefef width_100 margin_bottom_10 font_size14 border_bottom_efefef">最新VIP活动</h2>
+						{loop $data $a}
+						<li class="width_100"><a href="{U('Announce/Index/show',array('id'=>$a[announceid],'type'=>5))}">{cutstr($a[title],30)}</a><span class="float_right">{date('Y-m-d',$a[inputtime])}</span></li>
+						{/loop}
+					</ul>
+					{/pc}
+					<div class="width_100 border_bottom_efefef float_left vip_hr_efefef"></div>
+					<div class="width_100 height_auto float_left">
+						<div class="rank_box float_left">
+							<h3 class="vip_name_hint width_100 crown_vip_bg float_left">
+								<span class="vip_name_hint_text color_ffffff font_size14 width_100 display_block text_align_center">皇冠商家（￥<?php echo get_merchant_vip(3);?>）</span>
+								<input type="hidden" name="money" id="money" value="<?php echo get_merchant_vip(3);?>"/>
+							</h3>
+							<ul class="referral border_efefef">
+								<li class="width_100 border_bottom_efefef">发布活动的次数<span class="color_ff6600 float_right">
+									{if ($levels_3['trial']['apply']['radio'] == 1)}
+                            {$levels_3['trial']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+
+								</span></li>
+								<li class="width_100 border_bottom_efefef">返利类活动服务费<span class="color_ff6600 float_right">{if $levels_3['rebate']['service'] >0}
+			                         {$levels_3['rebate']['service']}%
+			                        {else}
+			                         不收费
+			                        {/if}</span></li>
+								<li class="width_100 border_bottom_efefef">试用推广费
+									<span class="color_ff6600 float_right">单份
+		                         {$levels_3['trial']['cost']['product_cost']}/元
+		                        </span></li>
+								<li class="width_100 border_bottom_efefef">品牌认证<span class="color_ff6600 float_right">免费</span></li>
+								<li class="width_100 border_bottom_efefef">专场活动<span class="color_ff6600 float_right">优先参与</span></li>
+								<li class="width_100 border_bottom_efefef">首页商品推荐位<span class="color_ff6600 float_right">10次</span></li>
+								<li class="width_100 border_bottom_efefef">不定期 vip 专属活动<span class="float_right color_ff6600">可参与</span></li>
+								<li class="vip_name_btn">
+									{if $this->groupid['groupid'] == 3}
+										<a href="javascript:;" data-type="3" data-money="<?php echo get_merchant_vip(3);?>" data-url="{U('Member/Merchant/check_money')}" onclick="bind.hmerchant(this)" class="border_radius_3 font_size14 font_weight_700 display_block width_100 height_100 color_ffffff text_align_center btn_background_ff4401">您是皇冠商家-续费</a>
+									{else}
+										<a href="javascript:;" data-type="3" data-money="<?php echo get_merchant_vip(3);?>" data-url="{U('Member/Merchant/check_money')}" onclick="bind.hmerchant(this)"  class="border_radius_3 font_size14 font_weight_700 display_block width_100 height_100 color_ffffff text_align_center btn_background_ff4401">成为皇冠商家</a>
+									{/if}
+								</li>
+							</ul>
+						</div>
+						
+						<div class="rank_box float_left">
+							<h3 class="vip_name_hint width_100 jewel_vip_bg float_left">
+								<span class="vip_name_hint_text color_ffffff font_size14 width_100 display_block text_align_center">钻石商家（￥<?php echo get_merchant_vip(2);?>）</span>
+							</h3>
+							<ul class="referral border_efefef">
+								<li class="width_100 border_bottom_efefef">发布活动的次数<span class="color_ff6600 float_right">
+									{if ($levels_2['trial']['apply']['radio'] == 1)}
+                            {$levels_2['trial']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+								</span></li>
+								<li class="width_100 border_bottom_efefef">返利类活动服务费<span class="color_ff6600 float_right">{if $levels_2['rebate']['service'] >0}
+			                         {$levels_2['rebate']['service']}%
+			                        {else}
+			                         不收费
+			                        {/if}</span></li>
+								<li class="width_100 border_bottom_efefef">试用推广费<span class="color_ff6600 float_right">
+									单份
+                         {$levels_2['trial']['cost']['product_cost']}/元
+                         </li>
+								<li class="width_100 border_bottom_efefef">品牌认证<span class="color_ff6600 float_right">免费</span></li>
+								<li class="width_100 border_bottom_efefef">专场活动<span class="color_ff6600 float_right">优先参与</span></li>
+								<li class="width_100 border_bottom_efefef">首页商品推荐位<span class="color_ff6600 float_right">5次</span></li>
+								<li class="width_100 border_bottom_efefef">不定期 vip 专属活动<span class="float_right color_ff6600">可参与</span></li>
+								<li class="vip_name_btn">
+									{if $this->groupid['groupid'] == 2}
+									<a href="javascript:;" data-type="2" data-money="<?php echo get_merchant_vip(2);?>" data-url="{U('Member/Merchant/check_money')}" onclick="bind.zmerchant(this)" class="border_radius_3 font_size14 font_weight_700 display_block width_100 height_100 color_ffffff text_align_center btn_background_ff6600">您是钻石商家-续费</a>
+                                    {else}
+									<a href="javascript:;" data-type="2" data-money="<?php echo get_merchant_vip(2);?>" data-url="{U('Member/Merchant/check_money')}" onclick="bind.zmerchant(this)" class="border_radius_3 font_size14 font_weight_700 display_block width_100 height_100 color_ffffff text_align_center btn_background_ff6600">成为钻石商家</a>
+									{/if}
+								</li>
+							</ul>
+						</div>
+
+						<div class="rank_box float_left">
+							<h3 class="vip_name_hint width_100 common_shops_bg float_left">
+								<span class="vip_name_hint_text color_ffffff font_size14 width_100 display_block text_align_center">普通商家（￥<?php echo get_merchant_vip(1);?>）</span>
+							</h3>
+							<ul class="referral border_efefef">
+								<li class="width_100 border_bottom_efefef">发布活动的次数<span class="color_ff6600 float_right">
+									{if ($levels_1['trial']['apply']['radio'] == 1)}
+                            {$levels_1['trial']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+								</span></li>
+								<li class="width_100 border_bottom_efefef">返利类活动服务费<span class="color_ff6600 float_right">
+									{if $levels_1['rebate']['service'] >0}
+			                         {$levels_1['rebate']['service']}%
+			                        {else}
+			                         不收费
+			                        {/if}
+
+								</span></li>
+								<li class="width_100 border_bottom_efefef">试用推广费<span class="color_ff6600 float_right">
+
+									单份
+                         {$levels_1['trial']['cost']['product_cost']}/元
+                       
+								</span></li>
+								<li class="width_100 border_bottom_efefef">品牌认证<span class="color_ff6600 float_right">无</span></li>
+								<li class="width_100 border_bottom_efefef">专场活动<span class="color_ff6600 float_right">可参与</span></li>
+								<li class="width_100 border_bottom_efefef">首页商品推荐位<span class="color_ff6600 float_right">无</span></li>
+								<li class="width_100 border_bottom_efefef">不定期 vip 专属活动<span class="float_right color_ff6600">无</span></li>
+								<li class="vip_name_btn"></li>
+							</ul>
+						</div>						
+					</div>
+				</div>				
+			</div>
+		</div>
+		{include template('footer','common')}

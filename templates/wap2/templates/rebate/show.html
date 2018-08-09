@@ -1,0 +1,283 @@
+  <ion-view hide-nav-bar="true" >
+  <div class="bar bar-header bar-color ">
+  <a href="#/tab/rebate" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+  <h1 class="title">返利详情</h1>
+<!--   <button style="color:#ffffff;" class="button  icon ion-ios-redo button-clear" ng-click="fenxiang()">分享</button> -->
+  </div>
+<div class="ibody">
+  <ion-content class="padding_head">
+  <div ng-if="fl_showloading" style="margin-top:60px; text-align: center">
+    <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+  </div>
+
+    <ion-list class="list padding-top" ng-if="fl_showloading ==false  " >
+        <div class="ibody">
+        <div class="i_rebateDetail">
+          <div class="s_part2">
+            <div class="hang1">
+              <img ng-src="{{showdata.thumb|imgUrl }}" ></div>
+            <div class="hang2">
+              <div class="L">{{showdata.source|f_source }}</div>
+              <div class="R">{{showdata.title | limitTo:18 }}</div>
+              <div class="clearfix"></div>
+            </div>
+             <div class="hang3">{{showdata.goods_discount}}折</div>
+          </div>
+          <div class="s_part3 c5">
+            <div class="hang1">
+              {{showdata.price_name}}：
+              <span>{{showdata.goods_price / 10 * showdata.goods_discount | currency:"￥"  }}</span>
+              下单价:{{showdata.goods_price | currency:"￥"  }} 返还：
+                {{showdata.goods_price - (showdata.goods_price * showdata.goods_discount /10 ) | currency:"￥"}}
+            </div>
+            <div class="hang3 c5">
+              <div class="part">
+                <img ng-src="img/a3.jpg">
+                商家已存保证金：
+                <span>{{showdata.goods_deposit|currency:"￥"}}</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <!--hang3-->
+            <div class="hang2 c5">
+              <span class="a1"><span class='c4'>数量：</span>{{showdata.goods_number}}份</span>
+              <span class="a2"><span class='c4'>剩余数量：</span>{{showdata.number}}份</span>
+              <span class="a1">
+                <span class='c4'>开始时间：</span>{{showdata.start_time +'000' | date:"yyyy-MM-dd h:mm" }}
+              </span>
+              <span  class="a2"  >
+                <span class='c4'>仅剩：</span><i id= '{{showdata.end_time}}' >{{showdata.end_time  | f_fomtime}}</i>
+              </span>
+              <div class="clearfix"></div>
+            </div>
+            <!--hang2-->
+            <div class="hang5">
+              <div class="ti c5">温馨提示</div>
+              <div class="co c4">
+                <p class="cc"  ng-show = "showdata.goods_tips.goods_order.remark" >特别注意: {{showdata.goods_tips.goods_order.remark }}</p>
+
+                <p class="cc"  ng-show = "showdata.goods_tips.order_tip[0] == 1 " >请不要用信用卡方式下单</p>
+
+                <p class="cc"  ng-show = "showdata.goods_tips.order_tip[1] == 2 || txddh_showdata.goods_tips.order_tip[0] == 2 " >请不要催促商家返款,旺旺催促发货</p>
+
+                <p class="cc"  ng-show = "showdata.goods_tips.goods_order.kuaidi" >默认快递: {{showdata.goods_tips.goods_order.kuaidi }}</p>
+
+                <p ng-show = "showdata.goods_tips.goods_order.price.cost || showdata.goods_tips.goods_order.price.after " >
+                  原价为 <b class="cc">{{showdata.goods_tips.goods_order.price.cost | currency:"￥" }}</b> 
+                  ,拍下后会自动改价为 <b class="cc">{{showdata.goods_tips.goods_order.price.after  | currency:"￥"}}</b> 
+                </p>
+
+                <p  ng-show = "showdata.goods_tips.goods_order.kuaidi" >
+                  请用V1-V3价格
+                  <b class="cc">{{showdata.goods_tips.goods_order.price.lv | currency:"￥" }}</b>
+                  下单
+                </p>
+
+                <p >违反平台相关规定,不按要求下单,可能会被拒绝返款,冻结帐号</p>
+                </div></div>
+                <!--hang5--> 
+                </div>
+              <!--s_part3-->
+              <div class="s_part6 c5">
+                <div class="part sel" ng-click="goods_body()"  >活动详情</div>
+                <div class="part"  ng-click="good_user_list()">谁抢到了({{showdata.apply_people}})</div>
+                <div class="part" ng-click="rebate_shai_lists()" >买家晒单</div>
+                <div class="clearfix"></div>
+              </div>
+              <!--s_part6-->
+              <div class="s_part7" style="display:" ng-show= "Switch == 1 ">
+                <div ng-bind-html="showdata.goods_content | f_img_url  " ></div>
+              </div>
+
+              <!--s_part7-->
+              <div class="s_part8" ng-show= "Switch == 2 ">
+
+                <div ng-if="user_list_showloading" style="margin-top:60px; text-align: center">
+                  <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+                </div>
+
+                <div class="list" style="display:"  ng-show=" user_list_showloading==false &&  user_list !=''"  >
+                  <a class="part" ng-repeat="d in user_list"  >
+                    <div class="hang1">
+                      <img ng-src="{{d.avatar | imgUrl}}"></div>
+                    <!--hang1-->
+                    <div class="hang2">{{d.nickname | f_nickname |limitTo :4 }}</div>
+                  </a>
+
+                  <div class="clearfix"></div>
+                </div>
+                <!--s_list-->
+                <div class="tis" style="display:" ng-show="user_list_showloading==false && user_list ==''"  >暂时还没有人抢购</div>
+              </div>
+              <!--s_part8-->
+              <div class="s_part9" ng-show= "Switch ==3 "  >
+                <div ng-if="mjsd_showloading" style="margin-top:60px; text-align: center">
+                  <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+                </div>
+
+                <div class="no" style="display:" ng-show="mjsd_showloading ==false && shai_lists == '' "  >新品上架,暂时还未有人晒单</div>
+                <div class="list"  >
+                  <div class="hang"  ng-repeat=" d in shai_lists" ng-show="mjsd_showloading ==false && shai_lists != '' ">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td class="L">
+                            <div class="co">
+                              <img ng-src="{{d.avatar |imgUrl }}"></div>
+                            <div>{{d.nickname | f_nickname }}</div>
+                          </td>
+                          <td class="R">
+                            <div class="a1">
+                              {{d.content}}
+                              <img ng-src="{{d.report_imgs |imgUrl}}"></div>
+                            <div class="a2">晒单时间：{{d.reporttime + '000' |date:"yyyy/MM/dd h:mm"    }}</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--hang 
+                    </div>
+                  <!--list--> </div>
+                <!--s_part9--> </div>
+              <!--i_rebateDetail--> </div>
+          </div>
+        </div></div>
+        </ion-list>
+
+        <script id="a.html" type="text/ng-template"> 
+                      <li ng-show="bind_phone == 1 && phone_status == 1 " class="item item-icon-left item-icon-right "> <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+                          手机认证
+                          <i class="item-note">已认证</i>
+                      </li>
+
+                      <ion-item ng-show="bind_phone == 1   && phone_status != 1"  class="item item-icon-left item-icon-right " href="#/tab/user/profile/phone"  >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          手机认证
+                          <i class="item-note">未认证</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+
+                      <ion-item  ng-show="bind_email ==2 && emall_status ==1 " class="item item-icon-left item-icon-right ">
+                       <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+                          邮箱认证
+                          <i class="item-note">已认证</i>
+                      </ion-item>
+
+                      <ion-item ng-show="bind_email == 2   && emall_status != 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/email" >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          邮箱认证
+                          <i class="item-note">未认证</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+
+
+                      <ion-item  ng-show="realname ==3 && name_status ==1 " class="item item-icon-left item-icon-right ">
+                       <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+                          实名认证
+                          <i class="item-note">已认证</i>
+                      </ion-item>
+
+
+                      <ion-item ng-show="realname == 3 && name_status == -1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/card" >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          实名认证
+                          <i class="item-note">{{name_status | f_name_status }}</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+
+                      <ion-item ng-show="realname == 3 && name_status == '' "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/card" >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          实名认证
+                          <i class="item-note">{{name_status | f_name_status }}</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+
+                      <ion-item ng-show="realname == 3   && name_status == 0 "  class="item item-icon-left item-icon-right " >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          实名认证
+                          <i class="item-note">{{name_status | f_name_status }}</i>
+                      </ion-item>
+
+                      
+                      <ion-item  ng-show="bind_alipay ==5 && allpay_status ==1 " class="item item-icon-left item-icon-right ">
+                       <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+                          支付宝
+                          <i class="item-note">已绑定</i>
+                      </ion-item>
+
+
+                      <ion-item ng-show=" bind_alipay ==5 && allpay_status !=1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/alipay" >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          支付宝
+                          <i class="item-note">未绑定</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+
+                      <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count > 0 "  class="item item-icon-left item-icon-right " >
+                          <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+                          淘宝帐号
+                          <i class="item-note">已绑{{data_bind_taobao.count}}个</i>
+                      </ion-item>
+                      
+                      <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count < 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/taobao"    >
+                          <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+                          淘宝帐号
+                          <i class="item-note">未绑定</i>
+                          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+                      </ion-item>
+              </script>
+
+        <script id="b.html" type="text/ng-template"> 
+
+                <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
+                  <select ng-model="vm.data_bind_taobao_default.id" ng-options="a.account for a  in data_bind_taobao.lists">
+                     <option value="">{{data_bind_taobao_default.account}}</option>
+                  </select>
+                </label>
+
+                  <p  ng-if=' bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
+                  <label ng-if=' reason == 7 ' class="item item-input" >
+                    <textarea  ng-model="vm.Application_reasons"  placeholder="对商家说点什么,提高通过率" rows="4"></textarea>
+                  </label>                
+                  <p style="color:#A9A9A9" class="padding-left">未按要求下单,可能会被取消资格!</p>
+
+            </script>
+
+        <script id="c.html" type="text/ng-template">              
+                  <ion-item class=" " >{{showdata.goods_rule.ask.question}}</ion-item>
+                  <label class="item item-input" >                 
+                    <input type="text"  ng-model="vm.Answer" placeholder="请输入答案" ></label>
+
+
+                   <h5 style="color:#A9A9A9" class="padding-left">温馨提示: {{vm.Answer}}</h5>
+                   <p style="color:#A9A9A9" class="padding-left">1.{{showdata.goods_rule.ask.tips}}</p>
+                   <p style="color:#A9A9A9" class="padding-left">2.<a href="{{showdata.goods_url}}">点击去宝贝页面找答案</a></p>
+            </script>
+      </ion-content>
+      
+      <div class="i_tryout_s_part4" ng-if= "login_status == 0"  >
+          <a href="#/tab/user/login" class="a1">立即登录抢购</a>
+          <div class="clearfix"></div>
+      </div>
+
+      <div class="i_rebateDetail_s_part4"   ng-if= "order_is_join.data == 1 && showdata.end_time > data_time "   >
+        <a ng-click="Panic_buying()" class="a1">立即抢购</a>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="i_tryout_s_part4"  ng-if= "order_is_join.data == 0"  >
+        <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">已抢购过</a>
+        <a href="#/tab/user/rebate_order" >查看我的订单</a>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="i_tryout_s_part4"  ng-if= " order_is_join.data == 1 && showdata.end_time < data_time "  >
+        <a class="a1" style="background:#ccc; color:#FFF; border:0px ">活动结束</a>
+        当前活动时间已结束,下次早点来呃。
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+
+  </ion-view>

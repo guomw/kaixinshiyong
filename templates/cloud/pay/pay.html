@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>用户充值-{C('WEBNAME')}</title>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_pay.css" /> 
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{if $modelid == 1}
+{include template('header','member/common')}
+{else}
+	{include template('merchant_header','member/common')}
+{/if}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				{if $modelid == 1}
+				<div class="nav_path">
+					<a href="{__APP__">首页</a>&nbsp;>
+					<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+					<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>&nbsp;>
+					<a href="{U('Pay/Index/pay')}" class="nav_active">充值</a>
+			</div>
+				{include template('member_left','member/common')}
+				{else}
+				<div class="nav_path">
+						<a href="{__APP__">首页</a>&nbsp;>
+						<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+						<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>&nbsp;>
+						<a href="{U('Pay/Index/pay')}" class="nav_active">充值</a>
+				</div>
+				{include template('merchant_left','member/common')}
+				{/if}
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('.right_title a').click(function(){							
+							$(".right_title a").removeClass('a_link');
+							$(this).addClass('a_link');
+							$('.table_list').addClass('display_none');
+							$('.table_list:eq('+ $(this).index() +')').removeClass('display_none');
+						});
+					});
+				</script>				
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">
+						充值管理
+						<a href="javascript:;" class="a_link">快速充值</a><a href="javascript:;">普通充值</a>
+					</h2>
+					
+					<div class="table_list">
+						<form action="{U('Pay/Index/pay')}" method="post" target="_blank" name="payform" id="payform">
+						<ul class="top_up_list">
+							<li class="w_1" id="quick">
+								<font class="up_name">充值金额：</font>
+								<input type="text" name="money" id="money" value="" />
+								<input type="hidden" name="total_money" id="total_money"/>
+								<font>元</font>
+								<div id="set_note"  style="color:#32CD32;padding-left:20px;margin-top:10px;"></div>
+							 </li>
+							<li class="top_icon"><font  class="up_name">充值方式：</font><a href="javascript:;"></a></li>
+							<p>
+								<input type="submit" value="立即充值" class="topUp_btn" id="payform_submit" />
+							</p>
+						</ul>
+						<ul class="note">
+							<li>注：此操作为即时到账，请认真填写充值金额。</li>
+							<p>您成功提交付款后，钱会即时充值进您的值得买帐号。</p>
+						</ul>
+						</form>
+					</div>			
+					<div class="table_list display_none">
+						<ul class="common_pay">
+							<li>* 先去支付宝使用转账付款，将钱转入{$alipay['alipay_account']}。</li>
+							<li>* 然后输入您转账的交易号</li>
+							<li>* 输入（本页面）充值金额且必须与（支付宝）转账金额一致，否则会付款失败！</li>
+						</ul>
+						<form action="{U('Pay/Index/ordinary')}" method="post" name="myform" id="myform">
+						<input type="hidden" name="info[userid]" value="{$userid}" />
+						<ul class="top_up_list margin">
+							<li class="w_1"><font class="up_name">交易号：</font><input type="text" name="info[tran_number]" id="tran_number" /><!-- <div class="set_note">请输入您要充值的金额</div> --><a href="{U('Document/Index/show',array('catid'=>89,'id'=>268))}" target="_blank" class="hint">什么是交易号？</a></li>
+							<li class="w_1"><font class="up_name">充值金额：</font><input type="text" name="info[money]" id="normal_money"/><font>元</font><!-- <span class="set_note">请输入您要充值的金额</span> --></li>
+							<li class="top_icon"><font  class="up_name">充值方式：</font><a href="javascript:;"></a></li>
+							<p><input type="submit" value="立即充值" id="myform_submit" class="topUp_btn"/></p>
+						</ul>
+						</form>
+					</div>						
+				</div>				
+			</div>
+		</div>
+		
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<style type="text/css">
+	.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+	.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+	.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+	.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+	.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+	.onLamp{background-position:3px -200px}
+	.onTime{background-position:3px -1356px}
+</style>
+<script type="text/javascript"> 
+function paysubmit() {
+	// //$("form[name=payform]").submit();
+	var dialog = art.dialog({
+		id: 'paysubmit',
+		title : '提示信息',
+		icon: 'question',
+		fixed: true,
+		lock: true,
+		content: '<p>请问您完成付款了吗?</p><p>如没有,请在新打开的页面进行付款的操作</p><p>如果遇到问题，请联系客服人员</p>',
+		okVal:'完成付款',
+		cancelVal:'返回重试',
+		ok: function() {
+			window.location.href = "{U('Member/Financial/pay_log', array('type' => 2))}";
+			return false;
+		},
+		cancel:function() {
+			window.location.reload();
+		}
+	});
+}
+
+$.formValidator.initConfig({
+	formid:"payform",
+	autotip:true,
+	validatorgroup:"1",
+	buttons:"payform_submit",
+	onerror:function(msg,obj){
+		$(obj).focus();
+		return false;
+	},
+	onsuccess:function() {
+		paysubmit();
+		return true;
+	}
+});
+
+$("#money").formValidator({
+	validatorgroup:"1",
+	empty:false,
+	onshow: "请输入您要充值的金额！",
+    onfocus: "请输入您要充值的金额！"
+}).regexValidator({
+	regexp:'intege1',
+	datatype:'enum',
+	onerror:'金额只能为正整数'
+}).functionValidator({
+	fun:function(val,elem){
+		if(val){
+			$.ajax({
+				url:'{U('Pay/Index/check_money')}',
+				type:'get',
+				dataType:'json',
+				async: false,
+				data:{'money':val},
+				success : function(msg){
+					//$("#quick").append('<p id="set_note"  style="display:block;color:#32CD32;padding-left:20px;margin-top:10px;">*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元</p>') ;
+					$("#set_note").html('*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元');
+					$("#moneyTip").hide();
+					$("#total_money").val(msg.total);
+				}
+			});
+		}
+		return true;
+	}
+});
+
+//正常充值
+$(function() {
+	$.formValidator.initConfig({
+	 	formid:"myform",
+	 	validatorgroup:"2",
+	 	autotip:true,
+	 	onerror:function(msg,obj){
+	 		$(obj).focus();
+	 		return false;
+	 	}
+	});
+
+	$("#normal_money").formValidator({
+	 	empty:false,
+	 	validatorgroup:"2",
+	 	onshow: "请输入您要充值的金额！",
+		onfocus: "请输入您要充值的金额！"
+	}).regexValidator({
+	 	regexp:'decmal1',
+	 	datatype:'enum',
+	 	onerror:'输入的金额不可用'
+	});	 
+
+	$("#tran_number").formValidator({
+		empty:false,
+	 	validatorgroup:"2",
+	 	onshow: "请输入支付宝交易号",
+	 	onfocus: "请输入支付宝交易号"
+	}).regexValidator({
+	 	regexp:'account',
+	 	datatype:'enum',
+	 	onerror:'支付宝交易号输入错误',
+	}).ajaxValidator({
+		    url:"{U('pay/index/check_trade')}",
+		    datatype:'JSON',
+		    async:false,
+		    success:function(ret) {
+		        if(ret.status == 1) {
+		            return true;
+		        } else {
+		            return false;
+		        }
+		    },
+		    onerror:"支付宝交易号已存在"
+		});
+})
+</script>
+{include template('footer','common')}

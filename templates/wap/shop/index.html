@@ -1,0 +1,95 @@
+{include template('header','common')}
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl d-block"></a>
+			积分商城
+			<a href="{U('Search/Index/search')}" class="shop-rebate-icon fr d-block"></a>
+		</div>
+		<div class="content">
+			<script type="text/javascript">
+				$(function(){
+					$('.integral-t ul li').click(function(){
+						var oListNow = $(this).index();
+						$('.integral-t ul li').removeClass('int-focus');
+						$(this).addClass('int-focus');
+						$('.box-content').removeClass('d-block').addClass('d-none');
+						$('.box-content:eq('+oListNow+')').removeClass('d-none').addClass('d-block');
+					});
+				});
+			</script>
+			<div class="integral-t">
+				<ul>
+					<li class="int-focus"><a href="javascript:;">积分兑换</a></li>
+					<li><a href="javascript:;">积分抽奖</a></li>
+				</ul>
+			</div>
+			<!-- 积分兑换   convert  用于页面切换-->
+			<script type="text/javascript">
+				$(function(){
+					$('.c-title ul li').click(function(){
+						var cTList = $(this).index();
+						$('.c-title ul li').children().removeClass('int-focus');
+						$(this).children().addClass('int-focus');
+						$('.b-c-wrap').removeClass('d-block').addClass('d-none');
+						$('.b-c-wrap:eq(' +cTList+ ')').removeClass('d-none').addClass('d-block');
+					});
+					/* 页面判断是否为活动结束 */
+					$('.b-c-wrap ul li a strong').each(function(){
+						if($(this).attr('class') == 'acti-over'){
+							$(this).parent('a').removeAttr('href');
+						}
+					});
+				});
+			</script>
+			<div class="box-content d-block">
+
+				<div class="b-c-wrap d-block">
+					<ul>
+                        {if is_array($shop)}
+                            {loop $shop $v}
+                            <li>
+                                <a {if $v['total_num'] - $v['sale_num'] == 0}{else}href="{U('shop/index/show',array('id'=>$v['id']))}"{/if}>
+                                    <img src="{$v['images']}" alt="" />
+
+                                    {if $v['total_num'] - $v['sale_num'] == 0}
+                                    <strong class="acti-over">{str_cut($v[title],31)}</strong>
+                                    <strong class="acti-over">{$v[point]}分</strong>
+                                    {else}
+                                    <strong class="a b c">{str_cut($v[title],31)}</strong>
+                                    <strong class="a b c">{$v[point]}分</strong>
+                                    {/if}
+                                </a>
+                            </li>
+                            {/loop}
+                        {/if}
+					</ul>
+				</div>
+
+			</div>
+			<!-- 积分抽奖 -->
+			<div class="lottery clear box-content  d-none">
+
+				<div class="lott-rule clear">
+					<span>功能静待开发</span>
+					<!--<ul>-->
+						<!--<li>1、每次抽奖花费积分100</li>-->
+						<!--<li>2、每天抽奖次数为10次</li>-->
+						<!--<li>3、每月实物奖品将于下月起30个工作日内赠送。</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+				<!--<div class="lo-wrap">-->
+					<!--<a href="javascript:;" class="l-btn">-->
+						<!--立即</br>抽奖<span></span>-->
+					<!--</a>-->
+					<!--<div class="lo-bg"><img src="Default/images/lott-img.png" alt="" /></div>-->
+				<!--</div>-->
+				<!--<div class="lott-mess">-->
+					<!--<ul>-->
+						<!--<li><a href="#" class="c-white">查看已抽到的宝贝</a></li>-->
+						<!--<li>剩余积分:<b class="underline">3542</b>分</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			</div>
+		</div>
+{include template('footer','common')}

@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家个人中心-{C('WEBNAME')}</title>
+		<meta name="keywords" content="商家个人中心,{C('WEBNAME')}" />
+        <meta name="description" content="商家个人中心,{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_index.css" /> 
+		<style type="text/css">
+			.right{ width: 820px; margin: 0; padding: 0; }
+			.mainbar_wrap{ width: 580px; float: left; margin-left: 15px; }
+			.i_mod_boxB{ padding: 30px 20px; }
+			.mbox_1{ padding-bottom: 0; }
+			.i_mod_boxA, .i_mod_boxJ, .i_mod_boxB, .i_mod_boxC{ border: 1px solid #dcdcdc; margin-bottom: 10px; }
+			.i_mod_boxB cite.vip0-icon, .i_mod_boxB cite.vip1-icon, .i_mod_boxB cite.vip2-icon, .i_mod_boxB cite.vip3-icon{ background: url("{THEME_STYLE_PATH}style/images/sell_vip.gif") no-repeat; display: block; height: 83px; margin-left: 440px; position: absolute; width: 83px; z-index: 4; }
+			.mbox_1 .i_mod_boxB_bd{ padding-bottom: 40px; }
+			.clearfix::after{ clear: both; content: " "; display: block; height: 0; visibility: hidden; }
+			.col_l{ display: inline; float: left; }
+			.i_mod_boxB h3{ margin-top: 14px; }
+			.i_mod_boxA h3, .i_mod_boxB h3{ color: #333; font-size: 12px; font-weight: bold; height: 18px; line-height: 18px; }
+			.mbox_1 .col_B{ padding-left: 20px; width: 460px; }
+			.mbox_1 .r_n_em{ height: 37px; line-height: 42px; }
+			.mbox_1 .n_em{ display: inline; float: left; font: bold 30px/36px Arial; padding-right: 5px; }
+			.c_em1, .c_em1_1{ color: #ff4e00; }
+			.mbox_1 .i_mod_boxB_bd .r4{ margin: 5px 0; }
+			.mbox_1_sec2{ padding-top: 20px; }
+			.i_mod_boxB h2, .i_mod_boxC h2{ color: #333; font-family: "Microsoft YaHei","微软雅黑",Simsun,Mingliu,Arial,Helvetica; font-size: 18px; font-weight: normal; height: 19px; line-height: 19px; }
+			.mbox_2 .col_A{ width: 540px; }
+			.mod_hlist::after, .mod_ptl::after{ clear: both; content: " "; display: block; }
+			.mbox_2 .service_list{ height: auto !important; margin-top: 15px; min-height: 60px; }
+			.mbox_2 .service_list li{ height: 20px; margin-bottom: 10px; width: 180px; }
+			.mod_hlist li, .mod_hlist .li{ display: inline; float: left; }
+			.mbox_2 .i_ico{ margin-top: 0; }
+			.mbox_2 .i_ico, .mbox_2 .lbl_ico{ display: inline; float: left; }
+			.i_ico{ background: url("{THEME_STYLE_PATH}style/images/icons.png") no-repeat; display: inline-block; height: 16px; vertical-align: middle; width: 16px; }
+			.mbox_2 .lbl_ico{ margin-left: 6px; }
+			.i_user_font{ color: #888; font-weight: bold; }
+			.i_user_em{ color: #ff4e00; }
+			.i_ico_shopping{ background-position: 0 -90px; }
+			.i_ico_hotel{ background-position: 0 -150px; }
+			.i_ico_dotask{ background-position: -30px -210px; }
+			.i_ico_lottery{ background-position: -30px -180px; }
+			.i_ico_show{ background-position: 0 -180px; }
+			.i_ico_plane{ background-position: 0 -210px; }
+			.mbox_2 .col_A_ft{ padding-top: 20px; }
+			.mod_iconarr_l span, .mod_iconarr_r span{ height: 9px; width: 5px; }
+			.mod_iconarr span, .mod_iconarr_more{ background: url("{THEME_STYLE_PATH}style/images/ico_arr.png") no-repeat; display: inline-block; }
+			.mod_iconarr_r .mod_iconarr_bk{ background-position: -11px -14px; }
+			.extrabar{ width: 200px; float: left; margin-left: 25px; }
+			.i_mod_boxA{ padding: 10px 0; }
+			.i_mod_boxA_hd, .i_mod_boxA_bd{ padding: 0 10px; }
+			.mi_bbs{ padding: 14px 10px; }
+			.mi_bbs ul li{ height: 24px; line-height: 24px; }
+			.mi_bbs a{ color: #888; display: block; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 172px; }
+			.i_mod_boxA_bd{ padding-top: 10px; }
+			.tb_uinfo{ line-height: 18px; }
+			.tb_uinfo .col_txt_le{ width: 175px; }
+			.tb_uinfo .col_txt_le img{ width: auto; height: auto; vertical-align: top; }
+			.tb_uinfo li{ margin-bottom: 10px; }
+			.uinfo_avatar{ width: 40px; height: 40px; }
+			.ico_gb_b{ background: url("{THEME_STYLE_PATH}style/images/iconsB.png") no-repeat; display: inline-block; vertical-align: middle; }
+			.ico_uflag_m{ background-position: -24px -87px; }
+			.mod_uinfo .uinfo_flags a{ float: left; margin-right: 4px; }
+			.uinfo_main{ float: left; margin: 10px 0 0 10px; }
+			.ico_uflag_cb, .ico_uflag_cb0, .ico_uflag_m, .ico_uflag_m0, .ico_uflag_cft, .ico_uflag_cft0, .ico_uflag_addr, .ico_uflag_addr0, .ico_uflag_rss, .ico_uflag_rss0, .ico_uflag_gy, .ico_uflag_gy0, .ico_uflag_kf, .ico_uflag_kf0{ height: 20px; overflow: hidden; text-indent: -9999em; width: 20px; }
+			.lbl_ico{ position: relative; }
+			.activity_menu{ width: 120px; border: 1px solid #dcdcdc; position: absolute; top: 20px; left: 0; background: #ffffff; z-index: 999; display: none; }
+			.activity_menu a{ line-height: 30px; display: block; padding-left: 10px; }
+			.fw_700{ font-weight: 700; }
+			.c_ff4e00{ color: #ff4e00; }
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+		{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				<div class="nav_path">
+					<a href="{__APP__}">首页</a>&nbsp;>
+					<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>
+				</div>				
+				{include template('merchant_left','member/common')}
+				<div class="float_right right">
+					<div class="mainbar_wrap">
+						<div class="i_mod_boxA i_mod_boxA0 lbox_1">
+							<div class="i_mod_boxA_hd i_mod_boxA_hd0">
+								<!-- S-页内登录组件 -->
+								<div class="mod_mlogin">
+									<!--登录后-->
+									<div class="mod_mlogin_bd">
+										<!--登录模块mod_uinfo-->
+										<div class="mod_uinfo">
+											<!-- 已登录开始 -->
+											<div class="mod_ptl mod_uinfo_bd" id="v:login_user_detail" style="">
+												<a href="#" style="float: left;">
+													<img class="uinfo_avatar" src="<?php echo $this->userinfo[avatar];?>" />
+												</a>
+												<div class="uinfo_main">
+													<div class="c_sub2 uinfo_wc" style="float: left;">您好，<span class="c_sub2 uinfo_name"><?php echo $store_name;?></span>&nbsp;&nbsp;<span>您目前是<?php echo $groupname;?>，<a style="margin-left: 11px;margin-top: 3px;color: #3DC054;" href="{U('Member/Merchant/becomevip')}">立即开通VIP/续费服务</a></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--/mod_uinfo-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--余额-->
+						<div class="i_mod_boxB mbox_1">
+							<div class="i_mod_boxB_bd">
+								<div class="clearfix">
+									<div class="col_l col_A">
+										<h3>可用余额</h3>
+									</div>
+									<div class="col_l col_B">
+										<div class="r_n_em r1"><span id="v:jifenBalance" class="c_em1 n_em"><?php echo $this->userinfo['money']?></span>元
+										</div>
+										<div class="r4">
+										{if $this->userinfo['money'] != ''}
+										亲~！账户余额可以申请提现到支付宝或银行卡。<a style="margin-left: 11px;margin-top: 3px;color: #3DC054;" href="{U('pay/Index/deposite')}">申请提现</a>
+										{else}
+										亲~！您现在还没有可用余额,暂时还不能提现哦.
+										{/if}
+										</div>
+									</div>
+								</div>
+								<div class="mbox_1_sec2 clearfix">
+									<div class="col_l col_A">
+										<h3>冻结金额</h3>
+									</div>
+									<div class="col_l col_B">
+										<div class="r_n_em r1"><span id="v:jifen_return" class="c_em1 n_em"><?php echo $frozen_deposit;?></span>元
+										</div>
+										<div class="r2">商品押金将处于冻结状态,商品交易完成结算后会自动解冻结算金额至可用余额中。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="goods_statistics" class="i_mod_boxB mbox_2 mbox_2B">
+							<div class="i_mod_boxB_hd">
+								<h2>商品统计</h2>
+							</div>
+							<div class="i_mod_boxB_bd clearfix">
+								<div class="col_l col_A">
+									<ul class="mod_hlist service_list">
+										<li>
+											<span class="i_ico i_ico_shopping"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">待审核已付款商品<font class="i_user_font">（<em class="i_user_em">{$check_count_pay}</em>）</font></a>
+												<div class="activity_menu">
+													{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>-2))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$check_rebate_count_pay}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>-2))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$check_trial_count_pay}</span>）</span></a>
+													{/if}
+												</div>
+											</span>
+										</li>
+										
+										<li>
+											<span class="i_ico i_ico_shopping"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">待审核未付款商品<font class="i_user_font">（<em class="i_user_em">{$check_count}</em>）</font></a>
+												<div class="activity_menu">
+													{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>-3))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$check_rebate_count}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>-3))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$check_trial_count}</span>）</span></a>
+													{/if}
+												</div>
+											</span>
+										</li>
+										
+										<li>
+											<span class="i_ico i_ico_hotel"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">未通过审核<font class="i_user_font">（<em class="i_user_em">{$uncount}</em>）</font></a>
+												<div class="activity_menu">
+												{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>0))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$rebate_uncount}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>0))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$trial_uncount}</span>）</span></a>
+												{/if}
+												</div>
+											</span>
+										</li>
+										<li>
+											<span class="i_ico i_ico_dotask"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">通过审核<font class="i_user_font">（<em class="i_user_em">{$pass_count}</em>）</font></a>
+												<div class="activity_menu">
+												{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>-1))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$rebate_pass_count}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>-1))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$trial_pass_count}</span>）</span></a>
+												{/if}
+												</div>
+											</span>
+										</li>
+										<li>
+											<span class="i_ico i_ico_lottery"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">已上架<font class="i_user_font">（<em class="i_user_em">{$going_count}</em>）</font></a>
+												<div class="activity_menu">
+												{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>1))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$rebate_going_count}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>1))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$trial_going_count}</span>）</span></a>
+												{/if}
+												</div>
+											</span>
+										</li>
+										<li>
+											<span class="i_ico i_ico_show"></span>
+											<span class="lbl_ico">
+												<a href="javascript:;" class="status_btn">结算中<font class="i_user_font">（<em class="i_user_em">{$colse_count}</em>）</font></a>
+												<div class="activity_menu">
+												{if C('REBATE_ISOPEN') == 1}
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>2))}">返利活动<span class="fw_700">（<span class="c_ff4e00">{$colse_count_rebate}</span>）</span></a>
+													{/if}	
+													{if C('TRIAL_ISOPEN') == 1}	
+													<a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial','activity_state'=>2))}">试用活动<span class="fw_700">（<span class="c_ff4e00">{$colse_count_trial}</span>）</span></a>
+												{/if}
+												</div>
+											</span>
+										</li>
+									</ul>
+									<!-- <div class="col_A_ft"><a href="#" class="lnk_shopping"><span>查看全部商品</span><span class="mod_iconarr mod_iconarr_r"><span class="mod_iconarr_bk"></span></span></a>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						{if C('REBATE_ISOPEN') == 1}
+						<div class="i_mod_boxB mbox_2">
+							<div class="i_mod_boxB_hd">
+								<h2>返利订单统计</h2>
+							</div>
+							<div class="i_mod_boxB_bd clearfix">
+								<div class="col_l col_A">
+									<ul class="mod_hlist service_list">
+										<li><span class="i_ico i_ico_shopping"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>1))}">待填订单<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,1,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_plane"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>3))}">待审核订单<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,3,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_hotel"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>4))}">订单号有误<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,4,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_lottery"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>6))}">申诉中<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,6,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_show"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>0))}">已关闭<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,0,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_dotask"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>5))}">通过审核<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,5,'rebate')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_dotask"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate','status'=>7))}">已完成<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,7,'rebate')}</em>）</font></a></span>
+										</li>
+									</ul>
+									<div class="col_A_ft"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate'))}" class="lnk_shopping"><span>查看全部返利订单</span><span class="mod_iconarr mod_iconarr_r"><span class="mod_iconarr_bk"></span></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{/if}
+						{if C('TRIAL_ISOPEN') == 1}
+						<div class="i_mod_boxB mbox_2">
+							<div class="i_mod_boxB_hd">
+								<h2>试用订单统计</h2>
+							</div>
+							<div class="i_mod_boxB_bd clearfix">
+								<div class="col_l col_A">
+									<ul class="mod_hlist service_list">
+										<li><span class="i_ico i_ico_shopping"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>1))}">待填订单<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,1,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_plane"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>3))}">待审核订单<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,3,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_hotel"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>4))}">订单号有误<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,4,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_lottery"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>6))}">申诉中<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,6,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_show"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>0))}">已关闭<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,0,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_dotask"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>5))}">通过审核<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,5,'trial')}</em>）</font></a></span>
+										</li>
+										<li><span class="i_ico i_ico_dotask"></span><span class="lbl_ico"><a href="{U('Member/Order/order_manage',array('mod'=>'trial','status'=>7))}">已完成<font class="i_user_font">（<em class="i_user_em">{order_state($this->userid,7,'trial')}</em>）</font></a></span>
+										</li>
+									</ul>
+									<div class="col_A_ft"><a href="{U('Member/Order/order_manage',array('mod'=>'trial'))}" class="lnk_shopping"><span>查看全部试用订单</span><span class="mod_iconarr mod_iconarr_r"><span class="mod_iconarr_bk"></span></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{/if}
+						<!--/mbox_2-->
+					</div>
+								
+					<div class="extrabar">
+					<!--客服专员-->
+					<div class="i_mod_boxA lbox_2">
+						<div class="i_mod_boxA_hd">
+							<h3>您的客服专员</h3>
+						</div>
+						<div class="i_mod_boxA_bd">
+							<ul class="tb_uinfo">
+								<li class="clearfix">
+									<div class="col_l col_txt_le">姓名：{if $admin_info['username'] != ''}{$admin_info['username']}{else}您尚无所属专员，请联系在线客服 {/if}</div>
+								</li>
+								<li class="clearfix">
+									<div class="col_l col_txt_le">手机：{if $admin_info['phone'] != ''} {$admin_info['phone']} {else}-{/if}</div>
+								</li>
+								<li class="clearfix">
+									<div class="col_l col_txt_le">Q Q：{if $admin_info['qq'] != ''} {$admin_info['qq']} {else} - {/if}</div>
+								</li>
+								<li class="clearfix">
+									<div class="col_l col_txt_le">
+										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={if $admin_info['qq'] != ''}{$admin_info['qq']} {else}C('site_complain_qq'){/if}&site=qq&menu=yes">
+											<img border="0" src="http://wpa.qq.com/pa?p=2:2851329269:51" alt="专属客服" title="专属客服" />
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--网站公告-->
+					<div class="i_mod_boxA rbox_1">
+						<div class="i_mod_boxA_hd">
+							<h3>网站公告</h3>
+						</div>
+						<div class="mi_bbs">
+							{pc:announce action="lists" num="5"}
+							<ul id="bbs_txt_topic">
+								{loop $data $d}
+								<li><a href="{U('Announce/Index/show',array('id'=>$d[announceid]))}" target="_blank"><font color="#CA1A00">● {$d[title]}</font></a>
+								</li>
+								{/loop}
+							</ul>
+							{/pc}
+						</div>
+					</div>
+					<!--网站公告-->
+					<!--汇折商家服务微信-->
+					{if C('WEIXIN_LOGO')}
+					<div class="i_mod_boxA lbox_2">
+						<div class="i_mod_boxA_hd">
+							<h3>{C('WEBNAME')}商家服务微信</h3>
+						</div>
+						<div class="i_mod_boxA_bd" id="v:no_preferred_info">
+							<ul class="tb_uinfo">
+								<li class="clearfix">
+									<div>
+										<img id="showimg_3" style="_width:100%;" src="{C('WEIXIN_LOGO')}" width="177" height="172">
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					{/if}
+					<!--汇折商家服务微信-->
+					<!--客服专员-->
+					<div class="i_mod_boxA lbox_2">
+						<div class="i_mod_boxA_hd">
+							<h3>{C('WEBNAME')}商家QQ群：</h3>
+						</div>
+						<div class="i_mod_boxA_bd">
+							<ul class="tb_uinfo">
+								<li class="clearfix">
+									<div class="col_l col_txt_le">
+										{stripslashes(C('MERCHANT_CODE'))}
+										 群:{stripslashes(C('MERCHANT_QQ_GROUP'))}</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+							
+				</div>				
+			</div>
+		</div>
+		
+{include template('footer','common')}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#goods_statistics .status_btn").mousedown(function(){
+			var goods_num = $(this).find(".i_user_em").text();
+			if(goods_num > 0){
+				$(this).siblings(".activity_menu").toggle();
+			}
+		});
+	});
+</script>

@@ -1,0 +1,274 @@
+{include template('header','common')}
+
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">买家注册</strong>
+		</div>
+		<div class="content">
+            <form action="{U('Member/Index/register')}" method="POST" id="myform" class="login_form ">
+            <input type="hidden" value="1" name="info[modelid]">
+            <input type="hidden" value="{$agent_id}" name="info[agent_id]">
+			<div class="login-box">
+				<ul class="clear">
+					<li class="clear">
+						<div class="add-box">
+                            <span class="fl ta-r f1_5">邮箱:</span>
+						    <input class="fl" type="text" name="info[email]" id="email"/>
+                        </div>
+					</li>
+					<li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">密码:</span>
+                            <input class="fl" type="password" name="info[password]" id="password"/>
+                        </div>
+					</li>
+					<li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">确认密码:</span>
+                            <input class="fl" type="password" name="info[pwdconfirm]" id="pwdconfirm"/>
+                        </div>
+                    </li>
+
+                     <?php if (in_array($modelid, $setting['setting_register_verify_enable'])): ?>
+                    <li>
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">验证码:</span>
+                            <input type="text"  class="fl s-w" name="info[verify]" id="verify"/>
+                            <a href="javascript:;" class="fl">
+                                <img class="hint_img" id="verify_img" src="{U('Api/Verify/create')}" onclick="refresh_verify();" style="cursor:pointer; " />
+                            </a>
+                        </div>
+                    </li>
+                    <?php endif ?>
+         <?php if (in_array($modelid, $setting['setting_register_sms_enable'])): ?>
+
+
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">手机号码:</span>
+                            <input type="text" class="fl s-w" name="info[phone]" id="phone">
+                            <a href="javascript:;" class="fl btn-s-01 getverify">获取验证码</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">短信验证码:</span>
+                            <input type="text" name="info[sms]" id="sms" placeholder="手机短信验证码" size="4" style="width:188px;" />
+                        </div>
+                    </li>
+                    <?php endif ?>
+                   
+				</ul>
+
+				<p class="at-login">
+					<a class="btn-s-01 onsubmit f1_5" href="javascript:;">立即注册</a>
+				</p>
+			</div>
+            </form>
+			<div class="l-oauth">
+				<a href="javascript:;" class="oauth-btn f1_5">第三方登录</a>
+				<ul class="oauth-list clear">
+					<li><a href="#"><img src="Default/images/shopping-icon.png" alt="" /></a></li>
+					<li><a href="#"><img src="Default/images/tencent-icon.png" alt="" /></a></li>
+					<li><a href="#"><img src="Default/images/sina-icon.png" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+		
+<script type="text/javascript">
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+
+    $("#email").formValidator({
+        empty:false,
+        onempty:'电子邮箱不能为空',
+        onshow:'请填写您的电子邮箱',
+        onfocus:'请填写您的电子邮箱'
+    }).inputValidator({
+        min:1,
+        onerror:'电子邮箱不能为空'
+    }).regexValidator({
+        datatype:'enum',
+        regexp:'email',
+        onerror:'电子邮箱格式不正确'
+    }).ajaxValidator({
+        url : "{U('public_checkemail_ajax')}",
+        datatype:'JSON',
+        async:false,
+        success:function(ret) {
+            if(ret.status == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        onerror:'该Email已被占用'
+    });
+
+    $("#password").formValidator({
+        empty:false,
+        onempty:'登录密码不能为空',
+        onshow:'6-20个字符，请使用字母数字加上下划线组合密码。',
+        onfocus:'6-20个字符，请使用字母数字加上下划线组合密码。'
+    }).inputValidator({
+        min:6,
+        max:20,
+        onerror:'登录密码必须为6-20个字符'
+    });
+
+    $("#pwdconfirm").formValidator({
+        empty:false,
+        onempty:'确认密码不能为空',
+        onshow:'请再次确认登录密码',
+        onfocus:'请再次确认登录密码'
+    }).inputValidator({
+        min:6,
+        max:20,
+        onerror:'确认密码必须为6-20个字符'
+    }).compareValidator({
+        desid:'password',
+        onerror:'确认密码输入不一致'
+    });
+
+    <?php if (in_array($modelid, $setting['setting_register_sms_enable'])){ ?>
+
+
+    $("#phone").formValidator({
+        empty:false,
+        onempty:'手机号码不能为空',
+        onshow:'请输入您的手机号码（大陆地区）',
+        onfocus:'请输入您的手机号码（大陆地区）'
+    }).inputValidator({
+        min:11,
+        max:11,
+        onerror:'手机号码只能为11位'
+    }).regexValidator({
+        datatype:'enum',
+        regexp:'mobile',
+        onerror:'手机号码格式不正确'
+    }).ajaxValidator({
+        url : "{U('public_checkphone_ajax')}",
+        datatype:'JSON',
+        async:false,
+        success:function(ret) {
+            if(ret.status == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        onerror:'该手机已被占用'
+    });
+
+    var errmsg = '';
+    $("#sms").formValidator({
+        empty:false,
+        onshow:'请输入手机短信验证码',
+        onfocus:'请输入手机短信验证码'
+    }).inputValidator({
+        min:6,
+        max:6,
+        onerror:'验证码只能为6位'
+    }).ajaxValidator({
+        url:"{U('public_check_sms')}",
+        datatype:'JSON',
+        async:false,
+        getdata:{mobile:'phone'},
+        success:function(ret) {
+            if(ret.status == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        onerror:'手机短信验证码输入错误'
+    });
+
+    //获取手机短信验证码
+    var InterValObj;
+    var curCount = 60;
+    $("a.getverify").click(function(){
+        var mobile = $("#phone").val();
+        var verify = $("#verify").val();
+        var modelid = <?php echo $modelid;?>;
+        if(mobile == '' || $(this).hasClass('disabled')) {
+            $("#phone").focus();
+            return false;
+        }
+
+        
+        $.getJSON("{U('public_send_sms')}", {mobile:mobile,verify:verify,modelid:modelid}, function(ret) {
+            if(ret.status == 1) {
+                InterValObj = window.setInterval(SetRemainTime, 1000);
+            } else {
+                alert('短信验证码发送失败');
+                return false;
+            }
+        });
+    });
+
+    function SetRemainTime() {
+        if (curCount == 1) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("a.getverify").text("重发验证码").removeClass('disabled');
+        }
+        else {
+            curCount--;
+            $("a.getverify").text("" + curCount + "秒后重发").addClass('disabled');
+        }
+    }
+
+        <?php }; ?>
+
+
+    <?php if (in_array($modelid, $setting['setting_register_verify_enable'])){ ?>
+
+    $("#verify").formValidator({
+        empty:false,
+        onempty:'验证码不能为空',
+        onshow:'请输入验证码',
+        onfocus:'请输入验证码'
+    }).inputValidator({
+        min:4,
+        max:4,
+        onerror:'验证码只能为4位'
+    }).ajaxValidator({
+        url : "{U('public_checkverify_ajax')}",
+        datatype:'JSON',
+        async:false,
+        success:function(ret) {
+            if(ret.status == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        onerror:'验证码输入错误'
+    });
+
+    /* 刷新图形验证码 */
+    function refresh_verify() {
+        $("img#verify_img").attr('src', 'index.php?m=api&c=verify&a=create&_t=' + Math.random());
+    }
+
+    <?php  }; ?>
+
+
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+
+    </script>
+   
+
+
+
+{include template('footer','common')}

@@ -1,0 +1,53 @@
+
+
+.hint_search { margin-top:20px; height:24px; width:100%; float:left; }
+.hint_search select { width:137px; height:100%; float:left; border:solid 1px #ddd; }
+.hint_search input[type=text] { text-indent:10px; margin:0 10px; width:145px; height:22px; border:solid 1px #ddd; float:left; }
+.hint_search input[type=button] { width:50px; height:100%; float:left; }
+
+
+.t_tr_w_1 { width:248px; }
+.t_tr_w_2 { width:140px; }
+.t_tr_w_3 { width:143px; }
+.t_tr_w_4 { width:125px; }
+.t_tr_w_5 { width:124px; }
+.tc{ text-align: center;}
+.text_indent { text-indent:10px; }
+
+body .t_tr_w_3_1 { width:97px; }
+body .t_tr_w_4_1 { width:100px; }
+body .t_tr_w_6 { width:100px; }
+
+
+.table_list { width:780px; float:left;text-align:left; }
+.table_list .table_title { width:100%; height:40px; line-height:40px; padding-top:1px; border-top:solid 1px #efefef; margin-top: 22px; }
+.table_list .table_title th {height:100%; background: #f3f3f3; }
+
+.table_list tr { width:100%; height:auto; float:left; }
+.table_list .border_none { border:none; }
+.table_list tr td { height:117px;}
+.table_list tr td ol li { line-height:18px; }
+.table_list .table_hint { width:100%; height:40px; line-height:40px; background: #eaeaea; margin-top: 10px; border: 1px solid #dddddd; }
+.table_list .table_hint td { height:40px; line-height:40px; display: block; padding: 0 15px; }
+.table_hint span { float:left; margin-right:10px; font-weight: 700; }
+.table_hint span .table_c{float:left;margin:13px 5px 0 5px; }
+.table_hint font{ margin-left: 20px;}
+.table_hint a { display:block; background:url(../images/table_remove_btn.jpg) no-repeat left center; padding-left:16px; float:right; }
+.table_small { float:left; width:74px; height:49px; }
+.table_small_text { margin:5px 0 0 5px; line-height:18px; color: #009de8;}
+.table_small_text li a{ color: #009de8;}
+.t_h_wi_he { height:17px; display:inline-block; line-height:17px; text-align:center; margin:0 5px; padding: 0 5px; }
+
+.handle a { width:auto; padding:5px; color:#fff; height:20px; background:#30bbfe; text-align:center; }
+.t_tr_w_4 ol { text-align:center; }
+.t_tr_w_4 ol li { color:#999; }
+.table_list .bb{ border-bottom: 1px solid #dddddd;}
+.table_list .br{ border-right: 1px solid #dddddd;}
+.table_list .bl{ border-left: 1px solid #dddddd;}
+.bb td{ border-left: 1px solid #dddddd;}
+.bb .blnone{ border-left: none;}
+.pl17{ padding-left: 17px;}
+.handle li{ margin: 10px 0;}
+.activity_name{ float: right; color: #ff0000;}
+.exc_list{ margin-top: 22px; border-collapse: collapse; }
+.exc_list td{ border: 1px solid #dddddd;}

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_alipay_aut_show.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/ajaxfileupload.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+		$("#image").click(function (){
+			$("#file_upload").click();
+		});
+	});
+</script>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function ajaxFileUpload(){
+			$.ajaxFileUpload ({
+				 url:'{U('Member/MerchantProduct/code')}',
+				 secureuri:false,//是否启用安全提交
+				 fileElementId:'file_upload',
+				 dataType: 'json',
+				 success: function (data){
+					 $('#file_url').val(data);
+					 $(".code").attr('src',data);
+				 },
+				 error:function(data){
+					 console.log(data);
+				 }
+			 }) 
+		 return false; 
+	}
+	</script>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+	<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Attesta/person')}" class="nav_active">个人认证</a>&nbsp;>
+		<a href="{U('Member/Attesta/alipay_attesta')}" class="nav_active">支付宝账号绑定</a>
+	</div>
+					
+				{include template("merchant_left","member/common")}
+
+			<div class="content_right float_right">
+				<h1>支付宝绑定</h1>
+				<form action="{U('Member/Attesta/alipay_attesta')}" method="post" id="myform">
+				
+				<div class="alipay_form">
+					<div class="prompt">注意，支付宝绑定后不可修改！</div>
+					<div class="alipay_input">
+						<dl class="alipay_name">
+							<dt class="float_left">支付宝姓名：</dt>
+							<dd class="float_left">{if empty($infos[name])}
+								<a href="{U('Member/Attesta/name_attesta')}">
+									<font color="red">你还没有进行实名认证，去认证</font>
+								</a>{else}{$infos[name]}{/if}
+								<input type="hidden" name="name_attesta" id="name_attesta" value="{$infos[name]}" />
+							</dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="alipay_id">
+							<dt class="float_left">支付宝账号：</dt>
+							<dd class="float_left"><input type="text" name="account" id="account" value="{$alipay[alipay_account]}" /></dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="alipay_code">
+							<dt class="float_left">支付宝二维码：</dt>
+							<dd class="float_left">
+							<input  id="file_upload"  name="Filedata" type="file" style="display:none;" onchange = "return ajaxFileUpload()"/>
+							<input type="hidden" id="file_url" name="alipay_code"  value=""/>
+								<a href="javascript:;"><img src="{THEME_STYLE_PATH}style/images/qrcode.png" name="alipay_code" width="100px" height="100px" id="image" class="code"/></a>
+							</dd>
+							<dd><a href="javascript:;">上传二维码帮助</a></dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<div class="submit"><input type="submit" name="submit" value="提交" /></div>
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+<style type="text/css">
+			.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+			.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+			.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+			.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+			.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+			.onLamp{background-position:3px -200px}
+			.onTime{background-position:3px -1356px}
+		</style>
+	{include template('footer','common')}
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+
+$("#account").formValidator({
+	empty:false,
+	onempty:'支付宝账号不能为空',
+	onshow:"请输入支付宝账号",
+	onfocus:"请输入支付宝账号"
+}).regexValidator({
+	regexp:'alipay',
+	datatype:'enum',
+	onerror:"支付宝账号输入错误"
+});
+$("#name_attesta").formValidator({
+	empty:false,
+	onempty:'',
+	onshow:"",
+	onfocus:"请先进行身份认证"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"请先进行身份认证"
+}); 
+//-->
+</script>
+<script type="text/javascript">
+ $(function(){
+	     $("#upload").click(function(){
+			$(".button").click();
+		 });
+	
+	  	 $(".aui_state_highlight").live('click',function() {
+			var a = $('#store_logo').val();
+			$(".portrait").attr('src',a);
+		});
+ });
+
+</script>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绑定淘宝账号-买家个人中心-{C('WEBNAME')}</title>
+		<meta name="keywords" content="推荐好友,{C('WEBNAME')}" />
+		<meta name="description" content="推荐好友,{C('WEBNAME')}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_bindtaobao.css" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.zclip.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+		<script type="text/javascript" src="/static/js/jquery.shCircleLoader-min.js"></script>
+	</head>
+	<body>
+	{include template('v2_header','member/common')}
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>好友推荐</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				
+			 {include template('v2_member_left','member/common')}
+
+
+				<div class="fr u_index_mess user_pd_1">
+					<h2 class="user_page_title">绑定淘宝账号</h2>
+
+				<div class="content_right_main">
+					<div class="main_content">
+						<div class="avatar">
+							<span class="avatar_avatar">
+								<img src="{THEME_STYLE_PATH}style/images/user_botton_icon.png" width="100" height="100" alt="" />
+							</span>
+							<span><img src="{THEME_STYLE_PATH}style/images/arrow.png" alt="" /></span>
+							<span><img src="{THEME_STYLE_PATH}style/images/taobao.png" alt="" /></span>
+						</div>
+						<div class="input" style="height:auto;" >
+							<dl>
+								<dt><span>淘宝账号：</span>请填写您需要认证的淘宝账号</dt>
+								<dd><input type="text" name="taobao" id="taobao" /></dd>
+
+							</dl>
+
+							<dl>
+								
+								<dt class="tbxyTitle" ><span>淘宝信誉:</span>请选择您的淘宝账号信誉等级</dt>
+								<dd>
+									<div  class="taobaoxyz">
+										<div class="selectzzz" id="selectzzz">
+										  <img data-taobao ="1" src="{THEME_STYLE_PATH}style/images/b_red_1.gif" alt="心1">
+									   </div>
+										<ul id="ulli" style="display:none;" >
+										  	 <li><img data-taobao ="1" src="{THEME_STYLE_PATH}style/images/b_red_1.gif" alt="心1"></li>
+										  	 <li><img data-taobao ="2" src="{THEME_STYLE_PATH}style/images/b_red_2.gif" alt="心2"></li>
+										  	 <li><img data-taobao ="3" src="{THEME_STYLE_PATH}style/images/b_red_3.gif" alt="心3"></li>
+										  	 <li><img data-taobao ="4" src="{THEME_STYLE_PATH}style/images/b_red_4.gif" alt="心4"></li>
+										  	 <li><img data-taobao ="5" src="{THEME_STYLE_PATH}style/images/b_red_5.gif" alt="心5"></li>
+										     <li><img data-taobao ="6" src="{THEME_STYLE_PATH}style/images/b_blue_1.gif" alt="钻石1"></li>
+										     <li><img data-taobao ="7" src="{THEME_STYLE_PATH}style/images/b_blue_2.gif" alt="钻石2"></li>
+										     <li><img data-taobao ="8" src="{THEME_STYLE_PATH}style/images/b_blue_3.gif" alt="钻石3"></li>
+										     <li><img data-taobao ="9" src="{THEME_STYLE_PATH}style/images/b_blue_4.gif" alt="钻石4"></li>
+										     <li><img data-taobao ="10" src="{THEME_STYLE_PATH}style/images/b_blue_5.gif" alt="钻石5"></li>
+										     <li><img data-taobao ="11" src="{THEME_STYLE_PATH}style/images/s_cap_1.gif" alt="皇冠1"></li>
+										     <li><img data-taobao ="12" src="{THEME_STYLE_PATH}style/images/s_cap_2.gif" alt="皇冠2"></li>
+										     <li><img data-taobao ="13" src="{THEME_STYLE_PATH}style/images/s_cap_3.gif" alt="皇冠3"></li>
+										     <li><img data-taobao ="14" src="{THEME_STYLE_PATH}style/images/s_cap_4.gif" alt="皇冠4"></li>
+										     <li><img data-taobao ="15" src="{THEME_STYLE_PATH}style/images/s_cap_5.gif" alt="皇冠5"></li>
+										</ul>
+										
+									</div>
+									
+								</dd>
+								<input type="hidden" name="bLevel" id="tbxy"  value="1" />
+								<input type="hidden" name="account_level" id="tbxy_img"  value="{THEME_STYLE_PATH}style/images/b_red_1.gif" />
+							</dl>
+                           
+                            {if C('bind_tb_img') ==1}
+							<dl >
+								<dt class="tbxyTitle"><span>信誉截图：</span>请上传您淘宝账号的信誉截图<a href="#" class="help">如何上传?</a></dt>
+								
+								<dd class="clear ">
+									<div class="posi float_left">
+										<a href="javascript:;" name="uploadify" id="img1">
+											<img  src="{THEME_STYLE_PATH}style/images/idcard_image.jpg" width="112px" height="117px"/>
+											<input type="hidden" name="img_url[0]" value="" id="img_url1" />
+										</a>
+									</div>
+								</dd>
+							</dl>
+                            {/if}
+
+							<dl class="order_id" style="font-size:12px">
+								<dt><span>温馨提示：</span></dt>
+								<dd>1、只有用绑定过的淘宝账号下单,才能获得返利或试用资格</dd>
+								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}淘宝账号</dd>
+								<dd>3、如果发现自己淘宝帐号,被其它人绑定,请联系平台客服更换</dd>
+							</dl>
+							<span class="msg"></span>
+						</div>
+						<div>
+							<a href="javascript:;" class="aut_push" id="aut_push">立即绑定</a>
+						</div>
+					</div>
+					<!-- 绑定列表 start -->
+			<div class="bind_taobao_lists">
+				<dl>
+					<dt>已绑定账号</dt>
+					<dd>
+						<table>
+							<tr>
+								<th style="width: 155px;">淘宝账号</th>
+								<th style="width: 146px;">买家信用</th>
+								<th style="width: 146px;">绑定时间</th>
+								<th style="border: none;">操作</th>
+							</tr>
+							{loop $infos $info}
+								<tr>
+									<td>{$info['account']}</td>
+									<td>
+									{if $info['account_level'] !=""}
+									<img src="{$info['account_level']}" title="{$info['bLevel']}级" />
+									{/if}
+									</td>
+									<td>{dgmdate($info['inputtime'])}</td>
+									<td style="border: none;">
+									    {if $info['is_default'] == 0}
+									    	<a href="javascript:;" data-id="{$info['id']}" onclick="taobao_setdefault({$info['id']})">设为默认</a>
+									       {else}
+									        <span style="color:red;">【默认】</span>
+									    {/if}
+										<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Attesta/bind_del')}" data-account="{$info['account']} " class="bind_del">删除绑定</a>
+                                        {if $info['taobao_img']}
+										 <a href="javascript:;" onclick="(get_toabao_img('{$info['taobao_img']}'))">查看信誉截图</a>
+                                        {/if}
+									</td>
+								</tr>
+							{/if}
+						</table>
+					</dd>
+				</dl>
+			</div>
+			<!-- 绑定列表 end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template('footer','common')}
+   <script type="text/javascript" src="{JS_PATH}tool/tool.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#taobao").focus(function(){
+		$(".msg").html("请输入淘宝账号");
+	});
+	$("#taobao").blur(function(){
+		var _this = $(this).val();
+		if(_this == ''){
+			$(".msg").html("淘宝账号不能为空");
+		}else{
+			$(".msg").html("<font color='green'>淘宝账号输入正确</font>");
+		}
+	});
+	
+	/*绑定淘宝帐号*/
+	$("#aut_push").click(function(){
+		if("" == $("#taobao").val()){
+			$(".msg").html("请输入淘宝账号");
+			return false;
+		}
+
+		if($('#img_url1').val() == ''){
+			$(".msg").html("请上传淘宝帐号截图");
+			return false;
+
+		}
+
+			$(".msg").html("<font  color='green'>输入正确</font>");
+			var data ={
+				'account': $("#taobao").val(),
+                'bLevel':  $("#tbxy").val(),
+                'account_level': $("#tbxy_img").val(),
+                'taobao_img' : $("#img_url1").val()
+			}
+			$.post("{U('Member/Attesta/bindtaobao')}",{'data':data},function(data){
+				if(data.status == 1){
+					art.dialog({lock: true,fixed: true,icon: 'succeed',title: '绑定成功',time:3,content: data.info,ok: function (){location.reload();}});
+				}else{
+					art.dialog({lock: true,fixed: true,icon: 'error',title: '绑定失败',content: data.info,ok: function (){location.reload();}});
+				}
+			},"json");
+		
+	});
+
+	//绑定列表样式
+	$(".bind_taobao_lists tr:odd").css("background-color","#eeeeee");
+
+    /*信誉图片上传*/
+	uploader('#img1','#img_url1','#img1 img');
+});
+
+
+//删除
+ $(".bind_del").click(function(){
+	var id = $(this).attr('data-id');
+	$.post("{U('Member/Attesta/bind_del')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '删除成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+
+ /*设为默认帐号*/
+
+ function taobao_setdefault(id){
+
+ 	$.getJSON("{U('Member/Attesta/setdefault')}",{'id':id},function(s){
+
+ 		if(s.status == 1){
+ 			art.dialog({
+ 				lock: true,fixed: true,icon: 'succeed',title: '设为默认成功',time:3,content: s.info,
+ 				ok: function (){
+	 				location.reload();
+	 			}
+	 		});
+ 		}else{
+ 			art.dialog({lock: true,fixed: true,icon: 'error',title: '设为默认失败',content: s.info,ok: function (){location.reload();}});
+ 		}
+
+ 	})
+ }
+
+ /*查看已上传的信誉截图*/
+ function get_toabao_img(img){
+	art.dialog({
+		lock: true,fixed: true,
+		title: '已上传的信誉截图',
+		time:5,
+		content:'<img src="'+img+'" />',
+		ok: function (){
+
+			}
+		});
+ }
+
+
+ /*解除绑定*/
+ $("#unbind").click(function(){
+	var id = parseInt($(this).attr('data-id'));
+
+	$.post("{U('Member/Attesta/unbind')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '解绑成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+	
+
+$("#ulli li").click(function(){
+	$('#ulli').hide();
+	$("#tbxy").val($(this).find('img').attr('data-taobao'));
+	$("#tbxy_img").val($(this).find('img').attr('src'));
+	$("#selectzzz img").attr('src',$(this).find('img').attr('src'))
+})
+
+$("#selectzzz ").click(function(){
+	if($("#ulli").is(":hidden")){
+		$('#ulli').show();
+	}else{
+		$('#ulli').hide();
+	}
+	
+})
+
+/*上传帮助提示*/
+
+$('.help').click(function(){
+
+	var html = "第一步 打开淘宝，登录进去之后，进入个人中心<br/>";
+	    html += '<img width="500" src="{THEME_STYLE_PATH}style/img/tao_help1.png" /><br/>';
+        html += '第二步 截取以下选中区域上传<br/>';
+        html += '<img width="500" src="{THEME_STYLE_PATH}style/img/tao_help2.png" /><br/>';
+	art.dialog({
+		lock: true,fixed: true,
+		title: '上传帮助提示',
+		content:html,
+		ok: function (){
+
+			}
+		});
+
+})
+
+/*
+
+
+
+
+ */
+
+</script>

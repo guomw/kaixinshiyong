@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style type="text/css">
+#header .logo img{ width:auto; height:52px; position:relative; top:50% !important; margin-top:-26px; }
+.onCorrect{ color: green;}
+.onError{ color: red;}
+#usernameTip{ padding-left: 100px;}
+#verifyTip{ padding-left: 100px;}
+.input_message input.button {
+text-align: center;
+width: 124px;
+height: 42px;
+margin-left: 10px;
+}
+
+
+.input_message input.btn_s {
+cursor: pointer;
+background: #FF6C00;
+color: #fff;
+border-color: #FF6C00;
+}
+
+.input_message li input[type="button"] {
+width: 192px;
+height: 42px;
+display: inline-block;
+margin-left: 120px;
+border: none;
+background-color: #f60;
+color: #fff;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+</style>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="Keywords" content="{$SEO['keyword']}" />
+		<meta name="Description" content="{$SEO['description']}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/user.css" /> 
+
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/find_password.css" /> 
+	</head>
+
+	
+	<body>
+					{include template('v2_register_header','member/common')}
+
+		
+	<div class="content" style="overflow:hidden;width:100%;padding-bottom:30px;">			
+			<div class="password_wrap">
+				<ul class="at_present">
+					<li class="by_bg">
+						<p>1</p>
+						<font>填写账户信息</font>
+					</li>
+					<li class="at_bg">
+						<p>2</p>
+						<font>验证身份</font>
+					</li>
+					<li class="auto_bg">
+						<p>3</p>
+						<font>设置新密码</font>
+					</li>
+					<li class="auto_bg">
+						<p>4</p>
+						<font>完成</font>
+					</li>
+				</ul>
+				<form  method="post" id="myform">
+				<ul class="input_message">
+					<li>
+						<span>手机号码：</span>
+						<input type="text" id="phone" name="username" placeholder="手机号" class="set_w_input" value="{$phone}" disabled="disabled"/>
+						<div style="clear: both;"></div>
+					</li>
+					<li>
+						<span>验证码：</span>
+						<input type="text" class="set_w_try" id="sms" name="verify"/>
+						<input type="button" class="button btn_s dasied getverify" style="border:none; width:124px;margin-left:10px;" onclick="set_sme();"  id='get_sns' value="获取短信验证码"/>
+						<div style="clear: both;"></div>
+					</li>
+					<li><input type="button"  value="下一步"  id="button"/></li>
+				</ul>
+			</form>
+			</div>
+
+		</div>
+
+
+			{include template('v2_register_footer','member/common')}
+		<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+		<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+	/* 刷新图形验证码 */
+		function refresh_verify() {
+			$("#verify_img").attr('src', 'index.php?m=api&c=verify&a=create&_t=' + Math.random());
+		}
+		$(function(){
+			$.formValidator.initConfig({
+			formid:"myform",
+			autotip:true,
+			onerror:function(msg,obj){
+				$(obj).focus();
+			}
+		});
+
+		$("#username").formValidator({
+		    empty:false,
+		    onshow:true,
+		    onfocus:'请输入账号'
+		}).inputValidator({
+			min:1,
+			onerror:'账号不能为空'
+		}).ajaxValidator({
+		    url:"{U('check_exist_name')}",
+		    datatype:'JSON',
+		    async:false,
+		    success:function(ret) {
+		        if(ret.status == 1) {
+		            return true;
+		        } else {
+		            return false;
+		        }
+		    },
+		    onerror:"该用户不存在"
+		});
+
+
+		$("#sms").formValidator({
+			empty:false,
+			onempty:'验证码不能为空',
+			onshow:true,
+			onfocus:'<p class="set-height">请输入验证码</p>'
+		}).inputValidator({
+			min:6,
+			max:6,
+			onerror:'<p class="set-height">验证码只能为6位</p>'
+		}).ajaxValidator({
+		    url : "{U('public_check_sms')}",
+		    datatype:'JSON',
+		    getdata:{mobile:'phone'},
+		    async:false,
+		    success:function(ret) {
+		        if(ret.status == 1) {
+		            return true;
+		        } else {
+		            return false;
+		        }
+		    },
+		    onerror:'<p class="set-height">验证码输入错误</p>'
+		});
+		
+		});
+
+//获取手机短信验证码
+var InterValObj;
+var curCount = 60;
+
+
+function set_sme(){
+
+	    var mobile = $("#phone").val();
+		$('.getverify').removeClass('btn_s');
+		$('.getverify').addClass('dasied');
+		$('.getverify').attr('disabled','disabled');
+		$("#get_sns").val("正在发送..");  
+
+	    if(mobile == '') {
+	        $("#phone").focus();
+	        return false;
+	    }
+	    
+	    if($(".getverify").hasClass('disabled') == false){
+	    	$.getJSON("{U('forget_send_sms')}", {mobile:mobile}, function(ret) {
+			        if(ret.status == 1) {
+			        	$("#get_sns").val("发送成功");  	
+			          InterValObj = window.setInterval(SetRemainTime, 1000);
+			        } else {
+			            alert(ret.info);
+			            return false;
+			        }
+		    });
+	    }
+
+}
+
+function SetRemainTime() {
+
+    if (curCount == 1) {
+    	curCount = 60;          
+        window.clearInterval(InterValObj);//停止计时器
+        $("#get_sns").val("重发验证码").removeClass('disabled');  
+    	$('.getverify').addClass('btn_s');
+    	$('.getverify').removeClass('dasied');
+		$('.getverify').removeAttr('disabled');
+
+    }
+    else {
+        curCount--;
+        $("#get_sns").val("" + curCount + "秒后重发").addClass('disabled');
+        $('.getverify').removeClass('btn_s');
+    	$('.getverify').addClass('dasied');
+		$('.getverify').attr('disabled','disabled');
+
+    }
+}
+
+	$('#button').click(function(){
+		  var mobile = $("#phone").val();
+		  var sms = $('#sms').val();
+		  if (mobile == '' || sms == '') {
+		  		return false;
+		  };
+
+		  $.post("{U('forget_phone')}", {phone:mobile,sms:sms}, function(ret) {
+				        if(ret.status == 1) {
+				        	location.href = ret.url;
+				        } else {
+				            location.href = ret.url;
+				        }
+			    });
+
+	});
+	 
+
+</script>

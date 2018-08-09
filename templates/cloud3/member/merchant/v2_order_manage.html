@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商家中心-订单管理-{C('WEBNAME')}</title>
+		<link href="{THEME_STYLE_PATH}style/css/base.css" rel="stylesheet" type="text/css" />
+  		<link href="{THEME_STYLE_PATH}style/css/style.css" rel="stylesheet" type="text/css" />
+    	<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css" />
+ 	    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+        <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+        <script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/order.js"></script>
+<!-- 商家订单管理 -->
+	</head>
+	<body>
+		  {include template('v2_merchant_header','member/common')}
+		
+		<script type="text/javascript">
+	{php $userinfo = is_login();}
+	var site = {
+	"site_root" : '{__ROOT__}',
+	"js_path" : '{JS_PATH}',
+	"css_path" : '{CSS_PATH}',
+	"img_path" : '{IMG_PATH}',
+	"template_img" : '{THEME_STYLE_PATH}style/images',
+	"webname" : '{C("webname")}',
+	"order_url" : '{U("Order/DoOrder/manage")}',
+	"nickname" : '{nickname($userinfo["userid"])}',
+	"message":'{message_count($userinfo["userid"])}',
+	"user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+};
+var order_data = {
+	{php $seller_get_appeal = string2array(C_READ('seller_get_appeal','rebate'));}
+	{php $seller_trialtalk_check = string2array(C_READ('seller_trialtalk_check'));}
+    {loop $lists $r}
+    <?php   
+        if ($r['status']==6 && $r['appeal']['appeal_status']==0){  //  商家申诉倒计时
+            $end_time = $r['check_time']+$seller_get_appeal['time']*3600;
+        }elseif($r['status']==1 && $mod=='trial'){	//	待审核资格
+        	$end_time = $r['create_time']+C_READ('seller_check_time')*86400;
+        }elseif($r['status']==2 && $mod=='trial' && $r['trial_report']){	// 待会员下单
+        	$end_time = $r['check_time']+C_READ('buyer_write_order_time')*3600;
+        }elseif($r['status']==2 && $mod=='trial' && !$r['trial_report'] && !$r['order_sn']){	// 待填写订单号
+        	$end_time = $r['check_time']+C_READ('buyer_write_order_time')*3600;
+        }elseif($r['status']==2 && $mod=='trial' && !$r['trial_report'] && $r['order_sn']){	// 审核订单号倒计时
+        	$end_time = $r['check_time']+C_READ('seller_order_check_time')*3600;
+        }elseif($r['status']==8 && $mod=='trial' && !$r['trial_report']){	// 待填写试用报告倒计时
+        	$end_time = $r['check_time']+C_READ('buyer_write_talk_time')*86400;
+        }elseif($r['status']==3 && $mod=='trial'){	// 待审核试用报告
+        	$end_time = $r['check_time']+$seller_trialtalk_check['value']*86400;
+        }elseif($r['status'] == 2 && $mod == 'commission'&& !$r['order_sn']){
+            $end_time = $r['create_time']+C_READ('buyer_write_order_time','commission')*60;
+        }elseif($r['status'] == 3 && $mod == 'commission'&& $r['order_sn']){
+        $end_time = $r['check_time']+C_READ('seller_check_time','commission')*3600;
+        }elseif($r['status'] == 5 && $mod == 'commission'&& $r['order_sn']){
+           $end_time = $r['check_time']+C_READ('seller_pay_time','commission')*3600;
+
+        }else{
+        	 $end_time = $r['create_time']+C_READ('seller_check_time','rebate')*86400;
+        }
+    ?>
+    {if $n > 1},{/if}
+    {$r[id]}:{
+        "oid":"{$r[id]}",
+        "buyer_id":"{$r[buyer_id]}",
+        "mod":"{$r[product_info]['mod']}",
+        "seller_id":"{$r[seller_id]}",
+        "gid":"{$r[goods_id]}",
+        "title":"{$r[product_info]['title']}",
+        "url":"{$r[product_info][goods_url]}",
+        "userid":"<?php echo $this->userid;?>",
+        "modelid":"<?php echo $userinfo['modelid'];?>",
+        "price":"{$r[product_info]['goods_price']}",
+        "end_time" : "{$end_time}",
+    }
+    {/loop}
+};
+</script>
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>活动管理</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				  {include template('v2_merchant_left','member/common')}
+				<div class="fr u_index_mess user_r_w_2">
+					<div class="s_right_wrap">
+						<h3 class="title s_bor_t">订单管理-{$pro['title']}</h3>
+						<ul class="s_s_list s_bor_t">
+							<li>试用品名称：<a href="{$pro['url']}" target="_blank"><span>{$pro['title']}</span></a></li>
+							<li>下单价：<span>￥<b>{$pro['goods_price']}</b></span>
+								{if $mod == 'trial' && $pro['goods_bonus'] > 0}
+								<strong class="cr" style="margin-left:6px;">赠送红包<b>{$pro[goods_bonus]}</b>元</strong>
+								{elseif $mod == 'commission' && $pro['bonus_price']}
+								<strong class="cr" style="margin-left:6px;">试客佣金<b>{$pro[bonus_price]}</b>元</strong>
+								{/if}
+
+							</li>
+							<li class="clear">
+								<strong class="fl">库存情况：</strong>
+								<ul class="fl clear">
+									<li>总数<span class="cd">{$pro[goods_number]}</span>份</li>
+									<li>进行中<span class="cd">{$ing}</span>份</li>
+									<li>已完成<span class="cd">{get_over_trial_by_gid($pro[id])}</span>份</li>
+									<li>剩余<span class="cd">{php echo $pro[goods_number] - $pro[already_num]}</span>份</li>
+								</ul>
+							</li>
+							<li class="clear">
+								<strong class="fl">参与情况：</strong>
+								{if $mod == 'rebate'}
+								<ul class="fl clear">
+									<li>已抢购<span class="cd">{get_trial_by_gid($pro['id'])}</span>人</li>
+									<li>已通过<span class="cd">{get_trial_pass_by_gid($pro['id'])}</span>人</li>
+									<li>已放弃<span class="cd">{get_Close_order($pro['id'])}</span>人</li>
+								</ul>
+								{else}
+								<ul class="fl clear">
+									<li>总申请人数<span class="cd">{get_trial_by_gid($pro['id'])}</span>人</li>
+									<li>已通过<span class="cd">{get_trial_pass_by_gid($pro['id'])}</span>人申请</li>
+									<li>已放弃<span class="cd">{get_Close_order($pro['id'])}</span>人</li>
+
+								</ul>
+
+								{/if}
+
+							</li>
+						</ul>
+						
+						<div class="s_title_item">
+
+							<p class="title clear">
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>1))}"class=" {if $state == 1} active {/if} item_show">待审批</a>
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>6,'status'=>6))}"class=" {if $state == 6} active {/if} item_show">活动中</a>
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>2))}" class="{if $state == 2} active {/if}">已完成</a>
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>3))}" class=" {if $state == 3} active {/if} ">已关闭</a>
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>5))}" class=" {if $state == 5} active {/if} ">审核失败</a>
+								<a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>4))}" class=" {if $state == 4} active {/if} item_show">申诉中</a>
+							</p>
+							{if $state == 1}
+							<div class="item">
+								<ul class="box clear active">
+									{if $mod == 'trial'}
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>1,'status'=>1))} " {if $status == 1}class="active" {/if}>待审核试用资格 <span>{$check_zhige}</span></a></li>
+									{/if}
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>1,'status'=>2))} " {if $status == 2}class="active" {/if}>待审核订单号 <span>{$seller_ordersn}</span></a></li>
+
+									
+
+								    {if $mod == 'trial'}
+
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>1,'status'=>3))} " {if $status == 3}class="active" {/if}>待审核试用报告 <span>{$trial_report_count}</span></a></li>
+									{/if}
+
+									{if $mod == 'commission' || $mod == 'rebate'}
+
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>1,'status'=>4))} " {if $status == 4}class="active" {/if}>待付款订单 <span>{$pay_count}</span></a></li>
+									{/if}
+
+
+
+								</ul>
+							</div>
+							{/if}
+
+							{if $state == 6}
+							<div class="item">
+								<ul class="box clear active">
+
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>6,'status'=>6))} " {if $status == 6}class="active" {/if}>待填写订单号 <span>{$trial_write_order_sn}</span></a></li>
+
+								   {if $mod == 'trial'}
+									<li><a href="{U('Member/Order/v2_manage', array('goods_id' => $pro['id'],'mod'=>$mod,'state'=>6,'status'=>5))} " {if $status == 5}class="active" {/if}>待填写试用报告 <span>{$trial_write_count}</span></a></li>
+									{/if}
+
+
+								</ul>
+							</div>
+							{/if}
+						</div>
+						{if $status == 1 && $state == 1}
+						
+						<table class="s_table" width="100%">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>申请理由</th>
+									<th>淘宝账号</th>
+									<th>历史申请</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							{if $lists}
+							{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width:100%;" src="{getavatar($r[buyer_id])}"/></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq') != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<div style="width:86px;" class="ch">
+											{$r[talk]}	
+										</div>
+									</td>
+                                    
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+	                                        <li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch">累计申请本店<span class="cs">{$r[total_apply]}</span>次</li>
+											<li class="ch">正在进行中<span class="cs">{$r[total_ing]}</span>次</li>
+											<li class="ch">成功完成本店<span class="cs">{$r[total_complete]}</span>次</li>
+											<li class="ch"><a href="javascript:;" onclick="order.seller_complete_log({$r['id']});" class="cs">查看成功</a></li>
+										</ul>
+									</td>
+
+									<td>
+										<ul class="tc">
+											<li class="ch">{$states[$r['status']]}</li>
+											<li>审核时间还有</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				</li>
+										</ul>
+									</td>
+
+									<td>
+										<ul class="btn btn_s_2">
+											<li>
+												  <a href="javascript:;" onclick="ajax_enter('确定试用资格通过?该操作不可逆转','{U('trial_pass', array('order_id' => $r['id'],'state'=>'1','mod'=>$mod,'v2'=>1))}')"  class="tg">通过审核</a>
+	                                       
+											</li>
+											<li>
+												 <a href="javascript:;" onclick="ajax_enter('确定拒绝试用资格?该操作不可逆转','{U('trial_pass', array('order_id' => $r['id'],'state'=>'0','mod'=>$mod,'v2'=>1))}')"  class="jj">拒绝审核</a>
+											</li>
+											<li>
+										    <a href="javascript:;" onclick="order.blacklist({$r['id']})"  class="cz">加入黑名单</a>
+											</li>
+											<li><a class="cz" href="javascript:;" onclick="order.userInfo({$r['buyer_id']},{$r['id']});">买家信息</a>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+								
+							</tbody>
+						</table>
+						{/if}
+
+						{if $status == 2 && $state == 1}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>填写订单号时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+
+								{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq' ) != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch">{dgmdate($r[check_time],'Y-m-d H:i')}</li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+										</ul>
+									</td>
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img  width="180" height="100" src="{$r['taobao_img']}" />查看淘宝信誉截图</a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r[act_mod] == 'commission'}
+											<p>
+												<a href="javascript:;" data-url="{$r[order_img]}" class="cs ajax_img">查看订单截图</a>
+											</p>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li class="ch">	{$states[$r['status']]}</li>
+										 {if $r['status']==2 && $mod=='trial' && ($r['check_time']+C_READ('buyer_write_order_time')*3600>NOW_TIME) && !$r['trial_report'] && !$r['order_sn']}
+											<li>待填写订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+
+                        				   {elseif $r['status']==2 && $mod=='trial' && !$r['trial_report'] && $r['order_sn']}
+                        				   <li>待审核订单号</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        					</li>
+                        					{elseif $r['status']==2 && $mod=='commission' && ($r['create_time']+C_READ('buyer_write_order_time')*60>NOW_TIME)  && !$r['order_sn']}
+                        					<li>待填写订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+                        				    {elseif $r['status']==3 && $mod=='commission'  && $r['order_sn']}
+                        				    <li>待审核订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+                        					{/if}
+
+                        				{if ($r['status']==3 || $r['status']==5) && $mod=='rebate' && C('seller_no_check_order') != 3}
+											<li>订单完成倒计时:</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script></li>
+										{/if}
+												
+
+										</ul>
+									</td>
+									<td>
+										<ul class="btn">
+											{if $r[status] == 2 && $r[order_sn]}
+											<li><a href='javascript:;' onclick="javascript:ajax_enter('确定通过该订单号?该操作不可逆转','{U('check_ordersn', array('order_id' => $r['id'],'ispass' => 1,'v2'=>1))}');" class="tg">通过审核</a>
+											</li>
+											<li><a href='javascript:;' onclick="javascript:ajax_enter('确定拒绝该订单号通过?该操作不可逆转','{U('check_ordersn', array('order_id' => $r['id'],'ispass' => 2,'v2'=>1))}');" class="jj">拒绝审核</a></li>
+											{/if}
+
+										{if $r['status'] == 3 }
+											{if $r[act_mod] == 'commission'}
+										    <li><a href='javascript:;' onclick="javascript:ajax_enter('确定审核通过?该操作不可逆转','{U('pass', array('order_id' => $r['id'],'v2'=>1))}');" class="tg">通过审核</a></li>
+										    {elseif $r[act_mod] == 'trial'}
+										    <li> <a href="javascript:;" onclick="order.pay_report({$r['id']},'{U('view_report')}')" class="tg">通过</a></li>
+
+										    {elseif $r[act_mod] == 'rebate'}
+										    <a href='javascript:;' onclick="javascript:ajax_enter('确定审核通过?该操作不可逆转','{U('pass', array('order_id' => $r['id'],'v2'=>1))}');" class="tg">通过审核</a>
+										    {/if}
+											<li><a href="javascript:;" onclick="order.refuse({$r['id']})" class="jj">拒绝审核</a></li>
+										{/if}
+
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+
+
+
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+							</tbody>
+						</table>
+						{/if}
+
+						{if $status == 3 && $state == 1}
+
+						<table class="s_table" width="100%">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>填写报告时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+								{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq') != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch">{dgmdate($r[check_time],'Y-m-d H:i')}</li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+										</ul>
+									</td>
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li>
+												<span>{$r['order_sn']}</span>
+
+											</li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li class="ch">	{$states[$r['status']]}</li>
+											{if $r['status']==8 && $mod=='trial' && !$r['trial_report'] && $r['order_sn']}
+                        					<li>待填写试用报告倒计时</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        					</li>
+										   {/if}
+
+										   {if $r['status']==3 && $mod=='trial' && $r['check_time']+$seller_trialtalk_check['value']*86400>NOW_TIME}
+										   <li>待审核试用报告</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+										   {/if}
+											
+
+
+										</ul>
+									</td>
+									<td>
+										<ul class="btn">
+
+
+										   	{if $r['status'] == 3}
+												{if $mod == 'trial'}
+													<li><a href="javascript:;" onclick="order.pay_report({$r['id']},'{U('view_report')}')" class="tg">通过审核</a></li>
+													
+												{/if}
+
+													<li><a href="javascript:;" onclick="order.refuse({$r['id']})" class="jj">拒绝</a></li>
+											{/if}
+											
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+							</tbody>
+						</table>
+
+						{/if}
+
+
+						{if $status == 4 && $state == 1}
+
+						<table class="s_table" width="100%">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>填写报告时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+								{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq') != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch">{dgmdate($r[check_time],'Y-m-d H:i')}</li>
+											<li>ip: <span>{$r['check_ip']}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li>
+											<span>{$r['order_sn']}</span>
+											{if $r[act_mod] == 'commission'}
+											<p>
+												<a href="javascript:;" data-url="{$r[order_img]}" class="cs ajax_img">查看订单截图</a>
+											</p>
+											{/if}
+											</li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li class="ch">	{$states[$r['status']]}</li>
+											
+										   {if $r['status']==5 && $mod=='commission'}
+										   <li>待返款</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+										   {/if}
+
+										   {if ($r['status']==3 || $r['status']==5) && $mod=='rebate' && C('seller_no_check_order') != 3}
+											<li>订单完成倒计时:</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script></li>
+										{/if}
+											
+
+
+										</ul>
+									</td>
+									<td>
+										<ul class="btn">
+
+											{if $r['status'] == 5 && $mod == 'commission'}
+											
+												<li><a href="{U('pay', array('order_id[]' => $r['id'],'mod'=>$r['act_mod']))}"  onclick="return confirm('确定付款?该操作不可逆转哦~')" class="tg">付款</a></li>
+												<li><a href="{U('cancel', array('order_id' => $r['id']))}" onclick="return confirm('确定撤销通过?该操作不可逆转')" class="jj">撤销</a>	</li>
+											{/if}
+
+											{if $r['status'] == 5 && $mod == 'rebate'}
+											
+												<li><a href="{U('pay', array('order_id[]' => $r['id'],'mod'=>$r['act_mod']))}"  onclick="return confirm('确定付款?该操作不可逆转哦~')" class="tg">付款</a></li>
+												<li><a href="{U('cancel', array('order_id' => $r['id']))}" onclick="return confirm('确定撤销通过?该操作不可逆转')"  class="jj">撤销</a>	</li>
+											{/if}
+
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+							</tbody>
+						</table>
+
+						{/if}
+
+
+						{if $state == 6}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>操作时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+
+								{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq' ) != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch">{dgmdate($r[check_time],'Y-m-d H:i')}</li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+											<ul>
+											    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+											    {if $r['account_level']}
+												<li class="clear">
+													<strong class="fl">买家信用: </strong>
+													<img src="{$r['account_level']}" />
+												</li>
+												{/if}
+		                                        {if $r['taobao_img']}
+												<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+												{/if}
+											</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r[act_mod] == 'commission'}
+											<p>
+												<a href="javascript:;" data-url="{$r[order_img]}" class="cs ajax_img">查看订单截图</a>
+											</p>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li class="ch">	{$states[$r['status']]}</li>
+										 {if $r['status']==2 && $mod=='trial' && ($r['check_time']+C_READ('buyer_write_order_time')*3600>NOW_TIME) && !$r['trial_report'] && !$r['order_sn']}
+											<li>待填写订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+
+                        				   {elseif $r['status']==2 && $mod=='trial' && !$r['trial_report'] && $r['order_sn']}
+                        				   <li>待审核订单号</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        					</li>
+                        					{elseif $r['status']==2 && $mod=='commission' && ($r['create_time']+C_READ('buyer_write_order_time')*60>NOW_TIME)  && !$r['order_sn']}
+                        					<li>待填写订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+                        				    {elseif $r['status']==3 && $mod=='commission'  && $r['order_sn']}
+                        				    <li>待审核订单号倒计时</li>
+											<li class="ch">
+										
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+                        				    </li>
+                        					{/if}
+
+                        				{if ($r['status']==3 || $r['status']==5) && $mod=='rebate' && C('seller_no_check_order') != 3}
+											<li>订单完成倒计时:</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script></li>
+										{/if}
+
+										{if $r['status']==8  && $mod=='trial'}
+											<li>待填写试用报告倒计时:</li>
+											<li class="ch">
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script></li>
+										{/if}
+												
+
+										</ul>
+									</td>
+									<td>
+										<ul class="btn">
+											{if $r[status] == 2 && $r[order_sn]}
+											<li><a href='javascript:;' onclick="javascript:ajax_enter('确定通过该订单号?该操作不可逆转','{U('check_ordersn', array('order_id' => $r['id'],'ispass' => 1,'v2'=>1))}');" class="tg">通过审核</a>
+											</li>
+											<li><a href='javascript:;' onclick="javascript:ajax_enter('确定拒绝该订单号通过?该操作不可逆转','{U('check_ordersn', array('order_id' => $r['id'],'ispass' => 2,'v2'=>1))}');" class="jj">拒绝审核</a></li>
+											{/if}
+
+										{if $r['status'] == 3 }
+											{if $r[act_mod] == 'commission'}
+										    <li><a href='javascript:;' onclick="javascript:ajax_enter('确定审核通过?该操作不可逆转','{U('pass', array('order_id' => $r['id'],'v2'=>1))}');" class="tg">通过审核</a></li>
+										    {elseif $r[act_mod] == 'trial'}
+										    <li> <a href="javascript:;" onclick="order.pay_report({$r['id']},'{U('view_report')}')" class="tg">通过</a></li>
+
+										    {elseif $r[act_mod] == 'rebate'}
+										    <a href='javascript:;' onclick="javascript:ajax_enter('确定审核通过?该操作不可逆转','{U('pass', array('order_id' => $r['id'],'v2'=>1))}');" class="tg">通过审核</a>
+										    {/if}
+											<li><a href="javascript:;" onclick="order.refuse({$r['id']})" class="jj">拒绝审核</a></li>
+										{/if}
+
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+
+
+
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+							</tbody>
+						</table>
+						{/if}
+
+						{if $state == 2}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>订单历史</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+								{loop $lists $r}
+							
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq' )!= 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li>完成时间: <span>{dgmdate($r[complete_time],'Y-m-d H:i')}</span></li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+											<li class="ch">累计申请本店<span class="cs">{$r[total_apply]}</span>次</li>
+											<li class="ch">正在进行中<span class="cs">{$r[total_ing]}</span>次</li>
+											<li class="ch">成功完成本店<span class="cs">{$r[total_complete]}</span>次</li>
+										</ul>
+									</td>
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li style="text-align: center; text-indent: 0px;"><span>{$states[$r['status']]}</span></li>
+											<li>成功返还会员</li>
+											{if $r[act_mod] == 'trial' }
+
+											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['goods_bonus']}</b>元</span>(含红包)</li>
+											{elseif $r['act_mod'] == 'commission'}
+											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['bonus_price']}</b>元</span>(含佣金)</li>
+											{elseif $r['act_mod'] == 'rebate'}
+											<li class="ch"><span class="cs"><b>{php echo sprintf('%.2f',$pro['goods_price']-$pro['goods_price'] * $pro['goods_discount']/10)}</b>元</span></li>
+											{/if}
+
+										</ul>
+									</td>
+									<td>
+										<ul class="btn">
+											
+<!-- 											<a class="jrdp" href="#">加入店铺<br>免审会员</a>
+ -->											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+
+								
+							</tbody>
+						</table>
+						{/if}
+
+						{if $state == 3}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>订单历史</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+								{loop $lists $r}
+							
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq') != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li>关闭时间: <span>{dgmdate($r[check_time],'Y-m-d H:i')}</span></li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+											<li class="ch">累计申请本店<span class="cs">{$r[total_apply]}</span>次</li>
+											<li class="ch">正在进行中<span class="cs">{$r[total_ing]}</span>次</li>
+											<li class="ch">成功完成本店<span class="cs">{$r[total_complete]}</span>次</li>
+										</ul>
+									</td>
+								   <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch tc" style="text-align: center;">{$states[$r['status']]}</li>
+											<li class="tc" style="width: 80px;">原因:<span>{$r[close_cause]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul class="btn btn_h">
+												<a href="javascript:;" onclick="order.blacklist({$r['id']})"  class="cz">加入黑名单</a>
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});" class="cz">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+								
+							</tbody>
+						</table>
+						{/if}
+
+						{if $state == 4}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>填写报告时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							{if $lists}
+							{loop $lists $r}
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq') != 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li>操作时间: <span>{dgmdate($r[check_time],'Y-m-d H:i')}</span></li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+											<li class="ch">累计申请本店<span class="cs">{$r[total_apply]}</span>次</li>
+											<li class="ch">正在进行中<span class="cs">{$r[total_ing]}</span>次</li>
+											<li class="ch">成功完成本店<span class="cs">{$r[total_complete]}</span>次</li>
+										</ul>
+									</td>
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch" style="text-align: center;">{$states[$r['status']]}</li>
+											{if $r['status']==6 && $r['appeal']['appeal_status']==0}
+											<li>商家申诉倒计时</li>
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="btn btn_h">
+											{if $r[status] == 6}
+											<li><a href="{U('member/appeal/appeal_manage')}">回应申诉</a></li>
+											{/if}
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+								
+							</tbody>
+						</table>
+						{/if}
+
+
+
+						{if $state == 5}
+						<table width="100%" class="s_table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>申请人</th>
+									<th>填写报告时间</th>
+									<th>淘宝账号</th>
+									<th>淘宝订单号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{if $lists}
+								{loop $lists $r}
+							
+								<tr>
+									<td>
+										<div class="img fl">
+											<span class="s_id">{$n}</span>
+											<div class="img_data"><img style="width: 100%;" src="{getavatar($r[buyer_id])}"></div>
+											<span class="s_name">{nickname($r[buyer_id])}</span>
+										</div>
+									</td>
+									<td>
+										<ul>
+											<li>真实姓名：<span>{$r[real_name]}</span><span class="cs">{if $r['name_status'] == 1}(已实名认证){elseif $r['name_status'] == -1}(认证未通过){else}(未认证){/if}</span></li>
+											<li>性别：<span>{if $r[sex] == 1}女{elseif $r[sex] == 2}男{else}保密{/if}</span></li>
+											{if getUserInfo($r['buyer_id'],'phone') !="" }
+											<li>手机：<span>{getUserInfo($r['buyer_id'],'phone')}</span></li>
+											{/if}
+											{if getUserInfo($r['buyer_id'],'qq' )!= 0}
+											<li>QQ：<span>{getUserInfo($r['buyer_id'],'qq')}</span><a target="_bank" href="http://wpa.qq.com/msgrd?v=3&uin={getUserInfo($r['buyer_id'],'qq')}&site=qq&menu=yes" class="cs">在线联系<img src="{THEME_STYLE_PATH}style/img/qqjt.gif"></a></li>
+											{/if}
+											{if $r[provice] !=""}
+											<li>所在地：<span>{$r[provice]}</span></li>
+											{/if}
+											<li>申请时间：<span>{dgmdate($r[create_time],'Y-m-d H:i')}</span></li>
+											<li>ip：<span>{$r[ip]}</span></li>
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li>操作时间: <span>{dgmdate($r[check_time],'Y-m-d H:i')}</span></li>
+											<li>ip: <span>{$r[check_ip]}</span></li>
+											<li class="ch">累计申请本店<span class="cs">{$r[total_apply]}</span>次</li>
+											<li class="ch">正在进行中<span class="cs">{$r[total_ing]}</span>次</li>
+											<li class="ch">成功完成本店<span class="cs">{$r[total_complete]}</span>次</li>
+										</ul>
+									</td>
+								    <td>
+										<ul>
+										    {if $r[bind_account]}<li>淘宝账号: <span>{$r[bind_account]}</span></li>{/if}
+										    {if $r['account_level']}
+											<li class="clear">
+												<strong class="fl">买家信用: </strong>
+												<img src="{$r['account_level']}" />
+											</li>
+											{/if}
+	                                        {if $r['taobao_img']}
+											<li><a href="javascript:;" onclick="get_toabao_img('{$r['taobao_img']}')" class="cs"><img width="180" height="100" src="{$r['taobao_img']}" /><p>查看淘宝信誉截图</p></a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="tc">
+											<li><span>{$r['order_sn']}</span></li>
+											{if $r['trial_report']}
+											<li><a href="javascript:;" onclick="order.view_report({$r['id']},'{U('view_report')}')" class="cs">查看试用报告</a></li>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li class="ch" style="text-align: center;">{$states[$r['status']]}</li>
+											{if $r['status']==6 && $r['appeal']['appeal_status']==0}
+											<li>商家申诉倒计时</li>
+											<span id="remaining_time_{$r['id']}">--</span>
+                        					<script type="text/javascript">order.timer({$r['id']});</script>
+											{/if}
+										</ul>
+									</td>
+									<td>
+										<ul class="btn btn_h">
+											{if $r[status] == 6}
+											<li><a href="{U('member/appeal/appeal_manage')}">回应申诉</a></li>
+											{/if}
+											<li><a href="javascript:;" onclick="order.view_log({$r['id']});">操作记录</a></li>
+										</ul>
+									</td>
+								</tr>
+								{/loop}
+								{/if}
+								
+							</tbody>
+						</table>
+						{/if}
+
+						<div id="page" class="mt30 clear" style="margin:20px 20px;">
+							{$v2_pages}
+						</div>
+						<script type="text/javascript">
+							$(function(){
+								$('span[credit]').each(function(){
+									var len = $(this).attr('credit');
+									var _html = '';
+									for(var i=0;i<len;i++){
+										_html += '<b></b>';
+									}
+									$(this).html(_html);
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+
+			function ImgonLoad(url,fn){
+				var img = new Image();
+				img.src = url;
+				img.onload = fn;
+			}
+
+			 /*查看已上传的信誉截图*/
+			 function get_toabao_img(img){
+				art.dialog({
+					lock: true,fixed: true,
+					title: '已上传的信誉截图',
+					time:5,
+					content:'<img src="'+img+'" />',
+					ok: function (){
+
+						}
+					});
+			 }
+			
+			$(function(){
+				$('.ajax_img').on('click',function(){
+					var url = $(this).attr('data-url');
+					var This = this;
+					
+					ImgonLoad(url,function(){
+						art.dialog({
+							    		id:'',
+							    		lock : true,
+							   	        fixed : true,
+							   	        title : '订单截图',
+							   	        content:'<div><img src="'+url+'"/></div>',
+							   	        drag : false,
+							   	        ok:function(){
+
+							   	        },
+							   	    });
+					});
+									
+
+				});
+			});
+
+
+
+		</script>
+
+		  {include template('footer','common')}
+	</body>
+</html>
+<style type="text/css">
+.operate-log {
+max-width: 520px;
+_width: 520px;
+max-height: 420px;
+_height: 420px;
+padding: 1px;
+overflow: auto;
+font-size: 12px;
+}
+.aui_state_focus .aui_content {
+color: #000;
+}
+.ui-table {
+border: 1px solid #ccc;
+table-layout: fixed;
+width: 100%;
+text-align: center;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+.ui-table th {
+height: 35px;
+font-size: 12px;
+color: #4c4c4c;
+text-shadow: 0 1px 1px #fff;
+background-color: #CCCCCC;
+background-image: -webkit-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -moz-linear-gradient(top, #eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -o-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#CCCCCC', GradientType=0);
+}
+.ui-table th {
+
+}
+textarea {
+font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+.ui-table td {
+border: 1px solid #ccc;
+border-bottom-style: dotted;
+border-top: none;
+padding: 12px 0;
+word-break: break-all;
+word-wrap: break-word;
+}
+</style>

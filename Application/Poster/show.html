@@ -1,0 +1,18 @@
+<?php
+$string = '';
+$ad_arr = $r['setting'][$r['type']];
+switch ($r['type']) {
+	case 'text':
+		$string .= '<a href="'.$ad_arr['linkurl'].'" target="_blank">'.$ad_arr['title'].'</a>';
+		break;
+	case 'code':
+		$string .= $ad_arr;
+		break;
+	default:
+		$string .= '<a href="'.$ad_arr['linkurl'].'" target="_blank"><img src="'.$ad_arr['imageurl'].'" alt="'.$ad_arr['alt'].'"></a>';
+		break;
+}
+?>
+<?php if ($string): ?>
+document.write('<?php echo $string ?>');
+<?php endif ?>

@@ -1,0 +1,142 @@
+{include template('header','common')}
+
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/search.css"/>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/search.js"></script>
+<script>
+    $(function() {
+        $(".search-content").css('left','0px').removeClass('d-none')
+    });
+</script>
+<style>
+    .search-c-list li span{
+        margin-top: 1%;
+    }
+    .s-list-c > li > a {
+        border-right: 1px solid #b3b3b3;
+        border-top: 1px solid #b3b3b3;
+        border-left:none;
+        color: #b3b3b3;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<div id="wrapper">
+    <div id="header-style">
+        <a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl d-block"></a>
+        搜索页面
+        <a href="javascript:;" class="open-s-list shop-rebate-icon fr d-block"></a><!--  open-s-list 开启搜索列表  -->
+    </div>
+    <div class="content">
+        <div class="c-wrap">
+            <ul class="search-c-list">
+                {pc:document action="keyword" num="6"}
+                <li class="clear">
+                    {loop $data $d}
+                    <span><a href="{$d[url]}" search-keyword="{$d[name]}">{$d[name]}</a></span>
+                    {/loop}
+                </li>
+                {/pc}
+            </ul>
+        </div>
+    </div>
+    <!--  切换版本  -->
+    <div id="footer">
+        <div class="version">
+            <a href="#">电脑版</a>
+            <a href="#">触屏版</a>
+        </div>
+        <!-- copy -->
+        <div class="copy">
+            <p>版权信息</p>
+            <p>&copy;2014-2021Adalways公司版权所有</p>
+        </div>
+    </div>
+</div>
+<div class="search-content d-none">
+    <div class="shade"></div>
+    <!-- 底部 -->
+
+    <!--  切换版本  -->
+    <div class="footer-wrap">
+        <div class="footer-shade"></div>
+        <div id="footer" style="padding-bottom:0;">
+
+        </div>
+    </div>
+    <!-- 内容区 -->
+    <div class="s-list h-100">
+        <a href="javascript:;" class="close-search"></a>
+        <!-- 搜索正文 -->
+        <div class="s-title bg_bb000d">
+            <!--  模拟下拉菜单  -->
+            <ul class="search-c clear">
+                <li class="menu-t">
+                    <p>商品名称</p>
+                </li>
+                <li class="search-import">
+                    <input type="text" placeholder="输入您想查找的商品关键字..." search-keyword="" />
+                </li>
+                <li class="search-btn">
+                    <a href="javascript:;" class="search_btn"></a>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            menu();
+        </script>
+        <div class="search-list">
+            <ul>
+                <li class="b-r-style">
+                    <a href="javascript:;" class="clear">
+                        <span class="fl">活动类型</span>
+                    </a>
+                    <ul class="s-list-c get-txt-01 clear" {if I('mod') == ''}style="display: none"{/if}>
+                        <li><a href="javascript:;" data-mod="rebate" {if I('mod') == 'rebate'}class="c-f60"{/if}>{C('rebate_name')}</a></li>
+                        <li><a href="javascript:;" data-mod="trial"  {if I('mod') == 'trial'}class="c-f60"{/if}>{C_READ('TRIAL_NAME')}</a></li>
+                        <li><a href="javascript:;" data-mod="postal" {if I('mod') == 'postal'}class="c-f60"{/if}>{C_READ('POSTAL_NAME','POSTAL')}</a></li>
+                    </ul>
+                </li>
+                <li class="b-r-style">
+                    <a href="javascript:;" class="clear">
+                        <span class="fl">一级分类</span>
+                    </a>
+                    <ul class="s-list-c get-txt-02 clear" style="display: none">
+                        {pc:product action="category" catid="0" num="8"}
+                        {loop $data $r}
+                        <li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+                        {/loop}
+                        {/pc}
+                    </ul>
+                </li>
+                <li class="b-r-style">
+                    <a href="javascript:;" class="clear">
+                        <span class="fl">二级分类</span>
+                    </a>
+                    {pc:product action="category" catid="0" num="8"}
+                    {loop $data $r}
+                    {php $catid = $r['catid'];}
+                    <ul class="s-list-c get-txt-03 clear" id="cat_{$catid}" style="display:none;">
+                        {pc:product action="category" catid="$catid" num="15"}
+                            {loop $data $r}
+                            <li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+                            {/loop}
+                        {/pc}
+                    </ul>
+                    {/loop}
+                    {/pc}
+
+                </li>
+                <p class="search-submit">
+							<span class="clear">
+							<a href="javascript:;" class="fl btn-s-02 clear-txt">清除选项</a>
+							<input class="fr btn-s-01 search_btn" type="submit" value="确定">
+						</span>
+                </p>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

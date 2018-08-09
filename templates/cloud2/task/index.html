@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/integration_list.css" />
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+</head>
+<body>
+	<!-- 头部 start -->
+	{include template('header','shop')}
+	<!-- 头部 end -->
+	<!-- 主体内容 start -->
+	<div class="main">
+		<div class="main_box">
+			<!-- 每日任务 start -->
+			<div class="bgffffff wrap">
+				<dl>
+					<dt>每日签到</dt>
+					<dd>
+						<div class="fl">
+							<div class="task-ico fl mr12 registration"></div>
+							<div class="mt7 fl">
+								<p class="f16">{$sign[task_name]}</p>
+								<p class="f14">{$sign[task_desc]}</p>
+							</div>
+						</div>
+						<div class="task-push fr">
+							{if ! is_sign($userinfo['userid'])}
+							<a href="javascript:;" id="sign" >立即签到</a>
+							{else}
+							<span>已签到</span>
+							{/if}
+						</div>
+						<div style="clear: both;"></div>
+					</dd>
+				</dl>
+			</div>
+			<!-- 每日任务 end -->
+			<!-- 新手任务 start -->
+			<div class="bgffffff wrap new-task">
+				<dl>
+					<dt>积分任务</dt>
+					{loop $tasks $task}
+					<dd>
+						<div class="fl">
+							<div class="task-ico fl mr12 {$task[type]}"></div>
+							<div class="mt7 fl">
+								<p class="f16">{$task[task_name]}</p>
+								<p class="f14">{$task[task_desc]}   <span>{$task[record]}奖励</span></p>
+							</div>
+						</div>
+						<div class="task-push fr">
+						{if $task[is_complete]}
+							<span>已参与</span>
+						{else}
+							<a href="{$task[url]}">立即参与</a>
+						{/if}
+						</div>
+						<div style="clear: both;"></div>
+					</dd>
+					{/loop}
+				</dl>
+			</div>
+			<!-- 新手任务 end -->
+		</div>
+	</div>
+	<!-- 主体内容 end -->
+	<!-- 底部 start -->
+	<div class="bottom">
+			<p class="link">友情链接：
+				{pc:link action="lists" linktype="0"}
+				{loop $data $r}
+				<a href="{$r[url]}" target="_blank">{$r[webname]}</a>
+				{/loop}
+				{/pc}
+			</p>
+			<p class="copy">
+				版权所有：{C("site_web_copyright")}  {C('site_web_icp')}</br>
+				Copyright &copy; 2009-2014 {$_SERVER['SERVER_NAME']}
+				{C("site_statistical_code")}
+
+			</p>
+	</div>
+	<!-- 底部 end -->
+</body>
+</html>
+<style type="text/css">
+	.copy a img{ width: auto;height: auto;}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		var sign = <?php echo $sign['task_reward'];?>;
+		$("#sign").click(function(){
+			$.post("{U('Member/Sign/index')}",function(data){
+				if (data.status == 1) {
+					art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: data.info + '，已获得' + sign + '积分',
+						okVal: '确定',
+						ok:function() {
+							location.reload();
+						}
+					});
+				}
+			},'json')
+		});
+	});
+
+</script>

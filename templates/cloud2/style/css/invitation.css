@@ -1,0 +1,66 @@
+/*新版邀请有奖*/
+.yaoq_h358_ddl_1{width:600px; height:54px; margin:10px auto 20px auto;}
+.yaoq_h358{font-size:0; margin-bottom:20px;}
+.yaoq_h358_d1{background:#f5f5f5; border-bottom:#cac5c4 solid 1px; border-right:#cac5c4 solid 1px; border-left:#cac5c4 solid 1px; text-align:center; line-height:64px;  font-size:18px; color:#666666;}
+.yaoq_h358_d1 span{font-size:26px;}
+.yaoq_h358_d1 b{color:#D61756;font-size:26px;}
+.yaoq_h218{width:948px; border:#cac5c4 solid 1px; background:url(../images/yaoq_h215.png); height:215px;}
+.yaoq_h218_d1{height:41px; line-height:41px; font-size:16px; color:#4e4e4e; padding-left:15px;}
+.yaoq_h218_d2{height:91px; margin-top:1px; position:relative;}
+.yaoq_textarea{width:720px; height:70px; line-height:25px; margin:0px; padding:20px 0px 0px 30px;resize: none; overflow:hidden; border:0; font-size:14px; color:#F32669;}
+.yaoq_h218_a{width:145px; height:54px; position:absolute; right:27px; top:20px;background:#fff;opacity:0; filter:alpha(opacity=0);}
+.yaoq_h78{margin-top:1px; height:78px;}
+.yaoq_h78_d1{width:203px; color:#4e4e4e; line-height:21px; height:58px; padding:10px; float:left;}
+.yaoq_h78_d2{width:115px; margin:16px 0 0 27px; height:50px; float:left;}
+.yaoq_h78_a{width:110px; height:50px; display:block; background:#fff;filter:alpha(opacity=0); -moz-opacity:0;opacity:0;}
+.yaoq_p,.yaoq_p2{ margin:25px 0 15px 0; color:#000;}
+.yaoq_p{font-size:14px;}
+.yaoq_p2{font-size:18px;}
+.yaoq_p_span{font-size:18px; padding-right:15px;}
+.yaoq_p_b{color:#f32669;font-size:18px;}
+.yaoq_table{border:#cac5c4 solid 1px;width:948px; margin-bottom:18px;}
+
+.yaoq_table th{height:51px;width:202px; background:#f5f5f5;font-size:14px; color:#f32669; text-align:center; font-weight:normal;border-right:#dadada solid 1px;}
+.yaoq_table td{border-right:#dadada solid 1px; height:50px;}
+.yaoqin_color_m{padding: 25px 0;background: white;}
+.yaoq_table .yaoq_table_th336{width:336px; border:0;}
+.yaoq_table .yaoq_td1_bor{ border:0;}
+.yaoq_table_td1{background:#fff;}
+.yaoq_table_td2{background:#f5f5f5;}
+.yaoq_td1_user{ text-align:center;}
+.yaoq_td1_dl{margin-left:40px; line-height:25px;}
+.yaoq_td1_d2{line-height:25px; border:0; margin:10px 0 10px 25px;}
+.yaoq_table2{ width:950px;}
+.yaoq_table2 tr th{ text-align:center;height:33px;}
+.yaoq_table2 tr td{color:#4e4e4e; font-size:14px; height:33px;}
+.yaoq_table2 img{vertical-align:middle;}
+.yaoq_table2 .yaoq_table2_td{ color:#f32669;}
+.yaoq_h365{height:365px; margin-bottom:40px;}
+.yaoq_h365_dl{width:594px; height:363px; border:#cac5c4 solid 1px; background:#fff; float:left;}
+.yaoq_dl_dd{height:72px; line-height:72px; width:563px; margin:0 auto; border-bottom:#b9b9b9 dashed 1px;}
+.yaoq_dl_dd img{float:left; margin:20px 0 0 0;}
+.yaoq_dd_span{display:block; color:#f32669; float:left; margin:0 2px 0 13px;}
+.yaoq_dd_div{float:left; color:#4e4e4e;}
+.yaoq_dd_div b{color:#f32669;}
+.yaoq_h365_d2{width:343px; float:right; border:#cac5c4 solid 1px; height:363px; background:#fff;}
+.yaoq_d2_dd1,.yaoq_d2_dd2{height:36px; line-height:36px;  color:#4e4e4e;}
+.yaoq_d2_dd1{background:#f5f5f5;}
+.yaoq_d2_dd2{background:#fff;}
+.yaoq_d2_dd2 img,.yaoq_d2_dd1 img{float:left; margin:6px 18px 0 13px;}
+.yaoq_d2_span{margin-right:26px; display:block; float:left;}
+.yaoq_d2_div{float: right; margin:0 40px 0 0;}
+.yaoq_d2_div b{color:#f32669; margin:0 5px;}
+.yaoq_d2_img{width:17px; height:17px; background:url(../images/yaoq_d.png); text-align:center; float:left; line-height:17px; _display:inline; margin:9px 23px 0 18px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=../images/yaoq_d.png); _background:none;}
+
+.yaoq_right{color:#999;font-size:13px;float:right;}
+.yaoq_color{color:#ff3872;font-size:14px;}
+.youxyh{color:#8d4c8c;font-size:14px;position:relative;}
+.you_now{display:none}
+.youxyh:hover{cursor:pointer}
+.youxyh:hover a.you_now{position:absolute; bottom:-50px; left:-50px; display:block;color:#FFF;width:142px; height:42px;background:url(Images/Invitation/bg_index.png) 0 -52px no-repeat;color:#ad8157;padding:10px 10px 0 10px;}
+.y_more{color:#d01f0d;font-size:11px;} 
+.footer_body, .w950 {margin: 0px auto 50px;width: 950px;}
+.pinpait-w1920 .banner-inner, .banner-w1920 .banner-inner {left: 50%;margin-left: -1000px;position: absolute;text-align: center;width: 2000px;font-size: 0;}
+.pinpait-w1920, .banner-w1920 {background-position: center top;background-repeat: no-repeat;overflow: hidden;position: relative;}
+.table_one {font-size: 12px;color: #999;font-family: "微软雅黑";text-align: center;}
+.tf8_pagediv-1 {clear: both;height: 26px;line-height: 26px;text-align: center;margin-top: 4px;}

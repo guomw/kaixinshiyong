@@ -1,0 +1,12 @@
+<!-- 帮助中心 指定栏目列表页 -->
+<ion-view view-title="帮助中心" align-title="center">
+    <ion-content style="background-color:#F8F8F8">
+            <ion-list>
+                <ion-item class="item item-icon-left item-icon-right " ng-repeat="d in articlehelplist | orderBy:'catid':true" ng-c
+                href="#/article/show/{{d.id}}" collection-item-height="100px">
+                <h2>{{d.title}}</h2>
+                <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+            </ion-item >
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if $modelid == 1}买家用户注册{else}商家用户注册{/if}-{C('WEBNAME')}</title>
+		<meta name="keywords" content="{if $modelid == 1}买家用户注册{else}商家用户注册{/if}，{C('WEBNAME')}" /> 
+        <meta name="description" content="{if $modelid == 1}欢迎您注册{C('WEBNAME')}买家用户，拥有{C('WEBNAME')}账号可享受{C('WEBNAME')}为您带来的多项便捷服务.{else}欢迎您注册{C('WEBNAME')}商家用户，拥有{C('WEBNAME')}商家账号可报名参与{C('WEBNAME')}多项促销活动，可为您提升产品销量，提示产品知名度等多项服务。{/if}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setLogin.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_login.css" /> 
+		<link type="text/css" rel="stylesheet" href="{__ROOT__}/static/style/css/common.css" />
+		<link type="text/css" rel="stylesheet" href="{__ROOT__}/static/style/css/logo_reg.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="wrap">
+				<h1 class="login_logo fontSize"><img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" /><span>用户注册</span></h1>
+				<ul class="login_nav">
+					<li><a href="{__APP__}">首页</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>83))}">关于我们</a></li>
+				</ul>
+			</div>
+		</div>	
+		<div class="center">
+			<div id="reg_main">
+				<div class="reg_options">
+					<!-- 试客介绍 start -->
+					<div class="buyer fl">
+						<p class="f22 yahei c3198db mb15">用户注册</p>
+						<p class="f14 lh20 c707070 mb15">我想要免费试用，体验商品带给我更多快乐，并将这份快乐传递给更多人！所以我是一名：试客</p>
+						<p><a href="{U('Member/Index/register')}?modelid=1" class="buyer_btn"></a></p>
+						<p class="buyer_bg"></p>
+					</div>
+					<!-- 试客介绍  end-->
+					<!-- 商家介绍 start -->
+					<div class="merchant fr">
+						<p class="f22 yahei cfe7e46 mb15">商家注册</p>
+						<p class="f14 lh20 c707070 mb15">我想要推广商品，提升销量，打造专属与我的品牌！所有我是一名：商家</p>
+						<p><a href="{U('Member/Index/register')}?modelid=2" class="merchant_btn"></a></p>
+						<p class="merchant_bg"></p>
+					</div>
+					<!-- 商家介绍 end -->
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+				{include template('forget_footer')}

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/try_report.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+<body>
+{include template('toper','common')}
+    {include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("member_left","member/common")}
+			<form action="{U('order/trial_report')}" method="post" id='myform'>
+			<input type='hidden' name='order_id' value="{$order_id}"/>
+			<input type='hidden' name='id' value="{$trial_report['id']}"/>
+
+			<div class="content_right float_right">
+				<h1 class="c_r_title">发布试用报告</h1>
+				<p class="shop_name">
+					<a href="{$product['url']}" class="small_img" target="_blank"><img src="{$product['thumb']}" alt="{$product['title']}" /></a>
+					<span class="shop_n_txt">
+						<a href="{$product['url']}" target="_blank">{$product['title']}</a>
+						<font class="s_b_link">优秀晒单可获得商家额外现金奖励，<a href="javascript:;">查看优秀晒单 ></a></font>
+					</span>
+				</p>
+				<p class="grade">您为本次试用打几分？</p>
+				<p class="grade">
+					<a href="javascript:void(0);" class="star_no"></a>
+					<a href="javascript:void(0);" class="star_no"></a>
+					<a href="javascript:void(0);" class="star_no"></a>
+					<a href="javascript:void(0);" class="star_no"></a>
+					<a href="javascript:void(0);" class="star_no"></a>
+					<font class="grade_hint"><b></b>请选择星星打分(全选为5分)</font>
+				</p>
+				<input type="hidden" id="star" name="report[star]" value="{if $trial_report['id']}{$trial_report['star']}{else}5{/if}" />
+				<script type="text/javascript">
+					function grade(n,p){
+						var i = parseInt(n.index());
+						$('.grade a:lt('+ (i + 1) +')').attr('class','star_no');
+						$('.grade a:gt('+ i +')').attr('class','star_off');
+						if(p){ return i; }
+					}
+					$('.grade a').mouseover(function(){
+						grade($(this));
+					});
+					$('.grade a').click(function(){
+						var hTxt = '';
+						switch($(this).index()){
+							case 0 : hTxt = '很不满意';  break;
+							case 1 : hTxt = '不满意'; break;
+							case 2 : hTxt = '一般'; break;
+							case 3 : hTxt = '比较满意'; break;
+							case 4 : hTxt = '非常满意'; break;
+						}
+						$('#star').attr('value',($(this).index()+1));
+						$(this).parent().children('font').children('b').html(hTxt);
+					});
+					
+					var index = $("#star").val();
+					$(".grade a").eq(index).removeClass("star_no").addClass("star_off");
+					$(".grade a").eq(index).nextAll("a").removeClass("star_no").addClass("star_off");
+					$(".grade a").eq(index).prevAll("a").addClass("star_no");
+				</script>
+				<p class="discuss_t">填写试客背景</p>
+				<textarea class="discuss_v" name="report[background]" id="background" cols="80" rows="5">{if $trial_report['id']}{$trial_report['background']}{else}500字以内如：在2014立夏之际，第一次成功申请试用就获得了我很中意的一款背心，很高兴，很激动，也很荣幸。感谢云划算试用提供的试用平台，也感谢快递大哥的辛苦派送，最感谢的是店家...{/if}</textarea>
+				<script type="text/javascript">
+					var aT =  $('.discuss_v:eq(0)').text();
+					$('.discuss_v').focus(function(){ $(this).text(''); });
+					$('.discuss_v').blur(function(){ if($('.discuss_v:eq(0)').text() != aT+'' && $('.discuss_v:eq(0)').text() == 0 ){ $(this).text(aT); } });
+				</script>
+				<p class="user_info">身高<input type="text" class="i_s_w" name="report[height]" id="height" value="{$trial_report['height']}"  maxlength="3" />CM</p>
+				<p class="user_info">体重<input type="text" class="i_s_w" name="report[weight]" id="weight" value="{$trial_report['weight']}" maxlength="3"/>KG</p>
+				<p class="user_info">年龄<input type="text" class="i_s_w" name="report[age]" id="age" value="{$trial_report['age']}" maxlength="3"/>岁</p>
+				<p class="user_info">职业<input type="text" class="i_s_w i_s_w2" name="report[job]" value="{$trial_report['job']}" id="job"/></p>
+				<p class="try_exp">试用过程及体验（图文详情）</p>
+				<div class="editor" style="width:652px;">
+					<textarea name="report[content]" id="report[content]"> {stripslashes($trial_report['content'])}</textarea><?php echo $form::editor("report[content]"); ?>
+				</div>
+				<p class="btn_w"><a href="javascript:;" onclick="dosub()" class="s_btn">发布</a></p>
+			</div>
+			</form>
+		</div>
+	</div>
+{include template('footer','common')}
+
+<!-- 校验提交数据 -->
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<style type="text/css">
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+</style>
+<script type="text/javascript">
+function dosub(){
+	var background = '500字以内如：在2014立夏之际，第一次成功申请试用就获得了我很中意的一款背心，很高兴，很激动，也很荣幸。感谢云划算试用提供的试用平台，也感谢快递大哥的辛苦派送，最感谢的是店家...';
+	if ($('#background').val() == '' || $('#background').val() == background){
+		alert('请填写试客背景');return false;
+	}
+	$('#myform').submit();
+}
+$(function(){
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+    // 校验输入的身高值
+    $("#height").formValidator({
+        empty:false,
+        onempty:'身高不能为空',
+        onshow:'请输身高(正整数)' ,
+        onfocus:"请输入身高(正整数)" 
+    }).functionValidator({
+		fun:function(val){
+			if (val < 50 || val > 260){
+				return '身高的范围是 50~260';
+			}
+			return true;
+		}
+	}).regexValidator({
+        regexp:'intege1',
+        datatype:'enum',
+        onerror:'身高只能为正整数'
+    });
+	// 体重
+	$("#weight").formValidator({
+        empty:false,
+        onempty:'体重不能为空',
+        onshow:'请输体重(正整数)' ,
+        onfocus:"请输入体重(正整数)" 
+    }).functionValidator({
+		fun:function(val){
+			if (val < 20 || val > 400){
+				return '体重的范围是 20~400';
+			}
+			return true;
+		}
+	}).regexValidator({
+        regexp:'intege1',
+        datatype:'enum',
+        onerror:'体重只能为正整数'
+    });
+	// 年龄
+	$("#age").formValidator({
+        empty:false,
+        onempty:'年龄不能为空',
+        onshow:'请输年龄(正整数)' ,
+        onfocus:"请输入年龄(正整数)"
+    }).functionValidator({
+		fun:function(val){
+			if (val < 10 || val > 130){
+				return '年龄的范围是 10~130';
+			}
+			return true;
+		}
+	}).regexValidator({
+        regexp:'intege1',
+        datatype:'enum',
+        onerror:'年龄只能为正整数'
+    });
+	// 职业
+	$("#job").formValidator({
+        empty:false,
+        onempty:'职业不能为空',
+        onshow:'请输您的职业' ,
+        onfocus:"请输入您的职业"
+    }).regexValidator({
+        regexp:'ps_username',
+        datatype:'enum',
+        onerror:'职业可以为中文、字母'
+    });
+})
+</script>

@@ -1,0 +1,1203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{get_seo('activity_seo','activity_title','')}</title>
+<meta name="keywords" content="{get_seo('activity_seo','activity_keyword','')}" />
+<meta name="description" content="{get_seo('activity_seo','activity_description','')}" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/apply_list.css" /> 
+<style type="text/css">
+	#merchant_cp table{
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	
+	#merchant_cp .firstRow{
+		height: 43px;
+		background: #f25f55;
+		color: #ffffff;
+	}
+	
+	#merchant_cp td{
+		border: 1px solid #e7e8e9;
+	}
+	
+	#merchant_cp span{
+		font-size: 14px;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// 招商公告滑动效果
+	merAnn();
+	});
+</script>
+</head>
+<body>
+	{include template('merchant_sign_header','member/common')}
+	<div id="banner"><img src="{THEME_STYLE_PATH}style/images/shop_sign_banner.jpg" /></div>
+	<div id="main">		
+		<div class="ann">
+			<dl>
+				<dt class="fl">招商公告：</dt>
+				<dd class="position fl">
+					<ul>
+						{pc:announce action="lists" num="3" type="2" order="listorder"}
+						{loop $data $d}
+						<li><a href="{U('Announce/Index/show',array('id'=>$d[announceid],'type'=>2))}">{$d['title']}</a></li>
+						{/loop}
+						{/pc}
+					</ul>
+				</dd>
+				<dd class="btn fr">
+					<span class="pre"></span>
+					<span class="next"></span>
+				</dd>
+			</dl>
+			<div class="clear"></div>
+		</div>
+		<div class="process">
+			<dl>
+				<dt class="f22 c3c3c3c mt40 mb20">合作流程</dt>
+				<dd>
+					<ul>
+						<li class="sign_ico fl h38 mt45 pl57 pt5">活动报名</li>
+						<li class="arrow fl"></li>
+						<li class="check_ico fl h38 mt45 pl57 pt5">商品审核</li>
+						<li class="arrow fl"></li>
+						<li class="sch_ico fl h38 mt45 pl57 pt5">活动排期</li>
+						<li class="arrow fl"></li>
+						<li class="on_line_ico fl h38 mt45 pl57 pt5">上线展示</li>
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			</dl>
+		</div>
+		<!-- 合作流程 end -->
+		<!-- 商家报名 start -->
+		<a name="sign_up"></a>
+		<div class="sign">
+			<dl>
+				<dt class="f22 c3c3c3c mt40 mb20">商家报名</dt>
+				<dd>
+					<ul>
+						{if is_activity_open('rebate') == 1}
+						<li class="fl">
+							<div class="rebates bg"></div>
+							<p class="sign_name">{$act_name['rebate']}</p>
+							<p class="exp">{$activityarr['rebate'][seller_activity_desc]}</p>
+							<p class="act_time">活动时间：{$activityarr['rebate'][seller_start_time]}~{$activityarr['rebate'][seller_end_time]}</p>
+							<p><a href="{U('Member/EnterActivity/detail_activity',array('mod'=>'rebate'))}" class="sign_btn">马上报名</a></p>
+							<p class="look"><a href="#">查看展示位></a></p>
+						</li>
+						{/if}
+						
+						{if is_activity_open('trial') == 1}
+						<li class="fl">
+							<div class="try bg"></div>
+							<p class="sign_name">{$act_name['trial']}</p>
+							<p class="exp">{$activityarr['trial'][seller_activity_desc]}</p>
+							<p class="act_time">活动时间：{$activityarr['trial'][seller_start_time]}~{$activityarr['trial'][seller_end_time]}</p>
+							<p><a href="{U('Member/EnterActivity/detail_activity',array('mod'=>'trial'))}" class="sign_btn">马上报名</a></p>
+							<p class="look"><a href="#">查看展示位></a></p>
+						</li>
+						{/if}
+						{if is_activity_open('postal') == 1}
+						<li class="fl">
+							<div class="free bg"></div>
+							<p class="sign_name">{$act_name['postal']}</p>
+							<p class="exp">{$activityarr['postal'][seller_activity_desc]}</p>
+							<p class="act_time">活动时间：{$activityarr['postal'][seller_start_time]}~{$activityarr['postal'][seller_end_time]}</p>
+							<p><a href="{U('Member/EnterActivity/detail_activity',array('mod'=>'postal'))}" class="sign_btn">马上报名</a></p>
+							<p class="look"><a href="#">查看展示位></a></p>
+						</li>
+						{/if}
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			</dl>
+		</div>
+		<p>
+    <span>&nbsp;</span>
+</p>
+<div id="merchant_cp">
+
+<H3 style="color: #506A89;font-size: 26px;line-height: 140px;margin-top: 30px; text-align :center;" >商家入驻标准</H3>
+
+<table data-sort="sortDisabled">
+    <tbody>
+        <tr class="firstRow">
+            <td style="padding: 0px 7px;" valign="center" width="92">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">类型&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">专享权利&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">{$levels_1['name']}</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">{$levels_2['name']}</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="157">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">{$levels_3['name']} </span>
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="1" rowspan="1" style="padding: 0px 7px; word-break: break-all;" valign="center" width="81">
+                &nbsp;收费方式<br/>
+            </td>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -<br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;color: rgb(255, 0, 0);" valign="center" width="101">
+                <p>
+                    <span style="font-family: &quot;Times New Roman&quot;; font-size: 16px;">
+                    {if $levels_1['pricetype'][1] == 0}
+                    免费
+                    {else}
+                    {$levels_1['pricetype'][1]}
+                    {/if}
+                     </span>/<span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;<span style="font-family:宋体">  
+                     {if $levels_1['pricetype'][0] == 1}
+                       每月
+                       {elseif $levels_1['pricetype'][0] == 2 }
+                       每季度
+                       {elseif $levels_1['pricetype'][0] == 3}
+                       每年
+                       {/if}
+&nbsp;</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px; color: rgb(255, 0, 0);" valign="center" width="118">
+                <p>
+                    <span style="font-family: &quot;Times New Roman&quot;; font-size: 16px; ">
+                    {if $levels_2['pricetype'][1] == 0}
+                    免费
+                    {else}
+                    {$levels_2['pricetype'][1]}
+                    {/if}
+                    </span>
+                    /
+                    <span style="font-family:宋体"> 
+                    {if $levels_2['pricetype'][0] == 1}
+                       每月
+                       {elseif $levels_2['pricetype'][0] == 2 }
+                       每季度
+                       {elseif $levels_2['pricetype'][0] == 3}
+                       每年
+                       {/if}&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px; color: rgb(255, 0, 0);" valign="center" width="157">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">
+                    {if $levels_3['pricetype'][1] == 0}
+                    免费
+                    {else}
+                    {$levels_3['pricetype'][1]}
+                    {/if}
+
+                     /</span>&nbsp;<span style="font-family:宋体">
+                    {if $levels_3['pricetype'][0] == 1}
+                       每月
+                       {elseif $levels_3['pricetype'][0] == 2 }
+                       每季度
+                       {elseif $levels_3['pricetype'][0] == 3}
+                       每年
+                       
+                    {/if}</span>
+                </p>
+            </td>
+        </tr>
+         {if is_activity_open('rebate') == 1}
+        <tr style="height:60px">
+            <td rowspan="10" style="padding: 0px 7px;" colspan="1" align="null" valign="center" width="81">
+                &nbsp;返利活动<br/>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">参与活动&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">
+                    {if $levels_1['rebate']['isopen'] == 1}
+                        可报名参与
+                        {else}
+                    {/if}&nbsp;</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">
+                    {if $levels_2['rebate']['isopen'] == 1}
+                        可报名参与
+                        {else}
+                    {/if}&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">
+                    {if $levels_3['rebate']['isopen'] == 1}
+                        可报名参与
+                        {else}
+                    {/if}&nbsp;</span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:60px">
+            <td style="padding: 0px 7px;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">活动服务费&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"> 
+                    {if $levels_1['rebate']['service'] >0}
+                         {$levels_1['rebate']['service']}%
+                        {else}
+                         不收费
+                    {/if}&nbsp;<span style="font-family:宋体">服务费&nbsp;</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">
+                    {if $levels_2['rebate']['service'] >0}
+                         {$levels_2['rebate']['service']}%
+                        {else}
+                         不收费
+                    {/if}&nbsp;<span style="font-family:宋体">服务费&nbsp;</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">  
+                    {if $levels_3['rebate']['service'] >0}
+                         {$levels_3['rebate']['service']}%
+                         {else}
+                        不收费
+                        
+                   {/if}&nbsp;<span style="font-family:宋体">服务费&nbsp;</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">普通下单 <br/></span>
+                </p>
+                <p>
+                    <br/><span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="101">
+                     <span>
+                        {if (in_array('1',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span>
+                         {if (in_array('1',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span>
+                         {if (in_array('1',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">搜索下单</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span>
+                        {if (in_array('2',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span>
+                        {if (in_array('2',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span>
+                        {if (in_array('2',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">答案下单 <br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span>
+                        {if (in_array('3',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span>
+                        {if (in_array('3',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span>
+                        {if (in_array('3',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">二维码下单 <br/></span>
+                </p>
+                <p>
+                    <br/><span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">                <p>
+                    <span>
+                         {if (in_array('4',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p> </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">                <p>
+                    <span>
+                         {if (in_array('4',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p> </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                 <p>
+                    <span>
+                         {if (in_array('4',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+                </p> 
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">报名商品次数&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+
+                        <span>
+                            {if ($levels_1['rebate']['apply']['radio'] == 1)}
+                            {$levels_1['rebate']['apply']['times']} 次
+                            
+                            {else}
+                            不限
+                            {/if}
+                            
+                        </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                    <span>
+                         {if ($levels_2['rebate']['apply']['radio'] == 1)}
+                            {$levels_2['rebate']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                    <span>
+                         {if ($levels_3['rebate']['apply']['radio'] == 1)}
+                            {$levels_3['rebate']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">报名商品间隔&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                        {if ($levels_1['rebate']['distime']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_1['rebate']['distime']['times']}
+                        <span>
+                              {if ($levels_1['rebate']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_1['rebate']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                         {if ($levels_2['rebate']['distime']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_2['rebate']['distime']['times']}
+                        <span>
+                              {if ($levels_2['rebate']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_2['rebate']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                        {if ($levels_3['rebate']['distime']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_3['rebate']['distime']['times']}
+                        <span>
+                              {if ($levels_3['rebate']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_4['rebate']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">报名活动最长天数&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+                    <span>{$levels_1['rebate']['activitydays']}<span>天</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                    <span>{$levels_2['rebate']['activitydays']}<span>天</span></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                 <p>
+                    <span>{$levels_3['rebate']['activitydays']}<span>天</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">报名商品件数&nbsp;</span>
+                </p>
+                <p>
+                    <span style=";font-family:&#39;Times New Roman&#39;;font-size:16px">&nbsp;&nbsp;</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                <p>
+
+                    {if ($levels_1['rebate']['goods_number']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_1['rebate']['goods_number']['min']}-{$levels_1['rebate']['goods_number']['max']}
+                        <span>件</span>
+                    {/if}
+
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                <p>
+                                       
+                        {if ($levels_2['rebate']['goods_number']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_2['rebate']['goods_number']['min']}-{$levels_2['rebate']['goods_number']['max']}
+                         <span>件</span>
+                        {/if}
+                       
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                <p>
+                         {if ($levels_3['rebate']['goods_number']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_3['rebate']['goods_number']['min']}-{$levels_3['rebate']['goods_number']['max']}
+                        <span>件</span>
+                        {/if}
+                </p>
+            </td>
+        </tr>
+        {/if}
+          {if is_activity_open('trial') == 1}
+        <tr>
+            <td rowspan="11" style="padding: 0px 7px;" valign="center" width="92">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">试用活动</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">收费方式</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101"></td>
+            <td style="padding: 0px 7px;" valign="center" width="118"></td>
+            <td style="padding: 0px 7px;" valign="center" width="157"></td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">参与活动</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">                        
+                      <span>
+            {if $levels_1['trial']['isopen'] == 1}
+                        可报名参与
+                        {else}
+            {/if}</span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+            <span>
+            {if $levels_2['trial']['isopen'] == 1}
+                        可报名参与
+                        {else}
+            {/if}</span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+             <span>
+            {if $levels_3['trial']['isopen'] == 1}
+                        可报名参与
+                        {else}
+            {/if}</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">活动推广费</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">     
+                    <span>
+
+                        {if $setting['seller_charge_money'] == 0}
+                         <span>单份</span>
+                         {$levels_1['trial']['cost']['product_cost']}
+                        <span>/元</span>
+                        <br>
+                        {/if}
+                         {if $setting['seller_charge_money'] == 1}
+                         <span>单场</span>
+                         {$levels_1['trial']['cost']['activity_cost']}
+                        <span>/元</span>
+                        {/if}
+                        
+                        
+
+                    </span>
+             </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                
+                 <span> 
+                      {if $setting['seller_charge_money'] == 0}
+                        <span>单份</span>
+                         {$levels_2['trial']['cost']['product_cost']}
+                        <span>/元</span>
+                        <br>
+                        {/if}
+                          {if $setting['seller_charge_money'] == 1}
+                         <span>单场</span>
+                         {$levels_2['trial']['cost']['activity_cost']}
+                        <span>/元</span>
+                        {/if}
+
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                    <span>
+                          {if $setting['seller_charge_money'] == 0}
+                        <span>单份</span>
+                         {$levels_3['trial']['cost']['product_cost']}
+                        <span>/元</span>
+                          <br>
+                          {/if}
+                        {if $setting['seller_charge_money'] == 1}
+                         <span>单场</span>
+                         {$levels_3['trial']['cost']['activity_cost']}
+                        <span>/元</span>
+                        {/if}
+                    </span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">普通下单</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                    <span>
+                        {if (in_array('1',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>   
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                
+                     <span>
+                         {if (in_array('1',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>   
+
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                
+                    <span>
+                         {if (in_array('1',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>   
+
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">搜索下单</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">                   
+                    <span>
+                        {if (in_array('2',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+
+                    </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                    <span>
+                        {if (in_array('2',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                    <span>
+                        {if (in_array('2',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">答案下单</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">                   
+             <span>
+                        {if (in_array('3',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span></td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                                    <span>
+                        {if (in_array('3',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                               <span>
+                        {if (in_array('3',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>     
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">二维码下单</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                                    <span>
+                         {if (in_array('4',$levels_1['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                                    <span>
+                        {if (in_array('4',$levels_2['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                
+                                    <span>
+                        {if (in_array('4',$levels_3['ordertype']))}
+                         √
+                        {/if}
+                    </span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">报名商品次数</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+                         <span>
+                            {if ($levels_1['trial']['apply']['radio'] == 1)}
+                            {$levels_1['trial']['apply']['times']} 次
+                            
+                            {else}
+                            不限
+                            {/if}
+                            
+                        </span>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                             {if ($levels_2['trial']['apply']['radio'] == 1)}
+                            {$levels_2['trial']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                            {if ($levels_3['trial']['apply']['radio'] == 1)}
+                            {$levels_3['trial']['apply']['times']} 次
+                            {else}
+                            不限
+                            {/if}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">报名商品间隔</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">
+
+                        {if ($levels_1['trial']['distime']['radio'] == 0 || $levels_1['trial']['distime']['times'] <= 0) }
+                        不限
+                        {else}
+                        {$levels_1['trial']['distime']['times']}
+                        <span>
+                              {if ($levels_1['trial']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_1['trial']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                
+                       {if ($levels_2['trial']['distime']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_2['trial']['distime']['times']}
+                        <span>
+                              {if ($levels_2['trial']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_2['trial']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                
+                         {if ($levels_3['trial']['distime']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_3['trial']['distime']['times']}
+                        <span>
+                              {if ($levels_3['trial']['distime']['type'] == 1) }
+                            天
+                            {elseif ($levels_4['trial']['distime']['type'] == 2)}
+                            小时
+                            {else}
+                            分钟
+                            {/if}
+
+                            发布一款</span>
+                        {/if}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">报名活动最长天数</span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101"> <span>{$levels_1['trial']['activitydays']}<span>天</span></span></td>
+            <td style="padding: 0px 7px;" valign="center" width="118">                    <span>{$levels_2['trial']['activitydays']}<span>天</span></span></td>
+            <td style="padding: 0px 7px;" valign="center" width="157">                    <span>{$levels_3['trial']['activitydays']}<span>天</span></span></td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 7px; word-break: break-all;" valign="center" width="103">
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px">报名商品件数</span>
+                </p>
+                <p>
+                    <span style=";font-family:宋体;font-size:16px"><br/></span>
+                </p>
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="101">                  
+              <span>
+                        {if ($levels_1['trial']['goods_number']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_1['trial']['goods_number']['min']}-{$levels_1['trial']['goods_number']['max']}
+                        <span>件</span>
+                        {/if}
+                        
+
+                    </span></td>
+            <td style="padding: 0px 7px;" valign="center" width="118">
+                        <span>
+                        {if ($levels_2['trial']['goods_number']['radio'] == 0) }
+                        不限
+                        {else}
+                        {$levels_2['trial']['goods_number']['min']}-{$levels_2['trial']['goods_number']['max']}
+                         <span>件</span>
+                        {/if}
+                       
+                    </span>
+
+            </td>
+            <td style="padding: 0px 7px;" valign="center" width="157">
+                
+            <span>
+                 {if ($levels_3['trial']['goods_number']['radio'] == 0) }
+                不限
+                {else}
+                {$levels_3['trial']['goods_number']['min']}-{$levels_3['trial']['goods_number']['max']}
+                <span>件</span>
+                {/if}
+                
+            </span>
+            </td>
+        </tr>
+        {/if}
+        <tr style="height:69px">
+            <td colspan="5" style="padding: 0px 7px;" valign="center" width="572"></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <br/>
+</p>
+
+<p>
+    <br/>
+</p>
+</div>
+
+
+
+
+		<!-- 商家报名 end -->
+		<!-- 专场活动 start -->
+		<!-- <div class="activity">
+			<dl>
+				<dt class="mt40 mb20">
+					<span class="f22 c3c3c3c fl">热门专场活动</span>
+					<span class="fr"><a href="#" class="f16 c3c3c3c">更多 GO ></a></span>
+					<div class="clear"></div>
+				</dt>
+				<dd>
+					<ul>
+						<li class="fl">
+							<div><a href="#"><img src="{THEME_STYLE_PATH}style/images/activity_img.jpg" /></a></div>
+							<p class="act_tit"><a href="#">冬季女装专场</a></p>
+							<p class="act_des">专场主要以新潮搞怪的婴幼儿童服装、儿童袜、童鞋/靴及保暖配饰等。要求商品性价比高...</p>
+							<p class="act_time">活动时间：2015-01-25~2015-02-18</p>
+							<p><a href="#" class="sign_btn">马上报名</a></p>
+						</li>
+						<li class="fl">
+							<div><a href="#"><img src="{THEME_STYLE_PATH}style/images/activity_img.jpg" /></a></div>
+							<p class="act_tit"><a href="#">冬季女装专场</a></p>
+							<p class="act_des">专场主要以新潮搞怪的婴幼儿童服装、儿童袜、童鞋/靴及保暖配饰等。要求商品性价比高...</p>
+							<p class="act_time">活动时间：2015-01-25~2015-02-18</p>
+							<p><a href="#" class="sign_btn">马上报名</a></p>
+						</li>
+						<li class="fl">
+							<div><a href="#"><img src="{THEME_STYLE_PATH}style/images/activity_img.jpg" /></a></div>
+							<p class="act_tit"><a href="#">冬季女装专场</a></p>
+							<p class="act_des">专场主要以新潮搞怪的婴幼儿童服装、儿童袜、童鞋/靴及保暖配饰等。要求商品性价比高...</p>
+							<p class="act_time">活动时间：2015-01-25~2015-02-18</p>
+							<p><a href="#" class="sign_btn">马上报名</a></p>
+						</li>
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			</dl>
+		</div> -->
+		<!-- 专场活动 end -->
+	</div>
+	<!-- 主体内容 end -->
+	{include template('merchant_sign_footer','member/common')}
+<script type="text/javascript">
+	function merAnn(){
+		var liNum = $(".position li").length;
+		var _top = $(".position li").height();
+		var top = 0;
+		var i = 1;
+		setInterval(function(){
+			if(i == liNum){
+				$(".position ul").animate({top:0});
+				i = 1;
+				top = 0;
+			}
+			else{
+				top -= _top;
+				$(".position ul").animate({top:top + "px"});
+				i++;
+			}
+		},3000);
+
+		$(".next").click(function(){
+			if(i == liNum){
+				i = 1;
+				top = 0;
+				$(".position ul").animate({top:0});
+			}
+			else{
+				top -= _top;
+				$(".position ul").animate({top:top + "px"});
+				i++;
+			}
+		});
+		
+		$(".pre").click(function(){
+			if(i == 1){
+				i = 1;
+				$(".position ul").css({top:0});
+			}
+			else{
+				top += _top;
+				$(".position ul").animate({top:top + "px"});
+				i--;
+			}
+		});
+	}
+</script>

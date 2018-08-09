@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+        <meta name="keywords" content="{$SEO['keyword']}" />
+        <meta name="description" content="{$SEO['description']}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+        <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+        <script type="text/javascript" src='{THEME_STYLE_PATH}style/js/order.js'></script>
+        <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/ajaxfileupload.js"></script>
+
+
+	</head>
+	<script type="text/javascript">
+{php $userinfo = is_login();}
+var order_data = {
+    {php $seller_trialtalk_check = string2array(C_READ('seller_trialtalk_check'));}
+    {loop $lists $r}
+    <?php
+       if ($r['status']== 4 && $mod =='rebate' ){  //  商家审核失败后会员可申诉时间(购物返利)
+            $end_time = $r['check_time']+(int)C_READ('buyer_check_update_order_sn','rebate')*3600;
+        }elseif($r['status'] == 4 && $mod =='trial'){  // 商家审核失败后会员可申诉时间(免费试用)
+            $end_time = $r['check_time']+C_READ('buyer_check_update_order_sn','trial')*3600;
+        }elseif($r['status'] == 2 && $mod =='rebate' && !$r['order_sn']){  // 填写订单号时间
+            $end_time = $r['create_time']+C_READ('buyer_write_order_time','rebate')*60;
+        }elseif(($r['status'] ==3 || $r['status']==5) && $mod=='rebate' && C_READ('seller_no_check_order','rebate') != 3){    //  订单完成倒计时
+            $end_time = $r['create_time']+C_READ('seller_check_time','rebate')*86400;
+        }elseif($r['status'] == 2 && !$r['trial_report'] && C_READ('buyer_update_order_type','rebate')> 0 && $mod=='rebate'){ //  修改订单倒计时
+            $end_time = $r['create_time']+C_READ('buyer_update_order_type','rebate')*3600;
+        }elseif ($r['status']==1 && $mod== 'trial'){    //  待商家审核资格
+            $end_time = $r['create_time']+C_READ('seller_check_time')*86400;
+        }elseif ($r['status']==2 && $mod=='trial' && !$r['order_sn']) { //  待填写订单号
+            $end_time = $r['check_time']+C_READ('buyer_write_order_time')*3600;
+        }elseif ($r['status']==2 && $mod=='trial' && $r['order_sn'] && !$r['trial_report']){ //  待审核订单号            
+            $end_time = $r['check_time'] + C_READ('seller_order_check_time')*3600;
+        }elseif ($r['status']==8 && $mod=='trial' && $r['order_sn'] && !$r['trial_report']){ //  填写试用报告倒计时(更新试用流程后)            
+            $end_time = $r['check_time'] + C_READ('buyer_write_talk_time')*86400;
+        }elseif ($r['status']==3 && $mod=='trial'){ // 待审核试用报告
+            $end_time = $r['check_time']+$seller_trialtalk_check['value']*86400;
+        }
+    ?>
+    {if $n > 1},{/if}
+    {$r[id]}:{
+        "oid":"{$r[id]}",
+        "gid":"{$r[goods_id]}",
+        "title":"{$r[product_info]['title']}",
+        "url":"{$r[product_info][goods_url]}",
+        "userid":"<?php echo $this->userid;?>",
+        "modelid":"<?php echo $userinfo['modelid'];?>",
+        "price":"{$r[product_info]['goods_price']}",
+        "end_time" : "{$end_time}",
+        "type" : "{$r['product_info']['type']}",
+        "mod" : "{$r['product_info']['mod']}",
+        "goods_price" : "{$r['product_info']['goods_price']}",
+        "goods_tryproduct":"{$r['product_info']['goods_tryproduct']}",
+        "type" : "{$r['product_info']['type']}",
+        "pro" : <?php echo json_encode($r['product_info']);?>,
+        "store_name" : "{store_name($r['product_info']['company_id'])}",
+        "contact_want" : "{$r['contact_want']}",
+        "shop_source" :<?php echo json_encode(shop_set($r['product_info']['source'])); ?>
+    }
+    {/loop}
+};
+
+var site = {
+	"site_root" : '{__ROOT__}',
+	"js_path" : '{JS_PATH}',
+	"css_path" : '{CSS_PATH}',
+	"img_path" : '{IMG_PATH}',
+	"template_img" : '{THEME_STYLE_PATH}style/images',
+	"webname" : '{C("webname")}',
+	"order_url" : '{U("Order/DoOrder/manage")}',
+	"nickname" : '{nickname($userinfo["userid"])}',
+	"message":'{message_count($userinfo["userid"])}',
+	"user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+};
+var act_config = <?php echo json_encode($act_config);?>;
+
+function ajaxFileUploadOrder(){
+    $.ajaxFileUpload ({
+         url:'?m=order&c=api&a=add_show_img',
+         secureuri:false,//是否启用安全提交
+         fileElementId:'file_uploads',
+         dataType: 'json',
+         success: function (data){
+            if (data!='error') {
+                $('#notices').html('上传成功！');
+            }else{
+                $('#notices').html('上传失败')
+            }
+            $('#images').attr('style','display:none');
+            $('#urls').val(data);
+         },
+         error:function(data){
+            console.log(data);
+         }
+     }) 
+     return false; 
+}
+</script>
+<style type="text/css">
+/* 弹窗样式 */
+.CPM_style { padding-bottom:20px;border:solid 1px #ddd; background:#fff; float:left; height:auto; position:fixed; }
+.CPM_style .span > a { font-weight:700; display:block; float:left;  border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; color:#fff; padding:0 12px; height:28px; line-height:28px; }
+.a_background1 { background:#ff6600; }
+.a_background2 { background:#999999; }
+
+.CPM_style > h2 { 
+width:100%; height:33px;
+border-radius-top-left:3px; -webkit-border-top-left-radius:3px; -moz-border-top-left-radius:3px;
+border-radius-top-right:3px; -webkit-border-top-right-radius:3px; -moz-border-top-right-radius:3px;
+line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
+.CPM_style_1 { width:360px; }
+.CPM_style_2 { width:590px; }
+.f_bg_yes { background:url({THEME_STYLE_PATH}style/images/verify_btn1.png) no-repeat 0 center; }
+.f_bg_no { background:url({THEME_STYLE_PATH}style/images/verify_btn2.png) no-repeat 0 center; }
+.CPM_style .font { padding-top:20px;padding-bottom:20px;padding-left:35px; font-size:14px; margin:0 auto; line-height:36px; height:36px; }
+.CPM_style .font_2 { font-size:14px; font-weight:700; font-family:"微软雅黑"; color:#ff6600; }
+.CPM_style .span { height:20px; line-height:20px; margin:0 auto; }
+.CPM_style .span > a { margin:0 11px;border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; }
+.form em,.hint { color:#ff6600; }
+.form { margin:15px 0 0 40px; }
+.form li { height:30px; width:100%; line-height:30px; margin:5px 0; }
+.form li input { width:175px; height:26px; line-height:26px; }
+.CPM_style .hint { text-align:right;width:100px; height:auto; line-height:20px; margin:0; float:left;  }
+.CPM_style .hint_text { float:left; width:450px; float:left; line-height:20px; }
+.CPM_style .hint_text li { width:100%; }
+.CPM_style .hint_text li a {color:#2bc4fe;}
+.issue { width:100%; height:30px; line-height:30px; text-align:right; }
+.issue a { margin-right:10px; color:#2bc4fe; }
+.CPM_style .hint_text_2 { margin-left:50px; margin-bottom:20px; }
+.CPM_style .margin_b_10 { margin-bottom:10px; }
+.CPM_style .hint_text_2 p { height:30px; line-height:30px; color:#ff6600; }
+.CPM_style .hint_text_2 li { height:20px; line-height:20px; }
+.CPM_style .hint_text_2 li em { color:#ff6600; }
+.CPM_style .hint_text_2 li a { color:#2bc4fe; }
+.QR_code { width:134px; height:134px; display:block; margin:0px auto; border:solid 1px #ddd; padding:3px; }
+.set_iss { margin-left:135px;margin-bottom:20px; }
+.set_iss li {width:100%; height:22px; line-height:22px; margin:5px 0; }
+.set_iss li input,.set_iss li img,.set_iss li font{ float:left; }
+.set_iss li input { height:18px; line-height:18px; width:170px; }
+.set_iss li img { width:30px; margin-top:-5px;}
+.set_iss li a { margin-left:35px;display:block; width:60px; height:22px; text-align:center; border:solid 1px #2bc4fe; color:#2bc4fe; background:#e4ffff;border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; }
+.iss_hint {text-align:center; width:100%;height:20px; line-height:20px; margin-bottom:20px; }
+.iss_hint a { color:#2bc4fe; }
+.operate-log {
+max-width: 520px;
+_width: 520px;
+max-height: 420px;
+_height: 420px;
+padding: 1px;
+overflow: auto;
+}
+.aui_state_focus .aui_content {
+color: #000;
+}
+.ui-table {
+border: 1px solid #ccc;
+table-layout: fixed;
+width: 100%;
+text-align: center;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+font-size: 12px;
+}
+.ui-table th {
+height: 35px;
+font-size: 12px;
+color: #4c4c4c;
+text-shadow: 0 1px 1px #fff;
+background-color: #CCCCCC;
+background-image: -webkit-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -moz-linear-gradient(top, #eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -o-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#CCCCCC', GradientType=0);
+}
+.ui-table th {
+
+}
+textarea {
+font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+.ui-table td {
+border: 1px solid #ccc;
+border-bottom-style: dotted;
+border-top: none;
+padding: 12px 0;
+word-break: break-all;
+word-wrap: break-word;
+}
+
+.CPM_style .hint_text_2 li{
+	height: auto;
+}
+</style>
+
+	<body>
+		{include template('v2_header','member/common')}
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>{C('REBATE_NAME')}</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				{include template('v2_member_left','member/common')}
+				
+				<div class="fr u_index_mess user_pd_1">
+					<h2 class="user_page_title">{C('REBATE_NAME')}</h2>
+					<!-- 正文 -->
+					<ul class="sy_list_btn clear">
+						<!-- <li {if $state == 1}class="active"{/if}><a href="{U('Member/Order/v2_manage', array('mod' => 'commission','state'=>1))}">待审批</a></li> -->
+						<li {if $state == 2}class="active"{/if}><a href="{U('Member/Order/v2_manage', array('mod' => 'rebate','state'=>2))}">已通过</a></li>
+						<li {if $state == 0}class="active"{/if}><a href="{U('Member/Order/v2_manage', array('mod' => 'rebate','state'=>0))}">未通过</a></li>
+					</ul>
+					
+					{if $state == 2}
+						<ul class="sy_list_btn sy_list_btn_2 clear" style="height: auto; margin-top: 20px;">
+							<li {if $state == 2 && $com_status == 2}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>2))}">已通过待领取<b>{$no_ordersn_count}</b></a></li>
+							<li {if $state == 2 && $com_status == 3}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>3))}">订单号审核中<b>{$check_report_count}</b></a></li>
+							<li {if $state == 2 && $com_status == 4}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>4))}">待修改订单号/申诉<b>{$no_passreport_count}</b></a></li>
+						   
+						    <li {if $state == 2 && $com_status == 6}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>6))}">申诉中<b>{$appeal_count}</b></a></li>
+						     <li {if $state == 2 && $com_status == 5}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>5))}">待返款<b>{$pay_count}</b></a></li>
+						    <li {if $state == 2 && $com_status == 7}class="active"{/if}><a href="{U('Member/Order/v2_manage',array('mod'=>$mod,'state'=>'2','com_status'=>7))}">订单完成<b>{$finish_count}</b></a></li>
+
+						</ul>
+					{/if}
+					
+					<form action="<?php echo __APP__;?>" method="get">
+						<input type="hidden" name="m" value="<?php echo MODULE_NAME;?>" />
+	                    <input type="hidden" name="c" value="<?php echo CONTROLLER_NAME;?>" />
+	                    <input type="hidden" name="a" value="<?php echo ACTION_NAME;?>" />
+	                    <input type="hidden" name="mod" value="<?php echo $mod;?>" />
+	                    <input type="hidden" name="state" value="<?php echo $state;?>" />
+						<p class="sy_cy_search" {if $state == 2}style="margin-top:10px;"{else}style="margin-top:20px;"{/if}>
+							<select name="search_type">
+		                   	<option value="0" {if $search_type == '0'}selected{/if}>所有活动</option>
+		                   	<option value="2" {if $search_type == '2'}selected{/if}>活动名称</option>
+		                    <option value="1" {if $search_type == '1'}selected{/if}>订单号</option>
+		                 	</select>
+							<input type="text" class="input_txt" name="keywords" value="{$_GET['keywords']}"/>
+<!-- 							<input type="checkbox" id="all_sy_hd"/><label for="all_sy_hd">试用通过券活动</label>
+ -->							<input type="submit" value="搜索" class="_sub"/>
+						</p>
+					</form>
+					
+					<div class="sy_list_wrap">
+						<div class="list list_sy_cy">
+							<table>
+								<thead>
+									<tr>
+										<th width="45%" style="text-align: center;">活动标题</th>
+										<!-- <th>闪电试用担保金</th> 张正中改 -->
+										<th>购物返利担保金</th>
+										<th>绑定账号</th>
+										<th>流程状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									{loop $lists $r}
+									<tr>
+										<td class="clear">
+											<div class="img fl"><img src="{$r[product_info][thumb]}" title="{$r[product_info][title]}"/></div>
+											<dl class="sy_tab_title fl">
+												<dt><a href="{$r[product_info][url]}">{$r[product_info][title]}</a></dt>
+												<dd>活动id：<span class="c_333">{$r[product_info][id]}</span></dd>
+												<dd>{dgmdate($r[inputtime],'Y年m月d日 H:i')}</dd>
+											</dl>
+										</td>
+										<td>
+											<ul class="sy_zs_hb">
+												<li>￥{$r[product_info][goods_price]}</li>
+												{if $r[product_info][bonus_price] > 0}
+												<li><a href="javascript:;">闪电佣金</a></li>
+												<li><a href="javascript:;">￥{$r[product_info][bonus_price]}</a></li>
+
+												{/if}
+											</ul>
+										</td>
+										<td>
+											<ul class="sy_zs_hb">
+												<li>淘宝账号：<span class="c_333">{$r[bind_account]}</span></li>
+												{if $r[reg_time]}
+												<li>注册时间：<span class="c_333">{dgmdate($r[reg_time],'Y-m-d')}</span></li>
+												{/if}
+												{if $r[account_level]}
+												<li class="clear">
+													<strong class="fl">账号等级：</strong>
+													<p class="fl sy_mj_xy">
+														
+														<img src="{$r[account_level]}"/>
+														<!-- <b></b>
+														<b></b> -->
+													</p>												
+												</li>
+												{/if}
+											</ul>
+										</td>
+										<td>
+											<ul class="sy_zs_hb">
+												<li class="c_333">{$states[$r['status']]}</li>
+
+												{if $r['status']==4 && ($r['check_time']+C_READ('buyer_check_update_order_sn','rebate')*3600) > NOW_TIME}
+			                                    <li>停止申诉时间：:</li>
+												<li class="c_333" id='remaining_time_{$r['id']}'>--</li>
+											    <script type="text/javascript">order.timer({$r['id']});</script>
+			                                    {/if}
+
+			                                     {if $r['status']==2 && $r['act_mod'] =='rebate' && !$r['order_sn']}
+				                                    <li>自动关闭倒计时</li>
+				                                    <li class="c_333" id="remaining_time_{$r['id']}">--</li>
+				                                    <script type="text/javascript">order.timer({$r['id']});</script>
+				                                     {elseif $r['status'] == 2 && !$r['trial_report'] && C_READ('buyer_update_order_type','rebate')> 0 && $mod=='rebate'}
+				                                    <li>修改单号倒计时</li>
+				                                    <li class="c_333" id="remaining_time_{$r['id']}">--</li>
+				                                    <script type="text/javascript">order.timer({$r['id']});</script>
+				                               
+				                                {/if}
+				                                 {if ($r['status'] ==3 || $r['status']==5) && $r['act_mod'] =='rebate' && C_READ('seller_no_check_order','rebate') != 3}
+				                                 <li >订单完成倒计时</li>
+				                                   <span id="remaining_time_{$r['id']}">--</span>
+				                                    <script type="text/javascript">order.timer({$r['id']});</script>
+				                                {/if}
+
+				                                 {if $r['act_mod'] =='rebate' &&  $r['status'] != 7 && C_READ('seller_no_check_order','rebate') == 3 && ($r['create_time']+C_READ('seller_check_time','rebate')*86400) < NOW_TIME }
+				                                 <li >待平台审核该订单</li>
+				                                {/if}
+
+											</ul>
+										</td>
+										<td>
+											<ul class="sy_zs_hb sy_zs_btn">
+												{if $r['status'] == 1 || $r['status'] == 2}
+					                                <li><a href="javascript:;" onclick="order.close({$r['id']});">撤销申请</a></li>
+					                            {/if}
+
+					                            {if $r['status'] == 2}
+					                                {if !$r['order_sn'] && !$r['trial_report']}
+					                            	    <li><a href="javascript:;" onclick="order.buy({$r['id']});">现在去下单</a></li>
+					                                    <li><a href="javascript:;" onclick="order.fill_trade_no({$r['id']});">填写订单号</a></li>
+					                                {else}
+					                                
+					                                    {if C_READ('buyer_update_order_type','rebate')> 0 && ($mod=='rebate')}
+					                                       <li><a href="javascript:;" onclick="order.fill_trade_no({$r['id']}{if $r['order_sn']},'修改订单号'{/if});">修改订单号</a></li>
+					                                    {/if}
+					                                {/if}                               
+					                            {/if}
+
+					                             {if $r['status'] == 3 && $mod='rebate' && C_READ('buyer_update_order_type','rebate')> 0}
+					                              <li><a href="javascript:;" onclick="order.fill_trade_no({$r['id']}{if $r['order_sn']},'修改订单号'{/if});">修改订单号</a></li>
+					                             {/if}
+
+
+					                            {if $r['status'] == 4}
+					                               <li><a href="{U('Member/Appeal/add', array('id' => $r['id']))}">我要申诉</a></li>
+					                                
+					                               <li><a href="javascript:;" onclick="order.fill_trade_no({$r['id']}{if $r['order_sn']},'修改订单号'{/if});">修改订单号</a></li>
+					                            {/if}
+
+
+					                            {if $r['status'] == 6}
+					                            	<li><a href="javascript:;" onclick="order.view_appeal({$r['appeal_id']},'<?php echo U('Member/Appeal/read');?>');">查看申诉</a></li>
+													<li><a href="javascript:;" onclick="order.close_appeal({$r['appeal_id']},{$r['id']});">关闭申诉</a></li>
+					                            {/if}
+
+					                           
+
+					                            {if $r['status'] == 7}
+					                                {if $r['report_count'] < 1 && $mod == 'rebate'}
+												        <li><a href="javascript:order.add_show({$r['id']})">我要晒单</a></li>
+					                                {elseif $mod == 'rebate'}
+					                                    <li><a href="{U('order/api/show_order',array('id'=>$r[id]))}" target="_blank">查看晒单</a></li>
+					                                {/if}
+												{/if}
+
+												<li><a href="javascript:;" onclick="order.view_log({$r['id']});">操作记录</a></li>
+											</ul>
+										</td>
+									</tr>
+									{/loop}
+									
+									
+									
+								</tbody>
+							</table>
+							
+							<div id="page" class="mt30">
+								{$v2_pages}
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+		
+						{include template('footer','common')}
+
+
+	 <script type="text/javascript" src="/static/js/tool/tool.js"></script>
+
+
+	</body>
+</html>

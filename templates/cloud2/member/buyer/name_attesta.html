@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_name_aut_show.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+					<a href="{__APP__}">首页</a>&nbsp;>
+					<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+					<a href="{U('Member/Attesta/index')}" class="nav_active">资料认证</a>&nbsp;>
+					<a href="{U('Member/Attesta/name_attesta')}" class="nav_active">实名认证</a>
+			</div>			
+				{include template("member_left","member/common")}
+			<div class="content_right float_right">
+				<h1>实名认证</h1>
+				<form action="{U('Member/Attesta/name_attesta')}" method="post" id="myform">
+				<input type="hidden" name="id" value="{$identity[userid]}" />
+				<div class="name_form">
+					<div class="prompt">注意，实名认证后不可修改！</div>
+					<div class="name_input">
+						<dl class="name">
+							<dt class="float_left">身份证姓名：</dt>
+							<dd class="float_left">
+							{if $name != '' && $identity[name] == ''}
+								<input type="text" name="name" value="{$name}" id="name"/>
+							{else}
+							<input type="text" name="name" value="{$identity[name]}" id="name"/>
+							{/if}
+							</dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<dl class="idcard">
+							<dt class="float_left">身份证号码：</dt>
+							<dd class="float_left"><input type="text" name="id_number" value="{$identity[id_number]}" id="id_number"/></dd>
+						</dl>
+						<div style="clear:both;"></div>
+						<!-- <dl class="idcard_image">
+							<dt class="float_left">身份证扫描件：</dt>
+							<dd class="float_left" id="goods_albums">
+								<div class="posi float_left">
+									<span>正面</span>
+									<a href="javascript:;" name="uploadify" id="img1">
+										{if $identity[img_url]}
+										<img src="{$identity[img_url][1]}"/>
+										{else}
+										<img src="{THEME_STYLE_PATH}style/images/idcard_image.jpg"/>
+										{/if}
+										<input type="hidden" name="img_url[1]" value="{$identity[img_url][1]}" />
+									</a>
+								</div>
+								<div class="nega float_right">
+									<span>反面</span>
+									<a href="javascript:;" name="uploadify" id="img2">
+										{if $identity[img_url]}
+										<img src="{$identity[img_url][2]}"/>
+										{else}
+										<img src="{THEME_STYLE_PATH}style/images/idcard_image.jpg"/>
+										{/if}
+										<input type="hidden" name="img_url[2]" value="{$identity[img_url][2]}" />
+									</a>
+								</div>
+							</dd>
+						</dl>
+						<div style="clear:both;"></div> -->
+						<div class="submit"><input type="submit" name="" value="提交" /></div>
+
+						
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	<style>
+	.webuploader-pick{color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 0px;
+    position: relative;
+    text-align: center;}
+	.onError,.onCorrect,.onFocus,.onShow{float:right;padding-left:10px;}
+</style>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+/*身份证姓名/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/*/
+$("#name").formValidator({
+	onshow:"请输入身份证姓名",
+	onfocus:"请输入身份证姓名"
+}).inputValidator({
+	min:2,
+	max:50,
+	onerrormin: "不能为空",
+    onerrormax: "不超过50个字符，汉字算两个字符"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"姓名输入错误"
+});
+/*身份证号验证*/
+$("#id_number").formValidator({
+	empty:false,
+	onempty:'身份证号不能为空',
+	onshow:'请输入身份证号码' ,
+	onfocus:"请输入身份证号码" 
+}).regexValidator({
+	regexp:'idcard',
+	datatype:'enum',
+	onerror:'身份证号码错误'
+});
+
+</script>
+
+<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" /> 
+<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+<script type="text/javascript">
+//图片上传功能
+$(document).ready(function() {
+	var goods_album = $("#goods_albums").find('div');
+	for(var i=0; i < goods_album.length; i++) {
+		var uploader = WebUploader.create({
+			auto:true,
+			fileVal:'Filedata',
+		    // swf文件路径
+		    swf: '{JS_PATH}webuploader/webuploader.swf',
+		    // 文件接收服务端。
+		    server: "{U('Attachment/Attachment/swfupload')}",
+		    // 选择文件的按钮。可选
+		    formData:{
+		    	"module":"",
+		    	"catid":"",
+		    	"userid":"1",
+		    	"dosubmit":"1",
+		    	"thumb_width":"0",
+		    	"thumb_height":"0",
+		    	"watermark_enable":"1",
+		    	"filetype_post":"jpg|jpeg|gif|bmp|png",
+		    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+		    	"isadmin":"1",
+		    	"groupid":"2"
+		    },
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: {
+		    	id: '#img' + (i+1),
+		    	multiple:false
+		    },
+		    accept:{
+				title: '图片文件',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+		    },
+		    thumb:{
+		    	width: '110',
+		    	height: '110'
+		    },
+		    chunked: false,
+		    chunkSize:1000000,
+		    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+		    resize: false
+		});
+
+		uploader.onUploadSuccess = function( file, response ) {
+			var pickid = this.options.pick.id;
+			var data = response._raw;
+			var arr = data.split(',');
+			if(arr[0] > 0) {
+				$(pickid).find('img').attr('src', arr[1]);
+				$(pickid).find('input[type=hidden]').eq(0).attr('value', arr[1]);
+			}
+		}
+
+		uploader.onUploadError = function(file, reason) {
+			alert('文件上传错误：' + reason);
+		}
+	}
+})
+</script>
+	{include template("footer","common")}
+

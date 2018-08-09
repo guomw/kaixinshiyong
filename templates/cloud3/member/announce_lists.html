@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>消息提醒-个人中心-{C('WEBNAME')}</title>
+		<meta name="Keywords" content="消息提醒,{C('WEBNAME')}" />
+		<meta name="Description" content="消息提醒,{C('WEBNAME')}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+	</head>
+	<body>
+		{if $modelid == 1}
+	    {include template('v2_header','member/common')}
+		{else}
+        {include template('v2_merchant_header','member/common')}
+
+		{/if}
+
+		{if $userinfo['modelid'] != 1}
+	     <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+		{/if}
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>消息提醒</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+					{if $modelid == 1}
+				    {include template('v2_member_left','member/common')}
+					{else}
+			        {include template('v2_merchant_left','member/common')}
+
+					{/if}	
+				<script type="text/javascript">
+					$(function(){
+						$('.mess_hint_wrap .mess_hint_ico_w_sq,.sq_txt_mess_add').on('click',function(){
+							$(this).parents('.mess_hint_wrap').find('#sta').html('');
+                            
+							if($(this).parents('.mess_hint_wrap').hasClass('active')){
+								$(this).parents('.mess_hint_wrap').removeClass('active').find('.sq_txt').html('查看');
+							}else{
+							var arrid =	$(this).parents('.mess_hint_wrap').find('span.fl.sq_txt').attr('data-id');
+								$(this).parents('.mess_hint_wrap').addClass('active').find('.sq_txt').html('收起');
+								mess_add(arrid);
+
+							}
+						});
+
+					});
+				</script>
+				<style>
+					.status{ margin-right:5px; }
+					.new{ color:#ff6c00; }
+				</style>
+				<div class="fr u_index_mess user_pd_1">
+					<h2 class="user_page_title">消息提醒<span class="mess_hint_title_r">温馨提示: <b>消息只保留最近30天的记录,请及时查看哦!</b></span></h2>
+					<!-- 正文 -->
+					<ul class="sy_list_btn clear">
+						<li {if $type == 1}class="active"{/if}><a href="{U('Member/Announce/announce',array('type'=>1))}">私人消息 <b>({$people})</b></a></li>
+						<li {if $type == 2}class="active"{/if}><a href="{U('Member/Announce/announce',array('type'=>2))}">系统消息 <b>({$system})</b></a></li>
+					</ul>
+					
+					<div style="height:36px;"></div>
+					{loop $announce_lists $a}
+					<div class="mess_hint_wrap">
+						<div class="mess_hint_top clear">
+							<div class="fl mess_hint_top_time"></div>
+							{if $a['status'] == 0}
+							<div class="fl"><span id="sta"  class="status new">[未读]</span><a  data-id="{if $type == 1}{$a[messageid]}{else}{$a[id]}{/if}" href="javascript:;" class="sq_txt_mess_add">{$a[subject]} </a></div>
+							{/if}
+							{if $a['status'] == 1}
+							<div class="fl"><span class="status "></span><a href="javascript:;" class="sq_txt_mess_add">{$a[subject]}</a></div>
+							{/if}
+							<div style="position: absolute;left: 970px;">	{dgmdate($a['message_time'],"m-d H:i ")} </div>
+							<div class="mess_cz fr clear">
+								<a href="javascript:;" class="fl clear mess_hint_ico_w_sq"><b class="mess_hint_ico sq ck"></b><span class="fl sq_txt" data-id="{if $type == 1}{$a[messageid]}{else}{$a[id]}{/if}">查看</span></a>
+								<a onclick="dedelesms({if $type == 1}{$a[messageid]}{else}{$a[id]}{/if})" data-id="{if $type == 1}{$a[messageid]}{else}{$a[id]}{/if}" class="fl mess_hint_ico colse" ></a>
+
+							</div>
+						</div>
+						<dl class="mess_hint_tz">
+							<dd>{$a['content']}</dd>
+							
+						</dl>
+					</div>
+					{/loop}
+					
+					<div id="page" style="margin-top:30px;">
+							{$v2_pages}
+						</div>
+					
+				</div>
+			</div>
+
+		</div>
+		
+						{include template('footer','common')}
+
+	</body>
+</html>
+<script  type="text/javascript" charset="utf-8">
+
+    function mess_add(id){
+         var type = "{$_GET['type']}";
+          $.ajax({
+         	url:"{U('Member/Announce/read')}",
+         	type:'post',
+         	dataType:'json',
+         	data:{'ids':id,'type':type},
+         	success:function(data){
+         	}
+         	});
+       }
+
+	
+	$('.sq_txt').click(function(){
+
+		mess_add($(this).attr('data-id'));
+
+	});
+
+	//删除选中值
+     function dedelesms(str){
+
+		var type = '<?php echo $_GET['type'];?>';
+		$.ajax({
+			url:"{U('Member/Announce/v2_delete')}",
+			type:'post',
+			dataType:'json',
+			data:{'ids':str,'type':type},
+			success:function(data){
+				if(data == 1){
+					art.dialog({
+					lock: true,
+					fixed: true,
+					icon: 'face-smile',
+					title: '提示',
+					content:'删除成功',
+					okVal: '确定',
+					ok:function() { 
+						location.reload();
+					}
+				});
+				}else{
+					art.dialog({
+					lock: true,
+					fixed: true,
+					icon: 'face-sad',
+					title: '提示',
+					content:'系统错误，请稍后再试',
+					okVal: '确定',
+					ok:function() { 
+						location.reload();
+					}
+				});
+				}
+			}
+		});
+	};
+
+</script>

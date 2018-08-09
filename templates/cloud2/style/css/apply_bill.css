@@ -1,0 +1,8 @@
+.right_title a { font-weight:100; height:100%; display:inline-block; padding:0 5px; margin-left:28px; }
+.right_title .a_link { color:#009ee7; border-bottom:solid 2px #30bbfe; }
+.right_hint { height:24px; display:inline-block; line-height:24px; margin:16px 0 26px 0; padding:0 5px; border:solid 1px #ff5613; background:fff5c4; color:#fe0000;}
+.company { width:500px; float:left; }
+.company li { line-height:28px; height:28px; width:100%; margin-bottom:10px; }
+.company li span { float:left;width:100px;text-align:right;margin-right:10px; }
+.company li input { height:100%;width:265px; border:solid 1px #dddddd; }
+.company li .submit_btn { margin-left:50px; height:100%;width:80px; border:none; }

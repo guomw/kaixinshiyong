@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{if $type == 'all'}最新消息{elseif $type == 3}官方公告{elseif $type == 2}招商公告{elseif $type == 5}VIP公告{/if}-{C('WEBNAME')}</title>
+		<meta name="keywords" content="{if $type == 'all'}最新消息{elseif $type == 3}官方公告{elseif $type == 2}招商公告{elseif $type == 5}VIP公告{/if}">
+		<meta name="description" content="{if $type == 'all'}最新消息{elseif $type == 3}官方公告{elseif $type == 2}招商公告{elseif $type == 5}VIP公告{/if}-{C('WEBNAME')}">
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/help.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+				{include template('toper','common')}
+
+		
+		<div id="user_header">
+			<div class="wrap-and">
+				<div class="user_logo clear fl">
+					<div class="logo_img fl"><a href="{__APP__}"><img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" /></a></div>
+					<h1 class="l_title fl">公告中心</h1>
+					<ul class="help_main_nav_tab">
+
+<!-- 
+						<?php
+							$_catid = ($catid == 1) ? 2 : $catid;
+							$_top_catid = id_in_arrchildid(2, $_catid) ? 2 : 3;
+						?>
+						{pc:document action="category" catid="1" num="2"}
+						{loop $data $r}
+						<li class="{if (id_in_arrchildid($r[catid], $_catid))} active{/if}"><a href="{$r[url]}">{$r[catname]}</a></li>
+						{/loop}
+						{/pc} -->
+					<!-- 	<li><a href="help_tmp.html">试客中心</a></li>
+						<li class="active"><a href="help_shops_tmp.html">商家中心</a></li> -->
+					</ul>
+				</div>
+				<!-- <div class="help_search">
+					<form  method="get">
+						<input type="hidden" name="m" value="Document"></input>
+						<input type="hidden" name="c" value="Index"></input>
+						<input type="hidden" name="a" value="search_help"></input>
+						<input type="hidden" name="catids" value="{$catid}" class="catids">
+						<div class="txt fl"><input placeholder="有问题试着搜" type="text" name="keywords" value="{$_GET[keywords]}"  /></div>
+						<input class="fl nav_sub" type="submit" value="搜索"/>
+					</form>
+				</div> -->
+			</div>
+		</div>
+		
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>{if $type == 5}VIP公告{elseif $type == 3}官方公告{elseif $type == 2}招商公告{else}最新消息{/if}</b>
+				</p>
+			</div>
+			
+			<div class="wrap-and clear">
+
+				<div class="help_left fl">
+
+					
+					<h2 class="title">
+						公告管理
+					</h2>
+					
+					<dl class="nav_list">
+
+				    <dd><a href="{$rs[url]}">{$rs[catname]}</a></dd>
+
+					<dd><a href="{U('Announce/Index/lists',array('type'=>'all'))}" {if $type == 'all'}class="active"{/if}>最新信息</a></dd>
+					<dd><a href="{U('Announce/Index/lists',array('type'=>3))}" {if $type == 3}class="active"{/if}>官方公告</a></dd>
+					<dd><a href="{U('Announce/Index/lists',array('type'=>2))}" {if $type == 2}class="active"{/if}>招商公告</a></dd>
+					<dd><a href="{U('Announce/Index/lists',array('type'=>5))}" {if $type == 5}class="active"{/if}>VIP公告</a>
+					</dd>
+					
+						
+
+					</dl>
+					
+
+
+					
+					
+					<!-- <dl class="nav_list">
+						<dt>试用流程说明</dt>
+						<dd><a href="#">用户登录与注册</a></dd>
+						<dd><a href="#">如何注册</a></dd>
+						<dd><a href="#">如何登录</a></dd>
+					</dl>
+					<dl class="nav_list">
+						<dt>试客中心</dt>
+						<dd><a href="#">了解试用</a></dd>
+						<dd><a href="#">参与试用的条件</a></dd>
+						<dd><a href="#">如何获取金币</a></dd>
+						<dd><a href="#">如何搜索试用下单</a></dd>
+						<dd><a href="#">如何查看我的试用情况</a></dd>
+						<dd><a href="#">如何填写我的试用报告</a></dd>
+					</dl> -->
+				</div>
+
+
+
+
+				<div class="help_right fr">
+					<div class="box">
+						
+						<h3 class="title">{if $type == 5}VIP公告{elseif $type == 3}官方公告{elseif $type == 2}招商公告{else}最新消息{/if}</h3>
+						
+						<div class="content">
+							<ul class="help_sk_jd">
+								
+								{loop $announce $r}
+								<li class="first"><a href="{U('Announce/Index/show',array('id'=>$r[announceid],'type'=>$type))}">{$n}.{$r[title]}</a></li><br>
+								
+								{/loop}
+							</ul>
+							<!-- 常见问题 --> 
+							<script type="text/javascript">
+								$(function(){ $('.help_wt_list li:odd').css('float','left'); });
+							</script>
+							<div class="help_wt">
+								<p class="help_wt_title">常见规则</p>
+								<ul class="help_wt_list clear">
+									{pc:announce action="lists"  num="8" }
+									{loop $data $k $r}
+									<li><b class="float: left;"></b><a href="{U('Announce/Index/show',array('id'=>$r[announceid],'type'=>$r[type]))}">{str_cut($r[title],75)}</a></li>
+									{/loop}
+									{/pc}
+								<!-- 	<li style="float: left;"><b class="ico"></b><a href="#">如何登录？</a></li>
+									<li><b class="ico"></b><a href="#">参与试用的条件？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何获取金币？</a></li>
+									<li><b class="ico"></b><a href="#">如何搜索试用下单？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何查看我的试用情况？</a></li>
+									<li><b class="ico"></b><a href="#">如何填写我的试用报告？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何申请试用商品？</a></li>
+									<li><b class="ico"></b><a href="#">如何填写试用报告？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">试用规则？</a></li> -->
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		{include template('footer','common')}
+
+	</body>
+</html>

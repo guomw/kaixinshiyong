@@ -1,0 +1,970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家中心-活动管理-修改免费试用商品-{C('WEBNAME')}</title>
+		<meta name="keywords" content="商家中心,活动管理,修改免费试用商品,{C('WEBNAME')}" />
+        <meta name="description" content="商家中心,活动管理,修改免费试用商品,{C('WEBNAME')}" />
+    	<link href="{THEME_STYLE_PATH}style/css/base.css" rel="stylesheet" type="text/css" />
+	    <link href="{THEME_STYLE_PATH}style/css/style.css" rel="stylesheet" type="text/css" />
+ 		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+		<link href="{THEME_STYLE_PATH}style/css/n_businessman.css" rel="stylesheet" type="text/css" />
+  	    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+  <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+  <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+      <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/ajaxfileupload.js"></script>
+          <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/activity.js"></script>
+
+
+
+  <link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />
+  <script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+
+  <style type="text/css">
+   .onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat; color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+    .onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+    .onFocus{background-position:3px -147px;border-color:#40B3FF;}
+    .onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+    .onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+    .onLamp{background-position:3px -200px}
+    .onTime{background-position:3px -1356px}
+    .aui_content ul li{font-size: 12px;}
+  </style>
+
+</head>
+
+<body>
+      {include template('v2_merchant_header','member/common')}
+
+  <div class="i_businessman">
+    <!--s_nav-->
+    <div class="ibody">
+      <div class="s_weiz">
+       当前位置：<a href="{__APP__}">首页</a> > <a href="{U('member/profile/index')}">商家管理中心</a> > 编辑试用信息
+      </div>
+      <!--s_weiz-->
+      {include template('v2_merchant_left','member/common')}
+      <!--s_left-->
+      <div class="s_right" >
+        <div  class="title">编辑试用</div>
+        <div class="s_tryout5">
+          <div class="part1">您发布的试用活动一旦系统审批，您将不能对此试用活动进行删除，只能修改关键词等信息，请慎重！</div>
+          <div  class="part2">
+            <div class="part">填写活动信息</div>
+            <div class="jg3"></div>
+            <div class="part sel">填写试用信息</div>
+            <div class="jg1"></div>
+            <div class="part">存入活动担保金</div>
+            <div class="jg2"></div>
+            <div class="part">发布结果</div>
+          </div>
+          <!--part2-->
+          <div class="clear"></div>
+          <div class="part3" >
+
+            <form action="{U('Member/MerchantProduct/edit')}" name="myform" method="post" id="myform">
+             <!--  <input type="hidden" name="info[type]" value="{$new_ordertype}">
+              <input type="hidden" name="info[source]" value="{$new_source}">
+              <input type="hidden" name="info[is_postal]" value="{$new_postal}"> -->
+              <input type="hidden" name="mod" value="{$mod}" />
+              <input type="hidden" name="nojinlai" value="1" />
+
+             <input type="hidden" name="id" value="{$id}">
+
+
+              <!--h1-->
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  宝贝地址
+                </div>
+                <div class="R15 R1">
+                  <label>
+                    <input type="text" datatype='url' id="goods_url" value="{$goods_url}" name="info[goods_url]" />
+                  </label>
+                </div>
+                <div class="R7">
+                  <a id="keyget" href="javascript:;" >一键获取</a>
+                </div>
+                <div class="clear"></div>
+              </div>
+                <script>
+                    $("#keyget").click(function(){
+                        var go_link = $("input:text[name='info[goods_url]']").val();
+                        if(!go_link){
+                            art.dialog({
+                                lock: true,
+                                fixed: true,
+                                title: '错误提示',
+                                content: '请输入地址',
+                                ok: true
+                            });
+                            return false;
+                        }
+
+                        $.post('/index.php?m=Product&c=Api&a=go_link', {
+                            go_link : go_link
+                        }, function(ret) {
+                            if(ret.status == 1) {
+                                $("input:text[name='info[title]']").val(ret.title);
+                                $("input:text[name='info[keyword]']").val(ret.keyword);
+                                $("input:text[name='info[goods_price]']").val(ret.goods_price);
+                                $("input:text[name='info[goods_url]']").val(ret.url);
+
+                                $("input[name='goods_albums_url[1]']").val(ret.img);
+                                $("input[name='goods_albums_url[1]']").prev().attr("src",ret.img);
+                            }else{
+                                art.dialog({
+                                    lock: true,
+                                    fixed: true,
+                                    icon: 'face-sad',
+                                    title: '错误提示',
+                                    content: ret.info,
+                                    ok: true
+                                });
+                            }
+                            return false;
+                        }, 'JSON');
+                    })
+                </script>
+              <!--h1-->
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  活动标题
+                </div>
+                <div class="R1">
+                  <input type="text"  name="info[title]" id="title" value="{$title}" onclick="if(this.value=='18个字以内'){this.value='';}"  />
+                </div>
+                <div class="clear"></div>
+              </div>
+           
+
+              {if $type == 'answer'}
+                   <!--h1-->
+                <div class="h1">
+                  <div class="L"> <span>*</span> 请输入问题 </div>
+                  <div class="R9 R1">
+                    <input type="text" name="info[goods_rule][ask][question]" value="{$goods_rule['ask']['question']}">
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <!--h1-->
+                    <div class="h1">
+                  <div class="L"> <span>*</span> 请输入答案 </div>
+                  <div class="R9 R1">
+                    <input type="text" name="info[goods_rule][ask][answer]" value="{$goods_rule['ask']['answer']}">
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <!--h1-->
+                    <div class="h1">
+                  <div class="L"> <span>*</span> 问题提示</div>
+                  <div class="R9 R1">
+                    <input type="text"  name="info[goods_rule][ask][cues]"   value="{$goods_rule['ask']['cues']}"  onclick="if(this.value=='如第一页第二排左'){this.value='';}"  >
+                  </div>
+                  <div class="clear"></div>
+                </div>
+          <!--h1-->
+              {/if}
+
+
+              
+
+              {if $type == 'search'}
+
+                 <!--h1-->
+              <div class="h1">
+                <div class="L"> <span>*</span> 搜索关键字 </div>
+                <div class="R9 R1">
+                  <input type="text" name="info[goods_rule][keyword]" value="{$goods_rule['keyword']}" />
+                </div>
+                <div class="clear"></div>
+              </div>
+
+                <div class="h1">
+                <div class="L"> <span>*</span> 用ctr/ + f 查找店铺关键字 </div>
+                <div class="R9 R1">
+                  <input type="text" name="info[goods_rule][keyword2]" value="{$goods_rule['keyword2']}" />
+                </div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+              <div class="h1">
+                <div class="L"> <span>*</span> 搜索排行要求 </div>
+                <div class="R2 js_sort">
+                 <span {if $goods_rule['sort'] == '综合'} class="sel" {/if} data-id="综合">综合</span>
+                 <span {if $goods_rule['sort'] == '人气'} class="sel" {/if} data-id="人气">人气</span>
+                 <span {if $goods_rule['sort'] == '销量'} class="sel" {/if} data-id="销量">销量</span>
+                 <span {if $goods_rule['sort'] == '信用'} class="sel" {/if} data-id="信用">信用</span>
+                 <span {if $goods_rule['sort'] == '最新'} class="sel" {/if} data-id="最新">最新</span>
+                 <span {if $goods_rule['sort'] == '价格'} class="sel" {/if} data-id="价格">价格</span> 
+                 <input type="hidden" name="info[goods_rule][sort]" value="1" id="sort">
+               </div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+              <div class="h1">
+                <div class="L"> <span>*</span> 是否需要收藏 </div>
+                <div class="R2 js_collect"> 
+                  <span {if  $goods_rule['collect'] == 1} class="sel" {/if} data-collect="1">是</span>
+                  <span {if  $goods_rule['collect'] == 0} class="sel" {/if}data-collect="0">否</span> 
+                   <input type="hidden" name="info[goods_rule][collect]" value="0" id="collect">
+                </div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+              <div class="h1">
+                <div class="L"> <span>*</span> 关键词商品位置 </div>
+                <div class="R9 R1">
+                  <input type="text"  name="info[goods_rule][address]"   value="{$goods_rule['address']}"  onclick="if(this.value=='如第一页第二排左'){this.value='';}"  />
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <script type="text/javascript">
+                 $(".i_businessman  .s_tryout5 .part3 .h1 .R2 span").on("click", function(){
+                       $(this).parent().find('span').removeClass('sel');
+                       $(this).addClass('sel');
+                      var sort = $('.js_sort > .sel').attr('data-id');
+                      var collect = $('.js_collect > .sel').attr('data-collect');
+                       $('#sort').val(sort);
+                       $('#collect').val(collect);
+
+
+                    });
+                
+
+                  </script>
+
+              {/if}
+
+<!-- 
+                    <div class="h1">
+                <div class="L"> <span>*</span> 是否做淘宝推广</div>
+                <div class="R2 js_tao"> 
+                  <span  {if $taobaoke == 0} class="sel" {/if} data-taobao="0" onclick="goods.taoke_tip()" >否</span> 
+                  <span  {if $taobaoke == 1} class="sel" {/if} data-taobao="1" onclick="goods.taoke_tip()" >是</span>
+
+                   <input type="hidden" name="info[taobaoke]" value="{$taobaoke}}" id="taobao">
+                </div>
+                <div class="clear"></div>
+              </div> -->
+
+
+
+               
+
+
+                  <script type="text/javascript">
+                 $(".i_businessman  .s_tryout5 .part3 .h1 .js_tao span").on("click", function(){
+                       $(this).parent().find('span').removeClass('sel');
+                       $(this).addClass('sel');
+                     
+                      var taobao = $('.js_tao > .sel').attr('data-taobao');
+                       $('#taobao').val(taobao);
+
+
+                    });
+                
+
+                  </script>
+
+
+              {if $type == 'qrcode'}
+
+                 <!--h1-->
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  请上传二维码
+                </div>
+                <div class="R4">
+                  <div class="a1">
+                    <a href="javascript:;" ></a>
+                  </div>
+                  <div class="p2" >
+                    <li  class="big_small_img float_left">
+                      <span class="border_dddddd">
+                        <img id="image" src="{if $goods_rule['qrcode']} {$goods_rule['qrcode']} {else}{THEME_STYLE_PATH}style/images/signIn_14.jpg{/if}" alt="" width="100"  height="100" />
+                        <input  id="file_upload"  name="Filedata" type="file" style="display:none;" onchange = "return ajaxFileUpload()"/>
+
+                        <input type="hidden" id="file_url" name="info[goods_rule][qrcode]"  value="{$goods_rule['qrcode']}"/>
+                      </span>
+                    </li>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script type="text/javascript">
+              $(document).ready(function(){
+                $("#image").click(function (){
+                  $("#file_upload").click();
+                });
+              });
+                  function ajaxFileUpload(){
+                      $.ajaxFileUpload ({
+                         url:'{U('Member/MerchantProduct/code')}',
+                         secureuri:false,//是否启用安全提交
+                         fileElementId:'file_upload',
+                         dataType: 'json',
+                         success: function (data){
+                            $("#image").attr('src', data);
+
+                           $('#file_url').val(data);
+                         },
+                         error:function(data){
+                           console.log(data);
+                           return false;
+                         }
+                       }) 
+                       return false; 
+                    }
+
+
+              </script>
+
+              <!--h1-->
+
+              {/if}
+
+
+
+
+
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  产品类型
+                </div>
+                <div class="R3">
+                  <?php echo $form::select_product_category("catid", $catid);?></div>
+                <div class="clear"></div>
+              </div>
+
+              <!--h1-->
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  宝贝主图
+                </div>
+                <input type="hidden" name="info[goods_albums]" value="1" />
+
+                <div class="R4" id="goods_albums" >
+                  <div class="a1">
+                    <a href="javascript:;" >上传宝贝主图</a>
+                  </div>
+                  <div class="p2" >
+                    <li id="filePicker" class="big_small_img float_left">
+                      <span class="border_dddddd">
+                        <img id="imgurl" src="{if empty($goods_albums[0][url])}{THEME_STYLE_PATH}style/images/signIn_14.jpg{else}{$goods_albums[0][url]}{/if}" alt="" />
+                        <input type="hidden" name="goods_albums_url[1]" id="goods_albums_url" value="{$goods_albums[0][url]}"/>
+                        <input type="hidden" name="goods_albums_alt[1]" id="goods_albums_alt" value="{$goods_albums[0][alt]}" />
+
+                      </span>
+                    </li>
+                  </div>
+                  <div class="p3">请上传实际赠送商品图片，如与实际不符将被退回</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!--h1-->
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  下单价
+                </div>
+                <div class="R5 R1">
+                  <input type="text" name="info[goods_price]"  id="goods_price" value="{$goods_price}"/>元
+                </div>
+                {if $goods_bonus !== '0.00'}
+                <div class="R6">&nbsp;&nbsp;&nbsp;加送红包：</div>
+                <div class="R5 R1">
+                  <input type="text"   name="info[goods_bonus]" id="field_goods_bonus" value="{$goods_bonus}" />
+                </div>
+                <div class="R6">&nbsp;元</div>
+
+               
+              
+                {/if}
+
+                <div class="clear"></div>
+              </div>
+
+              {if $goods_tryproduct != ''}
+                <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  最终获的试用品
+                </div>
+                <div class="R5 R1">
+                  <input type="text"  name="info[goods_tryproduct]" id="goods_tryproduct" value="{$goods_tryproduct}"/>
+                </div>
+                <div class="R6"></div>
+                <div class="clear"></div>
+              </div>
+
+              {/if}
+
+
+              <!--h1-->
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  发放份数
+                </div>
+                <div class="R5 R1">
+                  <input type="text"  name="info[goods_number]" id="goods_number" value="{$goods_number}" />
+                </div>
+                <div class="R6">份</div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="h1">
+                <div class="L">快速通道</div>
+                <div class="R12">
+                  <input type="checkbox" name="checkbox" {if $goods_vipfree == 1} checked="checkbox" {/if} value="1"  id="check"/>
+
+                  <input type="hidden" name="info[goods_vipfree]" value="{$goods_vipfree}"  id="goods_vipfree">
+                </div>
+                <div class="R6">vip免审</div>
+                <div class="R8">(vip买家可免审核 直接试用)&nbsp;</div>
+                <div class="R12">
+                  <input type="checkbox"  name="check_box" {if $goods_point == 1} checked="checkbox" {/if}  value="1" id="js_check"/>
+                  <input type="hidden" name="info[goods_point]" value="{$goods_point}"  id="goods_point">
+                </div>
+                <div class="R6">积分兑换</div>
+                <div class="R8">（会员可用积分兑换资格 免审核资格）</div>
+                <div class="clear"></div>
+              </div>
+
+              <!--h1-->
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  活动时间
+                </div>
+                <div class="R10 R1">
+                  <input type="text" name="info[activity_days]" id="activity_days" value="{$activity_days}"/>
+                </div>
+                <div class="R6">&nbsp;天</div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  掌柜旺旺
+                </div>
+                <div class="R9 R1">
+                 <!--  <input type="text" name="info[goods_ww]"  value="{$goods_ww}" /> -->
+                 <select  name="info[goods_ww]" style="width: 120px;margin-top:10px;">
+                  {loop $store_info $v}
+                  <option {if $v[contact_want] == $goods_ww} selected="selected" {/if} value="{$v[contact_want]}">{$v[contact_want]}</option>
+                  {/loop}
+                </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  QQ
+                </div>
+                <div class="R11">
+                  <div class="p1">
+                    <input type="text"  name="info[goods_qq]"  value="{$goods_qq}"/>
+                  </div>
+                  <div class="p2">为避免用户在旺旺上联系商家，请填写一个可以及时与店铺联系的QQ,方便用户联系[该QQ号不在前台活动中显示]</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!--h1-->
+              <div class="h1">
+                <div class="L">安全防护</div>
+                <div class="R12">
+                   <input type="checkbox"  name="js_join"   {if $goods_tips['goods_order']['is_join'] == 1 } checked="checked" {/if} value="1"  id="js_join" />
+                      <input type="hidden" name="info[goods_tips][goods_order][is_join]"  value ="{$goods_tips['goods_order']['is_join']}" id="join"/>
+                </div>
+                <div class="R6">防重复参与</div>
+                <div class="R8">(申请过本活动,就不允许参与店铺其它活动)&nbsp;</div>
+                <div class="R12">
+   					<input type="checkbox" name="is_ip"  {if $goods_tips['goods_order']['is_ip'] == 1 } checked="checked" {/if} value ="1" id="join_ip"/>
+
+                    <input type="hidden" name="info[goods_tips][goods_order][is_ip]"  value ="{$goods_tips['goods_order']['is_ip']}" id="js_ip"/>              
+
+                    </div>
+                <div class="R6">防ip地址重复</div>
+                <div class="R8">（同一ip买家只允许申请一次）</div>
+                <div class="clear"></div>
+              </div>
+
+                    <div class="h1">
+                      <div class="L">
+                        特别注意：
+                      </div>
+                      <div class="R9 R1">
+                       <input type="text" name="info[goods_tips][goods_order][remark]" value="{$goods_tips['goods_order']['remark']}"/>
+                      </div>
+                      <div class="clear"></div>
+                    </div>
+                   <input type="hidden" name="info[goods_tips][goods_order][is_postal]" value="{$goods_tips['goods_order']['is_postal']}">
+
+                <div class="h1">
+                <div class="L">拍下减价</div>
+                   <div class="R12">
+                  原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" value="{$goods_tips['goods_order']['price']['cost']}" style="width:50px;" />元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" value="{$goods_tips['goods_order']['price']['after']}" style="width:50px;" />元
+                  </div>
+                </div>
+              <!--h1-->
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  活动说明
+                </div>
+                <div class="R13">
+                  <li class="shop_soure set_line_height width_100 float_left w800">
+                    <div style="width:652px;float:left;">
+                      <textarea name="info[goods_content]" id="info[goods_content]">{$goods_content}</textarea>
+                      <?php echo $form::editor("info[goods_content]");?></div>
+                  </li>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+              <!--h1-->
+              <div class="h1 h2">
+                <div class="L">
+                  <span>*</span>
+                  增值服务
+                </div>
+                <div class="R14 js_shouquan">
+                  <div class="p1">
+                    <div class="iL {if $goods_impower == 1} sel {/if}" data-shen="1">授权代审</div>
+                    <div class="iR">授权专员代审核买家试用资格,推广期免费服务！</div>
+                    <div class="clear"></div>
+                  </div>
+                  <div class="p1">
+                    <div class="iL {if $goods_impower == 0} sel {/if}" data-shen="0">不需要,我自己亲自来审核!</div>
+                    <div class="clear"></div>
+                  </div>
+
+                    <input type="hidden" name="info[goods_impower]" value="{$goods_impower}" id="impower">
+                </div>
+                <!--R14-->
+                <div class="clear"></div>
+              </div>
+              <script type="text/javascript">
+                       $(".js_shouquan .iL").on("click", function(){
+                         $(this).parent().parent().find('.iL').removeClass('sel');
+                         $(this).addClass('sel');
+                         var shen = $('.js_shouquan .sel').attr('data-shen');
+                          $('#impower').val(shen);
+                         });
+
+                      
+
+
+
+              </script>
+              <!--h1-->
+
+              <div class="h3">
+                <div class="L">
+                  <input type="checkbox" checked="checked" />
+                </div>
+                <div class="R">
+                  <a href="{U('document/Index/lists',array('catid'=>39))}" target="_blank">试用活动违规处罚措施</a>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!--h3-->
+              <div class="h4">
+<!--                 <span class="a1" id="js_reset">重新填写</span>
+ -->                <input type="submit" class="submit" value="下一步">
+<!--                 <span class="a2">下一步</span>
+ -->              </div>
+            </form>
+          </div>
+          <!--part3-->
+
+    
+        </div>
+        <!--s_tryout3--> </div>
+      <!--s_right-->
+
+      <!--s_right-->
+      <div class="clear"></div>
+    </div>
+  </div>
+  <!--ibody-->
+  <style type="text/css" media="screen">
+    .i_businessman .s_tryout5 .part3 .h4 .submit {
+display: inline-block;
+width: 176px;
+text-align: center;
+height: 40px;
+line-height: 40px;
+background: #309b00;
+border-radius: 5px;
+color: #FFFFFF;
+font-size: 16px;
+cursor: pointer;
+}
+  </style>
+
+  <!--i_businessman-->
+
+<script type="text/javascript"> 
+
+$(document).ready(function(){
+
+  linkage_catid.onChange(function() {
+    var _cat_arr = this.getSelectedArr();
+    $("#linkage_input_catid").attr("value", this.getSelectedValue());
+    if(isNaN(parseInt(_cat_arr[_cat_arr.length - 1])) == true) {
+      $("#linkage_input_catid").unFormValidator(false);//恢复校验
+      $("#linkage_input_catidTip").attr('class', 'onError').text('请选择产品分类').show();
+    } else {
+      $("#linkage_input_catid").show().unFormValidator(true); //解除校验
+    }
+  });
+
+   $("#js_reset").click(function(){
+       history.back();
+    });
+
+
+
+
+
+    $('#check').click(function(){
+    var check = $("[name='checkbox']:checked").val();
+    if (check == 1) {
+       $('#goods_vipfree').val(1);
+     
+
+    }else{
+      $('#goods_vipfree').val(0);
+
+    };
+  });
+
+
+    $('#js_check').click(function(){
+    var checks = $("[name='check_box']:checked").val();
+    if (checks == 1) {
+       $('#goods_point').val(1);
+     
+
+    }else{
+      $('#goods_point').val(0);
+
+    };
+  });
+
+$('#js_join').click(function(){
+      var is_join = "{$rebate['is_join']}";
+      var name = "{$merchant_name}";
+      if (parseInt(is_join) == 0) {
+          art.dialog({
+                  lock: true,
+                  fixed: true,
+                  title: '温馨提示',
+                  content: '您目前是'+name+',没有权限设置该活动项！',
+                  ok: true
+              });
+          $("[name='js_join']:checked").attr('disabled');
+          return false;
+      };
+      var checks = $("[name='js_join']:checked").val();
+      if (checks == 1) {
+         $('#join').val(1);
+       
+
+      }else{
+        $('#join').val(0);
+
+      };
+    }); 
+
+$('#join_ip').click(function(){
+      var is_ip = "{$rebate['is_ip']}";
+      var name = "{$merchant_name}";
+      if (parseInt(is_ip) == 0) {
+          art.dialog({
+                  lock: true,
+                  fixed: true,
+                  title: '温馨提示',
+                  content: '您目前是'+name+',没有权限设置该活动项！',
+                  ok: true
+              });
+          $("[name='is_ip']:checked").attr('disabled');
+          return false;
+      };
+      var ip = $("[name='is_ip']:checked").val();
+      if (ip == 1) {
+         $('#js_ip').val(1);
+       
+
+      }else{
+        $('#js_ip').val(0);
+
+      };
+    });
+
+  $.formValidator.initConfig({
+    formid:"myform",
+    autotip:true,
+    onerror:function(msg,obj){
+      $(obj).focus();
+    }
+  });
+
+/*最终试用商品*/
+$("#field_goods_tryproduct").formValidator({
+  empty:true,
+  onshow:'请输入最终试用商品',
+  onfocus:'请输入最终试用商品'
+}).functionValidator({
+  fun:function(val,elem){
+    var re = new  RegExp("^\s*$/g");
+    if(re.test(val) === false && $("input[name='info[goods_tryproduct]']:checked").val() == 1) {
+      return '请输入最终试用商品';
+    }
+  }
+}).regexValidator({
+  regexp:'notempty',
+  datatype:'enum',
+  onerror:'请输入商品'
+});
+
+{if $goods_bonus  > 0}
+var bonus_min =" <?php echo $bonus_price['min'];?>";
+var bonus_max = "<?php echo $bonus_price['max'];?>";
+/*每单赠送用户红包*/
+$("#field_goods_bonus").formValidator({
+  empty:false,
+  //onempty:'不参与红包任务？',
+  onshow:true,
+  onfocus:'请输入赠送用户的红包,红包范围是'+bonus_min+'~'+bonus_max,
+}).functionValidator({
+  fun:function(val,elem){
+
+    if(Number(val) < Number(bonus_min) || Number(val) > Number(bonus_max) ){
+      return '赠送用户红包的范围是'+bonus_min+'~'+bonus_max;
+    }else{
+      return true;
+    }
+  }
+}).regexValidator({
+  regexp:'num',
+  datatype:'enum',
+  onerror:'用户红包只能为正数'
+});
+{/if}
+
+/*产品分类*/
+$("#linkage_input_catid").formValidator({
+  empty:false,
+  onshow:true,
+    onfocus: "请选择产品分类"
+}).inputValidator({
+    min: 1,
+    onerror: "产品分类不能不选择"
+}).regexValidator({
+  regexp:'intege1',
+  datatype:'enum',
+  onerror:'请选择产品分类'
+});
+
+//商品件数判断
+{if $goods_number_config['radio'] == 1}
+  $("#goods_number").formValidator({
+
+    onshow:true,
+    onfocus:"请输入商品份数,范围<?php echo $goods_number_config['min'];?>~<?php echo $goods_number_config['max'];?>" 
+  }).functionValidator({
+    fun:function(val,elem){
+      if(val < Number('<?php echo $goods_number_config['min'];?>') || val > Number('<?php echo $goods_number_config['max']?>')){
+        return '请输入商品份数,范围<?php echo $goods_number_config['min'];?>~<?php echo $goods_number_config['max'];?>';
+      }else{
+        return true;
+      }
+    }
+  }).regexValidator({
+    regexp:'num1',
+    datatype:'enum',
+    onerror:'商品份数只能为正数'
+  });
+{else}
+  $("#goods_number").formValidator({
+    empty:false,
+    onempty:'商品份数不能为空',
+    onshow:true,
+    onfocus:"请输入商品份数" 
+  }).regexValidator({
+    regexp:'decmal1',
+    datatype:'enum',
+    onerror:'商品份数只能为正数'
+  });
+{/if}
+
+$("#title").formValidator({
+  empty:false,
+  onshow:true ,
+  onfocus:"请输入试用品名称,不能超过18个字呃 "
+}).inputValidator({
+  min:1,
+  onerror:"输入试用品名称,"
+});
+
+//下单价 
+{if $price_range['radio'] == 1}
+  $("#goods_price").formValidator({
+    empty:false,
+    onshow:true,
+    onfocus:"用户购买时的下单价,价格范围<?php echo $price_range['min']?>~<?php echo $price_range['max']?>" 
+  }).functionValidator({
+    fun:function(val,elem){
+      if(val < Number('<?php echo $price_range['min'];?>') || val > Number('<?php echo $price_range['max']?>')){
+        return '请输入价格,范围<?php echo $price_range['min'];?>~<?php echo $price_range['max'];?>';
+      }else{
+        return true;
+      }
+    }
+  }).regexValidator({
+    regexp:'decmal1',
+    datatype:'enum',
+    onerror:'下单价只能为正数'
+  });
+{else}
+  $("#goods_price").formValidator({
+    empty:false,
+    onempty:'下单价不能为空',
+    onshow:true ,
+    onfocus:"请输入用户购买时的下单价" 
+  }).regexValidator({
+    regexp:'decmal1',
+    datatype:'enum',
+    onerror:'下单价只能为正数'
+  });
+{/if}
+
+
+/* 活动天数 */
+var activitydays = <?php echo (int) $activitydays ?>;
+$("#activity_days").formValidator({
+  empty:false,
+  onempty:'活动天数不能为空',
+  onshow:true,
+  onfocus:'请输入活动天数' 
+}).functionValidator({
+  fun:function(val,elem){
+    if(activitydays > 0 && (val > activitydays || val < 1)){
+      return '活动时间的范围是1~'+activitydays;
+    }
+    return true;
+  }
+}).regexValidator({
+  regexp:'intege1',
+  datatype:'enum',
+  onerror:'活动天数只能为正整数'  
+})
+
+$("#goods_content").formValidator({
+  onshow:true,
+  onfocus:"内容不能为空"
+}).functionValidator({
+  fun:function(val,elem){
+    var oEditor = CKEDITOR.instances.content;
+    var data = oEditor.getData();
+    if($('#islink').attr('checked')){
+      return true;
+    } else if(($('#islink').attr('checked')==false) && (data=='')){
+      return "内容不能为空";
+    } else if (data=='' || $.trim(data)=='') {
+      return "内容不能为空";
+    }
+    return true;
+  }
+});
+
+});
+</script>
+
+  <script type="text/javascript">
+
+ var uploader = WebUploader.create({
+
+    // 选完文件后，是否自动上传。
+      auto:true,
+      fileVal:'Filedata',
+        // swf文件路径
+        swf: '{JS_PATH}webuploader/webuploader.swf',
+        // 文件接收服务端。
+        server: "{U('Attachment/Attachment/swfupload')}",
+        // 选择文件的按钮。可选
+        formData:{
+          "module":"",
+          "catid":"",
+          "userid":"1",
+          "dosubmit":"1",
+          "thumb_width":"0",
+          "thumb_height":"0",
+          "watermark_enable":"1",
+          "filetype_post":"jpg|jpeg|gif|png",
+          "swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+          "isadmin":"1",
+          "groupid":"2"
+        },
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick:'#goods_albums',
+        accept:{
+        title: '图片文件',
+        extensions: 'gif,jpg,jpeg,bmp,png',
+        mimeTypes: 'image/*'
+        },
+        thumb:{
+          width: '110',
+          height: '110'
+        },
+        chunked: false,
+        chunkSize:1000000,
+        // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+        resize: false
+});
+
+    uploader.onUploadSuccess = function( file, response ) {
+
+      console.log(response._raw);
+      var data = response._raw;
+      var arr = data.split(',');
+        $("#imgurl").attr('src', arr[1]);
+        $('#goods_albums').parent('li').find('img').attr('src', arr[1]);
+        //$('#goods_albums_url').attr('value', arr[1]);
+          $('#goods_albums_url').val(arr[1]);
+          $('#goods_albums_alt').val(arr[3]);
+
+    }
+
+    uploader.onUploadError = function(file, reason) {
+      alert('文件上传错误：' + reason);
+    }
+
+</script>
+
+</body>
+    {include template('footer','common')}

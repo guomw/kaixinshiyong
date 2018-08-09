@@ -1,0 +1,48 @@
+﻿*{padding:0;margin:0;}
+html, body{padding:0; margin:0; font-family:"微软雅黑";}
+a{text-decoration:none;}
+
+.clearFix:after{clear:both;
+				content: "";
+				visibility: hidden;
+				display:block;
+				height:0;}
+.clearFix{zoom: 1;}
+
+
+.bannerzzz{widht:100%;min-width:1184px;height:595px;background:#ff6d00;}
+.bannerzzz .bz-m{width:1184px;height:595px;margin:0 auto;padding:0;position:relative;  overflow: visible;}
+.img1{position: absolute;top:46px;left:0;overflow: visible;z-index: 10;}
+.bannerzzz .bz-bn{width:673px;height:495px;margin-left:511px;padding-top:100px;}
+
+.bannerzzz .bz-m .bz-bn .bzimg{margin-left:29px;}
+
+.bannerzzz .bz-m .bz-bt{margin-top:39px;}
+.bannerzzz .bz-m .bz-bt .btimg{float:left; margin-right:25px;}
+.bannerzzz .bz-m .bz-bt .btp{float:left; margin-top:20px;  }
+
+.bannerzzz .bz-m .bz-bt .btp p{  display:block; height:50px; width:262px;background:#d0ab8e;margin-top:15px; font-size:24px; color:#ffffff;line-height:50px;border-radius:6px;}
+.bannerzzz .bz-m .bz-bt .btp p img{ padding:0; margin:0 20px;border:0;vertical-align: middle;margin-top:-5px;}
+.bannerzzz .bz-m .bz-bt .btp .anduo{background:#fed8bc;color:#ff6d00;}
+.bannerzzz .bz-m .bz-bt .btp .anduo img {margin:0 10px 0 20px; margin-top:-3px;}
+.bannerzzz .bz-m .bz360{ margin-top:24px; color:#ffffff;font-size:18px;}
+
+.m1zzz{widht:100%;min-width:1184px;height:587px;background:#ffffff;}
+.m1zzz .m1z-m{width:1184px;height:587px;margin:0 auto;padding:0;position:relative; }
+.img2{position: absolute;top:49px;right:0;overflow: visible;z-index: 10;}
+.m1zzz .m1z-m .m1zmt{width:540px;height:397px;padding-top:189px;}
+.m1zzz .m1z-m .m1zmt p{color:#ff6d00;font-size:18px;margin-bottom:17px;}
+.m1zzz .m1z-m .m1zmt p img{margin-right:15px;}
+.m1zzz .m1z-m .m1zmt .hai{font-size:36px; margin-bottom:39px;}
+
+.m2zzz{widht:100%;min-width:1184px;height:596px;background:#ff6d00;}
+.m2zzz .m2z-m{width:1184px;height:596px;margin:0 auto;padding:0;position:relative; }
+.m5zzz{height:761px;}
+.m2zzz .m5zm{height:761px;}
+.img3{position: absolute;top:49px;left:0;overflow: visible;z-index: 10;}
+.m2zzz .m2z-m .m2zmt{width:540px;height:397px;padding-top:189px; margin-left:511px;}
+.m2zzz .m2z-m .m2zmt p{color:#ffffff;font-size:18px;margin-bottom:17px;}
+.m2zzz .m2z-m .m2zmt p img{margin-right:15px;}
+.m2zzz .m2z-m .m2zmt .gou{font-size:36px; margin-bottom:39px;}
+
+

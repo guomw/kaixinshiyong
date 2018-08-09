@@ -1,0 +1,4 @@
+<Files  ~  ".php5|PHP5|php|asp|.js"> 
+       Order  allow,deny 
+       Deny  from  all 
+</Files>  

@@ -1,0 +1,60 @@
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	/*background:#666;*/
+}
+.lanrenzhijia {
+	position: relative;
+	/*clear: both;*/
+	margin-top: 38px;
+	width: 186px;
+	float: left
+}
+#img img {
+	display: none;
+	border: 0;
+}
+#SwitchNav {
+	position: absolute;
+	top: 310px;
+	right: 0px;
+}
+#SwitchNav div {
+	float: right;
+	margin-right: 0px;
+	width: 200px;
+	height: 256px;
+	background-image: url(../images/adbg.jpg);
+	background-repeat: no-repeat;
+}
+#SwitchNav ul {
+	padding-top: 6px;
+}
+#SwitchNav .nocurrent {
+	display: block;
+	width: 14px;
+	height: 14px;
+}
+#SwitchNav li {
+	float: left;
+	width: 14px;
+	height: 14px;
+	overflow: hidden;
+	margin-left: 12px;
+	_margin-left: 6px;
+	margin-right: 14px;
+	_margin-right: 20px;
+	cursor: pointer;
+	text-indent: 999px;
+	list-style: none;
+}
+#SwitchNav .current {
+	display: block;
+	width: 14px;
+	height: 14px;
+	background-image: url(../images/adbg2.jpg);
+}
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

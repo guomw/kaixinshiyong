@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动管理-商家个人中心-缴纳追加库存担保金-{C('WEBNAME')}</title>
+<meta name="keywords" content="活动管理,商家个人中心,缴纳追加库存担保金,{C('WEBNAME')}" />
+<meta name="description" content="活动管理,商家个人中心,缴纳追加库存担保金,{C('WEBNAME')}" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/release_shop.css" /> 
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+<body>
+{include template('toper','common')}
+	{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+				<a href="{__APP__}">首页</a>&nbsp;>
+				<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+				<a href="{U('Member/EnterActivity/index')}" class="nav_active">活动报名</a>&nbsp;>
+				<a href="javascript:;" class="nav_active">存入追加库存担保金</a>
+			</div>
+			{include template('merchant_left','member/common')}
+			<div class="float_right right border_1_dddddd border_efefef">
+				<h2 class="right_title border_bottom_efefef">存入追加库存担保金</h2>
+				<img src="{THEME_STYLE_PATH}style/images/release_hint_03.png" class="display_block state margin_0_auto" alt="" />
+				<table class="table">
+					<thead>
+						<tr class="t_t_bg">
+							<th class="t_w_1 tc">商品名称</th>
+							<th class="t_w_2 tc">当前状态</th>
+							<th class="t_w_2 tc">下单价{if $proInfo['mod']=='trial'}/红包{/if}(元)</th>
+							<th class="t_w_3 tc">平台损耗费（元）</th>
+							<th class="t_w_4 tc">数量</th>
+							<th class="t_w_5 tc">合计（元）</th>
+						</tr>
+					</thead>
+					<tbody id="test">
+						<tr>
+							<td class="t_w_1 tc">
+								<img src="{$proInfo['thumb']}" alt="{$proInfo['title']}" width="60" height="40"/>
+								<a href="{$proInfo['url']}" target="_blank" class="link_color">{str_cut($proInfo['title'],30)}</a>
+							</td>
+							<td class="t_w_2 tc">{php echo $this->activity_status[$proInfo['status']]}</td>
+							<td class="t_w_2 tc">{$proInfo['goods_price']}{if $proInfo['mod']=='trial'}/{$proInfo['goods_bonus']}{/if}</td>
+							<td class="t_w_3 tc">
+								{if $proInfo['mod']=='rebate'}
+									{php echo $proInfo['goods_price']*$proInfo['goods_service']/100}/单笔
+								{else}
+									{$proInfo['goods_service']}/
+									{if $proInfo['goods_charge_way']}单场{else}单份{/if}
+								{/if}
+							</td>
+							<td class="t_w_4 tc">{$proInfo['goods_number']}</td>
+							<td class="t_w_5 tc">{$proInfo['goods_deposit']}</td>
+						</tr>
+						<tr>
+							<td class="t_w_1 tc">追加库存</td>
+							<td class="t_w_2 tc">待支付...</td>
+							<td class="t_w_2 tc">{$proInfo['goods_price']}{if $proInfo['mod']=='trial'}/{$proInfo['goods_bonus']}{/if}</td>
+							<td class="t_w_3 tc">
+								{if $proInfo['mod']=='rebate'}
+									{php echo $proInfo['goods_price']*$proInfo['goods_service']/100}/单笔
+								{else}
+									{$proInfo['goods_service']}/
+									{if $proInfo['goods_charge_way']}单场{else}单份{/if}
+								{/if}
+							</td>
+							<td class="t_w_4 tc">{$records['com_number']}</td>
+							<td class="t_w_5 tc">{$records['com_total_fee']}</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="r_hint">
+					{if $proInfo['mod']=='rebate'}
+						平台损耗费=下单价×{$proInfo['goods_service']}%
+					{/if}
+					<font> （注：每次计算结果只取小数点后两位，不四舍五入）</font>
+					总计：<span class="all_sum">{$records['com_total_fee']}</span>元
+					<a href="javascript:;" class="btn">确定支付</a>
+				</p>
+				<p class="r_state">说明：担保金款项部分作为本次活动返还给购买者的折扣款项，另一部分在活动中逐笔退还到您的会员中心；平台损耗费
+				为{C('WEBNAME')}成交的笔数逐笔收取；其余未售出商品担保金及平台损耗费，将在活动结束后退还到您的互联支付账号。
+				</p>
+			</div>				
+		</div>
+	</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	//点击确认按钮
+	$(".btn").click(function(){
+		artDialog({
+			title:'提示',
+			icon: 'question',
+			fixed: true,
+			lock: true,
+			okVal : '确定支付',
+			content:'您确认支付？该操作不可逆转，你确定吗？',
+			ok : function(){
+				$.ajax({
+					url:'{U('Member/MerchantProduct/push_bailbond')}',
+					type:'post',
+					dataType:'json',
+					data:{'pid':"{$proInfo['id']}"},
+					success:function(data){
+						if(data.status == 1){
+							location.href = "{U('Member/MerchantProduct/push_check')}";
+						}else{
+							artDialog({
+								title:'提示',
+								icon: 'warning',
+								fixed: true,
+								lock: true,
+								okVal : '去充值',
+								content:data.info,
+								ok : function(){
+									window.open('{U('Pay/Index/pay',array('userid'=>$this->userid))}');
+								},
+								cancel:true
+							});
+						}
+					}
+				});
+			},
+			cancel:true
+		});				
+	});
+});
+</script>
+{include template('footer','common')}

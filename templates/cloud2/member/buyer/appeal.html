@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/appeal_tate.css" />
+<!-- 多图上传 -->
+<link rel="stylesheet" href="{CSS_PATH}/dialog.css" />
+<link rel="stylesheet" href="{CSS_PATH}/table_form.css" />
+<script type="text/javascript" src="{JS_PATH}/dialog.js"></script>
+<script type="text/javascript" src="{JS_PATH}/content_addtop.js"></script>
+<script type="text/javascript" src="{JS_PATH}/admin_common.js"></script>
+<script type="text/javascript" src="{JS_PATH}/swfupload/swf2ckeditor.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+<body>
+{include template("toper","common")} 
+	{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("member_left","member/common")}
+			<div class="float_right right border_1_dddddd border_efefef">
+				<h2 class="right_title border_bottom_efefef">发起申诉</h2>
+				<img class="appeal_tate" src="{THEME_STYLE_PATH}style/images/appeal_btn_tate_03.gif"/>
+				<div class="appeal_left">
+					<form action="{U("add_post")}" method="post" id="myform">
+						<input type='hidden' name='order_id' value="{$oid}"/>
+						<input type='hidden' name='order_sn' value="{$order_info['order_sn']}"/>
+						<input type='hidden' name='goods_id' value="{$order_info['goods_id']}"/>
+						<input type='hidden' name='seller_id' value="{$order_info['seller_id']}"/>
+						<ul class="appeal_form">
+							<li>
+								<span>申诉类型：</span>
+								<select name="appeal_type" id="">
+									<option value="0">选择申诉类型</option>
+									{loop $appeal_type $k $v}
+										<option value="{$k}">{$v}</option>
+									{/loop}
+								</select>
+							</li>
+							<li><span>申诉理由：</span>
+								<textarea name="buyer_cause" id="buyer_cause" cols="32"  rows="5"></textarea>
+							</li>
+							<li><span>手机：</span><input type="text" name="buyer_phone" id="buyer_phone" maxlength="11" /></li>
+							<li><span>QQ：</span><input type="text" name="buyer_qq" id="buyer_qq"/></li>
+							<li><span>旺旺：</span><input type="text" name="buyer_ww" id="buyer_ww" /></li>
+							<li>
+								<!-- 上传css、js -->
+								<style type="text/css">
+									#buyer_imgs .input-text:nth-child(2n+2){display: none;}
+								</style>
+								<script type="text/javascript">
+									$(".aui_state_highlight").live('click',function(){
+										$("input[name='buyer_imgs_url[]']").attr('style','width:245px;');
+									})
+								</script>
+								<!-- 上传css、js   .end -->
+								<span>上传凭证文件：</span>
+									<input name="buyer_imgs" type="hidden" value="1">
+									<fieldset class="blue pad-10">
+										<legend>图片列表</legend>
+										<div class="onShow" id="nameTip">（您最多可以同时上传 <font color="red">5</font> 张）</div>
+										<div id="buyer_imgs" class="picList"></div>
+									</fieldset>
+									<div class="bk10"></div>
+									<div class="picBut cu"><a herf="javascript:void(0);" class="btn" style="cursor:pointer" onclick="javascript:flashupload('buyer_imgs', '附件上传','buyer_imgs',change_images,'5,jpg|gif|png|jpeg','member','1','c7ca0ab7bba2e9e20f87b86214ff27c1')"> 选择图片 </a></div>
+							</li>
+							<li><i class="form_hint">上传申诉内容对应的凭证，以便管理员核实处理哦！</i></li>
+						</ul>
+						<input type="submit" class="submit" value="提交" />
+					</form>
+				</div>
+				<div class="appeal_right">
+					<h2 class="appeal_r_title">商品信息</h2>
+					<p class="shop_name">
+						<img src="{$order_info['pro']['thumb']}" title="{$order_info['pro']['title']}" />
+						<font><a href="{$order_info['pro']['url']}" target="_blank" title="{$order_info['pro']['title']}">{str_cut($order_info['pro']['title'],73)}</a></font>
+					</p>
+					<ul class="shop_mess_list">
+						<li>划算价：<em class="color_ff6600"><?php echo ($order_info['pro']['goods_price']*$order_info['pro']['goods_discount']/10) ?></em>元</li>
+						<li>下单价：<em>{$order_info['pro']['goods_price']}</em>元</li>
+						<li>节省金额：<em><?php echo $order_info['pro']['goods_price']-($order_info['pro']['goods_price']*$order_info['pro']['goods_discount']/10) ?></em>元</li>
+						<li>店铺名称：<em>{$order_info['store_name']}</em></li>
+						<li>抢购编号：<em>{$order_info['trade_sn']}</em></li>
+						<li>填写的订单号：<em>{$order_info['order_sn']}</em></li>
+					</ul>
+				</div>
+			</div>				
+		</div>
+	</div>
+<style type="text/css">
+		.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+		.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+		.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+		.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+		.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+		.onLamp{background-position:3px -200px}
+		.onTime{background-position:3px -1356px}
+	</style>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+/*申诉理由*/
+$("#buyer_cause").formValidator({
+	empty:false,
+	onempty:'申诉理由不能为空',
+	onshow:'请输入申诉理由' ,
+	onfocus:"请输入申诉理由" 
+}).functionValidator({
+	fun:function(val,elem){
+		if ($.trim(val) == ''){
+			return '申诉理由不能为空';
+		}
+		return true;
+	}
+});
+/*手机*/
+$("#buyer_phone").formValidator({
+	empty:false,
+	onempty:'手机不能为空',
+	onshow:'请输入手机号' ,
+	onfocus:"请输入手机号" 
+}).inputValidator({
+		min:11,
+		max:11,
+		onerror:'手机长度为11位'
+}).regexValidator({
+	regexp:'mobile',
+	datatype:'enum',
+	onerror:"手机号码输入错误"
+});
+/*qq*/
+ $("#buyer_qq").formValidator({
+		empty:false,
+		onempty:'qq号不能为空',
+		onshow:'请输入qq号码' ,
+		onfocus:"请输入qq号码" 
+	}).regexValidator({
+		regexp:'qq',
+		datatype:'enum',
+		onerror:"qq号码输入错误"
+	});
+	/*旺旺*/
+	$("#buyer_ww").formValidator({
+		empty:false,
+		onempty:'旺旺不能为空',
+		onshow:'请输入旺旺' ,
+		onfocus:"请输入旺旺" 
+	}).inputValidator({
+		min:0,
+		max:30,
+		onerror:'字符长度0到30'
+	}).regexValidator({
+		regexp:'notempty',
+		datatype:'enum',
+		onerror:"旺旺输入错误"
+	})
+//-->
+</script>
+{include template("footer","member/common")}
+	

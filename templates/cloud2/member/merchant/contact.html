@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/apply_list.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shop_sign_contact.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+
+<title>联系我们-{C('WEBNAME')}</title>
+</head>
+<body>
+	<!-- 头部 start -->
+	{include template('merchant_sign_header','member/common')}
+	<!-- 头部 end -->
+	<!-- 主体内容 start -->
+	<div id="main">
+		<!-- 点我 start -->
+		<div class="point_me">
+			<div class="point_me_box">
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={C('site_complain_qq')}&site=qq&menu=yes" class="point_sellers fl" target="_blank"><span>商家咨询点我</span></a>
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={C('site_consult_qq')}&site=qq&menu=yes" class="point_report fl" target="_blank"><span>廉政举报点我</span></a>
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={C('site_collaborate_qq')}&site=qq&menu=yes" class="point_coo fl" target="_blank"><span>合作洽谈点我</span></a>
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={C('site_service_qq')}&site=qq&menu=yes" class="point_aft fl mr0" target="_blank"><span>售后咨询点我</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 点我 end -->
+		<div id="main_box">
+			<!-- 合作方式 start -->
+			<div class="coo">
+				<dl>
+					<dt class="mt40 mb20 f22 c3c3c3c">合作方式</dt>
+					<dd>
+						<ul class="fl">
+							<li class="coo_name">商务合作</li>
+							<li class="f14 mb5">合作QQ：{C('site_collaborate_qq')}</li>
+							<li class="f14 mb5">电话：{C('site_contact_tel')}</li>
+							<li class="f14 mb5">Email：{C('site_contact_email')}</li>
+						</ul>
+						<ul class="fl">
+							<li class="coo_name">渠道合作</li>
+							<li class="f14 mb5">咨询QQ：{C('site_service_qq')}</li>
+							<li class="f14 mb5">电话：{C('site_contact_tel')}</li>
+							<li class="f14 mb5">Email：{C('site_contact_email')}</li>
+						</ul>
+						<ul class="fl">
+							<li class="coo_name">媒介合作</li>
+							<li class="f14 mb5">联系人：椰子</li>
+							<li class="f14 mb5">电话：{C('site_contact_tel')}</li>
+							<li class="f14 mb5">Email：{C('site_contact_email')}</li>
+						</ul>
+						<ul class="fl">
+							<li class="coo_name">开发者合作</li>
+							<li class="f14 mb5">联系QQ：{C('site_contact_qq1')}</li>
+							<li class="f14 mb5">电话：{C('site_contact_tel')}</li>
+							<li class="f14 mb5">Email：{C('site_contact_email')}</li>
+						</ul>
+						<div class="clear"></div>
+					</dd>
+				</dl>
+			</div>
+			<!-- 合作方式 end -->
+			<!-- 联系地址 start -->
+			<div>
+				<dl>
+					<dt class="mt40 mb20 f22 c3c3c3c">联系地址</dt>
+					<dd class="address">
+						<p class="f20">{$address['name']}</p>
+						<p class="f14">地址：{C('site_contact_address')}<span class="f14">邮编：{C('site_contact_zipcode')}</span></p>
+					</dd>
+					<dd>
+						<div class="map"><img src="{C('site_map_image')}" /></div>
+					</dd>
+				</dl>
+			</div>
+			<!-- 联系地址 end -->
+		</div>
+	</div>
+	<!-- 主体内容 end -->
+	<!-- 底部 start -->
+{include template('merchant_sign_footer','member/common')}

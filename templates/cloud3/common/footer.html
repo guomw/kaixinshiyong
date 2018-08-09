@@ -1,0 +1,123 @@
+		<style>
+			#footer .footer-nav .footer-logo .l img{ width:auto; height:52px; }
+			#footer .footer-nav .footer-logo .l span{ display:block; position:static; }
+		</style>
+		<div id="footer">
+				<div class="footer-nav">
+					<div class="wrap">
+						<div class="list fl">
+							<dl class="fl p0">
+								<dt>买家常见问题</dt>
+								<dd><a href="{U('document/index/lists',array('catid'=>57))}">如何抢购商品</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>84))}">如何参与试用</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>69))}">如何领回划算金</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>11))}">下单方式介绍</a></dd>
+								
+							</dl>
+							<dl class="fl">
+								<dt>商家常见问题</dt>
+								<dd><a href="{U('document/index/lists',array('catid'=>18))}">如何报名活动</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>39))}">报名商品条件</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>87))}">Vip商家有哪些特权</a></dd>
+								
+							</dl>
+							<dl class="fl">
+								<dt>服务中心</dt>
+								<dd><a href="{U('document/Index/lists',array('catid'=>83))}">关于我们</a></dd>
+								<dd><a href="{U('navigation/index/index')}">站点导航</a></dd>
+								<dd><a href="{U('document/Index/lists',array('catid'=>88))}">联系方式</a></dd>
+								<dd><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">在线客服</a></dd>
+								
+							</dl>
+							<dl class="fl">
+								<dt>帮助中心</dt>
+								<dd><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心首页</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>2))}">买家帮助</a></dd>
+								<dd><a href="{U('document/index/lists',array('catid'=>3))}">商家帮助</a></dd>
+								
+							</dl>
+							<dl class="fl">
+								<dt>特色服务</dt>
+								<dd><a href="{U('document/index/trial_help')}">新手引导</a></dd>
+								<dd><a href="/invitation/">邀请好友</a></dd>
+
+
+							</dl> 
+						</div>
+						<div class="footer-logo fr">
+							<div class="l">
+								<img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" />
+								<span>客服时间:{C("site_work_day")}</span>
+							</div>
+							<div class="phone clear">
+								<div class="fl p-i"></div>
+								<div class="fl p-n">{C("site_contact_tel")}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="b-c-l">
+					<div class="b-fx">
+						<div class="b-fx-w clear">
+							<div class="gz fl t-code clear">
+								<div class="c-i fl"><img src="{C('WEIXIN_LOGO')}" alt="" /></div>
+								<dl class="fr">
+									<dt>关注官方微信</dt>
+									<dd>扫一扫</dd>
+									<dd>享受微信专享服务</dd>
+								</dl>
+							</div>
+							
+							<div class="gz fl sina">
+								<p class="t">关注新浪微博</p>
+								<p class="b">
+									<a href="{C('XINLANG')}" target="_blank" class="set_sina_icon border">立即关注</a>
+								</p>
+							</div>
+							
+							<div class="gz fl wb">
+								<p class="t">关注腾讯微博</p>
+								<p class="b">
+									<a href="{C('TENGXUN')}" target="_blank" class="set_tencent_icon border">立即关注</a>
+								</p>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="hz-sj">
+						<div class="wrap-and">
+								{pc:link action="lists" linktype="1"}
+									{loop $data $r}
+									<a href="{$r[url]}" target="_blank" ><img src="{$r[image]}" alt="" /></a>
+									{/loop}
+						    	{/pc}
+						</div>
+					</div>
+					
+					<div class="link">
+						<div class="wrap-and">
+							<span><a href="{U('document/Index/lists',array('catid'=>83))}">关于我们</a></span>
+							<span><a href="{U('document/Index/lists',array('catid'=>88))}">联系方式</a></span>
+							<span><a href="{U('Member/EnterActivity/index')}">商家报名</a></span>
+							<span><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></span>
+							<span><a href="{U('navigation/index/index')}">站点导航</a></span>
+							<span  class="rn"><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes">在线客服</a></span>
+						</div>
+					</div>
+					<p class="copy">{C("site_web_copyright")}Copyright© {$_SERVER['SERVER_NAME']} 2019-2015，All Rights Reserved{C('site_web_icp')} {stripslashes(C('site_statistical_code'))}</p>
+
+					<div class="zd-h">
+						<img src="{THEME_STYLE_PATH}style/img/b1.png" alt="" />
+						<img src="{THEME_STYLE_PATH}style/img/b2.png" alt="" />
+						<img src="{THEME_STYLE_PATH}style/img/b3.png" alt="" />
+						<img src="{THEME_STYLE_PATH}style/img/b4.png" alt="" />
+						<img src="{THEME_STYLE_PATH}style/img/b5.png" alt="" />
+					</div>					
+					
+				</div>
+		</div>
+	</body>
+
+</html>

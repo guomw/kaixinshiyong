@@ -1,0 +1,93 @@
+{include template('header','common')}
+<style type="text/css">
+	.s-int .int-t{ height: auto; }
+	.s-int em{ font-size: 1.7em; display: inline-block; padding: 8% 0; }
+	.int-mess .goods_num{ width: 32%; float: left; text-align: center; }
+	.int-mess b{ width: 32%; text-align: left; }
+</style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl d-block"></a>
+            {$msg}
+			<a href="{U('Search/Index/search',array('mod'=>I('mod')))}" class="shop-rebate-icon fr d-block"></a>
+		</div>
+		<div class="content">
+			<div class="box">
+				<ol class="list" id="goods_lists">
+
+				</ol>
+				<div class="end-hint" id="end-hint">下拉即可加载更多...</div>
+			</div>	
+		</div>
+
+{include template('footer','common')}
+<script>
+	var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today.setMilliseconds(0);
+    var time = Date.parse(today)/1000;
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+    var pages = 2
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+            if( ( bodyH-winH ) - now <= 2 ){
+                getContent(pages)
+            }
+        });
+        $("#end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+
+    getContent(1);
+    function getContent(page) {
+        var page = page || 1;
+        var param = {
+            catid : 0,
+            mod   : "<?php echo $mod;?>",
+            orderby   :"start_time",
+            orderway : "desc",
+            status : "1",
+            num:'5',
+            page:page
+        };
+        $.getJSON(site.site_root + '/index.php?m=product&c=api&a=getlists', param, function(ret) {
+            var _html = '';
+            if(ret.status == 1) {
+                $.each(ret.data.lists, function(i, n) {
+                	_html +='<li class="clear">';
+                	_html +='<a href="'+ n.url+'">';
+                	_html +='<span class="thumbnail">';
+                    _html +='<img alt="'+ n.title+'" src="'+ n.thumb+'">';
+                    _html +='</span>';
+                    _html +='<span class="s-int">';
+                    _html +='<strong class="int-t">'+ n.title+'</strong>';
+                	_html +='<em>'+n.mod_unit+'：<font color="#bb000d">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    _html +='<em><font color="#808080" style="text-decoration: line-through;">￥'+ n.goods_price +'</font></em>';
+                    _html +='<strong class="int-mess">';
+                    _html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
+                    _html +='<span class="goods_num">总数<b>'+n.goods_number+'</b>份</span>';
+                    _html +='<span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b>'+n.number+'</b>份</span>';
+                	_html +='</strong>';
+                    _html +='</span>';
+                    if(n.start_time > time){
+                    	_html +='<div class="pa new_ico">new</div>';
+                    }
+                    _html +='</a>';
+                    _html +='</li>';
+                });
+                $("#goods_lists").append(_html);
+                pages++
+            } else {
+                $("#end-hint").html(oHintArr[1]);
+                $("#pages").html('');
+                return false;
+            }
+        });
+    }
+</script>

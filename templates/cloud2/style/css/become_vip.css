@@ -1,0 +1,27 @@
+.content_wrap{
+	margin-top:20px;
+}
+.new_hint{width:280px;height:128px;margin:25px 0;}
+.shops_small_img{width:100px;margin:0 15px;}
+.shops_name_rank{height:54px;margin-top:35px;}
+.shops_name_rank li{height:27px;}
+.vip_event_hint{margin:25px 0 0 40px;width:275px;color:#999;}
+.vip_event_hint h2{height:32px;line-height:32px;}
+.vip_event_hint li{height:26px;line-height:26px;}
+.vip_event_hint li a:hover{
+	color:#ff6600;
+	text-decoration:underline;
+}
+.rank_box{width:224px;height:415px;margin:0 17px;}
+.vip_name_hint{height:120px;}
+.vip_name_hint_text{height:30px;margin-top:90px;}
+.crown_vip_bg {background:url(../images/crown_vip_icon.jpg) no-repeat;}
+.jewel_vip_bg {background:url(../images/jewel_vip.jpg) no-repeat;}
+.common_shops_bg {background:url(../images/common_shops.jpg) no-repeat;}
+.referral{width:200px;padding:0 12px;}
+.referral li{line-height:32px;}
+.referral .vip_name_btn{width:150px;margin:15px auto;height:34px;line-height:34px;}
+.vip_hr_efefef {margin-bottom:37px;}
+/* 按钮背景 */
+.btn_background_ff4401{background:#ff4401;}
+.btn_background_ff6600{background:#ff6600;}

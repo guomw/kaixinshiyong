@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人信息认证-{C('WEBNAME')}</title>
+<meta name="Keywords" content="个人信息认证,{C('WEBNAME')}" />
+<meta name="Description" content="个人信息认证,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_aut_list.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Attesta/person')}" class="nav_active">个人认证</a>
+	</div>
+				
+				{include template("merchant_left","member/common")}
+
+			<div class="content_right float_right">
+				<h1>资料认证</h1>
+				<div class="aut">
+					<div class="aut_list">
+						<ul>
+							<!-- 邮箱认证  || $setting['site_reg_business_email'] != '1'-->
+							{if $userinfo['email_status'] != 1}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/email_noaut_ico.png" width="63" height="42" />
+								</span>
+								<span class="text float_left db">
+									<strong>邮箱认证</strong>
+									<span class="text_status">(未认证)</span>
+									<br />
+									<span class="text_text">用于找回密码或订阅网站相关邮件</span>
+								</span>
+								<a href="{U('Member/Attesta/email_attesta')}" class="push float_left db">立即认证</a>
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/email_aut_ico.png" width="63" height="42" />
+								</span>
+								<span class="text float_left db">
+									<strong>邮箱认证</strong>
+									<span class="text_status">(已认证)</span>
+									<br />
+									<span class="text_text">{$userinfo[email]}</span>
+								</span>
+								<a href="{U('Member/Attesta/email_attesta')}" class="push float_left db">修改</a>
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 邮箱认证  end-->
+							
+	<!-- 身份认证 -->
+							{if empty($arr['identity']) || ($arr['identity'] && $arr['identity']['status'] == 0)}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/name_noaut_ico.png" width="63" height="37" />
+								</span>
+								<span class="text float_left db">
+									<strong>身份认证</strong>
+									<span class="text_status">(未认证)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+							<!-- 	{if $arr['identity']['status'] == -1}
+								<a href="{U('Member/Attesta/name_attesta')}" class="push float_left db">修改</a>
+								{elseif $arr['identity']['status'] == 1}
+								{else} -->
+								{if ($arr['identity'] && $arr['identity']['status'] == 0)}
+								<a href="javascript:;" class="push float_left db">审核中</a>
+									{else}
+								<a href="{U('Member/Attesta/name_attesta')}" class="push float_left db">立即绑定</a>
+									{/if}
+								<!-- {/if} -->
+								<div style="clear:both;"></div>
+							</li>
+							{elseif ($arr['identity']['status'] == -1)}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/name_noaut_ico.png" width="63" height="37" />
+								</span>
+								<span class="text float_left db">
+									<strong>身份认证</strong>
+									<span class="text_status">(未通过)</span>
+									<br />
+									
+									<span class="text_text"></span>
+								</span>
+								<a href="{U('Member/Attesta/name_attesta')}" class="push float_left db">重新绑定</a>
+								<div style="clear:both;"></div>
+							</li>
+							
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/name_aut_ico.png" width="63" height="37" />
+								</span>
+								<span class="text float_left db">
+									<strong>身份认证</strong>
+									<span class="text_status">(已认证)</span>
+									<br />
+									<?php 
+									$info = string2array($arr['identity']['infos']);
+									?>
+									<span class="text_text">{$info[id_number]}</span>
+								</span>
+								<!-- <a href="{U('Member/Attesta/name_attesta')}" class="push float_left db">修改</a> -->
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 身份认证  end-->		
+								
+							<!-- 手机认证 || $setting['site_reg_business_mobile'] != '1' -->
+							{if $userinfo[phone_status] != 1}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/phone_noaut_ico.png" width="44" height="57" />
+								</span>
+								<span class="text float_left db">
+									<strong>手机认证</strong>
+									<span class="text_status">(未认证)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								<a href="{U('Member/Attesta/phone_attesta')}" class="push float_left db">立即认证</a>
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/phone_aut_ico.png" width="44" height="57" />
+								</span>
+								<span class="text float_left db">
+									<strong>手机认证</strong>
+									<span class="text_status">(已认证)</span>
+									<br />
+									<span class="text_text">{$userinfo[phone]}</span>
+								</span>
+								<a href="{U('Member/Attesta/phone_attesta')}" class="push float_left db">修改</a>
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 手机认证  end-->
+							
+							<!-- 支付宝账号绑定 -->
+							{if $userinfo[alipay_status] == 0}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/alipay_noaut_ico.png" width="53" height="56" />
+								</span>
+								<span class="text float_left db">
+									<strong>支付宝账号绑定</strong>
+									<span class="text_status">(未绑定)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								<a href="javascript:;" class="push float_left db" id="alipaybind">立即绑定</a>
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/alipay_aut_ico.png" width="53" height="56" />
+								</span>
+								<span class="text float_left db">
+									<strong>支付宝账号绑定</strong>
+									<span class="text_status">(已绑定)</span>
+									<br />
+									<span class="text_text">{$infos['alipay_account']}</span>
+								</span>
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 支付宝账号绑定  end-->
+							<script type="text/javascript">
+							$(document).ready(function(){
+								$("#alipaybind").click(function(){
+									//检测身份认证是否以已经认证过
+									$.ajax({
+										url:'{U('Member/Attesta/isperson')}',
+										type:'post',
+										dataType:'json',
+										success:function(data){
+											if(data.status == 0){
+												alert(data.info);
+												location.href="{U('Member/Attesta/name_attesta')}";
+											}else{
+												location.href="{U('Member/Attesta/alipay_attesta')}";
+											}
+										}
+									});
+								});
+							});
+							</script>
+							<!-- 银行卡账号绑定 -->
+							{if $userinfo[bank_status] == 0}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/bandcard_noaut_ico.png" width="63" height="37" />
+								</span>
+								<span class="text float_left db">
+									<strong>银行卡账号绑定</strong>
+									<span class="text_status">(未绑定)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								<a href="{U('Member/Attesta/bank_attesta')}" class="push float_left db">立即绑定</a>
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/bandcard_aut_ico.png" width="63" height="37" />
+								</span>
+								<span class="text float_left db">
+									<strong>银行卡账号绑定</strong>
+									<span class="text_status">(已绑定)</span>
+									<br />
+									<span class="text_text">{$bankinfos[account]}</span>
+								</span>
+								<!-- <a href="{U('Member/Attesta/bank_attesta')}" class="push float_left db">修改</a> -->
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 银行卡账号绑定  end-->			
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template("footer","common")}

@@ -1,0 +1,48 @@
+<ion-view view-title="登录"  hide-tabs >
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" href="#/tab/user/forget" >找回密码</a>
+  </ion-nav-buttons>
+
+<div class="ibody">
+    <ion-list class="list ">
+      <div style="margin-top:60px;text-align:center" >
+        <img ng-src="{{logo}}" />
+      </div>
+      <form name="myform" novalidate="false">
+        <div class="list list-inset new-form ">
+          <label class="item item-input " > <i class="icon ion-iphone dark placeholder-icon" ></i>
+            <input type="text" ng-pattern="/^(1[3|4|5|7|8][0-9]\d{8}|([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+)$/" placeholder="您的手机号或者邮箱" ng-model="user.username" required ></label>
+
+          <label class="item item-input " > <i class="icon ion-unlocked placeholder-icon" style="font-size:20px;"></i>
+            <input  ng-minlength="6" ng-maxlength="20" class="text" type="password" placeholder="请输入您的密码"  ng-model="user.password" required></label>
+          <div class="padding-top" >
+            <button ng-disabled="myform.$invalid"  class="button button-block button-assertive padding-top" ng-click="login()">登录</button>
+          </div>
+
+          <a  class="button button-block button-assertive padding-top  button-outline " href="#/tab/register" >注册</a>
+
+        </div>
+      </form >
+
+      <p class="padding-left c4">温馨提示:pc端已注册的会员可直接登录</p>
+
+    </ion-list>
+<br/>
+
+<!-- <div  style="height:150px">
+  <div class="i_login">
+    <div class="s_part1">
+      <div class="co">第三方登录</div>
+    </div>
+    <div class="s_part2">
+      <a href="http://shi. .cn/index.php?m=Oauth&c=Index&a=login" class="p" target="_bank">
+        <div class="a1">
+          <img src="img/qq.png"  width="30"></div>
+        <div class="a2">QQ</div>
+      </a>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div> -->
+</div>
+</ion-view>

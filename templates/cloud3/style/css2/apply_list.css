@@ -1,0 +1,515 @@
+body .login_logo_2 { background:url(../images/logo_1_03.png) no-repeat left top; }
+body .content_wrap { margin:0 auto; }
+body .margin_right_0 { margin-right:0; }
+body .background_ff1d1e { background:#ff1d1e; }
+body .background_f11dfe { background:#f11dfe; }
+.all_flow { width:100%; height:auto; float:left; }
+.btn_style { background:#3499da; color:#fff; }
+.link_color { color:#0abbff; }
+
+.apply_show_img { width:700px; height:288px; float:left; } 
+.rule_list { width:250px; height:auto; float:right; padding-bottom:20px; } 
+.rule_list > h2 { height:36px; line-height:36px; margin-bottom:20px; }
+.rule_list > li { width:100%; height:26px; line-height:26px; background:url(../images/apply_r_list_bg.jpg) no-repeat left center; text-indent:10px; }
+.rule_list > li a:hover{ color:#ff6600; text-decoration:underline; }
+.flow_box  { margin:20px 40px 0 0; width:190px; height:auto; float:left; }
+.set_height_1{height:35px;border-bottom:solid 1px #ddd; line-height:35px;}
+.set_margin_01 { margin-top:20px; }
+.flow_box > .title_bg_01 { padding:0;text-indent:10px; width:100%; border:none; height:30px; line-height:30px; background:url(../images/title_bg_apply.png) no-repeat left top; }
+.flow_box > li { width:150px; padding:5px 10px; height:auto; line-height:18px; border:solid 1px #ddd; }
+.hint_box { margin:50px 67px 50px 0; width:280px; border:solid 1px #ddd; height:auto; float:left; }
+.hint_box > h4 { text-align:center; width:100%; height:38px; line-height:38px; }
+.hint_box > p,.hint_box > h4  { border-bottom:solid 1px #ddd; }
+.hint_box > p,.hint_box > li { width:250px; margin-left:15px; padding:10px 0; line-height:20px; }
+
+.hint_box > li > .hint_link { display:inline-block; width:100%; height:30px; line-height:30px; margin:10px 0;  }
+.hint_link > a:hover { text-decoration: underline; }
+.hint_box > li span > .hint_btn { text-align:center; border-radius:3px; display:block; float:right; width:115px; height:100%; }
+/* 报名系统内页 */
+.margin_b_20 { margin-bottom:20px; }
+.c_w_box { margin-top:30px; float:left; margin-right:22px; width:270px; height:auto;border:solid 1px #ddd; padding:0 20px; }
+.margin_left_0 { margin-right:0; }
+.c_w_box:hover { color:#32b4ff; border:solid 1px #32b4ff; }
+.c_w_box .b_title { text-align:center; border-bottom:solid 1px #ddd; width:100%; height:46px; line-height:46px; }
+.c_w_box > p { line-height:20px; width:100%; margin:10px 0; }
+.c_w_box:active { color:#32b4ff; border:solid 1px #32b4ff; }
+.apply_term { position:relative; margin:30px 0; width:978px; height:auto; float:left; border:solid 1px #ddd; }
+.show_hint { border-bottom:solid 1px #ddd; width:100%; height:auto; float:left; }
+.show_hint .left { width:630px; padding:10px; height:auto; float:left; }
+.show_hint .left > h6,.show_hint .right h6 { height:30px; line-height:30px; }
+.show_hint .left > h6 > a { color:#32b4ff; margin-left:10px; }
+.show_hint .right { padding-left:20px; border-left:solid 1px #ddd; width:auto; height:auto; float:left; }
+.show_hint .right li { line-height:20px; text-indent:10px; }
+.apply_term .a_t_title { border-bottom:solid 1px #ddd; float:left; width:100%; height:38px; line-height:38px; text-indent:10px; }
+.apply_term .boult_icon { position:absolute; left:156px; top:-13px; height:13px; width:24px; }
+.apply_term .table { border-collapse:collapse; width:760px; margin:20px auto; height:auto; }
+.apply_term .table ,.apply_term .table tr th ,.apply_term .table tr td{ border:solid 1px #ddd; }
+.apply_term .table tr { height:40px; line-height:40px; }
+.apply_term .table tr th { text-align:center; background:#efffff; }
+.apply_term .table tr td { text-align:left; text-indent:10px; }
+#sign_btn .btn2 { width:195px; height:40px; display:block; margin:0 auto; font-size: 20px; line-height:40px; text-align:center;margin-bottom:20px; border-radius:3px; float: none; }
+/* 报名状态提示 */
+.apply_hint { width:600px; padding:10px 0; margin:0 auto; height:100px; overflow:hidden;border:solid 1px #f5faaa; background:#ffffe5; }
+.apply_hint .hint_img {  width:100px; height:100%; float:left; background:url(../images/state_no.png) no-repeat center center; }
+.apply_hint .hint_list { float:left; height:auto; width:500px; }
+.apply_hint .hint_list > h6 { height:40px; line-height:40px; }
+.apply_hint .hint_list > li { height:20px; line-height:20px; }
+.apply_hint .hint_list > li > a { color:#32b4ff; text-decoration:underline; }
+#msg{ display: block; text-align: center; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{
+	float: none;
+	font: 12px 'Microsoft Yahei';
+}
+
+/* 浮动与清除 */
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}
+
+/* 头部样式 */
+#header{
+	background: #1c2c3c;
+}
+
+#topnav{
+	width: 1000px;
+	height: 36px;
+	margin: 0 auto;
+}
+
+#topnav ul li span{
+	display: inline-block;
+	line-height: 35px;
+	font-size: 10px;
+	color: #334250;
+}
+
+#topnav ul li a{
+	display: inline-block;
+	line-height: 35px;
+	padding: 0 10px;
+	color: #70767e;
+}
+
+#topnav ul li .a8abaf{
+	font-size: 12px;
+	color: #a8abaf;
+}
+
+#topnav ul li .fefefe{
+	color: #fefefe;
+}
+
+#topnav ul li .c29658e{
+	color: #29658e;
+}
+
+#topnav ul li .pl0{
+	padding-left: 0;
+}
+
+#topnav ul li .pl10{
+	padding-left: 10px;
+}
+
+#topmenu{
+	height: 80px;
+	background: #2c3e50;
+}
+
+.topmenu_box{
+	width: 1000px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+.logo{
+	margin-top: 15px;
+}
+
+.logo span{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.logo_bg{
+	width: 128px;
+	height: 18px;
+	background: url(../images/shop_sign_bg.png) no-repeat;
+}
+
+.topmenu_box ul li{
+	height: 80px;
+}
+
+#topnav #uBar span{
+	font-size: 12px;
+	color: #ffffff;
+}
+
+#topnav #uBar span a{
+	font-size: 12px;
+	color: #ffffff;
+}
+
+.topmenu_box ul li a{
+	display: inline-block;
+	line-height: 80px;
+	padding: 0 30px;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.active{
+	background: #34495e;
+}
+
+#banner img{
+	width: 100%;
+}
+
+#main{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#main{
+	padding: 30px 0 40px 0;
+}
+
+/* 招商公告 */
+.ann{
+	border: 1px solid #eeeeee;
+	padding: 14px 22px 12px 20px ;
+}
+
+.ann dt{
+	padding-left: 25px;
+	background: url(../images/ann_ico.jpg) no-repeat 0 6px;
+	font-size: 16px;
+}
+
+.ann .position{
+	width: 780px;
+	height: 21px;
+	overflow: hidden;
+	position: relative;
+}
+
+.ann ul{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ann dd a{
+	font-size: 16px;
+	color: #999999;
+}
+
+.ann .btn{
+	width: 61px;
+	height: 26px;
+	background: url(../images/ann_btn.jpg) no-repeat;
+	cursor: pointer;
+}
+
+.ann span{
+	width: 46%;
+	height: 26px;
+	display: inline-block;
+}
+
+/*合作流程、商家报名、专场活动通用*/
+.f22{
+	font-size: 22px;
+}
+
+.c3c3c3c{
+	color: #3c3c3c;
+}
+
+.mt40{
+	margin-top: 40px;
+}
+
+.mb20{
+	margin-bottom: 20px;
+}
+
+/* 合作流程 */
+.process dd{
+	border: 1px solid #cbeeff;
+	padding-left: 40px;
+}
+
+.h38{
+	height: 38px;
+}
+
+.mt45{
+	margin-top: 45px;
+}
+
+.pl57{
+	padding-left: 57px;
+	padding-top: 5px;
+}
+
+.process li{
+	font-size: 20px;
+}
+
+.arrow{
+	width: 117px;
+	height: 130px;
+	background: url(../images/arrow.jpg) no-repeat;
+}
+
+.sign_ico{
+	background: url(../images/sign_ico.png) no-repeat;
+}
+
+.check_ico{
+	background: url(../images/check_ico.png) no-repeat;
+}
+
+.sch_ico{
+	background: url(../images/sch_ico.png) no-repeat;
+}
+
+.on_line_ico{
+	background: url(../images/on_line_ico.png) no-repeat;
+}
+
+/* 商家报名 */
+.sign{
+	width: 1050px;
+}
+
+.sign li{
+	width: 312px;
+	border: 1px solid #cbeeff;
+	margin-right: 29px;
+	padding: 30px 0;
+}
+
+.sign li:hover{
+	border: 1px solid #64ccfe;
+}
+
+.bg{
+	width: 152px;
+	height: 152px;
+	margin: 0 auto;
+}
+
+.sign_name{
+	margin: 22px 0 20px 0;
+	font-size: 22px;
+	color: #3c3c3c;
+	text-align: center;
+}
+
+.free{
+	background: url(../images/sign_free.png) no-repeat;
+}
+
+.try{
+	background: url(../images/sign_try.png) no-repeat;
+}
+
+.rebates{
+	background: url(../images/sign_rebates.png) no-repeat;
+}
+
+.exp{
+	height: 100px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	padding: 0 28px 0 20px;
+}
+
+.act_time{
+	padding-left: 20px;
+	color: #3c3c3c;
+}
+
+.sign_btn{
+	width: 150px;
+	height: 40px;
+	border-radius: 3px;
+	line-height: 39px;
+	margin: 30px auto 7px;
+	display: block;
+	background: #4aa4de;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.look{
+	text-align: center;
+}
+
+.look a{
+	color: #4aa4de;
+}
+/* 热门专场活动 */
+.activity dd{
+	width: 1050px;
+}
+
+.activity li{
+	width: 312px;
+	border: 1px solid #cbeeff;
+	margin-right: 29px;
+	padding-bottom: 18px;
+}
+
+.activity li:hover{
+	border: 1px solid #64ccfe;
+}
+
+.activity li img{
+	width: 312px;
+	height: 183px;
+}
+
+.act_tit{
+	margin: 8px 0 15px 0;
+	text-align: center;
+}
+
+.act_tit a{
+	font-size: 16px;
+	font-weight: 700;
+	color: #3c3c3c;
+}
+
+.act_des{
+	width: 267px;
+	height: 35px;
+	border-bottom: 1px dashed #d8d8d8;
+	line-height: 20px;
+	margin: 0 auto 12px;
+	padding-bottom: 12px;
+}
+
+/* 底部 */
+#footer{
+	padding: 40px 0;
+	background: #2c3e50;
+}
+
+#footer_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.help dl{
+	width: 150px;
+}
+
+.help dt{
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.help dd{
+	margin-bottom: 5px;
+}
+
+.help dd a{
+	font-size: 14px;
+	color: #bec1c5;
+}
+
+.advisory{
+	margin-left: 60px;
+}
+
+.ffffff{
+	color: #ffffff;
+}
+
+.f16{
+	font-size: 16px;
+}
+
+.f18{
+	font-size: 18px;
+}
+
+.f32{
+	font-size: 32px;
+}
+
+.advisory dl{
+	margin: 18px 0;
+}
+
+.advisory dt{
+	color: #b7bbbf;
+}
+
+.advisory .mr20{
+	margin-right: 20px;
+}
+
+.copyright{
+	width: 312px;
+	font-size: 14px;
+	color: #6a747e;
+}
+
+.aut_list{
+	margin:0 auto 20px;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.aut_list td{
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #ddd;
+	padding-left: 10px;
+}
+
+

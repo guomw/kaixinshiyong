@@ -1,0 +1,78 @@
+<ion-view hide-nav-bar="true">
+  <div class="bar bar-header bar-stable ">
+    <a href="#/tab/duo" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">闪电试用</h1>
+  </div>
+  <ion-content class="padding_head">
+  <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
+   refreshing-icon="ion-loading-c" on-refresh="doRefresh()">
+   </ion-refresher>
+
+     <div ng-if="showloading" style="margin-top:60px; text-align: center">
+       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+
+   <ion-list ng-if="showloading==false">
+    <div class="ibody">
+      <div class="i_tryList">
+        <div class="s_img">
+          <img src="img/a7.jpg"></div>
+        <div class="s_list">
+          <a class="hang" href="#/tab/commission/{{d.id}}"  ng-repeat="d in goods">
+            <div class="L">
+            <i class='c4'>奖励：</i>
+              <span>¥ {{d.bonus_price}}</span>
+              <br>
+              {{d.title | limitTo:17}}
+              <br>
+              <i class='c4'>下单价: </i>
+              <span>¥ {{d.goods_price }} </span>
+              <i class='c4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返还: </i>
+              <span>¥ {{d.fan_price }}</span>
+              <br>
+              <i class='c4'> 剩余份数：</i>
+              <span>{{d.number}}</span>
+              /{{d.goods_number}}
+              
+            </div>
+            <div class="R"  ng-if="d.number > 0">我要抢购</div>
+            <div class="R2"  ng-if="d.number < 1">已抢完</div>
+            <div class="clearfix"></div>
+          </a>
+
+
+
+          <!--hang-->
+<!--           <a class="hang" href="#">
+            <div class="L">
+              奖励：
+              <span>¥ 2.00</span>
+              <br>
+              2015秋季宽松套头长袖针织衫
+              <br>
+              下单价
+              <span>¥ 99.00</span>
+              ， 返还
+              <span>¥ 97.00</span>
+              <br>
+              剩余份数：
+              <span>12</span>
+              /20 份
+            </div>
+            <div class="R2">12时12分26秒</div>
+            <div class="clearfix"></div>
+          </a> -->
+          <!--hang-->
+
+        </div>
+      </div>
+    </div>
+  </ion-list>
+      <ion-infinite-scroll
+                  pulling-text="加载更多中"
+                  on-infinite="loadMore()"
+                  ng-if="commission_hasNextPage"
+                  distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

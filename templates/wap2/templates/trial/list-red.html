@@ -1,0 +1,99 @@
+<ion-view hide-nav-bar="true" >
+  <div class="bar bar-header bar-color ">
+  <a href="#/tab/trial" style="color:#ffffff;"  class="button icon ion-ios-arrow-back button-clear ">所有试用</a>
+  <h1 class="title">红包试用</h1>
+  <div style="color:#ffffff;" class="button icon ion-ios-search-strong button-clear head_buttonr1"></div>
+ </div>
+<!--          <div class="bar bar-subheader">
+        <div class="button-bar sub_header_list" id="sub_header_list">
+            <a class="button button-clear sub_button_select" ng-click="changeTab('id',0)">默认</a>
+            <a class="button button-clear " ng-click="changeTab('hits',1)">人气</a>
+            <a class="button button-clear" ng-click="changeTab('goods_price',2)">价值</a>
+            <a class="button button-clear" ng-click="changeTab('start_time',3)">时间</a>
+        </div>
+</div> -->
+
+      <ion-content class="padding_head">
+
+       <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
+             refreshing-icon="ion-loading-c" on-refresh="doRefresh()">
+             </ion-refresher>
+
+          <div ng-if="showloading" style="margin-top:60px; text-align: center">
+                 <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+          </div>
+
+        <ion-list ng-if="showloading==false" class="list padding-top">
+          
+          
+
+          <div ng-repeat="topic in goods " class="active">
+            <a href="#/tab/trial/{{topic.id}}" class="list_w">
+                 <!-- <ion-item  > -->
+                  
+                  <div class="img">
+                  <img  ng-if="topic.thumb" ng-src="{{ENV.siteUrl}}{{topic.thumb}}" />
+                  <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                  </div>
+                  <ul class="flex txt txt_wrap">
+                      <li class="txt-flow" style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
+                      <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;">价值：<b class="cc">¥ {{topic.goods_price }}</b></li>
+                      <li class="clear c2 txt-flow" style="font-size:0.85em;">
+                          <p class="fl w1_4">剩余：<b> {{topic.number}} 份</b></p>
+                          <p class="fl w1_6">关注人数：<b>{{ topic.hits}}</b>人</p>
+                      </li>
+                  </ul>
+               
+                <!-- </ion-item> -->
+ </a>
+
+           <a class="tryoutProListAdd" href="#/tab/trial/{{topic.id}}">
+               <div class="hang1" ng-show="topic.protype == 3 "    >
+                 <div class="L" style="background:red">送</div>
+                 <div class="R">本单赠送红包<b class="cc">{{topic.goods_bonus}}</b>元</div>
+                 <div class="clearfix"></div>
+               </div>
+
+               <div class="hang1" ng-show="topic.protype == 2 " >
+                 <div class="L" style="background:#36C">B</div>
+                 <div class="R">拍A送<b class="cc">{{topic.goods_tryproduct}}</b></div>
+                 <div class="clearfix"></div>
+               </div>
+
+               <div class="hang1" ng-if="topic.subsidy> 0">                   
+                 <div class="L" style=" background:#36C">贴</div>
+                 <div class="R">完成本单平台额外补贴<b class="cc">{{topic.subsidy}}</b>{{topic.subsidy_type | f_bu }}</div>
+                 <div class="clearfix"></div>
+               </div>
+               <div class="hang1" ng-if="topic.point_num > 0">                   
+                 <div class="L" style=" background:#e42012">换</div>
+                 <div class="R">可使用<b class="cc">{{topic.point_num}}</b>积分兑换试用资格。</div>
+                 <div class="clearfix"></div>
+               </div>
+               <div class="hang1" ng-if="topic.goods_vipfree  == 1">                   
+                 <div class="L" style=" background:#e42012">vip</div>
+                 <div class="R">该活动<b class="cc">vip会员</b>可免审核 直接试用</div>
+                 <div class="clearfix"></div>
+               </div>
+
+           </a>
+
+         </div>
+
+
+
+        </ion-list>
+
+        <ion-infinite-scroll
+                    pulling-text="加载更多中"
+                    on-infinite="loadMore()"
+                    ng-if="trial_list_hasNextPage"
+                    distance="1%">
+      </ion-infinite-scroll>
+
+</ion-content>
+
+  </ion-view>
+  
+
+

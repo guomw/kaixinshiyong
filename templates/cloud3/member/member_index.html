@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>买家个人中心-{C('WEBNAME')}</title>
+		<meta name="keywords" content="买家个人中心,{C('WEBNAME')}" />
+		<meta name="description" content="买家个人中心,{C('WEBNAME')}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+	</head>
+	<body>
+		<style type="text/css">
+		.user_i_mess_c .yhtx .img{ height:166px; }
+		.user_i_mess_c .yhtx .img img{ width:166px; min-height:166px; }
+		</style>
+
+		{include template('v2_header','member/common')}
+
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>会员中心</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				
+						{include template('v2_member_left','member/common')}
+
+				
+				<div class="fr u_index_mess user_r_w_2">
+					
+					<div class="u_index_bor">
+						
+								<div class="user_i_mess_c user_pd_2">
+									
+									<div class="yhtx fl clear">
+										<div class="img fl">
+											<img src="<?php echo $this->userinfo['avatar'];?>"/>
+										</div>
+										<dl class="fr txt">
+											<dt>{nickname($this->userinfo['userid'])}
+												<span>
+													<?php
+												
+													$h=date("H");
+													if($h<11) echo "早上好!";
+													else if($h<13) echo "中午好！";
+													else if($h<17) echo "下午好！";
+													else echo "晚上好！";
+												?>
+												</span>
+											</dt>
+											<dd>
+												{if $this->userinfo['groupid'] == 2}
+												<b class="vip">vip</b>
+												{else}
+												您不是VIP,<a href="{U('Member/Profile/becomevip')}">立即升级VIP用户>></a>
+												{/if}
+											</dd>
+											<dd>
+												我的积分：<span class="cc" style="margin-right:5px;"><?php echo $this->userinfo['point']; ?></span><a href="{U('Shop/index/index')}" target="_blank">现在去兑换>></a>
+											</dd>
+											<dd class="gn clear">
+												<a href="{U('Pay/Index/deposite')}" class="tx">提现</a>
+												<a href="{U('Pay/Index/pay')}" class="cz" target="_blank">充值</a>
+												<a href="{U('Member/Financial/index')}" class="zhmx">账户明细</a>
+												<a href="{U('Member/Financial/point_log')}" class="zhmx">积分明细</a>
+
+											</dd>
+										</dl>
+									</div>
+									<ul class="yhxx fl">
+										<li>认证邮箱：{substr_replace($this->userinfo['email'],'***',3,5)} <a href="{U('Member/Attesta/email_attesta')}">更换邮箱</a></li>
+										<li>认证手机：
+											{if $this->userinfo['phone_status'] == 1}
+
+											{substr_replace($this->userinfo['phone'],'***',3,5)} <a href="{U('Member/Attesta/phone_attesta')}">更换手机</a>
+
+											{else}未认证
+
+											<a href="{U('Member/Attesta/phone_attesta')}">现在去认证</a>{/if}
+										</li>
+
+										<li>账户余额：<span class="cc" style="margin-right:5px;"><?php echo $this->userinfo['money'];?></span> <a href="{U('Member/Financial/index')}">查看账户明细</a></li>
+ 								</ul>
+							</div>
+							   
+							
+							<div class="user_kj_nav clear">
+								
+								<div class="fl syhd_wrap clear">
+									<h2 class="title">试用活动</h2>
+									
+									
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'trial','state'=>2,'search_status'=>1))}">
+											<p class="ico i1"></p>
+											<p class="s_h">已通过待领取</p>
+											<p class="cc">{$trial_pass_count}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'trial','state'=>2,'search_status'=>3))}">
+											<p class="ico i2"></p>
+											<p class="s_h">已下单待交试用报告</p>
+											<p class="cc">{$write_report_count}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'trial','state'=>2,'search_status'=>5))}">
+											<p class="ico i3"></p>
+											<p class="s_h">待修改订单号/报告</p>
+											<p class="cc">{$update_count}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'trial','state'=>2,'search_status'=>6))}">
+											<p class="ico i4"></p>
+											<p class="s_h">申诉中</p>
+											<p class="cc">{$appeal_count}</p>
+										</a>
+									</div>
+									
+								</div>
+								<div class="fr zyj_wrap clear">
+									<h2 class="title">佣金活动</h2>
+									<?php 
+									$pay_count = model('order')->where(array('buyer_id'=>$this->userinfo['userid'],'act_mod'=>'commission','status'=>5,'order_sn'=>array('NEQ','')))->count();
+									$write_order = model('order')->where(array('buyer_id'=>$this->userinfo['userid'],'act_mod'=>'commission','status'=>2,'order_sn'=>array('EQ','')))->count();
+									$update_order = model('order')->where(array('buyer_id'=>$this->userinfo['userid'],'act_mod'=>'commission','status'=>4,'order_sn'=>array('NEQ','')))->count();
+									$appeal_order = model('order')->where(array('buyer_id'=>$this->userinfo['userid'],'act_mod'=>'commission','status'=>6,'order_sn'=>array('NEQ','')))->count();
+
+
+
+									?>
+									
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'commission','com_status'=>2))}">
+											<p class="ico i5"></p>
+											<p class="s_h">已通过待领取</p>
+											<p class="cc">{$write_order}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'commission','com_status'=>5,'state'=>2))}">
+											<p class="ico i6"></p>
+											<p class="s_h">待返款</p>
+											<p class="cc">{$pay_count}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'commission','com_status'=>4,'state'=>2))}">
+											<p class="ico i7"></p>
+											<p class="s_h">待修改订单号/申诉</p>
+											<p class="cc">{$update_order}</p>
+										</a>
+									</div>
+									<div class="box">
+										<a href="{U('Member/Order/v2_manage', array('mod' => 'commission','com_status'=>6,'state'=>2))}">
+											<p class="ico i8"></p>
+											<p class="s_h">申诉中</p>
+											<p class="cc">{$appeal_order}</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						
+					</div>
+					
+					
+					<script type="text/javascript">
+						$(function(){
+							$('.shb_box_wrap .box:nth-child(4n)').css('margin-right','0px');
+						});
+					</script>
+					
+					<div class="shb_wrap">
+						<h2 class="title">最新试用宝贝</h2>
+						<div class="shb_box_wrap">
+							{pc:product action="lists" num="4" mod="trial" order='id desc'}
+							{loop $data $r} 
+							
+								<div class="box fl">
+									<a href="{$r[url]}">
+									<div class="img"><img src="{$r[thumb]}" alt="{$r[title]}" /></div>
+									<dl class="txt">
+										<dt>{str_cut($r[title],45)}</dt>
+										<dd>申请人数：{get_trial_by_gid($r['id'])}人</dd>
+										<dd>份数：{$r['goods_number']}份</dd>
+									</dl>
+									</a>
+								</div>
+							{/loop}
+							{/pc}
+							
+								
+
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		
+				{include template('footer','common')}
+
+
+
+	</body>
+</html>

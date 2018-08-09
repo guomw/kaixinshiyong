@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=0" name="viewport">
+<title>无标题文档</title>
+</head>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+<link  href="{THEME_STYLE_PATH}style/css/LotteryDraw.css" rel="stylesheet" type="text/css" />
+<body>
+<div class="i_LotteryDrawIndex">
+  <div class="ibody">
+    <div class="s_part1"> 
+    <img src="{THEME_STYLE_PATH}style/images/a2.png"  id="rotate" onClick="ajax()"  alt="" /> </div>
+    {if $lotteryDrawNumAlso > 0}
+    <div class="s_part2">您还有<span>{$lotteryDrawNumAlso}</span>次抽奖机会</div>
+    {elseif !$IsShare}
+    <div class="s_part4" >分享给好友获得更多的抽奖机会</div>
+    {else}
+    <div class="s_part3">您今天的抽奖机会已经用完</div>
+    {/if}
+    <div class="s_part5">
+      <div class="ti"><img src="{THEME_STYLE_PATH}style/images/a4.png" alt=""/></div>
+      <div class="co">
+        <div>一等奖奖品为：<span>{$rank1}</span></div>
+        <div>二等奖奖品为：<span>{$rank2}</span></div>
+        <div>三等奖奖品为：<span>{$rank3}</span></div>
+        <div>四等奖奖品为：<span>{$rank4}</span></div>
+        <div>五等奖奖品为：<span>{$rank5}</span></div>
+        <div>六等奖奖品为：<span>{$rank6}</span></div>
+      </div>
+      <!--co--> 
+    </div>
+    <!--s_part5-->
+    <div class="s_part6">
+      <div class="ti"><img src="{THEME_STYLE_PATH}style/images/a5.png" alt=""/></div>
+      <div class="co"> 
+      {loop $data2 $r}
+        <div class="h">
+          <div class="h1">
+            <div class="L"> 用户 </div>
+            <div class="R"> {date("Y-d-m-d h:i:sa",$r['time'])}</div>
+            <div class="clear"></div>
+          </div>
+          <!--h1-->
+          <div class="h2">恭喜获得
+          {if $r['rank'] == 1}
+           一
+           {/if}
+           {if $r['rank'] ==2}
+           二
+           {/if}
+          {if $r['rank'] ==3}
+            三
+           {/if} 
+          {if $r['rank'] ==4}
+             四
+           {/if} 
+         {if $r['rank'] ==5}
+             五
+           {/if} 
+            {if $r['rank'] ==6}
+            六
+           {/if}    
+          等奖，奖品为：
+           {$r['number']}
+          {if $r['class'] == 'points'}
+            积分
+           {/if} 
+           {if $r['class'] == 'cash'}
+            现金
+           {/if}  
+           </div>
+        </div>
+        <!--h--> 
+        {/loop} 
+        
+        
+        
+        
+        
+        
+        
+        </div>
+      <!--co--> 
+    </div>
+    <!--s_part6--> 
+    
+  </div>
+  <!--ibody-->
+  <div class="s_tanc1">
+    <div class="bg"></div>
+    <div class="content">
+      <div class="p1">asdas</div>
+      <div class="p2" onClick="close_tanc()">关闭</div>
+    </div>
+    <!--content--> 
+  </div>
+  <!--i_bottom_tanc--> 
+  <script type="text/javascript">
+      function tanc1(a){
+ 	   $('.s_tanc1 .bg').height($(window).height())  
+   	   $('.s_tanc1 .content .p1').html(a)    
+	   $('.s_tanc1').show();
+	  }
+	  function close_tanc(){
+ 	  location.reload() 
+	   }  
+    </script> 
+</div>
+<!--i_LotteryDrawIndex--> 
+
+<script type="text/javascript">
+     var r=0
+     var ajax_data;//ajax查询结果
+	 var rank=0;
+	
+function rotate(){
+	r=r+5
+	
+	if( rank==1 &&  r%360>0  &&  r%360<30  ){
+	    r=5
+	   }
+	if( rank==2 &&  r%360>30  &&  r%360<90  ){
+	    r=60
+	  }   
+	 
+	if( rank==3 &&  r%360>90  &&  r%360<150  ){
+	    r=120
+	  }  
+	  
+	if( rank==4 &&  r%360>150  &&  r%360<210  ){
+	    r=180
+	  }  
+	  
+	 if( rank==5 &&  r%360>210  &&  r%360<270  ){
+	    r=240
+	  }  
+	  
+	 if( rank==6 &&  r%360>270  &&  r%360<330  ){
+	    r=300
+	  }   
+	   	
+	
+ 	element=document.getElementById("rotate");	
+ 	element.style.MozTransform = "rotate(" + r + "deg)";
+	element.style.webkitTransform ="rotate(" + r + "deg)";
+	element.style.msTransform = "rotate(" + r + "deg)";
+	element.style.OTransform = "rotate(" + r + "deg)";
+	element.style.transform = "rotate(" + r + "deg)";
+}
+
+
+ 	 
+  function rotate_do(){
+       rotate_do_time=setInterval( "rotate()",10);
+	   setTimeout('rotate_stop()',2000);
+ 	 }
+ 	 
+	function rotate_stop(){
+	 rank=ajax_data['rank']
+      setTimeout('alert_sring_fun()',500);
+      } 
+	function alert_sring_fun(){
+	   var alert_sring;
+	 if(rank==1){
+	   alert_sring='恭喜您获得一等奖'	 
+		 }
+	  if(rank==2){
+	   alert_sring='恭喜您获得二等奖'	 
+		 }
+	   if(rank==3){
+	   alert_sring='恭喜您获得三等奖'	 
+		 }
+	  if(rank==4){
+	   alert_sring='恭喜您获得四等奖'	 
+		 }
+	 if(rank==5){
+	   alert_sring='恭喜您获得五等奖'	 
+		 }
+	 if(rank==6){
+	   alert_sring='恭喜您获得六等奖'	 
+		 }
+	   alert_sring=alert_sring+ ajax_data['result'];
+	   tanc1(alert_sring)
+		}
+	  
+	  
+   
+   function ajax(){
+ 	   r=0
+	   rank=0
+	   clearInterval('rotate_do_time');
+	   $.post("/index.php?m=Task&c=lotteryDraw&a=LotteryDrawIndexFunAjax", { userid: "<?php echo $userinfo['userid']?>", IsShare: "<?php echo $IsShare ?>" },
+        function(data){
+           ajax_data=data;
+		  if(ajax_data=='抽奖次数已经用完'){
+			return
+			 }
+		    rotate_do()
+  			eval(ajax_data) 
+        },'json');
+	 }
+   
+	 
+
+ 
+ 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{include template('header','common')}
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="ijavascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">帐号绑定</strong>
+			<a href="{U('Member/Index/register')}" class="t-link fr c-white">注册</a>
+		</div>
+		<div class="content bg-f0f0f0 min-height">
+            <form action="{U('register')}" method="POST" id="myform">
+			<div class="kik-bind">
+
+                <ul class="kik-import">
+					<ol class="flow clear">
+						<li class="kik"><img src="{THEME_STYLE_PATH}style/default/images/tencent-icon.png" alt="" /></li>
+						<li class="arrive"><img src="{THEME_STYLE_PATH}style/default/images/flow-icon.png" alt="" /></li>
+						<li class="home"><img src="{THEME_STYLE_PATH}style/default/images/close-btn.png" alt="" /></li>
+					</ol>
+					<dl class="i-c">
+						<dd>
+							<span class="fl">邮　　　箱：</span>
+							<span class="fl s-w">
+								<p><input type="text" name="register[email]"></p>
+							</span>
+						</dd>
+                        <dd>
+                            <span class="fl">请设置密码：</span>
+							<span class="fl s-w">
+                                <input type="password" name="register[password]">
+                            </span>
+                        </dd>
+						<dd>
+							<span class="fl">请确认密码：</span>
+							<span class="fl s-w">
+								<p><input type="password" name="register[pwdconfirm]"></p>
+							</span>
+						</dd>
+					</dl>
+
+				</ul>
+
+				<p class="kik-submit">
+					<a href="javascript:;" class="btn-s-03 onsubmit">提交注册</a>
+				</p>
+                <p class="kik-submit">
+                    <a class="btn-s-03" href="{U('quick', array('token_code' => $token_code, 'nickname' => $userinfo[nickname]))}">以后再说</a>
+                </p>
+
+
+                </div>
+            </form>
+		</div>
+{include template('footer','common')}
+<script>
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+</script>

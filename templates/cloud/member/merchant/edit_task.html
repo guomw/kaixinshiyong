@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家个人中心-发布任务-{C('WEBNAME')}</title>
+		<meta name="keywords" content="活动管理,商家个人中心,添加9.9包邮产品,{C('WEBNAME')}" />
+        <meta name="description" content="活动管理,商家个人中心,添加9.9包邮产品,{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/release_shop.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/demo.css" /> 
+		<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/task.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="#" class="nav_active">修改日赚任务</a>
+	</div>
+				{include template('merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">修改日赚任务</h2>
+					<img src="{THEME_STYLE_PATH}style/images/release_shop_img_03.jpg" class="display_block state margin_0_auto" alt="" />
+					<script type="text/javascript">
+						$(document).ready(function(){
+							var oSet = 0;
+							//商品来源点击
+							$('input[type="radio"][name="info[source]"]').click(function(){
+								oSet = 1;
+								$('.activity_mold_hint').css('display','none');
+								
+								if($(this).val() > 2) {
+									$(this).addClass('set_radio');
+								}else{
+									$('.set_radio').attr('checked',false);
+								}
+							});
+							$(document).on('click','.set_radio',function(){
+								$(this).attr('checked',true);
+							}); 
+							
+							$('input[type="radio"][name="info[type]"]').each(function(i,n){
+								$(this).attr('index',i);
+							});
+							$('input[type="radio"][name="info[type]"]').click(function(){
+								$('.activity_mold_hint').css('display','none');
+								$('.activity_mold_hint:eq('+$(this).attr("index")+')').css('display','block');
+								$(this).next().css('display','block');
+									if($('.set_radio').attr('checked') || oSet != 1){
+										$('.activity_mold_hint:eq(0)').css('display','none');
+									}
+							});
+						});
+					</script>
+					<!-- radio_set_add -->
+					<form action="{U('Member/MerchantTask/task_edit')}" name="myform" method="post" id="myform">
+					<input type="hidden" value="{$id}" name="id"/>
+						<ul class="right_release height_auto">
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">任务问题：</span>
+								<input type="text" class="float_left input_width_1 height_100" name="info[title]" id="title" value="{$title}" placeholder="如：宝贝详情中宝贝材质中最后一句话是什么？"/>
+							</li>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">问题答案：</span>
+								<input type="text" class="float_left input_width_1 height_100" name="info[answer]" id="answer" value="{$answer}" placeholder="答案尽可能简洁，用户回答正确后获得您设置的佣金"/>
+							</li>
+							<li class="shop_soure width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">商品来源：</span>
+								<?php echo $form::radio('info[source]', 1, $this->source);?>
+							</li>
+							<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />
+							<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+							<script type="text/javascript">
+							//图片上传功能
+							$(document).ready(function() {
+									var uploader = WebUploader.create({
+										auto:true,
+										fileVal:'Filedata',
+									    // swf文件路径
+									    swf: '{JS_PATH}webuploader/webuploader.swf',
+									    // 文件接收服务端。
+									    server: "{U('Attachment/Attachment/swfupload')}",
+									    // 选择文件的按钮。可选
+									    formData:{
+									    	"module":"",
+									    	"catid":"",
+									    	"userid":"1",
+									    	"dosubmit":"1",
+									    	"thumb_width":"0",
+									    	"thumb_height":"0",
+									    	"watermark_enable":"1",
+									    	"filetype_post":"jpg|jpeg|gif|png",
+									    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+									    	"isadmin":"1",
+									    	"groupid":"2"
+									    },
+									    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+									    pick: {
+									    	id: '#img1',
+									    	multiple:false
+									    },
+									    accept:{
+											title: '图片文件',
+											extensions: 'gif,jpg,jpeg,bmp,png',
+											mimeTypes: 'image/*'
+									    },
+									    thumb:{
+									    	width: '110',
+									    	height: '110'
+									    },
+									    chunked: false,
+									    chunkSize:1000000,
+									    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+									    resize: false
+									});
+							
+									uploader.onUploadSuccess = function( file, response ) {
+										var pickid = this.options.pick.id;
+										var data = response._raw;
+										var arr = data.split(',');
+										if(arr[0] > 0) {
+											$(pickid).parent('li').find('img').attr('src', arr[1]);
+											$(pickid).parent('li').find('input[type=hidden]').eq(0).attr('value', arr[1]);
+											$(pickid).parent('li').find('input[type=hidden]').eq(1).attr('value', arr[3]);
+										}
+									}
+							
+									uploader.onUploadError = function(file, reason) {
+										alert('文件上传错误：' + reason);
+									}
+							})
+							</script>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="float_left font_size14 shop_value_name text_align_right">宝贝主图：</span>
+								
+								<ul class="shop_img float_left">
+									<li class="big_small_img float_left">
+										<span class="border_dddddd"><img src="{if empty($thumb)}{THEME_STYLE_PATH}style/images/signIn_14.jpg{else}{$thumb} {/if}" alt="" /><input type="hidden" name="info[thumb]" value="{$thumb}" /></span>
+										<a href="javascript:;" name="uploadify" class="display_block float_left color_ffffff background_666666 text_align_center" id="img1">上传</a>
+									</li>
+								</ul>
+							</li>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="js_set_input font_size14 shop_value_name text_align_right">搜索关键字：</span>
+								<input type="text" class="float_left input_width_1 height_100 " name="info[keyword]" id="keyword" value="{$keyword}" placeholder="请输入商品关键字，多个用英文逗号（,）分割" />
+							</li>
+							<li class="shop_soure width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">搜索排序要求：</span>
+								<label><input type="radio" value="1" name="info[sort]" {if $sort == 1}checked {/if}/>综合</label>
+						      	<label><input type="radio" value="2" name="info[sort]"  {if $sort == 2}checked {/if}/>人气</label>
+						      	<label><input type="radio" value="3" name="info[sort]"  {if $sort == 3}checked {/if}/>销量</label>
+						      	<label><input type="radio" value="4" name="info[sort]"  {if $sort == 4}checked {/if}/>信用</label>
+						      	<label><input type="radio" value="5" name="info[sort]"  {if $sort == 5}checked {/if}/>最新</label>
+						      	<label><input type="radio" value="6" name="info[sort]"  {if $sort == 6}checked {/if}/>价格</label>
+							</li>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="js_set_input font_size14 shop_value_name text_align_right">商品位置：</span>
+								<input type="text" class="float_left input_width_1 height_100 " name="info[goods_address]" value="{$goods_address}" id="goods_address" placeholder="如第一页第二排左右" />
+							</li>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="js_set_input font_size14 shop_value_name text_align_right">掌柜旺旺：</span>
+								<input type="text" class="float_left input_width_1 height_100 " name="info[goods_wangwang]" id="goods_wangwang" value="{$goods_wangwang}" />
+							</li>
+							<!-- 任务份数： -->			
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">任务份数：</span>
+								<input type="text" class="float_left input_width_2 height_100 " name="info[goods_number]" value="{$goods_number}" id="goods_number"/>份（建议按照赚佣金活动分数的1:10进行投放，保证搜索转化效果）
+							</li>	
+							<!-- 每份佣金 -->	
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right">每份佣金：</span>
+								<input type="text" name="info[goods_price]" value="{$goods_price}" id="goods_price" class="shop_cost1 float_left input_width_2 height_100 " />元（每份佣金最低0.1元，用户回答正确后获得此佣金）
+							</li>
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="float_left font_size14 shop_value_name text_align_right">搜索流程图：</span>
+								<input name="info[goods_albums]" type="hidden" value="1" />
+								<ul id="goods_albums" class="shop_img float_left">
+									<li class="big_small_img float_left">
+										<span class="border_dddddd">
+											<img src="{THEME_STYLE_PATH}style/images/signIn_14.jpg" width="100" height="100" />
+											<input type="hidden" name="goods_albums_url[]" value="" />
+										</span>
+										<a href="javascript:;" name="uploadify" class="display_block float_left color_ffffff background_666666 text_align_center" id="picker">上传</a>
+ 									</li>
+ 									{loop $goods_albums $g}
+ 									<li class="big_small_img float_left">
+										<span class="border_dddddd">
+											<img src="{$g[url]}" width="100" height="100" />
+											<input type="hidden" name="goods_albums_url[]" value="{$g[url]}" />
+										</span>
+										<a href="javascript:;" onclick="task.delete_image(this);" data-id="{$id}" data-url="{U('Member/MerchantTask/delete_image')}" data-name="{$g[url]}" class="display_block float_left color_ffffff background_666666 text_align_center">删除</a>
+ 									</li>
+ 									{/loop}
+								</ul>
+							</li>
+							
+							<li class="shop_soure set_line_height width_100 float_left">
+								<span class="font_size14 shop_value_name text_align_right"></span>
+								<input type="submit" class="color_ffffff submit_btn border_none background_ff6600 border_radius_3 cursor_pointer" value="提交"/>
+							</li>
+						</ul>
+					</form>					
+				</div>				
+			</div>
+		</div>
+<style type="text/css">
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+#goods_albums{ width: 650px; }
+</style>
+<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+
+$("#title").formValidator({
+	onshow:"请输入10到30个汉字",
+	onfocus:"请输入10到30个汉字"
+}).inputValidator({
+	min:20,
+	max:60,
+	onerror:"标题为10到30个汉字"
+});
+
+$("#answer").formValidator({
+	onshow:"请输入答案",
+	onfocus:"请输入答案"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:'答案输入错误'
+});
+
+/* 发布份数 */
+var task_price = <?php echo $task_price;?>//最低佣金
+var task_num = <?php echo $task_num;?>//任务分数
+$("#goods_number").formValidator({
+	empty:false,
+	onempty:'发布份数不能为空',
+	onshow:'请输入发布份数',
+	onfocus:'请输入发布份数'
+}).functionValidator({
+	fun:function(val,elem){
+		if(val < Number(task_num)){
+			return '任务分数需大于'+task_num;
+		}else{
+			return true;
+		}
+	}
+}).regexValidator({
+	regexp:'intege1',
+	datatype:'enum',
+	onerror:'发布份数只能为正数'
+});
+
+$("#goods_price").formValidator({
+	empty:false,
+	onempty:'每份佣金不能为空',
+	onshow:'请输入佣金',
+	onfocus:'请输入佣金'
+}).functionValidator({
+	fun:function(val,elem){
+		if(Number(val) < Number(task_price)){
+			return '佣金需大于'+task_price;
+		}else{
+			return true;
+		}
+	}
+}).regexValidator({
+	regexp:'num',
+	datatype:'enum',
+	onerror:'佣金输入错误'
+});
+
+/* 商品位置 */
+$("#goods_address").formValidator({
+	empty:false,
+	onempty:'商品位置不能为空',
+	onshow:'请输入商品位置',
+	onfocus:"请输入商品位置"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:'商品位置不能为空'
+});
+
+/*旺旺*/
+$("#goods_wangwang").formValidator({
+	empty:false,
+	onempty:'掌柜旺旺不能为空',
+	onshow:'请输入掌柜旺旺',
+	onfocus:"请输入掌柜旺旺"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:'掌柜旺旺不能为空'
+});
+//-->
+</script>
+<script type="text/javascript">
+	//图片上传功能
+	$(document).ready(function() {
+			var uploader = WebUploader.create({
+				auto:true,
+				fileVal:'Filedata',
+			    // swf文件路径
+			    swf: '{JS_PATH}webuploader/webuploader.swf',
+			    // 文件接收服务端。
+			    server: "{U('Attachment/Attachment/swfupload')}",
+			    // 选择文件的按钮。可选
+			    formData:{
+			    	"module":"",
+			    	"catid":"",
+			    	"userid":"1",
+			    	"dosubmit":"1",
+			    	"thumb_width":"0",
+			    	"thumb_height":"0",
+			    	"watermark_enable":"1",
+			    	"args":"10,,",
+			    	"filetype_post":"jpg|jpeg|gif|png",
+			    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+			    	"isadmin":"1",
+			    	"groupid":"2"
+			    },
+			    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+			    pick: {
+			    	id: '#picker',
+			    	multiple:true
+			    },
+			    accept:{
+					title: '图片文件',
+					extensions: 'gif,jpg,jpeg,bmp,png',
+					mimeTypes: 'image/*'
+			    },
+			    thumb:{
+			    	width: '110',
+			    	height: '110'
+			    },
+			    chunked: false,
+			    chunkSize:1000000,
+			    fileNumLimit: 10,
+			    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+			    resize: false
+			});
+			uploader.onUploadSuccess = function( file, response ) {
+				var pickid = this.options.pick.id;
+				var data = response._raw;
+				var arr = data.split(',');
+				var html = '';
+				if(arr[0] > 0) {
+					html += '<li class="big_small_img float_left">';
+					html += '<span class="border_dddddd"><img src="'+arr[1]+'" alt="" /><input type="hidden" name="goods_albums_url[]" value="'+arr[1]+'" /></span>';
+					html += '<a class="display_block float_left"></a>';
+					html += '</li>';
+					$("#goods_albums").append(html);
+				}
+			}
+	
+			uploader.onUploadError = function(file, reason) {
+				alert('文件上传错误：' + reason);
+			}
+	})
+	</script>
+{include template('footer','common')}

@@ -1,0 +1,24 @@
+em,i { font-style:normal; }
+body .border_none { border:none; border-bottom:none; }
+textarea { resize:none; }
+.margin_t_b { margin:10px 0; }
+.appeal_tate { width:620px; height:83px; float:left; margin:20px 77px; } 
+.appeal_left { width:400px; height:auto; float:left; margin:0 40px; padding:20px 0; border:solid 1px #ddd; }
+.appeal_form { width:100%; height:auto; float:left; line-height:20px; }
+.appeal_form li select { height:20px; line-height:20px;  }
+.appeal_form li { width:100%; height:auto; margin:5px 0; float:left;}
+.appeal_form li .btn { color:#fff; text-align:center; line-height:22px; margin:10px 0 0 95px; border-radius:2px; background:#1ab976; display:block; width:70px; height:22px; }
+.appeal_form li .form_hint { background:#ffcb99; width:320px; height:20px; margin:0 0 10px 50px;  border:solid 1px #fe9867; display:inline-block; text-indent:10px; }
+.appeal_form li .sub_hint { margin-left:95px; color:#999; }
+.appeal_form li span { text-align:right; width:95px; height:100%; float:left; }
+.appeal_form li input[type = text] { width:207px; height:26px; line-height:26px; float:left; }
+form .submit { width:80px; height:30px; line-height:30px; background:#ff6600; color:#fff; cursor:pointer; border-radius:3px; border:0; margin-left:95px; }
+
+.appeal_right { width:260px; height:auto; float:left;border:solid 1px #ddd; padding-bottom:10px; }
+.appeal_right .appeal_r_title { width:100%; height:28px; line-height:28px; border-bottom:solid 1px #efefef;  }
+.appeal_right .shop_name { padding:10px 0; width:235px; height:60px;display:block; margin:0 auto; }
+.appeal_right .shop_name img { height:100%; width:60px;margin:0 20px 0 0; float:left; }
+.appeal_right .shop_name font { height:36px; display:inline-block; line-height:18px; width:140px; float:left; margin-top:12px;}
+.appeal_right .shop_name a { display:inline-block; height:100%; width:100%; overflow:hidden; text-overflow:ellipsis; }
+.shop_mess_list { margin:0 auto; width:235px; height:auto; }
+.shop_mess_list li { border-top:solid 1px #ddd; height:28px; line-height:28px; width:100%; float:left; }

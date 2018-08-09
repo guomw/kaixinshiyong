@@ -1,0 +1,244 @@
+*{
+	font-family: "微软雅黑";
+}
+
+body{
+	float: none;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.f14{
+	font-size: 14px;
+}
+
+.f16{
+	font-size: 16px;
+}
+
+div.header{
+	height: auto;
+	line-height: normal;
+	background: none;
+	float: none;
+	border-bottom: 3px solid #e8e8e8;
+}
+
+div.header_top{
+	height: 30px;
+	line-height: 30px;
+	background: #2d2d2d;
+}
+
+div.header_top div.top_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.activity ul li span{
+	font-size: 10px;
+}
+
+div.activity ul li a{
+	padding: 0 10px;
+	color: #acacac;
+}
+
+div.login ul li span{
+	color: #acacac;
+}
+
+div.login ul li{
+	margin-left: 20px;
+}
+
+div.login ul li a{
+	color: #acacac;
+}
+
+div.header_bottom{
+	padding: 37px 0 15px 0;
+}
+
+div.header_bottom div.bottom_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.logo span{
+	display: inline-block;
+}
+
+div.logo span.text{
+	color: #ff6600;
+	margin-left: 12px;
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+div.menu{
+	margin-top: 10px;
+}
+
+div.menu ul li a{
+	height: 32px;
+	font-size: 16px;
+	color: #3c3c3c;
+	margin-left: 30px;
+	display: inline-block;
+}
+
+div.menu a.active{
+	color: #ff6600;
+	background: url(../images/active.png) no-repeat 30px 27px;
+}
+
+div.main{
+	background: #f4f4f4;
+	padding: 20px 0 31px 0;
+	border-bottom: 1px solid #dddddd;
+}
+
+div.main div.main_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.main_box div.bgffffff{
+	background: #ffffff;
+}
+
+div.main_box div.wrap{
+	border: 1px solid #dddddd;
+	width: auto;
+	margin-bottom: 25px;
+	padding: 20px 38px 0;
+}
+
+div.wrap div.registration{
+	background: url(../images/integration_registration.png) no-repeat;
+}
+
+div.wrap div.reg{
+	background: url(../images/integration_reg.png) no-repeat;
+}
+
+div.wrap div.phone{
+	background: url(../images/integration_phone.png) no-repeat;
+}
+
+div.wrap div.invite{
+	background: url(../images/integration_friend.png) no-repeat;
+}
+
+div.wrap div.email{
+	background: url(../images/integration_email.png) no-repeat;
+}
+
+div.wrap div.name{
+	background: url(../images/integration_name.png) no-repeat;
+}
+
+div.wrap div.micro{
+	background: url(../images/integration_micro.png) no-repeat;
+}
+
+div.wrap dt{
+	font-size: 18px;
+	color: #3c3c3c;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 10px;
+}
+
+div.wrap dd{
+	padding: 40px 0;
+}
+
+div.wrap div.task-ico{
+	width: 60px;
+	height: 60px;
+}
+
+div.wrap div.mt7{
+	margin-top: 7px;
+}
+
+div.wrap div.mr12{
+	margin-right: 12px;
+}
+
+div.wrap p.f14{
+	color: #999999;
+	margin-top: 6px;
+}
+
+div.wrap p span{
+	
+	color: #ff6600;
+}
+
+div.task-push{
+	padding-top: 12px;
+}
+
+div.task-push a{
+	display: inline-block;
+	width: 120px;
+	height: 38px;
+	line-height: 36px;
+	background: #ffe6e6;
+	border: 1px solid #ffb8b8;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 18px;
+	color: #ff6600;
+}
+
+div.task-push span{
+	display: inline-block;
+	height: 36px;
+	font-size: 18px;
+	color: #ff6600;
+	background: url(../images/hook.png) no-repeat;
+	text-indent: 50px;
+	padding-top: 6px;
+}
+
+div.main_box div.new-task{
+	padding-bottom: 23px;
+}
+
+div.main_box div.new-task dd{
+	border-bottom: 1px solid #eeeeee;
+}
+
+
+
+
+div.footer{
+	padding: 15px 0 30px 0;
+}
+
+div.footer p{
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+
+div.footer p.footer_link{
+	margin-bottom: 20px;
+}
+
+p.footer_link span, p.footer_link a{
+	font-size: 13px;
+}
+
+p.footer_link a{
+	margin-right: 25px;
+}

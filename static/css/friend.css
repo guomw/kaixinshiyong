@@ -1,0 +1,71 @@
+*{margin:0;padding:0;}
+html,body{margin:0;padding:0; font-family: "微软雅黑";}
+a{text-decoration:none;}
+.clearFix:after{
+	clear:both;
+	display:block;
+	visibility:hidden;
+	height:0;
+	line-height:0;
+	content:"";
+}/*清除浮动*/
+.clearFix{zoom:1;}/*清除浮动*/
+/*index*/
+.mainv{min-height: 2152px;}
+.banner{width:1242px;height:559px;margin:0 auto;}
+.banner img{width:100%;height:100%;}
+.main{width:1242px;height:558px;margin:0 auto;}
+.main p{text-align:center; font-size:30px; line-height: 30px; color:#282828;}
+.main p:first-child{margin-top:40px;}
+.main p:nth-child(2){margin-top:30px;}
+.main p:nth-child(3){margin-top:40px;color:#e42012; }
+.main form {}
+.main .phone{}
+.main .phone-input{display:block;float:left;margin-left:420px;width:360px;height:90px;border: solid 1px  #282828;
+					padding-left:40px; margin-top:38px;color:#282828; font-size:24px;float:left;}
+.main .ok {font-size:18px;color:#e42012; float:left;margin-left:38px;margin-top:80px;}
+.main .ok  img {padding-right:20px; font-size:18px;color:#e42012;  vertical-align:middle;margin-top:-5px;}
+.main .phone-bottom{ display:block;margin:100px auto;text-align: center; width:250px; 
+					height:78px;font-size: 30px;color:#fdfdfd;background:#e42012; border:none; border-radius: 7px;}
+/*index2*/
+.main-s{width:1242px;height:558px;margin:0 auto;}					
+.main-s p{text-align:center; font-size:30px; line-height: 30px; color:#282828;}
+.main-s p{margin-top:40px;color:#e42012; }
+.main-s form{border:sold red 1px;}
+.main-s .phonediv .phone-number-p {margin-left:388px;font-size:24px;color:black;  text-align: left; display:block;float:left;}
+.main-s .phone-s{}
+.main-s .phone-s .phone-bottom{ display:block; margin-top:40px;margin-left:404px; auto;text-align: center; width:250px; 
+					height:80px;font-size: 30px;color:#fdfdfd;background:#e42012; border:none; border-radius: 7px;float:left;}
+.main-s .phone-s .phone-input{display:block;float:left;margin-left:24px;width:126px;height:80px;border: solid 1px  #282828;
+					padding-left:40px; margin-top:40px;color:#282828; font-size:24px;float:left;}
+.main-s .phone-s .ok {font-size:18px;color:#e42012;display:block; float:left;margin-left:38px;line-height: 80px;margin-top:40px;}
+.main-s .phone-s .ok img {padding-right:20px; font-size:18px;color:#e42012;  vertical-align:middle;margin-top:-5px;}
+.main-s .phone-s .interpassword p{text-align:center; font-size:30px; line-height: 30px; margin-top:40px;color:#e42012;}
+.main-s .phone-password{}
+.main-s .phone-password .i-p {font-size:24px;color:#282828;display:block; float:left;margin-left:330px;line-height: 80px;margin-top:40px;}
+.main-s .phone-password .i-p span{color:#e42012;}
+.main-s .phone-password .pasinto{display:block;float:left;margin-left:10px;width:280px;height:80px;border: solid 1px  #282828;
+					padding-left:20px; margin-top:40px;color:#282828; font-size:24px;float:left;}
+.main-s .phone-password .ok {font-size:18px;color:#e42012;display:block; float:left;margin-left:38px;line-height: 80px;margin-top:40px;}
+.main-s .phone-password .ok img {padding-right:20px; font-size:18px;color:#e42012;  vertical-align:middle;margin-top:-5px;}
+.main-s .phone-password .i-p-2 {font-size:24px;color:#282828;display:block; float:left;margin-left:284px;line-height: 80px;margin-top:40px;}
+.main-s .phone-password .i-p-2 span{color:#e42012;}
+.main-s  .phone-bottom1{ display:block; margin: 100px auto;text-align: center; width:250px; 
+					height:78px;font-size: 30px;color:#fdfdfd;background:#e42012; border:none; border-radius: 7px;}
+
+/*index3*/
+.mainv3{min-height: 2152px; }
+.main3{width:1242px;height:558px;margin:0 auto; text-align: center;}
+.banner3{width:1242px;height:559px;margin:0 auto;}
+.banner3 img{width:100%;height:100%;}
+.main3 p{text-align:center; font-size:30px; line-height: 30px; color:#282828;margin-top:18px;color:#E42012;}
+.main3 p:first-child{margin-top:40px;}
+
+.main3 .app{margin:0 auto;margin-top:40px;text-align: center;}
+.main3 .app .iphone{display:inline-block;}
+.main3 .app .iphone a img {margin:0 auto; }
+.main3 .app .iphone a p {color:#282828;margin-top:30px;line-height:30px;}
+.main3 .app .android{/*float:left;*/ margin-left:140px;display:inline-block;}
+.main3 .app .android a img {margin:0 auto;}
+.main3 .app .android a p {color:#282828; margin-top:30px;line-height:30px;}
+

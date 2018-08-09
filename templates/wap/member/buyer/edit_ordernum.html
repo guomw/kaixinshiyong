@@ -1,0 +1,186 @@
+{include template('header','common')}
+<style>
+    .user{
+        display:table-cell;
+        width:16.875%;
+        height:1.1em;
+        position: absolute;
+        top: 0.6875em;
+        right: 0;
+    }
+
+    .user a{
+        display:block;
+        width:50%;
+        margin:0 auto;
+        height:100%;
+        background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+        background-size:auto 100%;
+    }
+</style>
+<div id="wrapper" xmlns="http://www.w3.org/1999/html">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">填写订单号</strong>
+            <div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+            </div>
+		</div>
+		<div class="content bg-dedede">
+            <form action="{U('Order/Api/fill_sn')}" method="post" id="myform">
+            <div class="login-box oreder-wrap">
+                <dl class="order-hint">
+                    {if $product_info['type'] == 'search'}
+                    <dt class="c-f60">搜索下单提示：</dt>
+                    <dd>
+                        1、进入<em><a href="http://www.taobao.com" target="_blank">淘宝网首页</a></em>，搜索关键词：<b style="color:red;">{$product_info['goods_rule']['keyword']}</b>。
+                    </dd>
+                    <dd>
+                        2、请使用<em>Ctrl+F 查找</em>旺旺名称:<span style="color:red;">{$product_info['__seller__']['contact_want']}</span>;进入店铺找到活动宝贝，然后进行下单。
+                    </dd>
+                    {if $product_info['goods_rule']['keyword2']}
+                    <dd>3、搜索提示：<span style="color:red;">{$product_info['goods_rule']['keyword2']}</span></dd>
+                    {/if}
+
+                    {elseif $product_info['type'] == 'qrcode'}
+                        <dt class="c-f60">请扫描以下二维码：</dt>
+                        <dd style="margin: 0;text-align: center;">
+                            <img src="{$product_info['goods_rule']['qrcode']}" alt="" class="QR_code" style="width: 50%"/>
+                        </dd>
+                    {elseif $product_info['type'] == 'general'}
+                        <dt class="c-f60">普通下单：</dt>
+                    {elseif $product_info['type'] == 'ask'}
+                        <dt class="c-f60">问答下单：</dt>
+                    {/if}
+
+                    <dd>
+                        请注意以下事项：
+                    </dd>
+                    <dd>
+                        1、下单价：<span style="color:red;">{$product_info['goods_price']}</span>元
+                    </dd>
+                    {if $product_info['mod'] == 'rebate'}
+                    <dd>
+                        2、返还划算金：<span style="color:red;"><?php echo number_format($product_info['goods_price']-$product_info['goods_price']*$product_info['goods_discount']/10,2);?></span>元
+                    </dd>
+                    {/if}
+
+                    {if $product_info['mod'] == 'trial'}
+                    <dd>
+                        2、返还：<span style="color:red;"><?php echo number_format($product_info['goods_price']+$product_info['goods_bonus'],2);?></span>元
+                    </dd>
+                    {/if}
+                    <dd>
+                        3、抢购<span style="color:red;">{$product_info['act_config']['buyer_write_order_time']}</span>分钟内本次订单将自动关闭
+                    </dd>
+
+                    {if $product_info['type'] == 'search'}
+                    <p class="at-login">
+                        <a class="btn-s-03" href="http://www.taobao.com" target="_blank">去淘宝网</a>
+                    </p>
+                    {elseif $product_info['type'] == 'general'}
+                    <p class="at-login">
+                        <a class="btn-s-03" href="{$product_info['goods_url']}" target="_blank">去下单</a>
+                    </p>
+                    {elseif $product_info['type'] == 'ask'}
+                    <p class="at-login">
+                        <a class="btn-s-03" href="{$product_info['goods_url']}" target="_blank">去下单</a>
+                    </p>
+                    {/if}
+                </dl>
+
+                <input type="hidden" id="order_id" name="order_id" value="{$orderid}">
+
+                <ul class="o-w-title">
+                    <li class="c-666">商品名称</li>
+                    <li class="c-f60">{$product_info['title']}</li>
+                </ul>
+                <ul class="clear">
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r">订单号:</span>
+                            <input type="text" id="order_sn" name="order_sn" value="" class="fl">
+                        </div>
+                    </li>
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r">确　认:</span>
+                            <input type="text" id="order_sn_que" name="order_sn_que" value="" class="fl">
+                        </div>
+                    </li>
+                </ul>
+                <!--<dl class="order-hint">-->
+                    <!--<dt class="c-f60">温馨提示</dt>-->
+                    <!--<dd>-->
+                        <!--1、请填写已付款的订单编号，若填入未付款单号，属于违规行为且将无法获得返款；填写的订单号规则？-->
+                    <!--</dd>-->
+                    <!--<dd>-->
+                        <!--2、若单号被审核有误，请在 48 小时内进行申诉或修改，逾期将无法领回划算金（建议平时经常登录网站查看站内信提醒哦！）如何获取订单编号？-->
+                    <!--</dd>-->
+                <!--</dl>-->
+                <p class="at-login">
+                    <a href="javascript:;" class="btn-s-01 onsubmit">确定</a>
+                </p>
+            </div>
+            </form>
+		</div>
+
+{include template('footer','common')}
+
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script>
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+
+    /*验证码验证*/
+    $("#order_sn").formValidator({
+        empty:false,
+        onempty:'订单号不能为空',
+        onshow:'请输入订单号' ,
+        onfocus:"请输入订单号"
+    }).regexValidator({
+        regexp:'num',
+        datatype:'enum',
+        onerror:"订单号输入错误"
+    });
+
+    $("#order_sn_que").formValidator({
+        empty:false,
+        onshow:"请再次输入订单号",
+        onfocus:"请再次输入订单号"
+    }).compareValidator({
+        desid:"order_sn",
+        operateor:"=",
+        onerror:"两次订单号不正确"
+    });
+
+//    $(".onsubmit").click(function(){
+//        var order_sn = $("#order_sn").val();
+//        var data = {
+//            order_id  : "{$orderid}",
+//            order_sn : order_sn
+//        };
+//        $.post(site.site_root + '/index.php?m=order&c=api&a=fill_sn', data, function(ret) {
+//            if (ret.status==1) {
+//                location.href = "{U('Member/Profile/index')}"
+//            } else {
+//                $("#order_snTip").removeClass("onCorrect").addClass("onError").html(ret.info)
+//            }
+//        })
+//    })
+
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+
+</script>

@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家个人中心-发布任务-{C('WEBNAME')}</title>
+		<meta name="keywords" content="活动管理,商家个人中心,添加9.9包邮产品,{C('WEBNAME')}" />
+        <meta name="description" content="活动管理,商家个人中心,添加9.9包邮产品,{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/release_shop.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/demo.css" /> 
+		<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+		<style type="text/css">
+			.shiy_ti{ color: #3c3d45; font-size: 16px; font-weight: bold; padding-left: 21px; padding-top: 14px; }
+			.htr_pc{ margin-top: 15px; }
+			.ht_pxx{ color: #3c3d45; float: left; font-size: 12px; line-height: 21px; margin-left: 20px; }
+			.sel{ border: 1px solid #7f9db9; color: #000; font-size: 12px; height: 26px; line-height: 21px; width: 135px; }
+			.sel option{ color: #333; }
+			.shike_right{ float: right; }
+			#selectsearchtype{ height: 26px; }
+			.shou{ border: 1px solid #879fbb; color: #797979; font-size: 12px; height: 24px; line-height: 24px; margin: 0 5px; padding-left: 3px; width: 130px; }
+			.sk_p{ background: url({THEME_STYLE_PATH}style/images/se.gif) no-repeat left center; border: 0 none; cursor: pointer; height: 26px; width: 40px; text-indent: 9999px; }
+			.th_pbc{ background: #fff1f1; border: 1px solid #f6a8a4; color: #666; font-weight: bold; height: 40px; line-height: 40px; margin: 15px auto 0; text-align: center; width: 748px; }
+			.th_pbc strong{ color: #c31b1b; }
+			.yonghu_main{ margin: 20px auto; width: 750px; }
+			.yonghu_nv{ margin-bottom: 10px; width: 748px; border-bottom: 1px solid #e3e3e3; }
+			.yonghu_nv a{ color: #8c8c92; display: block; float: left; font-size: 14px; width: 76px; height: 35px; line-height: 35px; border: 1px solid #e3e3e3; border-bottom: none; border-top-left-radius: 5px; border-top-right-radius: 5px; text-align: center; background: #ffffff; }
+			.yonghu_nv .yonghu_nv_active{ font-weight: bold; color: #3c3d45; margin-bottom: -1px; height: 36px; line-height: 36px; }
+			
+			.yonghu_cont tr{ border-top: 1px solid #dadada; border-bottom: 1px solid #dadada; }
+			.yonghu_cont .table_vline_on td{ border-right: 1px solid #dadada; }
+			.yonghu_cont .table_vline_on strong{ font-weight: bold; }
+			.tf_ca a{ float: left; }
+			.table_vcolor_second td, .table_vcolor_second td span, .table_vcolor_second td a{ color: #666666; }
+			.product_o{ height: 26px; line-height: 26px; background: #f95c57; margin-bottom: 5px; padding: 0 10px; display: inline-block; color: #ffffff !important;}
+			#selectsearchtype{ border: 1px solid #7f9db9; }
+			.pages{ margin: 0; }
+			.pages div{ text-align: center; }
+			.pages a, .pages span{ height: 28px; line-height: 28px; width: 28px; display: inline-block; border: 1px solid #ddd; margin: 0; }
+			.pages .a1, .pages .prev, .pages .next{ width: auto; padding: 0 5px; }
+			.pages .current{ border: 1px solid #00a9fe; color: #00a9fe; }
+		</style>
+<style type="text/css">
+.operate-log {
+max-width: 520px;
+_width: 520px;
+max-height: 420px;
+_height: 420px;
+padding: 1px;
+overflow: auto;
+}
+.aui_state_focus .aui_content {
+color: #000;
+}
+.ui-table {
+border: 1px solid #ccc;
+table-layout: fixed;
+width: 100%;
+text-align: center;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+.ui-table th {
+height: 35px;
+font-size: 12px;
+color: #4c4c4c;
+text-shadow: 0 1px 1px #fff;
+background-color: #CCCCCC;
+background-image: -webkit-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -moz-linear-gradient(top, #eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: -o-linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+background-image: linear-gradient(#eaeaea, #eaeaea 25%, #CCCCCC);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#CCCCCC', GradientType=0);
+}
+.ui-table th {
+
+}
+textarea {
+font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+.ui-table td {
+border: 1px solid #ccc;
+border-bottom-style: dotted;
+border-top: none;
+padding: 12px 0;
+word-break: break-all;
+word-wrap: break-word;
+}
+</style>
+	</head>
+	<body>
+	<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+	<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+	<script type="text/javascript" src='{THEME_STYLE_PATH}style/js/order.js'></script>
+	<script type="text/javascript">
+{php $userinfo = is_login();}
+var order_data = {
+	{php $seller_get_appeal = string2array(C_READ('seller_get_appeal','rebate'));}
+	{php $seller_trialtalk_check = string2array(C_READ('seller_trialtalk_check'));}
+    {loop $order_list $r}
+    <?php   
+        if ($r['status']==6 && $r['appeal']['appeal_status']==0){  //  商家申诉倒计时
+            $end_time = $r['check_time']+$seller_get_appeal['time']*3600;
+        }elseif($r['status']==1 && $mod=='trial'){	//	待审核资格
+        	$end_time = $r['create_time']+C_READ('seller_check_time')*86400;
+        }elseif($r['status']==2 && $mod=='trial' && $r['trial_report']){	// 待会员下单
+        	$end_time = $r['check_time']+C_READ('buyer_write_order_time')*3600;
+        }elseif($r['status']==2 && $mod=='trial' && !$r['trial_report'] && !$r['order_sn']){	// 待填写订单号
+        	$end_time = $r['check_time']+C_READ('buyer_write_order_time')*3600;
+        }elseif($r['status']==2 && $mod=='trial' && !$r['trial_report'] && $r['order_sn']){	// 审核订单号倒计时
+        	$end_time = $r['check_time']+C_READ('seller_order_check_time')*3600;
+        }elseif($r['status']==8 && $mod=='trial' && !$r['trial_report']){	// 待填写试用报告倒计时
+        	$end_time = $r['check_time']+C_READ('buyer_write_talk_time')*86400;
+        }elseif($r['status']==3 && $mod=='trial'){	// 待审核试用报告
+        	$end_time = $r['check_time']+$seller_trialtalk_check['value']*86400;
+        }else{
+            $end_time = $r['create_time']+C_READ('seller_check_time','rebate')*86400;
+        }
+    ?>   
+    {if $n > 1},{/if}
+    {$r[id]}:{
+        "oid":"{$r[id]}",
+        "gid":"{$r[goods_id]}",
+        "title":"{$r[product_info]['title']}",
+        "url":"{$r[product_info][goods_url]}",
+        "userid":"<?php echo $this->userid;?>",
+        "modelid":"<?php echo $userinfo['modelid'];?>",
+        "price":"{$r[product_info]['goods_price']}",
+        "end_time" : "{$end_time}",
+    }
+    {/loop}
+};
+</script>
+	<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+			<div class="nav_path">
+				<a href="{__APP__}">首页</a>&nbsp;>
+				<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+				<a href="#" class="nav_active">{C('TRIAL_NAME')}订单管理</a>
+			</div>
+				{include template('merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+						<div class="shiy_ti">
+		{C('TRIAL_NAME')}管理—订单管理</div>
+	<!--shiy_ti-->
+	<div class="htr_pc">
+		<form action="{__APP__}" method="get">
+		<input type="hidden" name="m" value="{MODULE_NAME}" />
+		<input type="hidden" name="c" value="{CONTROLLER_NAME}" />
+		<input type="hidden" name="a" value="{ACTION_NAME}" />
+		<input type="hidden" name="mod" value="trial" />
+		<div class="ht_pxx">
+			<span>活动选择：</span>
+			<select id="selectsearchtype" name="activity">
+				<option value="-99" {if $_GET['activity'] == -99} selected{/if}>全部</option>
+				{loop $activity_lists $k $p}
+				<option value="{$k}" {if $_GET['activity'] == $p} selected{/if}>{$p}</option>
+				{/loop}
+			</select>
+		</div>
+		
+		<!--ht_pxx-->
+		<div class="ht_pxx">
+			<select id="selectsearchtype" name="type">
+				<option value="1" {if $type == 1} selected{/if}>淘宝账号查询</option>
+				<option value="2" {if $type == 2} selected{/if}>订单号查询</option>
+			</select>
+			<input id="usertext" type="text" name="keyword" placeholder="请输入查询" class="shou" />
+			<input name="search"  type="submit" class="sk_p" />
+		</div>
+		<!--shike_right-->
+		</form>
+	</div>
+	<div style="clear: both;">
+	</div>
+	<div class="yonghu_main">
+		<div class="yonghu_nv">
+			<a href="{U('Member/Order/order_manage',array('status'=>-99,'mod'=>'trial'))}" {if $status == -99}class="yonghu_nv_active"{/if}>全部</a>
+			{loop $this->status $k $s}
+			<a href="{U('Member/Order/order_manage',array('status'=>$k,'mod'=>'trial'))}" {if $status == $k}class="yonghu_nv_active"{/if}>{$s}</a>
+			{/loop}
+			<div style="clear: both;"></div>
+		</div>
+		<!--yonghu_nv-->
+		<div class="yonghu_cont">
+			<table>
+				<tr class="table_vline_on">
+					<td width="150" height="30" bgcolor="#eaeaea" align="center">
+						<strong>活动名称</strong>
+					</td>
+					<td width="180" height="30" bgcolor="#eaeaea" align="center">
+						<strong>用户昵称</strong>
+					</td>
+					<td width="160" height="30" bgcolor="#eaeaea" align="center">
+						<strong>淘宝账号</strong>
+					</td>
+					<td width="150" height="30" bgcolor="#eaeaea" align="center">
+						<strong>状态</strong>
+					</td>
+					<td width="120" height="30" bgcolor="#eaeaea" align="center">
+						<strong>订单号</strong>
+					</td>
+					<td width="120" height="30" bgcolor="#eaeaea" align="center" style="border-right: none;">
+						<strong>操作</strong>
+					</td>
+				</tr>
+				{if is_array($order_list) && !empty($order_list)}
+					{loop $order_list $s}
+					<tr class="table_vcolor_second over_color">
+						<td width="150" height="90" valign="middle" class="table_vcolor_first">
+							<span>{$s['title']}</span>
+						</td>
+						<td width="150" height="90" valign="middle" class="table_vcolor_first">
+							<div class="tf_ca">
+								<a href="#" target="_blank">
+									<img src="{$s['userinfo']['avatar']}" style="width: 40px; height: 40px;" />
+								</a>
+								<a href="#">{if $s['userinfo']['nickname']}{$s['userinfo']['nickname']}{else}-{/if}</a><br />
+								<span>手机：{if $s['userinfo']['phone']}{$s['userinfo']['phone']}{else}-{/if}</span><br />
+								<span>QQ：{if $s['userinfo']['qq']}{$s['userinfo']['qq']}{else}-{/if}</span><br />
+								{if $s['userinfo']['qq']}
+								<a href="tencent://message/?uin={$s['userinfo']['qq']}&Site=有事Q我&Menu=yes"  style="margin-top:10px;">
+								    <img src="http://wpa.qq.com/pa?p=1:155040767:4" style="border: 0;"></img>
+								</a>
+								{/if}
+							</div>
+						</td>
+						<td width="160" height="60" valign="middle" align="center">
+							<span>淘宝账号：{if $s[taobao][bind_account]}{$s[taobao][bind_account]}{else}-{/if}</span>
+							<br />
+							<span>安全等级：{if $s[taobao][bind_account]}{$level[$s[taobao][bind_account]]}{else}-{/if}</span>
+							<br />
+							<span>注册时间：{if $s[taobao][reg_time]}{dgmdate($s[taobao][reg_time],'Y-m-d')}{else}-{/if}</span>
+							<br />
+							<span>买家信誉：{if $s[taobao][bscore]}{$s[taobao][bscore]}{else}-{/if}</span>
+							<br />
+							<span>好评率：{if $s[taobao][favorable_rate]}{$s[taobao][favorable_rate]}{else}-{/if}</span>
+						</td>
+						<td width="120" height="60" valign="middle" align="center" class="status_color abit_style">
+							<span><?php echo $this->status[$s[status]];?></span>
+						</td>
+						<td width="120" height="60" valign="middle" align="center">
+							<span class="tg_mq">{$s[order_sn]}</span>
+						</td>
+						<td width="120" height="60" valign="middle" align="center" style="padding-top: 5px;">
+							{if $s['status'] == 5}
+								{if $mod == 'trial'}
+									<a href="javascript:;" class="product_o" onclick="order.pay_report({$s['id']},'{U('view_report')}')">付款(评优)</a>
+									<a href="{U('cancel', array('order_id' => $s['id']))}" class="product_o" onclick="return confirm('确定撤销通过?该操作不可逆转')">撤销</a>	
+								{else}
+									<a href="{U('pay', array('order_id[]' => $s['id'],'mod'=>$s['act_mod']))}" class="product_o"  onclick="return confirm('确定付款?该操作不可逆转哦~')">付款</a>
+									<a href="{U('cancel', array('order_id' => $s['id']))}" class="product_o" onclick="return confirm('确定撤销通过?该操作不可逆转')">撤销</a>	
+								{/if}
+							{elseif $s['status'] == 2 && $mod == 'trial' && !$s['trial_report'] && $s['order_sn']}
+								<a href='javascript:;' class="product_o" onclick="javascript:enter('确定通过该订单号?该操作不可逆转','{U('check_ordersn', array('order_id' => $s['id'],'ispass' => 1))}');">通过</a>
+								<a href='javascript:;' class="product_o" onclick="javascript:enter('确定拒绝该订单号通过?该操作不可逆转','{U('check_ordersn', array('order_id' => $s['id'],'ispass' => 2))}');">拒绝</a>
+							{elseif $s['status'] == 3}
+								{if $mod == 'trial'}
+									<a href="javascript:;" class="product_o" onclick="order.pay_report({$s['id']},'{U('view_report')}')">通过</a>
+								{elseif $mod == 'rebate'}
+									<a href='javascript:;' class="product_o" onclick="javascript:enter('确定审核通过?该操作不可逆转','{U('pass', array('order_id' => $s['id']))}');">通过</a>
+								{/if}
+								<a href="javascript:;" class="product_o" onclick="order.refuse({$s['id']})">拒绝</a>
+							{elseif $s['status'] == 1 && $mod == 'trial'}
+                                      <a href="javascript:;" class="product_o" onclick="enter('确定试用资格通过?该操作不可逆转','{U('trial_pass', array('order_id' => $s['id'],'state'=>'1','mod'=>$mod))}')">通过</a>
+                                      <a href="javascript:;" class="product_o" onclick="enter('确定拒绝试用资格?该操作不可逆转','{U('trial_pass', array('order_id' => $s['id'],'state'=>'0','mod'=>$mod))}')">拒绝</a>
+                                  {elseif $s['status'] == 6}
+                                  	 <a href="{U('member/appeal/appeal_manage')}" class="product_o">去处理</a>
+							{elseif $s['status'] == 7}
+								{if $mod == 'trial'}
+									<a href="javascript:;" class="product_o" onclick="order.view_report({$s['id']},'{U('view_report')}')">查看报告</a>
+								{/if}
+
+							{elseif $s['status'] == 0}
+							{/if}
+							<a href="javascript:;" class="product_o" onclick="order.view_log({$s['id']});">操作记录</a>
+							<a href="javascript:;" class="product_o" onclick="order.userInfo({$s['buyer_id']},{$s['id']});">查看用户信息</a>
+						</td>
+					</tr>
+					{/loop}
+					{else}
+					
+					<tr>
+						<td colspan="5">暂无订单信息</td>
+					</tr>
+				{/if}
+			</table>
+			<div class="pages">{$pages}</div>
+		</div>
+		<!--yonghu_cont-->
+	</div>
+	<!--yonghu_main-->				
+				</div>				
+			</div>
+		</div>
+
+{include template('footer','common')}

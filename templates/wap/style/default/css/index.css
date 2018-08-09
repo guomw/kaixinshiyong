@@ -1,0 +1,220 @@
+/* width  640px */
+
+	/* 顶部 */
+	#header{
+		width:100%;
+		padding:1.8em 0;
+		background:#bb000d;
+		display:table;
+	}
+	#header .logo{
+		width:30.15625%;  /* 193 */
+		display:table-cell;
+		vertical-align:middle;
+		text-align:center;
+	}
+	#header .logo img{
+		width:74.09326424870466%;
+		vertical-align:middle;
+		display:inline;
+	}
+	#header .search{
+		width:53.125%;   /* 340 */
+		display:table-cell; 
+		vertical-align:middle;
+	}
+	#header .search a{
+		display:block;
+		width:100%;   /* 51 */
+		height:100%;
+		padding:1em 0;
+		vertical-align:middle;
+		background: #fff url(../images/search.png) no-repeat left center;
+		background-size:auto 100%;
+		text-indent:20%;
+		color:#b1b1b1;
+		font-size:1em;
+		font-family:"方正中等线简体";
+	}
+	#header .user{
+		display:table-cell;     /* 108 */
+		width:16.875%;
+		height:1.1em;
+	}
+	#header .user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url(../images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+	/* banner 部分 */
+	#banner{
+		width:100%;
+		position:relative;
+		height:17em;
+		overflow:hidden;
+	}
+	#banner .big{
+		width:auto;
+		height:100%;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	#banner .big li{
+		width:100%
+		height:100%;
+		overflow:hidden;
+		float:left;
+	}
+	#banner .big li a:link{
+		border:none;
+	}
+	#banner .big li a{
+		display:block;
+		height:17em;
+	}
+	#banner .big li img{
+		height:100%;
+	}
+	#banner .small{
+		width:100%;
+		height:1.0625em;
+		line-height:1.0625;
+		background:url(../images/small-bg.png) repeat-x;
+		position:absolute;
+		bottom:0;
+		left:0;
+		text-align:center;
+		z-index:1;
+	}
+	#banner .small li{
+		width:0.625em;
+		height:0.625em;
+		display:inline-block;
+		background:url(../images/b-small-blur.png) no-repeat center center;
+	}
+	#banner .small li a{
+		display:block;
+		width:100%;
+		height:100%;
+	}
+	#banner .small .b-s-focus{
+		background:url(../images/b-small-focus.png) no-repeat center center;
+	}
+	/* 主导航 */
+	.nav{
+		width:100%;
+		overflow:hidden;
+	}
+	.nav ul{
+		width:100%;
+	}
+	.nav ul .nav-hr{
+		height:0.0625em;
+		width:100%;
+		float:left;
+		background:#aeaeae;
+		display:block;
+	}
+	.nav ul li{
+		width:33.333333333333333333333333%;
+		height:9em;
+		float:left;
+		text-align:center;
+	}
+	.nav ul li a{
+		width:100%;
+		height:100%;
+		display:block;
+		color:#010101;
+		border-right:solid 0.0625em #aeaeae;
+	}
+	.nav ul li a span{
+		display:block;
+		height:4.375em;
+		width:100%;
+	}
+	.nav ul li a span img{
+		padding-top:0.8125em;
+		margin:0.125em auto;
+		height:80%;
+	}
+	.nav ul li a strong{
+		line-height:2.6875em;
+		padding-top:0.125em;
+		font-size:1.125em;
+		font-family:"微软雅黑";
+	}
+	.nav ul li .rn{
+		border-right:none;
+	}
+	#wrapper .nav ul li .bg-e{
+		background:#eeeeee;
+	}
+	/* 内容区 */
+	.content{
+		/*padding-top:1em;  //*/
+	}
+	.content .title{
+		height:4.5em;
+		line-height:4.5em;
+		width:100%;
+		background: #f3f4f6;
+	}
+	.content .title ul{
+		width:100%;
+		height:100%;
+		overflow:hidden;
+	}
+	.content .title ul li{
+		float:left;
+		width:32.96875%;
+		text-align:center;
+		
+	}
+	.content .title ul li span strong a{
+		color:#000000;
+		font-size:1.5em;
+		display:block;
+	}
+	.content .title ul > .focus{
+		height:100%;
+		background:#ffffff;
+	}
+	
+	.content .title ul > .focus a{
+		color:#bb000d;
+	}
+	
+	.content .title ul > .focus > span{
+		width:100%;
+		height:100%;
+		display:block;
+		/*background:url(../images/tl-bg.png) no-repeat left bottom;
+		background-size:auto 100%;*/
+	}
+	.content .title ul > .focus > span strong{
+		width:100%;
+		height:100%;
+		display:block;
+		/*background:url(../images/tr-bg.png) no-repeat right bottom;
+		background-size:auto 100%;*/
+	}	
+
+	/* 欢迎界面 */
+	.logo-icon{
+		height:100%;
+		overflow:hidden;
+		background:#BB000D url(../images/logo-icon.png) no-repeat center;
+		position:relative;
+	}
+	.l-i-copy{
+		position:absolute;
+		bottom:3.833333333333333em;
+		text-align:center;
+		width:100%;
+	}
+

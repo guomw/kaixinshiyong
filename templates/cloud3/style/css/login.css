@@ -1,0 +1,34 @@
+.center{ background:url(../images/loginHTML_bg.jpg) repeat-x top left; }
+.center .login_show_wrap{width:710px;height:100%;float:left;}
+.center .login_show_wrap img{width:586px;height:241px;float:left;margin:60px;}
+.center .login_user{
+width:300px;height:auto;border:solid 1px #ddd;border-bottom:0;float:right;margin:80px 80px 0 0;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;
+background:#fff url(../images/login_form_bg.png) repeat-x left bottom;padding-bottom:20px;
+}
+.center .login_user .login_user_title{text-indent:20px;height:54px;width:100%;line-height:52px;font-size:14px;}
+.center .login_user .login_user_title span{font-weight:100;margin-left:20px;color:#999;}
+.center .login_user .login_user_title span a{text-decoration:underline;color:#2fb9ff;}
+.center .login_user_box{width:254px;height:auto;margin:0 auto;}
+.center .login_user_box input{font-size:14px;color:#666;}
+.center .user_input,.user_Code,.center .user_btn{width:100%;height:40px;line-height:40px;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;}
+.center .user_input{margin-top:18px;border:solid 1px #ddd;}
+.center .user_Code{margin-top:28px;}
+.center input{text-indent:10px;color:#cbcbcb;}
+.center .user_input img{float:left;margin:10px 0 0 8px;}
+.center .user_input input{float:right;width:218px;line-height:40px;height:40px;border:none;}
+
+.center .user_Code img{float:left;margin-left:10px;}
+.center .user_Code input{float:left;width:100px;height:100%;line-height:40px;}
+.center .user_btn{display:block;background:#2090ff;text-align:center;margin-top:38px;color:#fff;float:left;}
+.center .user_btn:hover{background:#32bcfd;}
+.center .user_handle{height:40px;line-height:40px;width:204px;float:left;margin:8px 0 0 40px;}
+.center .user_handle li{float:left;width:102px;height:100%;}
+.center .user_handle li img{float:left;margin:9px 5px 0 9px;}
+.center .user_verify{
+width:188px;height:30px;line-height:30px;color:#ff4402;background:#fff1f1;border:dashed 1px #f69aa9;float:left;text-align:center;
+margin:0 0 10px 33px;
+}
+.bottom{ border-top:solid 1px #ddd; }
+.top .login_logo{line-height: 50px;}
+
+

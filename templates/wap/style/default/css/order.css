@@ -1,0 +1,113 @@
+/* 答题下单 */
+.answer-buy{
+	width:57.5%;  /* 368 */
+	margin:0 auto;
+}
+.answer-buy .title{
+	font-size:1.5em;
+	padding:1.375em 0;
+	text-align:center;
+}
+.answer-buy .answer-box{
+	overflow:hidden;
+}
+.t-indent{
+	text-indent:7.06521739130435%;
+}
+.answer-buy .issue{
+	height:2.75em;
+	line-height:2.75em;
+}
+.rel-input{
+	position:relative;
+	height:2.222222222222222em;
+	line-height:2.222222222222222em;
+	padding-top:0.5em;
+}
+.rel-input > input[type="text"]{
+	width:65.21739130434783%;
+	height:2.222222222222222em;
+	line-height:2.222222222222222em;
+	border:solid 1px #d3d3d3;
+}
+input::-webkit-input-placeholder {
+ 	line-height:2.222222222222222em;
+}
+.error::-webkit-input-placeholder {
+     color:red;
+}
+.error:-moz-placeholder { 
+    color:red;
+}
+.error:-ms-input-placeholder {
+    color:red;
+}
+.set-view{
+	width:5.5%;
+	height:100%;
+	display:block;
+	text-indent:0;
+	margin-left:1%;
+}
+.a-hint-on{
+	background:url(../images/app-hint-on.png) no-repeat center center;
+	background-size:100% auto;
+}
+.a-hint-off{
+	background:url(../images/app-hint-off.png) no-repeat center center;
+	background-size:100% auto;
+}
+.verify-btn{
+	font-size:1.125em;
+	line-height:2.777777777777778em;
+	height:2.777777777777778em;
+	text-align:center;
+	padding:1.5em 0 1em 0;
+}
+.verify-btn > a{
+	display:block;
+	height:100%;
+	width:39.67391304347826%;
+	margin:0 auto;
+}
+.hint-text{
+	font-size:0.875em;
+	height:3.428571428571429em;
+	line-height:3.428571428571429em;
+	text-align:center;
+	overflow:hidden;
+}
+.submit-btn{
+	height:2.777777777777778em;
+	line-height:2.777777777777778em;
+}
+.submit-btn a{
+	font-size:1.125em;
+	height:100%;
+	display:block;
+	float:left;
+	padding:0 3%;
+	margin-left:7%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

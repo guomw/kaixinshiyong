@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{get_seo('score_seo','score_title','')}</title>
+<meta name="keywords" content="{get_seo('score_seo','score_keyword','')}">
+<meta name="description" content="{get_seo('score_seo','score_description','')}">
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/integration_index.css" />
+</head>
+<body>
+	<style type="text/css">
+		div.earn-integration div.phone{
+	background: url({THEME_STYLE_PATH}style/images/integration_phone.png) no-repeat;
+}
+
+	.copy a img{ width: auto; height: auto; }
+	</style>
+	<!-- 头部 start -->
+{include template('header')}
+	<!-- 头部 end -->
+	<!-- 主体内容 start -->
+	<div class="main">
+		<div class="main_box">
+			<div class="banner">
+				<div class="fl">
+					<img src="{THEME_STYLE_PATH}style/images/integration_banner.jpg" width="740" height="240" />
+				</div>
+				<div class="member_box fr">					
+					<div class="member_info">
+						{if is_login() > 0}
+						{php $userinfo = is_login()}
+						<div class="member_avatar fl">
+							<img src="{getavatar($userinfo[userid])}" width="100" height="100" />
+						</div>
+						<div class="member_nickname fr">							
+							<p class="member_nickname_nickname" title="<?php echo $userinfo['nickname']?$userinfo['nickname']:'会员ID'.$userinfo['email'] ?>"><?php echo $userinfo['nickname']?$userinfo['nickname']:'会员ID'.$userinfo['email'] ?></p>
+							<p class="member_rating"><img src="{THEME_STYLE_PATH}style/images/member_rating.jpg" /></p>
+							<p>
+								<span class="f14">可用积分：</span>
+								<br />
+								<span class="f18">{$userinfo[point]}</span>
+								<span><a href="javascript:;" id="sign">{if ! is_sign($userinfo[userid])}签到{else}已签到{/if}</a></span>
+							</p>
+						</div>
+						{else}
+						<div class="no_login"><a href="{U('member/index/login')}">您还未登录</a></div>
+						{/if}
+					</div>
+					<div style="clear: both;"></div>
+					<div class="vip">
+						<a href="#">成为VIP</a>
+						<span>每天最多再领 30 积分</span>
+					</div>
+					<div class="push">
+						<a href="{U('member/profile/index')}" class="my-integration fl">我的积分</a>
+						<a href="{U('member/profile/infomation')}" class="receiving-address fr">收货地址</a>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<!-- 赚取积分 start -->
+			<div class="earn-integration mt40">
+				<dl>
+					<dt>
+						<span class="f20">赚取积分</span>
+						<span><a href="{U('task/index/index')}" class="more">/ 更多</a></span>
+					</dt>
+					<dd>
+						<ul>
+							<?php foreach ($task as $k => $v): ?>
+							<li class="fl">
+								<div class="{if $k == 0}reg{elseif $k == 1}friend{elseif $k == 2}email{else}phone{/if} w-h60 mr10 fl"></div>
+								<div class="fl">
+									<p class="integration_title">{$v[task_name]}</p>
+									<p class="ava_integration">可得&nbsp;<span>{$v[task_reward]}</span>&nbsp;{if $v['task_type'] == 'point'}积分{elseif $v['task_type'] == 'money'}元{elseif $v['task_type'] == 'exp'}经验值{/if}</p>
+									<p><a href="{$v[url]}">立即参与&nbsp;></a></p>
+								</div>
+							</li>
+							<?php endforeach ?>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<!-- 赚取积分 end -->
+			<!-- 兑换积分 start -->
+			<div class="integration-exchange mt40">
+				<dl>
+					<dt>
+						<span class="f20">兑换积分</span>
+						<span><a href="javascript:;" class="more">/ 更多</a></span>
+					</dt>
+					<dd>
+						<ul>
+							<!-- 积分兑换列表 start -->
+							{if is_array($shop)}
+							{loop $shop $v}
+							<li class="fl">
+								<p>
+									{if $v['total_num'] - $v['sale_num'] == 0}
+									<a href="javascript:;" class="no"><img src="{$v['images']}" width="213" height="213" /></a>
+									{else}
+									<a href="{U('shop/index/show',array('id'=>$v['id']))}"><img src="{$v['images']}" width="213" height="213" /></a>
+									{/if}
+								</p>
+								<p>
+									{if $v['total_num'] - $v['sale_num'] == 0}
+									<a href="javascript:;" class="no">{str_cut($v[title],21)}</a>
+									{else}
+									<a href="{U('shop/index/show',array('id'=>$v['id']))}">{str_cut($v[title],21)}</a>
+									{/if}
+								</p>
+								<div class="fl">
+										
+									<p class="copies">份数&nbsp;<span><?php echo ($v['total_num'] - $v['sale_num']) ?>/{$v[total_num]}</span>&nbsp;份</p>
+									<p class="integration_integration">{$v[point]}&nbsp;<span>积分</span></p>
+								</div>
+								{if $v['total_num'] - $v['sale_num'] == 0}
+								<div class="exchange_push fr"><a href="javascript:;"  class="no">兑光了</a></div>
+								{else}
+								<div class="exchange_push fr"><a href="{U('shop/index/show',array('id'=>$v['id']))}">立即兑换</a></div>
+								{/if}
+							</li>
+							{/loop}
+							{/if}
+							<!-- 积分兑换列表 end -->
+						</ul>
+						<div style="clear: both;"></div>
+					</dd>
+				</dl>
+			</div>
+			<!-- 兑换积分 end -->
+		</div>
+	</div>
+	<!-- 主体内容 end -->
+	<!-- 底部 start -->
+	<div class="footer">
+		<p class="footer_link">
+			<span>友情链接：</span>
+			{pc:link action="lists" linktype="0"}
+			{loop $data $r}
+			<a href="{$r[url]}" target="_blank">{$r[webname]}</a>
+			{/loop}
+			{/pc}
+		</p>
+		<p>版权所有：{C("site_web_copyright")}  {C('site_web_icp')}</p>
+		<p class="copy">Copyright &copy; 2009-2014 {$_SERVER['SERVER_NAME']} 		{C("site_statistical_code")}
+ </p>
+
+	</div>
+	<!-- 底部 end -->
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$('.no').click(function(){
+			art.dialog({
+			lock: true,
+			fixed: true,
+			icon: 'face-sad',
+			title: '错误提示',
+			content: '该商品已兑换完',
+			ok: true
+		});
+		});
+
+
+		$("#sign").click(function(){
+			$.post("{U('Member/Sign/index')}",function(data){
+				if (data.status == 1) {
+					art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: data.info,
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						},
+					});
+				}else{
+					art.dialog({
+					lock: true,
+					fixed: true,
+					icon: 'face-sad',
+					title: '错误提示',
+					content: data.info,
+					ok: true
+				});
+				};
+
+			},'json')
+		});
+	});
+</script>

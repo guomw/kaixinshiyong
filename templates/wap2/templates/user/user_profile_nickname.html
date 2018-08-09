@@ -1,0 +1,80 @@
+<ion-view view-title="我的昵称">
+  <ion-content class="padding-top" style="background-color:#F8F8F8">
+    <ion-list >
+
+      <ion-item class="item item-avatar item-icon-right"  ng-click="imgurl()">
+        <img ng-model="user_avatar" src="{{user_avatar}}" />
+        <h2>{{user_nickname.nickname}}</h2>
+        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="item-note">修改头像</i>
+              
+      </ion-item>
+        <label class="item item-input">
+        <i style="font-size:18px;color:#f3972b" class="icon ion-android-favorite"></i>
+        <div class="input-label padding-left ">您的昵称</div>
+        <input type="text"  ng-model="user_nickname.nickname" placeholder="" ng-maxlength="20" ng-minlength="1" required>
+        <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"  style="display:none;">
+
+      </label>
+
+<!--    <item   ng-controller="UserProfileHobby"  class="item item-icon-left item-icon-right "  ng-click="Hobby()" >
+        <i style="font-size:18px;color:#f3972b" class="icon ion-android-favorite"></i>
+        兴趣爱好
+        <i class="item-note">{{userInfo.phone}}</i>
+        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+      </item>
+
+      <item  ng-controller="UserProfileFocus_category" class="item item-icon-left item-icon-right " ng-click="Focus_category()" >
+        <i style="font-size:18px;color:#73bbee" class="icon ion-document-text "></i>
+        关注类目
+        <i class="item-note">{{userInfo.phone}}</i>
+        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+      </item> -->
+
+      <div class="padding-left padding-right" >
+        <button ng-click="userInfo_nickname()" class="button button-block button-assertive  padding-top" >保存</button>
+      </div>
+
+    </ion-list>
+
+  </ion-content>
+
+  <script id="b.html" type="text/ng-template"> 
+  // <ion-modal-view>
+
+  // <ion-header-bar>
+  //    <a class="button  " ng-click="closeModal();">返回</a>
+  //   <h1 class="title" style="text-align:center;" >兴趣爱好</h1>
+  // </ion-header-bar>
+
+  // <ion-content >
+
+  // <ion-checkbox ng-model="d.selected"  ng-repeat="d in categorylists.lists" >
+  //    {{d.catname}} {{d.selected}}
+  // </ion-checkbox>
+
+  // </ion-content>
+  // </ion-modal-view> 
+  </script>
+
+
+  <script id="c.html" type="text/ng-template"> 
+  // <ion-modal-view >
+
+  // <ion-header-bar>
+  //    <a class="button" ng-click="closeModal()">返回</a>
+  //   <h1 class="title" style="text-align:center;" >选择喜欢的商品分类</h1>
+  // </ion-header-bar>
+
+  // <ion-content >
+  // <ion-checkbox ng-model="d.selected"  ng-repeat="d in categorylists.lists" >
+  //    {{d.catname}} {{d.selected}}
+  // </ion-checkbox>
+
+  // <button class="button button-block button-assertive padding-top" ng-click="Selection_classification(d.catname)">退出登录</button>
+
+  // </ion-content>
+  // </ion-modal-view> 
+  </script>
+
+</ion-view>

@@ -1,0 +1,18 @@
+/* 商家中心 */
+.shops_centre {width:500px;}
+.centre_new_title {height:36px;line-height:36px;margin-bottom:22px;}
+.centre_title{width:470px;}
+.centre_content{height:155px;padding-right:20px;float:left;}
+.shops_centre_intro{float:left;width:125px;}
+.shops_centre_intro p{line-height:22px;width:100px;}
+.edit_data {width:12px;height:12px;margin:5px 5px 5px 15px;}
+.centre_list{height:100%;float:left;line-height:38px;width:330px;margin-left:15px;}
+.centre_list li {height:38px;}
+.centre_list li > b{ font-weight:100;color:#ff6600;margin:0 5px; }
+.centre_list li > a{ color:#30bbfe; margin-left:30px; }
+/* 最新公告 */
+.new_notice {width:265px;}
+.new_notice li{float:left;height:28px;line-height:28px;}
+.new_notice li a{float:left;width:204px;display:block;white-space: nowrap;overflow:hidden;text-overflow: ellipsis;}
+.new_notice li a:hover{ color:#ff6600; text-decoration:underline; }
+.right_hint {width:764px;height:38px;line-height:38px;margin-top:20px;padding:0 8px;}

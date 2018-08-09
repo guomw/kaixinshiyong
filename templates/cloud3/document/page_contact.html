@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>联系方式-{C('WEBNAME')}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="j{THEME_STYLE_PATH}style/s/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+		<!-- 帮助中心头部 -->
+		<div id="user_header">
+			<div class="wrap-and">
+				<div class="user_logo clear fl">
+					<div class="logo_img fl"><img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" /></div>
+					<h1 class="l_title fl">联系方式</h1>
+					<ul class="help_main_nav_tab">
+
+<!-- 
+						<?php
+							$_catid = ($catid == 1) ? 2 : $catid;
+							$_top_catid = id_in_arrchildid(2, $_catid) ? 2 : 3;
+						?>
+						{pc:document action="category" catid="1" num="2"}
+						{loop $data $r}
+						<li class="{if (id_in_arrchildid($r[catid], $_catid))} active{/if}"><a href="{$r[url]}">{$r[catname]}</a></li>
+						{/loop}
+						{/pc} -->
+					<!-- 	<li><a href="help_tmp.html">试客中心</a></li>
+						<li class="active"><a href="help_shops_tmp.html">商家中心</a></li> -->
+					</ul>
+				</div>
+				<div class="help_search">
+					<form  method="get">
+						<input type="hidden" name="m" value="Document">
+						<input type="hidden" name="c" value="Index">
+						<input type="hidden" name="a" value="search_help">
+						<input type="hidden" name="catids" value="{$catid}" class="catids">
+						<div class="txt fl"><input placeholder="有问题试着搜" type="text" name="keywords" value="{$_GET[keywords]}"  /></div>
+						<input class="fl nav_sub" type="submit" value="搜索"/>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>{if $type == 5}VIP公告{elseif $type == 3}官方公告{elseif $type == 2}招商公告{else}最新消息{/if}</b>
+				</p>
+			</div>
+			
+			<div class="wrap-and clear">
+
+				<div class="help_left fl">
+
+					
+					<h2 class="title">
+						公告管理
+					</h2>
+
+				
+					
+					<dl class="nav_list">
+
+						
+<!-- 						<dt>{$r[catname]}</dt>
+ -->						
+						
+						<dd><a href="{$rs[url]}">{$rs[catname]}</a></dd>
+
+					<dd><a href="{U('navigation/index/index')}">站点导航...</a></dd>
+					<dd><a href="{U('document/index/lists',array('catid'=>83))}" {if $catid == 83}class="active"{/if}>关于我们...</a></dd>
+					<dd><a href="{U('document/index/lists',array('catid'=>88))}" {if $type == 88}class="active"{/if}>联系我们...</a></dd>
+					<dd><a href="{U('document/index/lists',array('catid'=>2))}" {if $type == 2}class="active"{/if}>帮助中心...</a>
+					</dd>
+					</dl>
+				</div>
+				<div class="help_right fr">
+					<div class="box">
+						
+						<h3 class="title">{if $catid==83}关于我们{elseif $catid==88}联系方式{elseif $catid==2}帮助中心{else}站点导航{/if}</h3>
+						
+						<div class="content">
+							
+							<div class="help_wt" >
+								<div class="about_content">
+
+									<dl>
+						<dt>新浪微博：</dt>
+						<dd><a href="{C('xinlang')}" alt="#" title="新浪微博" target="view_window">{C('xinlang')}</a></dd>
+					</dl>
+					<dl>
+						<dt>腾讯微博：</dt>
+					
+						<dd><a href="{C('tengxun')}" alt="#" title="腾讯微博" target="view_window">
+						{C('tengxun')}</a></dd>
+					</dl>
+					<dl>
+						<dt>联系电话: </dt>
+						<dd>{C('site_contact_tel')}</dd>
+					</dl>
+					<dl>
+						<dt>联系邮箱: </dt>
+						<dd>{C('site_contact_email')}</dd>
+					</dl>
+					<dl>
+						<dt>详细地址：</dt>
+						<dd>{C('site_contact_address')}</dd>
+					</dl>
+					<dl>
+						<dt>工作日: </dt>
+						<dd>{C('site_work_day')}</dd>
+					</dl>
+					<dl>
+						<dt>客服QQ: </dt>
+						<dd>{C('site_contact_qq1')}</dd>
+					</dl>
+
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+		{include template('footer','common')}

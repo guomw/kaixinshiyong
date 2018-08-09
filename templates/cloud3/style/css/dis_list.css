@@ -1,0 +1,39 @@
+.wrap_banner { width:100%; height:129px; float:left; margin:20px 0 30px; }
+.wrap_banner .hide { overflow:hidden; width:1106px; height:100%; float:left; position:relative; }
+.next_top,.prev_top { outline:none; height:100%;display:block; width:37px; float:left; }
+.prev_top { background:url(../images/pages_style_01_pre_off.png) no-repeat center center; }
+.prev_top:hover { background:url(../images/pages_style_01_pre_no.png) no-repeat center center; }
+.next_top { background:url(../images/pages_style_01_next_off.png) no-repeat center center; }
+.next_top:hover { background:url(../images/pages_style_01_next_no.png) no-repeat center center; }
+.hide .shopa_logo { height:100%; width:301%; position:absolute; left:0; top:0; }
+.hide .shopa_logo li { float:left; border:solid 1px #ddd; width:1104px; height:127px; }
+.hide .shopa_logo li a { display:block; width:137px; height:63px;float:left;border-right:solid 1px #ddd; }
+.hide .shopa_logo li .border_none { border-right:none; }
+.b_b_solid_ddd {width:100%; height:1px; background:#ddd;float:left; }
+
+.box_wrap { width:1164px; height:auto; float:left; padding:0 8px; }
+.box_title { width:100%; height:47px; line-height:47px; float:left;border-bottom:solid 1px #ddd; }
+.box_title > a { color:#706db2; padding:0 10px; display:inline-block; height:100%; }
+.box_title a font { color:#f46993; margin-left:5px; }
+.box_title .a_link { color:#f46993; border-bottom:solid 1px #3490fd; }
+.box_wrap .box { background:#fff; padding:20px 12px; width:363px; height:auto; float:left; border-right:solid 1px #f1f1f1; }
+.box_wrap .box li { width:100%; height:auto; float:left; }
+.box_wrap .box li .big_img { float:left; width:100%; height:217px; }
+.box_wrap .box li .big_img img { width:100%; height:217px; }
+.box_wrap .box .shop_name{ margin-top:12px; }
+.box_wrap .box .shop_name b { font-size:14px; font-weight:700; line-height:34px; float:left; }
+.box_wrap .box .shop_name a { float:right; }
+.box_wrap .box .shop_name a img { height:34px; width:85px; }
+.box_wrap .box .etp_intro span{ float:left; }
+.box_wrap .box .etp_intro span .set_h{ color:#999; height:25px; }
+.box_wrap .box .etp_intro span .s_c_m{ color:#f46993; font-size:20px; font-weight:700; margin:0 5px; }
+.box_wrap .box .etp_intro > a{ float:right; width:116px; height:35px; line-height:35px; text-align:center; margin-top:12px; }
+.btn_style_001 { color:#fff; background:#3a8eff; border-radius:3px; }
+.b_b_solid_f1f1f1 { background:#f1f1f1; float:left; width:100%; height:1px; }
+
+/* 修改翻页 */
+.pages{ margin:20px 0 30px 450px; }
+.pages .active { color:#ff6600; border-color:#ff6600; }
+.pages a:hover { color:#ff6600; border-color:#ff6600; }
+.pages .prev:hover { color:#fff; border-color:#ff6600; background:#ff6600; }
+.pages .next:hover { color:#fff; border-color:#ff6600; background:#ff6600; }

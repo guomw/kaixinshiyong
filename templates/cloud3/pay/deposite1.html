@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户提现-{C('WEBNAME')}</title>
+<meta name="Keywords" content="用户提现,商家会员中心,{C('WEBNAME')}" />
+<meta name="Description" content="用户提现,商家会员中心,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/withdraw.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+<body>
+<?php $modelid = model('member')->getFieldByUserid($userid,'modelid');?>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{if $modelid == 1}
+	{include template('header','member/common')}
+	{else}
+	{include template('merchant_header','member/common')}
+	{/if}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{if $modelid == 1}
+			<div class="nav_path">
+		<a href="{__APP__">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>&nbsp;>
+		<a href="{U('Pay/Index/deposite'" class="nav_active">提现</a>
+</div>
+			{include template('member_left','member/common')}
+			{else}
+			<div class="nav_path">
+		<a href="{__APP__">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>&nbsp;>
+		<a href="{U('Pay/Index/deposite',array('userid'=>$userid))}" class="nav_active">提现</a>
+</div>
+			{include template('merchant_left','member/common')}
+			{/if}
+			<script type="text/javascript">
+				$(function(){
+					function aaa(n){ var s = n.index(); return s-1; }
+					$('.w_sort > a').click(function(){ 
+						var data = $(this).attr('data-id');
+						$("#paypal").attr('value',data);
+						$('.w_sort > a').removeClass('a_active'); 
+						$(this).addClass('a_active');  
+						$('.w_s_h b').addClass('display_none'); 
+						$('.w_s_h b:eq('+aaa($(this))+')').removeClass('display_none'); 
+					});
+					$(".sub_btn").click(function(){
+						$("#myform").submit();
+					});
+				});
+			</script>
+			<div class="content_right float_right">
+				<h1 class="c_r_title">提现</h1>
+				<form action="{U('Pay/Index/deposite')}" method="post" name="myform" id="myform">
+				<ul class="withdraw">
+					<li>账户余额：<b class="s_color">{$money}</b>元</li>
+					<li>选择提现方式：</li>
+					<li>
+						{if in_array('bank',$type)}
+						<label><input type="radio" name="type" value="1" />提现到银行卡 </label>
+						{/if}
+						<span id="bankmsg" style="color:red;"></span>
+						<br /><br />
+						 {if in_array('alipay',$type)}
+						 <label><input type="radio" name="type" value="2"  />提现到支付宝</label>
+						 {/if}
+						 <span id="alipaymsg" style="color:red;"></span>
+					</li>
+					<li style="margin-top:40px;"><span>提现金额：</span><input type="text" name="money" id="money" value=""/><span>元</span></li>
+					<li class="w_sort"><span>提现模式：</span>
+						<a href="#" class="a_active" data-id='1'>普通提现</a>
+						<a href="#" data-id='2'>快速提现</a>
+						<input type="hidden" name="paypal" id="paypal" value="1"/>
+					</li>
+					<li class="w_s_h">到账时间：<b>{$common[time]}小时到账（无手续费）</b><b class="display_none">最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账<span id="totalmoney"></span>元</b></li>
+					<li><a href="javascript:;" class="sub_btn">提交</a></li>
+				</ul>
+				</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		$("#money").blur(function(){
+			var _money = $(this).val();
+			$.get('{U('Pay/Index/total_money')}',{money:_money},function(data){
+				$("#totalmoney").text(data);
+			},'json');
+		});
+		//判断是否绑定
+		$.get('{U('Pay/Index/check')}',function(data){
+			if(data.status == 0){
+				if(data.info == 'bank'){
+					$("input[name='type'][value='1']").attr({"disabled":true});
+					$("#bankmsg").html("您还未绑定银行卡账号，请先<a target='_blank' href='"+data.url+"'>去绑定</a>。");
+				}
+				if(data.info == 'alipay'){
+					$("input[name='type'][value='2']").attr({"disabled":true});
+					$("#alipaymsg").html("您还未绑定支付宝账号，请先<a target='_blank' href='"+data.url+"'>去绑定</a>。");
+				}
+				if(data.info == 'all'){
+					$("input[name='type'][value='1']").attr({"disabled":true});
+					$("input[name='type'][value='2']").attr({"disabled":true});
+					$("#bankmsg").html("您还未绑定银行卡账号，请先<a target='_blank' href='{U('Member/Attesta/bank_attesta')}'>去绑定</a>。");
+					$("#alipaymsg").html("您还未绑定支付宝账号，请先<a target='_blank' href='{U('Member/Attesta/Alipay_attesta')}'>去绑定</a>。");
+				}
+			}
+		},'json');
+	});
+	</script>
+{include template('footer','common')}
+	<style type="text/css">
+		.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+		.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+		.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+		.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+		.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+		.onLamp{background-position:3px -200px}
+		.onTime{background-position:3px -1356px}
+	</style>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+	<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+var multiple_money = <?php echo $pay_setting['multiple_money'];?>;
+var min_money = <?php echo $pay_setting['min_money'];?>;
+$("#money").formValidator({
+	empty:false,
+	onempty:'提现金额不能为空',
+	onshow:"请输入提现金额,金额需为" + multiple_money + '倍数',
+	onfocus:"请输入提现金额"
+}).functionValidator({
+	fun:function(val,elem){
+		if(val < min_money){
+			return "提现金额不能小于" + min_money;
+		}else if (val % multiple_money != 0){
+			return "提现金额需是" + multiple_money + "倍数";
+		}else if(Number(val) > Number($(".s_color").text())){
+			return '提现金额不能大于您的余额，请重新输入';
+		}else{
+			return true;
+		}
+	}
+}).regexValidator({
+	regexp:'num1',
+	datatype:'enum',
+	onerror:"提现输入错误"
+});
+//-->
+</script>

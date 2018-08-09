@@ -1,0 +1,36 @@
+<ion-view view-title="我的支付宝">
+    <ion-content style="background-color:#F8F8F8">
+        <ion-list >
+
+            <form name="myform" novalidate="false">
+
+                <div class="list list-inset new-form">
+                   <label class="item item-icon-left item-icon-right " > 
+                    <i style="font-size:18px;color:#47a8ef
+" class="icon ion-person placeholder-icon"></i>
+                        {{user_Real_name }} 
+                        <i class="item-note" style="font-size:14px;">
+                       {{name_authentication_status  | f_name_status   }}
+                      </i>
+                    </label>
+
+                    <label class="item item-input" > 
+                    <i style="font-size:18px;color:#ff6000" class="icon ion-card placeholder-icon" ></i>
+                    <div class="input-label padding-left ">支付宝</div>
+                        <input type="text" ng-pattern="/^(1[3|4|5|8][0-9]\d{8}|([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+)$/" ng-model="user_allpay" name="user_allpay" placeholder="请输入您的支付宝"  required></label>
+
+                </div>
+
+                <p style="color:#A9A9A9" class="padding-left">1.支付宝帐号绑定之后，如需修改联系平台客服。</p>
+                <p style="color:#A9A9A9" class="padding-left">2.只能绑定实名认证本人支付宝。</p>
+                <p style="color:#A9A9A9" class="padding-left">3.平台支持快速提现支付宝.最快2小时到账。</p>
+                <div class="padding-left padding-right" >
+                    <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edilt_allpay(user_allpay)">提交</button>
+                </div>
+
+            </form>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

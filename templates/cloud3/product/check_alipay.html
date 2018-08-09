@@ -1,0 +1,55 @@
+<body>
+    <head>
+        <style>
+            body {margin: 0;}
+            .ling{height:35px;background:#d02221;line-height:35px;}
+            .ling strong{float:left;color:#ffffff;font-size:16px;margin-left:10px;margin-top:3px;}
+            .ling a{float:right;margin-right:10px;display:block;width:25px;height:25px;margin-top:7px;}
+            .ling_h{color:#000000;font-size:16px;line-height:30px;padding-top:60px;margin-bottom:45px;}
+            .ling_mian .qdingann{display: block; width: 100px; height: 30px; font-size: 16px;
+                                 margin: 15px auto 0 auto; border: 1px solid #cccccc; text-align: center;
+                                   line-height: 27px;color: #333333
+            }
+            .Choice{ text-align: center; color: #323232; font-size: 18px;margin-top: 20px;/*height: 40px*/}    
+        .pulldown{ width: 186px; height: 26px;margin: -4px auto 0 auto} 
+        .pull{ width: 185px; height: 26px; border: 1px solid #7f9db9; cursor: pointer;margin-top: 15px;}  
+        .taobao{ text-align: center; margin-top: 26px;} 
+        .taobao p{ font-size: 12px; color: #444444; line-height:8px;} 
+
+        </style>
+        <link href="{JS_PATH}dialog/skins/default.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+        <script>
+            function checktaobao() {
+                var taobao = $(this).siblings('.pulldown').children('#taobao').val();
+                if (taobao == "") {
+                    alert("请选择淘宝账号");
+                }
+            }
+        </script>
+    </head>
+    <div id="choosetaobao" class="">
+        <div class="ling_mian">
+        	{if empty($rs)}
+        	<div class="Choice" id="errorMsg">
+               	你还没有绑定淘宝账号，<a href="{U('Member/Attesta/bindtaobao')}" target="_blank"style="float: right;text-decoration: blink;color: #0d92e7">去绑定</a>
+            </div>
+        	{else}
+            <div class="Choice" id="errorMsg">
+               	请选择本次下单的淘宝账号
+            </div>
+            <div class="pulldown">
+                <select id="taobao" name="cars" class="pull">
+                    {loop $rs $r}
+                    <option value="{$r['id']}">{$r[account]}</option>
+                    {/loop}
+                </select>
+            </div>
+            {/if}
+            <div class="taobao">
+                <p style="color: red;margin-bottom:10px;"> 必须使用选择的淘宝账号下单 </p>
+                <p style="color: red"> 否则将不予返款同时冻结账户</p>
+            </div>
+        </div>
+    </div>
+</body>

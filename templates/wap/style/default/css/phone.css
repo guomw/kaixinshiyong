@@ -1,0 +1,195 @@
+*{margin:0;padding:0;}
+/*html,body{margin:0;padding:0; font-family: "微软雅黑";}*/
+html,body{margin:0;padding:0; font-family: "微软雅黑";height:100%;width:100%;font-size:62.5%;}
+a{text-decoration:none;}
+.clearFix:after{
+	clear:both;
+	display:block;
+	visibility:hidden;
+	height:0;
+	line-height:0;
+	content:"";
+}/*清除浮动*/
+.clearFix{zoom:1;}/*清除浮动*/
+/*index*/
+/*.mainv{min-height: 2152px;}*/
+.mainv{max-height: 2152px;width:100%; height:100%;}
+/*.banner{width:1242px;height:559px;margin:0 auto;}*/
+.banner{max-width:1242px; width:100%; margin:0 auto;}
+.banner img{width:100%;height:100%;}
+/*.main{width:1242px;height:558px;margin:0 auto;}*/
+.main{width:100%;height:100%;;margin:0 auto;}
+/*.main p{text-align:center; font-size:30px; line-height: 30px; color:#282828;}*/
+.main p{text-align:center; font-size:3rem; /*line-height: 1.875em; */color:#282828;}
+/*.main p:first-child{margin-top:40px;}*/
+.main p:first-child{margin-top:3rem;}
+/*.main p:nth-child(2){margin-top:30px;}*/
+.main p:nth-child(2){margin-top:2rem;}
+/*.main p:nth-child(3){margin-top:40px;color:#e42012; }*/
+.main p:nth-child(3){margin-top:3rem;color:#e42012; }
+.main form {}
+.main .phone{}
+/*.main .phone-input{display:block;float:left;margin-left:420px;width:360px;height:90px;border: solid 1px  #282828;
+					padding-left:40px; margin-top:38px;color:#282828; font-size:24px;float:left;}*/
+.main .phone-input{display:block;margin:0 auto;width:30%;height:9rem;border: solid 1px  #282828;
+					padding-left:3.2%; margin-top:3.8rem;color:#282828; font-size:2.4rem;}
+.main .ok {font-size:1.8rem;color:#e42012;display:block;padding-top:1rem; margin:0 auto;width:22.5%;}
+/*.main .ok  img {padding-right:20px; font-size:18px;color:#e42012;  vertical-align:middle;margin-top:-5px;}*/
+.main .ok  img {padding-right:2rem; font-size:1.8rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem;}
+/*.main .phone-bottom{ display:block;margin:100px auto;text-align: center; width:250px; 
+					height:78px;font-size: 30px;color:#fdfdfd;background:#e42012; border:none; border-radius: 7px;}*/
+.main .phone-bottom{ display:block;margin:10rem auto; auto;text-align: center; width:20%; 
+					height:7.8rem;font-size: 3rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;}
+/*index2*/
+		
+.main-s{max-width:1242px;height:45%;margin:0 auto;width:100%;}					
+.main-s p{text-align:center; font-size:3rem; color:#282828;}
+.main-s p{margin-top:4rem;color:#e42012; }
+.main-s form{border:sold red 1px;}
+.main-s .phonediv .phone-number-p {margin-left:31.2%;font-size:2.4rem;color:black;  text-align: left; display:block;float:left;}
+.main-s .phone-s{}
+.main-s .phone-s .phone-bottom{ display:block; margin-top:4rem;margin-left:32.5%; auto;text-align: center; width:20.1%; 
+					height:8rem;font-size: 3rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;float:left;}
+.main-s .phone-s .phone-input{display:block;float:left;margin-left:1.93%;width:10.14%;height:8rem;border: solid 1px  #282828;
+					padding-left:3.22%; margin-top:4rem;color:#282828; font-size:2.4rem;float:left;}
+.main-s .phone-s .ok {font-size:1.8rem;color:#e42012;display:block; float:left;margin-left:3.05%;line-height: 8rem;margin-top:4rem;}
+.phone-s .ok img {padding-right:2rem; font-size:1.8rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem;}
+.main-s .phone-s .interpassword p{text-align:center; font-size:3rem; margin-top:4rem;color:#e42012;}
+.main-s .phone-password{width:80%;margin-left:22.86634460547504%;}
+.main-s .phone-password .i-p {font-size:2.4rem;color:#282828;display:block; float:left;
+							margin-left:4.62962962962963%;line-height: 8rem;margin-top:4rem;}
+.main-s .phone-password .i-p span{color:#e42012;}
+.main-s .phone-password .pasinto{display:block;float:left;margin-left:0.8%;width:22.54%;height:8rem;border: solid 1px  #282828;
+					padding-left:1.6%; margin-top:4rem;color:#282828; font-size:2.4rem;float:left;}					
+.main-s .phone-password .ok {font-size:1.8rem;color:#e42012;display:block; float:left;margin-left:3.05%;line-height: 8rem;margin-top:4rem;}
+.main-s .phone-password .ok img {padding-right:2rem; font-size:1.8rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem;}
+.main-s .phone-password .i-p-2 {font-size:2.4rem;color:#282828;display:block; float:left;line-height: 8rem;margin-top:4rem;}
+.main-s .phone-password .i-p-2 span{color:#e42012;}
+.main-s  .phone-bottom1{ display:block; margin: 10rem auto;text-align: center; width:20.1%; 
+					height:7.8rem;font-size: 3rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;}
+
+/*index3*/
+.mainv3{min-height: 2152px; }
+.banner3{max-width:1242px; width:100%; margin:0 auto;}
+.banner3 img{width:100%;height:100%;}
+.main3{max-width:1242px;height:45%;margin:0 auto;width:100%;}
+.main3 p{text-align:center; font-size:3rem;  color:#282828;margin-top:1.8rem;color:#E42012;}
+.main3 p:first-child{margin-top:4rem;}
+
+.main3 .app{margin:0 auto;margin-top:40px;text-align: center;}
+.main3 .app .iphone{display:inline-block; margin-right:140px;padding-bottom:20px;}
+.main3 .app .iphone{display:inline-block; margin-right:11.27214170692432%;padding-bottom:2rem;}
+.main3 .app .iphone a img {margin:0 auto; }
+.main3 .app .iphone a p {color:#282828;margin-top:3rem;line-height:3rem;}
+.main3 .app .android{/*float:left;*/ display:inline-block;}
+.main3 .app .android a img {margin:0 auto;}
+.main3 .app .android a p {color:#282828;margin-top:3rem;line-height:3rem;}
+
+@media (min-width:800px) and (max-width:1248px) {
+
+	.main p{font-size:30px}
+	.main .phone-input{font-size:24px;height:90px}
+	.main .ok {font-size:18px;color:#e42012;display:block;padding-top:10px; margin:0 auto;width:280px;}
+	.main .ok  img {padding-right:20px;font-size:18px; margin-top:-5px;}
+	.main .phone-bottom{ display:block;margin:100px auto;text-align: center; width:250px; 
+					height:78px;font-size: 30px;color:#fdfdfd;background:#e42012; border:none; border-radius: 7px;}
+	
+	}
+@media (min-width:400px) and (max-width:800px) {
+
+	.main p{font-size:20px}
+	.main .phone-input{ font-size:16px;height:60px}
+	.main .ok {font-size:12px;color:#e42012;display:block;padding-top:7px; margin:0 auto;width:168px;}
+	.main .ok  img {padding-right:13.2px;font-size:12px; margin-top:-3px;}
+	.main .phone-bottom{ display:block;margin:66px auto;text-align: center; width:166px; 
+					height:52px;font-size: 20px;color:#fdfdfd;background:#e42012; border:none; border-radius: 5px;}
+					
+					
+	.main-s{max-width:1242px;height:45%;margin:0 auto;width:100%;}					
+	.main-s p{text-align:center; font-size:2rem; color:#282828;}
+	.main-s p{margin-top:3rem;color:#e42012; }
+	.main-s form{border:sold red 1px;}
+	.main-s .phonediv .phone-number-p {margin-left:31.2%;font-size:1.8rem;color:black;  text-align: left; display:block;width:100%; text-align:center;margin-left:0;}
+	.main-s .phone-s{}
+	.main-s .phone-s .phone-bottom{ display:block; margin-top:3rem;margin-left:10%; auto;text-align: center; width:30%; 
+						height:4rem;font-size: 2rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;float:left;}
+	.main-s .phone-s .phone-input{display:block;float:left;margin-left:1.93%;width:30%;height:4rem;border: solid 1px  #282828;
+						padding-left:3.22%; margin-top:3rem;color:#282828; font-size:2rem;float:left;}
+	.main-s .phone-s .ok {font-size:1.5rem;color:#e42012;display:block; float:left;margin-left:10%;line-height: 4rem;margin-top:1rem;}
+	.phone-s .ok img {padding-right:1.5rem; font-size:1.5rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem; width:18px;height:18px;}
+	.main-s .phone-s .interpassword p{text-align:center; font-size:2rem; margin-top:3rem;color:#e42012;}
+	.main-s .phone-password{width:80%;margin-left:22.86634460547504%;}
+	.main-s .phone-password .i-p {font-size:1.8rem;color:#282828;display:block; float:left;
+								margin-left:4.62962962962963%;line-height: 4rem;margin-top:3rem;}
+	.main-s .phone-password .i-p span{color:#e42012;}
+	.main-s .phone-password .pasinto{display:block;float:left;margin-left:0.8%;width:50%;height:4rem;border: solid 1px  #282828;
+						padding-left:1.6%; margin-top:3rem;color:#282828; font-size:1.8rem;float:left;}					
+	.main-s .phone-password .ok {font-size:1.5rem;color:#e42012;display:block;margin-left:3.05%;line-height: 4rem;margin-top:3rem;}
+	.main-s .phone-password .ok img {padding-right:1.5rem; font-size:1.5rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem;width:18px;height:18px;}
+	.main-s .phone-password .i-p-2 {font-size:1.8rem;color:#282828;display:block; float:left;line-height: 4rem;margin-top:3rem;}
+	.main-s .phone-password .i-p-2 span{color:#e42012;}
+	.main-s  .phone-bottom1{ display:block; margin: 5rem auto;text-align: center; width:30%; 
+						height:5rem;font-size: 3rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;}
+	
+	.main3{max-width:1242px;height:45%;margin:0 auto;width:100%;}
+	.main3 p{text-align:center; font-size:2rem;  color:#282828;margin-top:1.8rem;color:#E42012;}
+	.main3 p:first-child{margin-top:2rem;}
+	
+	.main3 .app{margin:0 auto;margin-top:40px;text-align: center;}
+	.main3 .app .iphone{display:inline-block; margin-right:140px;padding-bottom:20px;}
+	.main3 .app .iphone{display:inline-block; margin-right:11.27214170692432%;padding-bottom:2rem;}
+	.main3 .app .iphone a img {margin:0 auto;height:10rem;width:10rem; }
+	.main3 .app .iphone a p {color:#282828;margin-top:3rem;line-height:3rem;}
+	.main3 .app .android{/*float:left;*/ display:inline-block;}
+	.main3 .app .android a img {margin:0 auto;height:10rem;width:10rem;}
+	.main3 .app .android a p {color:#282828;margin-top:3rem;line-height:3rem;}
+	
+	}
+@media (min-width:0px) and (max-width:400px) {
+	.main p{font-size:10px }
+	.main .phone-input{font-size:8px;height:30px}
+	.main .ok {font-size:8px;color:#e42012;display:block;padding-top:3px; margin:0 auto;width:84px;}
+	.main .ok  img {padding-right:6.6px;font-size:8px; margin-top:-1px;height:12px;width:12px;}
+	.main .phone-bottom{ display:block;margin:30px auto;text-align: center; width:83px; 
+					height:26px;font-size: 10px;color:#fdfdfd;background:#e42012; border:none; border-radius: 2px;}
+	.main-s{height:150%;margin:0 auto;width:100%; }					
+	.main-s p{text-align:center; font-size:1rem; color:#282828; margin-top:10px;}
+	.main-s p{margin-top:2rem;color:#e42012; }
+	.main-s form{border:sold red 1px;}
+	.main-s .phonediv { text-align:center;}
+	.main-s .phonediv .phone-number-p { color:black;font-size:10px;width:100%; text-align:center;display:block;margin-top:10px;margin-left:0;}
+	.main-s .phone-s{}
+	.main-s .phone-s .phone-bottom{ display:inline-block; margin-top:2rem;margin-left:15%; auto;text-align: center; width:30%; 
+						height:2rem;font-size: 1rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.4rem;float:left;}
+	.main-s .phone-s .phone-input{display:block;float:left;margin-left:1.93%;width:30%;height:2rem;border: solid 1px  #282828;
+						padding-left:3.22%; margin-top:2rem;color:#282828; font-size:1rem;float:left;}
+	.main-s .phone-s .ok {font-size:10px;color:#e42012;display:block; margin-left:15%;line-height: 2rem;margin-top:1rem;}
+	.phone-s .ok img {padding-right:1rem; font-size:1.8rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem;width:12px;height:12px;}
+	.main-s .phone-s .interpassword p{text-align:center; font-size:1rem; margin-top:4rem;color:#e42012;}
+	.main-s .phone-password{width:80%;margin-left:22.86634460547504%;}
+	.main-s .phone-password .i-p {font-size:1rem;color:#282828;display:block; float:left;
+								margin-left:4.62962962962963%;line-height: 2rem;margin-top:2rem;}
+	.main-s .phone-password .i-p span{color:#e42012;}
+	.main-s .phone-password .pasinto{display:block;float:left;margin-left:0.8%;width:40%;height:2rem;border: solid 1px  #282828;
+						padding-left:1.6%; margin-top:2rem;color:#282828; font-size:1rem;float:left;}					
+	.main-s .phone-password .ok {font-size:1rem;color:#e42012;display:block; float:left;margin-left:3.05%;line-height: 2rem;margin-top:1rem;}
+	.main-s .phone-password .ok img {padding-right:1rem; font-size:1rem;color:#e42012;  vertical-align:middle;margin-top:-0.5rem; width:12px; height:12px;}
+	.main-s .phone-password .i-p-2 {font-size:1rem;color:#282828;display:block; float:left;line-height: 2rem;margin-top:2rem;margin-left:-4%;}
+	.main-s .phone-password .i-p-2 span{color:#e42012;}
+	.main-s  .phone-bottom1{ display:block; margin: 5rem auto;text-align: center; width:30%; 
+						height:3rem;font-size: 2rem;color:#fdfdfd;background:#e42012; border:none; border-radius: 0.7rem;}
+	
+	.main3{max-width:1242px;height:45%;margin:0 auto;width:100%;}
+	.main3 p{text-align:center; font-size:1rem;  color:#282828;margin-top:1.5rem;color:#E42012;}
+	.main3 p:first-child{margin-top:2rem;}
+	
+	.main3 .app{margin:0 auto;margin-top:2rem;text-align: center;}
+	.main3 .app .iphone{display:block; margin-right:10rem;padding-bottom:2rem;}
+	.main3 .app .iphone{display:block; margin-right:/*11.27214170692432%*/0;padding-bottom:2rem;}
+	.main3 .app .iphone a img {margin:0 auto;width:8rem;height:8rem; }
+	.main3 .app .iphone a p {color:#282828;margin-top:1rem;line-height:1rem;}
+	.main3 .app .android{/*float:left;*/ display:block;}
+	.main3 .app .android a img {margin:0 auto; width:8rem;height:8rem;}
+	.main3 .app .android a p {color:#282828;margin-top:1rem;line-height:1rem;}
+	}
+

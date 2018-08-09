@@ -1,0 +1,67 @@
+<div class="fl u_index_silde">
+					
+	<div class="user_bor">
+	{if C('TRIAL_ISOPEN') == 1}
+		<dl class="i_u_s_list">
+			<dt>试用管理</dt>
+			<dd {if ACTION_NAME == 'select_trial' && $_GET['mod'] == 'trial'}class="active"{/if}><a href="{U('Member/MerchantProduct/select_trial',array('mod'=>'trial'))}">发布试用</a></dd>
+			<dd {if ACTION_NAME == 'activity' && $_GET['mod'] == 'trial'}class="active"{/if}><a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial'))}">试用管理</a></dd>
+		</dl>
+	{/if}
+	
+	 {if C('COMMISSION_ISOPEN') == 1}
+		<dl class="i_u_s_list">
+			<dt>{C('COMMISSION_NAME')}管理</dt>
+			<dd {if ACTION_NAME == 'add' && $_GET['mod'] == 'commission'}class="active"{/if}><a href="{U('Member/MerchantProduct/add',array('mod'=>'commission'))}">发布{C('COMMISSION_NAME')}</a></dd>
+			<dd {if ACTION_NAME == 'activity' && $_GET['mod'] == 'commission'}class="active"{/if}><a href="{U('Member/MerchantProduct/activity',array('mod'=>'commission'))}">活动管理</a></dd>
+		</dl>
+     {/if}    
+
+	{if C('REBATE_ISOPEN') == 1}
+		<dl class="i_u_s_list">
+			<dt>{C('REBATE_NAME')}管理</dt>
+			<dd {if ACTION_NAME == 'add' && $_GET['mod'] == 'rebate'} class="active" {/if}><a href="{U('Member/MerchantProduct/add',array('mod'=>'rebate'))}">发布返利活动</a></dd>
+			<dd {if ACTION_NAME == 'activity' && $_GET['mod'] == 'rebate'}class="active"{/if}><a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate'))}">活动管理</a></dd>
+		</dl>
+	{/if}
+
+	{if C('TASK_ISOPEN') == 1}
+		<dl class="i_u_s_list">
+			<dt>日赚任务管理</dt>
+			<dd {if ACTION_NAME == 'task_add'}class="active"{/if} ><a href="{U('Member/MerchantTask/task_add')}">发布日赚任务</a></dd>
+			<dd {if ACTION_NAME == 'task_list'}class="active"{/if}><a href="{U('Member/MerchantTask/task_list')}">活动管理</a></dd>
+		</dl>
+	{/if}
+
+
+	{if C('POSTAL_ISOPEN') == 1}
+	<dl class="i_u_s_list">
+		<dt>包邮活动管理</dt>
+		<dd {if ACTION_NAME == 'add' && $_GET['mod'] == 'postal'}class="active" {/if}><a href="{U('Member/MerchantProduct/add',array('mod'=>'postal'))}">发布{C('POSTAL_NAME')}</a></dd>
+		<dd {if ACTION_NAME == 'activity' && $_GET['mod'] == 'postal'}class="active"{/if}><a href="{U('Member/MerchantProduct/activity',array('mod'=>'postal'))}">活动管理</a></dd>
+	</dl>
+	{/if}
+
+		<dl class="i_u_s_list">
+			<dt>申诉管理</dt>
+			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == -1}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage',array('state'=>-1))}">申诉管理</a></dd>
+			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == 0}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage', array('state' => 0))}">待商家处理</a></dd>
+		</dl>
+		
+		<dl class="i_u_s_list">
+			<dt>基本信息</dt>
+			<dd {if ACTION_NAME == 'index' && CONTROLLER_NAME=='Attesta'}class="active"{/if} ><a href="{U('Member/Attesta/index')}">账号信息</a></dd>
+			<dd {if ACTION_NAME == 'complete' && CONTROLLER_NAME=='Merchant'}class="active"{/if}><a href="{U('Member/Merchant/complete')}">店铺资料</a></dd>
+			<dd {if ACTION_NAME == 'pwd' && CONTROLLER_NAME=='Profile'}class="active"{/if} ><a href="{U('Member/Profile/pwd')}">修改密码</a></dd>
+			<dd {if ACTION_NAME == 'get_blacklists'}class="active"{/if} ><a href="{U('Member/order/get_blacklists')}">黑名单管理</a></dd>
+
+		</dl>
+
+		<dl class="i_u_s_list">
+			<dt>财务管理</dt>
+			<dd {if ACTION_NAME == 'pay' && CONTROLLER_NAME=='Index'}class="active"{/if} ><a href="{U('Pay/Index/pay')}">快速充值</a></dd>
+			<dd {if ACTION_NAME == 'deposite' && CONTROLLER_NAME=='Index'}class="active"{/if}><a href="{U('Pay/Index/deposite')}">快速提现</a></dd>
+			<dd {if ACTION_NAME == 'index' && CONTROLLER_NAME =='Financial'}class="active"{/if}><a href="{U('Member/Financial/index')}" >账单明细</a></dd>
+		</dl>
+	</div>
+</div>

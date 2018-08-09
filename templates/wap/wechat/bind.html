@@ -1,0 +1,85 @@
+{include template('header','common')}
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">微信绑定</strong>
+			<a href="{U('Member/Index/register',$param)}" class="t-link fr c-white">注册</a>
+		</div>
+		<div class="content bg-f0f0f0 min-height">
+			<form action="{U('bind')}" name="myform" id="myform" method="post">
+			{loop $param $k $v}
+			<input type="hidden" name="{$k}" value="{$v}">
+			{/loop}
+			<div class="kik-bind">
+				<ul class="kik-import">
+					<ol class="flow clear">
+						<li class="kik"><img src="{THEME_STYLE_PATH}style/default/images/kik-icon.png" alt="" /></li>
+						<li class="arrive"><img src="{THEME_STYLE_PATH}style/default/images/flow-icon.png" alt="" /></li>
+						<li class="home"><img src="{THEME_STYLE_PATH}style/default/images/close-btn.png" alt="" /></li>
+					</ol>
+					<dl class="i-c">
+						<dd>
+							<span class="fl">账号：</span>
+							<span class="fl s-w">
+								<p><input type="text" name="account" id="email"/></p>
+							</span>
+						</dd>
+						<dd>
+							<span class="fl">密码：</span>
+							<span class="fl s-w">
+								<p><input type="password" name="password" /></p>
+							</span>
+						</dd>
+					</dl>
+					<dl class="hint">
+						<dt>温馨提示：</dt>
+						<dd>1.请输入您的云划算邮箱，密码进行绑定。</dd>
+						<dd>2.如果您还没有云划算账号？<span class="c-f60">去注册</span></dd>
+						<dd>3.绑定成功之后&nbsp;可以实时获得订单通知，优惠信息！</dd>
+					</dl>
+				</ul>
+				<p class="kik-submit">
+					<a href="javascript:;" class="btn-s-03" id="dosubmit">确认绑定</a>
+				</p>
+				</form>
+			</div>
+		</div>
+
+        <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+        <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+
+		<script type="text/javascript">
+            $.formValidator.initConfig({
+                formid:"myform",
+                autotip:true,
+                onerror:function(msg,obj){
+                    $(obj).focus();
+                }
+            });
+
+            $("#email").formValidator({
+                empty:false,
+                onempty:'电子邮箱不能为空',
+                onshow:'请填写您的电子邮箱',
+                onfocus:'请填写您的电子邮箱 或者手机'
+            }).inputValidator({
+                min:1,
+                onerror:'电子邮箱不能为空'
+            })
+
+		var param = <?php echo json_encode($param) ?>;
+		param.account = $("input[name=account]").val();
+		param.password = $("input[name=password]").val();
+		$("#dosubmit").click(function(){
+			$("#myform").submit();
+			// $.post("{U('bind', $param)}", param, function(ret) {
+			// 	if(ret.status == 0) {
+
+			// 	} else {
+
+			// 	}
+			// });
+		})
+		</script>
+{include template('footer','common')}

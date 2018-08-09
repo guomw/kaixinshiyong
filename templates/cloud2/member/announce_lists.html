@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>消息提醒-个人中心-{C('WEBNAME')}</title>
+<meta name="Keywords" content="消息提醒,{C('WEBNAME')}" />
+<meta name="Description" content="消息提醒,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/announcement_list.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/common.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+		var type = '<?php echo $type;?>';
+		$("#onread").click(function(){  
+			//输出选中的值
+			var str="";  
+			$("input[name='announceid[]']:checked").each(function(){  
+				str+=$(this).val()+",";  
+			}); 
+			if(str.length <=0){
+				art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '提示',
+						content:'您没有选择任何站内信！',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+
+				return false;
+			}
+			$.ajax({
+				url:"{U('Member/Announce/read')}",
+				type:'post',
+				dataType:'json',
+				data:{'ids':str,'type':type},
+				success:function(data){
+					if(data == 1){
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content:'标记已读成功',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+						
+					}else{
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content:'系统错误，请稍后再试',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+					}
+				}
+			});
+		});
+		//删除选种值
+		$("#deletecheck").click(function(){
+			//输出选中的值
+			var str="";  
+			$("input[name='announceid[]']:checked").each(function(){  
+				str+=$(this).val()+",";  
+			}); 
+			if(str.length <=0){
+
+				art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '提示',
+						content:'您没有选择任何站内信！',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+				return false;
+
+				}
+			$.ajax({
+				url:"{U('Member/Announce/delete')}",
+				type:'post',
+				dataType:'json',
+				data:{'ids':str,'type':type},
+				success:function(data){
+					if(data == 1){
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content:'删除成功',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+					}else{
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '提示',
+						content:'系统错误，请稍后再试',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+						
+					});
+					}
+				}
+			});
+		});
+
+		//清空所有
+		$("#deleteall").click(function(){
+			$.ajax({
+				url: "{U('Member/Announce/deleteall')}",
+				type:'post',
+				dataType:'json',
+				data:{'type':type},
+				success:function(data){
+					if(data == 1){
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content:'删除成功',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+					}else{
+
+						art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '提示',
+						content:'系统错误，请稍后再试',
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+						
+					});
+						
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	function message_view(id){
+				$.post("{U('Member/Announce/read')}", {
+                ids: id,type:"{$type}"},function(data){
+                	if (data == 1) {
+                		location.reload();
+                	};
+                })
+
+			}
+</script>
+
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{if $modelid == 1}
+{include template('header','member/common')}
+{else}
+{include template('merchant_header','member/common')}
+{/if}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{if $modelid == 1}
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Announce/announce',array('type'=>1))}" class="nav_active">站内信</a>&nbsp;>
+		<a href="{U('Member/Announce/announce',array('type'=>1))}" class="nav_active">{if $type==1}普通消息{else}系统消息{/if}</a>
+</div>	
+{else}
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Announce/announce',array('type'=>1))}" class="nav_active">站内信</a>&nbsp;>
+		<a href="{U('Member/Announce/announce',array('type'=>1))}" class="nav_active">{if $type==1}普通消息{else}系统消息{/if}</a>
+</div>
+{/if}			
+			{if $modelid == 1}
+			{include template('member_left','member/common')}
+			{else}
+			{include template('merchant_left','member/common')}
+			{/if}
+			<div class="content_right float_right">
+				<h2 class="right_title border_bottom_efefef">
+						站内信
+						<a href="{U('Member/Announce/announce',array('type'=>1))}" {if $type == 1}class="a_link"{/if}>普通信息</a>
+						<a href="{U('Member/Announce/announce',array('type'=>2))}" {if $type == 2}class="a_link"{/if}>系统信息</a>
+				</h2>
+				<div class="content_right_announcement">
+					<div class="options">
+						<span style="margin-right:4px;"><input type="checkbox" id="check_box" name="check_box" onclick="selectall('announceid[]');" /></span>
+						<span class="bg" id="onread">标记所选为已读</span>
+						<span class="bg" id="deletecheck">删除</span>
+						<span class="bg" id="deleteall">清空所有</span>
+					</div>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$("#announce a").click(function(){
+						 $(this).parent().next().toggle();
+					});
+
+
+				});
+				</script>
+	
+					<div class="announcement_list">
+						{if empty($announce_lists)}
+						<span>您没有任何的信息！</span>
+						{else}
+						<ul>
+						{loop $announce_lists $a}
+							<li>
+								<div class="float_left" id="announce">
+								{if $type == 1}
+									<span>
+										<input type="checkbox" name="announceid[]" value="{$a[messageid]}" />
+									</span>
+									<span class="announcement_title {if $a['status'] == 1}read{/if}">
+									{else}
+									<span>
+										<input type="checkbox" name="announceid[]" value="{$a[id]}" />
+									</span>
+									<span class="announcement_title {if $a['id'] == $a['group_id']}read{/if}">
+									{/if}
+										<a href="javascript:;" id="announce_title" onclick="{if $type == 1}message_view({$a['messageid']}){else}message_view({$a['id']}){/if};">{$a[subject]}</a>
+									</span>
+									<div style="padding-left:30px;display:none;" id="content">
+									{$a['content']}
+									</div>
+								</div>
+								<div class="float_right"><span>{dgmdate($a[message_time])}</span></div>
+								<div style="clear:both;"></div>
+							</li>
+							{/loop}
+							
+						</ul>
+						{/if}
+					</div>
+					<p class="pages wiHe3 floatLeft">
+						{if empty($announce_lists)} {else}{$pages}{/if}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}

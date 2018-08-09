@@ -1,0 +1,100 @@
+{include template('header','common')}
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/taobao.js"></script>
+<style>
+    .add-box{
+        width: 130%;
+    }
+	.user{
+		display:table-cell;
+		width:16.875%;
+		height:1.1em;
+		position: absolute;
+		top: 0.6875em;
+		right: 0;
+	}
+		
+	.user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+	
+	.login-box > ul{
+		width: 90%;
+	}
+</style>
+<div id="wrapper">
+	<div id="header-style">
+		<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+		<strong class="d-block uset-t-text">淘宝账号绑定</strong>
+		<div class="user">
+            {if is_login()}
+            <a href="{U('Member/Profile/index')}"></a>
+            {else}
+            <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+            {/if}
+		</div>
+	</div>
+	<div class="content bg-f0f0f0 min-height">
+        <div class="login-box">
+            <ul class="clear">
+                <li class="clear">
+                    <div class="add-box">
+                        <span class="fl ta-r f1_5">淘宝账号:</span>
+                        <input type="text" name="taobao" id="taobao" />
+                    </div>
+                </li>
+                <li class="msg f1_5 ta-c" style="padding-top: 0.777778em;"></li>
+            </ul>
+            <p class="at-login">
+                <a href="javascript:;" id="aut_push" class="btn-s-01 onsubmit f1_5">立即绑定</a>
+            </p>
+        </div>
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#taobao").focus(function(){
+			$(".msg").html("请输入淘宝账号");
+		});
+		
+		$("#taobao").blur(function(){
+			var _this = $(this).val();
+			if(_this == ''){
+				$(".msg").html("<font color='red'>淘宝账号不能为空</font>");
+			}else{
+				$(".msg").html("<font color='green'>淘宝账号输入正确</font>");
+			}
+		});
+		
+		$("#aut_push").click(function(){
+			if("" == $("#taobao").val()){
+				$(".msg").html("请输入淘宝账号");
+			}else{
+				$(".msg").html("<font  color='green'>输入正确</font>");
+				$.post("{U('Member/Attesta/bindtaobao')}",{account:$("#taobao").val()},function(data){
+					if(data.status == 1){
+						art.dialog({lock: true,fixed: true,icon: 'succeed',title: '绑定成功',time:3,content: data.info,ok: function (){location.reload();}});
+					}else{
+						art.dialog({lock: true,fixed: true,icon: 'error',title: '绑定失败',content: data.info,ok: function (){location.reload();}});
+					}
+				},"json");
+			}
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.content_wrap { width:1060px; }
+.content_right { width:875px; height:auto; }
+.c_r_title { width:775px; height:30px; padding-top:5px; border-bottom:solid 1px #efefef; text-indent:10px; font-size:14px; }
+.content_right .shop_name { height:auto; margin:18px 0; width:100%; }
+.content_right p { float:left; }
+.content_right .grade { height:30px; line-height:30px; width:100%; }
+.shop_name > .small_img { float:left; width:52px; height:52px; margin:0 14px 0 4px; }
+.shop_n_txt { margin-top:18px; height:24px; line-height:24px; float:left; }
+.shop_n_txt > a { float:left; }
+.s_b_link { padding:0 10px; background:#fff1c9; color:#f70a10; margin-left:55px; border:solid 1px #ff6600; height:100%; float:left; }
+.s_b_link > a { color:#4dbcea; }
+.grade > a { width:16px;display:inline-block;height:16px; float:left; padding:0 2px;  }
+.star_no { background:url(../images/star_no.png) no-repeat center; }
+.star_off { background:url(../images/star_off.png) no-repeat center; }
+.grade_hint { float:left; margin-left:5px; color:#999; line-height:16px; }
+.grade_hint b { margin:0 10px; text-align:center; height:100%; color:#ff6600; }
+.discuss_t { float:left; width:100%; padding-top:30px; height:36px;  }
+.discuss_v { width:516px; height:136px; color:#666; float:left; border:solid 1px #ddd; line-height:20px; padding:0 10px; }
+.user_info { float:left; margin-top:16px; width:100%; height:22px; line-height:22px; }
+.user_info .i_s_w { margin:0 8px; width:52px; height:20px; border:solid 1px #ddd; }
+.user_info .i_s_w2 { width:75px; }
+.try_exp { width:100%; height:64px; line-height:64px; }
+.editor { width:873px; float:left; min-height:190px; border:solid 1px #ddd;  }
+.s_btn { font-size:14px; display:inline-block; line-height:30px; text-align:center; border-radius:3px; width:80px; height:30px; background:#ff6600; color:#fff;  }
+.btn_w { margin-top:37px; width:100%; float:left; }
+/* 发表评价页 */
+.grade_m_t { margin-top:25px; }
+.up_dir { width:780px; float:left; height:auto; border:solid 1px #ddd; }
+.u_d_t { color:#999; border-bottom:solid 1px #ddd; background:#eeeeee; width:100%;height:106px; float:left; }
+.u_d_t li { float:left; margin-left:20px; width:100%; }
+.u_d_t1 { height:26px; padding-top:14px; }
+.u_d_t2 { height:auto; }
+.u_btn,.u_d_img{ margin:0 2px; width:48px; height:48px; }
+.u_btn { display:block; float:left; background:url(../images/u_btn_bg.png) no-repeat center center; }
+.import_text { overflow-y:hidden; width:760px; padding:10px; border:none; height:280px; }

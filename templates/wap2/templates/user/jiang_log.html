@@ -1,0 +1,36 @@
+<ion-view hide-nav-bar="true" hide-tabs>
+  <div class="bar bar-header bar-stable ">
+    <a href="#/tab/jiang" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">中奖记录</h1>
+  </div>
+  <ion-content class="padding_head">
+    <div ng-if="jiang_log_showloading" style="text-align: center">
+      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+
+    <ion-list ng-if="jiang_log_showloading==false">
+
+     <div class="muyou" ng-if="user_reward_list.length < 1 ">
+      <img ng-src="img/muyou.png">
+      <p> <span>亲 </span>您当前木有已抽奖记录</p>
+      <a href="#/tab/jiang"  class="button  button-assertive button-outline ">去抽奖</a>
+     </div>
+      <div class="ibody">
+        <div class="i_orderDaily">
+          <div class="part" ng-repeat=" d in user_reward_list">
+            <div class="a1">
+              <span>时间：</span>
+              {{  d.time +'000' | date:"yyyy/MM/dd h:mm" }}
+            </div>
+            <div class="a1">
+              <span>备注：</span>
+              获得{{d.class | f_m_type}} {{d.number}}
+            </div>
+          </div>
+          <!--part
+          <!--part--> </div>
+        <!--i_orderDaily-->
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

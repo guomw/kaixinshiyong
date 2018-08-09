@@ -1,0 +1,52 @@
+<?php 
+ return array (
+  'TRIAL_ISOPEN' => '1',
+  'TRIAL_PRICE_NAME' => '试用价',
+  'TRIAL_NAME' => '免费试用',
+  'SELLER_CHARGE_NAME' => '推广费',
+  'SELLER_CHARGE_MONEY' => '0',
+  'SELLER_GIVE_BACK' => '1',
+  'SELLER_PAT_ISOPEN' => '0',
+  'SELLER_BONUS_ISOPEN' => '0',
+  'SELLER_VIP_ISOPEN' => '1',
+  'SELLER_POINT_ISOPEN' => '1',
+  'TRIAL_POINT' => '10',
+  'SINGLE_MODE' => 'array (
+  \'seller_general_order\' => \'1\',
+  \'seller_search_order\' => \'1\',
+  \'seller_answer_order\' => \'1\',
+  \'seller_qrcode_order\' => \'1\',
+)',
+  'SELLER_JOIN_CONDITION' => 'array (
+  \'information\' => \'6\',
+)',
+  'SELLER_CHECK_TIME' => '7',
+  'SELLER_ORDER_CHECK_TIME' => '48',
+  'SELLER_TRIALTALK_CHECK' => 'array (
+  \'value\' => \'15\',
+  \'chose\' => \'1\',
+)',
+  'SELLER_START_TIME' => '2018-08-09',
+  'SELLER_END_TIME' => '2020-12-15',
+  'SELLER_PUSH_DAYS' => '7',
+  'SELLER_PUSH_NUMS' => '1',
+  'SELLER_ACTIVITY_DESC' => '单个商品参团，高价值商品优先，审核通过后获得排期，活动时间最长30天，',
+  'SELLER_DETAIL_DESC' => '<p>单个商品页面显示，高性价比优先。<br/></p>',
+  'BUYER_JOIN_CONDITION' => 'array (
+  \'information\' => \'6\',
+  \'reason\' => \'7\',
+)',
+  'BUYER_GOOD_BUY_TIMES' => '1',
+  'BUYER_DAY_BUY_TIMES' => '',
+  'BUYER_WRITE_ORDER_TIME' => '48',
+  'BUYER_WRITE_TALK_TIME' => '15',
+  'BUYER_CHECK_UPDATE_ORDER_SN' => '72',
+  'BUYER_ORDER_FEE' => '0',
+  'BONUS_NAME' => '红包试用',
+  'BONUS_PRICE' => 'array (
+  \'min\' => \'1 \',
+  \'max\' => \'100\',
+)',
+  'BONUS_CONTENT' => '红包',
+);
+?>

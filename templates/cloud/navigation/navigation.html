@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+		<!-- 帮助中心头部 -->
+		<div class="help_head">
+			<div class="wrap">
+				<div class="h_logo">
+					<img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" />
+					<h1>网站导航</h1>
+				</div>
+				<ul class="h_nav">
+					<li><a href="{__APP__}">首页</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>83))}">关于我们</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>88))}">联系方式</a></li>
+					<li><a href="{U('navigation/index/index')}">站点导航</a></li>
+					<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<p class="cur_site"><a href="{__APP__}" class="m_right">首页</a>><a href="#" class="m_left">网站导航</a></p>
+			</div>
+			<div class="wrap web_nav_c_border">
+				<div class="web_hint_box">
+					<h1 class="title">网站热点</h1>
+					<ul class="list">
+						{loop $nav $v}
+						<li><a href="{$v[url]}">{$v[name]}</a></li>
+						{/loop}
+						
+					</ul>
+				</div>
+				<div class="web_hint_box">
+					<h1 class="title">网站服务</h1>
+					<ul class="list">
+						<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+					</ul>
+				</div>
+				<div class="web_hint_box">
+					<h1 class="title">商家服务</h1>
+					<ul class="list">
+						<li><a href="{U('Member/EnterActivity/index')}" target="_blank">商家报名</a></li>
+						<li><a href="{U('Member/merchant/becomevip')}">店铺VIP</a></li>
+						<li><a href="{U('Member/Profile/index')}">商家中心</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+	{include template('footer','common')}

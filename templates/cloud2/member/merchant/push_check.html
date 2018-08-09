@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家中心-活动中心-等待审核-{C('WEBNAME')}</title>
+		<meta name="keywords" content="商家中心,活动中心,等待审核,{C('WEBNAME')}" />
+        <meta name="description" content="商家中心,活动中心,等待审核{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/release_shop.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				{include template('merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">等待审核</h2>
+					<img src="{THEME_STYLE_PATH}style/images/release_hint_07.jpg" class="display_block state margin_0_auto" alt="" />
+					<div class="r_content">
+						<font class="r_state bg_yes"></font>
+						<span>您追加的商品正在审核中，我们会在24小时内完成审核，您也可以联系您所属专员加快审核！<br>请耐心等待...</span>
+					</div>
+				</div>				
+			</div>
+		</div>
+{include template('footer','common')}

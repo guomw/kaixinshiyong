@@ -1,0 +1,99 @@
+<ion-view hide-nav-bar="true" >
+  <div class="bar bar-header bar-color ">
+  <button  ng-click="toggleLeft()"  style="color:#ffffff;" class="button icon ion-navicon button-clear "></button>
+  <h1 class="title">超级返利</h1>
+  <a href="#/tab/so" style="color:#ffffff;" class="button icon ion-search button-clear head_buttonr1"></a>
+  </div>
+    <ion-side-menus class="padding_head">
+    <ion-side-menu-content>
+         <div class="bar bar-subheader c5 " >
+                 <div class="button-bar sub_header_list" id="sub_header_list">
+                     <a class="button button-clear sub_button_select" ng-click="changeTab('id',0)">默认</a>
+                     <a class="button button-clear " ng-click="changeTab('hits',1)">人气</a>
+                     <a class="button button-clear" ng-click="changeTab('goods_price',2)">价值</a>
+                     <a class="button button-clear" ng-click="changeTab('start_time',3)">时间</a>
+                 </div>
+ 
+         </div>
+      <ion-content class="has-subheader" style="background-color:#F8F8F8">
+
+            <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
+             refreshing-icon="ion-loading-c" on-refresh="doRefresh()">
+             </ion-refresher>
+
+               <div ng-if="showloading" style="margin-top:60px; text-align: center">
+                 <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+              </div>
+
+        <ion-list ng-if="showloading==false" class="list padding-top">
+        <div class="ibody">
+          <div class="i_rebate">
+          <div class="s_list"> 
+
+          <a class="hang" href="#/tab/rebate/{{topic.id}}"  id="aaa"  ng-repeat="topic in goods " >
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td class="L">
+                <img ng-if="topic.thumb" ng-src="{{topic.thumb | imgUrl}}">
+                <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                </td>
+                <td class="R c5"><div class="part1">
+                   <div class="a1"><img ng-src="{{topic.source | f_img_source}}"></div>
+                    <div class="a2">{{ topic.title | limitTo:15 }} </div>  
+                    <div class="clearfix"></div>
+                  </div>
+                  <!--part1-->
+                  <div class="part2"> <i class="c4">活动价：</i><span>{{topic.goods_price / 10 * topic.goods_discount | currency:"￥"}}</span> <i  style="margin-right:6%;float:right;" class="c4"> 折扣：<span>{{topic.goods_discount}}</span>折</i></div>
+                  <div class="part3">
+                    <div class="a1">返{{topic.goods_price - topic.mod_price | currency:"￥"}}</div>
+                    <div class="a2"><span class="c4">数量：</span>{{topic.number}}/{{topic.goods_number}}</div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <!--part3-->
+                  </td>
+              </tr>
+            </table>
+            </a>
+
+
+<!--             <ion-item class="item-thumbnail-left" 
+            collection-repeat="topic in goods " 
+            href="#/tab/rebate/{{topic.id}}"
+                      collection-item-width="100%" collection-item-height="100px">                
+                <img ng-if="topic.thumb" ng-src="{{ENV.siteUrl}}{{topic.thumb}}">
+                <img ng-if="!topic.thumb" ng-src="img/ionic.png">
+                <h2>{{ topic.title | limitTo:15 }} </h2>
+                <p class="">
+                {{topic.price_name}}:{{topic.mod_price}}  <span class="p2">{{topic.goods_price | currency:"￥"}} </span> 
+                </p>
+                <p class="">
+                <span >省{{topic.goods_price - topic.mod_price | currency:"￥"}}</span> 剩余 {{topic.number}}/{{topic.number}}
+                </p>
+            </ion-item> -->
+          </div>
+        </div>
+      </div>
+        </ion-list>
+
+        <ion-infinite-scroll
+                    pulling-text="加载更多中"
+                    on-infinite="loadMore()"
+                    ng-if="rebate_hasNextPage"
+                    distance="1%">
+      </ion-infinite-scroll>
+      </ion-content>
+    </ion-side-menu-content>
+          <ion-side-menu side="left" width="myWidthValue + 150">
+          <a menu-close href="#/trial" class="item">产品分类</a>
+
+          <a menu-close ng-click="good1(0)"  href="#/tab/rebate" class="item item-icon-right">全部分类
+          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+          </a>
+
+          <a menu-close ng-click="good1({{d.catid}})" ng-repeat="d in categorylists" class="item item-icon-right">{{d.catname}}
+          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+          </a>
+          </ion-side-menu>
+        </ion-side-menus>
+    
+</ion-view>

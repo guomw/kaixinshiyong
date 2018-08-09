@@ -1,0 +1,136 @@
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+<div class="head">
+    <div class="head-warp">
+        <div class="head-warp-l">
+            <a href="{__APP__}"><img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" /></a>
+        </div>
+        <div class="protection"></div>
+        <div class="head-warp-r">
+            <div class="head-warp-l right-dian">
+                <input type="text" onblur="if(!value){value=defaultValue;this.style.color='#cccccc'}" onfocus="if(value==defaultValue){value='';this.style.color='#000'}" value="请输入试用品" class="search-text" search-keyword="" />
+                <a href="#" class="search-button"><img src="{THEME_STYLE_PATH}style/images/search.jpg"></a>
+            </div>
+            <div id="ad1" class="head-warp-l">
+                <script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=5"></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both"></div>
+
+<!--导航栏-->
+<div class="nav">
+    <div class="nav-bd">
+        <ul class="main-list hl-list">
+            <li {if ACTION_NAME=='index'}class="main-list-li-hover"{/if}>
+                <a href="{__APP__}" class="white">首页</a>
+            </li>
+			<?php $url = $_SERVER['REQUEST_URI'];?>				
+			{pc:document action="navigate" navid="0" order="listorder ASC"}
+			{php $i = 0;}
+			{loop $data $d}
+			{php $i++;}
+			{if $d[url] != '/rebate/'}
+            <li {if $url== $d[url]}class="main-list-li-hover"{/if}>
+                <a href="{$d[url]}" class="white" {if $d[isblank] == 1}target="_blank"{/if}>{$d[name]}</a>
+                {if $i == 1}
+                <span class="hot_ico"><img src="{THEME_STYLE_PATH}style/images/hot.png" /></span>
+                {/if}
+            </li>
+            {/if}
+			{/loop}
+			{/pc}
+        </ul>
+        <ul class="main-list right nav-back">
+                <li>
+					<a href="{U('Member/EnterActivity/index')}" target="_blank" class="nopadding">
+						<img src="{THEME_STYLE_PATH}style/images/baoming.png">
+					</a>
+				</li>
+                <li style="margin-left: -30px; margin-top: 1px;">
+                    <a href="{U('task/index/index')}" class="nopadding">
+						<img src="{THEME_STYLE_PATH}style/images/gei_integral.jpg">
+					</a>
+                </li>
+        </ul>
+        <!-- 漂浮导航 start -->
+	    <div class="tj-back left_piao" >
+		    <div class="tj-nav-title center left_piao_title">
+		        <h2 class="white top2" style="font-size: 26px;">{C('WEBNAME')}</h2>
+		        <p class="white" style="font-size: 16px;">{$_SERVER['SERVER_NAME']}</p>
+		    </div>
+		    <div class="tj-back-bottom left_piao_title2" >
+		        <div class="left_piao_line">
+		            <!--<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 2))}"></script>-->
+					<script type="text/javascript" src="{U('Poster/Api/show', array('id' => 3))}"></script>
+		        </div>
+		        <div style="border-top:1px solid #ebebeb"></div>
+		        
+		        <div class="left_piao_line left_piao_line_a">
+					{pc:product action="category" where="isrecommend = 1" num="8"}
+					{loop $data $r}
+		            <a href="{$r[url]}"><img src="{THEME_STYLE_PATH}style/images/yf.png" />{str_cut($r[catname],11,'')}</a>
+		            {/loop}
+					{/pc}
+		        </div>
+		        <div class="clear-both"></div>
+		        <div style="border-top:1px solid #ebebeb;"></div>
+		
+		        <div class="left_piao_line">
+		            <!--<a href="#">商城返利</a>
+		            <a href="#">充值返利</a>-->
+		            <div class="top1">
+		                <a href="{U('Member/EnterActivity/index')}" class="anniu_button3 left_piao_button" style="width: 100px;font-size: 12px;"><img src="{THEME_STYLE_PATH}style/images/bm.png"><b style="margin-left: 5px;">商家报名</b></a>
+		            </div>
+		            <div class="clear-both"></div>
+		            <div class="top1">
+		                <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank" class="anniu_button3 left_piao_button" style="width: 100px;font-size: 12px;"><img src="{THEME_STYLE_PATH}style/images/zxkf.png"><b style="margin-left: 5px;">在线客服</b></a>
+		            </div>
+		        </div>
+		        <div class="clear-both"></div>
+		        <div style="padding-bottom: 10px;"></div>
+		    </div>
+		</div>
+	    <!-- 漂浮导航 end -->
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.search-text').keydown(function(e){
+		if(e.keyCode==13) localsearch();
+	})
+	
+	$(".search-button").click(function(){localsearch();})
+
+	function localsearch() {
+		var keyword = $("input[search-keyword]").val();
+		if($.trim(keyword).length == 0) {
+			alert('关键字不能为空');
+			return false;
+		}
+		window.location.href = site.site_root + "/?m=search&keyword=" + keyword; 
+	}
+	
+	$(window).scroll(function(){
+		var win_scrollTop = $(this).scrollTop();
+		var content_height = $(".content").height();
+		var left_piao_height = $(".left_piao").height();
+		var content_mt = parseInt($(".content").css("marginTop"));
+		var footer_mt = parseInt($(".footer").css("marginTop"));
+		var left_piao_max_top = content_height - left_piao_height + footer_mt + content_mt + 40;
+		if(win_scrollTop == 0){
+			$(".left_piao").css({top:40 + "px"});
+		}
+		else{
+			if(win_scrollTop >= left_piao_max_top){
+				$(".left_piao").css({top:left_piao_max_top + "px"});
+			}
+			else{
+				$(".left_piao").css({top:win_scrollTop + "px"});
+			}
+		}
+	});
+});
+</script>

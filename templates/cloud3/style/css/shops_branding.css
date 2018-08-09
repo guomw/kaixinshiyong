@@ -1,0 +1,28 @@
+a :hover{ text-decoration:underline; }
+textarea { resize:none;padding:5px; }
+em,i { font-style:normal; }
+
+.right_title { margin-bottom:30px; }
+.handle { width:100%;margin:10px 0;height:auto; float:left; margin-left:45px; }
+.handle_name { float:left; width:95px; text-align:right; margin-right:10px; }
+.right a { color:#29b8ff; }
+.sub_btn { float:left; display:block; width:auto; height:auto; }
+.margin_l_1 { margin-left:95px; }
+.sub_btn img { width:100px; height:100px; }
+.handle > img { width:20px;margin-top:-2px;float:left; }
+.submit { margin-left:95px; height:30px; line-height:30px; }
+.submit input { float:left; margin:0 5px; padding:0 25px; height:100%; border:none; background:#ff6600; color:#fff; }
+.submit font{ float:left; }
+.submit font a { margin:0 5px; }
+
+/* 店铺认证 */
+.hint_content { border:solid 1px #ff5613; background:#fff4c3; width:764px; line-height:20px; padding:8px; color:#f90010; }
+.margin6 { height:25px; line-height:25px; }
+.margin1 { height:60px; line-height:60px; }
+.margin2 { height:20px; }
+.shop_approve_img img { width:480px; height:165px; }
+.margin3 { height:45px; line-height:45px; }
+.margin4 { height:30px; line-height:30px; }
+.margin4 input { height:28px; line-height:28px; border:solid 1px #ddd; width:360px; text-indent:10px; }
+.margin5 { height:30px; line-height:30px; color:#fc1302; margin:44px 0; }
+.margin5 .submit2 { width:80px; height:100%; background:#ff6600; border:none; color:#fff; border-radius:3px; }

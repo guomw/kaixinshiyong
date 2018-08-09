@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人资料-会员中心-{C('WEBNAME')}</title>
+<meta name="Keywords" content="个人资料,会员中心,{C('WEBNAME')}" />
+<meta name="Description" content="个人资料,会员中心,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_vip.css" />
+
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<!-- <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script> -->
+<script language="javascript" type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/taobao.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+		/* $("#loading").ajaxStart(function(){
+			$("#avatar").hide();
+            $(this).show();
+         }).ajaxComplete(function(){
+            $(this).hide();
+            $("#avatar").show();
+         }); */
+        //首页顶部移入效果
+        setTopMouseover();
+
+        show_remain_time(<?php echo ( $endtime - NOW_TIME);?>);
+        /* 活动剩余时 */
+        function show_remain_time(sec) {
+            var timer = null;
+            timer = setInterval(function() {
+                sec -= 1;
+                if (sec <= 0) {
+                    $("#remain_time").html('活动时间到');
+                    clearInterval(timer);
+                    return;
+                }
+                $("#remain_time").html(count_down(sec));
+            }, 1000);
+            $("#remain_time").html(count_down(sec));
+        }
+
+        function count_down(sec) {
+            var s = sec;
+            var left_s = s % 60;
+            var m = Math.floor(s / 60);
+            var left_m = m % 60;
+            var h = Math.floor(m / 60);
+            var left_h = h % 24;
+            var d = Math.floor(h / 24);
+            var ret = [];
+            d && ret.push('<em class="d"> ', d, '</em> 天');
+            left_h && ret.push('<em class="h"> ', time_pad(left_h), '</em> 小时');
+            left_m && ret.push('<em class="m"> ', time_pad(left_m), '</em> 分');
+            left_s && ret.push('<em class="s"> ', time_pad(left_s), '</em> 秒');
+            return ret.join('');
+        }
+
+        function time_pad(s) {
+            return Number(s) > 9 ? String(s) : "0" + String(s);
+        }
+
+
+
+	$(".image").click(function (){
+		$("#file_upload").click();
+	});
+	$(".add_receiving_address_ico").click(function(){
+		$(this).siblings("div").show();
+	});
+	});
+
+</script>
+
+</head>
+<body>
+
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{include template('header','member/common')}
+
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Profile/infomation')}" class="nav_active">个人资料</a>
+</div>
+
+			{include template("member_left","member/common")}
+
+            <div class="content_right float_left">
+                <div class="content_right_top">
+                    <div class="info float_left">
+                        <div class="avatar float_left">
+                            <img src="<?php echo $this->userinfo['avatar'];?>" width="100" height="100" alt="" />
+                        </div>
+                        <div class="nickname float_right">
+                            <p>
+                                <span><?php echo $this->userinfo['nickname'];?></span>
+                                <span class="vip_ico">VIP</span>
+                            </p>
+                            <?php if($this->userinfo['groupid'] == 2){ ?>
+                            <p class="color_ff6600">到期时间:<span id="remain_time">loading...</span></p>
+                            <?php }else{?>
+                                <p>你还不是VIP，无法享受特权</p>
+                                <p><a href="#">开通VIP</a></p>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="privilege float_left">
+                        <dl>
+                            <dt>VIP五大特权</dt>
+                            <dd class="float_left">
+                                <span class="wh50 num"></span>
+                                <span>抢购次数不限</span>
+                            </dd>
+                            <dd class="float_left">
+                                <span class="wh50 panic"></span>
+                                <span>VIP专属抢购</span>
+                            </dd>
+                            <dd class="float_left">
+                                <span class="wh50 try"></span>
+                                <span>VIP专属试用</span>
+                            </dd>
+                            <dd class="float_left">
+                                <span class="wh50 activity"></span>
+                                <span>VIP专属活动</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+                <div class="content_right_bottom">
+                    <dl class="vip_member float_left">
+                        <dt>
+                            <span style="font-size:14px; color:#ff6600;">VIP会员</span>
+                            <span style="font-size:14px; color:#ff6600; font-weight:bold;">（仅需<?php echo get_member_vip(2);?>）</span>
+                        </dt>
+                        <dd>VIP每日免审{$level['day_count']}次</dd>
+                        <dd>VIP每月免审{$level['month_count']}次</dd>
+                        <dd>vip专属试用</dd>
+                        <dd>vip专属活动&nbsp;可参加网站不定期组织的活动</dd>
+                    </dl>
+                    <dl class="personal_member float_left">
+                        <dt>普通会员</dt>
+                        <dd>每日抢购次数50次</dd>
+                        <dd>无特权</dd>
+                        <dd>无特权</dd>
+                        <dd>无特权</dd>
+                    </dl>
+                    <div style="clear:both;"></div>
+                    <div class="vip" ><a href="javascript:;" data-type="2" data-money="<?php echo get_member_vip(2);?>" data-url="{U('Member/Profile/check_money')}" onclick="bind.member_vip(this)">立即成为VIP</a></div>
+                </div>
+            </div>
+
+		</div>
+	</div>
+		{include template("footer","common")}
+</body>
+<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" /> 
+<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+<script type="text/javascript">
+//图片上传功能
+$(document).ready(function() {
+	var goods_album = $("#goods_albums").find('span');
+	for(var i=0; i < goods_album.length; i++) {
+		var uploader = WebUploader.create({
+			auto:true,
+			fileVal:'Filedata',
+		    // swf文件路径
+		    swf: '{JS_PATH}webuploader/webuploader.swf',
+		    // 文件接收服务端。
+		    server: "{U('Attachment/Attachment/swfupload')}",
+		    // 选择文件的按钮。可选
+		    formData:{
+		    	"module":"",
+		    	"catid":"",
+		    	"userid":"1",
+		    	"dosubmit":"1",
+		    	"thumb_width":"0",
+		    	"thumb_height":"0",
+		    	"watermark_enable":"1",
+		    	"filetype_post":"jpg|jpeg|gif|bmp|png",
+		    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+		    	"isadmin":"1",
+		    	"groupid":"2"
+		    },
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: {
+		    	id: '#img' + (i+1),
+		    	multiple:false
+		    },
+		    accept:{
+				title: '图片文件',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+		    },
+		    thumb:{
+		    	width: '110',
+		    	height: '110'
+		    },
+		    chunked: false,
+		    chunkSize:1000000,
+		    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+		    resize: false
+		});
+
+		uploader.onUploadSuccess = function( file, response ) {
+			var pickid = this.options.pick.id;
+			var data = response._raw;
+			var arr = data.split(',');
+			if(arr[0] > 0) {
+				$(pickid).find('img').attr('src', arr[1]);
+				$(pickid).find('input[type=hidden]').eq(0).attr('value', arr[1]);
+			}
+
+			$.post("{U('Member/profile/update_avatar')}",{
+                    avatar:arr[1]
+                },function(data){
+                    //location.reload();
+                },'json')
+		}
+
+		uploader.onUploadError = function(file, reason) {
+			alert('文件上传错误：' + reason);
+		}
+	}
+})
+</script>
+</html>

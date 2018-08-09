@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>商家资料修改-{C('WEBNAME')}</title>
+		<meta name="Keywords" content="商家资料修改,商家会员中心,{C('WEBNAME')}" />
+		<meta name="Description" content="商家资料修改,商家会员中心,{C('WEBNAME')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<!-- <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script> -->
+		<script language="javascript" type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_message.css" /> 
+		<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();	
+			});
+		</script>
+		<style type="text/css">
+div.submit input {
+    background: none repeat scroll 0 0 #ff6600;
+    border: medium none;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 32px;
+    padding: 0;
+    width: 80px;
+
+}
+#goods_albums div{height:100px;width:100px;}
+		</style>
+<link href="<?php echo JS_PATH;?>webuploader/webuploader.css" rel="stylesheet" />
+<script src="<?php echo JS_PATH;?>webuploader/webuploader.js" type="text/javascript"></script>
+<script type="text/javascript">
+//图片上传功能
+$(document).ready(function() {
+	var goods_album = $("#goods_albums").find('p');
+
+	for(var i=0; i < goods_album.length; i++) {
+		var uploader = WebUploader.create({
+			auto:true,
+			fileVal:'Filedata',
+		    // swf文件路径
+		    swf: '<?php echo JS_PATH;?>webuploader/webuploader.swf',
+		    // 文件接收服务端。
+		    server: "<?php echo U('Attachment/Attachment/swfupload');?>",
+		    // 选择文件的按钮。可选
+		    formData:{
+		    	"module":"",
+		    	"catid":"",
+		    	"userid":"1",
+		    	"dosubmit":"1",
+		    	"thumb_width":"0",
+		    	"thumb_height":"0",
+		    	"watermark_enable":"1",
+		    	"filetype_post":"jpg|jpeg|gif|bmp|png",
+		    	"swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+		    	"isadmin":"1",
+		    	"groupid":"2"
+		    },
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: {
+		    	id: '#img' + (i+1),
+		    	multiple:false
+		    },
+		    accept:{
+				title: '图片文件',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+		    },
+		    thumb:{
+		    	width: '120',
+		    	height: '100'
+		    },
+		    chunked: false,
+		    chunkSize:1000000,
+		    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+		    resize: false
+		});
+
+		uploader.onUploadSuccess = function( file, response ) {
+			var pickid = this.options.pick.id;
+			var data = response._raw;
+			var arr = data.split(',');
+			if(arr[0] > 0) {
+				$(pickid).children().find('img').attr('src', arr[1]);
+				$(pickid).children().find('input[type=hidden]').eq(0).attr('value', arr[1]);
+			}
+		}
+
+		uploader.onUploadError = function(file, reason) {
+			alert('文件上传错误：' + reason);
+		}
+	}
+})
+</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+	<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Merchant/complete')}" class="nav_active">商家资料</a>
+	</div>
+					
+				{include template('merchant_left','member/common')}
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef">商家信息<a href="javascript:;" class="shops_message_btn" id="submitform"><img src="{THEME_STYLE_PATH}style/images/shops_message_add.jpg" alt="" />完善商家信息</a></h2>
+					<form action="{U('Member/Merchant/complete')}" name="myform" method="post" id="myform">
+						<ul class="action_centent">
+							<?php foreach($forminfos as $k=>$f){?>
+								<?php if($k != 'store_logo'){?>
+							<li><span><?php echo $f['name']?>：</span><?php echo $f['form'];?></li>
+							<?php }}?>
+						</ul>
+						<!-- 商家logo -->
+						<img id="loading" src="{THEME_STYLE_PATH}style/images/loading.gif" style="display:none;width:100px;height:100px;" />
+						<style type="text/css">
+							.bug_wrap{
+								float:left;
+								backgrouns:green;
+								width:120px;
+								text-align:center;
+							}
+						</style>
+						<div class="bug_wrap" id="goods_albums">
+							<p class="shops_small_logo" id="img1">
+								<img src="<?php echo $store_logo;?>" alt="" class="portrait" onerror="javascript:this.src='/uploadfile/avatar/seller_logo.jpg'"/>
+								<input type="hidden" id="file_url" name="info[store_logo]"  value="<?php echo $store_logo;?>"/>
+							</p>
+							<p {if $store_log == ''} red{/if} style="display:inline;line-height:30px;cursor:pointer;" id="logo" class="portrait">{if $store_logo == ''}请上传商家logo{else}修改商家logo{/if}</p>
+						</div>		
+						<div style="clear:both;"></div>
+						<div class="submit"><input type="submit" name="" value="提交" /></div>
+					</form>			
+				</div>				
+			</div>
+		</div>
+		<style type="text/css">
+	.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url({IMG_PATH}msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+	.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+	.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+	.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+	.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+	.onLamp{background-position:3px -200px}
+	.onTime{background-position:3px -1356px}
+</style>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript"> 
+<!--
+$.formValidator.initConfig({
+	formid:"myform",
+	autotip:true,
+	onerror:function(msg,obj){
+		$(obj).focus();
+	}
+});
+{if empty($contact_name)}
+$("#contact_name").formValidator({
+	empty:false,
+	onempty:'联系人姓名不能为空',
+	onshow:"请输入联系人姓名",
+	onfocus:"请输入联系人姓名"
+}).inputValidator({
+	min:4,
+	max:30,
+	onerror:"不超过50个字符，汉字算两个字符"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"联系人姓名输入错误"
+});
+{else}
+$("#contact_name").formValidator({
+	empty:false,
+	onempty:'联系人姓名不能为空',
+	onshow:"请输入联系人姓名",
+	onfocus:"请输入联系人姓名"
+}).inputValidator({
+	min:4,
+	max:30,
+	onerror:"不超过50个字符，汉字算两个字符"
+}).regexValidator({
+	regexp:'chinese',
+	datatype:'enum',
+	onerror:"联系人姓名输入错误"
+}).defaultPassed();
+{/if}
+
+{if empty($contact_want)}
+$("#contact_want").formValidator({
+	empty:false,
+	onempty:'联系人旺旺不能为空',
+	onshow:"请输入联系人旺旺",
+	onfocus:"请输入联系人旺旺"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"联系人旺旺输入错误"
+});
+{else}
+$("#contact_want").formValidator({
+	empty:false,
+	onempty:'联系人旺旺不能为空',
+	onshow:"请输入联系人旺旺",
+	onfocus:"请输入联系人旺旺"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"联系人旺旺输入错误"
+}).defaultPassed();
+{/if}
+
+
+
+{if empty($store_qq)}
+$("#store_qq").formValidator({
+	empty:false,
+	onempty:'联系QQ不能为空',
+	onshow:"请输入联系QQ",
+	onfocus:"请输入联系QQ"
+}).inputValidator({
+	min:5,
+	onerror:"联系人QQ输入错误"
+}).regexValidator({
+	regexp:'intege',
+	datatype:'enum',
+	onerror:"请输入联系QQ"
+});
+{else}
+$("#store_qq").formValidator({
+	empty:false,
+	onempty:'联系QQ不能为空',
+	onshow:"请输入联系QQ",
+	onfocus:"请输入联系QQ"
+}).inputValidator({
+	min:5,
+	onerror:"联系人QQ输入错误"
+}).regexValidator({
+	regexp:'intege',
+	datatype:'enum',
+	onerror:"请输入联系QQ"
+}).defaultPassed();
+{/if}
+
+{if empty($store_name)}
+$("#store_name").formValidator({
+	empty:false,
+	onempty:'店铺名称不能为空',
+	onshow:"请输入联系店铺名称",
+	onfocus:"请输入联系店铺名称"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"店铺名称不能为空"
+});
+{else}
+$("#store_name").formValidator({
+	empty:false,
+	onempty:'店铺名称不能为空',
+	onshow:"请输入联系店铺名称",
+	onfocus:"请输入联系店铺名称"
+}).regexValidator({
+	regexp:'notempty',
+	datatype:'enum',
+	onerror:"店铺名称不能为空"
+}).defaultPassed();
+{/if}
+
+{if empty($store_address)}
+$("#store_address").formValidator({
+	empty:false,
+	onempty:'店铺网址不能为空',
+	onshow:"请输入联系店铺网址",
+	onfocus:"请输入联系店铺网址"
+}).regexValidator({
+	regexp:'url',
+	datatype:'enum',
+	onerror:"店铺网址输入错误"
+});
+{else}
+$("#store_address").formValidator({
+	empty:false,
+	onempty:'店铺网址不能为空',
+	onshow:"请输入联系店铺网址",
+	onfocus:"请输入联系店铺网址"
+}).regexValidator({
+	regexp:'url',
+	datatype:'enum',
+	onerror:"店铺网址输入错误"
+}).defaultPassed();
+{/if}
+/*{if empty($store_logo)}
+	$("#file_url").formValidator({
+		empty:false,
+		onempty:'店铺logo不能为空',
+		onshow:"请输入店铺logo",
+		onfocus:"请输入店铺logo"
+	})
+{else}
+$("#file_url").formValidator({
+	empty:false,
+	onempty:'店铺logo不能为空',
+	onshow:"请输入店铺logo",
+	onfocus:"请输入店铺logo"
+}).defaultPassed();
+{/if}*/
+//-->
+</script>
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#loading").ajaxStart(function(){
+				$(".portrait").hide();
+	            $(this).show();
+	         }).ajaxComplete(function(){
+	            $(this).hide();
+	            $(".portrait").show();
+	         });
+			
+			$("#image").click(function (){
+				$("#file_upload").click();
+			});
+
+			$("#logo").click(function (){
+				$("#file_upload").click();
+			});
+		});
+		</script>
+	{include template('footer','common')}

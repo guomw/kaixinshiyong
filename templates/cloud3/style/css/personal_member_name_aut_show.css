@@ -1,0 +1,92 @@
+a.cursor{
+	background-color:#ff6600;
+	color:#ffffff;
+}
+
+div.content_right{
+	width:780px;
+	padding:20px 20px 45px 20px;
+	border:1px solid #efefef;
+}
+
+div.content_right h1{
+	font-size:14px;
+}
+
+div.content_right div.name_form{
+	border-top:1px solid #efefef;
+	margin-top:10px;
+	padding-top:10px;
+}
+
+div.name_form div.prompt{
+	width:170px;
+	height:23px;
+	line-height:23px;
+	border:1px solid #ff5613;
+	background:#fff4c3;
+	color:#ff0000;
+	text-align:center;
+	margin-bottom:28px;
+}
+
+div.name_input dt{
+	width:100px;
+	text-align:right;
+}
+
+div.name_input dd{
+	margin-bottom:20px;
+}
+
+div.name_input dt{
+	font-size:14px;
+	line-height:26px;
+}
+
+div.name_input input{
+	height:28px;
+	border:1px solid #dddddd;
+	width:107px;
+	padding-left:10px;
+	color:#666666;
+}
+
+dl.idcard dd input{
+	width:287px;
+}
+
+dl.idcard_image dd{
+	width:222px;
+	padding-top:40px;
+}
+
+dl.idcard_image span{
+	display:block;
+	text-align:center;
+	margin-bottom:7px;
+}
+
+dl.idcard_image img{
+	width:102px;
+	height:102px;
+}
+
+div.name_input div.submit{
+	padding:30px 0 0 17px;
+}
+
+div.name_input div.submit input{
+	width:80px;
+	height:32px;
+	background:#ff6600;
+	color:#ffffff;
+	border:none;
+	padding:0;
+	font-size:14px;
+	border-radius:3px;
+	cursor:pointer;
+}
+
+
+

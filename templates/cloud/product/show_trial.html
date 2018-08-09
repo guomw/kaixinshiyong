@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{get_seo('trial_show','show_trial_title',$title)}</title>
+<meta name="keywords" content="{get_seo('trial_show','show_trial_keyword',$title)}">
+<meta name="description" content="{get_seo('trial_show','show_trial_description',$title)}">
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/fn_all.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shop_try.css" />
+<style type="text/css">
+	body .bdsharebuttonbox { margin-top: -7px; }
+	.ico{ display: inline-block; }
+	.ico span{ font-size: 14px; color: #ff3829; }
+	.ico img{ vertical-align: middle; }
+	.tips{ margin-bottom: 20px; padding-left: 22px; }
+	.tips dt{ line-height: 30px; }
+	.tips dd{ line-height: 30px; }
+	.process{ margin-bottom: 20px; padding: 0 20px;}
+	#apply_unpass p{ font-size: 14px; text-align: center; color: #ba000d; }
+	.new_btn{ width: 123px; height: 36px; line-height: 36px; margin: 10px auto; border-radius: 5px; background: #ba000d; display: block; font-size: 14px; text-align: center; color: #ffffff; }
+	.process_content img{ max-width: 100%; margin: 10px auto 0; display: block; }
+	.goods_content{ padding-left: 20px; }
+	.goods_content p{ margin-bottom: 10px; }
+	.show_text > .title{ height: auto; }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	//首页顶部移入效果
+	setTopMouseover();
+	//搜索下拉菜单显示隐藏
+	sMouBox('.menu_sum','.search_menu_top');
+	//首页banner左侧菜单栏目
+	topMove();							
+});
+</script>
+<script type='text/javascript'>
+<?php $goods = $rs;
+unset($rs['goods_content']);
+$goods['report_count'] = report_count_by_gid($id);
+$goods['buyer_count'] = buyer_count_by_gid($id);
+$userinfo = is_login();
+// 已绑定的淘宝账号
+$bind_tbs = get_bind_taobao($userinfo['userid']);
+// 活动后台设置
+$bind_set = string2array(C_READ('buyer_join_condition','trial'));
+
+$act_condition =model('activity_set')->where(array('activity_type' => 'trial'))->getField('key,value');
+// 公用
+if($act_condition['buyer_join_condition']) $act_condition['buyer_join_condition'] = string2array($act_condition['buyer_join_condition']);
+if(in_array(7, $act_condition['buyer_join_condition'])){
+    $reason = 7;
+}
+
+?>
+var goods = {php echo json_encode($goods);};
+goods.goods_stock = goods.goods_number - goods.already_num;
+goods.buyer_good_buy_times = {php echo C_READ('buyer_good_buy_times','trial');};
+var bind_tbs = {php echo json_encode($bind_tbs ? $bind_tbs : 0);};
+var bind_set = {php echo $bind_set['bind_taobao'] ? $bind_set['bind_taobao'] : 0;};
+var reason = {php echo $reason?$reason :0;};
+
+var day_count = {php echo $day_count;};
+var month_count = {php echo $month_count;};
+</script>
+</head>
+<body>
+{include template('toper','common')}
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/trial.js"></script>
+	<!-- logo和搜索部分 -->
+	{include template('header','common')}
+	<script type="text/javascript">
+		$(function(){
+			$('.small_img li:first').addClass('l_active');
+			$('.small_img li').click(function(){
+				var src = $(this).children('img:eq(0)').attr('src');
+				$('.small_img li').removeClass('l_active');
+				$(this).addClass('l_active');
+				$('.big_img').attr('src',src);
+				$('.big_img').css('opacity',0);
+				$('.big_img').animate({
+					'opacity':'1'
+				},300);
+			});
+		});
+	</script>	
+
+	<?php 
+
+				$count = model('unreal_order')->where(array('goods_id'=>$rs['id']))->count();
+				$unreal = model('unreal_order')->where(array('goods_id'=>$rs['id']))->select();
+				foreach ($unreal as $k => $v) {
+					$member = model('member_unreal')->find($v['buyer_id']);
+					$unreal[$k]['nickname'] = $member['nickname'];
+					$unreal[$k]['avatar'] = $member['avatar'];
+				}
+			    $buy_count = get_trial_by_gid($rs['id']);
+				$total_count = $count+$buy_count;
+			 ?>	
+	<div class="content">
+		<div class="wrap">
+			<p class="hint"><a href="{__APP__}">首页</a><font> > {catpos($catid, '', 'product',$mod)} </font>{$title}</p>
+			<div class="shop_try">
+				<div class="show_img">
+					<img class="big_img" src="{$rs[thumb]}" alt="{$title}" style="width: 400px; height: 400px;" />
+					{if $rs[goods_albums]}
+					<ul class="small_img">
+						{loop $rs[goods_albums] $k $album}
+							{if $k < 4}
+							<li><img src="{$album[url]}" alt="{$album[alt]}" /></li>
+							{/if}
+						{/loop}
+					</ul>
+					{/if}
+				</div>
+				<div class="show_text" id="shop_text">
+					<h2 class="title">					
+					<div class="ico">
+						{if $goods_bonus > 0}
+						<span><img src="{THEME_STYLE_PATH}style/images/red_bg2.png" /></span>
+						{/if}
+						{if $goods_tryproduct}
+						<span><img src="{THEME_STYLE_PATH}style/images/ab_bg.gif" /></span>
+						{/if}
+					</div>
+					{str_cut($title,75)}</h2>
+					<p class="apply_time a_yes" style="display:none;"><font>试用结束：<span>-</span>开始时间：<text>{dgmdate($start_time,'Y-m-d H:i')}</text></font></p>
+					<p class="apply_time a_no" id="start" style="display:none;"><font>试用开始：<span></span>开始时间：<text>{dgmdate($start_time,'Y-m-d H:i')}</text></font></p>
+					<p class="apply_time a_no" id="notice" style="display:none;">-</p>
+					<ul class="shop_sum">
+						<li>商品限量<font class="color_01">{$goods_number}</font></li>
+						<li>已申请试用<font class="color_02"><!-- {get_trial_by_gid($rs['id'])} -->{$total_count}</font></li>
+						<li>完成试用<font class="color_03">{get_over_trial_by_gid($rs['id'])}</font></li>
+						<li>剩余<font class="color_04">{php echo $goods_number - buyer_count_by_gid($rs['id'])}</font></li>
+					</ul>
+					<p class="ass_sum"><span>保证金：</span>商家已存入总试用担保金 <font>{php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</font> 元，请放心申请。</p>
+					<p class="shop_cost">
+						<font class="s_bg_01">下单价</font><span class="t_d_l_th">￥{$rs['goods_price']}</span>
+						<font class="s_bg_02">完成试用返还</font><span>￥<font style="color: #F60;">{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</font>
+						
+						{if $goods_bonus > 0}
+						+&nbsp;红包￥<font style="color: #F60;">{$goods_bonus}</font>
+						{/if}
+						</span>
+					</p>
+					<!-- 图章调用
+						class = try-two-code 	二维码下单
+						class = try-search  	搜索下单
+						class = try-insert      答案下单
+					-->
+					<p class="try-{if $type == 'search'}search{elseif $type == 'ask'}insert{elseif $type == 'qrcode'}two-code{/if} try_cost">{activitiy_price_name($mod)}：<span><em>￥</em>{price($id)}</span></p>
+					<p class="btn">
+                        <a href="javascript:;" class="btn_no" onclick="trial_detail.buy();" id="btn_buy" style="float: left;display: block">申请试用</a>
+
+                        {if $rs['goods_vipfree']==1}
+                        <a href="javascript:;" class="btn_no" onclick="trial_detail.buy(1);" id="btn_buy"  style="margin-left: 10px;float: left;display: block;width: 100px;">VIP免审试用</a>
+                        {/if}
+                      {if $goods_number - buyer_count_by_gid($rs['id']) <= 0}
+                      <a href="javascript:;" class="margin_btn" onclick="margin_dialog({$id});"  >(补仓提醒)</a>
+                      {/if}
+                    </p>
+					<p class="s_hint">提示：获得试用资格后将到[{shop_set($source,'name')}]下单。</p>
+					<p class="user_handle">
+						<span class="u_h_bg_01 margin_right_30"><a href="javascript:;" onclick="add_collect({$id});">收藏商品</a></span>
+						<span class="u_h_bg_02">分享</span>
+						<!-- <a href="#"><img src="{THEME_STYLE_PATH}style/images/icon_03.png" alt="" /></a>
+						<a href="#"><img src="{THEME_STYLE_PATH}style/images/icon_04.png" alt="" /></a> -->
+						<!-- 分享 -->
+						<span class="bdsharebuttonbox">
+							<a href="#" class="bds_more" data-cmd="more"></a>
+							<a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+							<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+							<a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+							<a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+						</span>
+						<script>
+							window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+						</script>
+						<!-- 分享 .end -->
+
+					</p>
+					<p class="try_hint">
+						<font class="try_hint_t">试用有奖：</font>
+						<!--   本单试用奖励现金红包XXX元 实际试用商品XXXX -->
+						{if $goods_bonus > 0 || $goods_tryproduct}
+						{if $goods_bonus > 0}
+						本单试用奖励现金红包{$goods_bonus}元
+						{/if}
+						{if $goods_tryproduct}
+						实际试用商品{$goods_tryproduct}
+						{/if}
+						{else}
+						发布优秀试用报告 可获得商家奖励~
+						{/if}
+					</p>
+				</div>
+				<div class="shops_message">
+					<!-- diamond_bg：钻石  common:普通   crown_bg:皇冠 -->
+					<h4 {if $seller['groupid']==3}class="s_m_title crown_bg"{elseif $seller['groupid']==2}class="s_m_title diamond_bg"{else}class="s_m_title common"{/if}class="s_m_title  diamond_bg">
+						<p>{C("webname")}{$seller['seller_type']}</p>
+					</h4>
+					<span class="user_icon"><img src="{THEME_STYLE_PATH}style/images/user_botton_icon.png" alt="" /></span>
+					<ul class="vip_approve">
+						<p>{substr_replace($seller['store_name'],'***','3','-3')}</p>
+						<li class="v_app_bg_01">质量检测合格</li>
+						{if $seller['shop_attesta'] == 1}
+							<li class="v_app_bg_02">店铺认证</li>
+						{/if}
+						{if $seller['brand_attesta'] == 1}
+							<li class="v_app_bg_03">品牌认证</li>
+						{/if}
+					</ul>
+				</div>
+				<div class="shops_all_shop">
+					<a href="../{__ROOT__}/?m=search&keyword={$seller['store_name']}&type=c" target="_blank">查看商家全部商品</a>
+				</div>
+				<ul class="approve_flow">
+					<h6>试用流程：</h6>
+					<li><img class="approve_flow_img1" src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />获得试用资格</li>
+					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />以<em class="color_ff6600">{$rs['goods_price']}</em>元到指定平台购买试用品产</li>
+					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />提交订单编号</li>
+					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />提交试用报告</li>
+					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />返还<em color="color_ff6600">{$rs['goods_price']} {if $goods_bonus > 0}
+						+ 红包{$goods_bonus}
+						{/if} </em>元</li>
+
+					<li class="border_none"><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />到会员中心申请提现</li>
+
+				</ul>
+			</div>
+			<!--  -->
+			<div class="user_hint">
+				<h2 class="title">猜你喜欢</h2> 
+				{pc:product action="lists" num="3" mod="trial"}
+				{loop $data $r} 
+				<div class="box">
+					<a href="{$r[url]}" class="box_img"><img src="{$r[thumb]}" alt="" /></a>
+					<p class="box_title">
+						<a href="{$r[url]}"><img src="{$r['source_img']}" alt="{$r[title]}"/>{str_cut($r[title],57)}</a>
+					</p>
+					<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>￥{$r[mod_price]}</b></span><span>￥{$r['goods_price']}</span></p>
+				</div>
+				{/loop}
+				{/pc}
+			</div>
+			
+			<div class="arr_content clear_m_b">
+				<ul class="title">
+					<li class="li" data-tabindex="try_help_01"><a href="javascript:;">试用详情</a></li>
+					<li data-tabindex="try_help_03"><a href="javascript:;">已申请人数（<em id="already_count">{$total_count}</em>）</a></li>
+					<li data-tabindex="try_help_04"><a href="javascript:;">已审批试客（<em id="buyer_count">0</em>）</a></li>
+					<li data-tabindex="try_help_02"><a href="javascript:;">试用报告（<em id="report_count">0</em>）</a></li>
+				</ul>
+				<script type="text/javascript">
+					$(function(){
+						$('.title li').click(function(){
+							$('.title li').removeClass('li');
+							$("div[data-tabcontent='arr_content']").hide();
+
+							$("div#" + $(this).attr('data-tabindex')).show();
+							$(this).addClass('li');
+						});
+					});
+				</script>
+			</div>
+			<div class="arr_content" data-tabcontent="arr_content" id="try_help_01">			
+				<ul class="warm_hint">
+					{if array_filter($rs['goods_tips']['order_tip'])}
+						{php $goods_tips_arr=array( '请不要使用信用卡下单', '请不要催促商家返款')}
+						{loop $rs['goods_tips']['order_tip'] $k $v}
+							<li {if $k==0 }class="li_margin" {/if}>{$goods_tips_arr[$k]}</li>
+						{/loop}
+					{/if}
+					{if ($rs['goods_tips']['goods_order']['kuaidi'])}
+						<li class="li_margin">默认快递：{$rs['goods_tips']['goods_order']['kuaidi']}</li>
+					{/if}
+					{if ($rs['goods_tips']['goods_order']['remark'])}						
+						<li class="li_margin"><span>拍下须知：</span>{$rs['goods_tips']['goods_order']['remark']}</li>
+					{/if}
+					{if ($rs['goods_tips']['goods_order']['price']['cost'])}
+						<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元</li>
+					{/if}
+					{if ($rs['goods_tips']['goods_order']['price']['lv'])}
+						<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</li>
+					{/if}
+				</ul>
+				<div style="clear: both;"></div>
+				<dl class="tips">
+					<dt>注意事项：</dt>
+					<dd>1、与商家旺旺聊天时不要提及“{C('WEBNAME')}、试客、{C('WEBNAME')}试客”等信息，否则试用无效。</dd>
+					<dd>2、禁止使用信用卡、淘金币、优惠券、红包、天猫积分等。</dd>
+					<dd>3、禁止通过淘宝客、返利网、一淘等返现返利网链接下单。</dd>
+					<dd>4、非手机端活动，禁止使用手机端下单。</dd>
+					<dd>		以上由于买家违规下单所产生的费用，由买家承担。{C('WEBNAME')}有权冻结其帐号，限制提现操作，IP列入黑名单。</dd>
+				</dl>
+				
+				<div class="process">
+					<div id="apply_unpass">
+						<p>申请通过后，您可在此页面查看到搜索流程图 </p>
+						<a href="/help/?catid=84" class="new_btn">查看新手入门</a>
+					</div>
+					<div class="process_content" id="apply_pass">
+						<p>搜索流程图：</p>
+						{loop $goods_search_albums $sa}
+						<img src="{$sa[url]}" />
+						{/loop}
+					</div>
+				</div>
+				<div class="goods_content">
+					<p>试用品介绍：</p>
+					{$goods_content}
+				</div>
+			</div>
+			<div class="arr_content" data-tabcontent="arr_content" id="try_help_02" style="display:none;">
+				<h2 class="title text_indent">试用报告</h2>
+				{pc:product action="trail_report" goods_id="$id" num="3"}
+					{loop $data $r}
+					<div class="user_appr_box">
+						<font class="user_name">{nickname($r['userid'])}<em>{dgmdate($r['inputtime'],'Y-m-d')}</em></font>
+						<a href="{U('Product/Index/report_show',array('id'=>$r[id]))}" target="_blank"><p class="user_appr">{str_cut(strip_tags($r['content']), 500)}</p></a>
+						{if $r[albums]}
+						<span class="shop_img">
+						{loop $r[albums] $album}
+							<img src="{$album}" alt="试用图片" />
+						{/loop}
+						</span>
+						{/if}
+					</div>
+					{/loop}
+					{if $goods['report_count'] > 3}
+					<p class="load_more" id="trail_report"><a href="javascript:;" onclick="trial_detail.trail_report();">加载更多&nu;</a></p>
+					{/if}					
+				{/pc}
+			</div>
+			<?php  $apply_people = model('order')->where(array('goods_id'=>$id))->select(); ?>
+			<div class="arr_content" data-tabcontent="arr_content" id="try_help_03" style="display:none;">
+				<h2 class="title text_indent">已申请人数</h2>
+				
+				<ul class="user_icon" id="buyer_list">
+				{loop $apply_people $v}
+					{php $userinfo = getuserinfo($v['buyer_id']);}
+					<li><a href="javascript:;"><img src="{getavatar($v['buyer_id'])}" alt="{$userinfo[nickname]}" /><span>{$userinfo[nickname]}</span></a></li>
+				{/loop}
+					{loop $unreal $s}
+					<li><a href="javascript:;"><img src="{$s[avatar]}" alt="{$s[nickname]}" /><span>{$s[nickname]}</span></a></li>
+					{/loop}
+				</ul>	
+
+
+			</div>	
+			<div class="arr_content" data-tabcontent="arr_content" id="try_help_04" style="display:none;">
+				<h2 class="title text_indent">已审批试客</h2>
+				{pc:order action="buyer_list" num="9" goods_id="$id" mod="trial"}
+				<ul class="user_icon" id="buyer_list">
+				{loop $data $uid}
+					{php $userinfo = getuserinfo($uid);}
+					<li><a href="javascript:;"><img src="{getavatar($uid)}" alt="{$userinfo[nickname]}" /><span>{$userinfo[nickname]}</span></a></li>
+				{/loop}
+				</ul>	
+				{if $goods['buyer_count'] > 9}
+				<p class="load_more"><a href="javascript:;" onclick="trial_detail.buyer_list();">加载更多&nu;</a></p>
+				{/if}				
+				{/pc}				
+			</div>				
+		</div>	
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+	/* 加入收藏 */
+function add_collect(goods_id) {
+	return $.getJSON("{U('member/collect/add')}", {goods_id:goods_id} , function(ret) {
+		if (ret.status == 1) {
+			art.dialog({
+				title:'提示',
+				fixed:true,
+				lock:true,
+				content:ret.info,
+				ok: true
+			})
+		}else{
+			trial_detail.error(ret.info);
+			return false;
+		}
+	});
+}
+</script>
+<script type="text/javascript">trial_detail.init();</script>
+
+<style type="text/css">
+		.margin_btn{  border-radius: 0 !important; display: inline !important; width: auto !important; height: auto !important; font-size: 12px !important; color: red !important; margin-left: 10px; }
+		#notify_box{ width: 500px; border: 4px solid rgba(0, 0, 0, 0.1); border-radius: 5px; overflow: hidden; position: fixed; z-index: 10000; top: 0; left: 0; display: none; }
+		#notify_title{ width: 480px; background: #f3f3f3; color: #666; font-family: "Microsoft YaHei"; font-size: 14px; height: 31px; line-height: 31px; padding: 0 10px; position: relative; }
+		#notify_con{ height: 230px; overflow: hidden; width: 480px; padding: 10px; background: #ffffff; }
+		#sale-notice{ padding: 10px 0; }
+		#sale-notice p{ font-weight: bold; height: 44px; line-height: 18px; margin-bottom: 30px; }
+		#sale-notice .form-item{ margin: 10px 0 10px 40px; }
+		.form-item label{ padding-right: 5px; line-height: 21px; }
+		.form-item .input-email{ border: 1px solid #ccc; font-family: Verdana; height: 21px; padding: 4px; width: 210px; }
+		#sale-notice input{ vertical-align: middle; }
+		#sale-notice .form-submit{ padding-left: 99px; }
+		.form-submit input{ background: url("{THEME_STYLE_PATH}style/images/form-submit_bg.png") no-repeat; cursor: pointer; height: 30px; line-height: 30px; padding: 0; text-align: center; width: 57px; border: none; }
+		.ui-dialog-close{ background: url("{THEME_STYLE_PATH}style/images/margin_close.png") no-repeat; cursor: pointer; display: block; font-size: 0; height: 13px; overflow: hidden; position: absolute; right: 10px; top: 10px; width: 13px; z-index: 100000; }
+		#notify_con .succeeded_ico{  margin: 25px 0; text-align: center; }
+	</style>
+
+	<script type="text/javascript">
+		// 显示隐藏补仓提醒弹出框
+		function margin_dialog(id){
+			if (site.user.length < 1) {	// 未登录
+				member.login();
+				return false;
+			}
+			var notify_box_l = ($(window).width() - $("#notify_box").width()) / 2;
+			var notify_box_t = ($(window).height() - $("#notify_box").height()) / 2;
+			$("#notify_box").css({top:notify_box_t + "px",left:notify_box_l + "px"});
+			$("#notify_box").show();
+			$("#goods_id").val(id);
+
+			
+			$(".margin_close").click(function(){
+				$("#notify_box").hide();
+			});
+		}
+		
+		// 订阅成功
+		/*function succeeded(){
+			var succeeded_html = '<div class="succeeded_ico"><img alt="订阅成功" src="{THEME_STYLE_PATH}style/images/succeeded_ico.png"></div>';
+			$("#notify_con").html(succeeded_html);
+		}*/
+		
+	</script>
+	<!-- 补仓提醒弹出框 start -->
+	<div class="ui-dialog" id="notify_box">
+		<div class="ui-dialog-title" id="notify_title"> <span>补仓提醒</span> </div>
+		<div class="ui-dialog-content" id="notify_con">
+			<from action="{U('Product/Index/notify')}" method="post">
+				<input type="hidden" id="goods_id" value="">
+			<div id="sale-notice">
+				<p>一旦该商品更新了库存，您将收到邮件、短信和手机推送消息！通过手机客户端消息提醒，购买更便捷~</p>
+				<div class="form-item">
+					<label style="padding-right: 5px;" for="cellphone">手机号码：</label>
+					<input type="text" class="input-email" id="phone" name="phone" value="{$userinfo['phone']}">
+					<div style="color: Red; display: inline;" id="phoneError"></div>
+				</div>
+				<div class="form-item">
+					<label style="padding-right: 5px;" for="email">邮箱地址：</label>
+					<input type="text" class="input-email" id="email" name="email" value="{$userinfo['email']}">
+<!-- 					<em style="color: red;">*</em>
+ -->					<div style="color: Red; display: inline;" id="MailError"></div>
+				</div>
+				<div class="form-submit">
+					&nbsp;
+					<input type="buttion" value="提交" id="submit" name="submit">
+					<span style="color: Red; display: inline;" id="notProduce"></span>
+				</div>
+			</div>
+		</form>
+		</div>
+		<a href="javascript:;" title="关闭" class="ui-dialog-close margin_close"><span class="ui-icon ui-icon-delete"></span></a>
+	</div>
+	<!-- 补仓提醒弹出框 end -->
+	<script type="text/javascript">
+$(document).ready(function(){
+	var goods_id = $.trim($("#goods_id").val());
+
+	$('#phone').blur(function () 
+		{ 
+			var phone = $.trim($("#phone").val());
+			var re = /^1\d{10}$/;
+			if (!phone || re.test(phone) == false) { 
+				$("#phoneError").html('<font color="red">请输入手机号码！</font>');
+				$("#MailError").attr('style','display: inline');
+
+			}else{
+				$("#phoneError").html('输入正确');
+			  $("#phoneError").attr('style','color:green;display: inline');
+			}
+		
+		});
+
+	$('#email').blur(function () 
+		{ 
+			var email = $.trim($("#email").val());
+			var e = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+			if (!email || e.test(email) == false) { 
+				$("#MailError").html('<font color="red">请输入邮箱！</font>');
+			  $("#MailError").attr('style','display: inline');
+
+			}else{
+			  $("#MailError").html('输入正确');
+			  $("#MailError").attr('style','color:green;display: inline');
+			}
+		
+		});
+
+	$("#submit").click(function(){
+		var email = $.trim($("#email").val());
+		var goods_id = $.trim($("#goods_id").val());
+		var phone = $.trim($("#phone").val());
+		$.post("{U('Product/Index/notify')}",{phone:phone,email:email,goods_id:goods_id}, function(ret) {
+			if (ret.status==1) {
+				var succeeded_html = '<div class="succeeded_ico"><img alt="订阅成功" src="{THEME_STYLE_PATH}style/images/succeeded_ico.png"></div>';
+			    $("#notify_con").html(succeeded_html);
+			}else{
+				$("#notProduce").html(ret.info);
+			}
+		});
+	});
+
+	});
+</script>

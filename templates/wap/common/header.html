@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/user-handle.css"/>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/index.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/suspend.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/user-index.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5, maximum-scale=0.5, user-scalable=no"/>
+<body>
+<script type="text/javascript">
+    {php $userinfo = is_login();}
+    var site = {
+        "site_root" : '{__ROOT__}',
+        "js_path" : '{JS_PATH}',
+        "css_path" : '{CSS_PATH}',
+        "img_path" : '{IMG_PATH}',
+        "template_img" : '{THEME_STYLE_PATH}style/default/images',
+        "webname" : '{C("webname")}',
+        "order_url" : '{U("Order/DoOrder/manage")}',
+        "nickname" : '{nickname($userinfo["userid"])}',
+        "message":'{message_count($userinfo["userid"])}',
+        "user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+    };
+    var activity_set = <?php echo json_encode($activity_set); ?>;
+    var good_buy_times = <?php echo json_encode($good_buy_times); ?>;
+    var qq_ico = "{THEME_STYLE_PATH}style/images/qq_ico.png";
+    var qq_url = "{U('Oauth/Index/login')}";
+</script>

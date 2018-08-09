@@ -1,0 +1,47 @@
+<div class="h_w_left">
+	<ul class="copy_name">
+		<?php
+			$_catid = ($catid == 1) ? 2 : $catid;
+			$_top_catid = id_in_arrchildid(2, $_catid) ? 2 : 3;
+		?>
+		{pc:document action="category" catid="1" num="2"}
+		{loop $data $r}
+		<li class="{if (id_in_arrchildid($r[catid], $_catid))} bg_color{/if}"><a href="{$r[url]}">{$r[catname]}</a></li>
+		{/loop}
+		{/pc}
+	</ul>
+	<ul class="menu_c">
+		{pc:document action="category" catid="$_top_catid"}
+		{loop $data $r}
+		{php $subcats = subcat($r['catid']);}
+		<li>			
+			<a href="javascript:;" class="{if $category[parentid] == $r[catid] || $r[catid] == $catid}current{/if}">{$r[catname]}</a>
+			<ul class="z_menu_c{if $category[parentid] != $r['catid'] || $r[catid] == $catid} hide{/if}">
+				{loop $subcats $k $rs}
+				<li><a href="javascript:;"  onclick="get_url('{$rs[url]}');" class ="{if $catid == $rs[catid]} a_link {/if}">{$rs[catname]}</a></li>
+				{/loop}
+				
+			</ul>
+		</li>
+		{/loop}
+		{/pc}
+	</ul>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("ul.menu_c > li > a").click(function() {
+		$("ul.menu_c li ul").addClass('hide');
+		$("ul.menu_c a").removeClass('current');
+		
+		$(this).addClass('current');
+		$(this).siblings('ul').removeClass('hide');
+		$('.a_c_no > li:last').css('border-bottom','none');
+	})
+})
+function get_url(url){
+	window.location =url;
+}
+</script>
+<style type="text/css">
+.hide {display: none;}
+</style>

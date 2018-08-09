@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动管理-商家个人中心-{C('WEBNAME')}</title>
+<meta name="keywords" content="活动管理,商家个人中心,{C('WEBNAME')}" />
+<meta name="description" content="活动管理,商家个人中心,{C('WEBNAME')}" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/oder_mange.css" /> 
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/table.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/task.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+	<body>
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				<div class="nav_path">
+					<a href="{__APP__}">首页</a>&nbsp;>
+					<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+					<a href="{U('Member/MerchantProduct/activity')}" class="nav_active">活动管理</a>
+				</div>
+				{include template('merchant_left','member/common')}
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.right_title a').each(function(i,n){
+							$(this).attr('index',i);
+						});
+						$('.right_title a').click(function(){							
+							$('.table_list').css('display','none'); 
+							$('.right_title a').removeClass('a_link');
+							$(this).addClass('a_link');
+							$('.table_list:eq('+$(this).attr("index")+')').css('display','block');
+						});
+					});
+				</script>				
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef" id="activity">
+						日赚任务管理
+					</h2>
+					<form action="<?php echo __APP__;?>" method="get">
+					<input type="hidden" name="m" value="<?php echo MODULE_NAME;?>" />
+					<input type="hidden" name="c" value="<?php echo CONTROLLER_NAME;?>" />
+					<input type="hidden" name="a" value="<?php echo ACTION_NAME;?>" />
+					<input type="hidden" name="mod" value="<?php echo $mod;?>" />
+					<p class="hint_search">
+						<!-- 活动状态 -->
+						<select name="task_state">
+							<option value="-99">任务状态</option>
+							{loop $this->task_state  $key $value}
+							<option value="{$key}" {if $key == $task_state}selected{/if}>{$value}</option>	
+							{/loop}
+						</select>
+						<input type="text" placeholder="请输入活动标题关键字" name="keyword" />
+						<input type="submit" name= "dosubmit" value="确定" />
+					</p>
+					</form>
+					<table border="0" cellspacing="0" class="table_list">
+						<thead>
+						<tr class="table_title">
+							<th class="t_tr_w_1 tc">任务名称</th>
+							<th class="t_tr_w_3_1 tc">状态</th>
+							<th class="t_tr_w_3 tc">任务佣金</th>
+							<th class="t_tr_w_4_1 tc">份数</th>
+							<th class="t_tr_w_6 tc">做任务人数</th>
+							<th class="t_tr_w_5 text_indent tc">操作</th>
+						</tr>
+						</thead>
+						<tbody id="operate">
+						{loop $lists $l}
+						<tr colspan="5" class="table_hint">
+							<td><span>任务编号：{$l['id']}</span>
+								发布于：{dgmdate($l[inputtime],'Y/m/d H:i:s')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr class="bb br bl">
+							<td class="tc blnone pl17" style="width: 231px;">
+								<img class="table_small" src="{$l[thumb]}" alt="" />
+								<ol class="table_small_text">
+									<li class="color_009de4">
+										<a href="{$l[url]}" target="_blank">{cutstr($l[title],20)}</a></li>
+									<li>{$l[keyword]}</li>
+								</ol>
+							</td>
+							<td class="t_tr_w_3_1 tc">
+								<ol>
+									<li><?php echo C("TASK_STATUS.$l[status]");?></li>
+								</ol>
+							</td>
+							<td class="t_tr_w_3 tc">
+								{$l[goods_price]}元
+							</td>
+							<td class="t_tr_w_4 t_tr_w_4_1 tc">{$l[goods_number]}</td>
+							<td class="t_tr_w_6 tc">{$l[already_num]}</td>
+							<td class="t_tr_w_5 tc">
+								<ol class="handle">
+									{if $l[status] == -3 }
+										<li><a href="{U('Member/merchantTask/task_edit',array('id'=>$l[id]))}">编辑活动</a></li>
+										<li><a href="{U('Member/merchantTask/task_price',array('id'=>$l[id]))}">支付费用</a></li>										
+									{/if}
+									{if $l['status'] == 1 || $l['status'] == 2}
+										<li><a href="javascript:;" onclick="task.person_log(this)" data-id="{$l['id']}" data-url="{U('Member/MerchantTask/person_log')}">用户记录</a></li>
+									{/if}
+									<li><a href="javascript:;" onclick="task.log(this);" data-gid="{$l[id]}" data-url="{U('Member/merchantTask/task_log',array('id'=>$l[id]))}">操作记录</a></li>
+									<input type="hidden" name="id" value="{$l[id]}" />
+								</ol>
+							</td>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+					<div class="pages wiHe3 floatLeft">{$pages}</div>	
+				</div>		
+			</div>
+		</div>
+<style type="text/css">
+.pages{margin-left:200px;}
+</style>
+{include template('footer','common')}

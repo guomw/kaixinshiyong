@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css2/jscal2.css"/>
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css2/border-radius.css"/>
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css2/win2k.css"/>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css2/personal_member_finance_list.css" />
+
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js2/calendar.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js2/en.js"></script>
+
+<style>
+	
+	div.order_list th {
+	    height: 40px;
+	    background: #f3f3f3;
+	}
+	* {
+	    margin: 0;
+	    padding: 0;
+	    list-style-type: none;
+	    font-size: 12px;
+	}
+	.user agent stylesheetth {
+	    font-weight: bold;
+	}
+	.user agent stylesheettd, th {
+	    display: table-cell;
+	    vertical-align: inherit;
+	}
+	.Inherited from tr
+	* {
+	    margin: 0;
+	    padding: 0;
+	    list-style-type: none;
+	    font-size: 12px;
+	}
+	.Inherited from tbody
+	* {
+	    margin: 0;
+	    padding: 0;
+	    list-style-type: none;
+	    font-size: 12px;
+	}
+	.Inherited from table
+	div.order_list table {
+	    border-top: 1px solid #eeeeee;
+	    border-spacing: 0;
+	    border-collapse: collapse;
+	    width: 100%;
+	}
+	* {
+	    margin: 0;
+	    padding: 0;
+	    list-style-type: none;
+	    font-size: 12px;
+	}
+	.user agent stylesheettable {
+	    display: table;
+	    border-collapse: separate;
+	    border-spacing: 2px;
+	    border-color: grey;
+	}
+</style>
+
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{if $userinfo['modelid'] == 1}
+    {include template('v2_header','member/common')}
+	{else}
+    {include template('v2_merchant_header','member/common')}
+	{/if}
+{if $userinfo['modelid'] != 1}
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+{/if}
+
+<div id="content">
+		<div class="wrap">
+			<p class="hint-wz clear hint_wz_2">
+				当前位置： <b>首页 ></b> <b>提现记录</b>
+			</p>
+		</div>
+
+		<div class="user_index_content wrap-and clear">
+			{if $userinfo['modelid'] == 1}
+			    {include template('v2_member_left','member/common')}
+				{else}
+		        {include template('v2_merchant_left','member/common')}
+
+			{/if}
+			<div class="fr u_index_mess user_pd_1">
+
+				<dl class="u_i_form">
+					<dt>提现记录</dt>
+				<div class="finance_information">
+					{if $userinfo[modelid] == 2}
+					{else}
+					<div class="float_left integration">
+						<dl>
+							<dt>我的积分：</dt>
+							<dd class="float_left"><span>{$userinfo[point]}</span></dd>
+							<dd class="float_left recharge"><a href="{U('Shop/Index/index')}">兑换</a></dd>
+						</dl>
+					</div>
+					{/if}
+				</div>
+				<div style="clear:both;"></div>
+				<div class="transaction">
+					<form method="get">
+						<input type="hidden" name="m" value="Member"></input>
+						<input type="hidden" name="c" value="Financial"></input>
+						<input type="hidden" name="a" value="cash_log"></input>
+					<div class="order_type">
+						<table width="100%" cellspacing="0" class="search-form">
+						    <tbody>
+								<tr>
+									<td>
+										<div class="explain-col">				
+											提现日期查询
+											<input type="text" name="start_time" id="start_time" value="" size="10" class="date" readonly>
+											<script type="text/javascript">
+												Calendar.setup({
+												weekNumbers: true,
+											    inputField : "start_time",
+											    trigger    : "start_time",
+											    dateFormat: "%Y-%m-%d",
+											    showTime: false,
+											    minuteStep: 1,
+											    onSelect   : function() {this.hide();}
+												});
+								       		</script>-
+											<input type="text" name="end_time" id="end_time" value="" size="10" class="date" readonly>&nbsp;
+											<script type="text/javascript">
+												Calendar.setup({
+												weekNumbers: true,
+											    inputField : "end_time",
+											    trigger    : "end_time",
+											    dateFormat: "%Y-%m-%d",
+											    showTime: false,
+											    minuteStep: 1,
+											    onSelect   : function() {this.hide();}
+												});
+								        	</script>
+											<input type="submit" name="search" class="button" value="搜索" />
+										</div>
+									</td>
+								</tr>
+						    </tbody>
+						</table>
+					</div>
+				</form>
+					<div class="order_list">
+						<table>
+							<tbody>
+								<tr >
+									<th style='text-align:center;'>账户</th>
+									<th style='text-align:center;'>金额</th>
+									<th style='text-align:center;'>状态</th>
+									<th style='text-align:center;'>原因</th>
+									<th style='text-align:center;'>方式</th>
+									<th style='text-align:center;'>模式</th>
+									<th style='text-align:center;'>提现时间</th>
+									<th style='text-align:center;'>审核时间</th>
+									
+								</tr>
+
+								{if $cash}
+								{loop $cash $v}
+								<tr>
+									<td>{$v[cash_alipay_username]}</td>
+									<td {if $v[money] >0 } class="income" {else} class="expenditure"{/if}>
+										{$v[money]}
+									</td>
+								
+									<td>{if $v[status] == -1}审核失败{elseif $v[status] == 0}待审核{else}已通过{/if}</td>
+									<td><?php echo $v['cause']?$v['cause']:"-";?></td>
+
+									<td>{if $v[type] == 1}银行{else}支付宝{/if}</td>
+									<td>{if $v[paypal] == 1}普通{else}快速{/if}</td>
+									<td><?php echo dgmdate($v['inputtime']); ?></td>
+									<td><?php if(empty($v['check_time'])){echo "-";}else{ echo dgmdate($v['check_time']);} ?></td>
+								</tr>
+								{/loop}
+
+								{/if}
+								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$pages}
+						</p>
+					</div>
+				</div>
+			</dl>
+				</div>
+			</div>
+		</div>
+{include template('footer','common')}

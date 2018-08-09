@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{get_seo('shai_seo','shai_title','')}</title>
+		<meta name="keywords" content="{get_seo('shai_seo','shai_keyword','')}">
+		<meta name="description" content="{get_seo('shai_seo','shai_description','')}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.masonry.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/sun_single_list.css" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//展示界面按钮显示隐藏
+				sMouBox('.hot_com_show','.hot_pages');
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();			
+				//首页中间展示大图制作
+				bannerPlay();
+				//商城公告部分
+				showSign();	
+				//新品热门部分插件
+				jQuery(".hot_com_show").slide({ mainCell:".hot_show_wrap", effect:"leftLoop",vis:5, autoPlay:true});
+				//缩略图商品移入出现按钮
+				shopsMouse();
+				//热门商品信息显示
+				setHorComShow();
+				//列表菜单点击样式			
+				//setShopsStyle(obj,getColor,getBackground,getBorder,setColor,setBackground,setBorder);
+				setShopsStyle('.jsone li a','#666','#f9f9f9','none','#fff','#ff6798','solid 1px #fe5991');				
+				setShopsStyle('.jstwo li a','#666','#f9f9f9','none','#fff','#fe8860','solid 1px #fe8860');				
+				setShopsStyle('.js_3 li a','#666','#f9f9f9','none','#fff','#ff73e0','solid 1px #ff73e0');			
+				setShopsStyle('.js_4 li a','#666','#f9f9f9','none','#fff','#60a2ff','solid 1px #60a2ff');
+				//晒单达人展示
+				$(".hot_shops_content").slide({ mainCell:".hot_shops_content_img_wrap", effect:"leftLoop",vis:2, autoPlay:true});
+			});
+		</script>
+	</head>
+	<a name="top"></a>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+	{include template('toper','common')}
+		{include template('header','common')} 
+		<div style="clear: both;"></div>
+		<!-- 买家晒单 begin -->
+		<div class="sun_single">
+			<h1>买家晒单</h1>
+			<div class="filter">
+				<!-- <a class="filter_active">全部</a>
+				<a>潮流女装</a>
+				<a>时尚男装</a>
+				<a>居家日用</a>
+				<a>时尚配饰</a>
+				<a>美容护肤</a>
+				<a>美食特产</a> -->
+			</div>
+			<!-- 买家晒单列表 begin -->
+			<div class="goods_list" id="goods_list">
+			{pc:product action="report" num="10"}
+			{loop $data $r}
+				<div class="goods">
+					<div class="goods_img">
+						<a href="{$r[product][url]}"><img src="{$r[report_imgs]}" /></a>
+						<div class="goods_title"><a href="#">{$r[product][title]}</a></div>
+					</div>
+					<div class="member">
+						<a href="{$r[product][url]}" class="member_avatar"><img src="{$r[avatar]}" /></a>
+						<a href="{$r[product][url]}">{$r[nickname]}</a>
+					</div>
+					<span class="goods_comment" title="{strip_tags($r[content])}">{str_cut(strip_tags($r[content]), 100)}</span>
+					<span class="order_time">{dgmdate($r[reporttime], 'Y年m月d日H时')}</span>
+				</div>
+			{/loop}
+			{/pc}
+			</div>
+			<!-- <div style="clear:both;"></div> -->
+			<!-- 买家晒单列表  end -->
+			<div class="sun_single_line" style="display:none;color:red;">没有更多了</div>
+			<a href="#top" class="back_top" title="返回顶部"></a>
+		</div>
+		<!-- 买家晒单 end -->
+		{include template('footer','common')} 
+<script type="text/javascript">
+//瀑布流
+var $container = $('#goods_list');
+$container.imagesLoaded(function(){
+	$container.masonry({
+		itemSelector : '.goods',
+		isAnimated: false
+	});
+});
+var page = 1;
+var isempay = false;
+$(window).bind("scroll",function() {
+	if(isempay == true) return false;
+	page++;
+	$.getJSON(site.site_root + '/?m=product&c=api&a=report_list', {
+		limit:10,
+		page:page
+	}, function(ret) {
+		count = ret.count;
+		if(ret.lists != null) {
+			var _html = '';
+			$.each(ret.lists, function(i, n) {
+				_html += '<div class="goods"><div class="goods_img"><a href="'+ n.product.url +'"><img src="'+ n.report_imgs +'" /></a><div class="goods_title"><a href="#">'+  n.product.title +'</a></div></div><div class="member"><a href="'+ n.product.url +'" class="member_avatar"><img src="'+ n.avatar +'" /></a><a href="'+ n.product.url +'">'+ n.nickname +'</a></div><span class="goods_comment">'+ n.content +'</span><span class="order_time">'+ n.dateline +'</span></div>';
+			});
+			$container.append(_html).masonry('appended', $container.find('div[class=goods]'));		
+		} else {
+			isempay = true;
+			$("div.sun_single_line").show();
+		}
+	});
+});
+</script>
+	</body>
+</html>

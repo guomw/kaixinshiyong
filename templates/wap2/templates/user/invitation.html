@@ -1,0 +1,98 @@
+<ion-view hide-nav-bar="true">
+  <div class="bar bar-header bar-color ">
+  <a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+  <h1 class="title">邀请好友</h1>
+  <a  ng-click="set_invitation_log()" style="color:#ffffff;" class="button button-clear head_button1">邀请记录</a>
+  </div>
+<ion-content class="padding_head">
+    <div class="ibody">
+      <div class="i_invite">
+        <div class="s_part1">
+          <img ng-src="img/a34.jpg"></div>
+        <div class="s_part2" ng-if="login_status ==1">
+          <div class="hang1 c4">
+            您的专属邀请链接已生成
+            <span>开始赚钱了</span>
+          </div>
+          <div class="hang2">
+            <a href="#" ng-click="fenxiang()">分享邀请链接给我的小伙伴</a>
+          </div>
+          <div class="hang1 c5">
+            我已获得：
+            <span>{{total_moeny}}元</span>
+          </div>
+        </div>
+        
+        <div class="s_part2" ng-if="login_status ==0">
+          <div class="hang1">
+            您还未登录 登录后开始赚钱
+          </div>
+          <div class="hang1">
+            <a href="#/tab/user/login" class="button button-assertive button-outline ">立即登录/注册</a>
+          </div>
+          <div class="hang1">
+            <span>推荐一名好友最高得百元现金奖励</span>
+          </div>
+        </div>
+
+        <!--s_part2-->
+        <div class="s_part3">
+          <div class="ti">排行榜</div>
+          <div class="ti2 c5">
+            <div class="a1">排名</div>
+            <div class="a2">用户名称</div>
+            <div class="a3">获得的奖励金额</div>
+            <div class="clearfix"></div>
+          </div>
+          <!--ti2-->
+          <div class="list">
+
+            <div class="hang c4" ng-repeat="d in user_paihang.data">
+              <div class="a1">
+                <div>{{$index +1}}</div>
+              </div>
+              <div class="a2">{{d.nickname}}</div>
+              <div class="a3">{{d.total}}元</div>
+              <div class="clearfix"></div>
+            </div>
+            <!--hang-->
+
+            <!--hang--> </div>
+          <!--list--> </div>
+        <!--s_part3-->
+        <script type="text/javascript">
+      $('.i_invite .s_part3 .list .hang:eq(0)').find('.a1 div').css('background','#e42012')
+      $('.i_invite .s_part3 .list .hang:eq(1)').find('.a1 div').css('background','#e35f55')
+      $('.i_invite .s_part3 .list .hang:eq(2)').find('.a1 div').css('background','#f69f94')
+
+    </script>
+        <div class="s_part4">
+          <div class="ti">邀请好友奖励示意图</div>
+          <div class="list c4">
+            <div class="hang">
+              <div class="L">好友手机认证</div>
+              <div class="R">{{config_data.data.fix.cost}} {{config_data.data.fix.type | f_m_type  }}</div>
+            </div>
+            <!--hang-->
+            <div class="hang" ng-repeat="d in config_data.data.setting">
+              <div class="L">好友累积完成{{d.num}}单</div>
+              <div class="R">{{d.cost}} {{d.type | f_m_type  }}</div>
+            </div>
+ 
+            <!--hang--> </div>
+          <!--list--> </div>
+        <!--s_part4-->
+        <div class="s_part5">
+          <div class="ti">邀请规则</div>
+          <div class="list c4">
+            <div class="hang">成功邀请一位好友注册完成手机和淘宝账号认证，即可获得100个积分奖励。</div>
+            <div class="hang">您每邀请一个朋友加入，将获得最高85元的邀请奖励。</div>
+            <div class="hang">邀请好友必须是新用户（即以前没登录过），如果她已是老用户了，那么是没有奖励的。</div>
+            <div class="hang">您可以把您的专用邀请链接通过QQ.微信.分享给您的朋友，也可以分享到您的朋友圈里面去。</div>
+            <div class="hang">如发现有活动作弊,一律取消奖励,严重则直接永久封号</div>
+          </div>
+          <!--list--> </div>
+        <!--s_part5--> </div>
+      <!--i_invite--> </div>
+  </ion-content>
+</ion-view>

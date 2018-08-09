@@ -1,0 +1,1 @@
+<?php defined('IN_TPCMS') or exit('No permission resources.');?> 

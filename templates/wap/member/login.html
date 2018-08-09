@@ -1,0 +1,81 @@
+{include template('header','common')}
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			用户登录
+			<a href="{U('Member/Index/register')}" class="t-link fr c-white">用户注册</a>
+		</div>
+
+		<div class="content">
+			<div class="logo-box">
+				<img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" />
+			</div>
+			<div class="import">
+				<span>
+					<b class="l-user-icon"></b>
+					<input type="text" placeholder="邮箱/手机号" id="username"/>
+					<!--  v-on v-off 暂无off图片  -->
+					<!--<strong class="verify-hint v-on"></strong>-->
+				</span>
+				<span>
+					<b class="l-pass-icon"></b>
+					<input type="password" placeholder="请输入密码" id="pwd"/>
+					<!--  v-on v-off 暂无off图片  -->
+					<!--<strong class="verify-hint v-off"></strong>-->
+				</span>
+                <p class="user_verify" style="display:none;"></p>
+				<p class="l-submit"><input type="submit" class="btn-s-01" value="登录" id="js_login"/></p>
+			</div>
+			<div class="l-oauth">
+				<a href="javascript:;" class="oauth-btn f1_5">第三方登录</a>
+				<ul class="oauth-list clear">
+					<li><a href="{U('Oauth/Index/login')}"><img src="{THEME_STYLE_PATH}style/default/images/tencent-icon.png" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+		
+{include template('footer','common')}
+<script>
+    $("#js_login").click(function() {
+        dologin();
+    });
+    function dologin () {
+        var name = $.trim($('#username').val());
+        var pwd = $.trim($('#pwd').val());
+        var code = $.trim($('#verify').val());
+        if (name.length == 0) {
+            $("#username").focus();
+            $(".user_verify").html('请输入用户名/邮箱/手机').show();
+            return false;
+        }
+        $.post("{U('Member/Index/login')}",{
+            username:name,
+            password:pwd,
+            verify:code,
+            refresh:'{$refresh}'
+        },function(data){
+            if (data.status == 1) {
+                location.href = data.url;
+            }else{
+                $(".user_verify").show();
+                $(".user_verify").html(data.info);
+            };
+        },"json");
+    }
+    $(function(){
+        $('.oauth-btn').click(function(){
+            var aH = parseInt($('.oauth-list').css('height'));
+            var aT = parseInt($('.oauth-list').css('top'));
+            if(aT < 0){
+                $('.oauth-list').animate({
+                    top:'0px'
+                },200);
+            }else{
+                $('.oauth-list').animate({
+                    top:-aH+'px'
+                },200);
+            }
+        });
+    });
+</script>

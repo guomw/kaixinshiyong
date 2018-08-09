@@ -1,0 +1,193 @@
+<!-- 查看试用报告 -> 弹窗 --> 
+<style>
+.appeal-details{position: relative;width: 500px; height: 450px; overflow:auto; padding: 20px 25px;}
+.appeal-details img{width: 80px;height: 80px;}
+.appeal-details th{font-weight: normal; vertical-align: top; text-align: right; width: 100px; padding: 3px 15px 3px 0; }
+.appeal-details td{word-wrap:break-word; word-break:break-all; padding: 3px 0; }
+.appeal-info, .appeal-reply, .appeal-manage{position: relative;	border-radius: 5px;padding: 10px 5px 5px 5px;}
+.appeal-info{background-color: #F0F9FF; border: 1px solid #BCE3FE; }
+.appeal-reply{background-color: #FFF; border: 1px solid #D3D3D3; margin-top: 24px; }
+.appeal-reply .ui-form-text{width: 300px;}
+.appeal-reply .disabled{background-color:#999;cursor: default;}
+.appeal-reply .disabled:hover{background-color:#999;cursor: default;}
+.appeal-manage{background-color: #EEE; border: 1px solid #C9C9C9; margin-top: 24px; }
+.appeal-manage .waitng{font-size: 20px; padding: 30px; text-align: center; }
+ .appeal-details h2{position: absolute; font-weight: bold; padding: 1px 8px; top: -12px; left: 10px; font-size: 12px; border-radius: 5px; }
+.appeal-info h2{background-color: #F0F9FF; border: 1px solid #BCE3FE; }
+.appeal-reply h2{background-color: #FFF; border: 1px solid #D3D3D3; }
+.appeal-manage h2{background-color: #EEE; border: 1px solid #C9C9C9; }
+.trial_content img{ max-width: 365px;}
+</style>
+<link rel="stylesheet" href="{CSS_PATH}/table_form.css" />
+<!-- <script type="text/javascript" src="{JS_PATH}/dialog.js"></script> -->
+<script type="text/javascript" src="{JS_PATH}/content_addtop.js"></script>
+<script type="text/javascript" src="{JS_PATH}/admin_common.js"></script>
+<script type="text/javascript" src="{JS_PATH}/swfupload/swf2ckeditor.js"></script>
+
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<tr>
+<td class="aui_main" style="width: auto; height: auto;">
+	<div class="aui_content" style="padding: 0px;">
+		<div class="appeal-details">
+			<div class="appeal-info">
+				<h2>试用报告内容</h2>
+				<table cellspacing="0">
+					<tbody>
+						<tr>
+							<th>商品名称:</th>
+							<td class="ui-table-statusB">
+								<a href="<?php echo $product_info['url'];?>" target="_blank" style="color:blue;"><?php echo $product_info['title'];?></a>
+							</td>
+						</tr>
+						<tr>
+							<th>商品图片:</th>
+							<td>
+								<a href="<?php echo $product_info['url'];?>" target="_black"><img src="<?php echo $product_info['thumb'];?>"></a>
+							</td>
+						</tr>
+						<tr>
+							<th>试用打分:</th>
+							<td>{$order_info['trial_report']['base_info']['star']} 分</td>
+						</tr>
+						<tr>
+							<th>身高:</th>
+							<td>{$order_info['trial_report']['base_info']['height']} CM</td>
+						</tr>
+						<tr>
+							<th>体重:</th>
+							<td>{$order_info['trial_report']['base_info']['weight']} KG</td>
+						</tr>
+						<tr>
+							<th>年龄:</th>
+							<td>{$order_info['trial_report']['base_info']['age']} 岁</td>
+						</tr>
+						<tr>
+							<th>职业:</th>
+							<td>{$order_info['trial_report']['base_info']['job']}</td>
+						</tr>
+						<tr>
+							<th>试客背景:</th>
+							<td>{$order_info['trial_report']['base_info']['background']}</td>
+						</tr>
+						<tr>
+							<th>试用过程及体验:</th>
+							<td class="trial_content">{$order_info['trial_report']['content']}</td>
+						</tr>
+						<tr>
+							<th>当前状态:</th>
+							<td style="color:red;"><?php echo $this->status[$order_info['status']]; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="appeal-reply">
+				<h2>会员信息</h2>
+					<table cellspacing="0">
+					<tbody>
+						<tr>
+							<th>昵称:</th>
+							<td>{$userinfo['nickname']}</td>
+						</tr>
+						<tr>
+							<th>邮箱:</th>
+							<td>{$userinfo['email']}</td>
+						</tr>
+						{if $userinfo['phone_status'] == 1}
+						<tr>
+							<th>电话:</th>
+							<td>{$userinfo['phone']}</td>
+						</tr>
+						{/if}
+						{if $userinfo['qq']}
+						<tr>
+							<th>QQ:</th>
+							<td>{$userinfo['qq']}</td>
+						</tr>
+						{/if}
+					</tbody>
+				</table>
+			</div>
+			<div class="appeal-reply">
+				<h2>商家操作</h2>
+					<table cellspacing="0">
+					<tbody>
+						{if $order_info['status'] == 3}
+							<tr>
+								<th>操作:</th>
+								<td>
+									<label><input type='radio' name='pay_type' value="1" checked id="pay"/>付款给买家</label> 
+									<label><input type='radio' name='pay_type' value="2" id='pay_appraised'/>付款并评优（付款并且额外奖励买家）</label>
+								</td>
+							</tr>
+							<tr style="display:none;" id='block'>
+								<th>赠送:</th>
+								<td>
+									【现金】
+									<!-- <select name='gift' id='gift'> -->
+										<!-- <option value="money">现金</option> -->
+										<!-- <option value="point">积分</option> -->
+									<!-- </select> -->
+									<input type='text' name='val' value="5" size="5" id='val' maxlength="4" /><span id='unit'>元</span>
+									(当前余额：<?php echo $this->userinfo['money'];?> 元)
+								</td>
+							</tr>
+							<tr>
+								<th>说明:</th>
+								<td style="color:red;">
+	                                <span id="over">付款之后，将退还给买家本次试用活动担保金，试用完成</span>
+									<span id="appraised" style="display:none;">
+										1付款给买家,并且扣除自身的账户余额奖励本次试用者！<br/>
+	                                    2.若账户余额不足，无法奖励给买家;<br/>
+	                                    3.额外奖励金额从本身账户余额扣除，不从担保金中扣除。
+	                                </span>
+								</td>							
+							</tr>
+							<input type='hidden' name='order_id' value="{$order_info['id']}"/>
+						{else}
+							<tr>
+								<th>当前状态:</th>
+								<td><?php echo $this->status[$order_info['status']];?>{if $order_info['appraised']==1}(已评优){else}(未评优){/if}</td>
+							</tr>
+						{/if}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</td>
+</tr>
+<script type="text/javascript">
+$('#pay_appraised').click(function(){
+	$('#block').attr('style','display:');
+	$('#appraised').attr('style','display:');
+	$('#over').attr('style','display:none');
+	$('#pay').removeAttr('checked');
+})
+$('#pay').click(function(){
+	$('#pay_appraised').removeAttr('checked');
+	$('#over').attr('style','display:');
+	$('#appraised').attr('style','display:none');
+	$('#block').attr('style','display:none;');
+})
+/* 校验输入的值 */
+$(function(){
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+    $("#val").formValidator({
+        empty:false,
+        onempty:'要赠与的金额不能为空',
+        onshow:'请输入要赠与的金额不能为空(大于等于1)' ,
+        onfocus:"请输入要赠与的金额不能为空(大于等于1)" 
+    }).regexValidator({
+        regexp:'intege1',
+        datatype:'enum',
+        onerror:'要赠与的金额不能只能为大于等于1'
+    });
+})
+</script>

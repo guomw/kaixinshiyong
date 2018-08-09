@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/jscal2.css"/>
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/border-radius.css"/>
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/win2k.css"/>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_finance_list.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/styleswitch.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/calendar.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/en.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{if $userinfo['modelid'] == 1}
+	{include template('header','member/common')}
+	{else}
+	{include template('merchant_header','member/common')}
+	{/if}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+		{if $userinfo['modelid'] == 1}
+		<div class="nav_path">
+		<a href="{__APP__">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>
+</div>
+			{include template("member_left","member/common")}
+			{else}
+			<div class="nav_path">
+		<a href="{__APP__">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Financial/index')}" class="nav_active">财务管理</a>
+</div>
+			{include template("merchant_left","member/common")}
+			{/if}
+			<div class="content_right float_right">
+				<h1>充值记录</h1>
+				<div class="finance_information">
+					<div class="float_left">
+						<dl>
+							<dt>可用余额：</dt>
+							<dd class="float_left"><span>{$userinfo[money]}</span>&nbsp;元</dd>
+							<dd class="float_left recharge"><a href="{U('Pay/Index/pay')}">充值</a></dd>
+							<dd class="float_left withdrawals"><a href="{U('Pay/Index/deposite')}">提现</a></dd>
+						</dl>
+					</div>
+					{if $userinfo[modelid] == 2}
+					{else}
+					<div class="float_left integration">
+						<dl>
+							<dt>我的积分：</dt>
+							<dd class="float_left"><span>{$userinfo[point]}</span></dd>
+							<dd class="float_left recharge"><a href="{U('Shop/Index/index')}">兑换</a></dd>
+						</dl>
+					</div>
+					{/if}
+				</div>
+				<div style="clear:both;"></div>
+				<div class="transaction">
+					<h2 class="right_title border_bottom_efefef">
+					充值记录
+					<a href="{U('Member/Financial/pay_log',array('type'=>1))}" 
+						{if $type == 1} class="a_link"{/if}>普通充值</a>
+						<a href="{U('Member/Financial/pay_log',array('type'=>2))}" {if $type == 2} class="a_link"{/if}>快速充值</a>
+					</h2>
+					<form method="get">
+						<input type="hidden" name="m" value="Member"></input>
+						<input type="hidden" name="c" value="Financial"></input>
+						<input type="hidden" name="a" value="pay_log"></input>
+						<input type="hidden" name="type" value="{$type}"></input>
+					<div class="order_type">
+						<table width="100%" cellspacing="0" class="search-form">
+						    <tbody>
+								<tr>
+									<td>
+										<div class="explain-col">				
+											充值日期查询
+											<input type="text" name="start_time" id="start_time" value="" size="10" class="date" readonly>
+											<script type="text/javascript">
+												Calendar.setup({
+												weekNumbers: true,
+											    inputField : "start_time",
+											    trigger    : "start_time",
+											    dateFormat: "%Y-%m-%d",
+											    showTime: false,
+											    minuteStep: 1,
+											    onSelect   : function() {this.hide();}
+												});
+								       		</script>-
+											<input type="text" name="end_time" id="end_time" value="" size="10" class="date" readonly>&nbsp;
+											<script type="text/javascript">
+												Calendar.setup({
+												weekNumbers: true,
+											    inputField : "end_time",
+											    trigger    : "end_time",
+											    dateFormat: "%Y-%m-%d",
+											    showTime: false,
+											    minuteStep: 1,
+											    onSelect   : function() {this.hide();}
+												});
+								        	</script>
+											<input type="submit" name="search" class="button" value="搜索" />
+										</div>
+									</td>
+								</tr>
+						    </tbody>
+						</table>
+					</div>
+				</form>
+				{if $type == 1}
+					<div class="order_list">
+						<table>
+							<tbody>
+								<tr>
+									<th>充值金额</th>
+									<th>状态</th>
+									<th>原因</th>
+									<th>交易号</th>
+									<th>充值时间</th>
+									<th>审核时间</th>
+									
+								</tr>
+								{if $pay_log}
+								{loop $pay_log $v}
+								<tr>
+									<td {if $v[money] >0 } class="income" {else} class="expenditure"{/if}>
+										{$v[money]}
+									</td>
+								
+									<td>{if $v[status == 0]}未审核{elseif $v[status] == 1}已审核{else}未通过{/if}</td>
+									<td>{$v[cause]}</td>
+									<td>{$v[tran_number]}</td>
+									<td><?php echo dgmdate($v['inputtime']); ?></td>
+									<td><?php if(empty($v['check_time'])){echo "-";}else{ echo dgmdate($v['check_time']);} ?></td>
+
+								</tr>
+								{/loop}
+
+								{/if}
+								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$pages}
+						</p>
+					</div>
+
+					{else}
+					 <div class="order_list">
+						<table>
+							<tbody>
+								<tr>
+									<th>交易订单号</th>
+									<th>充值金额</th>
+									<th>状态</th>
+									<th>原因</th>
+									<th>完成时间</th>
+									
+								</tr>
+								{if $pay_log}
+								{loop $pay_log $v}
+								<tr>
+									<td>{$v[trade_sn]}</td>
+									<td class="income">{$v[total_fee]}</td>								
+									<td>{if $v[status] == 0}待支付{else}已完成{/if}</td>
+									<td>{$v[cause]}</td>									
+									<td><?php if(empty($v['notify_time'])){echo "-";}else{ echo dgmdate($v['notify_time']);} ?></td>
+								</tr>
+								{/loop}
+
+								{/if}
+								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$pages}
+						</p>
+					</div>
+					{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>用户登录-{C('WEBNAME')}</title>
+		<meta name="keywords" content="用户登录，{C('WEBNAME')}" /> 
+        <meta name="description" content="欢迎您登录{C('WEBNAME')}，登录之后可享受{C('WEBNAME')}为您带来的多项便捷服务." />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setLogin.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/login.css" /> 
+		<style type="text/css">
+			.user_input_text{
+				position: relative;
+			}
+			
+			.mail_lists{
+				width: 100%;
+				background: #ffffff;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				position: absolute;
+				top: 40px;
+				left: -1px;
+				cursor: pointer;
+				display: none;
+			}
+			
+			.mail_lists li{
+				display: none;
+				padding-left: 20px;
+				overflow: hidden;
+			}
+			
+			.mail_lists li span{
+				font-size: 14px;
+			}
+			
+			.mail_active{
+				background: #2090ff;
+				color: #ffffff;
+			}
+			.db{
+				display: block !important;
+			}
+
+
+
+			.copy a img{ width: auto; height: auto; }
+
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			<div class="wrap">
+				<h1 class="login_logo fontSize"><img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" /><span>用户登陆</span></h1>
+				<ul class="login_nav">
+					<li><a href="{__APP__}">首页</a></li>
+					<li><a href="{U('Document/Index/lists',array('catid'=>2))}">帮助中心</a></li>
+					<li><a href="{U('Document/Index/lists',array('catid'=>83))}">关于我们</a></li>
+				</ul>
+			</div>
+		</div>	
+		<div class="center">			
+			<div class="wrap">
+				<div class="login_show_wrap">
+					<img src="{THEME_STYLE_PATH}style/images/loginHTML_show.png" alt="" />
+				</div>
+				<form acion="{U('Member/Index/login')}" method="post">
+				<input type="hidden" name="refresh" value="{$refresh}" />
+				<div class="login_user">
+					<h2 class="login_user_title">登录{C('WEBNAME')}<span>还没有账号？<a href="{U('Member/Index/register_index')}">立即注册</a></span></h2>
+					<div class="login_user_box">
+						<div class="user_input user_input_text">
+							<img src="{THEME_STYLE_PATH}style/images/emaiou.gif" alt="" />
+							<input type="text" placeholder="邮箱/手机" value="" name="username" id="username"/>
+							<!-- 邮箱提示 start -->
+							<div class="mail_lists">
+								<ul>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">qq.com</span>
+									</li>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">sina.com</span>
+									</li>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">126.com</span>
+									</li>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">163.com</span>
+									</li>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">vip.qq.com</span>
+									</li>
+									<li>
+										<span class="mail_prefix"></span><span>@</span><span class="mail_suffix">sohu.com</span>
+									</li>
+								</ul>
+							</div>
+							<!-- 邮箱提示 end -->
+						</div>
+						<div class="user_input user_input_pass" >
+							<img src="{THEME_STYLE_PATH}style/images/loginHTML_user_pass.jpg" alt="" />
+							<input type="password"  placeholder="请输入密码" value="" name="password" id="pwd"/>
+						</div>
+						<!-- <div class="user_Code" >
+							<input type="text" placeholder="请输入验证码" name="verify" id="verify"/>
+							<img src="{U('Api/Verify/create')}" id="vCode_pic" width="100px"; height="40px" alt="" />
+						</div>	 -->	
+						<a href="javascript:;" id="js_login" class="user_btn">登录</a>	
+						<ul class="user_handle">
+							<li><img src="{THEME_STYLE_PATH}style/images/loginHTML_qqIcon.jpg" alt="" /><a href="{U('Oauth/Index/login')}">快速登录</a></li>
+							<li><a href="{U('Member/Index/forget')}">忘记密码？</a></li>
+						</ul>
+						<p class="user_verify" style="display:none;"></p>						
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="bottom">
+			<p class="link">友情链接：
+				{pc:link action="lists" linktype="0"}
+				{loop $data $r}
+				<a href="{$r[url]}">{$r[webname]}</a>
+				{/loop}
+				{/pc}
+			</p>
+			<p class="copy">
+				版权所有：{C("site_web_copyright")}  {C('site_web_icp')} </br>
+						Copyright &copy; 2009-2014 {$_SERVER['SERVER_NAME']}
+								{C("site_statistical_code")}
+
+
+			</p>
+			<div class="approve">
+				<img src="{THEME_STYLE_PATH}style/images/approve_01.jpg" alt="" />
+				<img src="{THEME_STYLE_PATH}style/images/approve_02.jpg" alt="" />	
+				<img src="{THEME_STYLE_PATH}style/images/approve_03.jpg" alt="" />
+				<img src="{THEME_STYLE_PATH}style/images/approve_04.jpg" alt="" />
+			</div>
+		</div>
+<script type="text/javascript">
+$('#vCode_pic').bind('click',function(){
+	$(this).attr('src',$("#vCode_pic").attr('src') + '&t=' + Math.random());
+});
+
+$('input[name=password]').keydown(function(e){
+	if(e.keyCode==13) dologin();
+})
+
+$("#js_login").click(function() {
+	dologin();
+});
+
+function dologin () {
+	var name = $.trim($('#username').val());
+	var pwd = $.trim($('#pwd').val());
+	var code = $.trim($('#verify').val());
+	if (name.length == 0) {
+		$("#username").focus();
+		$(".user_verify").html('请输入用户名/邮箱/手机').show();
+		return false;
+	}
+	$.post("{U('Member/Index/login')}",{
+		username:name,
+		password:pwd,
+		verify:code,
+		refresh:'{$refresh}'
+	},function(data){
+		if (data.status == 1) {
+			location.href = data.url;
+		}else{
+			$(".user_verify").show();
+			$(".user_verify").html(data.info);
+		};
+		
+	},"json");
+}
+$(function(){
+	$("#username,#pwd").keyup(function(){
+		$(".user_verify").hide();
+	});
+	
+	// 邮箱提示
+	$("#username").keyup(function(event){
+		if(event.keyCode != 38 && event.keyCode != 40 && event.keyCode != 13){
+			var mail_val = $(this).val();
+			if($.trim(mail_val) != "" && $.trim(mail_val).match(/^@/) == null){
+				$(".mail_lists").show();
+				$(".mail_lists li").addClass("db");
+				$(".mail_lists li").removeClass("mail_active");
+				$(".mail_lists li").eq(0).addClass("mail_active");
+				if($.trim(this.value).match("@") == null){
+					$(".mail_prefix").text(mail_val);
+				}
+				else{
+					var sub_mail_val = new Array();
+					sub_mail_val = mail_val.split("@");
+					$(".mail_prefix").text(sub_mail_val[0]);
+					var sub_mail_val_len = sub_mail_val[0].length;
+					if(mail_val.length > sub_mail_val_len + 1){
+						var _sub_mail_val = sub_mail_val[1];
+						$(".mail_suffix").each(function(){
+							var mail_suffix_text = $(this).text();
+							if(mail_suffix_text.match(_sub_mail_val) != null && mail_suffix_text.indexOf(_sub_mail_val) == 0){
+								$(this).parent().addClass("db");
+								$(".mail_lists li").removeClass("mail_active");
+								$(".mail_lists .db").eq(0).addClass("mail_active");
+								if(_sub_mail_val.length >= mail_suffix_text.length){
+									$(this).parent().removeClass("db mail_active");
+				                }
+							}
+							else{
+								$(this).parent().removeClass("db mail_active");
+							}
+						});
+					}
+					else{
+						$(".mail_lists li").addClass("db");
+						$(".mail_lists li").removeClass("mail_active");
+						$(".mail_lists li").eq(0).addClass("mail_active");
+					}
+				}
+			}
+			else{
+				$(".mail_lists").hide();
+				$(".mail_lists li").removeClass("mail_active");
+				$(".mail_lists li").removeClass("db");
+			}
+		}
+					
+		if(event.keyCode == 13){
+			var mail_val = $(".mail_active").find(".mail_prefix").text() + "@" + $(".mail_active").find(".mail_suffix").text();
+			$(this).val(mail_val);
+			$(".mail_lists").hide();
+			$(".mail_lists li").removeClass("db mail_active");
+		}
+		
+	});
+	
+	$("#username").keydown(function(event){
+		if(event.keyCode == 40){
+			if($(".mail_active").nextAll().is(".db")){
+				$(".mail_active").removeClass("mail_active").nextAll(".db").eq(0).addClass("mail_active");
+			}
+			else{
+				$(".mail_lists .db").removeClass("mail_active");
+				$(".mail_lists .db").eq(0).addClass("mail_active");
+			}
+			
+		}
+		
+		if(event.keyCode == 38){
+			if($(".mail_active").prevAll().is(".db")){
+				$(".mail_active").removeClass("mail_active").prevAll(".db").eq(0).addClass("mail_active");
+			}
+			else{
+				$(".mail_lists .db").removeClass("mail_active");
+				$(".mail_lists .db:last").addClass("mail_active");
+			}
+		}
+	});
+	
+	$(".mail_lists li").mouseover(function(){
+		$(".mail_lists li").removeClass("mail_active");
+		$(this).addClass("mail_active");
+	});
+	
+	$(".mail_lists li").click(function(){
+		var mail_val = $(this).find(".mail_prefix").text() + "@" + $(this).find(".mail_suffix").text();
+		$("#username").val(mail_val);
+		$(".mail_lists").hide();
+		$(".mail_lists li").removeClass("db mail_active");
+	});
+	
+	$(document).click(function(){
+		$(".mail_lists").hide();
+	});
+});
+</script>
+	</body>
+</html>

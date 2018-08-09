@@ -1,0 +1,29 @@
+.content { background:#f4f4f4; float:left; width:100%; height:auto; }
+.wrap_left { width:878px; height:auto; float:left; }
+.sub_select { border-bottom:solid 1px #dedede; float:left; width:100%; height:32px; padding:25px 0 19px 0; }
+.sub_left { float:left; height:100%; }
+.sub_left > li { float:left; height:100%; margin-right:10px; line-height:32px; }
+.sub_left > li > a { display:block; padding:0 16px; height:100%; border:solid 1px #ddd; }
+.sub_left .a_click_style_1 { border:solid 1px #ff6600; background:#ff6600; color:#fff; font-weight:700; }
+.sub_right { float:right; height:18px; padding-top:15px; line-height:18px; }
+.sub_right > li ,.sub_right > span { float:left; height:100%; margin-left:25px; }
+.sub_right > li { float:left; height:100%; }
+.sub_right > span > a { padding-right:12px; }
+.sub_right > li > a { padding-right:12px; background:url(../images/list_try_sub01.png) no-repeat right center; }
+.sub_right .a_click_style_2 { color:#ff235f; background:url(../images/list_try_sub02.png) no-repeat right center; }
+.left_list_content { width:100%; height:auto; float:left; }
+.margin_right_0  { margin-right:0;  }
+
+.wrap_right { margin-top:24px; width:278px; height:auto; float:right; }
+.wrap_right .title { font-size:14px; width:100%; height:40px; line-height:40px; text-indent:15px; border-bottom:solid 1px #ddd; }
+.wrap_right .title > a{ float:right; font-size:12px; margin-right:11px; font-weight:100; }
+
+/* 翻页颜色 */
+.pages { margin-top:35px; margin-bottom:90px; }
+.pages .textAlgin1:hover { border-color:#ff6600; color:#ff6600; }
+.pages .active { border-color:#ff6600; color:#ff6600; }
+.pages .prev:hover { border-color:#ff6600; color:#ff6600; color:#fff; background:#ff6600; }
+.pages .next:hover { border-color:#ff6600; color:#ff6600; color:#fff; background:#ff6600; }
+.try_over { margin-bottom:70px; width:100%; height:auto; float:left; }
+.try_over .title { height:25px; width:100%; float:left; font-size:14px; font-weight:100; border-bottom:solid 1px #ddd; }
+.try_over .box

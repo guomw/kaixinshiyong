@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="off" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="日赚任务,{C('WEBNAME')}" />
+	<meta name="description" content="日赚任务,{C('WEBNAME')}" />
+    <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/styles.css" type="text/css" rel="stylesheet" />
+   <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/task.js"></script>
+    <!--[if IE 6]><script type="text/javascript" src="{THEME_STYLE_PATH}style/js/pngfix.js"></script><![endif]-->
+</head>
+<body>
+<!--最顶部-->
+{include template('toper_2','common')}
+<!--banner和搜索-->
+{include template('header_2','common')}
+<!--内容-->
+<div class="content">
+    <div class="content-bd">
+        <span><a href="{__APP__}">首页></a><a href="{U('Task/Index/broke')}">任务大厅> </a><a href="javascript:;" class="font-red">{$title}</a></span>
+
+        <!--商品详情-->
+        <div class="xq-content top3">
+            <div class="xq-left fleat" style="width: 280px;">
+                <div style="position: relative;float: left;" id="demo" href="{THEME_STYLE_PATH}style/images/mm.jpg">
+                    <img src="{$thumb}" class="imgbig">
+                </div>
+            </div>
+
+            <div class="xq-center fleat top3" style="width: 620px;margin-left: 2px;">
+                <h4 class="original">回答商家问题，回答正确奖励<b class="big-red">{$goods_price}</b>元</h4>
+                <div class="top1" style="background: #ffedec;height: 160px; padding-left: 20px;">
+                    <ul class="xq-data2">
+                        <li><h3 class="original">{$title}<a href="#hearh"><b class="big-red">找答案</b></a></h3></li>
+                        <li>
+                            <div class="head-warp-l right-dian">
+                                <div class="fleat"><input type="text" id="content" class="search-text2" value="" placeholder="输入答案"/></div>
+                                <div class="tj-button center fleat cursor">
+                                    <h4 class="white" data-price="{$goods_price}" data-url="{U('Task/Index/answer')}" data-id="{$id}" onclick="task.submit_answer(this)">提交答案</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li><img src="{THEME_STYLE_PATH}style/images/answer.png" width="331" /></li>
+                    </ul>
+                </div>
+                <div class="top2">
+                     <a>总份数<b class="big-ju">{$goods_number}</b>/剩余份数<b class="big-ju"><?php echo $goods_number - $already_num;?></b>已被关注<b class="big-ju">{$hits}</b>次</a>
+                </div>
+            </div>
+        </div>
+        <div class="clear-both"></div>
+        <!--内容详情-->
+        <div class="content-bd top3">
+            <div class="xq-xq-left fleat">
+                <div class="yell-back">
+                    <div class="xq-nav-title center" style="border: 1px solid #fff">
+                        <h4 class="white top2">{C('WEBNAME')}任务大厅免责声明</h4>
+                    </div>
+                    <div class="retract text-line text-padding">
+                        <a class="nohover">{C('WEBNAME')}所有试用产品均由合作商家直接提供，杜绝一切非正规渠道来源的试用产品。云划算仅为用户提供商品试用渠道及信息交流平台</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xq-xq-right fleat left2 text-padding" style="border: 1px solid #dddddd;width: 720px;">
+                <div class="skfxi text-padding" style="border: 1px dashed #dddddd;">
+                    <h4 class="big-ju">试客分享</h4>
+                    <p style="line-height: 28px;">
+                    <div class="bdsharebuttonbox" >
+							<a href="#" class="bds_more" data-cmd="more"></a>
+							<a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+							<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+							<a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+							<a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+						</div>
+						<script>
+							window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+						</script>
+					</p>
+                </div>
+
+                <div class="skfxi text-padding top3" style="border: 1px dashed #dddddd;">
+                    <h4 class="big-ju">步骤提示</h4>
+                    <p style="line-height: 28px;">
+                        1、打开<a class="font-red">{get_shop_set($source,'name')}</a>首页 ，搜索关键字"<a class="font-red">{$keyword}</a>"；<br/>
+                        2、按照<a class="font-red">{if $sort==1}综合{elseif $sort==2}人气{elseif $sort==3}销量{elseif $sort==4}信用{elseif $sort==5}最新{else} 价格{/if}</a>排序搜索；<br/>
+                        3、Crtl+F "<a class="font-red">{$goods_wangwang}</a>"（宝贝大约在{$goods_address}左右）
+                    </p>
+                </div>
+
+                <!--详细信息-->
+                <div class="text top3 fleat" id="hearh" style="width:100%;">
+                	{loop $goods_albums $g}
+                    <img src="{$g[url]}" />
+                    {/loop}
+                    <p><a class="nohover big"><b class="font-red">提示</b>：宝贝大约在{$goods_address}左右，请耐心查找！<br/>
+                        请核对好商家和商品图片是否对应正确才进行下单哦！</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<div style="clear: both"></div>
+<!--底部-->
+{include template('footer_2','common')}
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".imgtext").hide()
+	$(".ipic").hover(function(){
+		$('.imgtext',this).slideToggle(200);
+	})
+
+	//导航
+	$(".hl-list li").hover(function() {
+		$(this).addClass("main-list-li-hover");
+	}, function() {
+		$(this).removeClass("main-list-li-hover");
+	});
+
+})
+</script>

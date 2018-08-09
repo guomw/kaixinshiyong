@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="off" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+    <title>{get_seo('report_seo','report_title','')}</title>
+    <meta name="keywords" content="{get_seo('report_seo','report_keyword','')}">
+    <meta name="description" content="{get_seo('report_seo','report_description','')}
+">
+	 <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css2/styles.css" type="text/css" rel="stylesheet">
+    <script src="{THEME_STYLE_PATH}style/js2/jquery-1.9.1.min.js" type="text/javascript" language="javascript"></script>
+    <!--瀑布流JS-->
+    <!--喜欢+1效果-->
+    <script src="{THEME_STYLE_PATH}style/js2/jquery-AddIntOne.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!--最顶部-->
+{include template('toper','common')}
+<!--banner和搜索-->
+{include template('header','common')}
+
+<!--内容-->
+<div class="content">
+    <!--焦点图和官方公告等-->
+    <div class="content-bd">
+        <div class="main-l">
+            <div id="shi-focus" style="visibility:hidden;">
+        <!--img 不加width和height google不兼容-->
+            {pc:document action="turn_rund" order="listorder ASC" where="type=2"}
+			{loop $data $t}
+                   <a href="{$t[url]}" target="_blank"><img src="{$t[image]}" alt="{$t[title]}" width="775" height="310"/></a>
+			{/loop}
+			{/pc}
+        </div>
+        </div>
+        <div class="main-r nopadding left1">
+
+            <div class="tj-back jhbg">
+                <div style="border: 1px solid #fff;" class="tj-nav-title center jhbg">
+                    <h4 class="white top2">精华报告达人榜</h4>
+                </div>
+                <div class="tj-back-bottom fleat jhbg-content">
+                    <div class="ui-plist-v ui-plist-3" >
+                        <ul class="fleat jhbg-ul" >
+							{loop $result $k $r}
+                            <li class="ui-figure-h ">
+                                <p class="cover c<?php echo $k + 1;?>"></p>
+                                <div class="pic">
+                                    <a href="{U('Product/Index/report_show',array('id'=>$r[id]))}" target="_blank"><img width="41" height="41" src="{getavatar($r[userid])}" alt=""></a>
+                                </div>
+                                <div class="cont">
+                                    <h3><a href="{U('Product/Index/report_show',array('id'=>$r[id]))}" target="_blank">{nickname($r[userid])}</a></h3>
+                                    <p><span class="font-red">{$r[count]}</span>份精华报告,共<span class="font-red">{$r[buy_num]}</span>份报告</p>
+                                </div>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear-both"></div>
+
+    <div class="content-bd top3">
+        <div class="getjing">
+            <div style="width: 440px" class="fleat">
+                <span class="fleat block"><img src="{THEME_STYLE_PATH}style/images/xing.png"></span>
+                <span style="margin: 4px;" class="fleat big block">
+                    试用<b class="font-red">报告秀</b>
+                </span>
+                <a class="nohover jx-more">100%{C('WEBNAME')}试客原创，全面实拍，客观描述试用情况！</a>
+            </div>
+
+            <div style="clear: both"></div>
+            <div id="sault" class="container-fluid top3 sun_single_line">
+			{pc:product action="trail_report" num="10"}
+			{loop $data $r}
+				<div class="sault-box">
+					<div class="sault_left">
+						<div class="sault_te">
+							<div class="sault_img">
+								<a target="_blank" href="{U('product/index/report_show',array('id'=>$r['id']))}">
+									<img height="{$r['height']}" src="{$r['thumb']}" />
+								</a>
+							</div>
+							<div class="sault_people">
+								<div class="sault_avatar">
+									<a target="_blank" href="{U('product/index/report_show',array('id'=>$r['id']))}">
+										<img height="32" src="{$r[product][thumb]}" />
+									</a>
+								</div>
+								<div class="sault_who">
+                                    <a target="_blank" href="{U('product/index/report_show',array('id'=>$r['id']))}">
+                                       <span>{$r[product][title]}试用报告，</span></a>
+								</div>
+							</div>
+							<div class="sault_content">
+								<a target="_blank" href="{U('Product/Index/report_show',array('id'=>$r[id]))}">{str_cut(strip_tags($r[content]), 70)}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{/loop}
+			{/pc}
+            </div>
+			<div class="sun_single_line" style="display:none;color:red;">没有更多了</div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<div class="clear-both"></div>
+
+<!--底部-->
+{include template('footer','common')}
+<script src="{THEME_STYLE_PATH}style/js2/jquery.masonry.min.js" type="text/javascript"></script>
+</body>
+</html>
+  <!--试用报告焦点图JS-->
+ <script src="{THEME_STYLE_PATH}style/js2/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
+<script>
+    //瀑布流
+    var $container = $('#sault');
+    $container.imagesLoaded(function() {
+        $container.masonry({
+            itemSelector: '.sault-box',
+            gutter: 20,
+            isAnimated: true
+        });
+    });
+
+
+    var page = 1;
+    var isempay = false;
+    var flag = false;
+    $(window).bind("scroll",function(){
+        if (($(document).height() - $(this).scrollTop() - $(this).height()<1000) && (flag == false)) {
+            flag = true;
+            setTimeout('loadMore()',1000);
+        }
+    })
+
+    function loadMore(){
+            page++;
+            $.getJSON(site.site_root + '/index.php?m=product&c=api&a=trail_report', {
+                limit:10,
+                page:page
+            }, function(ret) {
+                count = ret.count;
+                if(ret.lists != null) {
+                    var _html = '';
+                    $.each(ret.lists, function(i, n) {
+                        _html += '<div class="sault-box"><div class="sault_left"><div class="sault_te">';
+                        _html += '<div class="sault_img"><a target="_blank" href="'+ n.url +'"><img height="'+n.height +'"   src="'+ n.thumb +'"></a> </div>';
+                        _html += '<div class="sault_people"><div class="sault_avatar"><a target="_blank" href="'+n.url+'"><img height="32" src="'+ n.thumb +'"></a></div><div class="sault_who"><a target="_blank" href="'+ n.url +'">'+ n.nickname +'</a> 发表了：<br><span>'+  n.product.title +'试用报告，</span></div></div>';
+                        _html += '<div class="sault_content"><a target="_blank" href="'+site.site_root+'/index.php?m=product&c=Index&a=report_show&id='+n.id+'">'+ n.content +'</a></div></div>';
+                        _html += '</div>';
+                        _html += '</div></div></div>';
+                    });
+                    $container.append(_html).masonry('appended', $container.find('div[class=sault-box]'));      
+                } else {
+                    isempay = true;
+                    $("div.sun_single_line").show();
+                }
+            });
+
+            flag = false;
+    }
+
+    $(document).ready(function(){
+
+        //漂浮导航
+        $(window).scroll(function(){
+            var documentTop = $(document).scrollTop();
+            var windowHeight = $(window).height();
+            var documentHeight = $(document).height();
+            if(documentTop >= 540){
+                $(".nav2").addClass('fixed');
+            }else{
+                $(".nav2").removeClass('fixed');
+            }
+        })
+
+        //喜欢+1
+        $('a.zhan').click(function(){
+            $.tipsBox({
+                obj: $(this),
+                str: "<b style='font-family:Microsoft YaHei; font-size: 14px;font-weight: bold'>+1</b>"
+            });
+        });
+
+        //焦点图
+        $("#shi-focus").KinSlideshow({
+            btn:{btn_bgColor:"#d9d6c4",btn_bgHoverColor:"#ffff00",btn_fontColor:"#d9d6c4",
+                    btn_fontHoverColor:"#ffff00",btn_borderColor:"#cccccc",
+                    btn_borderHoverColor:"#ffff00",btn_borderWidth:1}
+        });
+
+        //导航
+        $(".hl-list li").hover(function() {
+            $(this).addClass("main-list-li-hover");
+        }, function() {
+            $(this).removeClass("main-list-li-hover");
+        });
+
+        $(".anniu_button3").hover(function(){
+            $(this).removeClass("anniu_button3");
+            $(this).addClass("anniu_button2");
+        },function(){
+            $(this).removeClass("anniu_button2");
+            $(this).addClass("anniu_button3");
+        })
+
+        //商家公告
+        $(".notice-hd-ul li").hover(function(){
+            var name = $(this).attr('data');
+            $(".notice-hd-ul li").each(function(){
+                var data = $(this).attr('data');
+                if(name == data){
+                    $(this).addClass("selected");
+                }else{
+                    $(this).removeClass("selected");
+                }
+            })
+            $(".notice-bd").children("div").each(function(){
+                var data = $(this).attr('data');
+                if(name == data){
+                    $(this).css("display",'block');
+                }else{
+                    $(this).css("display",'none');
+                }
+            })
+        })
+    })
+</script>

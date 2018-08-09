@@ -1,0 +1,33 @@
+<ion-view view-title="我的日赚任务"  hide-tabs>
+  <ion-content  style="background-color:#F8F8F8">
+    <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
+           refreshing-icon="ion-loading-c" on-refresh="wdfl_doRefresh()"></ion-refresher>
+
+    <div ng-if="task_showloading" style="margin-top:60px;text-align:center">
+      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+
+    <ion-list class="list padding-top" ng-if="task_showloading==false">
+
+    <div class="ibody">
+      <div class="i_moneyEverydayRecord">
+       <!--part-->
+        <div class="part"  ng-repeat="d in data_user_borke.data">
+          <div class="L">
+             <div class="p1">{{d.title | limitTo:10}}</div> 
+            <div class="p2">完成时间 {{d.start_time + '000' |date:"yyyy/MM/dd h:mm" }}</div>
+          </div>
+          <div class="R">
+          已获得佣金：<span> ¥ {{d.goods_price}}</span>
+          </div>
+          <div class="clearfix"></div>
+       </div>
+       <!--part-->
+       <div class="no"  ><div class="content">没有其他日赚任务记录了！！！</div></div>
+     </div>
+    <!--i_moneyEverydayRecord-->
+    </div>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

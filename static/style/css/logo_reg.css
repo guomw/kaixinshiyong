@@ -1,0 +1,334 @@
+/* 主体内容 */
+#logo_main{
+	width: 1150px;
+	height: 540px;
+	margin: 0 auto;
+	background: url(../images/new_logo_bg.jpg) no-repeat 100px top;
+}
+
+#logo_main .logo_area{
+	margin: 40px 0 0 0;
+	padding-right: 88px;
+}
+
+.logo_area .name, .logo_area .password{
+	width: 310px;
+	height: 48px;
+	line-height: 48px;
+	border: 1px solid #e5e5e5;
+	padding-left: 10px;
+}
+
+.logo_area .br_n{
+	border-bottom: none;
+}
+
+.logo_area .name{
+	background: url(../images/name_ico.jpg) no-repeat 290px center;
+}
+
+.logo_area .password{
+	background: url(../images/password_ico.jpg) no-repeat 290px center;
+}
+
+.logo_area .options{
+	width: 320px;
+	padding: 25px 0;
+}
+
+.options label{
+	cursor: pointer;
+}
+
+.options input[type="checkbox"]{
+	vertical-align: top;
+}
+
+.logo_area .submit{
+	width: 320px;
+	height: 50px;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	display: block;
+	background: #fe7e00;
+	font: 18px 'Microsoft YaHei';
+	text-align: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+#reg_main{
+	padding: 50px 0 100px 0;
+}
+
+#reg_main .reg_options{
+	width: 840px;
+	margin: 0 auto;
+}
+
+.buyer, .merchant{
+	width: 365px;
+	border: 1px solid #cacaca;
+	padding: 20px 15px 15px 30px;
+}
+
+.reg_options a{
+	width: 148px;
+	height: 41px;
+	display: block;
+}
+
+.reg_options .buyer_btn{
+	background: url(../images/buyer_btn.jpg) no-repeat;
+}
+
+.reg_options .merchant_btn{
+	background: url(../images/merchant_btn.jpg) no-repeat;
+}
+
+.buyer_bg, .merchant_bg{
+	width: 269px;
+	height: 105px;
+	margin-top: 5px;
+}
+
+.buyer_bg{
+	background: url(../images/buyer_options_bg.jpg) no-repeat;
+}
+
+.merchant_bg{
+	background: url(../images/merchant_options_bg.jpg) no-repeat;
+}
+
+#reg_main .reg_box{
+	width: 1135px;
+	margin: 0 auto;
+}
+
+.reg_box .reg_form{
+	padding-left: 60px;
+}
+
+.reg_form .reg_form_form{
+	padding-left: 35px;
+}
+
+.reg_form .process{
+	width: 742px;
+	height: 34px;
+	padding-bottom: 40px;
+}
+
+.process1{
+	background: url(../images/process_bg1.jpg) no-repeat;
+	color: #ffffff;
+}
+
+.process2{
+	background: url(../images/process_bg2.jpg) no-repeat;
+	color: #ffffff;
+}
+
+.process3{
+	background: url(../images/process_bg3.jpg) no-repeat;
+	color: #ffffff;
+}
+
+.reg_form_form dt{
+	width: 100px;
+	padding-top: 10px;
+	text-align: right;
+}
+
+.form_text{
+	margin-bottom: 35px;
+}
+
+.form_text input{
+	width: 238px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+	color: #c8c8c8;
+}
+
+.reg_form_form .strength{
+	width: 264px;
+	height: 6px;
+	border: 1px solid #cacaca;
+	display: inline-block;
+}
+
+.strength i{
+	width: 52px;
+	height: 6px;
+	border-right: 1px solid #cacaca;
+	display: block;
+}
+
+.yellow{
+	background: #fe7e00;
+}
+
+.reg_form_form .code_ico{
+	padding-left: 10px;
+}
+
+.code_ico img{
+	width: 120px;
+	height: 40px;
+	border: 1px solid #cacaca;
+	cursor: pointer;
+}
+
+.reg_btn{
+	width: 150px;
+	height: 40px;
+	background: #fe7e00;
+	font-size: 14px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.reg_box .red_bg{
+	width: 300px;
+	height: 450px;
+	background: url(../images/reg_bg.jpg) no-repeat;
+	position: relative;
+}
+
+.red_bg div{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+}
+
+.red_bg p{
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.reg_form_form .code_btn{
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	display: block;
+	background: #fe7e00;
+	text-align: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.reg_suc .reg_suc_bg{
+	background: url(../images/reg_suc_bg.png) no-repeat 110px center;
+}
+
+.reg_suc_bg p{
+	padding-left: 170px;
+}
+
+.exp_btn a{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	margin: 50px 0 70px 270px;
+	display: block;
+	background: #fe7e00;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+}
+
+#reg_main .agr_box{
+	width: 1060px;
+	margin: 0 auto;
+	padding-left: 35px;
+}
+
+.agr_box dt{
+	margin: 30px 0;
+}
+
+.agr_box dd{
+	line-height: 20px;
+}
+
+#reg_main .retrieve_box{
+	width: 742px;
+	margin: 0 auto;
+}
+
+.retrieve_box .retrieve{
+	height: 34px;
+	padding-bottom: 40px;
+}
+
+.retrieve1{
+	background: url(../images/retrieve1.jpg) no-repeat;
+}
+
+.retrieve2{
+	background: url(../images/retrieve2.jpg) no-repeat;
+}
+
+.retrieve3{
+	background: url(../images/retrieve3.jpg) no-repeat;
+}
+
+.retrieve4{
+	background: url(../images/retrieve4.jpg) no-repeat;
+}
+
+.retrieve_form dt{
+	width: 70px;
+	padding-top: 10px;
+	text-align: right;
+}
+
+.retrieve_code_ico{
+	padding-top: 6px;
+}
+
+.retrieve_code_ico img{
+	width: 80px;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.retrieve_form dl{
+	padding-left: 140px;
+}
+
+.retrieve_box .retrieve_suc_bg{
+	line-height: 20px;
+	background: url(../images/retrieve_suc_bg.jpg) no-repeat 50px top;
+}
+
+.logo_email a{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto;
+	display: block;
+	background: #fe7e00;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.retrieve_box .retrieve_suc_bg2{
+	height: 48px;
+	background: url(../images/retrieve_suc_bg2.png) no-repeat center top;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资料认证-{C('WEBNAME')}</title>
+<meta name="Keywords" content="资料认证,{C('WEBNAME')}" />
+<meta name="Description" content="资料认证,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_aut_list.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+		<a href="{U('Member/Attesta/index')}" class="nav_active">经营认证</a>
+	</div>			
+				{include template("merchant_left","member/common")}
+
+			<div class="content_right float_right">
+				<h1>资料认证</h1>
+				<div class="aut">
+					<div class="aut_list">
+						<ul>
+							<!-- 店铺认证 -->
+							{if $arr['shop']['status'] != 1}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/2.png" width="44" height="57" />
+								</span>
+								<span class="text float_left db">
+									<strong>店铺认证</strong>
+									<span class="text_status">(未认证)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								<a href="{U('Member/Attesta/shop')}" class="push float_left db">立即认证</a>
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/5.png" width="44" height="57" />
+								</span>
+								<span class="text float_left db">
+									<strong>店铺认证</strong>
+									<span class="text_status">(已认证)</span>
+									<br />
+									<?php 
+									$url = string2array($arr['shop']['infos']);
+									?>
+									 <span class="text_text">{cutstr($url[url],20)}</span> 
+								</span>
+								<!-- <a href="{U('Member/Attesta/shop')}" class="push float_left db">修改</a> -->
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 店铺认证  end-->
+							
+							<!-- 品牌认证 -->
+							{if $arr['brand']['status'] != 1}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/4.png" width="53" height="56" />
+								</span>
+								<span class="text float_left db">
+									<strong>品牌认证</strong>
+									<span class="text_status">(未认证)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								{if $arr['brand'] && $arr['brand']['status'] == 0}
+								<a href="javascript:;" class="push float_left db">审核中</a>
+
+								{else}
+								<a href="{U('Member/Attesta/brand')}" class="push float_left db">立即认证</a>
+								{/if}
+								<div style="clear:both;"></div>
+							</li>
+							{else}
+							<li>
+								<span class="db float_left aut_ico">
+									<img src="{THEME_STYLE_PATH}style/images/3.png" width="53" height="56" />
+								</span>
+								<span class="text float_left db">
+									<strong>品牌认证</strong>
+									<span class="text_status">(已认证)</span>
+									<br />
+									<span class="text_text"></span>
+								</span>
+								
+								<div style="clear:both;"></div>
+							</li>
+							{/if}
+							<!-- 品牌认证  end -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template("footer","common")}

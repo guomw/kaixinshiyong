@@ -1,0 +1,170 @@
+{include template('header','common')}
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+
+        <style>
+            .add-box{
+                width: 130%;
+            }
+			.user{
+				display:table-cell;
+				width:16.875%;
+				height:1.1em;
+				position: absolute;
+				top: 0.6875em;
+				right: 0;
+			}
+				
+			.user a{
+				display:block;
+				width:50%;
+				margin:0 auto;
+				height:100%;
+				background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+				background-size:auto 100%;
+			}
+        </style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">邮箱认证</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content bg-f0f0f0 min-height">
+            <form action="{U('Member/Attesta/email_attesta')}" method="post" id="myform">
+            <div class="login-box">
+                <ul class="clear">
+                    {if $userinfo['email_status'] == 1}
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">旧邮箱账号:</span>
+                            <input type="text" name="email"  id="old_email" value="" class="fl">
+                        </div>
+                    </li>
+                    {else}
+                    {/if}
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">{if $userinfo[email_status] == 1}新{/if}邮箱账号:</span>
+                            <input type="text" style="width: 35%"  name="email"  id="email" value="" class="fl">
+                            <a href="javascript:;" onclick="getCode();" id="btnSendCode" class="fl btn-s-01 getverify f1_5">获取验证码</a>
+                        </div>
+                    </li>
+                    <li class="clear">
+                        <div class="add-box">
+                            <span class="fl ta-r f1_5">验证码:</span>
+                            <input type="text" id="u_code" name="n_code" value="" class="fl">
+                        </div>
+                    </li>
+                </ul>
+                <p class="at-login">
+                    <a href="javascript:;" class="btn-s-01 onsubmit f1_5">确定</a>
+                </p>
+            </div>
+            </form>
+		</div>
+
+{include template('footer','common')}
+<script type="text/javascript">
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    var code = ""; //验证码
+    function getCode(){
+        curCount = count;
+        var email = $.trim($("#email").val());
+
+        $.post("{U('Member/Attesta/verify')}",{email:email},function(data){
+            if (data.status == 1) {
+                $("#btnSendCode").html(curCount + "秒内重新发送");
+                $("#btnSendCode").removeClass('btn-s-01').addClass('btn-s-02').attr("onclick","");
+
+                InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+            }
+        },'json')
+    }
+
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#btnSendCode").html("发送验证码");
+            $("#btnSendCode").removeClass('btn-s-02').addClass('btn-s-01').attr("onclick","getCode();");
+            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+        }
+        else {
+            curCount--;
+            $("#btnSendCode").html(curCount + "秒内重新发送");
+
+        }
+    }
+
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+
+    $("#old_email").formValidator({
+        empty:false,
+        onempty:'旧邮箱不能为空',
+        onshow:"请输入旧邮箱账号",
+        onfocus:"请输入旧邮箱账号"
+    }).regexValidator({
+        regexp:'email',
+        datatype:'enum',
+        onerror:"邮箱账号输入错误"
+    }).ajaxValidator({
+        url: '{U('Member/Attesta/compare_email')}',
+        type:'get',
+        datatype:"json",
+        async: false,
+        success: function (msg) {
+        if(msg.status == 1){
+            return true;
+        }
+        return false;
+    },
+    error: function () {
+        return "输入错误";
+    },
+    onerror : "请输入旧邮箱账号"
+    });
+
+    $("#email").formValidator({
+        empty:false,
+        onempty:'邮箱不能为空',
+        onshow:"请输入邮箱账号",
+        onfocus:"请输入邮箱账号"
+    }).regexValidator({
+        regexp:'email',
+        datatype:'enum',
+        onerror:"邮箱账号输入错误"
+    }).ajaxValidator({
+            url: '{U('Member/Attesta/check_email')}',
+            type:'get',
+            datatype:"json",
+            async: false,
+            success: function (msg) {
+        if(msg.status == 1){
+            return true;
+        }
+        return false;
+    },
+    error: function () {
+        return "输入错误";
+    },
+    onerror : "该邮箱不可用，请更换邮箱"
+    });
+
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+</script>

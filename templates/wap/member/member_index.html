@@ -1,0 +1,248 @@
+{include template("header","common")}
+<style type="text/css">
+    body .webuploader-pick{
+        width:100%;
+        height:100%;
+        padding:0;
+    }
+</style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl d-block"></a>
+			个人中心
+			<a href="{U('Member/Profile/infomation')}" class="user-icon fr d-block"></a>
+		</div>
+		<div class="user-mess">
+			<div class="user-small">
+				<div class="user-icon">
+                    <div id="goods_albums">
+                        <a class="user-favicon d-block upload_file" id="img1">
+                            <img src="<?php echo $this->userinfo['avatar'];?>"/>
+                            <img id="loading" src="{THEME_STYLE_PATH}style/images/loading.gif" style="display:none;width:100px;height:100px;" />
+                            <input type="hidden" id="file_url" name="avatar"  value=""/>
+                        </a>
+                    </div>
+                    {if ! is_sign($this->userid)}
+                    <a href="#" class="sign-btn" id="sign">签到</a>
+                    {else}
+                    <span class="sign-btn">已签到</span>
+                    {/if}
+
+				</div>
+				<p class="user-name"><?php echo $this->userinfo['nickname']?></p>
+			</div>
+			<ul class="u-m-txt clear">
+				<li>我的积分：<b><?php echo $this->userinfo['point']?></b></li>
+				<li>余额：￥<b><?php echo $this->userinfo['money'];?></b></li>
+				<li><a href="{U('Pay/Index/deposite')}">申请提现</a></li>
+			</ul>
+		</div>
+		<div class="content">
+            <ul class="l-title" id="change">
+                <li><a href="javascript:;" class="focus" data-name="2">已抢购</a></li>
+                <li><a href="javascript:;" data-name="3">待审核</a></li>
+                <li><a href="javascript:;" data-name="7">已完成</a></li>
+            </ul>
+            <div class="box">
+                <ol class="list" id="2">
+
+                    <div class="end-hint" id="end-hint2">下拉即可加载更多...</div>
+                </ol>
+                <ol class="list d-none" id="3">
+
+                    <div class="end-hint" id="end-hint3">下拉即可加载更多...</div>
+                </ol>
+                <ol class="list d-none" id="7">
+
+                    <div class="end-hint" id="end-hint7">下拉即可加载更多...</div>
+                </ol>
+
+            </div>
+        </div>
+
+{include template('footer','common')}
+
+<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />
+<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //图片上传功能
+    $(document).ready(function() {
+        $("#sign").click(function(){
+            $.post("{U('Member/Sign/index')}",function(data){
+                if (data.status == 1) {
+                    location.reload();
+                } else {
+                    alert(data.info);
+                }
+
+            },'json')
+        });
+        var goods_album = $("#goods_albums").find('a');
+        for(var i=0; i < goods_album.length; i++) {
+            var uploader = WebUploader.create({
+                auto:true,
+                fileVal:'Filedata',
+                // swf文件路径
+                swf: '{JS_PATH}webuploader/webuploader.swf',
+                // 文件接收服务端。
+                server: "{U('Attachment/Attachment/swfupload')}",
+                // 选择文件的按钮。可选
+                formData:{
+                    "module":"",
+                    "catid":"",
+                    "userid":"1",
+                    "dosubmit":"1",
+                    "thumb_width":"0",
+                    "thumb_height":"0",
+                    "watermark_enable":"1",
+                    "filetype_post":"jpg|jpeg|gif|bmp|png",
+                    "swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+                    "isadmin":"1",
+                    "groupid":"2"
+                },
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: {
+                    id: '#img' + (i+1),
+                    multiple:false
+                },
+                accept:{
+                    title: '图片文件',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/*'
+                },
+                thumb:{
+                    width: '110',
+                    height: '110'
+                },
+                chunked: false,
+                chunkSize:1000000,
+                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                resize: false
+            });
+            uploader.onUploadSuccess = function( file, response ) {
+                var pickid = this.options.pick.id;
+                var data = response._raw;
+                var arr = data.split(',');
+                if(arr[0] > 0) {
+                    $(pickid).find('img').attr('src', arr[1]);
+                    $(pickid).find('input[type=hidden]').eq(0).attr('value', arr[1]);
+                }
+                $.post("{U('Member/profile/update_avatar')}",{
+                    avatar:arr[1]
+                },function(data){
+                    location.reload();
+                },'json')
+            }
+            uploader.onUploadError = function(file, reason) {
+                alert('文件上传错误：' + reason);
+            }
+        }
+    })
+
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+    var pages = {
+        2 : 1,
+        3 : 1,
+        7 : 1
+    };
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+            if( ( bodyH-winH ) - now <= 2 ){
+                var type = $("#change").find(".focus").attr("data-name");
+                getContent(type)
+            }
+        });
+        $("#end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+
+    getContent(2);
+    getContent(3);
+    getContent(7);
+    function getContent(type) {
+        var param = {
+            orderby  :'id',
+            orderway : 'desc',
+            page:pages[type],
+            status:type,
+            num:7,
+            userid:1
+        };
+        $.getJSON(site.site_root + '/index.php?m=member&c=order&a=getlists', param, function(ret) {
+            var _html = '';
+            if(ret.status == 1) {
+                $.each(ret.data.lists, function(i, n) {
+                    _html +='<li class="clear">';
+                    _html +='<a href="'+ n.goods.url+'">';
+                    _html +='<span class="thumbnail">';
+                    _html +='<img alt="'+ n.goods.title+'" src="'+ n.goods.thumb+'">';
+                    _html +='</span>';
+                    _html +='<dl class="s-int">';
+                    _html +='<dt class="int-title">'+ n.goods.title+'</dt>';
+                    _html +='<dd>';
+                    _html +='<ul class="int-mess2 fl">';
+					_html +='<li class="goods_num">限量<b>'+n.goods.goods_number+'</b>份</li>';
+                    _html +='<li>'+ n.mod_unit+'：<font class="c-bb000d">￥'+ n.goods.mod_price+'</font></li>';
+                    _html +='<li>下单日期：<font>'+ n.create_time2+'</font></li>';
+                    _html +='</ul>';
+                    _html +='</dd>';
+                    _html +='</dl>';
+                    _html +='</a>';
+
+
+                    if(type == 2){
+                        
+
+                           if(n.act_mod == 'trial' && n.order_sn != ""){
+                               _html +='<a class="btn-s-04 btn-s-04_rest">待审核订单号</a>';
+
+                           }else{
+                       
+                            _html +='<a class="btn-s-04" href="{U('Member/order/edit_ordernum')}&orderid='+n.id+'">下单并填写订单号</a>';
+                            }
+
+                             /*if (n.status == 8 && n.order_sn != ""){
+
+                                _html +='<a class="btn-s-04" href="{U('order/trial_report')}&order_id='+n.id+'">填写试用报告</a>';
+                            
+
+                               }*/
+
+
+                        
+                        
+                    }else if(type == 3){
+                        if(n.act_mod == 'rebate' && n.order_sn == ""){
+                            _html +='<a class="btn-s-04 btn-s-04_rest">待商家审核订单号</a>';
+                        }else if(n.act_mod == 'trial' && n.order_sn == ""){
+                            _html +='<a class="btn-s-04 btn-s-04_rest">待商家审核试用资格</a>';
+                        }else if(n.act_mod == 'trial' && n.status == 3){
+                            _html +='<a class="btn-s-04 btn-s-04_rest">待商家审核试用报告</a>';
+                        }else if(n.act_mod == 'rebate' && n.status == 5){
+                            _html +='<a class="btn-s-04 btn-s-04_rest">待确认付款</a>';
+                        }else if(n.act_mod == 'trial' && n.status == 8){
+                            _html +='<a class="btn-s-04" href="{U('order/trial_report')}&order_id='+n.id+'">填写试用报告</a>';
+                        }
+
+                        }else if(type == 7){
+                        if(n.act_mod != 'trial' && n.report_count <1){
+                            _html +='<a class="btn-s-04" href="{U('Member/order/rebate_report')}&order_id='+n.id+'">我要晒单</a>';
+                        }else if(n.act_mod != 'trial'){
+                            _html +='<a class="btn-s-04 btn-s-04_rest">已晒单</a>';
+                        }
+                    }
+
+                    _html +='</li>';
+                });
+                $("#end-hint"+type+"").before(_html);
+                pages[type]++;
+            }else{
+                $("#end-hint"+type+"").html(oHintArr[1]);
+            }
+        });
+    }
+</script>

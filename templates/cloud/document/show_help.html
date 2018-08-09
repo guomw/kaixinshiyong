@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+	{include template('toper','common')}
+
+		<!-- 帮助中心头部 -->
+	{include template('help_header','document')}
+		<div class="content">
+			<div class="wrap">
+				{include template('help_left')}
+				<script type="text/javascript">
+					$(function(){
+						var s_h = $('.h_c_m_c li').height()*$('.h_c_m_c li').length;
+						$('.h_c_menu').mouseover(function(){ $(this).children('ul').css({ 'height':s_h,'display':'block', }); });
+						$('.h_c_menu').mouseout(function(){ $(this).children('ul').css({ 'height':0,'display':'none', }); });
+					});
+				</script>
+				<div class="h_w_right">
+					<form method="get">
+
+						<input type="hidden" name="m" value="Document"></input>
+						<input type="hidden" name="c" value="Index"></input>
+						<input type="hidden" name="a" value="search_help"></input>
+						<input type="hidden" name="catids" value="1" class="catids"></input>
+					<ul class="h_search">
+						<li class="h_c_menu">
+							<a href="javascript:void(0);" id="search">全部</a>
+							<ul class="h_c_m_c">
+								<li><a href="javascript:;" class="search_name">我是买家</a></li>
+								<li><a href="javascript:;" class="search_name">我是卖家</a></li>
+							</ul>
+						</li>
+						<li><input class="h_value" name="keywords" id="key" value="{$_GET[keywords]}" placeholder="输入关键字查找" type="text" /></li>
+						<li><input  type="submit" class="h_btn" value=""></li>
+					</ul>
+					<form>
+					<div class="issue_h">
+						<h4 class="hint_h_t">热门问题</h4>
+						<h6 class="h_l_t">请选择您遇到的问题</h6>
+						<ul class="hint_list_c">
+							{pc:document action="lists"  catid="1"  num="5"  order="id DESC"}
+							{loop $data $r}
+							<li><a href="{$r[url]}">{$r[title]}</a></li>
+							{/loop}
+							{/pc}
+						</ul>
+					</div>
+					<script type="text/javascript">
+						$(".search_name").click(function(){
+							var search_name = $(this).text();
+							if(search_name == "全部"){
+								$(this).text("我是买家");
+								$(this).parent().siblings().find("a").text("我是卖家");
+								$("#search").text("全部");
+								$(".catids").val("1");
+							}
+							
+							if(search_name == "我是买家"){
+								$("#search").text("我是买家");
+								$(this).text("全部");
+								$(this).parent().siblings().find("a").text("我是卖家");
+								$(".catids").val("2");
+							}
+							
+							if(search_name == "我是卖家"){
+								$("#search").text("我是卖家");
+								$(this).text("全部");
+								$(this).parent().siblings().find("a").text("我是买家");
+								$(".catids").val("3");
+							}
+							
+						});
+
+					</script>
+					<p class="help_site">
+						{catpos($catid)}<a>{$title}</a></p>
+					<div class="issue_h issue_w">
+
+						<h4 class="h_c_title">{$title}</h4>
+
+							{$content}
+						
+					</div>					
+					<div class="issue_h issue_h2 issue_h3">
+						<h4 class="hint_h_t hint_h_t_color">和“<b>订单记录</b>”相关的常见问题</h4>
+						<ul class="hint_list_c2">
+							{loop $article $v}
+							<li>{$n}<a href="{$v[url]}">{$v[title]}</a></li>
+							{/loop}
+						</ul>
+					</div>
+					<h6 class="h_l_t h_l_t2 hint_h_t_color">没能解决您的问题？</h6>
+					<p class="issue_hint">您可以联系 <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">在线客服</a> 或联系邮箱：{C("site_contact_email")} 或提意见建议</p>
+				</div>
+			</div>	
+		</div>
+	{include template('footer','common')}

@@ -1,0 +1,183 @@
+{include template('header','common')}
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+
+<style>
+    .add-box{
+        width: 130%;
+    }
+	.user{
+		display:table-cell;
+		width:16.875%;
+		height:1.1em;
+		position: absolute;
+		top: 0.6875em;
+		right: 0;
+	}
+		
+	.user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+</style>
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">手机认证</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content bg-f0f0f0 min-height">
+
+            <form action="{U('Member/Attesta/phone_attesta')}" method="post" id="myform">
+                <div class="login-box">
+                    <ul class="clear">
+                        {if $userinfo['phone_status'] == 1}
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">原手机号:</span>
+                                <span class="fl">{$userinfo['phone']}</span>
+                            </div>
+                        </li>
+                        {else}
+                        {/if}
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">{if $userinfo[phone_status] == 1}新{/if}手机号:</span>
+                                <input type="text" style="width: 35%"  name="mobile" value="" id="phone" class="fl">
+                                <a href="javascript:;" onclick="getCode();" id="btnSendCode" class="fl btn-s-01 getverify  f1_5">获取验证码</a>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">验证码:</span>
+                                <input type="text" name="id_code" id="verify" value="" class="fl">
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="at-login">
+                        <a href="javascript:;" class="btn-s-01 onsubmit f1_5">确定</a>
+                    </p>
+                </div>
+            </form>
+
+		</div>
+{include template('footer','common')}
+<script type="text/javascript">
+    <!--
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+
+    $("#phone").formValidator({
+        empty:false,
+        onempty:'手机号不能为空',
+        onshow:"请输入手机号",
+        onfocus:"请输入手机号"
+    }).regexValidator({
+        regexp:'mobile',
+        datatype:'enum',
+        onerror:"手机号码输入错误"
+    }).ajaxValidator({
+            url: '{U('Member/Attesta/check_phone')}',
+            type:'get',
+            datatype:"json",
+            async: false,
+            success: function (msg) {
+        if(msg.status == 1){
+            return true;
+        }
+        return false;
+    },
+    error: function () {
+        return "输入错误";
+    },
+    onerror : "该手机不可用，请更换手机"
+    });
+
+    /*验证码验证*/
+    $("#verify").formValidator({
+        empty:false,
+        onempty:'验证码不能为空',
+        onshow:'请输入验证码' ,
+        onfocus:"请输入验证码"
+    }).ajaxValidator({
+                url:'{U('Member/Attesta/check_verify')}',
+            type:'get',
+            datatype:'json',
+            getdata:{phone:'phone'},
+    async: false,
+            success : function(msg){
+        if(msg.status == 1){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    error: function(data){
+        return '验证码校验失败';
+    },
+    onerror:'验证码校验失败'
+    }).regexValidator({
+        regexp:'num1',
+        datatype:'enum',
+        onerror:"验证码输入错误"
+    });
+    //-->
+</script>
+
+<script type="text/javascript">
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    var code = ""; //验证码
+    function getCode(){
+        curCount = count;
+        var tel = $.trim($("#phone").val());
+        if(tel == ''){
+            $("#phone").focus();
+            return false;
+        }
+        $.getJSON("{U('Member/Attesta/code')}", {phone:tel}, function(ret) {
+            if(ret.status == 1) {
+                $("#btnSendCode").html(curCount + "秒内重新输入");
+                $("#btnSendCode").removeClass('btn-s-01').addClass('btn-s-02').attr("onclick","");
+
+                InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+            } else {
+                alert(ret.info);
+                return false;
+            }
+        });
+    }
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#btnSendCode").html("发送验证码");
+            $("#btnSendCode").removeClass('btn-s-02').addClass('btn-s-01').attr("onclick","getCode();");
+
+            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+        }
+        else {
+            curCount--;
+            $("#btnSendCode").html(curCount + "秒内重新输入");
+        }
+    }
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+</script>

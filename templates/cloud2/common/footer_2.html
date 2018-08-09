@@ -1,0 +1,96 @@
+<div class="footer top3">
+    <div class="footer-nav-bd" >
+        <div class="fleat top4">
+            <a href="{__APP__}">
+				<img src="{C('SITE_LOGO_ZHU')}" width="108" height="47" title="{C('WEBNAME')}" alt="{C('WEBNAME')}">
+			</a>
+            <div class="sn-kuang top3"><img src="{C('WEIXIN_LOGO')}" class="sn" width="90" height="90"> </div>
+            <p class="sn-p">关注{C('WEBNAME')}</p>
+        </div>
+        <div class="fr top4">
+            <div class="fore1 w200">
+                <div class="footer-shu fleat"></div>
+                <dl class="fleat left1">
+                    <dt><b></b><strong class="font-red">买家常见问题</strong></dt>
+                    <dd>
+                        <div><a href="{U('document/index/lists',array('catid'=>57))}">如何抢购商品</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>84))}">如何参与试用</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>69))}">如何领回划算金</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>11))}">下单方式介绍</a></div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="fore1 w200">
+                <div class="footer-shu fleat"></div>
+                <dl class="fleat left1">
+                    <dt><b></b><strong class="font-red">商家常见问题</strong></dt>
+                    <dd>
+                        <div><a href="{U('document/index/lists',array('catid'=>18))}">如何报名活动</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>39))}">报名商品条件</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>87))}">Vip商家有哪些特权</a></div>
+                    </dd>
+                </dl>
+            </div>
+			<div class="fore1 w200">
+                <div class="footer-shu fleat"></div>
+                <dl class="fleat left1">
+                    <dt><b></b><strong class="font-red">服务中心</strong></dt>
+                    <dd>
+                        <div><a href="{U('document/Index/lists',array('catid'=>83))}">关于我们</a></div>
+						<div><a href="{U('navigation/index/index')}">站点导航</a></div>
+						<div><a href="{U('document/Index/lists',array('catid'=>88))}">联系方式</a></div>
+                    </dd>
+                </dl>
+            </div>
+			<div class="fore1 w200">
+                <div class="footer-shu fleat"></div>
+                <dl class="fleat left1">
+                    <dt><b></b><strong class="font-red">帮助中心</strong></dt>
+                    <dd>
+                        <div><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心首页</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>2))}">买家帮助</a></div>
+						<div><a href="{U('document/index/lists',array('catid'=>3))}">商家帮助</a></div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="fore1">
+                <div class="footer-shu fleat"></div>
+                <dl class="fleat left1">
+                    <dt>
+						<a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">
+							<img src="{THEME_STYLE_PATH}style/images/qq.gif">
+						</a>
+					</dt>
+                    <dd>
+                        <div class="tel fleat"></div>
+                        <div class="fleat top"><a class="tel-a nohover">{C("site_contact_tel")}</a><p class="left1">{C("site_work_day")}</p></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+        <div class="footer-hd top" style="text-align: center;">
+            <p>
+                <a>友情链接:</a>
+				{pc:link action="lists" linktype="0"}
+				{loop $data $r}
+                <a href="{$r[url]}" target="_blank">{$r[webname]}</a>
+                <b>|</b>
+				{/loop}
+				{/pc}
+            </p>
+            <p style="color: #999999">版权所有:{C("site_web_copyright")}  {C('site_web_icp')}</p>
+            <p class="copy" style="color: #999999">Copyright © 2006-2014 {$_SERVER['SERVER_NAME']} {C("site_statistical_code")}</p>
+            <p>
+                <a href="#"><img src="{THEME_STYLE_PATH}style/images/b1.gif"></a>
+                <a href="#"><img src="{THEME_STYLE_PATH}style/images/b2.gif"></a>
+                <a href="#"><img src="{THEME_STYLE_PATH}style/images/b3.gif"></a>
+                <a href="#"><img src="{THEME_STYLE_PATH}style/images/b4.gif"></a>
+            </p>
+        </div>
+    </div>
+</div>
+    <style type="text/css">
+    .copy a img{ width: auto; height: auto; }
+    </style>

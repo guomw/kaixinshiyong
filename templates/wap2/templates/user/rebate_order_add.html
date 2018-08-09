@@ -1,0 +1,229 @@
+<ion-view hide-nav-bar="true" >
+  <div class="bar bar-header  bar-stable ">
+  <a href="#/tab/user/rebate_order" class="button icon ion-ios-arrow-back button-clear ">返回</a>
+  <h1 class="title">我的返利</h1>
+  <a  style="font-size:1em;" class="button icon ion-clipboard button-clear" ng-click="Order_log(order_info.id)" >日志</a>
+ </div>
+  <ion-content class="padding_head">
+    <div ng-if="txddh_showloading" style="margin-top:60px; text-align: center">
+      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+
+    <ion-list ng-if="txddh_showloading==false" class="list padding-top">
+
+      <ion-item  class="list_w" >
+        <div class="img">
+          <img ng-src="{{ENV.siteUrl}}{{txddh_showdata.thumb}}" />
+        </div>
+        <ul class="flex txt txt_wrap">
+          <li class="txt-flow" style="font-size:1em;">
+            <img ng-src="{{ txddh_showdata.source | f_img_source}}" >{{ txddh_showdata.title | limitTo:15 }}</li>
+          <li class="hd_{{txddh_showdata.protype}} c1 txt-flow" style="font-size:0.875em;">
+            下单： <b class="cc">{{txddh_showdata.goods_price | currency:"￥"}}</b>
+          </li>
+
+          <li class=" c1 txt-flow" style="font-size:0.875em;">
+            返还： <b class="cc">{{txddh_showdata.goods_price - (txddh_showdata.goods_price * txddh_showdata.goods_discount /10 )     | currency:"￥"}}</b> 
+            <span style="font-size:14px">
+              (
+              <b class="cc">{{txddh_showdata.goods_discount
+         }}</b> 
+              折,省{{txddh_showdata.goods_price - (txddh_showdata.goods_price * txddh_showdata.goods_discount /10 )     | currency:"￥"}} )
+            </span>
+          </li>
+
+        </ul>
+      </ion-item>
+
+      <p ng-if="order_info.status == 4 " style="color:#A9A9A9d" class="padding-left ">
+        提示:
+        <b class="cc">{{order_info.cause}}</b>
+
+      </p>
+
+      <p ng-if="order_info.status == 4 && !order_info.trial_report "  class="padding-left ">
+        未在:
+        <b class="cc">
+          <span id="{{order_info.check_time - 0 + buyer_check_update_order_sn}}" data-time="">
+            {{ order_info.check_time - 0 + buyer_check_update_order_sn | f_fomtime   }}
+          </span>
+        </b>
+        修改订单号,将失去资格!
+      </p>
+
+      <p ng-if="order_info.status == 2  " style="color:#A9A9A9d" class="padding-left padding-top ">
+        提示:未在
+        <b class="cc">
+          <span id="{{order_info.create_time - 0 + buyer_write_order_time}}" data-time="">
+            {{ order_info.create_time - 0 + buyer_write_order_time | f_fomtime  }}
+          </span>
+        </b>
+        填写订单号,将失去资格!
+      </p>
+
+      <p ng-if="order_info.status == 3 " class="padding-left" >
+        订单号审核中:
+        <b class="cc">
+          <span id="{{order_info.create_time - 0 + seller_check_time}}" data-time="">
+            {{ order_info.create_time - 0 + seller_check_time | f_fomtime  }}
+          </span>
+        </b>
+      </p>
+
+      <p ng-if="order_info.status == 5" class="padding-left" >
+        待商家确认付款:
+        <b class="cc">
+          <span id="{{order_info.create_time - 0 + seller_check_time}}" data-time="">
+            {{ order_info.create_time - 0 + seller_check_time | f_fomtime  }}
+          </span>
+        </b>
+      </p>
+
+      <!-- 普通下单区域 -->
+      <div ng-show="txddh_showdata.type == 'general' " >
+        <ion-item class="item item-icon-left item-icon-right "> <i style="font-size:18px;color:#aaaaea" class="icon ion-android-person"></i>
+          新手帮助 <i class="item-note">一分钟学会流程,当返利达人</i>
+          <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        </ion-item>
+
+        <div style="color:#A9A9A9" class="padding-left padding-top ">
+          <p>推荐身边好友加入,小伙伴们都来试用吧。</p>
+          <p>
+            每推荐一人,可最高得
+            <b class="cc">百元</b>
+            现金奖励。
+          </p>
+        </div>
+      </div>
+
+      <!-- 普通下单区域 结束区  -->
+
+      <!-- 搜索下单区域   -->
+      <div ng-show="txddh_showdata.type == 'search' " >
+        <div class="item item-divider item-icon-left ">
+          <i style="font-size:18px;color:#7687f1" class="icon ion-android-search"></i>
+          搜索下单
+        </div>
+        <p style="color:#A9A9A9;text-align:right; " class="padding-right">了解和学习搜索下单流程</p>
+
+        <div class="padding-left">
+          <p>
+            1.打开{{ txddh_showdata.source | f_source }}首页,搜索关键词
+            <b class="cc">{{goods_keyword}}</b>
+          </p>
+<!--           <p>
+            2.按照
+            <b class="cc">销量</b>
+            排序搜索
+          </p> -->
+          <p>
+            2.宝贝位置大约在
+            <b class="cc">{{txddh_showdata.goods_rule.keyword2}}</b>
+          </p>
+
+<!--           <p>
+            3.认准商家店铺旺旺
+            <b class="cc">{{txddh_showdata.goods_rule.keyword2}}</b>
+          </p> -->
+
+<!--           搜索流程图区域 -->
+           <div ng-repeat="d in txddh_showdata.goods_search_albums"  >
+           <img style="width:100%"  ng-src="{{d.url | imgUrl}}" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 搜索下单区域 结束区  -->
+
+      <!-- 二维码下单区域   -->
+      <div ng-if="txddh_showdata.type == 'qrcode'" >
+        <div class="item item-divider item-icon-left ">
+          <i style="font-size:18px;color:#f7ba5b" class="icon ion-android-expand "></i>
+          扫描二维码下单
+        </div>
+        <p style="color:#A9A9A9;text-align:right; " class="padding-right">了解二维码下单</p>
+
+        <p    style="text-align:center" >请扫描下方二维码,进入商家宝贝页下单</p>
+        <div  style="margin-top:10px; text-align: center"  >
+          <img ng-src="{{txddh_showdata.goods_rule.qrcode | imgUrl}}" />
+        </div>
+        <div class="padding-left">
+          <p>1.国内部分手机,长按二维码会自动识别</p>
+          <p>2.可将二维码图片保存到手机相册,再使用手机自带的二维码扫描。</p>
+          <p>3.可使用备用手机,或者身边朋友手机扫描。</p>
+        </div>
+      </div>
+      <!-- 二维码下单区域 结束区  -->
+
+      <div class="hot_title">
+        <span></span>
+        注意事项
+      </div>
+
+      <div  style="color:#A9A9A9" class="padding-left">
+
+        <p class="cc"  ng-show = "txddh_showdata.goods_tips.goods_order.remark" >特别注意: {{txddh_showdata.goods_tips.goods_order.remark }}</p>
+
+        <p class="cc"  ng-show = "txddh_showdata.goods_tips.order_tip[0] == 1 " >请不要用信用卡方式下单</p>
+
+        <p class="cc"  ng-show = "txddh_showdata.goods_tips.order_tip[1] == 2 || txddh_showdata.goods_tips.order_tip[0] == 2 " >请不要催促商家返款,旺旺催促发货</p>
+
+        <p class="cc"  ng-show = "txddh_showdata.goods_tips.goods_order.kuaidi" >默认快递: {{txddh_showdata.goods_tips.goods_order.kuaidi }}</p>
+
+        <p ng-show = "txddh_showdata.goods_tips.goods_order.price.cost || txddh_showdata.goods_tips.goods_order.price.after " >
+          原价为
+          <b class="cc">
+            {{txddh_showdata.goods_tips.goods_order.price.cost | currency:"￥" }}
+          </b>
+          ,拍下后会自动改价为
+          <b class="cc">
+            {{txddh_showdata.goods_tips.goods_order.price.after  | currency:"￥"}}
+          </b>
+        </p>
+
+        <p  ng-show = "txddh_showdata.goods_tips.goods_order.kuaidi" >
+          请用V1-V3价格
+          <b class="cc">
+            {{txddh_showdata.goods_tips.goods_order.price.lv | currency:"￥" }}
+          </b>
+          下单
+        </p>
+
+        <p >违反平台相关规定,不按要求下单,可能会被拒绝返款,冻结帐号</p>
+      </div>
+
+      <div class="hot_title">
+        <span></span>
+        活动详情 
+      </div>
+      <div class="introduction" >
+      <div style="color:#A9A9A9;display:"  class="s_part7 padding-left padding-right " ng-bind-html=" txddh_showdata.goods_content |f_img_url " ></div>
+      </div>
+    </ion-list>
+
+  </ion-content>
+
+  <div class="bar bar-footer padding-top" style="height: 80px;" >
+    <div class="button-bar padding-left padding-right " >
+      <div class="button-bar padding-left padding-right " >
+        <button ng-if="order_info.status == 2 || order_info.status == 3  " class="button button-block button-outline button-assertive" ng-click="To_order(txddh_showdata.type,txddh_showdata.source,txddh_showdata.goods_url)"  >去下单</button>
+
+        <button  ng-if="order_info.status == 4 "  class="button button-assertive button-block button-outline "  ng-click="Appeal(order_info.status,order_info.id,txddh_showdata.id)"  >我要申述</button>
+
+        <button  ng-if="order_info.status == 3 ||  order_info.status == 4  "  class="button button-block button-outline button-assertive"  ng-click="add_order_number()"  >修改订单号</button>
+        <button  ng-if="order_info.status == 2 "  class="button button-block button-outline button-assertive"  ng-click="add_order_number()"  >填写订单号</button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script id="a.html" type="text/ng-template"> 
+<p style="color:#A9A9A9" class="padding-left">虚假订单号,将被取消资格,冻结帐号</p>
+<p style="color:red" class="padding-left">登录 {{ txddh_showdata.source | f_source }}后台,复制订单编号</p>
+<label class="item item-input" >
+  <input type="text" ng-pattern="" ng-model="order_vm.mum"  placeholder="请填写您的订单号"  required></label>
+  <p style="color:#A9A9A9;text-align: right; " class="padding-right">不会复制订单号? <a href="#/tab/help/order_sn" >看这里</a></p>
+</script>
+
+</ion-view>

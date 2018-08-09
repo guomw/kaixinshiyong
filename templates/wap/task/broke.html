@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/user-handle.css"/>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/index.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/suspend.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/user-index.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5, maximum-scale=0.5, user-scalable=no"/>
+<body>
+<script type="text/javascript">
+    {php $userinfo = is_login();}
+    var site = {
+        "site_root" : '{__ROOT__}',
+        "js_path" : '{JS_PATH}',
+        "css_path" : '{CSS_PATH}',
+        "img_path" : '{IMG_PATH}',
+        "template_img" : '{THEME_STYLE_PATH}style/default/images',
+        "webname" : '{C("webname")}',
+        "order_url" : '{U("Order/DoOrder/manage")}',
+        "nickname" : '{nickname($userinfo["userid"])}',
+        "message":'{message_count($userinfo["userid"])}',
+        "user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+    };
+    var activity_set = <?php echo json_encode($activity_set); ?>;
+    var good_buy_times = <?php echo json_encode($good_buy_times); ?>;
+    var qq_ico = "{THEME_STYLE_PATH}style/images/qq_ico.png";
+    var qq_url = "{U('Oauth/Index/login')}";
+</script>
+
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl d-block"></a>
+			任务列表
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content">
+			<!--  积分兑换  -->
+			<div class="box-content d-block" id="lists">
+
+
+
+            </div>
+            <div class="end-hint" id="end-hint">下拉即可加载更多...</div>
+        </div>
+
+{include template('footer','common')}
+<script>
+    getContent();
+
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+    var pages = 1
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+            if( ( bodyH-winH ) - now <= 2 ){
+                getContent()
+            }
+        });
+        $("#end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+
+    function getContent(type) {
+        var param = {
+            orderby :'id',
+            orderway : 'desc',
+            status:1,
+            page:pages,
+            num:7
+        };
+
+        $.getJSON(site.site_root + '/index.php?m=task&c=index&a=getlists', param, function(ret) {
+            var _html = '';
+            if(ret.status == 1) {
+                $.each(ret.data.lists, function(i, n) {
+                    _html += '<div class="task-list-w clear">';
+                    _html += '<a href="'+site.site_root + '/index.php?m=task&c=index&a=broke_show&id='+n.id+'">';
+                    _html += '<div class="l-pic fl">';
+                    _html += '<img src="'+ n.thumb+'" alt="" />';
+                    _html += '</div>';
+                    _html += '<div class="l-text fl">';
+                    _html += '<dl class="title">';
+                    _html += '<dt class="query-icon">'+ n.title+'</dt>';
+                    _html += '<dd>完成任务打入您的账户余额</dd>';
+                    _html += '</dl>';
+                    _html += '<ul class="mess">';
+                    _html += '<li>';
+                    _html += '<p class="s-h">回答奖励</p>';
+                    _html += '<p><b>'+ n.goods_price+'</b>元</p>';
+                    _html += '</li>';
+                    _html += '<li>';
+                    _html += '<p class="s-h">剩余份数</p>';
+                    _html += '<p><b>'+n.sheng_num+'</b>/'+ n.goods_number+'</p>';
+                    _html += '</li>';
+                    _html += '<li>';
+                    _html += '<p class="s-h">已完成</p>';
+                    _html += '<p><b>'+n.already_num+'</b>人</p>';
+                    _html += '</li>';
+                    _html += '</ul>';
+                    _html += '</div>';
+                    _html += '</a>';
+                    _html += '</div>';
+                });
+                $("#lists").append(_html);
+                pages++;
+            }else{
+                $("#end-hint").html(oHintArr[1]);
+            }
+        });
+    }
+</script>

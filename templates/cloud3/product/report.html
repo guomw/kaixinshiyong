@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{get_seo('shai_seo','shai_title','')}</title>
+		<meta name="keywords" content="{get_seo('shai_seo','shai_keyword','')}">
+		<meta name="description" content="{get_seo('shai_seo','shai_description','')}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/sun_single_list.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/sd.css" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/comm.js"></script>
+		<style type="text/css">
+			.top {
+				height:65px;
+			}
+			.login_nav{
+				display:block;
+				float:right;
+				
+			}
+			.login_nav > li{
+				display: list-item;
+				text-align: -webkit-match-parent;
+				margin-top:33px;
+				
+			}
+			.login_nav > li a{
+				font-size: 16px;
+				outline: none;
+			}
+			.login_nav > li a:hover{
+				text-decoration:underline;
+			}
+		</style>
+	</head>
+	<a name="top"></a>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+	{include template('toper','common')}
+	{include template('header','common')} 
+		<style>
+     #header .logo img {
+        margin-top:12px;
+    }
+    </style>
+		
+	<div class="main wrap clear">	
+
+	<div class="clear main_rows">
+		
+	</div>
+
+	<div class="clear main_rows">
+		
+	</div>
+	
+	<div class="clear main_rows">
+		
+	</div>
+	
+	<div class="clear main_rows">
+		
+	</div>
+	
+	<div class="clear main_rows">
+		
+	</div>
+
+	<div id="hint_data" style="width:100%;height:30px;line-height:30px;float:left;color:#666;font-size:14px;display:none;text-align:center;">已经没有数据了</div>
+
+	</div>
+
+		<!-- 买家晒单 end -->
+		<div class="clear"></div>
+		{include template('footer','common')} 
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.masonry.min.js"></script>
+
+<script type="text/javascript">
+       
+        $(function() {
+          load(1);
+
+        })
+			// 找出最短的一列
+			function Cout(objArr){
+				var oC = objArr.eq(0);
+				objArr.each(function(i,n){
+					if($(this).outerHeight() < oC.outerHeight()){
+						oC = $(this);
+					}
+				});
+				return oC;
+			}
+			
+			function loadImg(url,fn){
+				var img = new Image();
+				img.src = url;
+
+				img.onload = function(){
+
+					fn();
+				};
+			}
+
+			var page = 2;
+			var isempay = false;
+			$(window).on('scroll',function(){
+				console.log($(this).scrollTop(),$(document.body).outerHeight(),$(window).height());
+				// 走到底了
+				if($(this).scrollTop() >= $(document.body).outerHeight()-$(window).height()-500){
+
+					if(isempay)return;
+					isempay = true;
+				    load(page++);
+				}
+				
+			});
+
+		function load(page){
+			$.getJSON('/index.php?m=product&c=api&a=report_list',{
+				limit:10,
+				page:page
+			}, function(ret) {
+				count = ret.count;
+				if(ret.lists.length) {
+					for(var i=0;i<ret.lists.length;i++){
+						var ir = ret.lists[i];
+						loadImg(ir.report_imgs,function(){
+							var _html = '';
+							_html += '<div class="cell"><div class="showlist"><div class="goodinfo">';
+							_html += '<a title="查看详细" target="_blank" href="'+ir.product.url+'" class="goodinfo-showPic">';
+							_html += '<img style="width:100%;" src="'+ir.report_imgs+'"></a>';
+							_html += '<h3 class="elps"><a title="'+0+'" target="_blank" href="">'+ir.product.title+'</a></h3>';
+							_html += '<div class="goodinfo-reply-see clear">';
+							_html += '<div class="goodinfo-view">浏览('+ir.product.hits+')</div></div>';
+							_html += '</div>';
+							_html += '<div class="message"><div class="shikee-info"><a class="shikee-icon">';
+							_html += '<img width="40" height="40" src="'+ir.avatar+'"></a>';
+							_html += '<p><a class="shikee-name">'+ir.nickname+'</a></p><p class="leaveTime">'+ir.dateline+'</p>';
+							_html += '</div><p class="shikee-words">'+ir.content+'</p></div></div>';
+							
+							Cout($('.main_rows')).append(_html);	
+							isempay = false;
+						});
+					}
+				} else {  // 到底了
+					$('#hint_data').show(100);
+				}
+			});
+		}
+ 
+</script>
+
+
+	</body>
+</html>
+

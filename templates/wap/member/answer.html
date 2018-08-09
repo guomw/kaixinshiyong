@@ -1,0 +1,127 @@
+{include template('header','common')}
+
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/default/css/order.css"/>
+<style>
+    .a-hint-off {
+        background: url("{THEME_STYLE_PATH}style/default/images/app-hint-bg.png") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);
+    }
+
+    .hint-text2 {
+        font-size: 0.875em;
+        height: 3.42857em;
+        line-height: 3.42857em;
+        text-align: center;
+    }
+    .success{color: green}
+    .error{color: red}
+
+    .user{
+        display:table-cell;
+        width:16.875%;
+        height:1.1em;
+        position: absolute;
+        top: 0.6875em;
+        right: 0;
+    }
+
+    .user a{
+        display:block;
+        width:50%;
+        margin:0 auto;
+        height:100%;
+        background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+        background-size:auto 100%;
+    }
+</style>
+
+
+<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">答题下单</strong>
+            <div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+            </div>
+		</div>
+		<div class="content min-height">
+			<div class="answer-buy">
+				<div class="title">
+					<h2 class="c-f60">您需要回答问题才能完成抢购</h2>
+				</div>
+				<div class="answer-box">
+					<p class="issue t-indent">
+						<em class="fs-18">问题：</em>{$product_info[goods_rule][ask][question]}
+					</p>
+
+                    {if $product_info[goods_rule][ask][tips]}
+                    <p class="issue t-indent">
+                        <em class="fs-18">提示：</em>{$product_info[goods_rule][ask][tips]}
+                    </p>
+                    {/if}
+
+					<p class="rel-input t-indent clear">
+						<em class="fl fs-18">回答：</em>
+						<!--  error 改变提示颜色   -->
+						<input class="fl" type="text" placeholder="请输入你的答案" style="width: 40%" id="answer"/>
+						<!--  验证提示   -->
+						<b class="fl" id="ti" style="width: :30%"></b>
+					</p>
+
+                    <div style="clear: both"></div>
+					<p class="hint-text">提示：在商家宝贝详情页可找到答案。<a target="_blank" href="{$product_info['goods_url']}" style="color: #2bc4fe">去找找看</a></p>
+
+                    <p class="timer c-bb000d clear">
+                        <span id="msg" class="fl" style="width: 100%;font-size: 1.5em;"></span>
+                    </p>
+
+                    <p class="verify-btn ">
+                        <a href="javascript:;" class="btn-s-01 onsubmit">验证答案</a>
+                    </p>
+				</div>
+			</div>
+		</div>
+
+{include template('footer','common')}
+<script type='text/javascript'>
+    var goods = <?php echo json_encode($goods);?>;
+    goods.goods_stock = goods.goods_number - goods.already_num;
+    goods.buyer_good_buy_times = <?php echo C_READ('buyer_good_buy_times','trial'); ?>;
+    var login = "{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}";
+</script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/trial.js"></script>
+<script type="text/javascript">trial_detail.init();</script>
+<script>
+    $(".onsubmit").click(function(){
+        var answer = $("#answer").val();
+        var ask_answer = {$product_info[goods_rule][ask][answer]};
+        if(answer == ask_answer){
+            $("#ti").removeClass('error').addClass('success').html('正确');
+
+            $.post(site.site_root + '/index.php?m=product&c=api&a=pay_submit',{
+                goods_id : goods.id
+            },function(ret){
+                if (ret.status==1){
+
+                    $("#msg").html('抢购成功');
+
+                    if(goods.mod=='rebate'){
+                        location.href = site.site_root + '/index.php?m=Member&c=order&a=edit_ordernum&orderid='+ret.info.oid;
+                    }else{
+                        window.history.back(-1);
+                    }
+
+                }else{
+                    $("#msg").html(ret.info);
+                    return false;
+                }
+            },'JSON');
+        }else{
+            $("#ti").removeClass('success').addClass('error').html('答案不对');
+            return false;
+        }
+    })
+</script>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人资料-会员中心-{C('WEBNAME')}</title>
+		<meta name="Keywords" content="个人资料,会员中心,{C('WEBNAME')}" />
+		<meta name="Description" content="个人资料,会员中心,{C('WEBNAME')}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/taobao.js"></script>
+
+	</head>
+	<body>
+		{include template('v2_header','member/common')}
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>升级vip</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				{include template('v2_member_left','member/common')}
+				
+				<div class="fr u_index_mess user_pd_1">
+					<h2 class="user_page_title">升级VIP</h2>
+					<p class="vip_status"><span class="name">{nickname($this->userinfo['userid'])}</span>,
+						{if $this->userinfo['groupid'] == 2}
+						您已是VIP，可以享受以下特权，
+						{else}
+						您还不是VIP，无法享受特权，点击<a href="#" class="cc">立即升级VIP用户</a>
+						{/if}
+					</p>
+					<dl class="vip_tq">
+						<dt>VIP五大特权</dt>
+						<dd>
+							<ul class="vip_ico_wrap clear">
+								<li>
+									<p class="vip_ico vip_qd"></p>
+									<p class="vip_txt">签到积分加倍</p>
+								</li>
+								<li>
+									<p class="vip_ico vip_cs"></p>
+									<p class="vip_txt">抢购次数不限</p>
+								</li>
+								<li>
+									<p class="vip_ico vip_qg"></p>
+									<p class="vip_txt">VIP专属抢购</p>
+								</li>
+								<li>
+									<p class="vip_ico vip_sy"></p>
+									<p class="vip_txt">VIP专属试用</p>
+								</li>
+								<li>
+									<p class="vip_ico vip_hd"></p>
+									<p class="vip_txt">VIP专属活动</p>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<div class="vip_list_wrap clear">
+						<dl class="list active">
+							<dt>VIP会员（仅需{get_member_vip(2)}）</dt>
+							<dd>签到积分加倍 每日签到奖励积分150分</dd>
+							<dd>每日免审{$level['day_count']}次</dd>
+							<dd>每月免审{$level['month_count']}次</dd>
+							<dd>专属试用</dd>
+							<dd>专属活动 可参加网站不定期组织的活动</dd>
+						</dl>
+						<dl class="list">
+							<dt>普通会员</dt>
+							<dd>每日签到奖励积分100分</dd>
+							<dd>每日抢购次数15次</dd>
+							<dd>无特权</dd>
+							<dd>无特权</dd>
+							<dd>无特权</dd>
+						</dl>
+						<div class="line"></div>
+					</div>
+					
+					<p class="vip_btn_wrap">
+						<input type="button" value="提交" class="submit"  data-type="2" data-money="<?php echo get_member_vip(2);?>" data-url="{U('Member/Profile/check_money')}" onclick="bind.member_vip(this)"/>
+					</p>
+					
+				</div>
+			</div>
+
+		</div>
+		
+		{include template('footer','common')}
+	</body>
+</html>
+
+<<!--script  type="text/javascript" charset="utf-8">
+	    $("#js_vip").click(function(){
+	    	var type = 2;
+	        var money = $(this).attr('data-money');
+	        url = bind.ajax_url(url);
+	        art.dialog.confirm('您确定购买VIP会员？ ￥'+money, function() {
+	                $.get("{U('Member/Profile/check_money')}", {money:money,type:type}, function(ret) {
+	                    if(ret.status == 1){
+	                        bind.show_message('提示信息',ret.info,'S');
+	                        location.reload();
+	                    }else{
+	                        bind.show_message('提示信息',ret.info,'E',{time:3, url:ret.url,refresh:false});
+	                    }
+	                });
+	            },function(){return true;}
+	        );
+	    });
+</script>-->

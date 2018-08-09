@@ -1,0 +1,438 @@
+{include template('header','common')}
+<style>
+	.user{
+		display:table-cell;
+		width:16.875%;
+		height:1.1em;
+		position: absolute;
+		top: 0.6875em;
+		right: 0;
+	}
+		
+	.user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+	
+	.add-box select{
+		width: 20%;
+		height: 2.5em;
+		font-size: 1.5em;
+		text-align: center;
+	}
+	
+	.login-box > ul{
+		width: 95%;
+	}
+	
+	.add-box input[type="radio"]{
+		height: auto;
+		vertical-align: text-bottom;
+	}
+</style>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+     <script type="text/javascript">
+                            $(document).ready(function(){
+                                //查询省市
+                                $("#province").change(function(){
+                                    $("#city").remove();
+                                    var _this = $(this).val();
+                                    $.ajax({
+                                        url:'{U('Member/Profile/get_area')}',
+                                        type:'post',
+                                        dataType:'json',
+                                        data:{'id':_this},
+                                        success:function(data){
+                                            var html = '';
+                                            html += '&nbsp;<select name="city" class="c999999" id="city">';
+                                            $.each(data ,function(i,item){
+                                                html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+                                            });
+                                            html += '</select>';
+                                            $("#province").after(html);
+                                        }
+                                    });
+                                });
+                                //查询城镇
+                                $(document).on('change','#city',function(){
+                                    $("#area").remove();
+                                    var _this = $(this).val();
+                                    $.ajax({
+                                        url:'{U('Member/Profile/get_area')}',
+                                        type:'post',
+                                        dataType:'json',
+                                        data:{'id':_this},
+                                        success:function(data){
+                                            var html = '';
+                                            html += '&nbsp;<select name="area" class="c999999" id="area">';
+                                            $.each(data ,function(i,item){
+                                                html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+                                            });
+                                            html += '</select>';
+                                            $("#city").after(html);
+                                        }
+                                    });
+                                });
+                                
+                                //默认地址 取得选中的省市id
+                                var city = "<?php echo $city;?>"; 
+                                var proid = $("#province").find("option:selected").val();
+                                $.ajax({
+                                    url:'{U('Member/Profile/get_area')}',
+                                    type:'post',
+                                    dataType:'json',
+                                    data:{'id':proid},
+                                    success:function(data){
+                                        var html = '';
+                                        html += '&nbsp;<select name="city" class="c999999" id="city">';
+                                        $.each(data ,function(i,item){
+                                            if(item.linkageid == city){
+                                                html += '<option value="'+item.linkageid+'" selected>'+item.name+'</option>';
+                                            }else{
+                                                html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+                                            }
+                                        });
+                                        html += '</select>';
+                                        $("#province").after(html);
+                                    }
+                                });
+                                //alert(city);
+                                //默认的乡镇
+                                $.ajax({
+                                    url:'{U('Member/Profile/get_area')}',
+                                    type:'post',
+                                    dataType:'json',
+                                    data:{'id':city},
+                                    success:function(data){
+                                        var html = '';
+                                        html += '&nbsp;<select name="area" class="c999999" id="area">';
+                                        var area = "<?php echo $area;?>";//乡镇
+                                        $.each(data ,function(i,item){
+                                            if(item.linkageid == area){
+                                                html += '<option value="'+item.linkageid+'" selected>'+item.name+'</option>';
+                                            }else{
+                                                html += '<option value="'+item.linkageid+'">'+item.name+'</option>';
+                                            }
+                                        });
+                                        html += '</select>';
+                                        $("#city").after(html);
+                                    }
+                                });
+                            });                     
+                        </script>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">修改个人资料</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content min-height">
+            <form action="{U('Member/Profile/infomation')}" method="post" id="myform">
+                <div class="login-box">
+                    <ul class="clear">
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">昵称:</span>
+                                <input type="text" name="nickname" value="{$userinfo[nickname]}" id="nickname" class="fl">
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">收货地址:</span>
+                                <input type="text"   id="r_address" name="receives[r_address]" value="{$r_address}" class="fl">
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">性别:</span>
+                                <label class="f1_5 h3_5 d_ib lh3_5" style="margin-right: 5%;"><input type="radio" value="2" name="sex" {if $sex == '2'}checked="checked"{/if} style="width:5%;">男</label>
+                                <label class="f1_5 h3_5 d_ib lh3_5" style="margin-right: 5%;"><input type="radio" value="1" name="sex" {if $sex == '1'}checked="checked"{/if} style="width:5%">女</label>
+                                <label class="f1_5 h3_5 d_ib lh3_5"><input type="radio" value="0" name="sex" {if $sex == '0'}checked="checked"{/if} style="width:5%">保密</label>
+                            </div>
+                        </li>
+
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">生日:</span>
+                                <label>
+                                    <select name="year" id="year"  onchange="getDates()">
+                                         <script language="javascript" type="text/javascript"> 
+                                        var date=new Date(); 
+                                        var year=date.getFullYear();
+                                        var years = "<?php echo $year; ?>";
+                                        for(var i=year;i>=year-50;i--){ 
+                                            if (years != '') {
+                                                if (i == years) {
+                                                    document.write("<option value="+years+" selected>"+years+"</option>"); 
+                                                }else{
+                                                    document.write("<option value="+i+">"+i+"</option>"); 
+                                                }
+                                            }else{
+                                            document.write("<option value="+i+">"+i+"</option>"); 
+                                            }
+                                        } 
+                                        function append(o,v){ 
+
+                                        var option=new Option(v,v); 
+                                        o.options.add(option); 
+                                        }
+                                        function getDates(){
+                                        var y=document.getElementsByName("year")[0].value; 
+                                        var m=document.getElementsByName("month")[0].value;
+                                        var day=document.getElementsByName("day")[0]; 
+                                        day.innerHTML="";
+                                        if(m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12){ 
+                                        for(var j=1;j<=31;j++){ 
+                                        append(day,j); 
+                                        } 
+                                        } 
+                                        else if(m==4 || m==6 || m==9 || m==11){ 
+                                        for(var j=1;j<=30;j++){ 
+                                        append(day,j); 
+                                        } 
+                                        } 
+                                        else if(m==2){ 
+                                        var flag=true; 
+                                        flag=y%4==0&&y%100!=0||y%400==0; 
+                                        if(flag){ 
+                                        for(var j=1;j<=29;j++){ 
+                                        append(day,j); 
+                                        } 
+                                        } 
+                                        else{ 
+                                        for(var j=1;j<=28;j++){ 
+                                        append(day,j); 
+                                        } 
+                                        } 
+                                        }
+                                        } 
+                                        </script> 
+                                    </select>
+                                </label>
+
+                                <label>
+                                    <select name="month"  onchange="getDates()">
+                                        <script language="javascript" type="text/javascript">
+                                        var month = "<?php echo $month; ?>";
+                                        for(var i=1;i<=12;i++){ 
+                                            if (month != '') {
+                                            if (i == month) {
+                                                document.write("<option value="+month+" selected>"+month+"</option>"); 
+                                            }else{
+                                                document.write("<option value="+i+">"+i+"</option>"); 
+                                            };
+
+                                        }else{
+                                            document.write("<option value="+i+">"+i+"</option>"); 
+
+                                            }
+                                        } 
+                                    </script>
+                                        
+                                    </select> 
+
+                                </label>
+
+                                <label>
+                                    <select name="day" class="c999999">
+                                        <script language="javascript" type="text/javascript">
+                                            var day = "<?php echo $day; ?>";
+                                            for(var i=1;i<=31;i++){ 
+                                                if (day != '') {
+                                                if (i == day) {
+                                                    document.write("<option value="+day+" selected>"+day+"</option>"); 
+                                                }else{
+                                                    document.write("<option value="+i+">"+i+"</option>"); 
+                                                }
+
+                                            }else{
+                                                    document.write("<option value="+i+">"+i+"</option>"); 
+                                            }
+                                                
+                                            } 
+                                        </script>
+                                </select>
+                                </label>
+                               
+                            </div>
+                        </li>
+
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">所在地:</span>
+                                    <label>
+                                      <select name="province" class="c999999" id="province">
+                                        <option value="-1">请选择</option>
+                                        {loop $region $v}
+                                        <option {if $v['linkageid'] == $provice}selected{/if} value="{$v['linkageid']}">{$v['name']}</option>
+                                        {/loop}
+                                    </select>
+                                    </label>
+                            </div>
+                        </li>
+
+                        <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">收货人:</span>
+                                <input type="text" id="r_name" name="receives[r_name]" value="{$r_name}" class="fl">
+                            </div>
+                        </li>
+
+                         <li class="clear">
+                            <div class="add-box">
+                                <span class="fl ta-r f1_5">联系电话:</span>
+                                <input type="text" id="r_phone" name="receives[r_phone]" value="{$r_phone}" class="fl">
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="at-login">
+                        <a href="javascript:;" class="btn-s-01 onsubmit f1_5">确定</a>
+                    </p>
+                </div>
+            </form>
+		</div>
+{include template('footer','common')}
+
+
+
+<script type="text/javascript">
+    $(function(){
+        $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+        });
+        /* 用户名昵称 */
+        {if empty($userinfo[nickname])}
+        $("#nickname").formValidator({
+            empty:false,
+            onempty:'用户昵称不能为空',
+            onshow:'请输入用户昵称',
+            onfocus:'请输入用户昵称'
+        }).functionValidator({
+            fun:function(val,elem){
+                if(val.length < 2 || val.length >20){
+                    return '请输入2-20个字符，使用字母数字加上下划线';
+                }
+                return true;
+            }
+        }).regexValidator({
+            regexp:'ps_username',
+            datatype:'enum',
+            onerror:'用户名只能是数字或字母'
+        })
+        {else}
+        $("#nickname").formValidator({
+            empty:false,
+            onempty:'用户昵称不能为空',
+            onshow:'请输入用户昵称',
+            onfocus:'请输入用户昵称'
+        }).functionValidator({
+            fun:function(val,elem){
+                if(val.length < 2 || val.length >20){
+                    return '请输入2-20个字符，使用字母数字加上下划线';
+                }
+                return true;
+            }
+        }).regexValidator({
+            regexp:'ps_username',
+            datatype:'enum',
+            onerror:'用户名只能是数字或字母'
+        }).defaultPassed();
+        {/if}
+        
+        /*收货地址*/
+        {if empty($r_address)}
+        $("#r_address").formValidator({
+            empty:false,
+            onempty:'收货地址不能为空',
+            onshow:'请输入收货地址',
+            onfocus:'请输入收货地址'
+        }).inputValidator({
+            min:2,
+            max:100,
+            onerror:'收货地址字符为2到100个字符' 
+        });
+        {else}
+        $("#r_address").formValidator({
+            empty:false,
+            onempty:'收货地址不能为空',
+            onshow:'请输入收货地址',
+            onfocus:'请输入收货地址'
+        }).inputValidator({
+            min:2,
+            max:100,
+            onerror:'收货地址字符为2到100个字符' 
+        }).defaultPassed();
+        {/if}
+        /*收货人*/
+        {if empty($r_name)}
+        $("#r_name").formValidator({
+            empty:false,
+            onempty:'收货人不能为空',
+            onshow:'请输入收货人',
+            onfocus:'请输入收货人'
+        }).inputValidator({
+            min:2,
+            max:20,
+            onerror:'收货人字符为2到20个字符' 
+        });
+        {else}
+        $("#r_name").formValidator({
+            empty:false,
+            onempty:'收货人不能为空',
+            onshow:'请输入收货人',
+            onfocus:'请输入收货人'
+        }).inputValidator({
+            min:2,
+            max:20,
+            onerror:'收货人字符为2到20个字符' 
+        }).defaultPassed();
+        {/if}
+        /*联系电话*/
+        {if empty($r_phone)}
+        $("#r_phone").formValidator({
+            empty:false,
+            onempty:'联系电话不能为空',
+            onshow:'请输入联系电话',
+            onfocus:'请输入联系电话'
+        }).regexValidator({
+            regexp:'mobile',
+            datatype:'enum',
+            onerror:'联系电话输入错误'
+        });
+        {else}
+        $("#r_phone").formValidator({
+            empty:false,
+            onempty:'联系电话不能为空',
+            onshow:'请输入联系电话',
+            onfocus:'请输入联系电话'
+        }).regexValidator({
+            regexp:'mobile',
+            datatype:'enum',
+            onerror:'联系电话输入错误'
+        }).defaultPassed();
+        {/if}  
+
+        $(".onsubmit").click(function(){
+        $("#myform").submit();
+        }) ;
+
+        $(".onsubmit").click(function(){
+            $("#myform").submit();
+         })
+    })
+</script>

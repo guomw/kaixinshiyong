@@ -1,0 +1,249 @@
+html, body{
+	background: #f4f4f4;
+}
+
+div.top{
+	background: #8348db;
+	font-family: "微软雅黑";
+}
+
+div.top h1, div.top li a{
+	color: #ffffff !important;
+}
+
+div.top h1{
+	float: left;
+    font-size: 18px ;
+    height: 100%;
+    line-height: 54px;
+    text-indent: 110px;
+    font-weight: normal;
+    margin-top: 15px;
+	background: url(../images/sun_single_logo.png) no-repeat 0 7px;
+}
+
+div.top ul.login_nav{
+	margin: 0;
+}
+
+ul.login_nav li{
+	margin-left: 45px !important;
+}
+
+div.top div.wrap{
+	width: 975px;
+}
+
+div.main{
+	width: 975px;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+}
+
+div.main div.main_left{
+	float: left;
+}
+
+div.main div.main_right{
+	padding-top: 20px;
+	float: right;
+}
+
+div.main_left div.main_goods{
+	width: 808px;
+	height: 123px;
+	border: 1px solid #dddddd;
+	background: #ffffff;
+	margin: 20px 0;
+	padding:15px 0 0 30px;
+}
+
+div.main_goods div.goods_name{
+	margin-top: 10px;
+	float: left;
+}
+
+div.main_goods div.stamp{
+	float: right;
+}
+
+div.goods_name dt{
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+div.goods_name dd{
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+div.goods_name dd.goods_comment{
+	color: #a9a9a9;
+}
+
+span.stamp_stamp{
+	display: block;
+	width: 76px;
+	height: 61px;
+	margin: 0 0 25px 70px;
+}
+
+div.stamp{
+	margin-right: 10px;
+}
+
+div.stamp dt, div.stamp dd{
+	font-size: 14px;
+	float: left;
+}
+
+div.stamp dt{
+	color: #a9a9a9;
+}
+
+div.stamp dd{
+	margin-right: 8px;
+}
+
+div.stamp dd a{
+	color: #30bbfe;
+	font-size: 14px;
+}
+
+div.main_left div.main_try{
+	width: 838px;
+	border: 1px solid #dddddd;
+	background: #ffffff;
+}
+
+div.main_try div.try_name{
+	width: 780px;
+	height: 100px;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 25px;
+	margin: 30px 0 30px 30px;
+}
+
+div.try_name_info{
+	float: left;
+}
+
+div.try_name_info div{
+	float: left;
+}
+
+div.try_name_info_goods{
+	margin-right: 12px;
+}
+
+div.try_name_info_info{
+	padding-top: 8px;
+}
+
+div.try_name_info_info p{
+	margin-bottom: 8px;
+}
+
+div.try_name_info_info p span{
+	font-size: 14px;
+}
+
+div.try_name_info_info a{
+	display: inline-block;
+	width: 88px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff0ff;
+	font-size: 14px;
+	text-align: center;
+	background: #ff6a64;
+	border-radius: 3px;
+}
+
+a.try_name_url{
+	display: block;
+	width: 220px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	text-align: center;
+	color: #f9f9f9;
+	background: #cccccc;
+	border-radius: 5px;
+	margin-top: 40px;
+	float: right;
+}
+
+div.main_try dt{
+	height: 40px;
+	line-height: 40px;
+	background: #e6d5ff;
+	font-size: 18px;
+	color: #8348db;
+	padding-left: 30px;
+}
+
+div.try_background dd{
+	padding: 33px 33px 38px 30px;
+	font-size: 14px;
+	line-height: 25px;
+	text-indent: 30px;
+}
+
+div.trial_info span.fw{
+	font-weight: bold;
+}
+
+div.try_background div.trial_info{
+	text-indent: 0;
+	margin-top: 15px;
+}
+
+div.try_background div.trial_info span{
+	font-size: 14px;
+}
+
+div.try_experience dd{
+	padding: 50px 0 40px 0;
+	text-align: center;
+	font-size: 16px;
+	color: #999999;
+}
+
+div.try_experience dd img{
+	max-width: 838px;
+}
+
+div.try_comment{
+	min-height: 190px;
+}
+
+div.try_comment p{
+	text-align: center;
+	margin-top:70px;
+}
+
+div.main_right div.main_right_member p{
+	text-align: center;
+	font-size: 16px;
+	margin-top: 6px;
+}
+
+div.main_right div.main_right_member img{
+	border-radius: 50px;
+}
+
+div.main_right_member p.application{
+	text-align: left !important;
+	font-size: 14px !important;
+	color: #999999;
+}
+
+div.main_right_member span.member_rating img{
+	border-radius: 0;
+}
+
+
+
+
+

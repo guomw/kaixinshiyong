@@ -1,0 +1,123 @@
+<!-- 顶部部分 -->
+<style type="text/css">
+.header .wrap span .name_hover{
+	color:green;
+}
+.login-tipMsg {
+	display: block;
+	margin-bottom: 10px;
+	padding: 4px 22px 4px;
+	border: 1px solid #FFAD77;
+	color: #f00;
+	word-wrap: break-word;
+}
+.login-uName p, .login-pwd p {
+	line-height: 24px;
+	font-size: 14px;
+}
+.login-pwd input, .login-uName input {
+	padding: 5px;
+	width: 240px;
+	border: 1px solid #ccc;
+	outline: none;
+}
+.login-pwd {
+	margin-top: 12px;
+}
+.login-other {
+	margin-top: 10px;
+}
+.login-otherL {
+	float: left;
+}
+.login-other a {
+	text-decoration: underline;
+}
+.login-btn {
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	width: 252px;
+	font-size: 18px;
+	background-size: cover;
+	color: #f9f9f9;
+	cursor: pointer;
+	text-align: center;
+	font-weight: normal;
+	font-weight: bold\0;
+	border: 0;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+	background-color: #E22627;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#F23C3D),to(#D51415));
+	background-image: -moz-linear-gradient(top,#F23C3D,#D51415);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F23C3D',endColorstr='#D51415');
+	background-image: -o-linear-gradient(top,#F23C3D,#D51415);
+	background-image: -ms-linear-gradient(top,#F23C3D 0,#D51415 100%);
+	background-image: linear-gradient(top,#F23C3D,#D51415);
+}
+.login-otherR {
+	float: right;
+}
+.login-QQlogin {
+	margin-right: 10px;
+}
+.login-QQlogin img{
+	width: 16px;
+	height:16px;
+}
+.login-btnDisabled,.login-btnDisabled:hover{text-shadow:1px 1px 0 #fff;color:#a0a0a0;background:#ccc;filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);cursor:default}
+</style>
+<script type="text/javascript">
+{php $userinfo = is_login();}
+var site = {
+	"site_root" : '{__ROOT__}',
+	"js_path" : '{JS_PATH}',
+	"css_path" : '{CSS_PATH}',
+	"img_path" : '{IMG_PATH}',
+	"template_img" : '{THEME_STYLE_PATH}style/images',
+	"webname" : '{C("webname")}',
+	"order_url" : '{U("Order/DoOrder/manage")}',
+	"nickname" : '{nickname($userinfo["userid"])}',
+	"message":'{message_count($userinfo["userid"])}',
+	"user":<?php echo json_encode($userinfo ? $userinfo : array());?>
+};
+var activity_set = <?php echo json_encode($activity_set); ?>;
+var good_buy_times = <?php echo json_encode($good_buy_times); ?>;
+var qq_ico = "{THEME_STYLE_PATH}style/images/qq_ico.png";
+var qq_url = "{U('Oauth/Index/login')}";
+
+$("#pages a").live('click',function(){
+  $(window).scrollTop(0);
+});	
+        
+	
+</script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/member.js"></script>
+	<div class="header">
+		<div class="wrap">
+			<div id="uBar">
+				<span>您好，欢迎来到{C("webname")}！</span>
+				<span><img class="qq_ico" src="{THEME_STYLE_PATH}style/images/qq_ico.png" alt="" /><a href="{U('Oauth/Index/login')}" target="_blank">QQ登录</a><img src="{THEME_STYLE_PATH}style/images/header_d.png" alt="" /></span>
+				<span><a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}">登录</a><img src="{THEME_STYLE_PATH}style/images/header_d.png" alt="登录" /></span>
+				<span><a href="{U('Member/Index/register_index')}">免费注册</a></span>
+			</div>
+			<ul class="header_right">
+                <li><a href="{U('Member/MemberFriend/index')}" target="_blank"><font color="red">邀请好友得现金</font></a></li>
+				<li><a href="{__APP__}" target="_blank">返回首页</a></li>
+				<li><a href="{U('Member/Profile/index')}">我的{C('WEBNAME')}</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></li>
+				<li><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes">在线客服</a></li>
+				<li><a href="{U('Member/EnterActivity/index')}" target="_blank">卖家报名</a></li>
+				<li><a href="{U('navigation/index/index')}" target="_blank">网站导航</a></li>
+				<li>
+					<a href="javascript:;">关注我们<img src="{THEME_STYLE_PATH}style/images/drop.png" alt="关注我们" /></a>
+					<div class="top_drop_down">
+						<a href="{C('XINLANG')}" target="_blank" class="set_sina_icon border">新浪微博</a>
+						<a href="{C('TENGXUN')}" target="_blank" class="set_tencent_icon border" >腾讯微博</a>
+						<span class="kik_attention">微信关注</span>
+						<img class="kik_attention_img" src="{C('WEIXIN_LOGO')}" alt="微信关注" />
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>

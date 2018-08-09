@@ -1,0 +1,62 @@
+<ion-view hide-nav-bar="true">
+<div class="bar bar-header bar-color ">
+<a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+<h1 class="title">积分商城</h1>
+</div>
+  <ion-content class="padding_head">
+    <div class="ibody"   >
+      <div class="i_PointsList">
+        <div class="s_img">
+          <img src="img/Integral-list.jpg" style="width:100%"></div>
+        <div class="s_list">
+          <div ng-if="shop_list_showloading" style="margin-top:60px; text-align: center">
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+          </div>
+          <!--hang-->
+          <ion-list ng-if="shop_list_showloading == false" >
+            <a class="hang" href="#/tab/jifen/{{d.id}}" ng-repeat=" d in shop_list" >
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="L">
+                    <img ng-src="{{d.images | imgUrl}}"></td>
+                  <td class="R">
+                    <div class="part1">
+                      <div class="a2">{{d.title}}</div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <!--part1-->
+                    <div class="part2 c5">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="a1">
+                            <i class='c4'>价值：</i> ¥ {{d.price }}   <i class='c4'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 份数：</i>{{d.total_num - d.sale_num}}/{{d.total_num}}
+                          </td>
+                          <td class="a2"  ng-if="(d.total_num-0) > (d.sale_num-0) " >
+                            <div class="co" >立即兑换</div>
+                          </td>
+                          <td class="a2" ng-if="d.total_num == d.sale_num ">
+                            <div class="co" style="background:#ccc; color:#FFF; border:0px " >换光了</div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!--part2-->
+                    <div class="part3">
+                    <i class='c4'>需要积分 : </i>
+                      <span> {{d.point}} 积分</span>
+                    </div>
+                    <!--part3--> </td>
+                </tr>
+              </table>
+            </a>
+            <ion-infinite-scroll
+                        pulling-text="加载更多中"
+                        on-infinite="shop_loadMore()"
+                        ng-if="shop_hasNextPage"
+                        distance="1%"></ion-infinite-scroll>
+          </ion-list>
+          <!--hang--> </div>
+      </div>
+      <!--i_PointsList--> </div>
+    <!--ibody--> </ion-content>
+</ion-view>

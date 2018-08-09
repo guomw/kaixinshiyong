@@ -1,0 +1,202 @@
+		*{
+			padding:0;
+			margin:0;
+			list-style:none;
+			font-size:12px;			
+		}
+		a{
+			text-decoration:none;
+		}
+		img{
+			border:none;
+		}
+		.clear{
+			zoom:1;
+		}
+		.clear:after{
+			content:"";
+			clear:both;
+		}
+		.cmp_box{
+			margin:0px auto;		
+			width:579px;
+			height:418px;			
+			padding-bottom:4px;
+			background:url(../images/cmp_wrap_bg.png) no-repeat 2px bottom;
+			color:#4d4d4d;			
+		}
+		.cmp_wrap{
+			height:100%;
+			border:solid 1px #d8d8d8;
+		}
+		.cmp_wrap .cmp_left{
+			float:left;
+			width:150px;
+			background:#fafafa;
+			height:100%;
+			border:solid 1px #e0e0e0;
+		}
+		.cmp_left .cmp_pic{
+			padding:10px 13px 10px 15px;
+		}
+		.cmp_left .cmp_pic a img{
+			border:solid 1px #ddd;
+		}
+		.cmp_name_list{
+			padding-left:15px;
+		}
+		.cmp_name_list dt{
+			line-height:30px;
+			font-weight:700;
+			vertical-align:center;
+			font-size:14px;
+			font-family:"微软雅黑";
+			color:#444444;
+		}
+		.cmp_name_list dd{
+			line-height:20px;
+			color:#4d4d4d;
+		}
+		.cmp_name_list .pl{
+			padding-left:23px;
+		}		
+		.cmp_name_list strong{
+			font-weight:400;
+		}
+		.cmp_name_list .s_cm{
+			padding:0 4px;
+			color:#cd0000;
+			font-family:"微软雅黑";
+		}
+		.cmp_name_list .s_inline{
+			padding:10px 0 0 30px;
+		}
+		.cmp_name_list .s_inline a{
+			height:18px;
+			line-height:18px;
+			display:inline-block;
+			padding:0 4px 0 3px;
+			color:#4d4d4d;
+			border:solid 1px #c4d5df;
+			background:url(../images/cmp_btn_bg.jpg) repeat-x left center;
+			-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;
+		}
+		.cmp_right{
+			float:left;
+			height:100%;
+			padding:0 30px 0 29px;
+			vertical-align:center;			
+		}
+		.cmp_right .title{
+			width:365px;
+			height:37px;
+			padding-top:12px;
+			padding-bottom:1px;
+			background:url(../images/border_dashed.jpg) repeat-x left bottom;
+		}
+		.cmp_right .title a{
+			width:74px;
+			height:23px;
+		}
+		.shops_list b{
+			font-weight:400;
+		}
+		.shops_list{
+			padding:21px 0 10px 0;
+			background:url(../images/border_dashed.jpg) repeat-x left bottom;
+		}
+		.shops_list p{
+			line-height:26px;
+			
+		}
+		.shops_list .set_img{
+			overflow:hidden;
+		} 
+		.shops_list .set_img font{
+			float:left;
+		}
+		.shops_list p span img{
+			width:16px;
+			height:14px;
+			vertical-align:middle;
+		}
+		.shops_list p .cmp_s_p font{
+			padding-left:20px;
+			padding-right:16px;
+			
+		}
+		.shops_list p .cmp_s_p font b{
+			color:#ff0000;
+			font-weight:700;
+			padding:0 1px;
+		}
+		.shops_list p .cmp_s_p .bg1{
+			background: url(../images/cmp_com_pf.png) no-repeat left center;
+		}
+		.shops_list p .cmp_s_p .bg2{
+			background: url(../images/cmp_bad.png) no-repeat left center;
+		}
+		.s_p_l > b{
+			font-weight:700;			
+			padding:0 5px;
+		}
+		.shops_list .s_w{
+			width:216px;
+			display:block;
+			float:left;
+		}
+		.c_f60{
+			color:#f60;
+		}
+		.successful_case{
+			overflow:hidden;
+			background:url(../images/border_dashed.jpg) repeat-x left bottom;
+		}
+		.successful_case > h3{
+			line-height:28px;
+			padding-top:2px;
+		}
+		.case_pic{
+			
+		}
+		.case_pic li{
+			float:left;
+			width:72px;
+			padding-right:15px;
+		}
+		.case_pic li img{
+			width:72px;
+			border:solid 1px #ddd;
+		}
+		.case_pic li a{
+			color:#4d4d4d;
+		}
+		.case_pic li strong{
+			font-weight:400;
+			display:block;
+			width:72px;
+			white-space:nowrap;
+			overflow:hidden;
+			padding:6px 0 18px 0;
+		}
+		.cmp_try_list dt{
+			padding-top:7px;
+			line-height:18px;
+			font-weight:700;
+		}
+		.cmp_try_list dd{
+			line-height:22px;
+		}
+		.cmp_try_list dd a{
+			color:#8c5a91;
+			display:block;
+		}
+		.cmp_try_list dd a:hover{
+			color:#ff6600;
+			text-decoration:underline;
+		}
+		.cmp_try_list dd a font{
+			float:right;
+			color:#808080;
+		}
+

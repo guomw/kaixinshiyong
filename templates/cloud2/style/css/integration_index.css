@@ -1,0 +1,349 @@
+*{
+	font-family: "微软雅黑";
+}
+
+body{
+	float: none;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+div.header{
+	height: auto;
+	line-height: normal;
+	background: none;
+	float: none;
+	border-bottom: 3px solid #e8e8e8;
+}
+
+div.header_top{
+	height: 30px;
+	line-height: 30px;
+	background: #2d2d2d;
+}
+
+div.header_top div.top_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.activity ul li span{
+	font-size: 10px;
+}
+
+div.activity ul li a{
+	padding: 0 10px;
+	color: #acacac;
+}
+
+div.login ul li span{
+	color: #acacac;
+}
+
+div.login ul li{
+	margin-left: 20px;
+}
+
+div.login ul li a{
+	color: #acacac;
+}
+
+div.header_bottom{
+	padding: 37px 0 15px 0;
+}
+
+div.header_bottom div.bottom_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.logo span{
+	display: inline-block;
+}
+
+div.logo span.text{
+	color: #ff6600;
+	margin-left: 12px;
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+div.menu{
+	margin-top: 10px;
+}
+
+div.menu ul li a{
+	height: 32px;
+	font-size: 16px;
+	color: #3c3c3c;
+	margin-left: 30px;
+	display: inline-block;
+}
+
+div.menu a.active{
+	color: #ff6600;
+	background: url(../images/active.png) no-repeat 30px 27px;
+}
+
+div.main{
+	background: #f4f4f4;
+	padding: 20px 0 120px 0;
+	border-bottom: 1px solid #dddddd;
+}
+
+div.main div.main_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.banner div.member_box{
+	height: 219px;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	padding: 20px 25px 0;
+	background: #ffffff;
+}
+
+div.member_avatar img{
+	border-radius: 50px;
+}
+
+div.member_nickname p.member_nickname_nickname{
+	width: 100px;
+	height: 21px;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+div.member_nickname p.member_rating{
+	margin: 10px 0 15px 0;
+}
+
+div.member_nickname span.f14{
+	font-size: 14px;
+}
+
+div.member_nickname span.f18{
+	font-size: 18px;
+	color: #ff6600;
+}
+
+div.member_nickname span a{
+	color: #1c8cff;
+}
+
+div.member_box div.vip{
+	width: 205px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #f2f2f2;
+	margin: 15px 0 20px 0;
+}
+
+div.vip a{
+	text-decoration: underline;
+	color: #ff6600;
+}
+
+div.member_box div.push{
+	padding: 0 10px;
+}
+
+div.push a{
+	display: inline-block;
+	width: 86px;
+	height: 28px;
+	line-height: 26px;
+	text-align: center;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+div.push a.my-integration{
+	background: #ff6600;
+}
+
+div.push a.receiving-address{
+	background: #1c8cff;
+}
+
+div.main_box div.mt40{
+	margin-top: 40px;
+}
+
+div.mt40 dt{
+	margin-bottom: 20px;
+}
+
+div.mt40 a.more{
+	font-size: 14px;
+	color: #d36666;
+}
+
+div.mt40 span.f20{
+	font-size: 20px;
+	color: #3c3c3c;
+}
+
+div.earn-integration dd{
+	height: 118px;
+	border: 1px solid #dddddd;
+	background: #ffffff;
+}
+
+div.earn-integration dd ul{
+	margin: 30px 0 0 50px;
+}
+
+div.earn-integration dd ul li{
+	margin: 0 70px 0 0;
+}
+
+div.earn-integration span{
+	display: inline-block;
+}
+
+div.earn-integration div.w-h60{
+	width: 60px;
+	height: 60px;
+}
+
+div.earn-integration div.mr10{
+	margin-right: 10px;
+}
+
+div.earn-integration div.registration{
+	background: url(../images/integration_registration.png) no-repeat;
+}
+
+div.earn-integration div.reg{
+	background: url(../images/integration_reg.png) no-repeat;
+}
+
+div.earn-integration div.friend{
+	background: url(../images/integration_friend.png) no-repeat;
+}
+
+div.earn-integration div.email{
+	background: url(../images/integration_email.png) no-repeat;
+}
+
+div.earn-integration p.integration_title{
+	font-size: 14px;
+}
+
+div.earn-integration p.ava_integration{
+	color: #999999;
+	margin: 2px 0 4px 0;
+}
+
+p.ava_integration span{
+	color: #ff6600;
+}
+
+div.earn-integration p a{
+	font-size: 14px;
+	color: #30bbfe;
+}
+
+div.integration-exchange{
+	width: 1030px;
+}
+
+div.integration-exchange li{
+	width: 213px;
+	border: 1px solid #dddddd;
+	margin: 0 20px 20px 0;
+	padding: 10px;
+	background: #ffffff;
+}
+
+div.integration-exchange img{
+	width: 213px;
+	height: 213px;
+}
+
+div.integration-exchange li p.copies{
+	color: #999999;
+	margin: 2px 0 3px 0;
+}
+
+div.integration-exchange li p.copies span{
+	color: #30bbfe;
+}
+
+div.integration-exchange p.integration_integration{
+	font-size: 18px;
+	color: #ff6600;
+}
+
+div.exchange_push a{
+	display: block;
+	width: 80px;
+	height: 30px;
+	line-height: 28px;
+	background: #ff6600;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 3px;
+	margin-top: 13px;
+}
+
+div.exchange_push a.no{
+	background: #999999;
+}
+
+div.footer{
+	padding: 15px 0 30px 0;
+}
+
+div.footer p{
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+
+div.footer p.footer_link{
+	margin-bottom: 20px;
+}
+
+p.footer_link span, p.footer_link a{
+	font-size: 13px;
+}
+
+p.footer_link a{
+	margin-right: 25px;
+}
+
+div.no_login{
+	height: 70px;
+	padding-top: 30px;
+}
+
+div.no_login a{
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	background: #acacac;
+	border-radius: 3px;
+	font-size: 20px;
+	text-align: center;
+	color: #ffffff;
+}
+
+
+
+
+
+
+

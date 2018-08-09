@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动管理-商家个人中心-{C('WEBNAME')}</title>
+<meta name="keywords" content="活动管理,商家个人中心,{C('WEBNAME')}" />
+<meta name="description" content="活动管理,商家个人中心,{C('WEBNAME')}" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" /> 
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/oder_mange.css" /> 
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/table.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/plugins/iframeTools.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/activity.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/task.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/order.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();
+	});
+</script>
+</head>
+	<body>
+	{include template('toper','common')}
+		{include template('merchant_header','member/common')}
+		<div class="content">
+			<div class="content_wrap overflow_hidden">
+				<div class="nav_path">
+					<a href="{__APP__}">首页</a>&nbsp;>
+					<a href="{U('Member/Profile/index')}" class="nav_active">商家中心</a>&nbsp;>
+					<a href="{U('Member/MerchantProduct/activity')}" class="nav_active">活动管理</a>
+				</div>
+				{include template('merchant_left','member/common')}
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.right_title a').each(function(i,n){
+							$(this).attr('index',i);
+						});
+						$('.right_title a').click(function(){							
+							$('.table_list').css('display','none'); 
+							$('.right_title a').removeClass('a_link');
+							$(this).addClass('a_link');
+							$('.table_list:eq('+$(this).attr("index")+')').css('display','block');
+						});
+					});
+				</script>				
+				<div class="float_right right border_1_dddddd border_efefef">
+					<h2 class="right_title border_bottom_efefef" id="activity">
+						活动管理 
+						<a href="javascript:;" {if $mod == 'rebate' }class="a_link" {/if}>
+						{if $mod == 'rebate'}
+							{C('rebate_name')}
+						{elseif $mod == 'trial'}
+						{C('trial_name')}
+						{else}
+						{C('postal_name')}
+						{/if}
+						({activity_count($userinfo['userid'],$mod)})
+						</a>
+					</h2>
+					<form action="<?php echo __APP__;?>" method="get">
+					<input type="hidden" name="m" value="<?php echo MODULE_NAME;?>" />
+					<input type="hidden" name="c" value="<?php echo CONTROLLER_NAME;?>" />
+					<input type="hidden" name="a" value="<?php echo ACTION_NAME;?>" />
+					<input type="hidden" name="mod" value="<?php echo $mod;?>" />
+					<p class="hint_search">
+						<!-- 活动状态 -->
+						<select name="activity_state">
+							<option value="-99">活动状态</option>
+							{loop $this->activity_state  $key $value}
+							<option value="{$key}" {if $key == $activity_state}selected{/if}>{$value}</option>	
+							{/loop}
+						</select>
+						<input type="text" placeholder="请输入活动标题关键字" name="keyword" />
+						<input type="submit" name= "dosubmit" value="确定" />
+					</p>
+					</form>
+					<table border="0" cellspacing="0" class="table_list">
+						<thead>
+						<tr class="table_title">
+							<th class="t_tr_w_1 tc">商品标题</th>
+							<th class="t_tr_w_3_1 tc">状态</th>
+							<th class="t_tr_w_3 tc">下单价{if $mod == 'rebate'}/折扣{/if}</th>
+							<th class="t_tr_w_4_1 tc">份数</th>
+							<th class="t_tr_w_6 tc">{if $mod == 'trial'}申请人数{elseif $mod=='rebate'}抢购人数{else}参与人数{/if}</th>
+							<th class="t_tr_w_5 text_indent tc">操作</th>
+						</tr>
+						</thead>
+						<tbody id="operate">
+						{loop $lists $l}
+						<?php 
+							$mod = !isset($mod) ? $mod : $l['mod'];
+						?>
+						<tr colspan="5" class="table_hint">
+							<td><span>商品编号：{$l['id']}</span>
+								发布于：{dgmdate($l[inputtime],'Y/m/d H:i:s')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr class="bb br bl">
+							<td class="tc blnone pl17" style="width: 231px;">
+								<img class="table_small" src="{$l[thumb]}" alt="" />
+								<ol class="table_small_text">
+									<li class="color_009de4">
+										<a href="{$l[url]}" target="_blank">{cutstr($l[title],20)}</a></li>
+									<li>{$l[keyword]}</li>
+								</ol>
+							</td>
+							<td class="t_tr_w_3_1 tc">
+								<ol>
+									<li><?php echo C("ACTIVITY_STATUS.$l[status]");?></li>
+								</ol>
+							</td>
+							<td class="t_tr_w_3 tc">
+								{$l[goods_price]}元
+								{if $mod == 'rebate'}
+									<font class="t_h_wi_he background_2ebcfe color_ffffff">{$l[goods_discount]}折</font>
+								{elseif $mod=='trial' && $l['goods_bonus'] > 0}
+									/<font class="t_h_wi_he background_2ebcfe color_ffffff">{$l[goods_bonus]}元红包</font>
+								{/if}
+							</td>
+							<td class="t_tr_w_4 t_tr_w_4_1 tc">{if ($mod == 'rebate' || $mod=='trial')}{$l[goods_number]}{else}-{/if}</td>
+							<td class="t_tr_w_6 tc">
+								{if ($mod == 'trial')}
+								<a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod,'state'=>'1'))}">	已申请：{get_trial_by_gid($l['id'])}</a>
+										<br>
+								<a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod,'state'=>'2'))}">已通过：{get_trial_pass_by_gid($l['id'])}</a>
+									<br>
+
+									<a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod,'state'=>'7'))}">已完成：{get_over_trial_by_gid($l['id'])}</a>
+										<br>
+								{/if}
+
+								{if ($mod == 'rebate')}
+								{$l[already_num]}
+								{/if}
+
+							</td>
+							<td class="t_tr_w_5 tc">
+								<ol class="handle">
+									{if $l[status] == -3 && ($mod == 'rebate' || $mod=='trial')}
+										<li><a href="{U('Member/MerchantProduct/edit',array('id'=>$l[id],'mod'=>$l[mod]))}">编辑活动</a></li>
+										{if $mod == 'rebate' || $mod=='trial'}
+											<li><a href="{U('Member/MerchantProduct/bailbond',array('id'=>$l[id],'mod'=>$l[mod]))}">支付费用</a></li>
+										{/if}
+										<li><a href="javascript:;" id="revocation">撤销活动</a></li>
+									{/if}
+									{if $l['status'] == 1 && ($mod == 'rebate' || $mod=='trial')}
+										{if ((int)($l['goods_number']-$l['already_num']) == 0)}
+											<li><a href="javascript:;" onclick="order.push_number({$l['id']},'{U('Member/MerchantProduct/push_number')}')">追加库存</a></li>
+										{/if}
+										<li><a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod,'state'=>1))}">审核订单</a></li>
+										<!-- {if $mod=='trial'}
+										<li><a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod))}">审核试用报告</a></li>
+										{/if} -->
+									{/if}
+									{if $l['status'] == 2 && ($mod == 'rebate' || $mod=='trial')}
+										<li><a href="javascript:;" onclick="goods.activity_over('{U('activity_over')}', '{$l['id']}');">活动结算</a></li>
+										<li><a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod,'state'=>1))}">审核订单</a></li>
+										<!-- {if $mod=='trial'}
+										<li><a href="{U('Member/Order/manage', array('goods_id' => $l['id'],'mod'=>$mod))}">审核试用报告</a></li>
+										{/if} -->
+									{/if}
+									<li><a href="javascript:;" onclick="goods.log(this);" data-gid="{$l[id]}" data-url="{U('Member/merchantProduct/product_log',array('id'=>$l[id]))}">操作记录</a></li>
+									<input type="hidden" name="id" value="{$l[id]}" />
+								</ol>
+							</td>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+					<div class="pages wiHe3 floatLeft">{$pages}</div>	
+				</div>		
+			</div>
+		</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#operate tr").each(function(i){
+		//撤销
+		$(this).children('td:last').find("#revocation").click(function(){
+			if(confirm('您将要撤销这个活动，该操作不可逆转，您确定吗？')){
+				var id = $(this).parent().siblings('input').val();
+				var mod = '<?php echo $mod;?>';
+				$.ajax({
+					url:'{U('Member/MerchantProduct/revocation')}',
+					type:'post',
+					dataType:'json',
+					data:{'id':id,'mod':mod},
+					success:function(data){
+						if(data.status == 1){
+							art.dialog(data.info);
+							location.reload();
+						}else{
+							art.dialog(data.info);
+							loaction.reload();
+						}
+					}
+				});
+			}
+		});
+		//删除
+		$(this).eq(0).children().find('a#delete').click(function(){
+			if(confirm('您确定要删除吗？')){
+				var id = $(this).attr('data-id');
+				$.ajax({
+					url:'{U('Member/MerchantProduct/product_delete')}',
+					type:'post',
+					dataType:'json',
+					data:{'id':id},
+					success:function(data){
+						if(data.status == 1){
+							art.dialog(data.info);
+							location.reload();
+						}else{
+							art.dialog(data.info);
+							location.reload();
+						}
+					}
+				});
+			}
+		});
+	});
+	
+});
+</script>
+<style type="text/css">
+.pages{margin-left:200px;}
+</style>
+{include template('footer','common')}

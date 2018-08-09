@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{get_seo('postal_seo','postal_title','')}</title>
+		<meta name="keywords" content="{get_seo('postal_seo','postal_keyword','')}" />
+		<meta name="description" content="{get_seo('postal_seo','postal_description','')}" />
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/list_try.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+		<style type="text/css">
+			.sbment { height:36px; border-bottom:solid 1px #ddd; line-height:36px; }
+			.sbment span { color:#999; float:left; text-align:right; width:78px; height:100%; padding:0 12px; }
+			.sbment li { float:left; margin:0 12px; }
+			.sbment li a { color:#999; }
+			.sbment li .a_click { color:#ff6600; }
+		</style>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+	{include template('toper','common')}
+		<!-- logo和搜索部分 -->
+		{include template('header','common')} 
+		<div class="wrap">
+			<ul class="subnav">
+				<li  class="li_click"><a href="javascript:;" class="subnav_click_style"  data-catid="0">所有宝贝</a></li>
+					{pc:product action="category" catid="0" num="10"}
+					{loop $data $r}
+					<li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+					{/loop}
+					{/pc}
+			</ul>
+			<script type="text/javascript">
+				$('.wrap .subnav li a').click(function(){
+					$('.wrap .subnav li a').removeClass('subnav_click_style'); 
+					$(this).addClass('subnav_click_style');
+					
+					$(".sbment").hide();
+					 $(".sbment#cat_" + $(this).attr('data-catid')).show();                        
+                     $(this).parent().addClass('li_click');
+                     getContent();
+				});
+			</script>
+			<!-- {pc:product action="category" catid="0" num="8"}
+			{loop $data $r}
+			{php $catid = $r['catid'];}
+			<ul class="sbment" id="cat_{$catid}" style="display:none;">
+				<li><a href="javascript:;" class="a_click">全部</a></li>					
+				{pc:product action="category" catid="$catid" num="15"}
+				{loop $data $r}
+				<li><a href="javascript:;" data-catid="{$r[catid]}">{$r[catname]}</a></li>
+				{/loop}
+				{/pc}
+			</ul>
+			{/loop}
+			{/pc}
+			<script type="text/javascript">
+				$('.sbment li a').click(function(){
+                       $('.sbment li a').removeClass('a_click');
+                       $(this).addClass('a_click');
+                       getContent();
+                   });
+			</script> -->
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<div class="wrap_left">
+					<div class="sub_select">
+						<ul class="sub_left">
+							<li><a href="javascript:;" class="a_click_style_1" data-status="1">最新上线</a></li>
+							<li><a href="javascript:;" data-status="-1">即将上线</a></li>
+						</ul>
+						<script type="text/javascript">
+							$('.sub_select .sub_left li a').click(function(){
+								$('.sub_select .sub_left li a').removeClass('a_click_style_1'); 
+								$(this).addClass('a_click_style_1');
+								 getContent();
+							});
+						</script>
+						<ul class="sort_right">
+							<li><a href="javascript:;" class="a_click_style_2 a_active_02_down a_color" data-orderby="start_time" data-orderway="desc">时间</a></li>
+							<li><a href="javascript:;" class="a_active_01_down" data-orderby="goods_price" data-orderway="desc">价值</a></li>
+							<li><a href="javascript:;" class="a_active_01_down" data-orderby="hits" data-orderway="desc">人气</a></li>
+						</ul>
+						<script type="text/javascript">
+							$('.sub_select .sub_right li a').click(function(){
+								$('.sub_select .sub_right li a').removeClass('a_click_style_2'); 
+								$(this).addClass('a_click_style_2');
+							});
+							
+							$('.sort_right li a').click(function(){
+	                            $('.sort_right li a').removeClass('a_color');
+	                            $(".sort_right li a").each(function(i, n) {
+	                                $(this).attr('class', $(this).attr('class').replace('02', '01'));
+	                            })
+	                            $(this).attr('class', '');
+	                            if($(this).attr('data-orderway') == 'desc') {
+	                                if($(this).attr('is_frist')) {
+	                                    $(this).addClass('a_active_02_up');
+	                                    $(this).attr('data-orderway', 'asc');
+	                                } else {
+	                                    $(this).addClass('a_active_02_down');
+	                                }                                
+	                            } else {                                
+	                                if($(this).attr('is_frist')) {
+	                                    $(this).addClass('a_active_02_down');
+	                                } else {
+	                                    $(this).addClass('a_active_02_up');
+	                                    $(this).attr('data-orderway', 'desc');
+	                                }
+	                            }
+	                            $(this).addClass('a_color').attr('is_frist', 1);
+	                            getContent();
+							}); 
+							
+							$(function(){
+								$('.left_list_content .list_box').each(function(i,n){ if((i+1)%3 == 0){$(this).css('margin-right','0'); }});
+								$('.try_over .list_box').each(function(i,n){ if((i+1)%4 == 0){$(this).css('margin-right','0'); }});
+								$('.wrap_right .list_box:last').removeClass('b_b_s_dddddd');
+								$('.wrap_right .list_box:last').removeClass('b_b_s_dddddd');
+							});
+						</script>
+					</div>
+					<div class="left_list_content"  id="goods_lists"> loading...</div>					
+				</div>
+				<div class="wrap_right border_solid_dddddd">
+					<h5 class="title">产品推荐</h5>
+					<?php $_where_postal="`mod` = 'postal' && `isrecommend`=1";?>
+					{pc:product action="lists" num="6" where="$_where_postal" addfields="1"}
+					{loop $data $p}
+					<ul class="list_box b_b_s_dddddd margin_0">
+						<li><a href="{$p[url]}" target="_blank"><img class="small_img" src="{$p[thumb]}" alt="" /></a></li>
+						<li class="shop_name"><span><img src="{get_shop_set($p['source'], 'small_logo')}" width="16px" height="16px"/></span><a href="{$p[url]}" target="_blank">{$p[title]}</a></li>
+						<li class="shop_sum">{activitiy_price_name($p[mod])}：
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>{price($p[id])}</font>
+							<font class="color_999999">剩余 <i class="color_30bbfe"><?php echo $p[goods_number] - $p[already_num];?></i> 份</font>
+						</li>
+						<li><a href="{$p[url]}" target="_blank" class="btn_style">去{shop_set($p[source],'name')}看看</a></li>
+					</ul>
+					{/loop}
+					{/pc}
+				</div>
+				<div style="clear: both;"></div>
+				<!-- 翻页 -->
+				<p class="pages wiHe3" id="pages"></p>
+				<div class="try_over">
+					<h6 class="title">活动结束</h6>
+					<?php $_where = "`mod`='postal'";?>
+					{pc:product action="lists" num="6" status="2" where="$_where" addfields="1"}
+					{loop $data $t}
+					<ul class="list_box border_solid_dddddd">
+						<li><a href="{$t[url]}" target="_blank"><img class="small_img" src="{$t[thumb]}" alt="" /></a></li>
+						<li class="shop_name"><span><img src="{get_shop_set($t['source'], 'small_logo')}" width="16px" height="16px"/></span><a href="{$t[url]}" target="_blank">{$t[title]}</a></li>
+						<li class="shop_sum">{activitiy_price_name($t[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>{price($t[id])}</font><font class="color_999999 text_style_1">{$t[goods_price]}</font><span class="over_hint">已结束</span></li>
+					</ul>
+					{/loop}
+					{/pc}
+				</div>
+			</div>	
+		</div>
+		{include template('footer','common')}
+		<script type="text/javascript">
+			getContent(1);
+			function getContent(page) {
+			    var page = page || 1;
+			    var sort = $(".sort_right a[class~='a_color']");    
+			    var param = {
+			      catid : $("a[data-catid][class='subnav_click_style']:last").attr('data-catid'),
+			      mod   : "<?php echo $mod;?>",
+			      orderby   :sort.attr('data-orderby'),
+			      orderway : sort.attr('data-orderway'),
+			      status:$("a[data-status][class='a_click_style_1']").attr('data-status'),
+			      num:'21',
+			      page:page
+			    };
+			    $.getJSON(site.site_root + '/?m=product&c=api&a=getlists', param, function(ret) {
+			       var _html = '';
+			       if(ret.status == 1) {
+			           $.each(ret.data.lists, function(i, n) {
+			        	   var _ul_margin = ((i + 1) % 3 == 0) ? 'style="margin-right:0;"' : '';
+			        	   var _ul_border = 0;
+			               if(n.mod == 'rebate') {
+			                   _ul_border = 2;
+			               } else if(n.mod == 'trial') {
+			                   _ul_border = 1;
+			               } else {
+			                   _ul_border = 3;
+			               }
+			               _html += '<ul class="list_box border_solid_dddddd"'+ _ul_margin +'>';
+			               _html += '<li><a href="'+ n.url +'" target="_blank"><img class="small_img" src="'+ n.thumb +'" alt="'+ n.title +'"></a></li>';
+			               _html += '<li class="shop_name"><span><img src="'+ n.img_source +'" width="16px" height="16px"/></span><a href="'+ n.url +'" target="_blank">'+ n.title +'</a></li>';
+			               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>'+ n.mod_price +'</font></li>';
+			               _html += '<li><a href="'+n.url+'" class="btn_style" target="_blank">';
+			               if (n.mod == "rebate"){
+			            	   _html += '我要抢购';
+			               }else if (n.mod == "trial"){
+			            	   _html += '免费试用';
+			               }else{
+			            	   _html += '去'+n.shop_source+'看看';
+			               }
+			               _html += '</a></li>';
+			               _html += '</ul>';
+			           });
+			           $("#goods_lists").html(_html);
+			           $("#pages").html(ret.data.pages);
+			       } else {
+			           $("#goods_lists").html(ret.info);
+			           $("#pages").html('');
+			           return false;
+			       }
+			    });
+			}
+			
+			$('#pages a').live('click', function() {
+			    var urlstr = $(this).attr('href').toString();
+			    var page = $.urlParam('page', urlstr);
+			    if(page != false) {
+			    	getContent(page);
+			    }
+			    return false;
+			})
+			
+			$.urlParam = function(name, url){
+			    var url = url || window.location.href;
+			    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+			    if(!results) return false;
+			    return results[1] || 0;
+			}
+</script>

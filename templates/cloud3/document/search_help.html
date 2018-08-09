@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/help.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+						{include template('toper','common')}
+
+		
+		<div id="user_header">
+			<div class="wrap-and">
+				<div class="user_logo clear fl">
+					<div class="logo_img fl"><a href="{__APP__}"><img src="{C('SITE_LOGO_ZHU')}" alt="{C('WEBNAME')}" /></a></div>
+					<h1 class="l_title fl">帮助中心</h1>
+					<ul class="help_main_nav_tab">
+
+
+						<?php
+							$_catid = ($catid == 1) ? 2 : $catid;
+							$_top_catid = id_in_arrchildid(2, $_catid) ? 2 : 3;
+						?>
+						{pc:document action="category" catid="1" num="2"}
+						{loop $data $r}
+						<li class="{if (id_in_arrchildid($r[catid], $_catid))} active{/if}"><a href="{$r[url]}">{$r[catname]}</a></li>
+						{/loop}
+						{/pc}
+					<!-- 	<li><a href="help_tmp.html">试客中心</a></li>
+						<li class="active"><a href="help_shops_tmp.html">商家中心</a></li> -->
+					</ul>
+				</div>
+				<div class="help_search">
+					<form  method="get">
+						<input type="hidden" name="m" value="Document"></input>
+						<input type="hidden" name="c" value="Index"></input>
+						<input type="hidden" name="a" value="search_help"></input>
+						<input type="hidden" name="catids" value="{$catid}" class="catids"></input>
+						<div class="txt fl"><input placeholder="有问题试着搜" type="text" name="keywords" value="{$_GET[keywords]}"  /></div>
+						<input class="fl nav_sub" type="submit" value="搜索"/>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>帮助中心搜索</b>
+				</p>
+			</div>
+			
+			<div class="wrap-and clear">
+
+				<div class="help_left fl">
+					
+					<h2 class="title">{if $catid == 2}试客中心{else}商家中心{/if}</h2>
+					{pc:document action="category" catid="$_top_catid"}
+					{loop $data $r}
+					{php $subcats = subcat($r['catid']);}
+					
+					<dl class="nav_list">
+
+						
+						<dt>{$r[catname]}</dt>
+						
+						{loop $subcats $k $rs}
+						<dd><a href="{$rs[url]}">{$rs[catname]}</a></dd>
+						{/loop}
+						
+
+					</dl>
+					
+
+					{/loop}
+					{/pc}
+					
+					<!-- <dl class="nav_list">
+						<dt>试用流程说明</dt>
+						<dd><a href="#">用户登录与注册</a></dd>
+						<dd><a href="#">如何注册</a></dd>
+						<dd><a href="#">如何登录</a></dd>
+					</dl>
+					<dl class="nav_list">
+						<dt>试客中心</dt>
+						<dd><a href="#">了解试用</a></dd>
+						<dd><a href="#">参与试用的条件</a></dd>
+						<dd><a href="#">如何获取金币</a></dd>
+						<dd><a href="#">如何搜索试用下单</a></dd>
+						<dd><a href="#">如何查看我的试用情况</a></dd>
+						<dd><a href="#">如何填写我的试用报告</a></dd>
+					</dl> -->
+				</div>
+
+
+
+
+				<div class="help_right fr">
+					<div class="box">
+						
+						<h3 class="title">{$name['catname']}</h3>
+						
+						<div class="content">
+							<ul class="help_sk_jd">
+							{loop $article $r}
+							   <li class="first"><a href="{$r[url]}">{$n}.{$r[title]}</a></li><br>
+							{/loop}
+								
+								
+							</ul>
+							<!-- 常见问题 --> 
+							<script type="text/javascript">
+								$(function(){ $('.help_wt_list li:odd').css('float','left'); });
+							</script>
+							<div class="help_wt">
+								<p class="help_wt_title">常见问题</p>
+								<ul class="help_wt_list clear">
+									{pc:document action="lists"  catid="1"  num="8"  order="id DESC"}
+									{loop $data $k $r}
+									<li><b class="float: left;"></b><a href="{$r[url]}">{$r[title]}</a></li>
+									{/loop}
+									{/pc}
+								<!-- 	<li style="float: left;"><b class="ico"></b><a href="#">如何登录？</a></li>
+									<li><b class="ico"></b><a href="#">参与试用的条件？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何获取金币？</a></li>
+									<li><b class="ico"></b><a href="#">如何搜索试用下单？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何查看我的试用情况？</a></li>
+									<li><b class="ico"></b><a href="#">如何填写我的试用报告？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">如何申请试用商品？</a></li>
+									<li><b class="ico"></b><a href="#">如何填写试用报告？</a></li>
+									<li style="float: left;"><b class="ico"></b><a href="#">试用规则？</a></li> -->
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		{include template('footer','common')}
+
+	</body>
+</html>

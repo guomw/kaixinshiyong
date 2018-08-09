@@ -1,0 +1,114 @@
+<div id="menu" class="left border_efefef float_left text_indent35">
+	<h2 class="line_height48 color_ff6600 border_bottom_efefef text_indent30 font_size14">
+		商家信息
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square width_100"><a href="{U('Member/Attesta/index')}" class="{if ACTION_NAME == 'index' && CONTROLLER_NAME=='Attesta'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">经营认证</a></li>
+		<li class="line_height32 background_img_square width_100"><a href="{U('Member/Attesta/person')}" class="{if ACTION_NAME == 'person' && CONTROLLER_NAME=='Attesta'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">个人认证</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Merchant/complete')}" class="{if ACTION_NAME == 'complete' && CONTROLLER_NAME=='Merchant'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">商家资料</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Profile/pwd')}" class="{if ACTION_NAME == 'pwd' && CONTROLLER_NAME=='Profile'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">密码安全</a></li>
+	</ul>
+	{if C('TRIAL_ISOPEN') == 1}
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		试用活动
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'trial'))}" class="display_block link_hover_bg width_100 height_100 line_height32">发布普通试用</a></li>
+		{if C('SELLER_BONUS_ISOPEN') == 1}
+
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'trial','bonus'=>'red'))}" class="display_block link_hover_bg width_100 height_100 line_height32">发布红包试用</a></li>
+		{/if}
+		{if C('SELLER_PAT_ISOPEN') == 1}
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'trial','bonus'=>'A'))}" class="display_block link_hover_bg width_100 height_100 line_height32">发布拍A发B</a></li>
+		{/if}
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/activity',array('mod'=>'trial'))}" class="{if ACTION_NAME == 'activity' && $_GET['mod'] == 'trial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">活动管理</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Order/order_manage',array('mod'=>'trial'))}" class="{if ACTION_NAME == 'order_manage' && $_GET['mod'] == 'trial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32" target="_blank" >订单管理</a></li>
+	</ul>
+	{/if}
+	{if C('REBATE_ISOPEN') == 1}
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		返利活动
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'rebate'))}" class="{if ACTION_NAME == 'add' && $_GET['mod'] == 'rebate'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">发布{C('REBATE_NAME')}</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/activity',array('mod'=>'rebate'))}" class="{if ACTION_NAME == 'activity' && $_GET['mod'] == 'rebate'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">活动管理</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Order/order_manage',array('mod'=>'rebate'))}" class="{if ACTION_NAME == 'order_manage' && $_GET['mod'] == 'rebate'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32" target="_blank" >订单管理</a></li>
+	</ul>
+	{/if}
+
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		佣金活动
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'commission'))}" class="{if ACTION_NAME == 'add' && $_GET['mod'] == 'commission'}cursor{/if}  display_block link_hover_bg width_100 height_100 line_height32">发布{C('COMMISSION_NAME')}</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/activity',array('mod'=>'commission'))}" class="{if ACTION_NAME == 'activity' && $_GET['mod'] == 'commission'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">活动管理</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Order/order_manage',array('mod'=>'commission'))}" class="{if ACTION_NAME == 'order_manage' && $_GET['mod'] == 'commission'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32" target="_blank" >订单管理</a></li>
+	</ul>
+
+	
+	{if C('POSTAL_ISOPEN') == 1}
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		包邮活动
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/add',array('mod'=>'postal'))}" class="{if ACTION_NAME == 'add' && $_GET['mod'] == 'postal'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">发布{C('POSTAL_NAME')}</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantProduct/activity',array('mod'=>'postal'))}" class="{if ACTION_NAME == 'activity' && $_GET['mod'] == 'postal'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">活动管理</a></li>
+	</ul>
+	{/if}
+	{if C('TASK_ISOPEN') == 1}
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		日赚任务
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantTask/task_add')}" class="{if ACTION_NAME == 'task_add'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">发布日赚任务</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/MerchantTask/task_list')}" class="{if ACTION_NAME == 'task_list'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">活动管理</a></li>
+	</ul>
+	{/if}
+	
+	<h2 class="line_height48 border_bottom_efefef font_size14 text_indent30">
+		申诉管理
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square">
+		<a href="{U('Member/Appeal/appeal_manage',array('state'=>-1))}" class="{if ACTION_NAME == 'appeal_manage' && I('state') == -1}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">所有申诉</a></li>
+		<li class="line_height32 background_img_square">
+		<a href="{U('Member/Appeal/appeal_manage', array('state' => 0))}" class="{if ACTION_NAME == 'appeal_manage' && I('state') == 0}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">待商家处理</a></li>
+	</ul>
+<p class="title_box width_100 border_bottom_efefef float_left list_title"><a href="{U('Member/Announce/announce',array('type'=>1))}" class="font_size14 link_hover_bg display_block width_100 height_100 line_height32 {if ACTION_NAME=='announce'}cursor{/if}">站内信</a></p>
+	<h2 class="line_height48 border_bottom_efefef text_indent30 font_size14">
+		账单管理
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square width_100"><a href="{U('Pay/Index/pay')}" class="{if ACTION_NAME == 'pay' && CONTROLLER_NAME=='Index'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">快速充值</a></li>
+		<li class="line_height32 background_img_square width_100"><a href="{U('Pay/Index/deposite')}" class="{if ACTION_NAME == 'deposite' && CONTROLLER_NAME=='Index'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">快速提现</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/pay_log',array('type'=>1))}" class="{if ACTION_NAME == 'pay_log' && CONTROLLER_NAME=='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">充值记录</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/cash_log')}" class="{if ACTION_NAME == 'cash_log' && CONTROLLER_NAME=='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">提现记录</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/capital_log')}" class="{if ACTION_NAME == 'capital_log' && CONTROLLER_NAME=='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">保证金管理</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/index')}" class="{if ACTION_NAME == 'index' && CONTROLLER_NAME =='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">账单明细</a></li> 
+	</ul>
+	
+</div>
+ <script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu h2").click(function(){
+			var spanClass = $(this).find("span").attr("class");
+			if(spanClass == "open"){
+				$(this).next("ul").hide();
+				$(this).find("span").attr("class","off");
+			}else{
+				if(spanClass == "off"){
+					$(this).next("ul").show();
+					$(this).find("span").attr("class","open");
+				}
+			}
+		});
+	});
+</script>

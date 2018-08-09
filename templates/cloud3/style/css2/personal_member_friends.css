@@ -1,0 +1,133 @@
+a.cursor{
+	background-color:#ff6600;
+	color:#ffffff;
+}
+
+div.content_right{
+	width:780px;
+	padding:20px 20px 45px 20px;
+	border:1px solid #efefef;
+}
+
+div.content_right h2{
+	margin-bottom:40px;
+	font-size:14px;
+}
+
+div.content_right input, div.content_right textarea{
+	font-family:"微软雅黑";
+}
+
+div.share div.mt34{
+	margin-bottom:34px;
+}
+
+div.share div.ml14{
+	margin-left:14px;
+}
+
+div.share input, div.share textarea{
+	color:#666666;
+}
+
+div.share dl dt{
+	font:14px "微软雅黑";
+	font-weight:bold;
+	color:#333333;
+	margin-bottom:14px;
+}
+
+div.qzone dd{
+	line-height:18px;
+	width:385px;
+	font-family:"微软雅黑";
+}
+
+div.share input, div.share textarea{
+	border:1px solid #dddddd;
+	border-top:1px solid #cccccc;
+	width:335px;
+	padding-left:10px;
+}
+
+div.share input{
+	height:25px;
+}
+
+div.share textarea{
+	height:66px;
+	padding-top:10px;
+}
+
+div.share dd.copy{
+	width:40px;
+	height:25px;
+	line-height:25px;
+	border-radius:3px;
+	margin-left:7px;
+	cursor:pointer;
+	text-align:center;
+}
+
+div.share dd.copy{
+	background-color:#e2f9ff;
+	border:1px solid #77bbff;
+	color:#1a8bff;
+}
+
+div.matter{
+	width:190px;
+	padding:14px;
+	border:1px solid #e3e3e3;
+	font-family:"微软雅黑";
+}
+
+div.matter dt{
+	font-size:14px;
+	font-weight:bold;
+	color:#333333;
+	margin-bottom:5px;
+}
+
+div.matter dd{
+	padding:12px 0;
+	border-bottom:1px dashed #e3e3e3;
+	line-height:25px;
+}
+
+div.invited{
+	font-family:"微软雅黑";
+}
+
+div.invited table{
+	width:100%;
+	border-spacing:0;
+	border-collapse:collapse;
+}
+
+div.invited table, div.invited tr, div.invited th, div.invited td{
+	border:1px solid #cccccc;
+}
+
+div.invited th{
+	background-color:#f9f9f9;
+	height:30px;
+}
+
+div.invited td{
+	height:30px;
+	text-align:center;
+}
+
+div.invited div.msg{
+	text-align:center;
+	margin-top:25px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+.withdraw { margin-top:36px; float:left; margin-left:10px; }
+.withdraw li b { font-size:14px; }
+.withdraw li { height:40px; font-size:14px; }
+.withdraw li input[type = "radio"] { margin:0 5px; }
+.withdraw li input[type = "text"] { text-indent:10px; margin:0 5px; width:94px; height:26px; line-height:26px; }
+.withdraw li span{ font-size:14px; line-height:26px; }
+.w_sort,.w_s_h{ margin-top:10px; }
+.w_sort a { font-size:14px; display:inline-block; width:70px; height:26px; border:solid 2px #ddd; text-align:center; line-height:26px; margin-left:7px; margin-right:15px; }
+.w_sort .a_active { border-color:#30bbfe; }
+.withdraw li .s_color { color:#ff6600; font-size:14px; }
+.content_right { width:780px; }
+.sub_btn { width:80px; height:30px; line-height:30px; text-align:center; display:inline-block; border-radius:3px; background:#ff6600; color:#fff; }

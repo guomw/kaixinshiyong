@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商家注册</title>
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user.css"/>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+	</head>
+	<body class="ui-bg-a">
+					{include template('v2_register_header','member/common')}
+
+		<div id="zc-content">
+			<div class="wrap">
+				<div class="zc-top">
+					<div class="tab-title clear">
+						<a href="{U('Member/Index/userregister')}" class="fl {if $modelid == 1} active {/if}" data-id='1'>用户注册</a>
+						<a href="{U('Member/Index/userregister',array('modelid'=>2))}" class="fr {if $modelid == 2} active {/if}" data-id='2'>商家注册</a>
+					</div>
+					<p class="zc-title">
+						已有账号，立即<a href="{U('Member/Index/login')}">登录</a>
+					</p>
+				</div>  
+				
+				<ul class="zc-lc">
+					<li class="li1">填写账户信息<b></b></li>
+					<li class="li2 active">验证身份信息<b></b></li>
+					<li class="li3">注册成功<b></b></li>
+					<li class="linear"></li>
+				</ul>
+				
+				<div class="user_l_c">
+					<div class="u_tab_list">
+						<ul class="box">
+							<form  class="yz" id="myform">
+								<li class="clear">
+									<strong>邮箱：</strong>
+									<input type="text" style="width:440px;" disable="disabled" value="{$new_email}" readonly="readonly" id="email"/>
+								</li>	
+								<li class="clear yzm">
+									<strong>验证码：</strong>
+									<input type="text" class="kCode" id="code"/>
+									<input type="button" class="button btn_s getverify" style="border:none;"  value="获取邮箱验证码"/>
+									  <a href="#" id="emailurl" target="_blank"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前往邮箱查看>></a>
+									<p class="hint cc" id="js_show"></p>
+								</li>
+								<li class="clear btn" style="margin-top:100px;">
+									<strong></strong>
+									<input type="button" class="btn_s" onclick="js_submit();" value="立即激活"/> 
+								</li>
+								<li class="clear btn" style="margin-left:450px;color:#FF6C00"> <a  href="{U('v2_register_suc')}" > >>先跳过，以后再说 </a></li>
+								<!-- dasied -->
+							</form>
+						</ul>
+					</div>
+					
+				</div>
+				
+			</div>	
+		</div>
+		
+					{include template('v2_register_footer','member/common')}
+
+		
+		
+	</body>
+</html>
+
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="utf-8">
+function js_submit(){
+	var email = $.trim($('#email').val());
+	var code = $.trim($('#code').val());
+	if (email == '') {
+		$('#email').focus();
+		return false;
+	};
+
+	if (code == '') {
+		$('#code').focus();
+		return false;
+	};
+
+	$.post("{U('Member/Index/check_email')}",{email:email,code:code},function(data){
+			if (data.status == 1) {
+				location.href=data.url;
+
+			}else{
+				art.dialog({
+				lock: true,
+				fixed: true,
+				icon: 'face-sad',
+				title: '错误提示',
+				content: data.info,
+				ok: true
+			});
+
+				};
+								
+		},'json');
+	
+}
+
+//获取手机短信验证码
+var InterValObj;
+var curCount = 60;
+$(".getverify").click(function(){
+    var email = $("#email").val();
+	if(email == '') {
+	    $("#email").focus();
+	    return false;
+	}
+
+	$.getJSON("{U('v2_send_email')}", {email:email}, function(ret) {
+	        if(ret.status == 1) {
+	            InterValObj = window.setInterval(SetRemainTime, 1000);
+	            $('#js_show').html(ret.info);
+	        } else {
+	        	$('#js_show').html(ret.info);
+	            return false;
+	        }
+    });
+    
+	
+    
+});
+function SetRemainTime() {
+    if (curCount == 1) {
+    	curCount = 60;          
+        window.clearInterval(InterValObj);//停止计时器
+        $(".getverify").text("重发验证码").removeClass('disabled');   
+    }
+    else {
+        curCount--;
+        $(".getverify").text("" + curCount + "秒后重发").addClass('disabled');
+    }
+}
+
+	var hash={ 
+	'qq.com': 'http://mail.qq.com', 
+	'gmail.com': 'http://mail.google.com', 
+	'sina.com': 'http://mail.sina.com.cn', 
+	'163.com': 'http://mail.163.com', 
+	'126.com': 'http://mail.126.com', 
+	'yeah.net': 'http://www.yeah.net/', 
+	'sohu.com': 'http://mail.sohu.com/', 
+	'tom.com': 'http://mail.tom.com/', 
+	'sogou.com': 'http://mail.sogou.com/', 
+	'139.com': 'http://mail.10086.cn/', 
+	'hotmail.com': 'http://www.hotmail.com', 
+	'live.com': 'http://login.live.com/', 
+	'live.cn': 'http://login.live.cn/', 
+	'live.com.cn': 'http://login.live.com.cn', 
+	'189.com': 'http://webmail16.189.cn/webmail/', 
+	'yahoo.com.cn': 'http://mail.cn.yahoo.com/', 
+	'yahoo.cn': 'http://mail.cn.yahoo.com/', 
+	'eyou.com': 'http://www.eyou.com/', 
+	'21cn.com': 'http://mail.21cn.com/', 
+	'188.com': 'http://www.188.com/', 
+	'foxmail.coom': 'http://www.foxmail.com' 
+	};	
+
+$("#email").each(function() {
+var url = $("#email").val().split('@')[1]; 
+for (var j in hash){ 
+$('#emailurl').attr("href", hash[url]); 
+} 
+}) 
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

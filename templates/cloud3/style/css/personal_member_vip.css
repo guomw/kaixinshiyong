@@ -1,0 +1,161 @@
+a.cursor{
+	background-color:#ff6600;
+	color:#ffffff;
+}
+
+div.content_right{
+	margin-left:10px;
+}
+
+div.content_right_top div.info{
+	width:210px;
+	height:158px;
+	padding:0 15px;
+	border:1px solid #efefef;
+}
+
+div.info div.avatar, div.info div.nickname{
+	margin-top:35px;
+}
+
+div.info div img{
+	border-radius:50px;
+}
+
+div.nickname p{
+	width:90px;
+	margin-bottom:12px;
+}
+
+div.nickname span.vip_ico{
+	display:inline-block;
+	padding:1px 4px;
+	background-color:#9b9b9b;
+	font-size:10px;
+	color:#ffffff;
+}
+
+div.nickname a{
+	width:45px;
+	color:#ffffff;
+	font-size:12px;
+	display:block;
+	background-color:#ff5e00;
+	padding:4px 7px;
+	border-radius:5px;
+}
+
+div.privilege{
+	height:158px;
+	border-top:1px solid #efefef;
+	border-right:1px solid #efefef;
+	border-bottom:1px solid #efefef;
+}
+
+div.privilege dl{
+	margin:17px 0 0 25px;
+}
+
+div.privilege dl dt{
+	width:515px;
+	padding:0 0 10px 0;
+	border-bottom:1px solid #efefef;
+}
+
+div.privilege dl dt{
+	font-weight:bold;
+	font-size:14px;
+}
+
+div.privilege dl dd{
+	margin:23px 40px 0 0;
+}
+
+div.privilege dl dd span{
+	text-align:center;
+	display:block;
+	margin:0 auto;
+}
+
+div.privilege span.wh50{
+	width:50px;
+	height:50px;
+	margin-bottom:10px;
+}
+
+div.privilege span.registration{
+	background:url(../images/registration.png) no-repeat;
+}
+
+div.privilege span.num{
+	background:url(../images/num.png) no-repeat;
+}
+
+div.privilege span.panic{
+	background:url(../images/panic.png) no-repeat;
+}
+
+div.privilege span.try{
+	background:url(../images/try.png) no-repeat;
+}
+
+div.privilege span.activity{
+	background:url(../images/activity.png) no-repeat;
+}
+
+div.content_right_bottom{
+	margin-top:22px;
+}
+
+div.content_right_bottom dl{
+	width:394px;
+}
+
+div.content_right_bottom dl dd{
+	padding-left:15px;
+	line-height:40px;
+}
+
+div.content_right_bottom dl dt{
+	font-size:14px;
+	line-height:47px;
+	text-align:center;
+}
+
+div.content_right_bottom dl.vip_member{
+	width:403px;
+	border:1px solid #ffb6b6;
+}
+
+div.content_right_bottom dl.vip_member dd{
+	border-top:1px solid #ffdada;
+	color:#ff7f2a;
+}
+
+div.content_right_bottom dl.personal_member{
+	width:404px;
+	border-top:1px solid #efefef;
+	border-right:1px solid #efefef;
+	border-bottom:1px solid #efefef;
+}
+
+dl.personal_member dd{
+	border-top:1px solid #efefef;
+}
+
+div.content_right_bottom div.vip{
+	margin-top:32px;
+}
+
+div.vip a{
+	width:85px;
+	height:15px;
+	font-weight:bold;
+	font-size:14px;
+	color:#ffffff;
+	display:block;
+	padding:7px 14px;
+	background-color:#ff6600;
+	border-radius:5px;
+	margin:0 auto;
+}

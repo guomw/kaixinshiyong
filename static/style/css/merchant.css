@@ -1,0 +1,576 @@
+/* 商家中心首页 */
+.member_main_box .wrap_info{
+	margin: 10px 0 15px 0;
+}
+
+.wrap_info .member_info{
+	width: 315px;
+}
+
+.member_info dt{
+	width: 80px;
+	text-align: right;
+}
+
+.member_info dt, .member_info dd, .member_info a{
+	height: 30px;
+	line-height: 30px;
+}
+
+.wrap_info .ann{
+	width: 395px;
+}
+
+.ann li{
+	height: 30px;
+}
+
+.ann li span{
+	line-height: 30px;
+}
+
+.ann li a{
+	line-height: 30px;
+}
+
+.try_process{
+	padding-left: 35px;
+}
+
+.try_process .try_process_bg{
+	width: 720px;
+	height: 87px;
+}
+
+.try_process .try_process4{
+	background: url(../images/try_process4.png) no-repeat;
+}
+
+.try_process .try_process_text{
+	padding-top: 10px;
+}
+
+.try_type{
+	margin-top: 70px;
+	padding-left: 35px;
+}
+
+.try_type .try_type_box{
+	width: 820px;
+}
+
+.try_type_box dt{
+	margin-top: 25px;
+}
+
+.try_type_box dd{
+	width: 265px;
+	margin-left: 20px;
+}
+
+.try_type_box .free_try_bg{
+	width: 71px;
+	height: 72px;
+	background: url(../images/free_try_bg.png) no-repeat;
+}
+
+.try_type_box .paid_try_bg{
+	width: 68px;
+	height: 72px;
+	background: url(../images/paid_try_bg.png) no-repeat;
+}
+
+.try_type_box a{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	background: #fe7e00;
+	text-align: center;
+	color: #ffffff;
+}
+
+/* 商家信息页面 */
+.form_text{
+	margin-bottom: 30px;
+}
+
+.form_text input{
+	width: 238px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+	color: #686868;
+}
+
+.form_text select{
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	display: inline-block;
+	border: 1px solid #cacaca;
+	color: #686868;
+}
+
+.form_text option{
+	color: #686868;
+}
+
+.main_box_right .merchant_aut{
+	padding: 30px 0 0 18px;
+}
+
+.merchant_aut p{
+	margin-bottom: 10px;
+}
+
+.merchant_aut .merchant_aut_lists{
+	width: 565px;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+.merchant_aut_lists li{
+	margin-bottom: 80px;
+}
+
+.merchant_aut_lists span{
+	height: 48px;
+	line-height: 48px;
+	padding-left: 75px;
+	display: block;
+	font-size: 14px;
+}
+
+.merchant_aut_lists a{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	background: #fe7e00;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+	display: block
+}
+
+.merchant_aut_lists .shop_aut_ico{
+	background: url(../images/shop_aut_ico.png) no-repeat;
+}
+
+.merchant_aut_lists .brand_aut_ico{
+	background: url(../images/brand_aut_ico.png) no-repeat;
+}
+
+.main_box_right .shop_brand_aut{
+	padding: 30px 0 0 18px;
+}
+
+.shop_brand_aut .aut_ico{
+	height: 48px;
+	line-height: 50px;
+	margin-bottom: 27px;
+	padding: 0 0 18px 75px;
+	border-bottom: 1px solid #f6f6f6;
+	font-size: 14px;
+}
+
+.shop_aut_ico2{
+	background: url(../images/shop_aut_ico2.png) no-repeat;
+}
+
+.brand_aut_ico2{
+	background: url(../images/brand_aut_ico2.png) no-repeat;
+}
+
+.shop_brand_aut .aut_signal{
+	width: 602px;
+	height: 192px;
+	margin-bottom: 25px;
+	padding: 12px;
+	background: #f6f6f6;
+}
+
+.shop_brand_aut .url_text{
+	width: 534px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+}
+
+.shop_brand_aut .aut_submit{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	background: #fe7e00;
+	font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.member_main_box .member_info2{
+	margin: 10px 0 15px;
+	padding-right: 30px;
+}
+
+.member_info2 dt{
+	width: 90px;
+	text-align: right;
+}
+
+.member_info2 dt, .member_info2 dd, .member_info2 a{
+	height: 30px;
+	line-height: 30px;
+}
+
+.aut dt{
+	height: 30px;
+	line-height: 30px;
+	background: #f6f6f6;
+	margin-bottom: 10px;
+	padding-left: 15px;
+}
+
+.aut td{
+	height: 90px;
+	padding: 16px 0;
+}
+
+.aut td a{
+	width: 83px;
+	height: 30px;
+	line-height: 30px;
+	background: #fe7e00;
+	display: block;
+	text-align: center;
+	color: #ffffff;
+}
+
+.aut .phone_aut_ico{
+	background: url(../images/phone_aut_ico.png) no-repeat 10px center;
+}
+
+.aut .email_aut_ico{
+	background: url(../images/email_aut_ico.png) no-repeat 10px center;
+}
+
+.aut .name_aut_ico{
+	background: url(../images/name_aut_ico.png) no-repeat 10px center;
+}
+
+.aut .alipay_aut_ico{
+	background: url(../images/alipay_aut_ico.png) no-repeat 10px center;
+}
+
+.aut .bank_aut_ico{
+	background: url(../images/bank_aut_ico.png) no-repeat 10px center;
+}
+
+/* 站内信页面 */
+.main_box_right .letter{
+	padding-left: 17px;
+}
+
+.letter .letter_num{
+	height: 38px;
+	line-height: 38px;
+	display: inline-block;
+	background: #f6f6f6;
+	margin: 20px 0 50px 0;
+	padding: 0 23px 0 15px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+
+.letter .letter_lists{
+	width: 870px;
+}
+
+.letter_lists li{
+	margin-bottom: 25px;
+	padding-left: 30px;
+	background: url(../images/letter_ico.jpg) no-repeat 3px 15px;
+}
+
+.letter_lists .letter_box{
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+	padding: 12px 15px 10px 12px;
+	position: relative;
+}
+
+.letter_box .letter_box_ico{
+	width: 10px;
+	height: 11px;
+	background: url(../images/letter_box_ico.jpg) no-repeat;
+	position: absolute;
+	top: 5px;
+	left: -10px;
+}
+
+.letter_box h1{
+	font-weight: 700;
+}
+
+.letter_box .letter_look_btn{
+	padding-left: 15px;
+	background: url(../images/letter_look_bg.png) no-repeat left center;
+	cursor: pointer;
+}
+
+.letter_box .letter_content{
+	padding-top: 15px;
+	font-size: 14px;
+}
+
+.letter_content img{
+	max-width: 790px;
+}
+
+/* 账单管里页面 */
+.main_box_right .recharge{
+	/*margin-top: 60px;*/
+}
+
+.recharge .recharge_btn{
+	width: 195px;
+	margin: 60px auto 40px;
+}
+
+.recharge_btn a{
+	width: 73px;
+	height: 73px;
+	line-height: 73px;
+	text-align: center;
+	color: #fe7e00;
+	display: block;
+}
+
+.recharge_btn .active_recharge_btn{
+	background: url(../images/recharge_btn_bg.png) no-repeat;
+	color: #ffffff;
+}
+
+.recharge .fast_recharge_box{
+	width: 290px;
+	margin: 0 auto;
+}
+
+.recharge .recharge_text{
+	width: 164px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+}
+
+.recharge .General_recharge_box{
+	width: 435px;
+	margin: 0 auto;
+	padding-left: 100px;
+	display: none;
+}
+
+.main_box_right .withdrawals{
+	width: 270px;
+	margin: 60px auto 0;
+}
+
+.withdrawals .money_text{
+	width: 164px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+}
+
+.withdrawals .withdrawals_type{
+	width: 73px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cacaca;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+}
+
+.withdrawals .withdrawals_type_active{
+	border: 1px solid #fe7e00;
+}
+
+.calendar .date{
+	width: 177px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cacaca;
+	padding-left: 10px;
+	background: url(../images/input_date.png) no-repeat 160px 6px;
+}
+
+.data_prompt{
+	text-align: center;
+	padding-top: 65px;
+}
+
+.recharge_lists{
+	margin-top: 15px;
+}
+
+.recharge_lists table{
+	width: 100%;
+}
+
+.recharge_lists th{
+	height: 30px;
+	background: #f6f6f6;
+}
+
+.recharge_lists td{
+	padding: 10px 0;
+	text-align: center;
+}
+
+
+/* 试用管理页 */
+.try_activity_lists th{
+	height: 50px;
+}
+
+.try_activity_lists tbody tr{
+	width: 874px;
+}
+
+.try_activity_lists td{
+	padding: 12px 0;
+}
+
+.try_rep_lists th{
+	height: 50px;
+}
+
+.try_rep_lists td{
+	padding: 45px 0;
+}
+
+.try_process .try_process1{
+	background: url(../images/try_process1.png) no-repeat;
+}
+
+.activity_form .activity_input1{
+	width: 94px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cacaca;
+	text-align: center;
+}
+
+.activity_form .activity_input2{
+	width: 165px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cacaca;
+	text-align: center;
+}
+
+.activity_form .activity_input3{
+	width: 440px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cacaca;
+}
+
+.activity_form .try_process{
+	margin-bottom: 30px;
+}
+
+.activity_form h1{
+	height: 30px;
+	line-height: 30px;
+	background: #f6f6f6;
+	margin-bottom: 25px;
+	padding-left: 20px;
+	font-size: 14px;
+}
+
+.activity_info dt{
+	width: 110px;
+	margin-bottom: 28px;
+	text-align: right;
+}
+
+.activity_info dd{
+	margin-left: 10px;
+}
+
+.activity_info label{
+	margin-right: 20px;
+}
+
+.activity_info input[type="radio"]{
+	vertical-align: text-bottom;
+}
+
+.goods_info dt{
+	width: 110px;
+	margin-bottom: 18px;
+	text-align: right;
+}
+
+.goods_info dd{
+	margin-left: 10px;
+}
+
+.goods_info select{
+	width: 165px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	border: 1px solid #cacaca;
+	color: #c4c4c4;
+}
+
+.goods_info .upload_image{
+	width: 118px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	background: #fe7e00;
+	text-align: center;
+	color: #ffffff;
+}
+
+.goods_info .warm{
+	width: 823px;
+	margin: 0 0 20px 35px;
+	border: 1px solid #cacaca;
+	padding: 10px 0 0 13px;
+}
+
+.warm .warm_form{
+	padding-left: 60px;
+}
+
+.warm_form input[type="checkbox"]{
+	margin-right: 10px;
+	vertical-align: text-bottom;
+}
+
+.warm_form p{
+	margin-bottom: 15px;
+}
+
+.goods_info .goods_content{
+	width: 742px;
+	margin-left: 95px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+/*img, div { behavior: url(../../IE6/iepngfix.htc); }
+
+body .sidebar2{
+	position:absolute;
+	filter:alpha(opacity:100);
+	opacity:1;
+}
+.header{
+	height:300px;
+	width:100%;
+	float:left;
+}
+.header .wrap{
+	overflow:hidden;
+	margin:0 auto;
+	width:1180px;
+	height:auto;
+}*/

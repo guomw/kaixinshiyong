@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>查看会员详细信息-{C('WEBNAME')}</title>
+<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/cmp_style.css"/>
+</head>
+<body>
+<style>
+	*{
+		padding:0;
+		margin:0;
+		list-style:none;
+		font-size:12px;			
+	}
+	a{
+		text-decoration:none;
+	}
+	img{
+		border:none;
+	}
+	.clear{
+		zoom:1;
+	}
+	.clear:after{
+		content:"";
+		clear:both;
+	}
+	.cmp_box{
+		margin:0px auto;		
+		width:579px;
+		height:418px;			
+		padding-bottom:4px;
+		background:url(../images/cmp_wrap_bg.png) no-repeat 2px bottom;
+		color:#4d4d4d;			
+	}
+	.cmp_wrap{
+		height:100%;
+		border:solid 1px #d8d8d8;
+	}
+	.cmp_wrap .cmp_left{
+		float:left;
+		width:150px;
+		background:#fafafa;
+		height:100%;
+		border:solid 1px #e0e0e0;
+	}
+	.cmp_left .cmp_pic{
+		padding:10px 13px 10px 15px;
+	}
+	.cmp_left .cmp_pic a img{
+		border:solid 1px #ddd;
+	}
+	.cmp_name_list{
+		padding-left:15px;
+	}
+	.cmp_name_list dt{
+		line-height:30px;
+		font-weight:700;
+		vertical-align:center;
+		font-size:14px;
+		font-family:"微软雅黑";
+		color:#444444;
+	}
+	.cmp_name_list dd{
+		line-height:20px;
+		color:#4d4d4d;
+	}
+	.cmp_name_list .pl{
+		padding-left:23px;
+	}		
+	.cmp_name_list strong{
+		font-weight:400;
+	}
+	.cmp_name_list .s_cm{
+		padding:0 4px;
+		color:#cd0000;
+		font-family:"微软雅黑";
+	}
+	.cmp_name_list .s_inline{
+		padding:10px 0 0 30px;
+	}
+	.cmp_name_list .s_inline a{
+		height:18px;
+		line-height:18px;
+		display:inline-block;
+		padding:0 4px 0 3px;
+		color:#4d4d4d;
+		border:solid 1px #c4d5df;
+		background:url(../images/cmp_btn_bg.jpg) repeat-x left center;
+		-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;
+	}
+	.cmp_right{
+		float:left;
+		height:100%;
+		padding:0 30px 0 29px;
+		vertical-align:center;			
+	}
+	.cmp_right .title{
+		width:365px;
+		height:37px;
+		padding-top:12px;
+		padding-bottom:1px;
+		background:url(../images/border_dashed.jpg) repeat-x left bottom;
+	}
+	.cmp_right .title a{
+		width:74px;
+		height:23px;
+	}
+	.shops_list b{
+		font-weight:400;
+	}
+	.shops_list{
+		padding:21px 0 10px 0;
+		background:url(../images/border_dashed.jpg) repeat-x left bottom;
+	}
+	.shops_list p{
+		line-height:26px;
+		
+	}
+	.shops_list .set_img{
+		overflow:hidden;
+	} 
+	.shops_list .set_img font{
+		float:left;
+	}
+	.shops_list p span img{
+		width:16px;
+		height:14px;
+		vertical-align:middle;
+	}
+	.shops_list p .cmp_s_p font{
+		padding-left:20px;
+		padding-right:16px;
+		
+	}
+	.shops_list p .cmp_s_p font b{
+		color:#ff0000;
+		font-weight:700;
+		padding:0 1px;
+	}
+	.shops_list p .cmp_s_p .bg1{
+		background: url(../images/cmp_com_pf.png) no-repeat left center;
+	}
+	.shops_list p .cmp_s_p .bg2{
+		background: url(../images/cmp_bad.png) no-repeat left center;
+	}
+	.s_p_l > b{
+		font-weight:700;			
+		padding:0 5px;
+	}
+	.shops_list .s_w{
+		width:216px;
+		display:block;
+		float:left;
+	}
+	.c_f60{
+		color:#f60;
+	}
+	.successful_case{
+		overflow:hidden;
+		background:url(../images/border_dashed.jpg) repeat-x left bottom;
+	}
+	.successful_case > h3{
+		line-height:28px;
+		padding-top:2px;
+	}
+	.case_pic{
+		
+	}
+	.case_pic li{
+		float:left;
+		width:72px;
+		padding-right:15px;
+	}
+	.case_pic li img{
+		width:72px;
+		border:solid 1px #ddd;
+	}
+	.case_pic li a{
+		color:#4d4d4d;
+	}
+	.case_pic li strong{
+		font-weight:400;
+		display:block;
+		width:72px;
+		white-space:nowrap;
+		overflow:hidden;
+		padding:6px 0 18px 0;
+	}
+	.cmp_try_list dt{
+		padding-top:7px;
+		line-height:18px;
+		font-weight:700;
+	}
+	.cmp_try_list dd{
+		line-height:22px;
+	}
+	.cmp_try_list dd a{
+		color:#8c5a91;
+		display:block;
+	}
+	.cmp_try_list dd a:hover{
+		color:#ff6600;
+		text-decoration:underline;
+	}
+	.cmp_try_list dd a font{
+		float:right;
+		color:#808080;
+	}
+</style>
+<div class="cmp_box">
+	<div class="cmp_wrap clear">
+		<div class="cmp_left">
+			<div class="cmp_pic">
+				<a><img src="{getavatar($userid)}" title="{$userinfo['nickname']}"/></a>
+			</div>
+			<dl class="cmp_name_list">
+				<dt>{$userinfo['nickname']}</dt>
+				<dd>会员级别：<strong>{member_group_name($userinfo['userid'])}</strong></dd>
+				<dd>{if $mod == 'rebate'}抢购次数{else}申请试用{/if}：<strong>{$userinfo['order_count']}</strong>次</dd>
+				<dd>{if $mod == 'rebate'}完成抢购{else}完成试用{/if}：<b class="s_cm">{$userinfo['already_over']}</b>次</dd>
+				<dd>精华报告：<b>{$userinfo['appraised_count']}</b>篇</dd>
+				<dd>所在城市：<strong>{$userinfo['city']}</strong></dd>
+				<dd class="pl">性别：<strong>{if $userinfo['sex']==2}男{elseif $userinfo['sex']==1}女{else}保密{/if}</strong></dd>
+				<dd class="pl">年龄：<strong>{$userinfo['age']}</strong></dd>
+				<dd {if $is_copy}style="color:red;" {/if}>申请者ip：<strong>{$userinfo['ip']}</strong></dd>
+				{if $is_copy}
+				<dd style="color:red;" ><strong>(ip重复)</strong></dd>
+				{/if}
+			</dl>
+		</div>
+		<div class="cmp_right">
+			<div class="shops_list">
+				<p>
+					<span class="s_w">淘宝账号：<b class="c_f60">{if $userinfo['taobao']['account']}<span style="color:#bb0000">{$userinfo['taobao']['account']}</span>{else}该订单未绑定{/if}</b></span>
+					<font>{if $userinfo['taobao']}【<a href="http://cha.yunhuasuan.net" target="_blank" style="color:#77b7f7;">手动查询</a>】{else}&nbsp;{/if}</font>
+				</p>
+				{if $userinfo['taobao']}
+				<p class="set_img">
+					<span>
+						<font>实名认证：
+							<span color="#00CC33">
+								{if $userinfo['taobao'][is_real_name] & 1}
+									支付宝实名认证
+								{elseif $userinfo['taobao'][is_real_name] & 1 << 1}
+									淘宝个人实名认证
+								{elseif $userinfo['taobao'][is_real_name] & 1 << 2}
+									手机验证
+								{elseif $userinfo['taobao'][is_real_name] & 1 << 3}
+									营业执照认证
+								{else}
+									<span style="color:#ff0000">未认证</span>
+								{/if}
+							</span>
+							
+						</font>						
+					</span>
+				</p>
+				<p class="set_img">
+					{php $arr = array('0'=>'<span style="color:green;">安全</span>','1'=>'<span style="color:blue;">一般</span>','2'=>'<span style="color:red;">危险</span>')}
+					<span>
+						<font>安全等级：{$arr[$userinfo['taobao']['safe_grade']]}</font>						
+					</span>
+				</p>
+				<p class="set_img">					
+					<span>
+						<font>注册时间：<span style="color:blue;">{dgmdate($userinfo['taobao']['reg_time'])}</span></font>
+					</span>
+				</p>
+				<p class="set_img">
+					<span>
+						<font>买家星级：</font>
+						<font><img src="{$userinfo['taobao']['account_level']}" title="{$userinfo['taobao']['bLevel']}级" /></font>
+						<font>（{$userinfo['taobao']['favorable_rate']}好评）</font>
+					</span>
+					<span class="cmp_s_p">
+						<font class="bg1">中评(<b>{$userinfo['taobao']['mid_comment']}</b>)</font>
+						<font class="bg2">差评(<b>{$userinfo['taobao']['cha_comment']}</b>)</font>
+					</span>
+				</p>
+				{/if}
+				<p>
+					{if $userinfo['taobao']}
+					<span class="s_w">
+						上次更新时间：<b>{if ($userinfo['taobao']['updatetime'])}{dgmdate($userinfo['taobao']['updatetime'])}{else}暂无...{/if}</b>
+					</span>
+					{/if}
+					<font>{if $mod == 'rebate'}上次抢购时间{else}上次申请时间{/if}：<b>{if ($userinfo['last_time'])}{$userinfo['last_time']}{else}暂无...{/if}</b></font>
+				</p>
+			</div>
+			<div class="successful_case">
+				<h3>{if $mod == 'rebate'}抢购{else}试用{/if}完成的商品：{if count($userinfo['pro']) < 1}暂无...{/if}</h3>
+				{if count($userinfo['pro'])>0}
+				<ul class="case_pic">
+					{loop $userinfo['pro'] $v}
+					<li>
+						<a href="{$v['url']}" target="_blank" title="{$v['title']}">
+							<img src="{$v['thumb']}"/><strong>{$v['title']}</strong>
+						</a>
+					</li>
+					{/loop}
+				</ul>
+				{/if}
+			</div>
+			{if $mod=='trial'}
+				<dl class="cmp_try_list">
+					<dt>最近试用报告：{if count($userinfo['report']) < 1}暂无...{/if}</dt>
+					{if count($userinfo['report']) > 0}
+					<dd>
+						{loop $userinfo['report'] $v}
+						<a href="{U("product/index/report_show",array('id' => $v['id']))}" target="_blank">
+							<span>{$v['title']}<font>{dgmdate($v['inputtime'],'Y-m-d')}</font></span>
+						</a>
+						{/loop}
+					</dd>
+					{/if}				
+				</dl>
+			{/if}
+			
+			<!-- 近30天 -->
+			<!-- <div class="successful_case">
+				<h3>{if $mod == 'rebate'}抢购{else}试用{/if}完成的商品：{if count($userinfo['pro']) < 1}暂无...{/if}</h3>
+				<ul class="case_pic">
+					{loop $userinfo['pro'] $v}
+					<li>
+						<a href="{$v['url']}" target="_blank" title="{$v['title']}">
+							<img src="{$v['thumb']}"/><strong>{$v['title']}</strong>
+						</a>
+					</li>
+					{/loop}
+				</ul>
+			</div> -->
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<?php include template('header','common');?>
+	<style>
+		.user{
+			display:table-cell;
+			width:16.875%;
+			height:1.1em;
+			position: absolute;
+			top: 0.6875em;
+			right: 0;
+		}
+			
+		.user a{
+			display:block;
+			width:50%;
+			margin:0 auto;
+			height:100%;
+			background:url(<?php echo THEME_STYLE_PATH;?>style/default/images/user.png) no-repeat center center;
+			background-size:auto 100%;
+		}
+    </style>
+
+    <script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text ">提示信息</strong>
+			<div class="user">
+                <a href="<?php echo U('Member/Profile/index');?>"></a>
+			</div>
+		</div>
+		<div class="content bg-dedede">
+			<div class="approve" style="font-size: 1.8em; width: 100%;">
+				<!-- ap-on  ap-off -->
+				<p class="app-s-h approve-hint ap-off ap3 c-bb000d set-p-bottom">
+                    {if ($msg==1)}
+                    用此淘宝账号购买：
+                    <select name="bind_taobao" id="bind_taobao" style="width: 50%; height: 2em;">
+                        {loop $bind_tbs $tb}
+                            {if $tb['is_default']==1}
+                            <option value="{$tb['id']}" selected>{$tb['account']}</option>
+                            {else}
+                            <option value="{$tb['id']}">{$tb['account']}</option>
+                            {/if}
+                        {/loop}
+                    </select>
+                    {elseif ($msg==2)}
+                    暂无绑定的淘宝账号！<a href="/index.php?m=Member&c=Attesta&a=bindtaobao" target="_blank" style="color:red;">点此去绑定</a>
+                    {elseif ($msg==3)}
+                    {else}
+                    <?php echo($msg); ?>
+                    {/if}
+				</p>
+
+                {if $msg==1 || $msg==2 ||  $msg==3}
+                <font class="font font_2" style="padding-left: 30px;">对商家说点什么，可以帮助您提高通过率</font>
+                <br />
+                <br />
+                <textarea cols="42" rows="6" placeholder="如：在线等，通过后立即下单(最多100个字符)" id="txtremark" style="color: rgb(108, 108, 108); margin: 0px 0px 0px 30px; height: 200px;" maxlength="100"></textarea>
+                {/if}
+
+                <ul class="btn-wrap btn-w2 p-left clear">
+                    <div class="at-login">
+                        {if $msg==1 || $msg==2 || $msg==3}
+                        <a class="btn-s-01" href="javascript:;" onclick="javascript:tj();" style="width: 30%; height: 2em; line-height: 2em; font-size: 1.5em; margin: 1em auto 1em;">提交</a>
+                        <a class="btn-s-02" href="javascript:;" onclick="javascript:history.back(-1);" style="width: 30%; height: 2em; line-height: 2em; font-size: 1.5em;">返回</a>
+                        {else}
+                        <a class="btn-s-02" href="{U('Product/Index/show',array('id'=>I('id')))}" style="width: 30%; height: 2em; line-height: 2em; font-size: 1.5em;">返回</a>
+                        {/if}
+
+					</div>
+				</ul>
+
+
+			</div>
+		</div>		
+	</div>
+	</div>
+</body>
+</html>
+
+<script>
+    <?php
+    $userinfo = is_login();
+    // 已绑定的淘宝账号
+    $bind_tbs = get_bind_taobao($userinfo['userid']);
+    // 活动后台设置
+    $bind_set = string2array(C_READ('buyer_join_condition','trial'));
+    ?>
+
+    var bind_tbs = {php echo json_encode($bind_tbs ? $bind_tbs : 0);};
+    var bind_set = {php echo $bind_set['bind_taobao'] ? $bind_set['bind_taobao'] : 0;};
+
+
+    function tj(){
+        var talk_content = $('#txtremark').val();
+        var phone = /^(1)[0-9]{10}$/;
+        var url = /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&]*([^<>])*$/;
+        var qq = /^\d{5,10}$/;
+        // 若后台活动设置开启需要绑定淘宝账号后则校验;
+        var bind_taobao = $('#bind_taobao').val();
+
+        if(phone.test(talk_content) || url.test(talk_content) || qq.test(talk_content) || (bind_set==4&&isNaN(bind_taobao)==true)){
+            var str = '';
+            if (phone.test(talk_content)) {
+                str = '禁止输入联系方式';
+            }else if (url.test(talk_content)){
+                str = '禁止输入网站域名地址';
+            }else if(qq.test(talk_content)){
+                str = '禁止输入数字等联系方式';
+            }else if(isNaN(bind_taobao) == true){
+                str = '请选择要绑定的淘宝帐号';
+            }
+            art.dialog({
+                lock: true,
+                fixed: true,
+                icon: 'face-sad',
+                title: '温馨提示',
+                content: str,
+                ok: true
+            });
+            return false;
+        }
+
+        // 抢购成功
+        $.post(site.site_root + '/index.php?m=product&c=api&a=pay_submit',{
+            goods_id : {I('id')},
+            bind_taobao: bind_taobao,	// 淘宝帐号id
+            talk_content : talk_content //对商家说点什么
+        },function(ret){
+            if (ret.status==1){
+                location.href = site.site_root+'/index.php?m=Document&c=Prompt&a=index&msg=您已成功提交申请，请等待审核资格!&id='+{I('id')};
+            }else{
+                location.href = site.site_root+'/index.php?m=Document&c=Prompt&a=index&id='+{I('id')}+'&msg='+ret.info;
+                return false;
+            }
+        },'JSON');
+
+    }
+</script>

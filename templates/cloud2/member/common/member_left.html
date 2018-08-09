@@ -1,0 +1,81 @@
+<div id="menu" class="left border_efefef float_left text_indent35">
+	<h2 class="line_height48 color_ff6600 text_indent30 font_size14">
+		个人信息
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square width_100">
+			<a href="{U('Member/Attesta/index')}" class="display_block link_hover_bg width_100 height_100 line_height32{if CONTROLLER_NAME == 'Attesta' && ACTION_NAME=='index' } cursor {/if}">资料认证</a>
+		</li>
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Profile/infomation')}" class="display_block link_hover_bg width_100 height_100 line_height32 {if ACTION_NAME=='infomation' } cursor {/if}" >个人资料</a>
+		</li>
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Profile/pwd')}" class="display_block link_hover_bg width_100 height_100 line_height32 {if ACTION_NAME=='pwd' } cursor {/if}" >密码安全</a>
+		</li>
+	</ul>
+	<h2 class="line_height48 font_size14 text_indent30">
+		订单管理
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		{if C('REBATE_ISOPEN') == 1}
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Order/manage', array('mod' => 'rebate'))}" class="{if strtolower(CONTROLLER_NAME) == 'order' && $mod == 'rebate'}cursor {/if}display_block link_hover_bg width_100 height_100 line_height32">{C('REBATE_NAME')}</a>
+		</li>
+		{/if}
+		{if C('TRIAL_ISOPEN') == 1}
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Order/manage', array('mod' => 'trial'))}" class="{if strtolower(CONTROLLER_NAME) == 'order' && $mod == 'trial'}cursor {/if}display_block link_hover_bg width_100 height_100 line_height32">{C_READ('TRIAL_NAME','trial')}</a>
+		</li>
+		{/if}
+		{if C('TASK_ISOPEN') == 1}
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Financial/work_log')}" class="{if NOTIC_NAME == 'work_log'}cursor {/if}display_block link_hover_bg width_100 height_100 line_height32">我的日赚任务</a>
+		</li>
+		{/if}
+		<li class="line_height32 background_img_square">
+			<a href="{U('Member/Financial/convert_log')}" class="{if NOTIC_NAME == 'convert_log'}cursor {/if}display_block link_hover_bg width_100 height_100 line_height32">我的兑换</a>
+		</li>		
+	</ul>
+	
+	<p class="title_box width_100 border_bottom_efefef float_left list_title fw">
+		<a href="{U('Member/Appeal/appeal_manage')}" class="font_size14 link_hover_bg display_block width_100 height_100 line_height39">申诉记录</a>
+	</p>
+	 <p class="title_box width_100 border_bottom_efefef float_left list_title fw">
+		<a href="{U('Member/Attesta/bindtaobao')}" class="font_size14 link_hover_bg display_block width_100 height_100 line_height39 {if ACTION_NAME=='bind' }cursor{/if}">绑定淘宝账号</a>
+	</p> 
+	<p class="title_box width_100 border_bottom_efefef float_left list_title fw">
+		<a href="{U('Member/Recommend/index')}" class="font_size14 link_hover_bg display_block width_100 height_100 line_height39 {if CONTROLLER_NAME == 'Recommend' && ACTION_NAME=='index'} cursor{/if}">我的推荐好友</a>
+	</p>
+	<p class="title_box width_100 border_bottom_efefef float_left list_title fw">
+		<a href="{U('Member/Announce/announce',array('type'=>1))}" class="font_size14 link_hover_bg display_block width_100 height_100 line_height39 {if ACTION_NAME=='announce'}cursor{/if}">站内信</a>
+	</p>
+	<h2 class="line_height48 border_bottom_efefef text_indent30 font_size14">
+		财务管理
+		<span class="open"></span>
+	</h2>
+	<ul class="title_box width_100 float_left border_bottom_efefef">
+		<li class="line_height32 background_img_square width_100"><a href="{U('Pay/Index/deposite')}" class="{if ACTION_NAME == 'deposite' && CONTROLLER_NAME=='Index'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">快速提现</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/cash_log')}" class="{if ACTION_NAME == 'cash_log' && CONTROLLER_NAME=='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">提现记录</a></li>
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/index')}" class="{if ACTION_NAME == 'index' && CONTROLLER_NAME =='Financial'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">账单明细</a></li> 
+		<li class="line_height32 background_img_square"><a href="{U('Member/Financial/point_log')}" class="{if ACTION_NAME == 'point_log'}cursor{/if} display_block link_hover_bg width_100 height_100 line_height32">积分明细</a></li> 
+	</ul>
+</div>	
+ <script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu h2").click(function(){
+			var spanClass = $(this).find("span").attr("class");
+			if(spanClass == "open"){
+				$(this).next("ul").hide();
+				$(this).find("span").attr("class","off");
+			}
+			else{
+				if(spanClass == "off"){
+					$(this).next("ul").show();
+					$(this).find("span").attr("class","open");
+				}
+			}
+		});
+	});
+</script>

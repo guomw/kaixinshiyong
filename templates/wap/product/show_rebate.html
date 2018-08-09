@@ -1,0 +1,210 @@
+{include template('header','common')}
+
+    <style>
+        .eva2 img{ width: 80%;}
+        .d-b-list > span > img {
+            border-radius: 50%;
+            width: 100%;
+        }
+		.user{
+			display:table-cell;
+			width:16.875%;
+			height:1.1em;
+			position: absolute;
+			top: 0.6875em;
+			right: 0;
+		}
+
+		.user a{
+			display:block;
+			width:50%;
+			margin:0 auto;
+			height:100%;
+			background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+			background-size:auto 100%;
+		}
+    </style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">{C('REBATE_NAME')}</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content fs-18" id="shop_text">
+			<div class="change-banner">
+				<img src="{$rs[thumb]}" alt="{$title}" />
+				<div class="hint">
+					<h2 class="c-white">{$title}</h2>
+					<!--<p class="txt c-white">
+						<span style="color: #fff">{catpos2($catid, '', 'product')}</span>
+						<strong class="fr">{activitiy_price_name($mod)}：<i class="c-bb000d">{price($id)}</i></strong>
+					</p>-->
+					<!--  背景  -->
+					<span class="shade  bg-000"></span>
+				</div>
+			</div>
+
+			<div class="act-mess">
+				<ul class="price_lists">
+					<li class="fl f1_5" style="margin-right: 3%;">{activitiy_price_name($mod)}：<b class="c-bb000d f1_5"><i>￥</i>{price($id)}</b></li>
+					<li class="fl"><b class="td_lt f1_5">{$goods_price}</b></li>
+					<li class="fr f1_5">购买后返现：<b style="padding: 2%; background: #bb000d; color: #ffffff; border-radius: 10px;"><i>￥</i>{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</b></li>
+					<div class="clear"></div>
+				</ul>
+				<ul class="list l-line-h clear">
+					<li class="bt_aeaeae" style="width: 100%; font-size: 2em; line-height: 1.6em;">卖家已交担保金：<b class="c-bb000d"><i>￥</i>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b></li>
+                    <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">限量份数：<b class="c-bb000d">{$goods_number}</b>件</li>
+                    <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">剩余份数：<b class="c-bb000d">{php echo $goods_number - $already_num}</b>件</li>
+				</ul>
+				<p class="timer c-bb000d clear bt_aeaeae">
+					<span class="fl f1_5" style="width: 100%">开始时间：<i>{dgmdate($start_time)}</i></span>
+				</p>
+                <p class="timer c-bb000d clear a_yes bt_aeaeae f1_5" style="text-indent: 8%;width: 100%; line-height: 2.6em;">
+                    <!--<b class="fl" style="text-indent: 8%;width: 100%">试用结束：<span></span></b>-->
+                    <i class="timeRemaining-cont">剩余时间：<font style="text-indent: 8%;width: 100%"></font></i>
+                </p>
+				<dl class="hint-list clear f1_5">
+                    {if array_filter($rs['goods_tips']['order_tip'])}
+                    <dt class="fl">温馨提示：</dt>
+                    <dl class="fl">
+                        {php $goods_tips_arr=array( '请不要使用信用卡下单', '请不要催促商家返款')}
+                        {loop $rs['goods_tips']['order_tip'] $k $v}
+                        <dd>{$goods_tips_arr[$k]}</dd>
+                        {/loop}
+                    </dl>
+                    {/if}
+				</dl>
+                {if ($rs['goods_tips']['goods_order']['kuaidi'])}
+                    <dl class="hint-list clear f1_5">
+                        <dt class="fl">默认快递：</dt>
+                        <dl>
+                            <dd class="fl">{$rs['goods_tips']['goods_order']['kuaidi']}</dd>
+                        </dl>
+                    </dl>
+                {/if}
+                {if ($rs['goods_tips']['goods_order']['remark'])}
+                <dl class="hint-list clear">
+                    <dt class="fl">拍下须知：</dt>
+                    <dl>
+                        <dd class="fl">{$rs['goods_tips']['goods_order']['remark']}</dd>
+                    </dl>
+                </dl>
+                {/if}
+
+                {if ($rs['goods_tips']['goods_order']['price']['cost'])}
+                <dl class="hint-list clear">
+                    <dt class="fl">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，
+                        拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元
+                    </dt>
+                </dl>
+                {/if}
+
+                {if ($rs['goods_tips']['goods_order']['price']['lv'])}
+                <dl class="hint-list clear">
+                    <dt class="fl">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</dt>
+                </dl>
+                {/if}
+
+                <p class="timer c-bb000d clear">
+                    <span id="msg" class="fl" style="width: 100%"></span>
+                </p>
+				<div class="stamp {if $type == 'search'}search_try_out_img{elseif $type == 'ask'}answer_try_out{elseif $type == 'qrcode'}two_t_code_try_out_img{/if}"></div>
+			</div>
+			<div class="details">
+                <?php
+                $goods = $rs;
+                unset($rs['goods_content']);
+                $goods['report_count'] = report_buyer_by_gid($id);//晒单
+                $goods['buyer_count'] = buyer_count_by_gid($id);//抢到
+                ?>
+				<ul class="deta-title deta-t-33 clear" id="who">
+					<li class="fl deta-focus"><b><a href="javascript:;" class="d-block fs-24">商品详情</a></b></li>
+					<li class="fl" data-name="buyer_list"><b><a href="javascript:;" class="d-block fs-24">谁抢到了（<em id="buyer_count">0</em>）</a></b></li>
+					<li class="fl" data-name="trail_report"><b><a href="javascript:;" class="d-block fs-24">买家晒单（<em id="report_count">0</em>）</a></b></li>
+				</ul>
+				<div class="deta-box deta-big d-block f1_5" style="padding: 1em 0 0 0; min-height: 11.5em;">
+                    {$goods_content}
+                    <div class="clear"></div>
+				</div>
+                <style type="text/css">
+                    .w25{ width: 25%; }
+                    .mt10{ margin-top: 10px; }
+                    .avatar{ border-radius: 50%; }
+                    .nickname{ height: 1.2em; overflow: hidden; }
+                    .w50{ width: 50%; }
+                </style>
+                <div class="deta-box deta-big d-none ta-c">
+                    <ul id="buyer_list">
+
+                    </ul>
+                    <div id="end-hint-buyer" class="end-hint" style="clear: both">下拉即可加载更多...</div>
+                </div>
+				<div class="deta-box d-none bg-f0f0f0">
+                    <div class="d-b-wrap" id="trail_report">
+
+                    </div>
+                    <div id="end-hint-report" class="end-hint" style="clear: both">下拉即可加载更多...</div>
+                </div>
+			</div>
+
+            <!--   悬浮   -->
+            <div class="suspend">
+                <ul class="clear">
+                    <!--<span class="undefined icon"></span>-->
+                    <li>
+                        <b><a href="javascript:;" class="btn_no" onclick="page_detail.buy();" id="btn_buy">立即抢购</a></b>
+                    </li>
+                    <!--<li><b><a href="javascript:;" class="set-top">返回顶部</a></b></li>-->
+                </ul>
+            </div>
+		</div>
+
+
+<script type='text/javascript'>
+    var goods = <?php echo json_encode($goods);?>;
+    goods.goods_stock = goods.goods_number - goods.already_num;
+    goods.buyer_good_buy_times = <?php echo C_READ('buyer_good_buy_times','rebate'); ?>;
+    var login = "{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}";
+</script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/goods.js"></script>
+<script type="text/javascript">page_detail.init();</script>
+<script type="text/javascript">page_detail.buyer_list();</script>
+<script type="text/javascript">page_detail.report_list();</script>
+<script>
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+            if( ( bodyH-winH ) - now <= 2 ){
+                $("#who").children("li").each(function(){
+
+                    var foucs = $(this).attr("class");
+
+                    if(foucs.indexOf('deta-focus')>=0){
+                        var name = $(this).attr("data-name");
+                        if(name == "buyer_list"){
+                            page_detail.buyer_list();
+                        }else if(name == "trail_report"){
+                            page_detail.report_list();
+                        }
+                    }
+
+                })
+
+            }
+        });
+        $(".end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+</script>
+{include template('footer','common')}

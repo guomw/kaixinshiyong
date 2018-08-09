@@ -1,0 +1,231 @@
+{include template('header','common')}
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+<!--<script type="text/javascript" src="{THEME_STYLE_PATH}style/default/js/ajaxfileupload.js"></script>-->
+
+<style>
+    .login-box > ul{
+        width:80%;
+
+    }
+    .login-box > ul .ta-r{
+        width:30%;
+    }
+    body .login-box > ul li input{
+        width:60%;
+    }
+    .add-pading{
+        padding:4% 0 10% 0;
+    }
+    .add-pading .t-img{
+        float:left;
+    }
+    .add-pading .two-code{
+        display:block;
+        float:left;
+        margin-top:22em:
+    }
+    #img1{
+        width:auto;
+    }
+    .add-box .onShow,.add-box .onError,.add-box .onCorrect,.add-box .onFocus{
+        text-indent:30%
+    }
+    .add-box .webuploader-pick{
+        height:auto;
+        text-indent:0;
+    }
+	.user{
+		display:table-cell;
+		width:16.875%;
+		height:1.1em;
+		position: absolute;
+		top: 0.6875em;
+		right: 0;
+	}
+			
+	.user a{
+		display:block;
+		width:50%;
+		margin:0 auto;
+		height:100%;
+		background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+		background-size:auto 100%;
+	}
+</style>
+	<div id="wrapper">
+                                <div id="header-style">
+                                    <a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+                                    <strong class="d-block uset-t-text">支付宝账号绑定</strong>
+									<div class="user">
+										{if is_login()}
+										<a href="{U('Member/Profile/index')}"></a>
+										{else}
+										<a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+										{/if}
+									</div>
+                                </div>
+                                <div class="content bg-f0f0f0 min-height">
+
+                                    <form action="{U('Member/Attesta/alipay_attesta')}" method="post" id="myform">
+                                        <div class="login-box">
+                                            <ul class="clear">
+                                                <li class="clear">
+                                                    <div class="add-box f1_5">
+                                                        <span class="fl ta-r">支付宝姓名:</span>
+                                                        {if empty($infos[name])}
+                                                        <a href="{U('Member/Attesta/name_attesta')}">
+                                                            <font color="red">你还没有进行实名认证，去认证</font>
+                                                        </a>
+                                                        {else}
+                                                        <span class="ta-r" style="display: inline;">{$infos[name]}</span>
+                                                        {/if}
+                                                        <input type="hidden" name="name_attesta" id="name_attesta" value="{$infos[name]}" class="fl"/>
+                                                    </div>
+                                                </li>
+                                                <li class="clear">
+                                                    <div class="add-box">
+                                                        <span class="fl ta-r f1_5">支付宝账号:</span>
+                                                        <input type="text" name="account" id="account" value="{$alipay[alipay_account]}" class="fl"/>
+                                                    </div>
+                                                </li>
+                                                <li class="clear">
+                                                    <div class="add-box add-pading">
+                                                        <span class="fl ta-r f1_5">支付宝二维码:</span>
+                                                        <span id="img1" class="fl">
+                                                          <input  id="file_upload"  name="Filedata" type="file" style="display:none;" onchange = "return ajaxFileUpload()"/>
+                                                          <input type="hidden" id="file_url" name="alipay_code"  value=""/>
+                                                          <a href="javascript:;" class="t-img"><img src="{THEME_STYLE_PATH}style/default/images/qrcode.png" name="alipay_code" width="80px" id="image" class="code"/></a>
+                                                        </span>
+                                                        <!--<a href="javascript:;" class="qr btn-s-01 two-code">上传二维码</a>-->
+                                                    </div>
+                                                </li>
+                       </ul>
+                    <p class="at-login">
+                        <a href="javascript:;" class="btn-s-01 onsubmit f1_5">确定</a>
+                    </p>
+                </div>
+            </form>
+
+		</div>
+{include template('footer','common')}
+
+<link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet">
+<script src="{JS_PATH}webuploader/webuploader.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+
+    $("#account").formValidator({
+        empty:false,
+        onempty:'支付宝账号不能为空',
+        onshow:"请输入支付宝账号",
+        onfocus:"请输入支付宝账号"
+    }).regexValidator({
+        regexp:'alipay',
+        datatype:'enum',
+        onerror:"支付宝账号输入错误"
+    });
+    $("#name_attesta").formValidator({
+        empty:false,
+        onempty:'',
+        onshow:"",
+        onfocus:"请先进行身份认证"
+    }).regexValidator({
+        regexp:'notempty',
+        datatype:'enum',
+        onerror:"请先进行身份认证"
+    });
+
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    })
+    $(".qr").click(function (){
+//        $("#file_upload").click();
+
+    })
+
+    $(document).ready(function(){
+        var uploader = WebUploader.create({
+            auto:true,
+            fileVal:'Filedata',
+            // swf文件路径
+            swf: '{JS_PATH}webuploader/webuploader.swf',
+            // 文件接收服务端。
+            server: "{U('Attachment/Attachment/swfupload')}",
+            // 选择文件的按钮。可选
+            formData:{
+                "module":"",
+                "catid":"",
+                "userid":"1",
+                "dosubmit":"1",
+                "thumb_width":"0",
+                "thumb_height":"0",
+                "watermark_enable":"1",
+                "filetype_post":"jpg|jpeg|gif|bmp|png",
+                "swf_auth_key":"57a39f6f7415ec2cdd2b8afd77b57c3f",
+                "isadmin":"1",
+                "groupid":"2"
+            },
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: {
+                id: '#img1',
+                multiple:false
+            },
+            accept:{
+                title: '图片文件',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            thumb:{
+                width: '110',
+                height: '110'
+            },
+            chunked: false,
+            chunkSize:1000000,
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize: false
+        });
+
+        uploader.onUploadSuccess = function( file, response ) {
+            var pickid = this.options.pick.id;
+            var data = response._raw;
+            var arr = data.split(',');
+            if(arr[0] > 0) {
+//                $('#file_url').val(arr[1]);
+//                $(".code").attr('src',arr[1]);
+                $(pickid).find('img').attr('src', arr[1]);
+                $(pickid).find('input[type=hidden]').eq(0).attr('value', arr[1]);
+            }
+        }
+
+        uploader.onUploadError = function(file, reason) {
+            alert('文件上传错误：' + reason);
+        }
+
+    })
+
+
+    function ajaxFileUpload(){
+//        $.ajaxFileUpload ({
+//            url:"{U('Member/Attesta/upload')}",
+//            secureuri:false,//是否启用安全提交
+//            fileElementId:'file_upload',
+//            dataType: 'json',
+//            success: function (data){
+//                $('#file_url').val(data);
+//                $(".code").attr('src',data);
+//            }
+//        })
+//        return false;
+    }
+
+
+
+</script>

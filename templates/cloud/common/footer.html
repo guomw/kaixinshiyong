@@ -1,0 +1,64 @@
+<style type="text/css">
+	.copy a img{ width: auto; height: auto; }
+</style>
+	<div class="bottom_help">
+		<div class="wrap">
+			<ul>
+				<h3>买家常见问题</h3>
+
+				<li><a href="{U('document/index/lists',array('catid'=>57))}">如何抢购商品</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>84))}">如何参与试用</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>69))}">如何领回划算金</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>11))}">下单方式介绍</a></li>
+			</ul>
+			<ul>
+				<h3>商家常见问题</h3>
+				<li><a href="{U('document/index/lists',array('catid'=>18))}">如何报名活动</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>39))}">报名商品条件</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>87))}">Vip商家有哪些特权</a></li>
+			</ul>
+			<ul>
+				<h3>服务中心</h3>
+				<li><a href="{U('document/Index/lists',array('catid'=>83))}">关于我们</a></li>
+				<li><a href="{U('navigation/index/index')}">站点导航</a></li>
+				<li><a href="{U('document/Index/lists',array('catid'=>88))}">联系方式</a></li>
+				<li><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">在线客服</a></li>
+			</ul>
+			<ul>
+				<h3>帮助中心</h3>
+				<li><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心首页</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>2))}">买家帮助</a></li>
+				<li><a href="{U('document/index/lists',array('catid'=>3))}">商家帮助</a></li>
+			</ul>	
+			<ul class="help_phone">
+				<img src="{THEME_STYLE_PATH}style/images/help_icon.png" alt="" />
+				<p class="fontFamily">{C("site_contact_tel")}</p>
+				<span>{C("site_work_day")}</span>
+			</ul>					
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+	<p class="link" style="float:none; width:1000px; height:auto; margin:0 auto; line-height:20px;">友情链接：
+		{pc:link action="lists" linktype="0"}
+		{loop $data $r}
+		<a href="{$r[url]}" target="_blank">{$r[webname]}</a>
+		{/loop}
+		{/pc}
+	</p>
+	<p class="copy" style="float:none;">
+			版权所有：{C("site_web_copyright")} {C('site_web_icp')}</br>
+		Copyright &copy; 2009-2014 {$_SERVER['SERVER_NAME']}
+		{stripslashes(C('site_statistical_code'))}
+	</p>
+	
+	<div class="approve" style="float:none;">
+		<a href="#" target="_blank"><img src="{THEME_STYLE_PATH}style/images/approve_01.jpg" alt="" /></a>
+		<a href="#" target="_blank"><img src="{THEME_STYLE_PATH}style/images/approve_02.jpg" alt="" /></a>
+		<a href="#" target="_blank"><img src="{THEME_STYLE_PATH}style/images/approve_03.jpg" alt="" /></a>
+		<a href="#" target="_blank"><img src="{THEME_STYLE_PATH}style/images/approve_04.jpg" alt="" /></a>
+	</div>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{get_seo('site_web_title','','')}</title>
+		<meta name="keywords" content="{get_seo('keyword','','')}">
+    	<meta name="description" content="{get_seo('description','','')}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/table.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/fn_all.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css">
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/index.css">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.lazyload.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				sidebar();
+				$("img").lazyload({
+					placeholder:'{IMG_PATH}loading.gif'
+				});
+				//首页顶部移入效果
+				setTopMouseover();
+				//展示界面按钮显示隐藏
+				sMouBox('.hot_com_show','.hot_pages');
+				//首页banner左侧菜单栏目
+				topMove();
+				//首页中间展示大图制作
+				bannerPlay('.Large_btn li a','.Large_img');
+				//商城公告部分
+				showSign('.user_list span','uls_Hover');
+				//新品热门部分插件
+				jQuery(".hot_com_show").slide({ mainCell:".hot_show_wrap", effect:"leftLoop",vis:5, autoPlay:true});
+				//缩略图商品移入出现按钮
+				shopsMouse('.hover_show_small');
+				//大图移入
+				shopsMouse('.hover_show_Large');
+				//热门商品信息显示
+				setHorComShow();
+				//列表菜单点击样式
+				setShopsStyle('.shops_right_style:eq(0)','title_toRed');
+				setShopsStyle('.shops_right_style:eq(1)','title_toYellow');
+				setShopsStyle('.shops_right_style:eq(2)','title_toPink');
+				setShopsStyle('.shops_right_style:eq(3)','title_toBlue');
+				//晒单达人展示
+				jQuery(".hot_shops_content").slide({ mainCell:".hot_shops_content_img_wrap", effect:"leftLoop",vis:2, autoPlay:true});
+				//悬浮菜单
+				sClick('.sidebar1 li');
+				sClick('.sidebar2 li:last',true);
+			});
+
+			function AddFavorite(sURL, sTitle) {
+				sURL = encodeURI(sURL);
+				try{
+					window.external.addFavorite(sURL, sTitle);
+				}catch(e) {
+					try{
+						window.sidebar.addPanel(sTitle, sURL, "");
+					}catch (e) {
+						art.dialog.alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	<ul class="sidebar sidebar1">
+		<li class="active"><a href="javascript:;"><b>1F</b>{C('REBATE_NAME')}</a></li>
+		<li><a href="javascript:;"><b>2F</b>{C_READ('TRIAL_NAME')}</a></li>
+		<li><a href="javascript:;"><b>3F</b>{C_READ('POSTAL_NAME','POSTAL')}</a></li>
+	</ul>
+	<?php
+	$url = "http://".$_SERVER ['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING'];
+	?>
+	<ul class="sidebar sidebar2">
+		<li><a href="javascript:;" class="collect_bg" onclick="javascript:AddFavorite('<?php echo $url;?>','收藏');">收藏</a></li>
+		<li><a href="javascript:;s" class="return_top">TOP</a></li>
+	</ul>
+	<!-- wrap 内容页盒模型 -->
+	<!-- 顶部部分 -->
+		{include template('toper','common')}
+		<!-- logo和搜索部分 -->
+		{include template('header','common')}
+		<!-- 商品展示以及商品选取 -->
+		<div class="banner">
+			<div class="wrap">
+				<div class="banner_top">
+				<!-- 首页幻灯图片 start -->
+					<div class="banner_img">
+						<div class="b_img_Large">
+							{pc:document action="turn_rund" order="listorder ASC" where="type=1"}
+							<ul class="Large_img">
+								{loop $data $t}
+									<li><a href="{$t[url]}" target="_blank"><img src="{$t[image]}" alt="" /></a></li>
+								{/loop}
+							</ul>
+							<ul class="Large_btn">
+								{loop $data $d}
+								<li><a href="#"></a></li>
+								{/loop}
+							</ul>
+							{/pc}
+						</div>
+					</div>
+					<!-- 首页幻灯图片 end -->
+					<div class="banner_user">
+						<div class="user_login">
+							<div class="user_sign">
+								<div class="user_icon">
+								{if !$userinfo}
+								 <img src="{THEME_STYLE_PATH}style/images/user_icon.png" width="60px;" height="60px;" alt="" />
+								</div>
+								<ul class="u_s_wrap">
+									<p class="user_message">Hi！欢迎你</p>
+									<p class="debark_add">
+										<a href="{U('Member/Index/login')}" class="user_debark">登录</a>
+										<a href="{U('Member/Index/register_index')}" class="user_add">免费注册</a>
+									</p>
+								</ul>
+								<!--  个人用户状态 -->
+								{else}
+								{if $userinfo[modelid] == 1}
+								<img src="{getavatar($userinfo[userid],1)}" width="60px;" height="60px;" alt="" />
+								</div>
+								<ul class="u_s_wrap u_s_wrap_top">
+									<li><a href="{U('member/order/manage',array('mod'=>'rebate','state'=>2))}">待填写订单号<b>{order_count($userinfo[userid],$userinfo[modelid],2)}</b></a></li>
+									<li><a href="{U('member/order/manage',array('mod'=>'rebate','state'=>5))}">待返还划算金<b>{order_count($userinfo[userid],$userinfo[modelid],5)}</b></a></li>
+									<li><a href="{U('member/order/manage',array('mod'=>'rebate','state'=>6))}">申诉中<b>{order_count($userinfo[userid],$userinfo[modelid],6)}</b></a><a href="{U('member/profile/index')}" class="user_zone">我的{C("webname")} ></a></li>
+								</ul>
+								<!-- 商家状态 -->
+								{elseif $userinfo[modelid] == 2}
+								<img src="{getavatar($userinfo[userid],2)}" width="60px;" height="60px;"alt="" /></div>
+								<ul class="u_s_wrap u_s_wrap_top">
+									<?php  $count = total_count($userinfo['userid']) ?>
+									<li><a href="{U('member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>-3,'dosubmit'=>'确定'))}">待审核的活动</a><b>{$count[checke_activity]}</b></li>
+									<li><a href="{U('member/MerchantProduct/activity',array('mod'=>'rebate','activity_state'=>1,'dosubmit'=>'确定'))}">进行中的活动</a><b>{$count[activity_count]}</b></li>
+									<li><a href="{U('member/Appeal/appeal_manage')}">收到的申诉</a><b>{$count[appeal_count]}</b><a href="{U('member/profile/index')}" class="user_zone">我的{C("webname")} ></a></li>
+								</ul>
+								{/if}
+								{/if}
+							</div>
+						</div>
+						<div class="user_notice">
+							<div class="user_list">
+								<span  class="uls_Hover"><a href="{U('Announce/Index/lists')}">官方公告</a></span>
+								<span><a href="{U('Document/Index/lists',array('catid'=>75))}">买家规则</a></span>
+								<span><a href="{U('Document/Index/lists',array('catid'=>22))}">商家规则</a></span>
+							</div>
+							<div class="user_list_show">
+								<ul>
+									{pc:announce action="lists" num="3" order="inputtime DESC"}
+									{loop $data $r}
+									<li><a href="{U('Announce/Index/show',array('id'=>$r[announceid]))}" target="_blank" title="{$r[title]}">{str_cut($r[title],51)}</a></li>
+									{/loop}
+									{/pc}
+								</ul>
+								<ul>
+									{pc:document action="lists" catid="2" num="3" order="inputtime DESC"}
+									{loop $data $r}
+									<li><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title],51)}</a></li>
+									{/loop}
+									{/pc}
+								</ul>
+								<ul>
+									{pc:document action="lists" catid="3" num="3" order="inputtime DESC"}
+									{loop $data $r}
+									<li><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title],51)}</a></li>
+									{/loop}
+									{/pc}
+								</ul>
+							</div>
+						</div>
+						<a class="shops_apply" href="{U('Member/EnterActivity/index')}"><img src="{THEME_STYLE_PATH}style/images/shops_apply.jpg" alt="" /></a>
+					</div>
+				</div>
+				<div class="banner_bottom">
+					<div>
+						<img src="{THEME_STYLE_PATH}style/images/txbz_1.png" alt="" />
+						<ul>
+							<li><b>每日更新</b></li>
+							<li>每天上午十点准时上线</li>
+						</ul>
+					</div>
+					<div>
+						<img src="{THEME_STYLE_PATH}style/images/txbz_2.png" style="margin-top:5px;" alt="" />
+						<ul>
+							<li><b>消费保障</b></li>
+							<li>商家预存足够保证金</li>
+						</ul>
+					</div>
+					<div>
+						<img src="{THEME_STYLE_PATH}style/images/txbz_3.png" alt="" />
+						<ul>
+							<li><b>闪电返款</b></li>
+							<li>每笔返款50%~90%</li>
+						</ul>
+					</div>
+					<div>
+						<img src="{THEME_STYLE_PATH}style/images/txbz_4.png" alt="" />
+						<ul style="border:0;">
+							<li><b>品质保证</b></li>
+							<li>商品质量层层把关</li>
+						</ul>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<!-- 详细商品页 -->
+		<div class="content">
+			<div class="wrap wrapBackground">
+                <div class="hot_commodity">
+                    <div class="hot_com_menu" id="a1">
+                        <span><a href="javascript:void(0);" class="hot_com_menu_active">最新上线</a></span>
+                        <span><a href="javascript:void(0);">新品预告</a></span>
+                    </div>
+                    <div class="hot_com_show"  id="b2">
+                        <a href="javascript:;" class="hot_pages hot_pages_left prev"><img src="{THEME_STYLE_PATH}style/images/hot_com_show_leftBtn.jpg" alt="" /></a>
+                        <a href="javascript:;" style="right:0;" class="hot_pages hot_pages_right next" style="right:0;"><img src="{THEME_STYLE_PATH}style/images/hot_com_show_rightBtn.jpg" alt="" /></a>
+                        <div class="hot_show_wrap">
+                            <?php $_where = "`mod`='rebate' or `mod`='trial'";?>
+                            {pc:product action="lists" num="6" status="1" thumb="1" where="$_where" addfields="1"}
+                            {loop $data $r}
+                            <div class="list_com_hot">
+                                <a href="{$r[url]}" class="hont_pic_wrap" target="_blank"><img src="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" /></a>
+                                <p class="hot_com_title"><a href="{$r[url]}" target="_blank"> {str_cut($r[title],45)}</a></p>
+                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">￥<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
+                            </div>
+                            {/loop}
+                            {/pc}
+                        </div>
+                        <div class="hot_show_wrap">
+                            <?php $_where = "`mod`='rebate' or `mod`='trial'";?>
+                            {pc:product action="lists" num="6" status="-1" thumb="1" where="$_where" addfields="1"}
+                            {loop $data $r}
+                            <div class="list_com_hot">
+                                <a href="{$r[url]}" class="hont_pic_wrap" target="_blank"><img src="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" /></a>
+                                <p class="hot_com_title"><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">￥<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
+                            </div>
+                            {/loop}
+                            {/pc}
+                        </div>
+                    </div>
+                </div>
+				<div class="shop_one">
+					<div class="shop_one_menu shop_one_menu_toRed">
+						<ul class="floatLeft fontSize shops_left_style">
+							<li class="shop_list_order order_toRed">1F</li>
+							<li class="shop_list_title title_toRed">{C('REBATE_NAME')}</li>
+						</ul>
+						<ul class="floatRight shops_right_style" id="cate">
+							<li><a href="javascript:void();">最新上线</a></li>
+							<li><a href="javascript:void();">即将上线</a></li>
+							<li><a href="javascript:void();">热门抢购</a></li>
+							<span><a href="{U('Product/Index/lists',array('mod'=>rebate))}" target="_blank">更多></a></span>
+						</ul>
+					</div>
+					<div id="cate_content" class="shop_one_list_wrap">
+						<?php $_where_rebate= "`mod`='rebate'";?>
+						<!-- 最新上线 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" num="1" status="1" thumb="1" addfields="1" where="$_where_rebate"}
+							{loop $data $k=>&$r}
+							<div class="Large_wrap floatLeft">
+								<div class="hover_show_Large">
+									<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+									<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
+								</div>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}">{str_cut($r[title],45)}</a></p><!-- {php echo sprintf('%.2f',price($r[id]))} -->
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatRight">
+								{pc:product action="lists" num="6" status="1" thumb="1" start="1" addfields="1" where="$_where_rebate"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+						<!-- 即将上线 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" num="1" status="-1" thumb="1" addfields="1" where="$_where_rebate"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft">
+								<div class="hover_show_Large">
+									<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+									<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
+								</div>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatRight">
+								{pc:product action="lists" num="6" status="-1" thumb="1" addfields="1" start="1" where="$_where_rebate"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+										<p class="hot_show_title_bg">{str_cut($r[title],45)}</p>
+										<span class="hot_show_title">
+											<font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+
+						<!-- 热门抢购 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" num="1" order="already_num DESC" thumb="1" addfields="1" where="$_where_rebate"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft">
+								<div class="hover_show_Large">
+									<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+									<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
+								</div>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatRight">
+								{pc:product action="lists" num="6" order="already_num DESC" thumb="1" addfields="1" start="1" where="$_where_rebate"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">立即抢购</a>
+										<p class="hot_show_title_bg">{str_cut($r[title],45)}</p>
+										<span class="hot_show_title"><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="shop_one">
+					<div class="shop_one_menu shop_one_menu_toYellow">
+						<ul class="floatLeft fontSize shops_left_style">
+							<li class="shop_list_order order_toYellow">2F</li>
+							<li class="shop_list_title title_toYellow">{C_READ('TRIAL_NAME')}</li>
+						</ul>
+						<ul class="floatRight shops_right_style shops_right_toYellow" id="free">
+							<li><a href="javascript:void();">最新上线</a></li>
+							<li><a href="javascript:void();">即将上线</a></li>
+							<li><a href="javascript:void();">热门抢购</a></li>
+							<span><a href="{U('Product/Index/lists',array('mod'=>trial))}" target="_blank">更多></a></span>
+						</ul>
+					</div>
+					<div id="free_content">
+						<?php $_where_trial = "`mod`='trial'";?>
+						<!-- 最新上线 -->
+						<div class="shop_one_list">
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" num="6" status = "1" addfields="1" thumb="1" where="$_where_trial"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">免费试用</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+							{pc:product action="lists" num="1" addfields="1" status = "1" thumb="1" start="6" where="$_where_trial"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+						</div>
+
+						<!-- 即将上线 -->
+						<div class="shop_one_list">
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" num="6" status="-1" addfields="1" thumb="1" where="$_where_trial"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">免费试用</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title">
+											<font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font>
+										</span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+							{pc:product action="lists" num="1" status="-1" addfields="1" thumb="1" start="7" where="$_where_trial"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+						</div>
+
+						<!-- 热门抢购 -->
+						<div class="shop_one_list">
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" num="6" order="already_num DESC" addfields="1" thumb="1" where="$_where_trial"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">免费试用</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+							{pc:product action="lists" num="1" addfields="1" order = "already_num DESC" start="7" thumb="1" where="$_where_trial"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+						</div>
+					</div>
+				</div>
+
+				<div class="shop_one">
+					<div class="shop_one_menu shop_one_menu_toPink">
+						<ul class="floatLeft fontSize shops_left_style">
+							<li class="shop_list_order order_toPink">3F</li>
+							<li class="shop_list_title title_toPink">{C_READ('POSTAL_NAME','POSTAL')}</li>
+						</ul>
+						<ul class="floatRight shops_right_style shops_right_toPink" id="postage">
+							<li><a href="javascript:void();">最新上线</a></li>
+							<li><a href="javascript:void();">即将上线</a></li>
+							<li><a href="javascript:void();">热门抢购</a></li>
+							<span><a href="{U('Product/Index/lists',array('mod'=>postal))}" target="_blank">更多></a></span>
+						</ul>
+
+					</div>
+					<div id="postage_content">
+						<?php $_where_postal = "`mod`='postal'";?>
+						<!-- 最新上线 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" status="1" num="1" thumb="1" where="$_where_postal" addfields="1"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>
+								<!-- 剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件 -->
+								</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" status="1" num="6" thumb="1" start="1" where="$_where_postal" addfields="1"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">去看看</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font>
+										<!--<font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font> -->
+										</span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+						<!-- 即将上线 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" status="-1" num="1" thumb="1" where="$_where_postal" addfields="1"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" status="-1" num="6" thumb="1" start="1" where="$_where_postal" addfields="1"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">去看看</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font>
+										<!-- <font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font> -->
+										</span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+						<!-- 热门抢购 -->
+						<div class="shop_one_list">
+							{pc:product action="lists" order="already_num DESC" num="1" thumb="1" where="$_where_postal" addfields="1"}
+							{loop $data $r}
+							<div class="Large_wrap floatLeft">
+								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
+								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+							</div>
+							{/loop}
+							{/pc}
+							<div class="small_wrap floatLeft">
+								{pc:product action="lists" order="already_num DESC" num="6" thumb="1" start="1" where="$_where_postal" addfields="1"}
+								{loop $data $r}
+								<div class="shop_one_list_content">
+									<div class="hover_show_small">
+										<img data-original="{$r[thumb]}" class="hot_com_pic" alt="" />
+										<div class="small_shade"><a href="{$r[url]}" class="url" target="_blank"></a></div>
+										<a href="{$r[url]}" class="order_toRed order_size" target="_blank">去看看</a>
+										<p class="hot_show_title_bg"></p>
+										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
+									</div>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+								</div>
+								{/loop}
+								{/pc}
+							</div>
+						</div>
+					</div>
+				</div>
+						<div class="hot_shops">
+							<div class="hot_shops_left">
+								<div class="hot_content_wrap">
+									<font class="hot_shops_left_title hot_title_wrap_box">
+										推荐品牌
+									</font>
+									{pc:document action="brand" num="8" order="listorder DESC"}
+									<div class="hot_shops_left_title_wrap">
+										{loop $data $d}
+										<div class="hot_shops_left_title_box_ico" {if $n % 4 == 0} style="border:none;" {/if}><a href="{$d[url]}" target="_blank"><img src="{$d[image]}" alt="" /></a></div>
+										{if $n % 4 == 0}<span class="hr"></span>{/if}
+										{/loop}
+									 </div>
+									 {/pc}
+								</div>
+								<div class="hot_content_wrap">
+									<font class="hot_title_wrap_box hot_title_user">
+										活跃达人
+									</font>
+									<div class="hot_shops_left_title_wrap">
+										{pc:member action="lists" num="9" modelid="1" order="loginnum DESC"}
+										<div class="hot_shops_left_title_box hot_user_box" style="border-top:0;">
+											{loop $data $m}
+											<div class="hot_content_box user_hot_icon"><a href="javascript:;"><img src="{getavatar($m[userid])}" alt="" /></a><p>{cutstr($m[nickname],8)}</p></div>
+											{/loop}
+										</div>
+										{/pc}
+									</div>
+								</div>
+								<div class="hot_content_wrap">
+									<font class="hot_title_wrap_box hot_title_user">
+										返利达人
+									</font>
+									<div class="hot_shops_left_title_wrap">
+										{pc:member action="lists" num="9" modelid="1" order="rebate_money DESC"}
+										<div class="hot_shops_left_title_box hot_user_box" style="border-top:0;">
+											{loop $data $m}
+											<div class="hot_content_box user_hot_icon"><a href="javascript:;"><img src="{getavatar($m[userid])}" alt="" /></a><p>{cutstr($m[nickname],8)}</p></div>
+											{/loop}
+										</div>
+										{/pc}
+									</div>
+								</div>
+							</div>
+							<div class="hot_shops_right">
+								<h2 class="hot_shops_title">晒单达人</h2>
+								<div class="hot_shops_content">
+									<a href="javascript:;" class="hot_pages hot_pages_left prev"><img src="{THEME_STYLE_PATH}style/images/hot_com_show_leftBtn.jpg" alt="" /></a>
+									<a href="javascript:;" style="right:0;" class="hot_pages hot_pages_right next" style="right:0;"><img src="{THEME_STYLE_PATH}style/images/hot_com_show_rightBtn.jpg" alt="" /></a>
+									<ul class="hot_shops_content_img_wrap">
+
+										{loop $result $s}
+										<li>
+											<a href="{$s[url]}" class="show_img" target="_blank"><img src="{$s[report_imgs]}" alt="" /></a>
+											<p>{str_cut($s[prosub],30)}</p>
+											<span class="set_word"><font>晒单语 : </font>{$s[content]}</span>
+											<p class="user_name_pic">
+												<img src="{$s[avatar]}" alt="" /><a href="javascript:;">{$s[nickname]}</a>
+											</p>
+										</li>
+										{/loop}
+
+
+
+										 {loop $trialinfos $k $v}
+										
+										 {if $k > 3}
+										<li>
+											<a href="{$v[url]}" class="show_img" target="_blank"><img src="{$v[thumb]}" alt="" /></a>
+											<p>{str_cut($v[title],30)}</p>
+											<span class="set_word"><font>晒单语 : </font> {$v[content]}</span>
+											<p class="user_name_pic">
+												<img src="{$v[avatar]}" alt="" /><a href="javascript:;">{$v['nickname']}</a>
+											</p>
+										</li>
+										{/if}
+										{/loop}
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+			</div>
+		</div>
+		{include template('footer','common')}

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商家补充申诉资料-{C('WEBNAME')}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/appeal_tate.css" />
+<!-- 多图上传 -->
+<link rel="stylesheet" href="{CSS_PATH}/dialog.css" />
+<link rel="stylesheet" href="{CSS_PATH}/table_form.css" />
+<script type="text/javascript" src="{JS_PATH}/dialog.js"></script>
+<script type="text/javascript" src="{JS_PATH}/content_addtop.js"></script>
+<script type="text/javascript" src="{JS_PATH}/admin_common.js"></script>
+<script type="text/javascript" src="{JS_PATH}/swfupload/swf2ckeditor.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+<style type="text/css">
+	a img{width: 50px;height: 50px;}
+</style>
+</head>
+<body>
+{include template("toper","common")}
+	{include template('merchant_header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("merchant_left","member/common")}
+			<div class="float_right right border_1_dddddd border_efefef">
+				<h2 class="right_title border_bottom_efefef">商家处理申诉</h2>
+				<img class="appeal_tate" src="{THEME_STYLE_PATH}style/images/appeal_btn_tate_03.gif"/>
+				<div class="appeal_left">
+					<form action="{U("appeal_seller")}" method="post">
+						<input type="hidden" name="appeal_id" value="{$appeal['id']}" />
+						<ul class="appeal_form">
+							<li><span>处理理由：</span>
+								<textarea name="seller_cause" id="" cols="32"  rows="5"></textarea>
+							</li>
+							<li>
+								<!-- 上传css、js -->
+								<style type="text/css">
+									#seller_imgs .input-text:nth-child(2n+2){display: none;}
+								</style>
+								<script type="text/javascript">
+									$(".aui_state_highlight").live('click',function(){
+										$("input[name='seller_imgs[]']").attr('style','width:245px;');
+									})
+								</script>
+								<!-- 上传css、js   .end -->
+								<span>上传凭证文件：</span>
+								<input name="seller_imgs" type="hidden" value="1">
+								<fieldset class="blue pad-10">
+									<legend>图片列表</legend>
+									<div class="onShow" id="nameTip">（您最多可以同时上传 <font color="red">5</font> 张）</div>
+									<div id="seller_imgs" class="picList"></div>
+								</fieldset>
+								<div class="bk10"></div>
+								<div class="picBut cu"><a herf="javascript:void(0);" class="btn" style="cursor:pointer" onclick="javascript:flashupload('seller_imgs', '附件上传','seller_imgs',change_images,'5,jpg|gif|png|jpeg','member','1','c7ca0ab7bba2e9e20f87b86214ff27c1')"> 选择图片 </a></div>
+							</li>
+							<li><i class="form_hint">上传处理申诉对应的凭证，以便管理员核实处理哦！</i></li>
+						</ul>
+						<input type="submit" class="submit" value="提交" name="dosubmit"/>
+					</form>
+				</div>
+				<div class="appeal_right">
+					<h2 class="appeal_r_title">申诉信息</h2>
+					<ul class="shop_mess_list">
+						<li>商品标题：<a href='{$proInfo['url']}' target="_blank"><em class="color_ff6600"><?php echo $proInfo['title']?></em></a></li>
+						<li>申诉人：{$userInfo['nickname']}</li>
+						<li>申诉时间：{dgmdate($appeal['buyer_time'])}</li>
+						<li>申诉类型：{$appealtypes[$appeal['appeal_type']]}</li>
+						<li>订单号：<em>{$appeal['order_sn']}</em></li>
+						<li>申诉凭证：
+							{loop $appeal['buyer_imgs_url'] $k $r}
+								<a href='{$r}' target="_blank" title="点击查看原图"><img src="{$r}" width="50px;" height="50px;"></a>
+							{/loop}
+						</li>
+						<li style="margin-top:30px;height:50px;">申诉理由：<em>{$appeal['buyer_cause']}</em></li>
+						<li>电话：<em>{$appeal['buyer_phone']}</em></li>
+						{if $appeal['buyer_qq'] != 0}
+							<li>Q Q：<em>{$appeal['buyer_qq']}</em></li>
+						{/if}
+						{if $appeal['buyer_ww']}
+							<li>旺旺：<em>{$appeal['buyer_ww']}</em></li>
+						{/if}
+					</ul>
+				</div>
+			</div>				
+		</div>
+	</div>
+{include template("footer","member/common")}
+	

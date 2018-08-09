@@ -1,0 +1,50 @@
+{include template('header','common')}
+	<style>
+		.user{
+			display:table-cell;
+			width:16.875%;
+			height:1.1em;
+			position: absolute;
+			top: 0.6875em;
+			right: 0;
+		}
+			
+		.user a{
+			display:block;
+			width:50%;
+			margin:0 auto;
+			height:100%;
+			background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+			background-size:auto 100%;
+		}
+	</style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">用户设置</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content bg_f0f0f0 min-height">
+			<div class="u-mess">
+				<ul class="user-list">
+
+					<li class="clear"><a href="{U('Member/Profile/pwd')}" class="d-block b-r-style">修改密码<em class="right-icon"></em></a></li>
+					<li class="clear"><a href="{U('Member/Profile/profile')}" class="d-block b-r-style">修改个人资料<em class="right-icon"></em></a></li>
+					<li class="clear">
+                        <a href="{U('Member/Attesta/email_attesta')}" class="d-block b-r-style">邮箱认证&nbsp;&nbsp;({if $userinfo['email_status'] != 1}<b style="color: red">未认证</b>{else}<b style="color: green">已认证</b>{/if})<em class="right-icon"></em></a>
+                    </li>
+					<li class="clear"><a href="{U('Member/Attesta/phone_attesta')}" class="d-block b-r-style">手机认证&nbsp;&nbsp;({if $userinfo['phone_status'] != 1}<b style="color: red">未认证</b>{else}<b style="color: green">已认证</b>{/if})<em class="right-icon"></em></a></li>
+					<li class="clear"><a href="{U('Member/Attesta/name_attesta')}" class="d-block b-r-style">实名认证&nbsp;&nbsp;({if empty($arr['identity'])}<b style="color: red">未认证</b>{elseif ($arr['identity'] && $arr['identity']['status'] == 0)}<b style="color: red">审核中</b>{elseif $arr['identity']['status'] == -1}<b style="color: red">未通过</b>{else}<b style="color: green">已认证</b>{/if})<em class="right-icon"></em></a></li>
+                    <li class="clear"><a href="{U('Member/Attesta/alipay_attesta')}" class="d-block b-r-style">支付宝绑定&nbsp;&nbsp;({if $arr['alipay']['status'] != 1}<b style="color: red">未认证</b>{else}<b style="color: green">已认证</b>{/if})<em class="right-icon"></em></a></li>
+                    <li class="clear"><a href="{U('Member/Attesta/bindtaobao')}" class="d-block b-r-style">淘宝账号绑定&nbsp;&nbsp;({if $is_bind}<b style="color: green">已绑定</b>{else}<b style="color: red">未绑定</b>{/if})<em class="right-icon"></em></a></li>
+                    <li class="clear padding-top bn"><a href="{U('Member/Index/logout')}" class="btn-s-01 d-block">退出当前登录</a></li>
+				</ul>
+			</div>
+		</div>
+{include template('footer','common')}

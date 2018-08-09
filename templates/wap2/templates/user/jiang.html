@@ -1,0 +1,82 @@
+<ion-view hide-nav-bar="true" hide-tabs>
+  <div class="bar bar-header bar-stable ">
+    <a href="#/tab/duo" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">幸运大转盘</h1>
+    <button ng-click="User_user_reward()" class="button button-clear head_button1">中奖记录</button>
+
+  </div>
+  <ion-content class="padding_head">
+
+    <div class="i_LotteryDrawIndex">
+      <div class="ibody">
+        <div class="s_part1">
+        <a ng-click="ajax()" disabled><img src="img/s2.png"  id="rotate"  alt="" /></a>
+        </div>
+        <div class="s_part2" ng-if="reward_cishu > 0">
+          您还有
+          <span>{{reward_cishu}}</span>
+          次抽奖机会
+        </div>
+        <div class="s_part4" ng-if="reward_cishu < 1  ">分享给好友获得更多的抽奖机会</div>
+        <div class="s_part3" ng-if="reward_cishu < 1">您今天的抽奖机会已经用完</div>
+
+        <div class="s_part5">
+          <div class="ti">
+            <img src="img/s4.png" alt=""/>
+          </div>
+          <div class="co">
+              {{reward_config['lists'][0].rank | f_jiang_1 }}等奖为：
+              <span>{{reward_config['lists'][0].class | f_m_type}}{{reward_config['lists'][0].num }}</span><br/>
+               {{reward_config['lists'][1].rank | f_jiang_1 }}等奖为：
+              <span>{{reward_config['lists'][1].class | f_m_type}}{{reward_config['lists'][1].num }}</span><br/>
+               {{reward_config['lists'][2].rank | f_jiang_1 }}等奖为：
+<span>{{reward_config['lists'][2].class | f_m_type}}{{reward_config['lists'][2].num }}</span><br/>
+{{reward_config['lists'][3].rank | f_jiang_1 }}等奖为：
+<span>{{reward_config['lists'][3].class | f_m_type}}{{reward_config['lists'][3].num }}</span><br/>
+{{reward_config['lists'][4].rank | f_jiang_1 }}等奖为：
+<span>{{reward_config['lists'][4].class | f_m_type}}{{reward_config['lists'][4].num }}</span><br/>
+{{reward_config['lists'][5].rank | f_jiang_1 }}等奖为随机奖励：
+<span>{{reward_config['lists'][5].class | f_m_type}}{{reward_config['lists'][5].num }} ~ {{reward_config.data.rank6_max}}</span>
+          </div>
+        </div>
+        <!--s_part5-->
+        <div class="s_part6">
+          <div class="ti">
+            <img src="img/s5.png" alt=""/>
+          </div>
+          <div class="co">
+            <div class="h" ng-repeat="d in reward_list">
+              <div class="h1">
+                <div class="L">第{{d.lottery_draw_list_id}}位用户  {{d.time |f_jiang_time}}</div>
+                <div class="clear"></div>
+              </div>
+              <!--h1-->
+              <div class="h2">
+              抽到{{d.rank | f_jiang_1 }}
+                等奖，奖品为：
+               {{d.class | f_m_type}} {{d.number}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        活动说明：
+
+       <p> 1.如发现有任何作弊行为，包括不限于如小号刷 软件刷 利用系统漏洞等。 直接封号清零。<P/>
+        
+         <p> 2. 一到五等奖 为固定奖项，六等奖为随机奖励。100%中奖。 <p> 
+
+         <p> 3.中奖之后，系统直接发放奖励到会员账户，请注意查收！ <p> 
+
+        <p>  4.抽奖次数每日零点更新，分享好友可再抽一次(后续开放） <p> 
+
+        <!--s_part6--> </div>
+      <!--ibody-->
+
+      <!--i_bottom_tanc-->
+
+    </div>
+    <!--i_LotteryDrawIndex-->
+  </ion-content>
+</ion-view>

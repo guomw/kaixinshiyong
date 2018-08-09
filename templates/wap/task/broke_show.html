@@ -1,0 +1,76 @@
+{include template('header','common')}
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block">任务详情</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+			</div>
+		</div>
+		<div class="content task">
+			<div class="state bg-dedede">
+				<div class="big fl">
+					<img src="{$thumb}" alt="" />
+				</div>
+				<!--  声明  -->
+				<div class="text-wrap fl">
+					<div class="text">
+						<h6 class="c-f60">任务申明：</h6>
+						<span>
+							所有已绑定手机号和淘宝号的均可以回答
+						</span>
+						<p class="btn">
+							<a href="#href" class="btn-s-01">找答案</a>
+						</p>
+					</div>
+					<h2 class="hint">回答商家问题，回答正确奖励<b>{$goods_price}</b>元</h2>
+				</div>
+			</div>
+			<!--  验证  -->
+			<div class="task-c">
+				<div class="verily">
+					<p class="title">{$title}</p>
+					<div class="ver-impro">
+                        <form id="myform" method="post" action="{U('Task/Index/answer')}">
+                            <input type="hidden" id="id" name="id" value="{$id}"/>
+                            <span class="fl">
+                                <input type="text" placeholder="请输入您的答案" class="b-r-style" id="content" name="content"/>
+                            </span>
+                            <a href="javascript:;" class="btn-s-01 fr onsubmit">提交答案</a>
+                        </form>
+					</div>
+				</div>
+                <script>
+                    $(".onsubmit").click(function(){
+                        $("#myform").submit();
+                    })
+                </script>
+				<!--  流程  -->
+				<div class="method">
+					<p class="title c-f60">寻找宝贝的方法</p>
+					<ul class="list">
+						<li>1、打开<b>{get_shop_set($source,'name')}</b>首页 ，搜索关键字"<b>{$keyword}</b>"；</li>
+						<li>2、按照<b>{if $sort==1}综合{elseif $sort==2}人气{elseif $sort==3}销量{elseif $sort==4}信用{elseif $sort==5}最新{else} 价格{/if}</b>排序搜索；</li>
+						<li>3、Crtl+F "<b>{$goods_wangwang}</b>"（宝贝大约会在第{$goods_address}页左右）。</li>
+					</ul>
+				</div>
+				<!--  图片介绍  -->
+				<div class="box-wrap" id="href">
+                    {loop $goods_albums $g}
+                    <img src="{$g[url]}" />
+                    {/loop}
+                    <ul class="list">
+                        <li>提示</b>：宝贝大约在{$goods_address}左右，请耐心查找！</li>
+                        <li>请核对好商家和商品图片是否对应正确才进行下单哦！</li>
+                    </ul>
+				</div>
+				
+			</div>
+		</div>		
+	</div>
+</body>
+</html>

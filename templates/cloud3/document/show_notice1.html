@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$rs[title]}-{C('WEBNAME')}</title>
+		<meta name="keywords" content="{$rs[title]}，网站公告">
+		<meta name="description" content="{str_cut(html_entity_decode($rs[content]),100)}">
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" /> 
+		<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/help.css" /> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//首页顶部移入效果
+				setTopMouseover();
+				//搜索下拉菜单显示隐藏
+				sMouBox('.menu_sum','.search_menu_top');
+				//首页banner左侧菜单栏目
+				topMove();						
+			});
+		</script>
+	</head>
+	<body>
+	<!-- wrap 内容页盒模型 -->
+	{include template('toper','common')}
+
+		<!-- 帮助中心头部 -->
+			{include template('help_header','document')}
+		<script type="text/javascript">
+			$(function(){
+				$('.menu_c > li:last').css('border-bottom','none');
+				$('.menu_c > li > a').each(function(i,n){
+					$(this).click(function(){
+						$('.menu_c > li > a').removeClass('a_link'); $(this).addClass('a_link');
+						var s_h = $(this).next().children().height()*$(this).next().children().length;
+						if($(this).next('ul').height() == 0){
+							$('.menu_c > li > a').removeClass('a_c_no').addClass('a_c_off');
+							$(this).removeClass('a_c_off').addClass('a_c_no');
+							$('.menu_c > li > a').next('ul').animate({ 'height' : 0 },300);
+							$(this).next('ul').animate({ 'height' : s_h },300);
+						}
+						else{ 
+							$(this).removeClass('a_c_no').addClass('a_c_off'); $(this).next('ul').animate({ 'height' : 0 },300); }
+					});
+				});
+				$('.menu_c > li > ul li a').each(function(){
+					$(this).click(function(){ $('.menu_c > li > ul li a').removeClass('a_link');$(this).addClass('a_link'); });
+				});
+			});
+		</script>
+		<div class="content">
+			<div class="wrap">
+				<ul class="left_menu">
+					<p>网站公告</p>
+					<li><a href="{U('Announce/Index/lists',array('type'=>'all'))}" {if $_GET[type] == 'all'}class="a_bg_color"{/if}>最新信息</a></li>
+
+					<li><a href="{U('Announce/Index/lists',array('type'=>3))}
+					" {if $type == 3}class="a_bg_color"{/if}>官方公告</a></li>
+
+					<li><a href="{U('Announce/Index/lists',array('type'=>2))}
+					" {if $type == 2}class="a_bg_color"{/if}>招商公告</a></li>
+
+					
+				
+					<li><a href="{U('Announce/Index/lists',array('type'=>5))}" {if $type == 5}class="a_bg_color"{/if}>VIP公告</a></li>
+					
+				</ul>
+				<div class="right_list">
+					<p class="r_l_t_mess">公告列表
+						<font>
+						<a href="{__APP__}">首页</a> >
+						 <a href="{U('Announce/Index/lists',array('type'=>$_GET[type]))}">{if $type == 5}VIP公告{elseif $type == 3}官方公告{elseif $type == 2}招商公告{else}最新消息{/if}</a> > 
+						  <b><a href="{U('Announce/Index/show',array('type'=>$type,'id'=>$rs[announceid]))}">{$rs[title]}</a></b>
+						</font>
+					</p>
+					<h2 class="not_c_t">{$rs[title]}</h2>
+					<div class="notice">
+						<p>{htmlspecialchars_decode(stripslashes($rs[content]))} </p>
+	   					
+						<ul class="name_time">
+							<li> {$rs[username]}</li>
+							<li>{date("Y",$rs['starttime'])}年{date("m",$rs['starttime'])}月{date("d",$rs['starttime'])}日</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+	{include template('footer','common')}

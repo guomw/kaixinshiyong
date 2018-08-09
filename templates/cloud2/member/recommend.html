@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的推荐好友-买家个人中心-{C('WEBNAME')}</title>
+<meta name="keywords" content="推荐好友,{C('WEBNAME')}" />
+<meta name="description" content="推荐好友,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_friends.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_integration.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('header','member/common')}
+
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+<div class="nav_path" style="">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>&nbsp;>
+		<a href="{U('Member/Recommend/index')}" class="nav_active">我的推荐好友</a>
+</div>			
+				{include template('member_left','member/common')}
+			<div class="content_right float_right">
+				<h2 class="right_title border_bottom_efefef">
+						推荐好友
+						<a href="{U('Member/Recommend/index',array('type'=>1))}" {if $type == 1}class="a_link"{/if}>我要推荐</a>
+						<a href="{U('Member/Recommend/index',array('type'=>2))}" {if $type == 2}class="a_link"{/if}>我的推荐</a>
+						<a href="{U('Member/Recommend/index',array('type'=>3))}" {if $type == 3}class="a_link"{/if}>我的现金奖励</a>
+						<a href="{U('Member/Recommend/index',array('type'=>4))}" {if $type == 4}class="a_link"{/if}>我的积分奖励</a>
+				</h2>
+				{if $type == 1}
+				<div class="share float_left">
+					<div class="qq">
+						<div class="float_left"><img src="{THEME_STYLE_PATH}style/images/qq.jpg" /></div>
+						<div class="float_left mt34 ml14">
+							<dl>
+								<dt>通过QQ、旺旺等邀请好友</dt>
+								<dd class="float_left"><input type="text" name="" value="<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>" /></dd>
+								<dd class="copy float_left">复制</dd>
+							</dl>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="forum">
+						<div class="float_left"><img src="{THEME_STYLE_PATH}style/images/forum.jpg" /></div>
+						<div class="float_left mt34 ml14">
+							<dl>
+								<dt>在自己常去的论坛上挂签名</dt>
+								<dd class="float_left"><textarea name="">[url=<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>]{C('WEBNAME')}分享[/url]</textarea></dd>
+								<dd class="copy float_left">复制</dd>
+							</dl>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="url">
+						<div class="float_left"><img src="{THEME_STYLE_PATH}style/images/url.jpg" /></div>
+						<div class="float_left mt34 ml14">
+							<dl>
+								<dt>在自己的博客上架友情链接或任何支持HTML的地方</dt>
+								<dd class="float_left"><textarea name=""><a href="<?php echo U('Member/Index/register',array('agent_id'=>$this->userid),'',TRUE,TRUE); ?>">{C('WEBNAME')}分享</a></textarea></dd>
+								<dd class="copy float_left">复制</dd>
+							</dl>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="share_baidu">
+						<div class="float_left"><img src="{THEME_STYLE_PATH}style/images/share.jpg" /></div>
+						<div class="float_left mt34 ml14">
+							<dl>
+								<dt>在QQ空间、新浪微博上分享</dt>
+								<dd><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+								<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></dd>
+							</dl>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					
+				</div>
+				<div class="matter float_right">
+					<dl>
+						<dt>注意事项：</dt>
+						<dd>
+							1.不要为了获得小小的邀请奖励而失掉了自己的诚信，我们会人工审查,<span style="color:#ff0000;">作弊行为</span>，我们将收回该账号全部的邀请奖励，严重者将冻结所有收入并永久封号；
+						</dd>
+						<dd>2.当好友通过你的邀请链接访问{C('WEBNAME')}后，只要TA在1个小时内注册，均为有效；</dd>
+						<dd>3.不要以注册送钱或注册送积分等利益诱导来吸引注册，否则将给予处罚；</dd>
+						<dd style="border:none;">
+							4.为了合作商城的正常利益，请不要到{C('WEBNAME')}的合作商城进行推广；<br /><span style="color:#ff0000;">*作弊行为：包括但不限于使用相同的电脑、相同的IP地址在同一天内注册多个账号，已骗取邀请奖励的行为。</span>
+						</dd>
+					</dl>
+				</div>
+				<div style="clear:both;"></div>
+				{elseif $type == 2}
+				<div class="invited">
+					<table>
+						<tr>
+							<th style="width:213px;">被邀请人</th>
+							<!-- <th style="width:100px;">已获奖励</th> -->
+							<th style="width:100px;">手机认证状态</th>
+							<th style="width:100px;">累积已完成订单</th>
+							<th style="width:100px;">登录次数</th>
+							<th style="width:148px;">最后登录时间</th>
+							<th style="width:148px;">邀请时间</th>
+						</tr>
+						{if $agent}
+					
+						{loop $agent $v}
+						<tr>
+							<td>{if $v[nickname]}{$v[nickname]}{else}{$v[email]}{/if}</td>
+							<!-- <td>{if $v[reward] >0}{if $v[type] == 'point' || $v[type] == 'exp'} 
+	
+									<?php echo substr($v['reward'],0,-3); ?>
+									{if $v[type] == 'point'}
+									(积分)
+									{elseif $v[type] == 'exp'}
+									(经验值)
+									{/if}
+									{else}{$v[reward]}(元){/if}{else}--{/if}</td> -->
+									
+							<td>{if $v[phone_status]}<font color="green">已认证</font>{else}未认证{/if}</td>
+							<td>{$v[order_count]}</td>
+							<td>{$v[loginnum]}次</td>
+							<td><?php echo date('Y-m-d H:i:s',$v['lastdate']);?></td>
+							<td><?php echo date('Y-m-d H:i:s',$v['regdate']);?></td>
+						</tr>
+						{/loop}
+						{/if}
+					</table>
+
+					{if empty($agent)}
+					<div class="msg"><span>您还没有邀请好友哦，赶快邀请好友赚钱吧!</span></div>
+					{else}
+					<p class="pages wiHe3 floatLeft">
+							{$pages}
+					</p>
+					{/if}
+				</div>
+				<div style="clear:both;"></div>
+				
+				{elseif $type == 3 || $type == 4}<!-- 我的现金奖励 -->
+				<div class="integration_list">
+						<table>
+							<tbody>
+								<tr>
+									<th>日期</th>
+									<th>收入/支出</th>
+									<th>名称/备注</th>
+								</tr>
+								{loop $reword_list $v}
+								<tr>
+									<td><?php echo dgmdate($v['dateline']); ?></td>
+									<td {if $v[num] >0 }class="income"{else}class="expenditure"{/if}>{substr($v[num],0,-3)} {if $type == 3}元{else}积分{/if}</td>
+									<td>{$v[cause]}</td>
+								</tr>
+								{/loop}								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$reword_page}
+						</p>
+					</div>
+				
+				<div style="clear:both;"></div>
+				{/if}
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".qq .copy").zclip({
+		 path:"{THEME_STYLE_PATH}style/js/ZeroClipboard.swf",
+		 copy:function(){
+		 	art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: '复制成功',
+						ok: true
+					});
+		 	return $(".qq input").val();
+		 }
+		});
+		
+		$(".forum .copy").zclip({
+		 path:"{THEME_STYLE_PATH}style/js/ZeroClipboard.swf",
+		 copy:function(){
+		 	art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: '复制成功',
+						ok: true
+					});
+		 	return $(".forum textarea").val();
+		 }
+		});
+		
+		$(".url .copy").zclip({
+		 path:"{THEME_STYLE_PATH}style/js/ZeroClipboard.swf",
+		 copy:function(){
+		 	art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: '复制成功',
+						ok: true
+					});
+		 	return $(".url textarea").val();
+		 }
+		});
+	});
+</script>

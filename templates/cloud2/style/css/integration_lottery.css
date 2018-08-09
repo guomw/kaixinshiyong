@@ -1,0 +1,209 @@
+*{
+	font-family: "微软雅黑";
+}
+
+body{
+	float: none;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+div.header{
+	height: auto;
+	line-height: normal;
+	background: none;
+	float: none;
+}
+
+div.header_top{
+	height: 30px;
+	line-height: 30px;
+	background: #2d2d2d;
+}
+
+div.header_top div.top_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.activity ul li span{
+	font-size: 10px;
+}
+
+div.activity ul li a{
+	padding: 0 10px;
+	color: #acacac;
+}
+
+div.login ul li span{
+	color: #acacac;
+}
+
+div.login ul li{
+	margin-left: 20px;
+}
+
+div.login ul li a{
+	color: #acacac;
+}
+
+div.header_bottom{
+	padding: 37px 0 15px 0;
+}
+
+div.header_bottom div.bottom_box{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.logo span{
+	display: inline-block;
+}
+
+div.logo span.text{
+	color: #ff6600;
+	margin-left: 12px;
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+div.menu{
+	margin-top: 10px;
+}
+
+div.menu ul li a{
+	height: 32px;
+	font-size: 16px;
+	color: #3c3c3c;
+	margin-left: 30px;
+	display: inline-block;
+}
+
+div.menu a.active{
+	color: #ff6600;
+	background: url(../images/active.png) no-repeat 30px 27px;
+}
+
+div.main{
+	background: #ffd018 url(../images/lottery_bg.jpg) no-repeat center 0;
+}
+
+div.main div.main_box{
+	width: 1000px;
+	margin: 0 auto;
+	padding: 390px 0 66px 0;
+}
+
+div.main_box div.lottery{
+	width: 905px;
+	border: 8px solid #ffb400;
+	margin: 0 auto;
+	padding: 22px 22px 22px 36px;
+	background: #00bfcb;
+}
+
+div.win_name{
+	padding-top: 17px;
+}
+
+div.win_name p{
+	margin-bottom: 25px;
+	font-size: 24px;
+	color: #ffffff;
+}
+
+div.win_name p.lottery_text{
+	width: 217px;
+	height: 35px;
+	background: url(../images/lottery_text.png) no-repeat;
+}
+
+div.win_name dl{
+	width: 328px;
+	background: #00b3be;
+	padding-bottom: 15px;
+}
+
+div.win_name dt{
+	height: 44px;
+	line-height: 44px;
+	background: #fff498;
+	font-size: 24px;
+	color: #ff7e00;
+	text-align: center;
+	margin-bottom: 22px;
+}
+
+div.win_name dd, div.win_name dd span{
+	font-size: 16px;
+	color: #fffc18;
+}
+
+div.win_name dd{
+	margin-bottom: 7px;
+	padding:0 20px;
+	color: #ffffff;
+}
+
+div.lottery div.lottery_area{
+	width: 510px;
+	height: 380px;
+	position: relative;
+}
+
+div.lottery_area ul li{
+	width: 120px;
+	height: 120px;
+	position: absolute;
+}
+
+div.lottery_area div.lottery_push{
+	position: absolute;
+	cursor: pointer;
+}
+
+div.lottery_area ul li img{
+	width: 120px;
+	height: 120px;
+}
+
+div.lottery_area div.lottery_push{
+	width: 250px;
+	height: 120px;
+	background: url(../images/lottery_push.jpg) no-repeat;
+}
+
+.opacity{
+	opacity: 0.4 !important;
+}
+
+
+
+
+div.footer{
+	padding: 15px 0 30px 0;
+}
+
+div.footer p{
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+
+div.footer p.footer_link{
+	margin-bottom: 20px;
+}
+
+p.footer_link span, p.footer_link a{
+	font-size: 13px;
+}
+
+p.footer_link a{
+	margin-right: 25px;
+}

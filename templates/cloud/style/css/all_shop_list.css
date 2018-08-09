@@ -1,0 +1,32 @@
+.subnav { width:100%; height:37px; line-height:37px; float:left; }
+.subnav li { float:left;margin-right:23px; height:100%; padding-left:11px; }
+.subnav .li_click {  border-bottom:solid 1px #ff6600; }
+.subnav .a_click { color:#ff6600; }
+.subnav a { font-size:14px; float:left; padding:0 12px; }
+.subnav img { float:left; width:11px; height:13px; margin-top:11px; }
+.sbment { height:36px; border-bottom:solid 1px #ddd; line-height:36px; }
+.sbment span { color:#999; float:left; text-align:right; width:78px; height:100%; padding:0 12px; }
+.sbment li { float:left; margin:0 12px; }
+.sbment li a { color:#999; }
+.sbment li .a_click { color:#ff6600; }
+.shop_sort { height:32px; line-height:32px; width:100%; float:left; margin-top:25px; border-bottom:solid 1px #ddd; padding-bottom:19px; }
+.shop_sort .sort_left { float:left; height:100%; }
+.shop_sort .sort_left li { width:89px; height:100%; float:left; margin-right:10px; }
+.shop_sort .sort_left li a{ color:#999; font-size:14px; display:block; width:100%; height:100%; text-align:center; border:solid 1px #dedede; border-radius:3px; }
+.shop_sort .sort_left li .a_active { background:#ff6600; border-color:#ff6600; color:#fff; font-weight:700; }
+
+.list_box_wrap { width:100%; height:auto; float:left; }
+.small_img { border:solid 1px #ddd; }
+.sort_name { width:92px; position:relative; line-height:26px; color:#fff; text-align:center; height:26px; display:block; position:absolute; left:10px; top:7px; }
+.sort_name img { position:absolute; right:-2px; top:0; }
+.sort_name_bg_01 { background:#8347db; }
+.sort_name_bg_02 { background:#ff548c; }
+.sort_name_bg_03 { background:#ff48d8; }
+.sort_name_bg_04 { background:#3a8eff; }
+
+/* 品牌折扣 */
+.dis_banner { width:100%; margin:20px 0 30px; }
+
+#goods_lists ul:hover{
+	border: 1px solid #ff6600;
+}

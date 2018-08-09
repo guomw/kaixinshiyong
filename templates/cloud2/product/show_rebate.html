@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{get_seo('rebate_show','show_rebate_title',$title)}</title>
+<meta name="keywords" content="{get_seo('rebate_show','show_rebate_keyword',$title)}">
+<meta name="description" content="{get_seo('rebate_show','show_rebate_description',$title)}">
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/menu_gen_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shop_data_mess.css" />
+<style type="text/css">
+	.buy_flow .flow_text p font{ width: 85%; }
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//首页顶部移入效果
+		setTopMouseover();
+		//搜索下拉菜单显示隐藏
+		sMouBox('.menu_sum', '.search_menu_top');
+		//首页banner左侧菜单栏目
+		topMove();
+	});
+</script>
+</head>
+<script type='text/javascript'>
+	<?php
+	$goods = $rs;
+	$goods['report_count'] = report_buyer_by_gid($id);//晒单
+	$goods['buyer_count'] = buyer_count_by_gid($id);//抢到
+	unset($rs['goods_content']);
+	?>
+	var goods = <?php echo json_encode($goods); ?> ;
+	goods.goods_stock = goods.goods_number - goods.already_num;
+	goods.buyer_good_buy_times = <?php echo C_READ('buyer_good_buy_times','rebate'); ?>
+</script>
+<body>
+	{include template('toper','common')}
+	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/goods.js"></script>
+	<!-- logo和搜索部分 -->
+	{include template('header','common')}
+	<script type="text/javascript">
+		$(function() {
+			$('.small:eq(0)').attr('src', $('.small_img li:eq(0) img').attr('src'));
+			$('.small_img li:eq(0)').css({
+				'opacity': '1',
+				'border': 'solid 1px #ff6600'
+			});
+			$('.small_img li img').click(function() {
+				var smallImgSrc = $(this).attr('src');
+				$('.small_img li').css({
+					'opacity': '0.5',
+					'border': 'none'
+				});
+				$(this).parent().animate({
+					opacity: '1'
+				}, 300);
+				$(this).parent().css({
+					'border': 'solid 1px #f60'
+				});
+				$('.small:eq(0)').css({
+					'opacity': '0'
+				});
+				$('.small:eq(0)').animate({
+					opacity: '1'
+				}, 300);
+				$('.small:eq(0)').attr('src', smallImgSrc);
+			});
+		});
+	</script>
+		<div class="content">
+			<div class="wrap">
+				<p class="hint"><a href="{__APP__}">首页</a><font> > {catpos($catid, '', 'product',$mod)} </font>{$data['title']}</p>
+				<div class="shop_intro">
+					<div class="shop_big_img">
+						<img class="small" src="{$rs[thumb]}" alt="{$title}" /> {if $rs[goods_albums]}
+						<ul class="small_img">
+							{loop $rs[goods_albums] $k $album}
+								{if $k < 4}
+									<li><img src="{$album[url]}" alt="{$album[alt]}"/></li>
+								{/if}
+							{/loop}
+						</ul>
+						{/if}
+					</div>
+					<div class="shop_text" id="shop_text">
+						<h2 class="shop_name">{$title}</h2>
+						<ul class="aciivity_mess">
+							<li>
+								<span>活动时间</span>
+								<font>{dgmdate($start_time)} - {dgmdate($end_time)}</font>
+							</li>
+							<li>
+								<span>担保金</span>
+								<font>商家已预存担保金<b>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b>元，请放心购买</font>
+							</li>
+						</ul>
+						<!-- 判断图章 -->
+						<ul class="shop_mess {if $type == 'search'}search_try_out_img{elseif $type == 'ask'}answer_try_out{elseif $type == 'qrcode'}two_t_code_try_out_img{/if}">
+							<li class="set_color"><span>限量份数：<b>{$goods_number}</b>份</span><span>剩余份数：<b>{php echo $goods_number - $already_num}</b>份</span>
+							</li>
+							<li><span>下单价：<b>{$goods_price}</b>元</span><span>折扣：<b>{$goods_discount}</b>折</span><span>返还划算金：<b>{php echo $rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10}</b>元</span>
+							</li>
+						</ul>
+						<ul class="cost_buy_btn">
+							<p>
+								<span>{activitiy_price_name($mod)}：<b>￥<em>{price($id)}</em></b></span>
+								<font>
+									<a class="shop_buy_btn_off" href="javascript:;" onclick="page_detail.buy();" id="btn_buy">立即抢购</a>
+									<i class="timeRemaining-cont"><font></font></i>
+								<!--<strong class="shop_buy_btn_off">活动已结束</strong>-->
+								</font>
+							</p>
+							<style type="text/css">
+								body .bdsharebuttonbox{
+									float:left;
+									margin-top:-5px;
+								}
+							</style>
+							<li>
+								<a class="coll_shop" href="javascript:;" onclick="add_collect({$id});">收藏商品</a>
+								<span class="share">
+									<!-- 分享 -->
+									<div class="bdsharebuttonbox" >
+										<a href="#" class="bds_more" data-cmd="more"></a>
+										<a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+										<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+										<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+										<a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+										<a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+									</div>
+									<script>
+										window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+									</script>
+								<!-- 分享 .end -->
+								</span>
+								<span class="set_color">浏览次数：<font>{$hits}</font> 次</span>
+							</li>
+						</ul>
+					</div>
+					<?php ?>
+					{if (count($seller) > 0)}
+					<div class="box_shops_message">
+						<div class="shops_message">
+							<!-- diamond_bg：钻石  common:普通   crown_bg:皇冠 -->
+							<h4 {if $seller['groupid']==3}class="s_m_title crown_bg"{elseif $seller['groupid']==2}class="s_m_title diamond_bg"{else}class="s_m_title common"{/if}class="s_m_title  diamond_bg">
+								<p>{C("webname")}{$seller['seller_type']}</p>
+							</h4>
+							<span class="user_icon"><img src="{if $seller['store_logo']}{$seller['store_logo']}{else}/uploadfile/avatar/seller_logo.jpg{/if}" alt="店铺：{substr_replace($seller['store_name'],'***','3','-3')}" /></span>
+							<ul class="vip_approve">
+								<p>{substr_replace($seller['store_name'],'***','3','-3')}</p>
+								<li class="v_app_bg_01">质量检测合格</li>
+								{if $seller['shop_attesta'] == 1}
+									<li class="v_app_bg_02">店铺认证</li>
+								{/if}
+								{if $seller['brand_attesta'] == 1}
+									<li class="v_app_bg_03">品牌认证</li>
+								{/if}
+							</ul>
+						</div>
+						<p class="shops_all_shop">
+							<a href="../{__ROOT__}?m=search&keyword={$seller['store_name']}&type=c" class="btn_style01" target="_blank">查看全部商品</a>
+						</p>
+						{if $seller['store_address']}
+							<p class="shops_all_shop">
+								<a href="{$goods_url}" target="_blank" class="btn_style02">去{shop_set($source,'name')}看看</a>
+							</p>
+						{/if}
+					</div>
+					{/if}
+				</div>
+				<div class="buy_flow">
+					<h2 class="flow_title">抢购流程</h2>
+					<div class="flow_text">
+						<p class="set_width">
+							<span>1</span>
+							<font>
+								<em>抢资格</em>
+								<i>抢到购买资格</i>
+							</font>
+						</p>
+						<p>
+							<span>2</span>
+							<font>
+								<em>购买</em>
+								<i>以活动下单价<b>{$goods_price}</b>到指定商家店铺购买</i>
+							</font>
+						</p>
+						<p class="set_width">
+							<span>3</span>
+							<font>
+								<em>订单号</em>
+								<i>返回{C('webname')}填写已付款订单号</i>
+							</font>
+						</p>
+						<p class="bor_none">
+							<span>4</span>
+							<font>
+								<em>返划算金</em>
+								<i>商家审核单号后返还划算金<b>{php echo $rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10}</b>元</i>
+							</font>
+						</p>
+					</div>
+				</div>		
+				<div class="acti_content arr_content">
+					<ul class="title">
+						<li class="li">商品详情</li>
+					</ul>
+					<ul class="acti_details">
+						{if array_filter($rs['goods_tips']['order_tip'])}
+							<span>温馨提示：</span>
+							{loop $rs['goods_tips']['order_tip'] $k $v}
+								<li {if $k==0 }class="li_margin" {/if}>
+									{if $rs['goods_tips']['order_tip'][$k] == 1}
+									请不要使用淘金币下单
+									{/if}
+									{if $rs['goods_tips']['order_tip'][$k] == 2}
+									请不要催促商家返款
+									{/if}
+									{if $rs['goods_tips']['order_tip'][$k] == 3}
+									请不要使用手机下单
+									{/if}
+									{if $rs['goods_tips']['order_tip'][$k] == 4}
+									请不要使用店铺优惠券
+									{/if}
+
+								</li>
+							{/loop}
+						{/if}
+						{if ($rs['goods_tips']['goods_order']['kuaidi'])}
+							<span>默认快递：</span>
+							<li class="li_margin">{$rs['goods_tips']['goods_order']['kuaidi']}</li>
+						{/if} 
+						{if ($rs['goods_tips']['goods_order']['package'])}
+							<span>套餐包含：</span>
+							<li class="li_margin">{$rs['goods_tips']['goods_order']['package']}</li>
+						{/if} 
+						{if ($rs['goods_tips']['goods_order']['remark'])}<span>拍下须知：
+							</span>
+							<li class="li_margin">{$rs['goods_tips']['goods_order']['remark']}</li>
+						{/if}
+					</ul>
+					<div class="wrap_box" name="try_help_01" id="try_help_01">
+						<span class="meau_chart_title">商品详情：</span> {$goods_content}
+					</div>
+					<script type="text/javascript">
+						$(function(){
+		                    $("p.buy_list_title a").click(function(){
+		                        $("div.buy_list .buy_user").hide();
+		                        var data_id = $(this).attr('data-id');
+		                        $("div.buy_list .buy_user#"+data_id+"_list").show();
+		                        $("p.buy_list_title a").removeClass('a_link');
+		                        $(this).addClass('a_link');
+		                    })
+						});
+					</script>
+					<div class="buy_list">
+						<p class="buy_list_title">
+							<a data-id='who' class="a_link">谁抢到了（<em id="buyer_count">0</em>）</a>
+							<a data-id='report'>买家晒单（<em id="report_count">0</em>）</a>  
+						</p>
+						<div class="buy_user" id="who_list">
+							{pc:order action="buyer_list" num="27" goods_id="$id" mod="rebate"}
+							<ul>
+								{loop $data $r}
+								{php $userinfo = getuserinfo($r);}
+								<li><img src="{getavatar($r)}" alt="{$userinfo[nickname]}"><p>{$userinfo[nickname]}</p></li>
+								{/loop}
+							</ul>
+							{if $goods['buyer_count'] > 27}
+							<p class="load_more" id="buyer_list"><a href="javascript:;" onclick="page_detail.buyer_list();">加载更多&nu;</a></p>
+							{/if}
+							{/pc}
+						</div>
+						<div class="buy_user c_b_user" id="report_list" style="display:none;">
+							{pc:product action="report_list" goods_id="$id" num="5"}
+							<ul>
+								{loop $data $r}
+								{php $userinfo = getuserinfo($r);}
+								<li><p class="set_buy_w01"><a href="javascript:;" class="buy_big_img"><img src="{$r['report_imgs']}"></a></p><p class="buy_small_img" id=""><a><img src="{getavatar($r)}"></a><span>{$userinfo[nickname]}</span></p><p class="buy_time">{dgmdate($r['reporttime'],'Y年m月d日H时')}</p><span class="buy_text">{str_cut($r['content'],160)}</span></li>
+								{/loop}
+							</ul>
+							{if $goods['report_count'] > 5}							
+							<p class="load_more" id="trail_report"><a href="javascript:;" onclick="page_detail.report_list();">加载更多&nu;</a></p>
+							{/if}
+							{/pc}
+						</div>
+					</div>				
+				</div>
+				<div class="user_hint">
+					<h2 class="title">猜你喜欢</h2>
+					{pc:product action="lists" num="3" mod="rebate"}
+						{loop $data $r}
+						<div class="box">
+							<a href="{$r[url]}" class="box_img">
+								<img src="{$r[thumb]}" alt="{$r[title]}" />
+							</a>
+							<p class="box_title">
+								<a href="{$r[url]}"><img src="{$r['source_img']}" alt="{$r[title]}"/>{$r[title]}</a>
+							</p>
+							<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>￥</b>{$r[mod_price]}</span><span>￥{$r['goods_price']}</span><a href="{$r[url]}" class="btn">立即抢购</a>
+							</p>
+						</div>
+						{/loop}
+					{/pc}
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	page_detail.init();
+</script>
+{include template('footer','common')}
+<script type="text/javascript">
+	 /* 加入收藏 */
+	function add_collect(goods_id) {
+		return $.getJSON("{U('member/collect/add')}", {
+			goods_id: goods_id
+		}, function(ret) {
+			if (ret.status == 1) {
+				page_detail.succes(ret.info);
+				return false;
+			} else {
+				page_detail.error(ret.info);
+				return false;
+			}
+		});
+	}
+</script>

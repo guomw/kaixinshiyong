@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>商家中心-黑名单管理-{C('WEBNAME')}</title>
+		<meta name="Keywords" content="{$seo[keywords]}" />
+		<meta name="Description" content="{$seo[description]}" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user_style.css"/>
+		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/s_user_style.css" />
+
+		<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src='{JS_PATH}dialog/jquery.artDialog.js?skin=default'></script>
+		<script type="text/javascript" src='{THEME_STYLE_PATH}style/js/order.js'></script>	</head>
+	<body>
+		
+		
+		  {include template('v2_merchant_header','member/common')}
+
+		
+		<div id="content">
+			<div class="wrap">
+				<p class="hint-wz clear hint_wz_2">
+					当前位置：
+					<b>首页 > </b>
+					<b>黑名单管理</b>
+				</p>
+			</div>
+			
+			<div class="user_index_content wrap-and clear">
+				
+								{include template('v2_merchant_left','member/common')}
+
+				<div class="fr u_index_mess user_pd_1">
+					<h2 class="user_page_title">黑名单管理</h2>
+					<!-- 正文 -->
+					
+					
+					<div class="jt_fx_wrap clear">
+
+
+					<table class="jf_tab jf_tab_2" width="100%">
+						<thead>
+							<tr>
+							<th>黑名单用户</th>
+							<th>移入原因</th>
+							<th>移入时间</th>
+							<th>状态</th>
+							<th>操作</th>
+							</tr>
+						</thead>
+						<tbody class="border_none">
+					
+							{loop $blacklist $info}
+							<tr>
+								<td class="c_3">{nickname($info['buyer_id'])}</td>
+								
+								<td class="jian">{$info[cause]}</td>
+								<td class="c_3">{dgmdate($info['posttime'],'Y年m月d日')}<span class="time">{dgmdate($info['posttime'],'H:i')}</span></td>
+								<td class="jia">{if $info['status']== 0}<span style="color:red;">【黑名单】</span>{/if}</td>
+								<td class="c_3">
+									
+									<a href="javascript:;" data-id="{$info['id']}" data-url="{U('Member/Order/unbind_blacklist')}" id="unbind"><span>解除黑名单</span></a>
+								</td>
+
+							</tr>
+							{/loop}
+						
+							
+						
+						</tbody>
+					</table>
+					<div id="page" class="mt30 clear" style="margin-top:20px;">
+							{$v2_pages}							
+						</div>
+					</div>
+
+					
+
+					
+				</div>
+			</div>
+
+		</div>
+		
+						{include template('footer','common')}
+
+	</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+	//解绑
+ $("#unbind").click(function(){
+	var id = parseInt($(this).attr('data-id'));
+	$.post("{U('Member/Order/unbind_blacklist')}",{id:id,again:true},function(data){
+		if(data.status == 1){
+			art.dialog({lock: true,fixed: true,icon: 'succeed',title: '解除成功',time:3,content: data.info,ok: function (){location.reload();}});
+		}else{
+			art.dialog({lock: true,fixed: true,icon: 'error',title: '操作失误,请稍后再操作',content: data.info,ok: function (){location.reload();}});
+		}
+	},"json");
+
+});
+
+ });
+
+
+
+
+</script>

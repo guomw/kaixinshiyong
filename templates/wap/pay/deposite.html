@@ -1,0 +1,212 @@
+{include template('header','common')}
+    <style>
+
+        .w_sort .a_active {
+            border-color: #30bbfe;
+        }
+        .w_sort a {
+            border: 2px solid #ddd;
+            display: inline-block;
+            font-size: 14px;
+            height: 26px;
+            line-height: 26px;
+            margin-left: 7px;
+            margin-right: 15px;
+            text-align: center;
+            width: 70px;
+            color: #666;
+        }
+
+    </style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">用户提现</strong>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$('.record-title ul li').click(function(){
+					$('.record-title ul li').removeClass('at');
+					$(this).addClass('at');
+					$('.apply-set').addClass('d-none').removeClass('d-block');
+					$('.apply-set:eq('+$(this).index()+')').addClass('d-block').removeClass('d-none');
+				});
+
+                $('.w_sort > a').click(function(){
+                    var data = $(this).attr('data-id');
+                    $("#paypal").attr('value',data);
+                    $('.w_sort > a').removeClass('a_active');
+                    $(this).addClass('a_active');
+                    if(data == 1){
+                        $("#show1").show()
+                        $("#show2").hide()
+                    }else{
+                        $("#show2").show()
+                        $("#show1").hide()
+                    }
+                });
+			});
+		</script>
+		<div class="content bg-dedede">
+			<div class="record-title clear">
+				<ul>
+					<li class="at"><a href="javascript:;">申请提现</a></li>
+					<li><a href="javascript:;">查看提现记录</a></li>
+				</ul>
+			</div>
+			<!--  申请提现  -->
+			<div class="apply-with  d-block apply-set">
+				<ul class="form">
+                    <form action="{U('Pay/Index/deposite')}" method="post" name="myform" id="myform">
+					<li>你的账户可提现金额:<b class="c-bb000d s_color">{$money}</b>元</li>
+					<li>选择提现方式:</li>
+                    <li>
+                        {if in_array('bank',$type)}
+                        <label><input type="radio" name="type" value="1" checked/>提现到银行卡 </label>
+                        {/if}
+
+                        {if in_array('alipay',$type)}
+                        <label><input type="radio" name="type" value="2" />提现到支付宝</label>
+                        {/if}
+                    </li>
+                    <li><span>提现金额：</span><input type="text" name="money" id="money" value="" class="import"/><span>元</span></li>
+                    <li class="w_sort"><span>提现模式：</span>
+                        <a href="#" class="a_active" data-id='1'>普通提现</a>
+                        <a href="#" data-id='2'>快速提现</a>
+                        <input type="hidden" name="paypal" id="paypal" value="1"/>
+                    </li>
+                    <li class="w_s_h">到账时间：
+                        <b id="show1">{$common[time]}到账（无手续费）</b>
+                        <b id="show2" style="display: none">最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
+                            <span id="totalmoney"></span>元</b>
+                    </li>
+                    </form>
+                </ul>
+				<p class="apply-btn">
+					<a href="javascript:;" class="btn-s-01 onsubmit">确定提现</a>
+				</p>
+
+
+			</div>
+			
+			<!-- 提现记录  -->
+			<div class="record-list d-none apply-set">
+				<table border="" cellspacing="" cellpadding="" id="show">
+					<tr  class="fs-18">
+						<th>提现金额</th>
+						<th>提现方式</th>
+                        <th>提现状态</th>
+                        <th>提现模式</th>
+						<th>提现时间</th>
+					</tr>
+
+				</table>
+
+                <div class="end-hint" id="end-hint">下拉即可加载更多...</div>
+			</div>		
+		</div>
+
+{include template('footer','common')}
+
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $.formValidator.initConfig({
+        formid:"myform",
+        autotip:true,
+        onerror:function(msg,obj){
+            $(obj).focus();
+        }
+    });
+    var multiple_money =  "<?php echo $pay_setting['multiple_money'];?> ";
+    var min_money = "<?php echo $pay_setting['min_money'];?>" ;
+    $("#money").formValidator({
+        empty:false,
+        onempty:'提现金额不能为空',
+        onshow:"请输入提现金额,金额需为" + multiple_money + '倍数',
+        onfocus:"请输入提现金额"
+    }).functionValidator({
+        fun:function(val,elem){
+            if(val < Number(min_money)){
+                return "提现金额不能小于" + min_money;
+            }else if (val % multiple_money != 0){
+                return "提现金额需是" + multiple_money + "倍数";
+            }else if(Number(val) > Number($(".s_color").text())){
+                return '提现金额不能大于您的余额，请重新输入';
+            }else{
+                return true;
+            }
+        }
+    }).regexValidator({
+        regexp:'num1',
+        datatype:'enum',
+        onerror:"提现输入错误"
+    });
+    $(".onsubmit").click(function(){
+        $("#myform").submit();
+    });
+
+
+    var oHintArr = ['<img src="'+site.template_img+'/loading.gif"/>','没有更多了...'];
+    var pages = 1
+    $(function(){
+        $(window).scroll(function(){
+            var now = $(this).scrollTop();
+            var winH = $(window).height();
+            var bodyH = $('body').height();
+            if( ( bodyH-winH ) - now <= 2 ){
+                getContent(pages)
+            }
+        });
+        $("#end-hint").ajaxStart(function(){
+            $(this).html(oHintArr[0]);
+        });
+    });
+
+    getContent(1);
+    function getContent(page) {
+        var param = {
+            orderby  :'cashid',
+            orderway : 'desc',
+            page:page,
+            userid : 1,
+            num : 30
+        };
+        $.getJSON(site.site_root + '/index.php?m=member&c=financial&a=cash_log_json', param, function(ret) {
+            var _html = '';
+            if(ret.status == 1) {
+                $.each(ret.data.lists, function(i, n) {
+                    _html+='<tr>';
+                    _html+='<td class="fs-18">'+n.money+'</td>';
+                    if(n.type == 1){
+                        _html+='<td>银行</td>';
+                    }else{
+                        _html+='<td>支付宝</td>';
+                    }
+
+                    if (n.status == -1){
+                        _html+='<td>审核失败</td>';
+                    }else if(n.status == 0){
+                        _html+='<td>待审核...</td>';
+                    }else{
+                        _html+='<td>已通过</td>';
+                    }
+
+                    if(n.paypal == 1){
+                        _html+='<td>普通</td>';
+                    }else{
+                        _html+='<td>快速</td>';
+                    }
+
+                    _html+='<td class="fs-18">'+ n.inputtime2+'</td>';
+                    _html+='</tr>';
+                });
+                $("#show").append(_html);
+                pages++;
+            }else{
+                $("#end-hint").html(oHintArr[1]);
+            }
+        });
+    }
+
+</script>

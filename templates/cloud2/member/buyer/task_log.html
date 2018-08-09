@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_integration.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src=".{THEME_STYLE_PATH}style/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+	});
+</script>
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+	{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+			{include template("member_left","member/common")}
+
+			<div class="content_right float_right">
+				<h1>日赚记录</h1>
+				<div class="content_right_data">
+					<!-- 积分列表 start -->
+					<div class="integration_list">
+						<table>
+							<tbody>
+								<tr>
+									<th>任务名称</th>
+									<th>任务佣金</th>
+									<th>完成时间</th>
+									<th>操作ip</th>
+								</tr>
+								{loop $task_log $v}
+								<tr>
+									<td>{$v[task][title]}</td>
+									<td>{$v[task][goods_price]}</td>
+									<td>{dgmdate($v[start_time],'Y-m-d H:i:s')}</td>
+									<td>{$v[clientip]}</td>
+								</tr>
+								{/loop}
+								
+								<tr>
+									<td colspan="4">总金额：{$money}元</td>
+								</tr>
+								
+							</tbody>
+						</table>
+						<p class="pages wiHe3 floatLeft">
+							{$pages}
+						</p>
+					</div>
+					<!-- 积分列表 end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{include template('footer','common')}
+	

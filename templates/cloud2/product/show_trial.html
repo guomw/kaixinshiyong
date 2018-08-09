@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="off" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+    <title>{get_seo('trial_show','show_trial_title',$title)}</title>
+    <meta name="keywords" content="{get_seo('trial_show','show_trial_keyword',$title)}">
+    <meta name="description" content="{get_seo('trial_show','show_trial_description',$title)}">
+    <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/styles.css" type="text/css" rel="stylesheet">
+    <script src="{THEME_STYLE_PATH}style/js/jquery-1.8.3.min.js" type="text/javascript" language="javascript"></script>
+	<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/fn_all.js"></script>
+    <!--首页焦点图JS-->
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.pack.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jQuery.blockUI.js"></script>
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.SuperSlide.js"></script>
+
+    <!--[if IE 6]><script type="text/javascript" src="{THEME_STYLE_PATH}style/js/pngfix.js"></script><![endif]-->
+
+    <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery.imagezoom.min.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+<?php $goods = $rs;
+unset($rs['goods_content']);
+$goods['report_count'] = report_count_by_gid($id);
+$goods['buyer_count'] = buyer_count_by_gid($id);
+$userinfo = is_login();
+// 已绑定的淘宝账号
+$bind_tbs = get_bind_taobao($userinfo['userid']);
+// 活动后台设置
+$bind_set = string2array(C_READ('buyer_join_condition','trial'));
+$act_condition =model('activity_set')->where(array('activity_type' => 'trial'))->getField('key,value');
+// 公用
+if($act_condition['buyer_join_condition']) $act_condition['buyer_join_condition'] = string2array($act_condition['buyer_join_condition']);
+if(in_array(7, $act_condition['buyer_join_condition'])){
+    $reason = 7;
+}
+
+?>
+var goods = {php echo json_encode($goods);};
+goods.goods_stock = goods.goods_number - goods.already_num;
+goods.buyer_good_buy_times = {php echo C_READ('buyer_good_buy_times','trial');};
+var bind_tbs = {php echo json_encode($bind_tbs ? $bind_tbs : 0);};
+var bind_set = {php echo $bind_set['bind_taobao'] ? $bind_set['bind_taobao'] : 0;};
+var reason = {php echo $reason?$reason :0;};
+
+var day_count = {php echo $day_count;};
+var month_count = {php echo $month_count;};
+</script>
+<style type="text/css">
+.btn .btn_no{
+	background:#efefef;
+	color:#666;
+}
+.btn .btn_yes{
+	background:#ba000d;
+}
+* {
+    font-size: 12px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.content{ float:left; width:100%; height:auto; }
+.CPM_style { padding-bottom:20px;border:solid 1px #ddd; background:#fff; float:left; height:auto; position:fixed; }
+.CPM_style .span > a { font-weight:700; display:block; float:left;  border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; color:#fff; padding:0 12px; height:28px; line-height:28px; }
+.a_background1 { background:#ff6600; }
+.a_background2 { background:#999999; }
+.CPM_style > h2 { 
+width:100%; height:33px;
+border-radius-top-left:3px; -webkit-border-top-left-radius:3px; -moz-border-top-left-radius:3px;
+border-radius-top-right:3px; -webkit-border-top-right-radius:3px; -moz-border-top-right-radius:3px;
+line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
+.CPM_style_1 { width:360px; }
+.CPM_style_2 { width:590px; }
+.f_bg_yes { background:url(../images/verify_btn1.png) no-repeat 0 center; }
+.f_bg_no { background:url(../images/verify_btn2.png) no-repeat 0 center; }
+.CPM_style .font { padding-top:20px;padding-bottom:20px;padding-left:35px; font-size:14px; margin:0 auto; line-height:36px; height:36px; }
+.CPM_style .font_2 { font-size:14px; font-weight:700; font-family:"寰蒋闆呴粦"; color:#ff6600; }
+.CPM_style .span { height:20px; line-height:20px; margin:0 auto; }
+.CPM_style .span > a { margin:0 11px;border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; }
+.form em,.hint { color:#ff6600; }
+.form { margin:15px 0 0 40px; }
+.form li { height:30px; width:100%; line-height:30px; margin:5px 0; }
+.form li input { width:175px; height:26px; line-height:26px; }
+.CPM_style .hint { text-align:right;width:100px; height:auto; line-height:20px; margin:0; float:left;  }
+.CPM_style .hint_text { float:left; width:450px; float:left; line-height:20px; }
+.CPM_style .hint_text li { width:100%; }
+.CPM_style .hint_text li a {color:#2bc4fe;}
+.issue { width:100%; height:30px; line-height:30px; text-align:right; }
+.issue a { margin-right:10px; color:#2bc4fe; }
+.CPM_style .hint_text_2 { margin-left:50px; margin-bottom:20px; }
+.CPM_style .margin_b_10 { margin-bottom:10px; }
+.CPM_style .hint_text_2 p { height:30px; line-height:30px; color:#ff6600; }
+.CPM_style .hint_text_2 li { height:20px; line-height:20px; }
+.CPM_style .hint_text_2 li em { color:#ff6600; }
+.CPM_style .hint_text_2 li a { color:#2bc4fe; }
+.QR_code { width:134px; height:134px; display:block; margin:0px auto; border:solid 1px #ddd; padding:3px; }
+.set_iss { margin-left:135px;margin-bottom:20px; }
+.set_iss li {width:100%; height:22px; line-height:22px; margin:5px 0; }
+.set_iss li input,.set_iss li img,.set_iss li font{ float:left; }
+.set_iss li input { height:18px; line-height:18px; width:170px; }
+.set_iss li img { width:30px; margin-top:-5px;}
+.set_iss li a { margin-left:35px;display:block; width:60px; height:22px; text-align:center; border:solid 1px #2bc4fe; color:#2bc4fe; background:#e4ffff;border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; }
+.iss_hint {text-align:center; width:100%;height:20px; line-height:20px; margin-bottom:20px; }
+.iss_hint a { color:#2bc4fe; }
+.login-uName p, .login-pwd p{ font-size: 14px; line-height: 24px; }
+.login-pwd input, .login-uName input{ border: 1px solid #ccc; outline: none; padding: 5px; width: 240px; }
+.login-pwd{ margin-top: 12px; }
+.login-other{ margin-top: 10px; }
+.login-QQlogin{ margin-right: 10px; }
+.login-QQlogin img{ width: 16px; height: 16px; }
+.login-otherL img{ vertical-align: middle; }
+.login-other a{ text-decoration: underline; }
+.login-otherL{ float: left; }
+.login-otherR{ float: right; }
+.login-btn{ background-color: #e22627; background-image: -moz-linear-gradient(center top , #f23c3d, #d51415); background-size: cover; border: 0 none; color: #f9f9f9; cursor: pointer; display: block; font-size: 18px; font-weight: normal; height: 35px; line-height: 35px; text-align: center; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2); width: 252px; }
+.login-btn{ margin-top: 45px; }
+.clearfix::after{ clear: none; }
+.login-tipMsg{ border: 1px solid #ffad77; color: #f00; display: block; margin-bottom: 10px; padding: 4px 22px; word-wrap: break-word; }
+.try_hint{ display: block; padding-top:10px; color: #5c5c5c; }
+</style>
+<!--最顶部-->
+{include template('toper_2','common')}
+<!--banner和搜索-->
+{include template('header_2','common')}
+<!--内容-->
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/trial.js"></script>
+<?php 
+
+        $count = model('unreal_order')->where(array('goods_id'=>$rs['id']))->count();
+        $unreal = model('unreal_order')->where(array('goods_id'=>$rs['id']))->select();
+        foreach ($unreal as $k => $v) {
+            $member = model('member_unreal')->find($v['buyer_id']);
+            $unreal[$k]['nickname'] = $member['nickname'];
+            $unreal[$k]['avatar'] = $member['avatar'];
+        }
+        $buy_count = get_trial_by_gid($rs['id']);
+        $total_count = $count+$buy_count;
+ ?> 
+<div class="content">
+    <div class="content-bd">
+        <span><a href="{__APP__}">首页</a> > {catpos($catid, '', 'product',$mod)}<a class="font-red">{$title}</a></span>
+
+        <!--流程图-->
+        <div class="lc top3">
+            <ul class="lc-list">
+                <li>
+                    <a class="sylc nohover3">试用流程</a>
+                </li>
+                <li>
+                    <a class="nohover">申请<p class="lc-p">获得试用资格</p></a>
+                </li>
+                <li style="width: 180px;">
+                    <a class="nohover">原价<b class="font-red">￥{$rs['goods_price']}</b>购买<p class="lc-p">用原价去平台购买</p></a>
+                </li>
+                <li style="width: 190px;">
+                    <a class="nohover">提交订单编号<p class="lc-p">来云划算填写付款订单编号</p></a>
+                </li>
+                <li style="width: 165px;">
+                    <a class="nohover">提交试用报告<p class="lc-p">提交图文并茂的试用报告</p></a>
+                </li>
+                <li style="width: 180px;">
+                    <a class="nohover">返还￥{$rs['goods_price']}                 
+                     {if $goods_bonus > 0}+红包{$goods_bonus}{/if}<p class="lc-p">试用报告通过后返还试用担保金</p></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!--商品详情-->
+        <div class="xq-content top3">
+            <div class="xq-left fleat" style="width: 280px;">
+
+                <div class="box">
+                    <div class="tb-booth tb-pic tb-s310">
+                        <a href="images/mm.jpg"><img src="{$rs[thumb]}" rel="{$rs[thumb]}" class="jqzoom" /></a>
+                    </div>
+                    <ul class="tb-thumb" id="thumblist">
+						{if $rs[goods_albums]}
+						{loop $rs[goods_albums] $k $album}
+						{if $k < 4}
+                        <li class="tb-selected">
+                            <div class="tb-pic tb-s40">
+                                <a class="cursor"><img src="{$album[url]}" mid="{$album[url]}" big="{$album[url]}" width="40px"></a>
+                            </div>
+                        </li>
+						{/if}
+						{/loop}
+						{/if}
+                    </ul>
+                </div>
+
+
+                <div class="top1" >
+                    <a style="cursor: pointer">
+                        <img src="{THEME_STYLE_PATH}style/images/souxing.jpg" class="block fleat" style="margin-top: 3px;">
+                        <div class="fleat"><a href="javascript:;" onclick="add_collect({$id});">收藏商品</a></div>
+                    </a>
+                </div>
+            </div>
+			
+            <div class="xq-center fleat top3" id="shop_text">
+                <h3 class="original">
+				<div class="ico">
+					{if $goods_bonus > 0}
+					<span><img src="{THEME_STYLE_PATH}style/images/red_bg2.png" /></span>
+					{/if}
+					{if $goods_tryproduct}
+					<span><img src="{THEME_STYLE_PATH}style/images/ab_bg.gif" /></span>
+					{/if}
+				</div>
+				{$title}
+				</h3>
+                <div class="xq-time original top1 a_yes" style="font-size: 13px;font-weight: bold">
+                    <p class="xq-time-yi block fleat" style="letter-spacing: 1.2px;">剩余时间：<span>-</span></p>
+					<p id="start" style="display:none;"><font>试用开始：<span></span>开始时间：<text>{dgmdate($start_time,'Y-m-d H:i')}</text></font></p>
+					<p class="xq-time-yi block fleat" id="notice" style="display:none;">-</p>
+				</div>
+                <div class="top1">
+                    <ul class="xq-data">
+                        <li><a>试用统计:
+                            <b class="big-red">{$rs['hits']}</b>人已关注，
+                            <b class="big-red">{$total_count}<!-- {get_trial_by_gid($rs['id'])} --></b>人已申请，
+                            <b class="big-red">{get_over_trial_by_gid($rs['id'])}</b>人已完成
+                        </a></li>
+                        <li style="float: left;"><a>下单金额:<b class="big-ju">{$rs['goods_price']}</b>元</a><span class="anniu_button7 top1">完成试用返{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</span>
+                        </li>
+                        <li style="float: left; line-height: 37px;">{if $goods_bonus > 0}&nbsp;+&nbsp;红包￥<font style="color: #F47130;">{$goods_bonus}</font>元{/if}</li>
+                        <li style="clear: both; border: none;"></li>
+                        <li><a>剩余份数:<b class="big-red">{php echo $goods_number - buyer_count_by_gid($rs['id'])}</b>/<b class="big-red"><?php echo $goods_number;?></b></a>
+                            <span style="position: absolute;margin-left: 200px;">
+                                {if $type == 'search'}
+                                <img src="{THEME_STYLE_PATH}style/images/search-apply.gif">
+                                {elseif $type == 'ask'}
+                                <img src="{THEME_STYLE_PATH}style/images/select-apply.gif">
+                                {elseif $type == 'qrcode'}
+                                <img src="{THEME_STYLE_PATH}style/images/two-code.gif">
+                                {/if}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="javascript:;" class="anniu_button4 nohover3 top3" id="btn_buy" onclick="trial_detail.buy();">申请试用</a>
+                    {if $goods_number - buyer_count_by_gid($rs['id']) <= 0}
+                     <a href="javascript:;" class="margin_btn" style="margin-left: 12px;margin-top:26px;float: left;display: block;width: 100px;" onclick="margin_dialog({$id});">(补仓提醒)</a>
+                     {/if}
+
+                    {if $rs['goods_vipfree']==1}
+                        <a href="javascript:;" class="anniu_button4 nohover3 top3" id="btn_buy" onclick="trial_detail.buy(1);" style="margin-left: 10px;float: left;display: block;width: 100px;">VIP免审试用</a>
+                    {/if}
+                    <div style="clear: both;"></div>
+
+                    {if $goods_tryproduct}
+                    <span class="try_hint">实际试用商品{$goods_tryproduct}</span>
+                    {/if}
+                </div>
+            </div>
+            <div class="xq-right rleat center">
+                <div {if $seller['groupid']==3}class="xq-right-title fleat crown_bg"{elseif $seller['groupid']==2}class="xq-right-title fleat diamond_bg"{else}class="xq-right-title fleat common"{/if}>
+                    <h4 class="top1 white">{C("webname")}{$seller['seller_type']}</h4>
+                </div>
+                <div class="top3 fleat left5">
+                    <p><a>{substr_replace($seller['store_name'],'***','3','-3')}</a></p>
+                    <p><img src="{THEME_STYLE_PATH}style/images/user_botton_icon.png" width="81" height="81"></p>
+                </div>
+                <div class="top3 fleat left3" style="border: 1px dashed #d2d2d2;padding: 4px;">
+                    <div><img src="{THEME_STYLE_PATH}style/images/bao.jpg"></div>
+                    <p><a class="nohover">商家已存入试用担保金</a></p>
+                    <p><a class="big-red">￥{php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</a></p>
+                    <p><a class="nohover">{C('webname')}担保&nbsp;请放心申请</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="clear-both"></div>
+
+        <!--内容详情-->
+        <div class="content-bd top3">
+            <div class="xq-xq-left fleat">
+                <div class="yell-back">
+                    <div class="xq-nav-title center" style="border: 1px solid #fff">
+                        <h4 class="white top2">{C('WEBNAME')}免费申明</h4>
+                    </div>
+                    <div class="retract text-line text-padding">
+                        <a class="nohover">{C('WEBNAME')}所有试用产品均由合作商家直接提供，杜绝一切非正规渠道来源的试用产品。{C('webname')}仅为用户提供商品试用渠道及信息交流平台</a>
+                    </div>
+                </div>
+                <div class="tj-back top3">
+                    <div class="tj-nav-title center" style="border: 1px solid #fff">
+                        <h4 class="white top2">推荐试用</h4>
+                    </div>
+                    <div class="tj-back-bottom">
+					{pc:product action="lists" num="3" mod="trial"}
+						{loop $data $r} 
+                        <div class="padding">
+                            <a href="{$r[url]}"><img src="{$r[thumb]}" width="168" height="168"></a>
+                            <a href="{$r[url]}">{$r[title]}</a>
+                        </div>
+						{/loop}
+					{/pc}    
+                    </div>
+                </div>
+            </div>
+
+            <div class="xq-xq-right fleat left2">
+                <div class="skfxi text-padding" style="border: 1px dashed #dddddd;">
+                    <h4 class="big-ju">试客分享</h4>
+                    <p style="line-height: 28px;">
+					<span class="bdsharebuttonbox">
+						<a href="#" class="bds_more" data-cmd="more"></a>
+						<a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+						<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+						<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+						<a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+						<a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+					</span>
+					<script>
+						window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					</script>
+					</p>
+                </div>
+
+                <div class="notice2 top3">
+                    <div class="notice-hd2">
+                        <ul class="notice2-hd-ul effect">
+                            <li data="gonggao" class="selected" data-tabindex="try_help_01"><a href="#" class="size">试用详情</a></li>
+                            <li data="member_guize" data-tabindex="try_help_02"><a href="#" class="size">试用报告(<span id="report_count">0</span>)</a></li>
+                             <li data="unreal_guize" data-tabindex="try_help_03"><a href="#" class="size">已申请人数(<span id="already_count">{$total_count}</span>)</a></li>
+                            <li data="merchant_guize" data-tabindex="try_help_04"><a href="#" class="size">已审批试客(<span id="buyer_count">0</span>)</a></li>
+                        </ul>
+                    </div>
+                    <div class="notice-bd">
+                        <div data="gonggao" class="mod2 block text-padding top3" style="display: block;">
+							<ul class="warm_hint">
+								<span>注意事项：</span>
+								{if array_filter($rs['goods_tips']['order_tip'])}
+									{php $goods_tips_arr=array( '请不要使用信用卡下单', '请不要催促商家返款')}
+									{loop $rs['goods_tips']['order_tip'] $k $v}
+										<li {if $k==0 }class="li_margin" {/if}>{$goods_tips_arr[$k]}</li>
+									{/loop}
+								{/if}
+								{if ($rs['goods_tips']['goods_order']['kuaidi'])}
+									<li class="li_margin">默认快递：{$rs['goods_tips']['goods_order']['kuaidi']}</li>
+								{/if}
+								{if ($rs['goods_tips']['goods_order']['remark'])}						
+									<li class="li_margin" style="height:auto"><span style="padding:0;">拍下须知：</span>{$rs['goods_tips']['goods_order']['remark']}</li>
+								{/if}
+								{if ($rs['goods_tips']['goods_order']['price']['cost'])}
+									<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元</li>
+								{/if}
+								{if ($rs['goods_tips']['goods_order']['price']['lv'])}
+									<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</li>
+								{/if}
+							</ul>
+							<dl class="tips">
+								<dt>温馨提示：</dt>
+								<dd>1、与商家旺旺聊天时不要提及“{C('WEBNAME')}、试客、{C('WEBNAME')}试客”等信息，否则试用无效。</dd>
+								<dd>2、禁止使用信用卡、淘金币、优惠券、红包、天猫积分等。</dd>
+								<dd>3、禁止通过淘宝客、返利网、一淘等返现返利网链接下单。</dd>
+								<dd>4、非手机端活动，禁止使用手机端下单。</dd>
+								<dd>		以上由于买家违规下单所产生的费用，由买家承担。{C('WEBNAME')}有权冻结其帐号，限制提现操作，IP列入黑名单。</dd>
+							</dl>
+							
+							<div class="process">
+								<div id="apply_unpass">
+									<p>申请通过后，您可在此页面查看到搜索流程图 </p>
+									<a href="/help/?catid=84" class="new_btn">查看新手入门</a>
+								</div>
+								<div class="process_content" id="apply_pass">
+									<p>搜索流程图：</p>
+									{loop $goods_search_albums $sa}
+									<img src="{$sa[url]}" />
+									{/loop}
+								</div>
+							</div>
+							<div class="goods_content">
+								<p>试用品介绍：</p>
+								{$goods_content}
+							</div>
+                        </div>
+
+                        <div data="member_guize" style="display: none;" class="mod2">
+							{pc:product action="trail_report" goods_id="$id" num="3"}
+								{if empty($data)}
+								<div>暂无试用报告</div>
+								{else}
+								{loop $data $r}
+								<div class="user_appr_box">
+									<font class="user_name">{nickname($r['userid'])}<em>{dgmdate($r['inputtime'],'Y-m-d')}</em></font>
+									<a href="{U('Product/Index/report_show',array('id'=>$r[id]))}" target="_blank"><p class="user_appr">{str_cut(strip_tags($r['content']), 500)}</p></a>
+									{if $r[albums]}
+									<span class="shop_img">
+									{loop $r[albums] $album}
+										<img src="{$album}" alt="试用图片" />
+									{/loop}
+									</span>
+									{/if}
+								</div>
+								{/loop}
+								{if $goods['report_count'] > 3}
+								<p class="load_more" id="trail_report"><a href="javascript:;" onclick="trial_detail.trail_report();">加载更多&nu;</a></p>
+								{/if}	
+								{/if}
+							{/pc}
+                        </div>
+                            <?php  $apply_people = model('order')->where(array('goods_id'=>$id))->select(); ?>
+
+                         <div data="unreal_guize" style="display: none;" class="mod2">
+                            {if empty($apply_people) && empty($unreal)}
+                            <span>暂无相关数据</span>
+                            {else}
+                            <ul class="user_icon" id="buyer_list">
+                            {loop $apply_people $v}
+                                {php $userinfo = getuserinfo($v['buyer_id']);}
+                                <li>
+                                    <a href="javascript:;">
+                                        <img src="{getavatar($v['buyer_id'])}" alt="{$userinfo[nickname]}" width="60" height="60" />
+                                        <span>{$userinfo[nickname]}</span>
+                                    </a>
+                                </li>
+                            {/loop}
+
+                            {loop $unreal $s}
+                                <li>
+                                    <a href="javascript:;">
+                                        <img src="{$s['avatar']}" alt="{$s[nickname]}" width="60" height="60" />
+                                        <span>{$s[nickname]}</span>
+                                    </a>
+                                </li>
+                            {/loop}
+
+
+                            </ul>
+                            <div style="clear:both;"></div>
+                          
+                           
+                            {/if}
+                        </div>
+
+                        <div data="merchant_guize" style="display: none;" class="mod2">
+							{pc:order action="buyer_list" num="9" goods_id="$id" mod="trial"}
+							{if empty($data)}
+							<span>暂无已审批试客</span>
+							{else}
+							<ul class="user_icon" id="buyer_list">
+							{loop $data $uid}
+								{php $userinfo = getuserinfo($uid);}
+								<li>
+									<a href="javascript:;">
+										<img src="{getavatar($uid)}" alt="{$userinfo[nickname]}" width="60" height="60" />
+										<span>{$userinfo[nickname]}</span>
+									</a>
+								</li>
+							{/loop}
+							</ul>
+							<div style="clear:both;"></div>
+							{if $goods['buyer_count'] > 9}
+							<p class="load_more"><a href="javascript:;" onclick="trial_detail.buyer_list();">加载更多&nu;</a></p>
+							{/if}	
+							{/if}
+							{/pc}	
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div style="clear: both"></div>
+<!--底部-->
+{include template('footer_2','common')}
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+
+        $(".jqzoom").imagezoom();
+
+        $("#thumblist li a").click(function(){
+            $(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
+            $(".jqzoom").attr('src',$(this).find("img").attr("mid"));
+            $(".jqzoom").attr('rel',$(this).find("img").attr("big"));
+        });
+
+
+        $(".imgtext").hide()
+        $(".ipic").hover(function(){
+            $('.imgtext',this).slideToggle(200);
+        })
+
+        //导航
+        $(".hl-list li").hover(function() {
+            $(this).addClass("main-list-li-hover");
+        }, function() {
+            $(this).removeClass("main-list-li-hover");
+        });
+
+        //商家公告
+        $(".effect li").hover(function(){
+            var name = $(this).attr('data');
+            $(".effect li").each(function(){
+                var data = $(this).attr('data');
+                if(name == data){
+                    $(this).addClass("selected");
+                }else{
+                    $(this).removeClass("selected");
+                }
+            })
+            $(".notice-bd").children("div").each(function(){
+                var data = $(this).attr('data');
+                if(name == data){
+                    $(this).css("display",'block');
+                }else{
+                    $(this).css("display",'none');
+                }
+            })
+        })
+
+    })
+</script>
+<script type="text/javascript">
+	/* 加入收藏 */
+function add_collect(goods_id) {
+	return $.getJSON("{U('member/collect/add')}", {goods_id:goods_id} , function(ret) {
+		if (ret.status == 1) {
+			art.dialog({
+				title:'提示',
+				fixed:true,
+				lock:true,
+				content:ret.info,
+				ok: true
+			})
+		}else{
+			trial_detail.error(ret.info);
+			return false;
+		}
+	});
+}
+</script>
+<script type="text/javascript">trial_detail.init();</script>
+<style type="text/css">
+        .margin_btn{  border-radius: 0 !important; display: inline !important; width: auto !important; height: auto !important; font-size: 12px !important; color: #666 !important; margin-left: 10px; }
+        #notify_box{ width: 500px; border: 4px solid rgba(0, 0, 0, 0.1); border-radius: 5px; overflow: hidden; position: fixed; z-index: 10000; top: 0; left: 0; display: none; }
+        #notify_title{ width: 480px; background: #f3f3f3; color: #666; font-family: "Microsoft YaHei"; font-size: 14px; height: 31px; line-height: 31px; padding: 0 10px; position: relative; }
+        #notify_con{ height: 230px; overflow: hidden; width: 480px; padding: 10px; background: #ffffff; }
+        #sale-notice{ padding: 10px 0; }
+        #sale-notice p{ font-weight: bold; height: 44px; line-height: 18px; margin-bottom: 30px; }
+        #sale-notice .form-item{ margin: 10px 0 10px 40px; }
+        .form-item label{ padding-right: 5px; line-height: 21px; }
+        .form-item .input-email{ border: 1px solid #ccc; font-family: Verdana; height: 21px; padding: 4px; width: 210px; }
+        #sale-notice input{ vertical-align: middle; }
+        #sale-notice .form-submit{ padding-left: 99px; }
+        .form-submit input{ background: url("{THEME_STYLE_PATH}style/images/form-submit_bg.png") no-repeat; cursor: pointer; height: 30px; line-height: 30px; padding: 0; text-align: center; width: 57px; border: none; }
+        .ui-dialog-close{ background: url("{THEME_STYLE_PATH}style/images/margin_close.png") no-repeat; cursor: pointer; display: block; font-size: 0; height: 13px; overflow: hidden; position: absolute; right: 10px; top: 10px; width: 13px; z-index: 100000; }
+        #notify_con .succeeded_ico{  margin: 25px 0; text-align: center; }
+    </style>
+
+    <script type="text/javascript">
+        // 显示隐藏补仓提醒弹出框
+        function margin_dialog(id){
+            if (site.user.length < 1) { // 未登录
+                member.login();
+                return false;
+            }
+            var notify_box_l = ($(window).width() - $("#notify_box").width()) / 2;
+            var notify_box_t = ($(window).height() - $("#notify_box").height()) / 2;
+            $("#notify_box").css({top:notify_box_t + "px",left:notify_box_l + "px"});
+            $("#notify_box").show();
+            $("#goods_id").val(id);
+
+            
+            $(".margin_close").click(function(){
+                $("#notify_box").hide();
+            });
+        }
+        
+        // 订阅成功
+        /*function succeeded(){
+            var succeeded_html = '<div class="succeeded_ico"><img alt="订阅成功" src="{THEME_STYLE_PATH}style/images/succeeded_ico.png"></div>';
+            $("#notify_con").html(succeeded_html);
+        }*/
+        
+    </script>
+    <!-- 补仓提醒弹出框 start -->
+    <div class="ui-dialog" id="notify_box">
+        <div class="ui-dialog-title" id="notify_title"> <span>补仓提醒</span> </div>
+        <div class="ui-dialog-content" id="notify_con">
+            <from action="{U('Product/Index/notify')}" method="post">
+                <input type="hidden" id="goods_id" value="">
+            <div id="sale-notice">
+                <p>一旦该商品更新了库存，您将收到邮件、短信和手机推送消息！通过手机客户端消息提醒，购买更便捷~</p>
+                <div class="form-item">
+                    <label style="padding-right: 5px;" for="cellphone">手机号码：</label>
+                    <input type="text" class="input-email" id="phone" name="phone" value="{$userinfo['phone']}">
+                    <div style="color: Red; display: inline;" id="phoneError"></div>
+                </div>
+                <div class="form-item">
+                    <label style="padding-right: 5px;" for="email">邮箱地址：</label>
+                    <input type="text" class="input-email" id="email" name="email" value="{$userinfo['email']}">
+<!--                    <em style="color: red;">*</em>
+ -->                    <div style="color: Red; display: inline;" id="MailError"></div>
+                </div>
+                <div class="form-submit">
+                    &nbsp;
+                    <input type="buttion" value="提交" id="submit" name="submit">
+                    <span style="color: Red; display: inline;" id="notProduce"></span>
+                </div>
+            </div>
+        </form>
+        </div>
+        <a href="javascript:;" title="关闭" class="ui-dialog-close margin_close"><span class="ui-icon ui-icon-delete"></span></a>
+    </div>
+    <!-- 补仓提醒弹出框 end -->
+    <script type="text/javascript">
+$(document).ready(function(){
+    var goods_id = $.trim($("#goods_id").val());
+
+    $('#phone').blur(function () 
+        { 
+            var phone = $.trim($("#phone").val());
+            var re = /^1\d{10}$/;
+            if (!phone || re.test(phone) == false) { 
+                $("#phoneError").html('<font color="red">请输入手机号码！</font>');
+                $("#MailError").attr('style','display: inline');
+
+            }else{
+                $("#phoneError").html('输入正确');
+              $("#phoneError").attr('style','color:green;display: inline');
+            }
+        
+        });
+
+    $('#email').blur(function () 
+        { 
+            var email = $.trim($("#email").val());
+            var e = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+            if (!email || e.test(email) == false) { 
+                $("#MailError").html('<font color="red">请输入邮箱！</font>');
+              $("#MailError").attr('style','display: inline');
+
+            }else{
+              $("#MailError").html('输入正确');
+              $("#MailError").attr('style','color:green;display: inline');
+            }
+        
+        });
+
+    $("#submit").click(function(){
+        var email = $.trim($("#email").val());
+        var goods_id = $.trim($("#goods_id").val());
+        var phone = $.trim($("#phone").val());
+        $.post("{U('Product/Index/notify')}",{phone:phone,email:email,goods_id:goods_id}, function(ret) {
+            if (ret.status==1) {
+                var succeeded_html = '<div class="succeeded_ico"><img alt="订阅成功" src="{THEME_STYLE_PATH}style/images/succeeded_ico.png"></div>';
+                $("#notify_con").html(succeeded_html);
+            }else{
+                $("#notProduce").html(ret.info);
+            }
+        });
+    });
+
+    });
+</script>

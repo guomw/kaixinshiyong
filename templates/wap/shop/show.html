@@ -1,0 +1,161 @@
+{include template('header','common')}
+	<style>
+		.user{
+			display:table-cell;
+			width:16.875%;
+			height:1.1em;
+			position: absolute;
+			top: 0.6875em;
+			right: 0;
+		}
+			
+		.user a{
+			display:block;
+			width:50%;
+			margin:0 auto;
+			height:100%;
+			background:url({THEME_STYLE_PATH}style/default/images/user.png) no-repeat center center;
+			background-size:auto 100%;
+		}
+	</style>
+	<div id="wrapper">
+		<div id="header-style">
+			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
+			<strong class="d-block uset-t-text">积分兑换</strong>
+			<div class="user">
+                {if is_login()}
+                <a href="{U('Member/Profile/index')}"></a>
+                {else}
+                <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"></a>
+                {/if}
+            </div>
+		</div>
+		<div class="content fs-18">
+			<div class="change-banner">
+				<img src="{$shop[images]}" alt="" />
+				<div class="hint">
+					<h2 class="c-white d_ib">{$shop[title]}</h2>
+					<p class="txt c-white d_ib fr f1_5" style="margin: 0; line-height: normal;">
+						<strong>所需积分：<i class="c-bb000d">{$shop[point]}</i></strong>
+					</p>
+					<!--  背景  -->
+					<span class="shade bg-000"></span>
+				</div>
+			</div>
+			<div class="act-mess">
+				<ul class="list clear" style="padding: 0;">
+					<li class="bt_aeaeae f1_5" style="width: 100%; line-height: 2.6em;">商品数量：<b class="c-bb000d"><?php echo ($shop['total_num'] - $shop['sale_num']) ?>/{$shop[total_num]}</b>件</li>
+                    <li class="bt_aeaeae f1_5" style="width: 100%; line-height: 2.6em;">价值：<b class="c-bb000d">{$shop[price]}</b>元</li>
+                    <li class="bt_aeaeae f1_5" style="width: 100%; line-height: 2.6em;">宝贝属性：
+                        {loop $specs $spec}
+                            <span {if $n == 1}class="sepc_active"{/if}>{$spec}</span>
+                        {/loop}
+                    </li>
+					<li class="bt_aeaeae f1_5" style="width: 100%; line-height: 2.6em;">活动分类：<i>积分兑换</i></li>
+				</ul>
+				<p class="timer c-bb000d clear bt_aeaeae f1_5 lh2_6">
+					<span class="fl" style="width: 100%">剩余时间：<i id="remain_time">loading...</i></span>
+				</p>
+				<p class="hint c-f60 f1_5">
+					温馨提示：
+					<b>
+					兑换实物前，请于个人中心填写好您的详细地址	
+					</b>
+				</p>
+
+                <p class="timer c-bb000d clear">
+                    <span style="width: 100%" class="fl" id="msg">
+
+                    </span>
+                </p>
+
+			</div>
+			<div class="details">
+				<ul class="deta-title deta-t-50 clear">
+					<li class="fl deta-focus"><b><a href="javascript:;" class="d-block fs-24">宝贝详情</a></b></li>
+					<li class="fl"><b><a href="javascript:;" class="d-block fs-24">兑换规则</a></b></li>
+				</ul>
+				<div class="deta-box deta-big d-block f1_5" style="padding: 1em 0 0 0; min-height:50em;">
+                    <!--{html_entity_decode($shop[desc])}-->
+                    <ul>
+                   {$shop[desc]}
+                    </ul>
+				</div>
+				<div class="deta-box deta-notice d-none f1_5" style="padding: 1em 0 0 0; min-height: 50em;">
+                    <ul>
+                    兑换说明<br><br>
+                    1、兑换开始后，所有会员均可点击“我要兑换”按钮进行宝贝兑换。<br>
+                    2、为了更好的回馈会员，所有的宝贝兑换不收取任何费用，我们包邮为您送到家。<br>
+                    3、只能使用在{C('WEBNAME')}获得的积分兑换，积分余额不足则不能兑换，您也可以直接去淘宝购买该宝贝。<br>
+                    4、{C('WEBNAME')}会在3-5个工作日内完成发货，具体到货时间取决于物流的发货速度。<br>
+                    5、一旦兑换即扣除相应积分，所兑换的礼品将在后台审核后发出。如审核过程中发现该用户积分行为异常，兑换礼品将不予发放，已扣除积分不退还。如该用户恶意刷积分
+                    行为严重，我们保留不另行通知而直接封禁该用户账号的权利。<br>
+                    6、由于宝贝数量有限，每个宝贝每人仅能兑换1份。<br><br>
+
+                    注意事项<br><br>
+                    1、{C('WEBNAME')}内部员工禁止参加0元换购中的任何兑换活动。<br>
+                    2、请准确填写收货地址和电话,如因填写的地址或电话有误导致的快递丢失,积分不退<br>
+                    3、积分兑换的商品，一经换出不予退换<br>
+                    4、{C('WEBNAME')}有权在活动未开始前对活动信息进行更改，活动信息以兑换活动开始后的为准<br>
+                    5、在接到快递时请本人签收并当场确认，如物品有问题请务必拒签，否则不予处理<br>
+                    6、全国多数地区包邮，部分地区（港澳台，新疆，内蒙，西藏，甘肃、青海等偏远地区）不包邮
+                    </ul>
+				</div>
+			</div>
+		</div>
+
+        <!--   悬浮   -->
+        <div class="suspend">
+            <ul class="clear">
+                <!--<span class="undefined icon"></span>-->
+                <li><b><a href="javascript:;" onclick="dosubmit()" style="background: #bb000d;">立即兑换</a></b></li>
+                <!--<li><b><a href="javascript:;" class="set-top">返回顶部</a></b></li>-->
+            </ul>
+        </div>
+{include template('footer','common')}
+<script>
+    function dosubmit() {
+        $.post('index.php?m=shop&c=api&a=submit', {
+            shop_id : {$shop[id]},
+            spec: $("span.sepc_active").text(),
+            ajax : 1
+        }, function(ret) {
+            $("#msg").html(ret.info)
+            return false;
+        }, 'JSON');
+    }
+
+    show_remain_time(<?php echo ($shop['end_time'] - NOW_TIME) ?>);
+    /* 活动剩余时 */
+    function show_remain_time(sec) {
+        var timer = null;
+        timer = setInterval(function() {
+            sec -= 1;
+            if (sec <= 0) {
+                $("#remain_time").html('活动时间到');
+                clearInterval(timer);
+                return;
+            }
+            $("#remain_time").html(count_down(sec));
+        }, 1000);
+        $("#remain_time").html(count_down(sec));
+    }
+    function count_down(sec) {
+        var s = sec;
+        var left_s = s % 60;
+        var m = Math.floor(s / 60);
+        var left_m = m % 60;
+        var h = Math.floor(m / 60);
+        var left_h = h % 24;
+        var d = Math.floor(h / 24);
+        var ret = [];
+        d && ret.push('<em class="d"> ', d, '</em> 天');
+        left_h && ret.push('<em class="h"> ', time_pad(left_h), '</em> 小时');
+        left_m && ret.push('<em class="m"> ', time_pad(left_m), '</em> 分');
+        left_s && ret.push('<em class="s"> ', time_pad(left_s), '</em> 秒');
+        return ret.join('');
+    }
+    function time_pad(s) {
+        return Number(s) > 9 ? String(s) : "0" + String(s);
+    }
+</script>

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>买家个人中心-{C('WEBNAME')}</title>
+<meta name="keywords" content="买家个人中心,{C('WEBNAME')}" />
+<meta name="description" content="买家个人中心,{C('WEBNAME')}" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/shops_vip_style.css" />
+<link rel="stylesheet" href="{THEME_STYLE_PATH}style/css/personal_member_index.css" />
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/Move.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/setIndex.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/slide.js"></script>
+<script type="text/javascript" src="{JS_PATH}dialog/jquery.artDialog.js?skin=default"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//首页顶部移入效果
+		setTopMouseover();	
+		/* $(".portrait").click(function(){
+			$("#file_upload").click();
+		});
+		$("#file_upload").change(function(){
+			if($("#file_upload").val() != '') $("#form0").submit();
+		}); */
+	});
+</script>
+
+<style type="text/css">
+ .file_upload{width:100px !important; height:100px !important;}
+.swfupload{width:100px !important; height:100px !important;}
+.uploadify{top:80px !important;}
+.portrait img{border-radius:50%;}
+</style>
+
+</head>
+<body>
+<!-- wrap 内容页盒模型 -->
+{include template('toper','common')}
+{include template('header','member/common')}
+	<div class="content">
+		<div class="content_wrap overflow_hidden">
+<div class="nav_path">
+		<a href="{__APP__}">首页</a>&nbsp;>
+		<a href="{U('Member/Profile/index')}" class="nav_active">个人中心</a>
+</div>
+				
+			{include template('member_left','member/common')}
+			<div class="content_right float_right">
+				<h1>个人中心</h1>
+				<div class="content_right_data">
+					<div class="avatar float_left">
+							<!-- <form id="form0" name="form0" method="post" action="{U('Member/Profile/avatar')}" enctype="multipart/form-data"> -->
+							<div>
+								<!-- <input  id="file_upload" name="file_upload"  type="file" value=""  style="display:none;"/> -->
+								<div class="portrait"><img  src="<?php echo $this->userinfo[avatar];?>" width="80" height="80" alt="" /></div>
+							</div>
+							<!-- </form>  -->
+						
+						<div class="nickname">
+							<span><?php echo $this->userinfo['nickname']?></span>
+						</div>
+					</div>
+					<div class="aut float_left">
+						<dl>
+							<dt>认证邮箱：</dt>
+							<dd class="w77"><?php echo $this->userinfo['email']?></dd>
+						</dl>
+						<dl>
+							<dt>手机认证：</dt>
+							{if $this->userinfo['phone_status'] == '0'}
+							<dd class="w240">未认证</dd>
+							<dd><a href="{U('Member/Attesta/index')}">立即认证</a></dd>
+							{else}
+							<dd class="w240"><?php echo $this->userinfo['phone']?></dd>
+							<dd><a href="{U('Member/Attesta/index')}">修改</a></dd>
+							{/if}
+						</dl>
+						<dl>
+							<dt>支付账号：</dt>
+							{if $this->userinfo['alipay_status'] == '0'}
+								<dd class="w240">未绑定</dd>
+								<dd><a href="{U('Member/Attesta/index')}">立即绑定</a></dd>
+							{else}
+								<dd class="w240">{$alipay_name}</dd>
+							{/if}
+						</dl>
+						<dl class="bordernone">
+							<dt>收货地址：</dt>
+							<dd class="w240">{$address['r_address']}</dd>
+							<dd><a href="{U('Member/Profile/infomation')}">修改地址</a></dd>
+						</dl>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="price float_left">
+						<p class="balance">可用余额：<span><?php echo $this->userinfo['money'];?></span>&nbsp;元</p>
+						<p style="margin:10px 0 34px 0;">
+							{if $this->userinfo[modelid] == 2}<a href="{U('Pay/Index/pay')}">充值</a>&nbsp;{/if}
+							<a href="{U('Pay/Index/deposite')}">提现</a>&nbsp;
+							<a href="{U('Member/Financial/index')}">明细</a>&nbsp;
+						</p>
+						<p class="integral">可用积分：<span><?php echo $this->userinfo['point']?></span>&nbsp;<a href="{U('Shop/index/index')}">兑换</a></p>
+
+						<p><a href="javascript:;" id="sign" class="sign sign_bg_on ">{if ! is_sign($this->userid)}签到{else}已签到{/if}</a></p>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="collection">
+						<h1>我的收藏</h1>
+						<div class="line"></div>
+						<div class="collection_header">
+							<ul>
+								<li style="width:155px;">商品名称</li>
+								<li style="width:290px;">收藏时间</li>
+								<li style="width:115px;">状态</li>
+								<li style="width:180px;">操作</li>
+							</ul>
+						</div>
+						<div class="collection_list">
+							<ul>
+								{loop $collect_list $v}
+								
+								<li>
+									<span style="width:155px;">
+										<a href="{U('product/index/show',array('id'=>$v['goods_id']))}"  title="{$v[title]}"><img src="{$v['thumb']}" /></a>
+										<a href="{U('product/index/show',array('id'=>$v['goods_id']))}" class="shop_name" title="{$v[title]}">{str_cut($v[title],21)}</a>
+									</span>
+									<span style="width:290px;">{dgmdate($v[dateline],"Y-m-d H:i ")}</span>
+									<span style="width:90px;">{$v[status]}</span>
+									<span style="width:190px;">
+										<a href="{U('product/index/show',array('id'=>$v['goods_id']))}" class="order">去下单</a>
+										<a href="{U('Member/Collect/delete',array('id'=>$v[id]))}">删除</a>
+									</span>
+								</li>
+								
+								{/loop}
+								
+							</ul>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{include template('footer','common')}
+<script type="text/javascript">
+	$(function(){
+		$("#sign").click(function(){
+			$.post("{U('Member/Sign/index')}",function(data){
+				if (data.status == 1) {
+					art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-smile',
+						title: '提示',
+						content: data.info,
+						okVal: '确定',
+						ok:function() { 
+							location.reload();
+						}
+					});
+				} else {
+					art.dialog({
+						lock: true,
+						fixed: true,
+						icon: 'face-sad',
+						title: '错误提示',
+						content: data.info,
+						ok: true
+					});
+				}
+
+			},'json')
+		});
+	});
+
+</script>

@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{get_seo('site_web_title','','')}</title>
+    <meta name="keywords" content="{get_seo('keyword','','')}">
+    <meta name="description" content="{get_seo('description','','')}">
+   
+    <script src="{THEME_STYLE_PATH}style/js/jquery-1.9.1.min.js" type="text/javascript" language="javascript"></script>
+
+     <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/ling_index.css" type="text/css" rel="stylesheet">
+    <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/ling_index2.css" type="text/css" rel="stylesheet">
+    <script src="{THEME_STYLE_PATH}style/js/ling_index.js" type="text/javascript" language="javascript"></script> 
+     <script src="{THEME_STYLE_PATH}style/js/ling_credit.js" type="text/javascript" language="javascript"></script> 
+     <script src="{THEME_STYLE_PATH}style/js/ling_pop.js" type="text/javascript" language="javascript"></script> 
+     <script src="{THEME_STYLE_PATH}style/js/ling_headtop.js" type="text/javascript" language="javascript"></script> 
+    <script>
+        var userId = 0;
+    </script>
+</head>
+<body>
+    <div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;">
+        
+    </div>
+    <div id="top-banner" style="height: 75px;">   
+        <div class="banner-min-bg" style="top: 0px;">        
+                <div class="banner-box">           
+                     <span class="slideDown" title="展开" style="top: 0px;">
+                         
+                     </span>        
+                </div>       
+                <script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=13"></script>
+        </div>    
+       <!--  <div class="banner-max-bg" style="top: -300px;">       
+         <div class="banner-box">           
+            <span class="slideUp" title="收起" style="top: -75px;"></span>        
+         </div>        
+         <a href="http://www.lingla.com/help/MerchantApply" id="bigImgClick" target="_blank">    
+            <img class="none" src="{THEME_STYLE_PATH}style/images/ling/e522749c-b71b-4749-832f-e15e9420cf5a.jpg" alt="赚佣金赚佣金:)"></a> 
+              </div> -->
+    </div>
+    
+
+  <link media="screen" title="styles1" href="{THEME_STYLE_PATH}style/css/ling_credit.css" type="text/css" rel="stylesheet">
+
+<style type="text/css">
+
+    .top_wenh {
+        cursor: pointer;
+        height: 17px;
+        width: 17px;
+        float: right;
+        margin-left: 6px;
+        margin-top: 11px;
+    }
+
+    .banner-max-bg a, .banner-min-bg a {
+width: 100%;
+height: 100%;
+display: block;
+cursor: pointer;
+}
+</style>
+{php $userinfo = is_login();}
+<div class="yonghu_top">
+    <div id="header" class="header">
+        <div class="header_main">
+            
+<div style="background: #F2F2F2; width: 100%;height: 35px">
+    <div class="header_top" style="margin-left: auto; margin-right: auto;">
+        <!-- 未登录 -->
+        {if !$userinfo}
+            <div class="header_leftt">
+                <div class="top_pm">
+                    <span>您好，</span>
+                </div>
+                <div class="top_Signin" id="dluyhu">
+                    <a href="javascript:" onclick="login()" class="mrxhjt" id="qqsjdel">用户登录</a>
+                    <div href="javascript:" class="zhsjdl" id="Cellph">
+                        <a href="{U('Oauth/Index/login')}" target="_blank"><i></i>QQ账号登录</a>
+                        <a href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}"><i></i>{C('WEBNAME')}帐号登录</a>
+                    </div>
+                </div>
+                <div class="top_mb">
+                    |&nbsp;&nbsp;<a id="Bisa" href="{U('Member/Index/login', array('refresh' => urlencode(__SELF__)))}">[商家登录]</a>|
+                    <a id="Bisa" href="{U('Member/Index/register')}">免费注册</a>
+                </div>
+                <div class="top_left">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank" class="on-service">在线客服</a>
+                </div>
+            </div>
+            {else}
+
+            <!-- 未登录 -->
+            <!-- 已登录 -->
+            <div class="header_leftt">
+                    <div class="top_pm">
+                        <span>您好，</span>
+                        <div class="op-menu">
+                            <a href="{U('member/profile/index')}" target="_blank" class="top-nickname">
+                                {$userinfo['nickname']}
+                                <i class="top-down"></i>
+                            </a>|
+                            <div class="top-toggle" style="display: none;">
+                                <a href="{U('Member/Order/manage', array('mod' => 'trial'))}" target="_blank"><i class="top-try"></i>我的试用</a>
+                                <a href="{U('Member/Financial/work_log')}" target="_blank"><i class="top-cm"></i>我的日赚任务</a>
+                               <!--  <a href="/FastCommissionUser/List" target="_blank"><i class="top-sjyh"></i>我的闪电佣金</a> -->
+                              <!--   <a href="javascript:" onclick="gotospace(22192)"><i class="top-grkjian"></i>我的个人空间</a> -->
+                                <a href="{U('Member/MemberFriend/index')}" target="_blank"><i class="top-u-ad"></i>有奖邀请</a>
+                                <a style="border: none;" href="{U('Member/Index/logout')}"><i class="top-out"></i>退出</a>
+                            </div>
+                        </div>
+                    </div>
+                <!--top_pm-->
+                <div class="top_ml">
+                    <dl>
+                        <dd>
+                            <a class="xin_po" href="{U('Member/Announce/announce',array('type'=>1))}" target="_blank">提醒(<strong>{message_count($userinfo["userid"])}</strong>)</a>|
+                            <!--top_ld-->
+                        </dd>
+                    </dl>
+                </div>
+                <!--top_ml-->
+                <div class="top_left">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank" class="on-service">在线客服</a>
+                </div>
+                <!--top_ml-->
+            </div>
+            {/if}
+            <!-- 已登录 -->
+        <!--header_left-->
+
+        <div class="header_right">
+            {if !$userinfo}
+            <a href="{__APP__}">{C('WEBNAME')}网</a>
+            {else}
+
+            <div class="wd_lingla">                    
+                        <span onclick="{U('Member/profile/index')}">我的{C('WEBNAME')}</span>
+                        <div class="top-toggle_a">
+                            <a href="{U('Member/Order/manage', array('mod' => 'trial'))}" target="_blank"><i class="top_xg"></i>我的试用</a>
+                            <a href="{U('Member/Financial/work_log')}" target="_blank"><i class="top_xg_a"></i>我的日赚任务</a>
+                          <!--   <a href="/FastCommissionUser/List" target="_blank"><i class="top_xg_b"></i>我的闪电佣金</a>
+                            <a href="javascript:" onclick="gotospace(22192)"><i class="top_xg_c"></i>我的个人空间</a> -->
+                            <a href="{U('Member/MemberFriend/index')}" target="_blank"><i class="top_xg_d"></i>有奖邀请</a>
+                            <a href="{U('Member/Index/logout')}"><i class="top_xg_e"></i>退出</a>
+                        </div>
+                </div>
+
+            {/if}
+
+
+            |
+            <a href="javacript:;" target="_blank"><i class="top-icon-ph"></i>手机客户端</a>|
+            <a href="{U('Member/MemberFriend/index')}" target="_blank">邀请好友<span style="color: #ed594f; font-weight: bold;">送75元</span></a>|
+               <!--  <a href="javascript:" onclick="login()">做问卷送金币</a> -->
+                |
+            <a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">帮助中心</a>|
+            <a href="{U('navigation/index/index')}" target="_blank" class="sbdjx" id="naviatetext">网站导航</a>
+            <div class="oneto" id="naviate">
+                <div class="onetoa">
+                    <p class="tcbt">
+                        <a href="{U('product/index/all')}">免费试用</a>
+                    </p>
+                    <p>
+                        <a href="{U('product/index/all')}" target="_blank">试用专区</a>&nbsp;&nbsp;<a href="{U('product/index/report_list')}" target="_blank">试用报告</a>
+                    </p>
+                </div>
+                <div class="onetoa">
+                    <p class="tcbt">
+                        <a href="{U('product/index/lists',array('mod'=>'trial'))}">赚佣金</a>
+                    </p>
+                    <p>
+                        <a href="{U('product/index/lists',array('mod'=>'trial'))}">赚佣金</a>&nbsp;&nbsp;
+                    </p>
+                </div>
+                <div class="onetoa">
+                    <p class="tcbt">
+                        <a href="{U('task/index/broke')}">任务中心</a>
+                    </p>
+                    <p>
+                        
+                        <a href="{U('task/index/broke')}" target="_blank">日赚任务</a>
+                    </p>
+                </div>
+                <div class="onetoa" style="height: 82px;">
+                    <p class="tcbt">
+                        <a href="{U('Member/MemberFriend/index')}">站内活动</a>
+                    </p>
+                    <p>
+                        <a href="{U('Member/MemberFriend/index')}" target="_blank">邀请送75元</a>&nbsp;<!-- <a href="http://lottery.lingla.com/" target="_blank">金币抽奖</a> -->
+                    </p>
+                   
+                </div>
+                <div class="onetoa">
+                    <p style="padding-top: 8px;">
+                        <a href="{U('Member/EnterActivity/index')}" target="_blank">商家报名</a>&nbsp;&nbsp;
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <!--header_right-->
+    </div>
+</div>
+<!--header_top-->
+            <!--header_top-->
+            <style type="text/css" media="screen">
+            .qn-logo {
+                background: url('{C('SITE_LOGO_ZHU')}') no-repeat; 
+                float: left;
+                height: 56px;
+                width: 240px;
+                margin: 17px 20px auto 0;
+                display: inline;
+            }
+                
+            </style>
+    <div class="header_center">
+                <a href="/">
+                    <div class="qn-logo">
+                        <h1 class="mfsyo">海量优质商品 免费试用</h1>
+                    </div>
+                </a>
+                <div class="lanrenzhijia showtrytype">
+                    <div id="img">
+                        <a href="/Regist/CreditCertification" target="_blank">
+                            <img src="{THEME_STYLE_PATH}style/images/ling/mediare.jpg" width="186" height="22" alt="" border="0" style="display: none;">
+                        </a>
+                        <a href="/Regist/CreditCertification" target="_blank">
+                            <img src="{THEME_STYLE_PATH}style/images/ling/mediasan.jpg" width="186" height="22" alt="" border="0" style="display: none;">
+                        </a>
+                        <a href="/Regist/CreditCertification" target="_blank">
+                            <img src="{THEME_STYLE_PATH}style/images/ling/mediasi.jpg" width="186" height="22" alt="" border="0" style="display: none;">
+                        </a>
+                        <a href="/Regist/CreditCertification" target="_blank">
+                            <img src="{THEME_STYLE_PATH}style/images/ling/mediayi.jpg" width="186" height="22" alt="" border="0" style="display: none;">
+                        </a>
+                    </div>
+                </div>
+                <!--logo-->
+                <a href="/other/appdownload" target="_blank" class="qn-lg-right"></a>
+                <div id="logo_right" class="logo_right">
+                    <div class="kl">
+                        <script type="text/javascript">
+                            function keyLogin(evt) {
+                                evt = window.event || evt;
+                                if (evt.keyCode == 13)   //回车键的键值为13
+                                    searchGoods(); //调用登录按钮的登录事件
+                            }
+                        </script>
+                        <input name="" type="button" class="dl">
+                        <input id="searchText" name="" type="text" class="pl search-text" oonblur="if(!value){value=defaultValue;this.style.color='#cccccc'}" onfocus="if(value==defaultValue){value='';this.style.color='#000'}" search-keyword=""placeholder="搜索试用品">
+                        <a id="inputsearch" type="button" class="fl search-button"></a>
+                    </div>
+                    <!--kl-->
+                </div>
+                <!--logo_right-->
+            </div>
+            <!--header_center-->
+            <div id="nav" class="nav" style="font-family: 微软雅黑;">
+                <div class="main">
+                    <!--qiandaog-->
+                    <ul>
+                        <li class="showtrytype"><div class="fication">试用品分类</div></li>
+                        <li><a href="{__APP__}" class="selet">首页</a></li>
+                        <?php $url = $_SERVER['REQUEST_URI'];?>             
+                        {pc:document action="navigate" navid="0" num="7" order="listorder ASC"}
+                        {php $i = 0;}
+                        {loop $data $d}
+                        {php $i++;}
+                        {if $d[url] != '/rebate/'}
+                        <li>
+                            <a href="{$d[url]}" {if $url== $d[url]} class="selet"{/if}>
+                               {$d[name]}
+                                 {if $i == 1}
+                                <span class="ntp-hot" style="display: none;">
+                                    <img src="{THEME_STYLE_PATH}style/images/ling/hot.png" class="png_bg">
+                                </span>
+                                {/if}
+                            </a>
+                        </li>
+                          {/if}
+                        {/loop}
+                        {/pc}
+                       <!--  <li>
+                            <a href="http://www.lingla.com/fastcommissionhome" class="">
+                                闪电佣金<span class="ntp-hot sand" style="display: none;">
+                                    <img src="{THEME_STYLE_PATH}style/images/ling/srxsfh.png">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.lingla.com/commission" class="">
+                                赚佣金
+                            </a>
+                        </li>
+                        <li><a href="http://www.lingla.com/home/todayshop" class="">领划算</a></li>
+                        <li>
+                            <a href="http://www.lingla.com/task" class="">
+                                任务中心<span class="ntp-hot" style="display: none;">
+                                    <img src="{THEME_STYLE_PATH}style/images/ling/hot.png" class="png_bg">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://lottery.lingla.com/" target="_blank" class="">
+                                金币抽奖
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://report.lingla.com/" target="_blank" class="">
+                                试用报告
+                            </a>
+                        </li> -->
+                    </ul>
+                    
+                      <!--   <img id="ques_pic" class="top_wenh" onmouseover="$(&#39;#ques_tip&#39;).show()" onmouseout="$(&#39;#ques_tip&#39;).hide()" src="{THEME_STYLE_PATH}style/images/qmark.png"> -->
+                    
+                    <img src="{THEME_STYLE_PATH}style/images/ques_tip.png" id="ques_tip" class="anws_pic xgbjyy">
+                        <div class="qiandao">
+                            <a href="{U('Member/profile/index')}" title="使用积分可以兑换积分商品" id="qiandaotext" >签到送积分</a>
+                        </div>
+                    <div class="sj_apply">
+                        <a href="{U('Member/EnterActivity/index')}" target="_blank">商家报名</a>
+                    </div>
+                </div>
+            </div>
+            <!--nav-->
+        </div>
+        <!--header_main-->
+    </div>
+    <!--header-->
+</div>
+
+<script>
+    $(function () {
+        $("#QQ_login").hover(function () {
+            $("#QQ_login img").attr('src', '/Content/images/QQ_login_hover.png');
+        }, function () {
+            $("#QQ_login img").attr('src', '/Content/images/QQ_login.png');
+        });
+
+    });
+    function cancel_QQ() {
+        document.getElementById("fixed_QQ").style.display = "none";
+        document.getElementById("fixed_QQ2").style.display = "none";
+    }
+</script>
+<!-- <div id="fixed_QQ" style="display: none;">
+</div> -->
+<!-- <div id="fixed_QQ2" style="display: none;">
+    <div class="QQ-fx-bt">
+        <div class="QQ-shouj">    
+            <img src="./试客网_免费试用中心_试客试用品联盟_免费试用网站—领啦网_files/syssmaz.png">
+        </div>
+        <div class="QQ-right">
+            <div class="QQ-right_a">
+                <img src="./试客网_免费试用中心_试客试用品联盟_免费试用网站—领啦网_files/lingdao.png">
+            </div>
+            <div class="QQ-right_b">
+                <a style="margin-top: 0px;margin-bottom: 5px">直接下载</a>
+                <a href="http://m.lingla.com/update/lingla.apk" class="anniu">Android下载</a>
+                <a href="https://itunes.apple.com/us/app/ling-la-wang/id954195662?l=zh&ls=1&mt=8" target="_blank" class="anniu">iPhone下载</a>
+            </div>
+                  <div class="QQ-right_c">                
+                    <a href="javascript:" onclick="qqLogin()"></a>
+                    <p style="font-weight: bold;">新用户登录<em>就送50金币</em></p>
+                    <p>可直接兑换一件商品哦！</p>
+                </div>
+            <div class="QQ-right_cone">        
+            </div>
+            <div class="QQ-right_d">            
+                <img style="cursor: pointer;" src="./试客网_免费试用中心_试客试用品联盟_免费试用网站—领啦网_files/guanbaniu.png" onclick=" cancel_QQ() ">
+            </div>
+        </div>  
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<style>.none { display: none; }
+#top-banner { width: 100%; height: 300px; position: relative; }
+.banner-max-bg, .banner-min-bg { width: 100%; position: absolute; }
+.banner-max-bg a, .banner-min-bg a { width: 100%; height: 100%; display: block; cursor: pointer; }
+.banner-max-bg { height: 300px;
+ background: url({THEME_STYLE_PATH}style/images/e522749c-b71b-4749-832f-e15e9420cf5a.jpg) no-repeat bottom #f6615b; }
+.banner-min-bg { height: 75px; top: -75px; background: url({THEME_STYLE_PATH}style/images/ling/4ae26d21-4e23-4c3e-9b6f-aafa9f282d58.jpg) no-repeat bottom #f6615b; }
+.banner-box { width: 1000px; margin: 0 auto; position: relative; }
+.slideUp, .slideDown { width: 35px; height: 54px; position: absolute; top: 0; right: 0; display: block; cursor: pointer; }
+.slideDown { background: url({THEME_STYLE_PATH}style/images/ling/button_up_down.png) no-repeat; }
+.slideUp { background: url({THEME_STYLE_PATH}style/images/ling/button_up_down.png) no-repeat; }
+</style>
+  <script type="text/javascript">
+    url = "http://www.lingla.com/help/MerchantApply";
+    bigImg = "{THEME_STYLE_PATH}style/images/ling/e522749c-b71b-4749-832f-e15e9420cf5a.jpg";
+    smallImg = "{THEME_STYLE_PATH}style/images/ling/4ae26d21-4e23-4c3e-9b6f-aafa9f282d58.jpg";
+
+    $(function () {
+        $("#smallImgClick,#bigImgClick").click(function () {
+            clickNumber(175);
+        });
+    });
+</script>
+<script>
+    var isshowfudai = "False";
+</script>
+<div class="content">
+    <div class="sidebar">
+            <a href="/category/1" target="_blank">
+                <div class="sidebar_a good1">
+                     <i></i><div class="sidebar_aone">潮流女装</div>
+
+                </div>
+            </a>
+            <a href="/category/21" target="_blank">
+                <div class="sidebar_a good2">
+                    <i></i><div class="sidebar_aone">数码家电</div>
+                </div>
+            </a>
+            <a href="/category/22" target="_blank">
+                <div class="sidebar_a good3">
+                    <i></i><div class="sidebar_aone">美容护肤</div>
+                </div>
+            </a>
+            <a href="/category/5" target="_blank">
+                <div class="sidebar_a good4">
+                    <i></i><div class="sidebar_aone">时尚配饰</div>
+                </div>
+            </a>
+            <a href="/category/3" target="_blank">
+                <div class="sidebar_a good5">
+                    <i></i><div class="sidebar_aone">精品男装</div>
+                </div>
+            </a>
+            <a href="/category/82" target="_blank">
+                <div class="sidebar_a good6">
+                    <i></i><div class="sidebar_aone">家居日用</div>
+                </div>
+            </a>
+            <a href="/category/23" target="_blank">
+                <div class="sidebar_a good7">
+                    <i></i><div class="sidebar_aone">美食特产</div>
+                </div>
+            </a>
+            <a href="/category/20" target="_blank">
+                <div class="sidebar_a good8">
+                      <i></i><div class="sidebar_aone">鞋子箱包</div>
+                </div>
+            </a>
+            <a href="/category/92" target="_blank">
+                <div class="sidebar_a good9">
+                    <i></i><div class="sidebar_aone">文化娱乐</div>
+                </div>
+            </a>
+    </div>
+    <div class="banner">
+        <div id="SuperSlide" class="SuperSlide">
+            <div class="hd">
+                    <span class="on"></span>
+                    <span class=""></span>
+                    <span class=""></span>
+                    <span class=""></span>
+                    <span class=""></span>
+                    <span class=""></span>
+            </div>
+            <div class="bd">
+                <ul>
+
+                    {pc:document action="turn_rund" num="6" order="listorder ASC" where="type=1"}
+                    {loop $data $t}
+                    <li style="display: list-item;"><a href="{$t[url]}" onclick="clickNumber({$t[id]})" target="_blank"><img src="{$t[image]}" class="banner_a" style="width: 740px;"></a></li>
+                    {/loop}
+                    {/pc}
+
+                       <!--  <li style="display: none;">
+                            <a href="http://www.lingla.com/other/appdownload" onclick="clickNumber(179)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/84bc1917-3a46-4fc8-b998-ba2bbdbafe2b.jpg">
+                            </a>
+                        </li>
+                        <li style="display: none;">
+                            <a href="http://try.lingla.com/Home/Detail?id=26075" onclick="clickNumber(176)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/6cb3cf4a-1247-4a68-8bf7-22740790e83c.jpg">
+                            </a>
+                        </li>
+                        <li style="display: none;">
+                            <a href="http://www.lingla.com/other/appdownload" onclick="clickNumber(169)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/b044be4f-11ae-4dcb-83bc-f70646a654fb.jpg">
+                            </a>
+                        </li>
+                        <li style="display: list-item;">
+                            <a href="http://mall.jd.hk/index-146161.html" onclick="clickNumber(36)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/d1439191-55b8-48b1-99ac-4576567c9d26.jpg">
+                            </a>
+                        </li>
+                        <li style="display: none;">
+                            <a href="https://item.taobao.com/item.htm?spm=686.1000925.0.0.RHeiMJ&id=521035577865&qq-pf-to=pcqq.c2c" onclick="clickNumber(168)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/970af36b-1b14-4ea7-a95e-7ad0c4590d14.jpg">
+                            </a>
+                        </li>
+                        <li style="display: none;">
+                            <a href="http://www.lingla.com/Invitation/InvitationIndex" onclick="clickNumber(170)" target="_blank">
+                                <img class="banner_a" style="width: 740px; " src="{THEME_STYLE_PATH}style/images/ling/298b137d-b0ee-414b-a3cc-0f55cef9c996.jpg">
+                            </a>
+                        </li> -->
+                </ul>
+            </div>
+            <a class="superprev" href="javascript:void(0)"><i></i></a>
+            <a class="supernext" href="javascript:void(0)"><i></i></a>
+        </div>
+        <ul class="gugao">
+
+            <li><script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=14"></script></li>
+            <li><script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=15"></script></li>
+            <li><script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=16"></script></li>
+
+<!-- 
+                <li>
+                    <a href="http://www.lingla.com/task" onclick="clickNumber(93)" target="_blank">
+                        <img class="" src="{THEME_STYLE_PATH}style/images/ling/55c6db5e-e811-4fd9-8896-a27121b72cb0.jpg">
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="http://www.lingla.com/other/appdownload" onclick="clickNumber(91)" target="_blank">
+                        <img class="" src="{THEME_STYLE_PATH}style/images/ling/6359ec3a-e9ed-44cc-84b6-550e3d1be5a8.jpg">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://lottery.lingla.com/" onclick="clickNumber(92)" target="_blank">
+                        <img class="" src="{THEME_STYLE_PATH}style/images/ling/7a6c4b07-b519-4891-a6e2-8923000d9519.jpg">
+                    </a>
+                </li> -->
+        </ul>
+    </div>
+    <div class="bmruk">
+        <div class="mian_right">
+            <div class="mian_right_top">
+                <a href="{U('Member/Index/register')}" target="_blank">免费注册</a>
+                <a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">帮助中心</a>
+                <a href="{U('Member/EnterActivity/index')}" target="_blank">商家报名</a>
+            </div>
+            <div class="mian_right_bottom">
+                <div class="right_mnv">
+                    <a id="usual1_a1" href="javascript:change_usual1(1);" class="seledt">官方公告</a>
+                    <a id="usual1_a2" href="javascript:change_usual1(2);" class="">试客规则</a>
+                    <a id="usual1_a3" href="javascript:change_usual1(3);" class="">商家规则</a>
+                </div>
+                <div class="guizhe">
+                    <div id="usual1_1" style="display: inline;">
+                        <div class="gonggao">
+                            <ul>
+                                    {pc:announce action="lists" num="4" order="inputtime DESC"}
+                                         {loop $data $k $r}
+                                    <li><a href="{U('Announce/Index/show',array('id'=>$r[announceid]))}"  {if $k == 0} style="color: #E74C3C"{/if} target="_blank">{$r[title]}</a></li>
+                                    {/loop}
+                                    {/pc}
+
+                                   <!--  <li><a href="http://www.lingla.com/AnnounceGongGao?sk_id=15" style="color: " target="_blank">关于商家活动违规的用户赔偿处理办法</a></li>
+                                    <li><a href="http://bbs.lingla.com/forum.php?mod=viewthread&tid=14&page=1&extra=#pid28" style="color: " target="_blank">2015年端午节假期安排通知</a></li>
+                                    <li><a href="http://bbs.lingla.com/forum.php?mod=viewthread&tid=5&extra=" style="color: " target="_blank">领啦商家违规/违约处罚条例</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!--gonggao-->
+                    <div id="usual1_2" style="display: none;">
+                        <div class="shike">
+                            <ul>
+                                {pc:document action="lists" catid="2" num="4" order="inputtime DESC"}
+                                {loop $data $r}
+                                <li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                                 {/loop}
+                                {/pc}
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <!--shike-->
+                    <div id="usual1_3" style="display: none;">
+                        <div class="shangjia">
+                            <ul>
+                                {pc:document action="lists" catid="3" num="5" order="inputtime DESC"}
+                                {loop $data $r}
+                                <li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                                 {/loop}
+                                {/pc}
+                            </ul>
+                        </div>
+                    </div>
+                    <!--shangjia-->
+                </div>
+            </div>
+        </div>
+        <a href="{U('Member/EnterActivity/index')}" target="_blank">
+            <img src="{THEME_STYLE_PATH}style/images/ling/msjr.jpg">
+        </a>
+        <div class="novice">
+            <div class="rumenxsh">
+                <em class="rumenxs">新手入门</em>
+                <em class="rumenxs rum">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" target="_blank">联系客服</a>
+                </em>
+            </div>
+            <a href="{U('product/index/all')}" target="_blank" class="rmdl">
+                <i></i>
+                免费试用
+            </a>
+            <a href="{U('task/index/borke')}" target="_blank" class="rmdl diyi">
+                <i></i>
+                日赚任务
+            </a>
+            <a href="{U('shop/index/index')}" target="_blank" class="rmdl dier">
+                <i></i>
+                积分商城
+            </a>
+            <a href="{U('product/index/report_list')}" target="_blank" class="rmdl disan">
+                <i></i>
+                试用报告
+            </a>
+        </div>
+    </div>
+    <script>
+    $(function () {
+        $('.img1').mouseover(function () {
+            $('.img1').hide();
+            $('.img2').show();
+        });
+        $('.img2').mouseout(function () {
+            $('.img1').show();
+            $('.img2').hide();
+        });
+    })
+</script>
+<style>
+    .floattips a {
+        width: 54px;
+        height: 54px;
+        border: 1px solid #e6e6e6;
+        display: block;
+        position: relative;
+        color: #ffffff;
+        background: #ffffff;
+        margin-bottom: 10px;
+        z-index: 998
+    }
+
+    .btwo {
+        background-position: 0 -63px;
+    }
+
+    .btwoa {
+        background-position: 0 -127px;
+    }
+
+    .btwob {
+        background-position: 0 -186px;
+    }
+
+    .btwoc {
+        background-position: 0 -254px;
+    }
+
+    .btwod {
+        background-position: 0 -318px;
+    }
+
+    .btwoe {
+        background-position: 0 -381px;
+    }
+
+    .xz1 {
+        width: 57px;
+        height: 57px;
+        position: absolute;
+        background: #f25f55;
+        top: -1px;
+        right: 0px;
+        bottom: 0px;
+        left: -1px;
+        text-align: center;
+        display: none;
+    }
+
+        .xz1 p {
+            width: 34px;
+            margin: 11px;
+            line-height: 17px;
+        }
+
+    .floattips a:hover .xz1 {
+        display: block;
+    }
+
+    .xz2 {
+        width: 175px;
+        height: 238px;
+        position: absolute;
+        right: 56px;
+        top: -93px;
+        z-index: 998;
+        display: none;
+    }
+
+    .floattips a:hover .xz2 {
+        display: block;
+        z-index: 998;
+    }
+
+    .floattips a i {
+        background-image: url( /Content/images/gdytdtiao.png);
+        width: 27px;
+        height: 35px;
+        background-repeat: no-repeat;
+        margin: 16px 14px;
+    }
+
+    .fudai {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        top: -149px;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .img2 {
+        position: absolute;
+        top: 0px;
+        display: none;
+    }
+    .xz_xg1 {
+        width: 57px;
+        height: 57px;
+        position: absolute;
+        top: -1px;
+        right: 0px;
+        bottom: 0px;
+        left: -1px;
+        text-align: center;
+        color: #999999;
+    }
+        .xz_xg1 p {
+            width: 34px;
+            margin: 11px;
+            line-height: 17px;
+            font-weight: bold
+        }
+
+</style>
+    <style>
+        .floattips {
+            position: absolute;
+            right: -75px;
+            top: 51px;
+            z-index: 998;
+            
+        }
+
+        .floattipstotop {
+            position: fixed;
+            top: 150px;
+            right: 50%;
+            margin-right:-670px
+        }
+    </style>
+<!-- <div class="floattips floattipstotop">
+    <a href="http://www.lingla.com/Regist/xinshourumen" target="_blank">
+           
+        <div class="xz_xg1">
+            <p>新手入门</p>
+        </div>
+        <div class="xz1">
+            <p>新手入门</p>
+        </div>
+    </a>
+    <a href="http://www.lingla.com/Regist/about/" target="_blank" class="bone">
+        <i class="btwod"></i>
+        <div class="xz1">
+            <p>在线客服</p>
+        </div>
+    </a>
+    <a href="http://www.lingla.com/invitation/invitationIndex" target="_blank" class="bone">
+        
+            <div class="xz_xg1">
+            <p style="width: 39px; margin: 10px 0 0 8px; ">邀请<br>送<em style="color: #f25f55">75元</em></p>
+        </div>
+        <div class="xz1">
+            <p style="width: 39px; margin: 10px 0 0 8px; ">邀请<br>送75元</p>
+        </div>
+    </a>
+    <a href="http://www.lingla.com/help/MerchantApply" target="_blank" class="bone">
+        
+             <div class="xz_xg1">
+            <p>商家入驻</p>
+        </div>
+        <div class="xz1">
+            <p>商家入驻</p>
+        </div>
+    </a>
+    <a href="http://www.lingla.com/other/appdownload" target="_blank" class="bone">
+        <i class="btwob" style="margin-top: 10px"></i>
+        <div class="xz2">
+            <img src="./试客网_免费试用中心_试客试用品联盟_免费试用网站—领啦网_files/linglaewm.png">
+        </div>
+    </a>
+    <a href="http://www.lingla.com/Feedback" target="_blank" class="bone">
+        <i class="btwoc"></i>
+        <div class="xz1">
+            <p>意见反馈</p>
+        </div>
+    </a>            
+    <a href="javascript:" onclick="$(&#39;body, html&#39;).animate({ scrollTop: 0 }, 200);" class="bone" style="background: #f8f8f8">
+        <i class="btwoe"></i>
+        <div class="xz1">
+            <p>返回顶部</p>
+        </div>
+    </a>
+</div> 
+<script type="text/javascript">
+    var floattips = $(".floattips"), offset = floattips.offset();
+    $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > offset.top) {
+            floattips.addClass("floattipstotop");
+            $(".anws_pic").removeClass("jbyshay").attr("src", "/Content/images/ques_tip.png");
+            $(".anws_pic").addClass("xgbjyy");
+        } else {
+            floattips.removeClass("floattipstotop");
+            $(".anws_pic").removeClass("xgbjyy").attr("src", "/Content/images/ques_tip-x.png");
+            $(".anws_pic").addClass("jbyshay");
+        }
+    });
+</script>
+-->
+</div>
+<div class="shangjia_xx jia_xx">
+    <div class="shangjia_xxa">
+        <div class="shangjia_zx">
+            <p>
+                <?php
+
+                     foreach ($trialinfos as $_k=>$_v){
+                        $factory = new \Product\Factory\product($_v['goods_id']);
+                        $trialinfos[$_k]['title'] = $factory->product_info['title'];
+                        $trialinfos[$_k]['content'] = str_cut(strip_tags($vdata["content"]),48);
+                        $trialinfos[$_k]['avatar']=getavatar($_v['userid']);
+                        $trialinfos[$_k]['total'] = model('trial_report')->where(array('thumb'=>array('NEQ',''),'status'=>array('EQ',1),"userid"=>array('EQ',$_v['userid'])))->count();
+                    }
+
+                     $userTryreports = model('trial_report')->alias('p')->join(C('DB_PREFIX').'member AS t ON p.userid = t.userid')->
+                             where(array('p.thumb'=>array('NEQ',''),'p.status'=>array('EQ',1)))->group('t.nickname DESC')->field("count(p.id) as total,t.nickname")->order("total desc")->limit(5)->select();
+
+                    $broke = model('task_records')->field('id,userid,count(userid) AS num,tid,sum(price) AS total')->group('userid')->order('total DESC')->limit(5)->select();
+                    
+                    $goods_count = model('product')->where(array('status'=>1))->count(); 
+                    $merchant_count = model('member')->where(array('modelid'=>2))->count();
+                    $order_count = model('order')->where(array('status'=>7))->count();
+                    $total_count = model('product')->count();
+
+
+
+                 ?>
+                今日
+                <span class="hongtop">
+                    {$goods_count}
+                </span> 件商品在线
+            </p>
+        </div>
+    </div>
+    <div class="shangjia_xxa xxb ">
+        <div class="shangjia_zx">
+            <p>
+                已有
+                <span class="huangtop">
+                    {$merchant_count}
+                </span> 个商家入驻
+            </p>
+        </div>
+    </div>
+    <div class="shangjia_xxa xxb xxc">
+        <div class="shangjia_zx">
+            <p>
+                已有
+                <span class="lvtop">
+                    {$order_count}
+                </span> 位用户领到商品
+            </p>
+        </div>
+    </div>
+    <div class="shangjia_xxa xxb xxd">
+        <div class="shangjia_zx">
+            <p>
+                已有
+                <span class="lantop">
+                   {$total_count}
+                </span> 个活动在{C('WEBNAME')}发布
+            </p>
+        </div>
+    </div>
+</div>
+<div class="bg-content">
+    <div class="w1190">
+        <div class="ttitle clearfix">
+            <div class="t-ft1">免费试用</div>
+            <?php $count = model('product')->where(array('mod'=>'trial','status'=>1))->count(); ?>
+            <div class="t-ft2"><span class="fgspan">|</span>&nbsp;无需退还，天天有惊喜</div>
+            <a href="{U('product/index/all')}" target="_blank">
+                <div class="t-ft3">更多&nbsp;
+                    <b>{$count}</b>&nbsp;款&nbsp;»
+                </div>
+            </a>
+        </div>
+        <div class="main-pro">
+            <ul class="plist clearfix">
+                <li class="pcont">
+                    <a href="/category/22" target="_blank">
+                        <img src="{THEME_STYLE_PATH}style/images/ling/sylc-1.jpg" width="100%" alt="美妆试用">
+                    </a>
+                </li>
+                    <?php $trial_where = "`mod`='trial'";?>
+                        {pc:product action="lists" status="1" thumb="1" num="5" order="id DESC" catid="22" where="$trial_where" addfields="1" }
+                        {loop $data $r}
+                    <li class="pcont pborder">
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img class="lazy pimg" src="{$r[thumb]}" data-original="{$r[thumb]}" alt="{$r[title]}" width="160" height="160" style="display: block;">
+                        </a>
+                        <div class="title">{$r[title]}</div>
+                        <div class="pdel">
+                            <span style="font-weight: bold">￥<del>{$r[goods_price]}</del></span>
+                            <span class="num">限量{$r[goods_number]}份</span> 
+                        </div>
+                        <a class="buybtn" href="{$r[url]}" target="_blank" title="免费试用">免费试用</a>
+                    </li>
+
+                    {/loop}
+                    {/pc}
+                    
+            </ul>
+            <ul class="plist clearfix">
+                <li class="pcont">
+                    <a href="/category/23" target="_blank">
+                        <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/sylc-2.jpg" data-original="{THEME_STYLE_PATH}style/images/ling/sylc-2.jpg" width="100%" alt="美食试用" style="display: block;">
+                    </a>
+                </li>
+                     {pc:product action="lists" status="1" thumb="1" num="5" order="id DESC" catid="23" where="$trial_where" addfields="1" }
+                        {loop $data $r}
+
+                    <li class="pcont pborder">
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img class="lazy pimg" src="{$r[thumb]}" data-original="{$r[thumb]}" alt="{$r[title]}" width="160" height="160" style="display: block;">
+                        </a>
+                        <div class="title">{$r[title]}</div>
+                        <div class="pdel">
+                            <span style="font-weight: bold">￥<del>{$r[goods_price]}</del></span>
+                            <span class="num">{$r[goods_number]}</span>
+                        </div>
+                        <a class="buybtn" href="{$r[url]}" target="_blank" title="免费试用">免费试用</a>
+                    </li>
+                    {/loop}
+                    {/pc}
+                   
+            </ul>
+            <ul class="plist clearfix">
+                <li class="pcont">
+                    <a href="/category/1" target="_blank">
+                        <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/sylc-3.jpg" data-original="{THEME_STYLE_PATH}style/images/ling/sylc-3.jpg" width="100%" alt="美衣试用" style="display: block;">
+                    </a>
+                </li>
+                 {pc:product action="lists" status="1" thumb="1" num="5" order="id DESC" catid="1" where="$trial_where" addfields="1" }
+                        {loop $data $r}
+                    <li class="pcont pborder">  
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img class="lazy pimg" src="{$r[thumb]}" data-original="{$r[thumb]}" alt="{$r[title]}" width="160" height="160" style="display: block;">
+                        </a>
+                        <div class="title">{$r[title]}</div>
+                        <div class="pdel">
+                            <span style="font-weight: bold">￥<del>{$r[goods_price]}</del></span>
+                            <span class="num">限量{$r[goods_number]}份</span>
+                        </div>
+                        <a class="buybtn" href="{$r[url]}" target="_blank" title="免费试用">免费试用</a>
+                    </li>
+                    {/loop}
+                    {/pc}
+                   
+                  
+                  
+            </ul>
+            <ul class="plist clearfix">
+                <li class="pcont">
+                    <a href="/category/21" target="_blank">
+                        <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/sylc-4.jpg" data-original="{THEME_STYLE_PATH}style/images/ling/sylc-4.jpg" width="100%" alt="数码试用" style="display: block;">
+                    </a>
+                </li>
+
+                 {pc:product action="lists" status="1" thumb="1" num="5" order="id DESC" catid="21" where="$trial_where" addfields="1" }
+                        {loop $data $r}
+                    <li class="pcont pborder">
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img class="lazy pimg" src="{$r[thumb]}" data-original="{$r[thumb]}" alt="{$r[title]}" width="160" height="160" style="display: block;">
+                        </a>
+                        <div class="title">{$r[title]}</div>
+                        <div class="pdel">
+                            <span style="font-weight: bold">￥<del>{$r[goods_price]}</del></span>
+                            <span class="num">限量{$r[goods_number]}份</span>
+                        </div>
+                        <a class="buybtn" href="{$r[url]}" target="_blank" title="免费试用">免费试用</a>
+                    </li>
+                     {/loop}
+                    {/pc}
+                    
+            </ul>
+            <ul class="plist clearfix">
+                <li class="pcont">
+                    <a href="/category/82" target="_blank">
+                        <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/sylc-5.jpg" data-original="/Content/images/sylc-5.jpg" width="100%" alt="家居试用" style="display: block;">
+                    </a>
+                </li>
+
+                   {pc:product action="lists" status="1" thumb="1" num="5" order="id DESC" catid="82" where="$trial_where" addfields="1" }
+                        {loop $data $r}
+                    <li class="pcont pborder">
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img class="lazy pimg" src="{$r[thumb]}" data-original="{$r[thumb]}" alt="{$r[title]}" width="160" height="160" style="display: block;">
+                        </a>
+                        <div class="title">{$r[title]}</div>
+                        <div class="pdel">
+                            <span style="font-weight: bold">￥<del>{$r[goods_price]}</del></span>
+                            <span class="num">限量{$r[goods_number]}份</span>
+                        </div>
+                        <a class="buybtn" href="{$r[url]}" target="_blank" title="免费试用">免费试用</a>
+                    </li>  
+
+                      {/loop}
+                    {/pc}               
+                   
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="zjftp">
+    <div>
+        <div class="zjftpa">
+            <style type="text/css" media="screen">
+               
+            </style>
+            <a class="zjftp_z">
+               
+                 <img src="{THEME_STYLE_PATH}style/images/ling/footer_banner.jpg">
+
+                
+            </a>
+                <a href="{U('Member/MemberFriend/index')}" target="_blank" onclick="clickNumber(145)" class="zjftp_y">
+                    <img src="{THEME_STYLE_PATH}style/images/ling/5d5ea637-5281-419d-8921-563474dfdaab.jpg">
+                </a>
+        </div>
+    </div>
+</div>
+<div class="service sert_a" style="margin-top: 5px">
+    <div class="service_a">
+        <div class="onetexet">
+            <div class="titler texet">
+                <em class="cbazuo">试客秀场</em>
+                <em class="jxi jxionn"><span class="fgspan">|</span>&nbsp;试，是一种态度</em>
+                <a href="{U('product/index/report_list')}" class="gduojx jxd" target="_blank">&nbsp;&nbsp;&nbsp;更多 »</a>
+            </div>
+            <div class="onetexet_img">
+                <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/jhuabgao.jpg" data-original="{THEME_STYLE_PATH}style/images/ling/jhuabgao.jpg" style="display: inline;">
+            </div>
+            {loop $trialinfos $v}
+
+                <a href="{U('Product/index/report_show',array('id'=>$v['id']))}" target="_blank">
+                    <div class="onetexet_yhu">
+                        <img class="lazy" src="{$v['thumb']}" data-original="{$v['thumb']}" style="display: inline;" width="190px;" height="260px;">
+                        <div class="onetexet_neir">
+                            <p>{$v['title']}</p>
+                        </div>
+                        <div class="touxiang">
+                            <img class="lazy" src="{$v['avatar']}" data-original="{$v['avatar']}" style="display: inline;">
+                        </div>
+                        <div class="touxiang_a">
+                            <p class="yhumingz">{nickname($v[userid])}***</p>
+                            <p>共 {$v[total]} 份报告</p>
+                        </div>
+                    </div>
+                </a>
+                {/loop}
+               <!--  <a href="http://www.lingla.com/Home/UserReports?userid=156" target="_blank">
+                    <div class="onetexet_yhu">
+                        <img class="lazy" src="{THEME_STYLE_PATH}style/images/ling/bc303fa2-115f-497b-b5a0-4dcac0c9d287.jpg" data-original="http://www.lingla.com/upload/ShopIssue/20150306/bc303fa2-115f-497b-b5a0-4dcac0c9d287.jpg" style="display: inline;">
+                        <div class="onetexet_neir">
+                            <p>时尚又实用的萌萌哒化妆刷~</p>
+                        </div>
+                        <div class="touxiang">
+                            <img class="lazy" src="./试客网_免费试用中心_试客试用品联盟_免费试用网站—领啦网_files/100(1)" data-original="http://q.qlogo.cn/qqapp/100546062/5CAE28D9F6BE01ED19B574A99048616E/100" style="display: inline;">
+                        </div>
+                        <div class="touxiang_a">
+                            <p class="yhumingz">jung***</p>
+                            <p>共 72 份报告</p>
+                        </div>
+                    </div>
+                </a> -->
+              
+              
+        </div>
+        <div class="right_nav">
+            <div class="titler">
+                <div class="titler_rigth gonetow">
+                    <a id="reporttitle" class="zxinsxi">精华报告排行榜</a><span></span>
+                    <a id="commtitle" class="">佣金排行榜</a>
+                </div>
+            </div>
+            <div id="report" style="display: block;">
+                {loop $userTryreports $k $v}
+                    <a href="{U('product/index/report_show',array('id'=>$v['id']))}" target="_blank">
+                        <div class="thecharts">
+                            <div class="lixian {if $k >= 3} lhou {/if}">{$n}</div>
+                            <div class="touxiang jinhbaog">
+                                <img src="{getavatar($v[userid],1)}">
+                            </div>
+                            <div class="touxiang_a yongjbaog">
+                                <p class="yhumingz">{$v['nickname']}***</p>
+                                <p>共 {$v['total']} 份精华报告</p>
+                            </div>
+                        </div>
+                    </a>
+                {/loop}
+                   
+            </div>
+            <div id="comm" style="display: none;">
+                 {loop $broke $k $v}
+
+                    <a target="_blank" href="{U('product/index/broke_show',array('id'=>$v['id']))}">
+
+                        <div class="thecharts">
+                            <div class="lixian  {if $k >= 3} lhou {/if}">{$n}</div>
+                            <div class="touxiang jinhbaog"><img src="{getavatar($v[userid],1)}"></div>
+                            <div class="touxiang_a yongjbaog">
+                                <p class="yhumingz">{nickname($v[userid])}***</p>
+                                <p>已赚 {$v[total]}元</p>
+                            </div>
+                        </div>
+
+                    </a>
+
+                {/loop}
+                   
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main_bo">
+    <div class="main_bo1">
+        <div class="main xiabdb">
+            <div class="help_center">
+                <div class="help_left">
+                    <p>
+                        帮助中心
+                    </p>
+                    <ul>
+                        <li><a href="{U('document/index/lists',array('catid'=>3))}" target="_blank">·{C('webname')}商家管理规则</a></li>
+                        <li><a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">·{C('webname')}试用规则</a></li>
+                    </ul>
+                </div>
+                <!--help_left-->
+                <div class="help_left">
+                    <p>
+                        试客常见问题
+                    </p>
+                    <ul>
+                        <li><a href="{U('document/index/lists',array('catid'=>84))}" target="_blank">·如何参与试用商品</a></li>
+                        <li><a href="{U('document/index/lists',array('catid'=>69))}" target="_blank">
+                        .如何领回划算金</a></li>
+                    </ul>
+                </div>
+                <!--help_left-->
+                 <div class="help_left">
+                    <p>
+                        商家常见问题
+                    </p>
+                    <ul>
+                        <li><a href="{U('document/index/lists',array('catid'=>18))}" target="_blank">·如何报名活动</a></li>
+                        <li><a href="{U('document/index/lists',array('catid'=>87))}" target="_blank">·Vip商家有哪些特权</a></li>
+                    </ul>
+                </div>
+                <!--help_left-->
+                <div class="help_left">
+                    <p>
+                        服务中心
+                    </p>
+                    <ul>
+                        <li><a href="{U('document/Index/lists',array('catid'=>83))}" target="_blank">·关于我们</a></li>
+                        <li><a href="{U('navigation/index/index')}" target="_blank">·站点导航</a></li>
+                    </ul>
+                </div>
+                <!--help_left-->
+            </div>
+            <!--help_center-->
+            <div class="link">
+                <p>
+                    友情链接
+                </p>
+                <div class="link_kl">
+                {pc:link action="lists" linktype="0"}
+                     {loop $data $r}
+                    <a href="{$r[url]}" target="_blank">{$r[webname]}</a>
+                    {/loop}
+                 {/pc}
+                </div>
+                <!--link_kl-->
+            </div>
+            <!--link-->
+        </div>
+    </div>
+</div>
+<!--main_bo-->
+<div class="tchs" id="popup" style="display: none">
+    <div class="baig">
+        <img src="{THEME_STYLE_PATH}style/images/ling/qxjfud.png" width="663" height="326" usemap="#Mapaa" border="0">
+        <map name="Mapaa" id="Mapaa">
+            <area shape="rect" coords="197,256,433,325" href="javascript:" onclick="LedFuDai()">
+            <area shape="rect" coords="585,0,673,51" href="javascript:" onclick="$(&#39;#popup&#39;).hide();">
+        </map>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="footer_main">
+        <div class="footer_left">
+            <div class="footer_xy">
+                <a href="{U('document/Index/lists',array('catid'=>83))}" target="_blank">联系我们</a><span>|</span>
+               <!--  <a href="http://www.lingla.com/Help/AdvertisingCost" target="_blank">广告合作</a><span>|</span>
+                <a href="http://www.lingla.com/Regist/CreditCertification" target="_blank">信用认证</a><span>|</span>
+                <a href="http://www.lingla.com/Regist/UserAgreement" target="_blank">用户协议</a><span>|</span> -->
+                <a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">帮助中心</a><span>|</span>
+                <a href="{U('navigation/index/index')}" target="_blank">站点导航</a>
+            </div>
+            <div class="footer_fl">
+                <span>Copyright © 2014 {$_SERVER['SERVER_NAME']}</span> {C('site_web_icp')}
+            </div>
+            <div>
+                <a class="f_t" href="#" rel="nofollow"  target="_blank"></a>
+                <a class="f_e"  href="#" rel="nofollow" target="_blank"></a>
+                <a class="f_f"  href="#" rel="nofollow"  target="_blank"></a>
+                <a class="f_g"  href="#"  target="_blank"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--     <div class="tchs" id="logindialog" style="display: none;">
+    <div id="dialog_log_qiandao" class="dialog-wrapper dialog_log_qiandao">
+        <a href="javascript:void(0)" title="关闭窗口" onclick="$(&#39;#logindialog&#39;).hide()">
+            <span class="close"></span>
+        </a>
+        <div class="diginfo">
+            <div class="log-cont">
+                <div class="th-main clearfix">
+                    <span class="th-left">您还未登录，登录后可参与活动</span>
+                    <a class="th-right" href="{}" target="_blank">立即注册</a>
+                </div>
+                <form>
+                    <div class="mb-10 msg-input">
+                        <input type="text" id="username" placeholder="邮箱/手机号/用户名" title="邮箱/手机号/用户名" onkeydown="keyLogin(event)">
+                        <input type="password" class="pwd" id="password" placeholder="请输入密码" autocomplete="off" disableautocomplete="" onkeydown="keyLogin(event)">
+                    </div>
+                    <div class="btn">
+                        <script type="text/javascript">
+                            function keyLogin(evt) {
+                                evt = window.event || evt;
+                                if (evt.keyCode == 13)   //回车键的键值为13
+                                    loginSubmit(1, location.href) //调用登录按钮的登录事件
+                            }
+                        </script>
+                        <input id="submitbtn" type="button" class="btn-input" value="立即登录" title="登 录" onclick="loginSubmit(1,location.href)">
+                    </div>
+                    <div class="clearfix msg-tip">
+                        <div class="msg-tip-lf">
+                            <p id="error" class="err-txt" style="display:none;">请输入密码</p>
+                            <p class="tip-txt">使用其他账号登录</p>
+                        </div>
+                        <a class="msg-tip-rt" href="http://www.lingla.com/Security/FindPassword?usertype=1">
+                            <p>忘记密码？</p>
+                        </a>
+                        <div class="jiao"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="qq-login">
+                <a href="javascript:" onclick="qqLogin()">
+                    <div class="qq-icon"></div>
+                    <div class="qq-txt">QQ登录</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div> -->    
+</body>
+</html>
+
+
+<script type="text/javascript">
+$(function(){
+    $('.search-text').keydown(function(e){
+        if(e.keyCode==13) localsearch();
+    })
+    
+    $(".search-button").click(function(){localsearch();})
+
+    function localsearch() {
+        var keyword = $("input[search-keyword]").val();
+        if($.trim(keyword).length == 0) {
+            alert('关键字不能为空');
+            return false;
+        }
+        window.location.href = "./?m=search&keyword=" + keyword; 
+    }
+});
+</script>
