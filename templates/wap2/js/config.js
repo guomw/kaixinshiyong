@@ -78,7 +78,7 @@ var configMod=angular.module("starter.config", []);
 	configMod.constant("ENV", {
 	    "name": "production",
 	    "debug": false,
-	    "api": "http://www.baicai.net/index.php?m=api&c=app",
-	    "siteUrl":"http://www.baicai.net",
-	    "imgUrl":"http://www.baicai.net",
+	    "api": "http://www.demophp.com:8080/index.php?m=api&c=app",
+	    "siteUrl":"http://www.demophp.com:8080",
+	    "imgUrl":"http://www.demophp.com:8080",
 	});
