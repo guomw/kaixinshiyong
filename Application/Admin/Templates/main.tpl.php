@@ -176,11 +176,11 @@ include $this->admin_tpl('header');
 
 		<div class="up">
 			<span>当前版本v<?php echo C('SYSTEM_VERSION');?>，发布日期：<?php echo C('SYSTEM_RELEASE');?></span>&nbsp;
-			<a href="<?php echo U('Upgrade/Index/index');?>">点击升级</a>
+<!--			<a href="--><?php //echo U('Upgrade/Index/index');?><!--">点击升级</a>-->
 		</div>
 		<!-- 升级区域 end -->
 				<!-- 常用操作 -->
-		<div class="mt26">
+		<div class="mt26" style="display: none">
 		<dl>
 				<dt class="mb20 f14 fw c3a6ea5">常用操作</dt>
 				<dd class="fl">
@@ -487,7 +487,7 @@ include $this->admin_tpl('header');
 		<!-- 订单信息 end -->
 		<div class="clear"></div>
 		<!-- 产品信息 start -->
-		<div class="mt26">
+		<div class="mt26" style="display: none;">
 			<dl>
 				<dt class="mb20 f14 fw c3a6ea5">产品信息</dt>
 				<!-- 系统信息 start -->
@@ -518,42 +518,42 @@ include $this->admin_tpl('header');
 				</dd>
 				<!-- 系统信息 end -->
 				<!-- 产品动态 start -->
-				<dd class="fl">
-					<ul>
-						<h1 class="title fw lh28">产品动态</h1>
-						<script type="text/javascript" src="http://www.dealswill.com/?a=news"></script>
-						</ul>
-				</dd>
+<!--				<dd class="fl">-->
+<!--					<ul>-->
+<!--						<h1 class="title fw lh28">产品动态</h1>-->
+<!--						<script type="text/javascript" src="http://www.dealswill.com/?a=news"></script>-->
+<!--						</ul>-->
+<!--				</dd>-->
 				<!-- 产品动态 end -->
 				<!-- adalways inc start -->
-				<dd class="fl" style="margin: 0;">
-					<ul>
-						<h1 class="title lh28 c000000">
-							<span class="team_bg lh28 c000000">adalways开发团队：</span>
-						</h1>
-						<li class="lh28">
-							<span class="w35 fl lh28 ib">版权信息：</span>
-							<span class="lh28 fl fw">adalways inc</span>
-						</li>
-						<li class="lh28">
-							<span class="w35 fl lh28 ib">总策划兼项目经理：</span>
-							<span class="fl lh28">jason</span>
-						</li>
-						<li class="lh28">
-							<span class="w35 fl lh28 ib">产品设计与研发团队：</span>
-							<span class="fl lh28 mr6">jason</span>
-							<span class="fl lh28 mr6">jason</span>
-						</li>
-						<li class="lh28">
-							<span class="w35  fl lh28 ib">帮助中心：</span>
-							<span class="lh28"><a href="http://www.dealswill.com" class="fl lh28 c000000 ib">http://www.dealswill.com</a></span>
-						</li>
-						<li class="bt_none lh28">
-							<span class="w35 fl lh28 ib">官方网站：</span>
-							<span class="fl lh28 ib"><a href="http://www.dealswill.com" class="fl lh28 c000000 ib">http://www.dealswill.com</a></span>
-						</li>
-					</ul>
-				</dd>
+<!--				<dd class="fl" style="margin: 0;">-->
+<!--					<ul>-->
+<!--						<h1 class="title lh28 c000000">-->
+<!--							<span class="team_bg lh28 c000000">开发团队：</span>-->
+<!--						</h1>-->
+<!--						<li class="lh28">-->
+<!--							<span class="w35 fl lh28 ib">版权信息：</span>-->
+<!--							<span class="lh28 fl fw">adalways inc</span>-->
+<!--						</li>-->
+<!--						<li class="lh28">-->
+<!--							<span class="w35 fl lh28 ib">总策划兼项目经理：</span>-->
+<!--							<span class="fl lh28">jason</span>-->
+<!--						</li>-->
+<!--						<li class="lh28">-->
+<!--							<span class="w35 fl lh28 ib">产品设计与研发团队：</span>-->
+<!--							<span class="fl lh28 mr6">jason</span>-->
+<!--							<span class="fl lh28 mr6">jason</span>-->
+<!--						</li>-->
+<!--						<li class="lh28">-->
+<!--							<span class="w35  fl lh28 ib">帮助中心：</span>-->
+<!--							<span class="lh28"><a href="http://www.dealswill.com" class="fl lh28 c000000 ib">http://www.dealswill.com</a></span>-->
+<!--						</li>-->
+<!--						<li class="bt_none lh28">-->
+<!--							<span class="w35 fl lh28 ib">官方网站：</span>-->
+<!--							<span class="fl lh28 ib"><a href="http://www.dealswill.com" class="fl lh28 c000000 ib">http://www.dealswill.com</a></span>-->
+<!--						</li>-->
+<!--					</ul>-->
+<!--				</dd>-->
 				<!-- adalways inc end -->
 				<div class="clear"></div>
 			</dl>

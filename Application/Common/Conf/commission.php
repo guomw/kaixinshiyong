@@ -1,13 +1,13 @@
 <?php 
  return array (
-  'COMMISSION_ISOPEN' => '1',
+  'COMMISSION_ISOPEN' => '0',
   'COMMISSION_NAME' => '闪电佣金',
   'COMMISSION_TYPE' => 'array (
   \'pc\' => \'1\',
   \'mobile\' => \'2\',
 )',
-  'SELLER_CHECK_TIME' => '12',
-  'SELLER_PAY_TIME' => '48',
+  'SELLER_CHECK_TIME' => '24',
+  'SELLER_PAY_TIME' => '12',
   'CONFIG' => 
   array (
     'commission' => 
@@ -16,14 +16,26 @@
       array (
         1 => 
         array (
-          'min' => '0',
-          'max' => '500',
-          'commission' => '1',
+          'min' => '101',
+          'max' => '200',
+          'commission' => '2',
+        ),
+        2 => 
+        array (
+          'min' => '201',
+          'max' => '300',
+          'commission' => '3',
+        ),
+        3 => 
+        array (
+          'min' => '301',
+          'max' => '1000',
+          'commission' => '5',
         ),
       ),
     ),
   ),
-  'SELLER_DETAIL_DESC' => '<p>1</p>',
+  'SELLER_DETAIL_DESC' => '<p>闪电佣金活动简介：</p><p>申请后请立即按照商家要求做</p>',
   'BUYER_JOIN_CONDITION' => 'array (
   \'num_trial_art\' => \'\',
 )',
@@ -37,9 +49,21 @@
     array (
       1 => 
       array (
-        \'min\' => \'0\',
-        \'max\' => \'500\',
-        \'commission\' => \'1\',
+        \'min\' => \'101\',
+        \'max\' => \'200\',
+        \'commission\' => \'2\',
+      ),
+      2 => 
+      array (
+        \'min\' => \'201\',
+        \'max\' => \'300\',
+        \'commission\' => \'3\',
+      ),
+      3 => 
+      array (
+        \'min\' => \'301\',
+        \'max\' => \'1000\',
+        \'commission\' => \'5\',
       ),
     ),
   ),

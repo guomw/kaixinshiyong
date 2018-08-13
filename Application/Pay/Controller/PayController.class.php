@@ -231,7 +231,7 @@ class PayController extends InitController{
 			$info['pay_fee']  = (intval($_POST['pay_method'])==0) ? round($_POST['pay_rate'],2) : intval($_POST['pay_fix']);		
 			$info['is_cod'] = trim($_POST['is_cod']);
 			$info['is_online'] = trim($_POST['is_online']);
-			$info['enabled'] = '1';
+			$info['enabled'] = $_POST['is_open'];
 			$info['author'] =  $infos['author'];
 			$info['website'] = $infos['website'];
 			$info['version'] = $infos['version'];
