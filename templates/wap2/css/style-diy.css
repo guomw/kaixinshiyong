@@ -121,11 +121,17 @@ body {
 .tab-item{ font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;   }
 
 
-.ibody{ background-color: red; width: 100%;
-    margin: 0px auto;    }
-
+.ibody{  width: 100%;
+    margin: 0px auto;  }
+.ibody a{  
+}
 @media screen and (min-width: 1080px)
 .ibody{
     width: 100%;
     margin: 0px auto;
 }
+
+.i_userCenter2{  background-image: none }
+
+
+
