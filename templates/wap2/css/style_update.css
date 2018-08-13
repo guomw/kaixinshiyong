@@ -16,15 +16,107 @@ a:hover {
 .user-signOn_header {
   width: 100%;
   height: 120px;
+  background-color: #333;
+  opacity: 0.9;
 }
 .user-signOn_header .signOn_logo {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  padding-top: 15px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .user-signOn_header .signOn_logo img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+}
+.user-signOn_header .signIn_btn {
+  width: 100%;
+}
+.user-signOn_header .signIn_btn a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.user-signIn_header {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  padding: 15px 0 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: hidden;
+}
+.user-signIn_header .user-signIn_logoNcikname {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+.user-signIn_header .signIn-img {
+  width: 66px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-left: 17px;
+  margin: 0 auto;
+}
+.user-signIn_header .signIn-img img {
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.user-signIn_header .user-signIn_qiandao {
+  position: absolute;
+  right: -15px;
+  top: 15px;
+  height: 30px;
+  border-radius: 30px;
+  width: 90px;
+  background-color: #333;
+  line-height: 30px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.user-signIn_header .user-signIn_qiandao > a {
+  color: #fff;
+  font-size: 14px;
+}
+
+.user-signIn_account {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 1px;
+}
+
+.user-signIn_account .user-account_blance {
+  width: 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  background-color: #fff;
+}
+.user-signIn_account .user-account_blance:first-child {
+  margin-right: 1px;
+}
+.user-signIn_account .user-account_blance span {
+  display: block;
+  font-size: 14px;
+}
+
+.user-signIn_account .user-account_blance span:first-child {
+  color: #e41436;
+  font-size: 20px;
+  margin-bottom: -6px;
 }

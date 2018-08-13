@@ -908,7 +908,7 @@
       });
 
 
-      UserloginFactory.login($scope.user.username, $scope.user.password);
+      UserloginFactory.login($scope.user.name, $scope.user.password);
 
     };
 
