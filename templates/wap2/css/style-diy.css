@@ -58,7 +58,7 @@ body {
 .indexProRecommendPart  .co{ border:none  }
 .a1{ margin-bottom: 10px;}
 
-
+.indexProList .part .a3 .R{text-decoration: line-through;}
 
 
 .indexProRecommendPart .co .a2 {
@@ -105,8 +105,18 @@ body {
 }
 .indexProList .part .a3 .L {
     margin-left: 0px;
-    color: #565656;
+    color: #fff;
+    background-color: #e31436;
+    border-radius: 4px;
+    /* padding: 0px; */
+    height: 17px;
+    line-height: 18px;
+    padding: 0px 4px; margin-top: 6px;
 }
+.indexProList .part .a3 .R {
+    margin-top: 4px;
+}
+
 .indexProList .part {
     width: 50%;
     padding: 0px 5px;
@@ -134,4 +144,87 @@ body {
 .i_userCenter2{  background-image: none }
 
 
+.tab-item{ max-width: 100%;  }
+
+a:link { 
+
+text-decoration: none; 
+} 
+a:visited { 
+
+text-decoration: none; 
+} 
+a:hover { 
+
+text-decoration: none; 
+} 
+.padding_head {
+    padding-top: 43px;
+    margin-top: 0px;
+    background-color: #f0eff5;
+}.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    font-weight: 500;
+    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    line-height: 1.2;
+}
+.indexProRecommendPart .R {
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: -6px; color: #e31436
+}
+
+.list_w .img {
+    width: 140px;
+    height: auto;
+    overflow: hidden;
+}
+
+
+.list_w {
+    margin:  0;
+    border: solid 1px #efefef;
+	border-right: 0px;
+	border-left: 0px;
+    box-sizing: border-box;
+    padding: 0.25em 1%;
+    width: 100%;
+    background-color: #fff;
+}.list {
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.tt .list{  padding-top:0px; }
+.bar .sub_header_list .button.button-clear {
+    border-bottom: 0px;
+}
+
+ .item {
+    border-color: #f0eff5;
+}
+.tab-item .icon {
+    display: block;
+    margin: 0 auto;
+    height: 24px;
+    font-size: 24px;  
+}
+.tab-item
+{ padding-top: 4px;
+}
+ .item-icon-left {
+    padding-left: 20px;
+}
+.item-complex.item-icon-left .item-content {
+    padding-left: 20px;
+}
+
+.bar.bar-stable{  
+    border-color: #b2b2b2;
+    background-color: #fff;
+    background-image:none;
+    color: #444;
+}   
 
