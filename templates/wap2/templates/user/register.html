@@ -2,34 +2,85 @@
 
   <ion-content class="scroll-content bar-calm" style="background-color:#F8F8F8">
     <form name="myform" novalidate="false">
-      <div class="list list-inset new-form ">
-        <label class="item item-input"> <i style="font-size:18px;color:#66ccee" class="icon ion-iphone dark placeholder-icon" ></i>
-          <input type="text" ng-pattern="/^1[3|4|5|7|8][0-9]\d{4,8}$/" ng-model="user_phone" name="user_phone" placeholder="您的手机号" ng-maxlength="11" ng-minlength="11" required></label>
-
-        <label class="item item-input"  > <i style="font-size:18px;color:#f7ba5b" class="icon ion-unlocked placeholder-icon" ></i>
-          <input  type="number" ng-model="user_sms" name="user_sms" placeholder="您收到的验证码" ng-maxlength="6" ng-minlength="6" required>
-          <label  >
+      <!-- <div class="list list-inset new-form ">
+        <label class="item item-input">
+          <i style="font-size:18px;color:#66ccee" class="icon ion-iphone dark placeholder-icon"></i>
+          <input type="text" ng-pattern="/^1[3|4|5|7|8][0-9]\d{4,8}$/" ng-model="user_phone" name="user_phone" placeholder="您的手机号"
+            ng-maxlength="11" ng-minlength="11" required>
+        </label>
+        <label class="item item-input">
+          <i style="font-size:18px;color:#f7ba5b" class="icon ion-unlocked placeholder-icon"></i>
+          <input type="number" ng-model="user_sms" name="user_sms" placeholder="您收到的验证码" ng-maxlength="6" ng-minlength="6" required>
+          <label>
             <span class="input-label padding-right">
-              <button name="user_getsms" ng-disabled="myform.user_phone.$invalid || isDisabled" class="button button-positive button-small " ng-click="getsms(user_phone)">{{text}}</button>
+              <button name="user_getsms" ng-disabled="myform.user_phone.$invalid || isDisabled" class="button button-positive button-small "
+                ng-click="getsms(user_phone)">{{text}}</button>
             </span>
           </label>
         </label>
-
         <label class="item item-input">
           <i style="font-size:18px;color:#8e8e93" class="icon  ion-locked placeholder-icon " style="font-size:15px;"></i>
-          <input  ng-minlength="6" ng-maxlength="20" name="password" type="password" placeholder="请输入密码" ng-model="password" required ></label>
-
+          <input ng-minlength="6" ng-maxlength="20" name="password" type="password" placeholder="请输入密码" ng-model="password" required>
+        </label>
         <label class="item item-input">
           <i style="font-size:18px;color:#8e8e93" class="icon ion-locked placeholder-icon" style="font-size:15px;"></i>
-          <input  repeat="password" ng-minlength="6" name="repeat_password" type="password" placeholder="请再次输入密码" ng-model="repeat_password" required ></label>
-
+          <input repeat="password" ng-minlength="6" name="repeat_password" type="password" placeholder="请再次输入密码" ng-model="repeat_password"
+            required>
+        </label>
         <button ng-disabled="myform.$invalid" class="button button-full button-assertive padding-top" ng-click="register(user_phone,user_sms,password,repeat_password)">确认注册</button>
-
-        <a  class="button button-block button-assertive padding-top  button-outline "  href="#/tab/user/login"  >已有帐号,请直接登录</a>
-
+        <a class="button button-block button-assertive padding-top  button-outline " href="#/tab/user/login">已有帐号,请直接登录</a>
+      </div> -->
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <i style="font-size:18px;color:#66ccee" class="icon ion-iphone dark placeholder-icon"></i>
+          </div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" type="text" pattern="/^1[3|4|5|7|8][0-9]\d{4,8}$/" ng-model="user_phone" name="user_phone" placeholder="您的手机号"
+              maxlength="11" minlength="11" required>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_vcode" style="height: 54px;">
+          <div class="weui-cell__hd">
+            <i style="font-size:18px;color:#f7ba5b" class="icon ion-unlocked placeholder-icon"></i>
+          </div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" type="number" ng-model="user_sms" name="user_sms" placeholder="您收到的验证码" maxlength="6" minlength="6"
+              required>
+          </div>
+          <div class="weui-cell__ft">
+            <button class="weui-vcode-btn" name="user_getsms" ng-disabled="myform.user_phone.$invalid || isDisabled" ng-click="getsms(user_phone)"
+              style="border-left: none;font-size: 14px;color: #00a7fd;">{{text}}</button>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <i style="font-size:18px;color:#8e8e93" class="icon  ion-locked placeholder-icon " style="font-size:15px;"></i>
+          </div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" minlength="6" maxlength="20" name="password" type="password" placeholder="请输入密码" ng-model="password"
+              required>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <i style="font-size:18px;color:#8e8e93" class="icon  ion-locked placeholder-icon " style="font-size:15px;"></i>
+          </div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" repeat="password" minlength="6" maxlength="20" name="repeat_password" type="password" placeholder="请再次输入密码"
+              ng-model="repeat_password" required>
+          </div>
+        </div>
       </div>
-      </form>
+      <div class="padding-top" style="padding: 30px 15px 20px; box-sizing: border-box;">
+        <a href="javascript:;" class="weui-btn" style="border-radius:99px;height:50px;background-color:#ef473a;color:#fff;line-height: 50px;"
+          ng-disabled="myform.$invalid" ng-click="register(user_phone,user_sms,password,repeat_password)">确认注册</a>
+      </div>
+      <div style="padding: 0px 15px 10px; box-sizing: border-box;">
+        <a href="#/tab/user/login" class="weui-btn" style="border-radius: 99px;height:50px;border:1px solid #ef473a;color:#ef473a;line-height: 50px;">已有帐号,请直接登录</a>
+      </div>
+    </form>
 
-    </ion-content>
+  </ion-content>
 
-  </ion-view>
+</ion-view>
