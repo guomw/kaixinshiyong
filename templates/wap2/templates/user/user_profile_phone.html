@@ -1,13 +1,15 @@
 <ion-view view-title="我的手机">
   <ion-content style="background-color:#F8F8F8">
-    <ion-list >
-      <ion-item class="item item-icon-left item-icon-right " ng-if ="user_profile.phone_status ==1  "> <i style="font-size:18px;color:#73bbee" class="icon ion-iphone"></i>
-        已认证手机: <i class="item-note">{{user_profile.phone}}</i>
+    <ion-list>
+      <ion-item class="item item-icon-left item-icon-right " ng-if="user_profile.phone_status ==1  ">
+        <i style="font-size:18px;color:#73bbee" class="icon ion-iphone"></i>
+        已认证手机:
+        <i class="item-note">{{user_profile.phone}}</i>
       </ion-item>
 
       <form name="myform" novalidate="false">
 
-        <div class="list list-inset new-form">
+        <!-- <div class="list list-inset new-form">
           <ion-item class="item item-divider" ng-if="user_profile.phone_status ==1 ">
             <h2>修改手机</h2>
           </ion-item>
@@ -21,17 +23,40 @@
             <label  >
               <span class="input-label padding-right">
                 <button name="user_getsms" ng-disabled="myform.user_phone.$invalid || isDisabled" class="button button-positive button-small " ng-click="UserPersonal_getsms(user_phone)">{{text}}</button>
-
               </span>
-
             </label>
           </label>
+        </div> -->
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <i style="font-size:18px;color:#aaaaea" class="icon ion-iphone placeholder-icon"></i>
+            </div>
+            <div class="weui-cell__bd">
+              <input class="weui-input" type="text" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" ng-model="user_phone" name="user_phone" placeholder="请输入您需要认证或者修改的手机"
+                maxlength="11" minlength="11" required>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_vcode" style="height: 54px;">
+            <div class="weui-cell__hd">
+              <i style="font-size:18px;color:#aaaaea" class="icon ion-unlocked placeholder-icon"></i>
+            </div>
+            <div class="weui-cell__bd">
+              <input class="weui-input" type="number" ng-model="user_sms" name="user_sms" placeholder="请输入您收到的验证码" maxlength="6" minlength="6"
+                required>
+            </div>
+            <div class="weui-cell__ft">
+              <button class="weui-vcode-btn" name="user_getsms" ng-disabled="myform.user_phone.$invalid || isDisabled" ng-click="UserPersonal_getsms(user_phone)"
+                style="border-left: none;font-size: 14px;color: #00a7fd;">获取验证码</button>
+            </div>
+          </div>
         </div>
+        <p style="color:#A9A9A9;font-size: 14px;" class="padding-left">温馨提示:可以用认证通过的手机直接登录平台！</p>
 
-        <p style="color:#A9A9A9" class="padding-left">温馨提示:可以用认证通过的手机直接登录平台！</p>
-
-        <div class="padding-left padding-right" >
-          <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edit_phone(user_phone,user_sms)">提交</button>
+        <div class="padding-left padding-right">
+          <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edit_phone(user_phone,user_sms)">提交</button> -->
+          <a href="javascript:;" class="weui-btn" style="border-radius:99px;height:50px;background-color:#ef473a;color:#fff;line-height: 50px;"
+            ng-click="edit_phone(user_phone,user_sms)">提交</a>
         </div>
 
       </form>
