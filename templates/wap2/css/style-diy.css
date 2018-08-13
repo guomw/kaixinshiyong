@@ -175,7 +175,7 @@ text-decoration: none;
 }
 
 .list_w .img {
-    width: 140px;
+    width: 100px;
     height: auto;
     overflow: hidden;
 }
@@ -227,4 +227,64 @@ text-decoration: none;
     background-image:none;
     color: #444;
 }   
+.clear{   font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;  }
+.list_w .txt li {
+    line-height: 1.5;
+    height: auto;
+}
+ .c5{ margin-left:13px;    }
+
+.klj{ color: #000000;
+    width: 92%; line-height: 1.2;margin-top: 5px; margin-left: 0px; margin-bottom:20px; font-size: 16px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+    overflow: hidden;  /** 隐藏超出的内容 **/
+
+}
+.c2,.c1{  font-size: 14px  }
+.liuliu{  background-color: #fff;    }
+
+
+
+
+.tryoutProListAdd {
+    display: block;
+    margin-left: 0; 
+    padding-bottom: 5px;
+    padding-top: 1px;
+}
+
+
+.topic.in.goods{  position: relative;  }
+.tryoutProListAdd .hang1 { font-size: 12px;
+    padding-left: 10px;
+    background-color: #fff;     }
+
+.tryoutProListAdd {
+    display: block;
+    margin-left: 0;
+    padding-bottom: 5px;
+    padding-top: 0px;
+}
+
+
+
+.list_w .w1_6 {
+    width: 50%;
+    text-align: right; padding-right:8px;
+}
+
+
+
+
+.hg{  background-color: #e31436; border-radius: 4px; color: #fff; padding: 0px 4px;                }
+
+
+
+
+
+
 

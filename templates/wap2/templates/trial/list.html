@@ -37,20 +37,20 @@
                   <img  ng-if="topic.thumb" ng-src="{{ENV.siteUrl}}{{topic.thumb}}" />
                   <img ng-if="!topic.thumb" ng-src="img/ionic.png">
                   </div>
-                  <ul class="flex txt txt_wrap c5">
-                      <li class="txt-flow c5 " style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
-                      <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;"> <span class="c4">价值：</span><b class="cc">¥ {{topic.goods_price }}</b></li>
-                      <li class="clear c2 txt-flow" style="font-size:0.85em;">
-                        <p class="fl w1_4"><span class="c4">剩余：</span><b> {{topic.number}} 份</b></p>
-                          <p class="fl w1_6"><span class="c4">关注人数：</span><b>{{ topic.hits}}</b>人</p>
+                  <ul class="flex txt_wrap c5">
+                      <li class="c5 klj">{{ topic.title | limitTo:18 }}</li>
+                      <li class="hd_{{topic.protype}} c1" > <span class="c4">试用值&nbsp;&nbsp;</span><b class="cc">¥ {{topic.goods_price }}</b></li>
+                      <li class="c2" >
+                        <p class="fl w1_4"><span class="c4 hg">剩余</span><b> {{topic.number}} 份</b></p>
+                          <p class="fl w1_6"><span class="c4">关注人数</span><b>{{ topic.hits}}</b>人</p>
                       </li>
                   </ul>
                
                 <!-- </ion-item> -->
             </a>
 
-           <a class="tryoutProListAdd c4" href="#/tab/trial/{{topic.id}}">
-               <div class="hang1" ng-show="topic.protype == 3 "    >
+           <a class="tryoutProListAdd c4 " href="#/tab/trial/{{topic.id}}">
+               <div class="hang1 liuliu" ng-show="topic.protype == 3 "    >
                  <div class="L" style="background:red">送</div>
                  <div class="R">本单赠送红包<b class="cc">{{topic.goods_bonus}}</b>元</div>
                  <div class="clearfix"></div>
