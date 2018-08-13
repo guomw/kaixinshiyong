@@ -101,9 +101,9 @@ include $this->admin_tpl('header', 'admin');
                     <tr>
                         <td width="120">是否启用？</td>
                         <td id="is_open"><input name="is_open" value="1"
-                                                type="radio" <?php echo ($enabled == 0) ? '' : 'checked' ?>> <?php echo '启用' ?>
+                                                type="radio" <?php echo ($is_open == 0) ? '' : 'checked' ?>> <?php echo '启用' ?>
                             &nbsp;&nbsp;&nbsp;<input name="is_open" value="0"
-                                                     type="radio" <?php echo ($enabled == 1) ? '' : 'checked' ?>> <?php echo '停用' ?>
+                                                     type="radio" <?php echo ($is_open == 1) ? '' : 'checked' ?>> <?php echo '停用' ?>
                             &nbsp;&nbsp;&nbsp;
                         </td>
                     </tr>

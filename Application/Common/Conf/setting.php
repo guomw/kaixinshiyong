@@ -11,7 +11,7 @@
   'MINREFRESHTIME' => '3',
   'ADMIN_EMAIL' => '516985724@163.com',
   'MAIL_SERVER' => 'smtp.163.com',
-  'MAIL_PORT' => '495',
+  'MAIL_PORT' => '25',
   'MAIL_FROM' => '516985724@163.com',
   'MAIL_AUTH' => '1',
   'MAIL_USER' => '516985724@163.com',
@@ -44,7 +44,7 @@
   'SITE_CONTACT_TEL' => '021-88888888',
   'SITE_CONTACT_EMAIL' => '88888888@qq.com',
   'SITE_CONTACT_ADDRESS' => '啥大幅放大法',
-  'SITE_WEB_CLOSE' => '1',
+  'SITE_WEB_CLOSE' => '0',
   'SITE_WEB_CLOSE_CAUSE' => 'asdds',
   'SITE_CONTACT_CITY' => '2',
   'SITE_CONTACT_AREA' => '36',
@@ -184,5 +184,6 @@
   'MERCHANT_QQ_GROUP' => '88888888',
   'MERCHANT_CODE' => '',
   'BUYER_CODE' => '',
-  'SITE_WEB_NOTICE' => '1',
-);	 ?>
+  'SITE_WEB_NOTICE' => '0',
+);
+?>

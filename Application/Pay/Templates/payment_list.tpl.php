@@ -28,7 +28,7 @@ include $this->admin_tpl('header', 'admin');
                             <td width="15%" align="center"><?php echo $info['author'] ?></td>
                             <td width="45%" align="center"><?php echo $info['pay_desc'] ?></td>
                             <td width="10%" align="center"><?php echo $info['pay_order'] ?></td>
-                            <td width="10%" align="center"><?php if ($info['enabled'] == 1) {
+                            <td width="10%" align="center"><?php if ($info['is_open'] == 1) {
                                     echo '已启用';
                                 } else {
                                     echo '未启用';

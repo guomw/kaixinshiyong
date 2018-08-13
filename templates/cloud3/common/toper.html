@@ -61,7 +61,7 @@
 <script type="text/javascript" src="{THEME_STYLE_PATH}style/js/member.js"></script>
 	<body>
 		<!-- scroll -->
-		<div id="slide-scroll" class="dn">
+		<div id="slide-scroll" class="dn" style="display: none;">
 			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes" class="qq"></a>
 			{if C("site_complain_wangwang")}
 			<a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid={C("site_complain_wangwang")}&siteid=cntaobao&status=2&charset=utf-8" class="qq wangwang"></a>
@@ -77,10 +77,10 @@
             <a href="javascript:;" id="ret_top">返回顶部</a>
 		</div>
 	   {if ACTION_NAME =='index' && MODULE_NAME == 'Product' && CONTROLLER_NAME =='Index'}
-	      <?php $is_show = model('poster')->where(array('id'=>5))->getField('disabled'); ?>
+	      <?php $is_show = model('poster')->where(array('id'=>4))->getField('disabled'); ?>
 			{if $is_show != 1}
 			<div id="big_img">
-				 <script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=5"></script>
+				 <script language="javascript" src="/index.php?m=Poster&c=Api&a=show&id=4"></script>
 			</div>
 			{/if}
 		{/if}
@@ -105,8 +105,8 @@
 					{/if}
 					
 					<li><a href="{U('Member/EnterActivity/index')}" target="_blank">卖家报名</a></li>
-					<li><a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">帮助中心</a></li>
-					<li><a href="{U('navigation/index/index')}" target="_blank">网站导航</a></li>
+					<!--<li><a href="{U('document/index/lists',array('catid'=>2))}" target="_blank">帮助中心</a></li>-->
+					<!--<li><a href="{U('navigation/index/index')}" target="_blank">网站导航</a></li>-->
 				</ul>
 			</div>
 		</div>

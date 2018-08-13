@@ -173,6 +173,7 @@ class PayController extends InitController{
 			$info['pay_method'] = intval($_POST['pay_method']);
 			$info['pay_order'] = intval($_POST['pay_order']);
 			$info['enabled'] = '1';
+            $info['is_open'] = "1";
 			$info['author'] = $infos['author'];
 			$info['website'] = $infos['website'];
 			$info['version'] = $infos['version'];

@@ -77,7 +77,17 @@ $(function(){
 function test_mail() {
     var mail_type = $('input[checkbox=mail_type]:checked').val();
     var mail_auth = $('input[checkbox=mail_auth]:checked').val();
-    $.post('<?php echo U("Admin/Setting/public_test_mail");?>',{mail_to: $('#mail_to').val(),mail_type:mail_type,mail_server:$('#mail_server').val(),mail_port:$('#mail_port').val(),mail_user:$('#mail_user').val(),mail_password:$('#mail_password').val(),mail_auth:mail_auth,mail_from:$('#mail_from').val()}, function(data){
+    var data={
+        mail_to: $('#mail_to').val(),
+        mail_type:mail_type,
+        mail_server:$('#mail_server').val(),
+        mail_port:$('#mail_port').val(),
+        mail_user:$('#mail_user').val(),
+        mail_password:$('#mail_password').val(),
+        mail_auth:mail_auth,
+        mail_from:$('#mail_from').val()
+    };
+    $.post('<?php echo U("Admin/Setting/public_test_mail");?>', data, function(data){
         alert(data);
     });
 }
