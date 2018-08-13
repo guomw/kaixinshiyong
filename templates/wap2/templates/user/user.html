@@ -1,16 +1,21 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true" >
   <div class="bar bar-header bar-stable ">
   <h1 class="title">个人中心</h1>
   <a class="button icon ion-ios-gear-outline button-clear" ng-click="user_profile()" ></a>
   </div>
-<ion-content class="padding_head">
-        <div ng-if="user_showloading" style="margin-top:60px; text-align: center">
+<ion-content class="padding_head tt" >
+        <div ng-if="user_showloading" style="margin-top:60px; text-align: center" >
             <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
         </div>   
 
-        <ion-list class="list" ng-if="user_showloading ==false" >
+        <ion-list class="list tt" ng-if="user_showloading ==false" >
         <div class="ibody"  ng-show='logo_status == 0'>
-         <div><a href="#/tab/user/login"><img src="img/a31.jpg"  style="width:100%"></a></div>
+         <div><a href="#/tab/user/login">
+			 
+			 <img src="img/a31.jpg"  style="width:100%">
+			 
+			 
+			 </a></div>
         </div>
 
         <div class="ibody" ng-show='logo_status == 1'>
@@ -35,15 +40,15 @@
           </div>
           <!--i_userCenter2--> 
         </div>
-
-            <item class="item item-icon-left item-icon-right " ng-click= "user_order_trial()"   style="font-size:18px;color:#fd3636"> <i class="icon ion-android-cart"></i>
+ <div class="padding-top "></div>
+            <item class="item item-icon-left item-icon-right " ng-click= "user_order_trial()"   style="color:#fd3636; padding-left: 45px;"> <i class="icon ion-android-cart" style="font-size: 22px;"></i>
                 <h3>我的试用</h3> <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
             </item>
 
-            <item class="item item-icon-left item-icon-right " ng-click= "user_order_commission()" style="font-size:18px;color:#00c67e"> <i class="icon ion-ios-bolt"></i>
+          <!--  <item class="item item-icon-left item-icon-right " ng-click= "user_order_commission()" style="font-size:18px;color:#00c67e"> <i class="icon ion-ios-bolt"></i>
                 <h3>我的闪电试用</h3> <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-            </item>
-
+            </item>-->
+<!--
             <item class="item item-icon-left item-icon-right"  ng-click= "user_order_rebate()"   style="font-size:18px;color:#2cb4ff">
                 <i class="icon ion-cash"></i>
                 <h3>我的返利</h3>
@@ -60,36 +65,41 @@
                 <i class="icon ion-ios-bookmarks"></i>
                 <h3>我的兑换</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666" ></i>
-            </item>
+            </item>-->
 
-            <div class="padding-top "   ></div>
+          
 
-            <item class="item item-icon-left item-icon-right " style="font-size:18px;color:#fd3636" ng-click="user_deposite()" >
-                <i class="icon ion-social-usd"></i>
+            <item class="item item-icon-left item-icon-right " style="color:#fd3636; padding-left: 45px;" ng-click="user_deposite()" >
+                <i class="icon ion-social-usd" style="font-size: 22px"></i>
                 <h3>余额提现</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
             </item>
 
-            <ion-item href="#/tab/jifenduihuan"   class="item item-icon-left item-icon-right " style="font-size:18px;color:#2cb4ff">
+       <!--     <ion-item href="#/tab/jifenduihuan"   class="item item-icon-left item-icon-right " style="font-size:18px;color:#2cb4ff">
                 <i class="icon ion-ios-infinite"></i>
                 <h3>积分兑换</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-            </ion-item>
+            </ion-item>-->
 
-            <item class="item item-icon-left item-icon-right " style="font-size:18px;color:#fea16e" ng-click="getmessage()" >
-                <i class="icon ion-android-more-vertical"></i>
+            <item class="item item-icon-left item-icon-right " style="color:#fea16e; padding-left: 45px;" ng-click="getmessage()" >
+                <i class="icon ion-android-more-vertical" style="font-size: 22px"></i>
                 <h3>账户明细</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
             </item>
 
-            <div class="padding-top "   ></div>
-                <item ng-click="announce()" class="item item-icon-left item-icon-right" style="font-size:18px;color:#73bbee">
-                    <i class="icon ion-ios-chatbubble"></i>
+           
+                <item ng-click="announce()" class="item item-icon-left item-icon-right" style="color:#73bbee; padding-left: 45px;">
+                    <i class="icon ion-ios-chatbubble" style="font-size: 22px"></i>
                     <h3>我的消息</h3>
                     <!-- <i class="badge light" style="color:#e42012">10</i> -->
                     <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
             </item>
 
+			
+			
+			
+			
+			
         </ion-list>
 
     </ion-content>
