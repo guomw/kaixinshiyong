@@ -37,7 +37,7 @@
  
 		
 		<p class="buk"><img src="../../img/dg.jpg" style="width: 100%;"></p>
-	<div style="height:14px; width: 100%; background-color: #f4f4f4"></div>	
+	<div style="height:14px; width: 100%; background-color: #f0eff5"></div>	
 		
 		
       <!-- 精品推荐 -->
@@ -63,13 +63,13 @@
           <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods.slice(0,3) "    >
             <div class="co">
               <div class="a1">
-                <img ng-src="{{d.thumb |imgUrl}}"></div>
+                <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
               <div class="a2 ng-binding ccc">{{d.title}}</div>
-              <div class="a3">
+            <!--  <div class="a3">
                 <div class="L cccc">￥{{d.goods_price}}</div>               
                 
-              </div><div class="clearfix"></div>
-				<div class="R">限量：{{ d.number}}份</div>
+              </div>--><div class="clearfix"></div>
+				<div class="R">限量{{ d.number}}份</div>
             </div>
           </a>
          </ion-slide>
@@ -78,12 +78,12 @@
           <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods2 "    >
             <div class="co">
               <div class="a1">
-                <img ng-src="{{d.thumb |imgUrl}}"></div>
+                <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
               <div class="a2 ng-binding">{{d.title}}</div>
-              <div class="a3">
+              <!--<div class="a3">
                 <div class="L">￥{{d.goods_price}}</div>
-                </div><div class="clearfix"></div>
-				<div class="R">限量：{{ d.number}}份</div>
+                </div>--><div class="clearfix"></div>
+				<div class="R">限量{{ d.number}}份</div>
             </div>
           
 
@@ -95,12 +95,12 @@
           <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods3 "    >
             <div class="co">
               <div class="a1">
-                <img ng-src="{{d.thumb |imgUrl}}"></div>
+                <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
               <div class="a2 ng-binding">{{d.title}}</div>
-              <div class="a3">
+             <!-- <div class="a3">
                 <div class="L">￥{{d.goods_price}}</div>
-              </div><div class="clearfix"></div>
-				<div class="R">限量：{{ d.number}}份</div>
+              </div>--><div class="clearfix"></div>
+				<div class="R">限量{{ d.number}}份</div>
             </div>
          
 
@@ -110,7 +110,7 @@
       </ion-slide-box>
 
       <!--  最新上线 -->
-
+<div style="height:1px; width: 100%; background-color: #f0eff5"></div>	
 		
       <div class="hot_title">
         <span></span>
@@ -128,12 +128,12 @@
         <a class="part" href="#/tab/trial/{{topic.id}}" ng-repeat="topic in goods "   >
           <div class="co">
             <div class="a1">
-              <img ng-src="{{topic.thumb |imgUrl}}" />
+              <img class="image-center" ng-src="{{topic.thumb |imgUrl}}" />
             </div>
             <div class="a2">{{ topic.title | limitTo:15 }}</div>
             <div class="a3">
-              <div class="L">￥{{topic.goods_price}}</div>
-              <div class="R">限量{{topic.number}}份</div>
+              <div class="L">限量{{topic.number}}份</div>
+              <div class="R">￥{{topic.goods_price}}</div>
               <div class="clearfix"></div>
             </div>
           </div>

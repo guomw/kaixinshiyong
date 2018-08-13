@@ -1,0 +1,30 @@
+a:hover {
+  text-decoration: none !important;
+}
+
+.padding-left.c4 {
+  font-size: 14px !important;
+}
+
+.h-title {
+  font-size: 22px;
+  text-align: left;
+  padding-left: 15px;
+  font-weight: 600;
+}
+/*个人中心样式update start*/
+.user-signOn_header {
+  width: 100%;
+  height: 120px;
+}
+.user-signOn_header .signOn_logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.user-signOn_header .signOn_logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}

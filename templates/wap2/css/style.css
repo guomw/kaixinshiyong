@@ -218,7 +218,7 @@ position: absolute;
 
  *{ list-style: none; margin:0; padding:0; font-family: "微软雅黑"; }
     b{ font-weight: 100; }
-    b.cc{ color:#ff4400; }
+    b.cc{ color:#e31436; }
     .clear{ overflow:hidden; }
     .fl{ float:left; }
     .fr{ float:right; }
@@ -251,7 +251,7 @@ position: absolute;
     .list_w .txt{ padding:0 0.5em; }
     .list_w .txt img{ vertical-align: middle; margin:0 0.125em; }
     .list_w .txt .ico_1::before{ color:#fff; text-align: center; line-height:1.3em; border-radius:3px; background:#e42012; content:"淘"; display:inline-block; width:1.3em; height:1.3em; margin:0 .25em; }
-    .list_w .txt .hd_3::after{ margin-left:5%; content:"红包任务"; height:1.3em; line-height:1.3em; background:#ff4400; color:#fff; padding:0 1.6%; border-radius:3px; display:inline-block; }
+    .list_w .txt .hd_3::after{ margin-left:5%; content:"红包任务"; height:1.3em; line-height:1.3em; background:#e31436; color:#fff; padding:0 1.6%; border-radius:3px; display:inline-block; }
     .list_w .txt .hd_2::after{ margin-left:5%; content:"拍A送B"; height:1.3em; line-height:1.3em; background:#ff9201; color:#fff; padding:0 1.6%; border-radius:3px; display:inline-block; }
     .list_w .w1_4{ width:50%; }
     .list_w .w1_6{ width:50%; }
@@ -352,7 +352,7 @@ position: absolute;
 .i_tryout .s_part2 .hang1 img{ width:100% }
 .i_tryout .s_part2 .hang2{ position:absolute; bottom:0px; left:0px; width:100%; height:30px; background:url(../img/a2.png) repeat; font-size:14px; color:#FFF;}
 .i_tryout .s_part2 .hang2 .L{ float:left; line-height:30px; padding-left:5px;}
-.i_tryout .s_part2 .hang2 .R{ float:left; font-size:12px; background:#ff4400; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
+.i_tryout .s_part2 .hang2 .R{ float:left; font-size:12px; background:#e31436; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
 .i_tryout .s_part2 .hang2 .R2{ float:left; font-size:12px;   background:#7bae23; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; }
 
 .i_tryout  .s_part3{  padding-bottom:10px; position:relative;border-bottom:1px solid #dcdcdc;}
@@ -429,7 +429,7 @@ a{ text-decoration:none ; color:#666 }
 .i_rebate{}
 .i_rebate .s_ti{ height:20px; line-height:20px; margin-top:10px;}
 .i_rebate .s_ti a{ text-align:center; width:33.3%; float:left; display:block}
-.i_rebate .s_ti .sel{ color:#ff4400; border-bottom:1px solid #ff4400}
+.i_rebate .s_ti .sel{ color:#e31436; border-bottom:1px solid #ff4400}
 .i_rebate .s_list{}
 .i_rebate .s_list td{ vertical-align:top}
 .i_rebate .s_list  .hang{ padding:10px 10px; border-bottom:1px solid #e5e5e5; display:block;}
@@ -443,7 +443,7 @@ a{ text-decoration:none ; color:#666 }
 .i_rebate .s_list .R .part2{ line-height:30px; font-size:12px}
 .i_rebate .s_list .R .part2 span{ color:#ff4400}
 .i_rebate .s_list .R .part3 { font-size:12px; padding-top:10px;}
-.i_rebate .s_list .R .part3 .a1{ float:left; margin-right:10px;  height:16px; line-height:16px;background:#ff4400; color:#FFF;border-radius:3px; padding:0px 5px; margin-top:2px;}
+.i_rebate .s_list .R .part3 .a1{ float:left; margin-right:10px;  height:16px; line-height:16px;background:#e31436; color:#FFF;border-radius:3px; padding:0px 5px; margin-top:2px;}
 .i_rebate .s_list .R .part3 .a2{ float:left}
 
 .i_rebate .s_list a:active{ background:#e5e5e5}
@@ -452,7 +452,7 @@ a{ text-decoration:none ; color:#666 }
 .i_moneyEveryday .s_img img{ width:100%}
 .i_moneyEveryday .s_ti{ height:20px; line-height:20px; margin-top:10px;}
 .i_moneyEveryday .s_ti a{ text-align:center; width:50%; float:left; display:block}
-.i_moneyEveryday .s_ti .sel{ color:#ff4400; border-bottom:1px solid #ff4400}
+.i_moneyEveryday .s_ti .sel{ color:#e31436; border-bottom:1px solid #ff4400}
 
 .i_moneyEveryday .s_list{}
 .i_moneyEveryday .s_list td{ vertical-align:top}
@@ -461,7 +461,7 @@ a{ text-decoration:none ; color:#666 }
 .i_moneyEveryday .s_list .L img{ width:90px; height:90px;}
 .i_moneyEveryday .s_list .R{ padding-left:5px; color:#000}
 .i_moneyEveryday .s_list .R .part1{}
-.i_moneyEveryday .s_list .R .part1 .a1{ float:left; width:16px; height:16px; line-height:16px; text-align:center; background:#ff4400; color:#FFF;border-radius:3px; margin-top:3px; font-size:12px }
+.i_moneyEveryday .s_list .R .part1 .a1{ float:left; width:16px; height:16px; line-height:16px; text-align:center; background:#e31436; color:#FFF;border-radius:3px; margin-top:3px; font-size:12px }
 .i_moneyEveryday .s_list .R .part1 .a2{ float:left; padding-left:5px;}
 .i_moneyEveryday .s_list .R .part2{ line-height:30px; font-size:12px;padding-top:5px; padding-bottom:5px;}
 .i_moneyEveryday .s_list .R .part2 .a1{ padding-right:10px; line-height:18px; color:#999; }
@@ -479,14 +479,14 @@ a{ text-decoration:none ; color:#666 }
 .i_rebateDetail .s_part2{ position:relative}
 .i_rebateDetail .s_part2 .hang1 img{ width:100%}
 .i_rebateDetail .s_part2 .hang2{ position:absolute; bottom:0px; left:0px; width:100%; height:30px; background:url(../img/a2.png) repeat; font-size:14px; color:#FFF;}
-.i_rebateDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#ff4400; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
+.i_rebateDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#e31436; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
 .i_rebateDetail .s_part2 .hang2 .R{ float:left; line-height:30px; padding-left:5px;}
 .i_rebateDetail .s_part2 .hang3{  position:absolute; top:0px; left:0px; width:70px; height:70px; background:url(../img/a16.png); font-size:14px; color:#FFF; text-align:center; line-height:70px; font-size:24px}
 
 
 .i_rebateDetail  .s_part3{  padding-bottom:10px; position:relative;border-bottom:1px solid #dcdcdc;}
 .i_rebateDetail  .s_part3 .hang1{ text-align:center; height:35px; line-height:35px; border-bottom:1px solid #dcdcdc}
-.i_rebateDetail  .s_part3 .hang1 span{ color:#ff4400;font-weight:bolder }
+.i_rebateDetail  .s_part3 .hang1 span{ color:#e31436;font-weight:bolder }
 
 
 .i_rebateDetail  .s_part3 .hang2{ padding:10px 0px; font-size:12px;border-bottom:1px solid #dcdcdc}
@@ -496,7 +496,7 @@ a{ text-decoration:none ; color:#666 }
 
 .i_rebateDetail  .s_part3 .hang3{ background:#f2f2f0;text-align:center; height:30px; line-height:30px; margin-top:10px;}
 .i_rebateDetail  .s_part3 .hang3 img{ vertical-align: middle}
-.i_rebateDetail  .s_part3 .hang3 span{ color:#ff4400; font-weight:bold }
+.i_rebateDetail  .s_part3 .hang3 span{ color:#e31436; font-weight:bold }
 
 
 .i_rebateDetail  .s_part3 .hang5{}
@@ -551,7 +551,7 @@ a{ text-decoration:none ; color:#666 }
 .i_PointsList .s_img img{ width:100%}
 .i_PointsList .s_ti{ height:20px; line-height:20px; margin-top:10px;}
 .i_PointsList .s_ti a{ text-align:center; width:50%; float:left; display:block}
-.i_PointsList .s_ti .sel{ color:#ff4400; border-bottom:1px solid #ff4400}
+.i_PointsList .s_ti .sel{ color:#e31436; border-bottom:1px solid #ff4400}
 
 .i_PointsList .s_list{}
 .i_PointsList .s_list td{ vertical-align:top}
@@ -560,7 +560,7 @@ a{ text-decoration:none ; color:#666 }
 .i_PointsList .s_list .L img{ width:70px; height:70px;}
 .i_PointsList .s_list .R{ padding-left:10px; color:#000}
 .i_PointsList .s_list .R .part1{ padding-top:2px;}
-.i_PointsList .s_list .R .part1 .a1{ float:left; width:16px; height:16px; line-height:16px; text-align:center; background:#ff4400; color:#FFF;border-radius:3px; margin-top:3px; font-size:12px }
+.i_PointsList .s_list .R .part1 .a1{ float:left; width:16px; height:16px; line-height:16px; text-align:center; background:#e31436; color:#FFF;border-radius:3px; margin-top:3px; font-size:12px }
 .i_PointsList .s_list .R .part1 .a2{ float:left; padding-left:5px;}
 .i_PointsList .s_list .R .part2{ line-height:30px; font-size:12px;padding-top:3px; padding-bottom:2px;}
 .i_PointsList .s_list .R .part2 .a1{ padding-right:10px; line-height:18px; padding-top:5px;  }
@@ -578,7 +578,7 @@ a{ text-decoration:none ; color:#666 }
 .i_PointsDetail .s_part2{ position:relative}
 .i_PointsDetail .s_part2 .hang1 img{ width:100%}
 .i_PointsDetail .s_part2 .hang2{ position:absolute; bottom:0px; left:0px; width:100%; height:30px; background:url(../img/a2.png) repeat; font-size:14px; color:#FFF;}
-.i_PointsDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#ff4400; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
+.i_PointsDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#e31436; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
 .i_PointsDetail .s_part2 .hang2 .R{ float:left; line-height:30px; padding-left:5px;}
 .i_PointsDetail .s_part3 { text-align:center;  }
 .i_PointsDetail .s_part3 div{height:35px; line-height:35px; border-bottom:1px solid #d9d9d9  }
@@ -613,7 +613,7 @@ a{ text-decoration:none ; color:#666 }
 .i_tryDetail .s_part2{ position:relative}
 .i_tryDetail .s_part2 .hang1 img{ width:100%}
 .i_tryDetail .s_part2 .hang2{ position:absolute; bottom:0px; left:0px; width:100%; height:30px; background:url(../img/a2.png) repeat; font-size:14px; color:#FFF;}
-.i_tryDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#ff4400; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
+.i_tryDetail .s_part2 .hang2 .L{ float:left; font-size:12px; background:#e31436; padding:0px 5px; border-radius:3px; height:20px; line-height:20px; margin-top:6px; margin-right:5px; margin-left:7px; }
 .i_tryDetail .s_part2 .hang2 .R{ float:left; line-height:30px; padding-left:5px;}
 .i_tryDetail .s_part3 { text-align:center; font-size:12px; padding:10px 0px; padding-bottom:0px; }
 .i_tryDetail .s_part3  span{ color:#e42012}
