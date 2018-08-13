@@ -1273,7 +1273,6 @@ $scope.$on('$ionicView.beforeEnter', function() {
 
       User_register1Factory.set_register(user_phone, user_sms, password);
 
-
     };
 
 
@@ -1317,7 +1316,7 @@ $scope.$on('$ionicView.beforeEnter', function() {
     $scope.text = "获取验证码";
 
     $scope.getsms = function(phone_id) {
-      //console.log(phone_id);
+      // console.log(phone_id);
 
       $scope.isDisabled = true;
       //请求服务器验证手机号
