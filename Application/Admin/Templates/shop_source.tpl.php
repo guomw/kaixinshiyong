@@ -48,7 +48,7 @@ td, th {
     foreach($shoplist as $k=>$v) {
 ?>
     <tr style="height:30px;">
-        <?php if($v['id']>2){ ?>
+        <?php if($v['id']>1){ ?>
             <td align="center" width="20px"><input type="checkbox" value="<?php echo $v['id']?>" name="id[]"></td>
         <?php }else{ ?>
             <td align="center"><input type="checkbox" disabled="true"></td>
@@ -64,7 +64,7 @@ td, th {
         <td align="center"><?php if($v['updatetime']!='0'){echo dgmdate($v['updatetime']);}else{echo '--';}?></td>
         <td align="center">
             <a href="<?php echo U('edit', array('id' => $v['id'])) ?>" onclick="javascript:edit(this, '<?php echo $v['name']?>');return false;">[<?php echo L('修改')?>]</a>
-            <?php if($v['id'] > 2){ ?>
+            <?php if($v['id'] > 1){ ?>
             <a href="<?php echo U('delete', array('id[]' => $v['id'])) ?>" onclick="return confirm('<?php echo L('sure_delete')?>')">[<?php echo '删除';?>]</a>
             <?php } ?>
         </td>

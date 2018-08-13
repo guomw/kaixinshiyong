@@ -32,7 +32,7 @@ Class ActivitySettingController extends InitController {
           $order = model('order_way')->find($id);
          include $this->admin_tpl('order_way_edit');
     }
-    /* 活动管理->全局配置 店铺来源设置 [Adalways试用系统] */
+    /* 活动管理->全局配置 店铺来源设置 [试用系统] */
     public function shop_source() {
         if (submitcheck('dosubmit')) {
             $infos = $_POST['setting'];
@@ -96,7 +96,7 @@ Class ActivitySettingController extends InitController {
         $ids = I('param.id');
         if (!$ids)  $this->error('请选择要删除的记录！');
         foreach ($ids as $id) {
-            if($id < 3) continue;
+            if($id < 2) continue;
             model('shop_set')->delete($id);
         }
         $this->success('删除成功',U('shop_source'));

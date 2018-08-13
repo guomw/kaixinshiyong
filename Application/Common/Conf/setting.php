@@ -1,6 +1,6 @@
 <?php 
  return array (
-  'WEBNAME' => '我的网站',
+  'WEBNAME' => '试用中心',
   'KEYWORD' => '每折网',
   'DESCRIPTION' => '',
   'AUTHKEY' => 'k0AeqqzwinAA7V71WrrEpei7',
@@ -92,7 +92,7 @@
 )',
   'TENGXUN' => 'http://baidu.com',
   'XINLANG' => 'http://baidu.com',
-  'SITE_LOGO_FU' => '/uploadfile/2015/1123/20151123074105877.png',
+  'SITE_LOGO_FU' => '/uploadfile/2018/0813/20180813054300612.png',
   'SITE_LOGO_ZHU' => '/uploadfile/2015/1123/20151123074103272.png',
   'SITE_MAP_IMAGE' => '/uploadfile/2015/0121/20150121112606476.jpg',
   'REWRITE_RULE' => 'array (
