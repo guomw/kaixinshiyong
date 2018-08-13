@@ -5362,6 +5362,29 @@ CREATE TABLE IF NOT EXISTS `prefix_member_address` (
 
 -- --------------------------------------------------------
 
+
+
+
+-- ----------------------------
+-- Table structure for `prefix_member_app`
+-- ----------------------------
+DROP TABLE IF EXISTS `prefix_member_app`;
+CREATE TABLE `prefix_member_app` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `platform` varchar(100) NOT NULL,
+  `name` char(50) DEFAULT NULL COMMENT '设备名称',
+  `reg_time` int(10) DEFAULT NULL COMMENT '注册时间',
+  `last_login` int(10) DEFAULT NULL COMMENT '最后登录时间',
+  `alias` varchar(225) DEFAULT NULL COMMENT '别名',
+  `target` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of xw_member_app
+-- ----------------------------
+
 --
 -- 表的结构 `prefix_member_attesta`
 --
