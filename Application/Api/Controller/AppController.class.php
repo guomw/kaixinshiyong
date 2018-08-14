@@ -4388,31 +4388,31 @@ class AppController extends BaseController {
     }*/
 
 
-/*     public function upload_img(){
-        if(!empty($_FILES)){
-            $upload = new \Think\Upload();// 实例化上传类
-            $upload->maxSize  =     3145728 ;
-            $upload->exts     =     array('jpg', 'gif', 'png');
-            $date=date('Y',time());
-            $m_d=date('md',time());
-            $upload->rootPath = './uploadfile/app/'.$date.'/'.$m_d;
-            if(!file_exists($upload->rootPath)){//不存在，则创建
-               mkdir($upload->rootPath, 0777);
-            }
-            $upload->savePath = '';
-            $upload->replace  = TRUE;
-            $upload->saveName = NOW_TIME.random(5,1);
-            $upload->autoSub = FALSE;
-            $upload->saveExt  = 'jpg';
-            $result = $upload->upload($_FILES);
-            $name = __ROOT__.'/uploadfile/app/'.$result['Filedata']['savename'];
-            if($result){
-                exit($name);
-            }else{
-                exit('error');
-            }
-        }
-    }*/
+//     public function upload_img_demo(){
+//        if(!empty($_FILES)){
+//            $upload = new \Think\Upload();// 实例化上传类
+//            $upload->config->maxSize  =     3145728 ;
+//            $upload->exts     =     array('jpg', 'gif', 'png');
+//            $date=date('Y',time());
+//            $m_d=date('md',time());
+//            $upload->rootPath = './uploadfile/app/'.$date.'/'.$m_d;
+//            if(!file_exists($upload->rootPath)){//不存在，则创建
+//               mkdir($upload->rootPath, 0777);
+//            }
+//            $upload->savePath = '';
+//            $upload->replace  = TRUE;
+//            $upload->saveName = NOW_TIME.random(5,1);
+//            $upload->autoSub = FALSE;
+//            $upload->saveExt  = 'jpg';
+//            $result = $upload->upload($_FILES);
+//            $name = __ROOT__.'/uploadfile/app/'.$result['Filedata']['savename'];
+//            if($result){
+//                exit($name);
+//            }else{
+//                exit('error');
+//            }
+//        }
+//    }
 
 
     public function isrecommend(){

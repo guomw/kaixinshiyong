@@ -1738,7 +1738,7 @@ $scope.$on('$ionicView.beforeEnter', function() {
                  duration: 1000
                });
 
-               uploadFactory.set_upload($files,2,userid,random);   
+               uploadFactory.set_upload($files,2,userid,random);
             };
 
 
