@@ -1,6 +1,6 @@
-<ion-view  hide-tabs view-title="试用报告">
+<ion-view hide-tabs view-title="试用报告">
   <ion-nav-buttons side="right">
-    <a class="button icon ion-ios-gear-outline button-clear" ng-click="Order_log()" >日志</a>
+    <a class="button icon ion-ios-gear-outline button-clear" ng-click="Order_log()">日志</a>
   </ion-nav-buttons>
   <ion-content style="background-color:#F8F8F8">
     <div ng-if="txddh_showloading" style="margin-top:60px; text-align: center">
@@ -9,7 +9,7 @@
 
     <ion-list ng-if="txddh_showloading==false" class="list padding-top">
 
-      <ion-item  class="list_w" >
+      <ion-item class="list_w">
         <div class="img">
           <img ng-src="{{txddh_showdata.thumb |imgUrl}}" />
         </div>
@@ -21,10 +21,10 @@
           </li>
 
           <li class="  c1 txt-flow" style="font-size:0.875em;">
-            返还： <b class="cc">{{  (txddh_showdata.goods_bonus -1 +1 )  +  (txddh_showdata.goods_price -1 +1 )  | currency:"￥"}}</b> 
-            <span ng-show= " txddh_showdata.goods_bonus >
-              0 "  > (含红包
-              <b class="cc">{{ txddh_showdata.goods_bonus      }}</b>
+            返还： <b class="cc">{{ (txddh_showdata.goods_bonus -1 +1 ) + (txddh_showdata.goods_price -1 +1 ) | currency:"￥"}}</b>
+            <span ng-show=" txddh_showdata.goods_bonus >
+              0 "> (含红包
+              <b class="cc">{{ txddh_showdata.goods_bonus }}</b>
               元)
             </span>
 
@@ -32,21 +32,21 @@
         </ul>
       </ion-item>
 
-      <p ng-if="order_info.status == 8 " style="color:#A9A9A9d" class="padding-left padding-top ">
-        未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_write_talk_time}}" >
-              {{ order_info.complete_time - 0 + buyer_write_talk_time | f_fomtime  }}
-            </span>        </b>
+      <p ng-if="order_info.status == 8 " style="color:#A9A9A9" class="padding-left padding-top ">
+        未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_write_talk_time}}">
+            {{ order_info.complete_time - 0 + buyer_write_talk_time | f_fomtime }}
+          </span> </b>
         填写试用报告,将失去资格!
       </p>
 
-      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9d" class="padding-left padding-top ">
+      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9" class="padding-left padding-top ">
         <b class="cc">{{order_info.cause}}</b>
       </p>
 
-      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9d" class="padding-left padding-top ">
-        未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}" >
-        {{ order_info.complete_time - 0 + buyer_check_update_order_sn | f_fomtime  }}
-            </span>        </b>
+      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9" class="padding-left padding-top ">
+        未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}">
+            {{ order_info.complete_time - 0 + buyer_check_update_order_sn | f_fomtime }}
+          </span> </b>
         修改试用报告,将失去试用资格!
       </p>
 
@@ -55,45 +55,45 @@
       试用课堂: <i style="color:#A9A9A9">试用是不用自己掏钱买的,商品是白来的</i>
     </p>
     -->
-    <form name="myform" novalidate="false">
+      <form name="myform" novalidate="false">
 
-      <div class="list">
+        <div class="list">
 
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">为试用品打分</span>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">为试用品打分</span>
 
-          <label style="height:50px;" class="item item-input item-select padding-right  ">
-            <span class="input-label">选择</span>
-            <select class=" padding-right  " style="height:50px;padding: 14px 25px 16px 10px;"  ng-model="sybg_vm.pinfen " ng-options="a.name for a  in pingfen">
-              <option value="">
-                <b class="cc">★★★一般满意,还有待提高</b>
-              </option>
-            </select>
+            <label style="height:50px;" class="item item-input item-select padding-right  ">
+              <span class="input-label">选择</span>
+              <select class=" padding-right  " style="height:50px;padding: 14px 25px 16px 10px;" ng-model="sybg_vm.pinfen " ng-options="a.name for a  in pingfen">
+                <option value="">
+                  <b class="cc">★★★一般满意,还有待提高</b>
+                </option>
+              </select>
+            </label>
           </label>
-        </label>
 
-      <label class="item item-input item-stacked-label">
-             <span class="input-label">试用商品图片</span>
-      </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">试用商品图片</span>
+          </label>
 
-        <div class="col"  id='goods_albums' >
-          <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}"  ng-click="sybgimg()" />
-          <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+          <div class="col" id='goods_albums'>
+            <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" ng-click="sybgimg()" />
+            <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+          </div>
+          <label class="item item-input item-stacked-label padding-right  ">
+            <span class="input-label">试用过程和感受</span>
+            <label class="item item-input">
+              <textarea ng-model="sybg_vm.xinde" placeholder="分享一下试用心得" rows="5"></textarea>
+            </label>
+          </label>
+
         </div>
-        <label class="item item-input item-stacked-label padding-right  ">
-          <span class="input-label">试用过程和感受</span>
-          <label class="item item-input">
-            <textarea  ng-model="sybg_vm.xinde"  placeholder="分享一下试用心得" rows="5"></textarea>
-          </label>
-        </label>
+        <div class="padding-left padding-right">
+          <button class="button button-block button-assertive  padding-top" ng-click="sybg_add()">提交试用报告</button>
+        </div>
 
-      </div>
-      <div class="padding-left padding-right" >
-        <button class="button button-block button-assertive  padding-top" ng-click="sybg_add()">提交试用报告</button>
-      </div>
+      </form>
+    </ion-list>
 
-    </form>
-  </ion-list>
-
-</ion-content>
+  </ion-content>
 </ion-view>
