@@ -4104,7 +4104,7 @@ $scope.$on('$ionicView.beforeEnter', function() {
     //填写试用报告
     $scope.sybg_add = function() {
 
-      if($scope.sybg_vm.img == "img/shai_img.jpg"){
+      if($scope.sybg_vm.img != "img/shai_img.jpg"){
       $ionicLoading.show({
         noBackdrop: true,
         template: '亲,请分享一张宝贝图片...',
