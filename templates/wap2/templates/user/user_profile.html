@@ -1,107 +1,106 @@
 <ion-view hide-nav-bar="true">
   <div class="bar bar-header bar-stable ">
-  <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-  <h1 class="title">我的信息</h1>
+    <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">我的信息</h1>
   </div>
   <ion-content class="padding_head">
-    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-   refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
+    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
 
     <div ng-show="showloading" style="margin-top:60px; text-align: center">
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
 
-    <ion-list ng-show ="showloading == false" >
+    <ion-list ng-show="showloading == false">
 
-      <ion-item class="item item-icon-left item-icon-right " ng-click="profile_nickname()"> <i style="font-size:18px;color:#aaaaea" class="icon ion-android-person"></i>
-        我的昵称 <i class="item-note">{{userInfo.nickname}}</i>
+      <ion-item class="item item-icon-left item-icon-right " ng-click="profile_nickname()">
+        我的昵称
+        <i class="item-note">{{userInfo.nickname}}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
       <a class="item item-icon-left item-icon-right " href="#/tab/user/profile/phone">
-        <i style="font-size:18px;color:#73bbee" class="icon ion-iphone"></i>
+
         我的手机
-        <i class="item-note">{{userInfo.phone  }}</i>
+        <i class="item-note">{{userInfo.phone }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </a>
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_qq()">
-        <i style="font-size:18px;color:#80d45b" class="icon ion-location"></i>
+
         我的QQ
         <i class="item-note">{{userInfo.qq | f_user_qq }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_email()">
-        <i style="font-size:18px;color:#ffbf59" class="icon ion-ios-email"></i>
+
         我的邮箱
         <i class="item-note">{{userInfo.email}}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_address()">
-        <i style="font-size:18px;color:#52ccbd" class="icon ion-ios-email"></i>
+
         收货地址
         <i class="item-note"></i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
-    <div class="padding-top"></div>
+      <div class="padding-top"></div>
 
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_taobao()">
-        <i style="font-size:18px;color:#52ccbd" class="icon ion-ios-email"></i>
+
         淘宝账号
         <i class="item-note"></i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
-      <ion-item  ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right " ng-click="profile_card()" >
-        <i class="icon ion-edit" style="font-size:18px;color:#53a3e1"></i>
+      <ion-item ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right " ng-click="profile_card()">
+
         实名认证
         <i class="badge light" style="color:#D3D3D3">{{userInfo.name_status | f_name_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.name_status == 1 || userInfo.name_status == 0 " class="item item-icon-left item-icon-right ">
-        <i  style="font-size:18px;color:#53a3e1" class="icon ion-edit"></i>
+
         实名认证
         <i class="item-note">{{ userInfo.name_status | f_name_status }}</i>
       </ion-item>
 
-      <ion-item ng-show="userInfo.alipay_status != 1"  ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
-        <i class="icon ion-location" style="font-size:18px;color:#f86570"></i>
+      <ion-item ng-show="userInfo.alipay_status != 1" ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
+
         我的支付宝
         <i class="badge light" style="color:#D3D3D3">{{userInfo.alipay_status | f_alipay_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.alipay_status == 1" class="item item-icon-left item-icon-right ">
-        <i class="icon ion-location" style="font-size:18px;color:#f86570"></i>
+
         我的支付宝
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status}}</i>
       </ion-item>
 
-      <ion-item  ng-if="userInfo.bank_status !=1 " class="item item-icon-left item-icon-right " ng-click="profile_bankcard()">
-        <i class="icon ion-card" style="font-size:18px;color:#5958d8"></i>
+      <ion-item ng-if="userInfo.bank_status !=1 " class="item item-icon-left item-icon-right " ng-click="profile_bankcard()">
         我的银行卡
         <i class="item-note">{{userInfo.bank_status |f_bank_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item class="item item-icon-left item-icon-right " ng-if="userInfo.bank_status ==1">
-        <i class="icon ion-card" style="font-size:18px;color:#5958d8"></i>
         我的银行卡
         <i class="item-note">{{userInfo.bank_status |f_bank_status }}</i>
       </ion-item>
 
-    <div class="padding-top"></div>
+      <div class="padding-top"></div>
 
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_password()">
-        <i style="font-size:18px;color:#52ccbd" class="icon ion-ios-email"></i>
         修改密码
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
-      <div class="padding-left padding-right padding-top" >
-        <button class="button button-block button-assertive padding-top" ng-click="logout()">退出登录</button>
+      <div class="padding-left padding-right padding-top">
+        <!-- <button class="button button-block button-assertive padding-top" ng-click="logout()">退出登录</button> -->
+        <a href="javascript:;" class="weui-btn" style="border-radius:99px;height:50px;background-color:#ef473a;color:#fff;line-height: 50px;"
+          ng-click="logout()">退出登录</a>
       </div>
 
     </ion-list>
