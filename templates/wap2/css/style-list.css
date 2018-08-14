@@ -1,0 +1,228 @@
+@charset "utf-8";
+/* CSS Document */
+.i_tryout {
+    background-color: #f3f3f3;
+}
+.i_tryout .s_part2 {
+    position: relative;
+    border-bottom: 12px solid #f3f3f3;
+}
+.i_tryout .s_part2 .hang2 {
+    height: auto;
+    background: none;
+    background-color: #f61d4b;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    color: #fff;
+}
+.i_tryout .s_part2 .hang2 .c4 {
+    color: #fff;
+}
+.i_tryout_s_part4 {
+    padding:0px;
+}
+.i_tryout_s_part4 .a1 {
+    background: #f61d4b;
+    color: #FFF;
+}
+.i_tryout_s_part4 a {
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    height: auto;
+    width: 100%;
+    line-height: 42px;
+}
+.i_tryout .s_part3 .L {
+    float: left;
+    line-height: 26px;
+    color: #000;
+    font-weight: bold;
+}
+.i_tryout .s_part3 .R2 {
+font-size: 12px;
+    background: #e61415;
+    color: #fff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+    float: left;
+    margin-right: 5px;
+    font-weight: normal;
+}
+.i_tryout .s_part3 .hang1 {
+    text-align: left;
+    height: auto;
+    line-height: normal;
+    border-bottom: 0px;
+    padding: 6px 10px 0px 10px;
+}
+.i_tryout .s_part3 .hang2 .a1 {
+    width: 33.3%;
+}
+.i_tryout .s_part3 .hang2 span {
+    float: left;
+    padding-left: 6px;
+    height: auto;
+    line-height: 24px;
+    color: #7f7f7f;
+}
+.i_tryout .s_part3 .hang2 span {
+    float: left;
+    padding-left: 6px;
+    height: auto;
+    line-height: 24px;
+}
+.i_tryout .s_part3 .hang1 .money{
+	margin-top: 0px;
+}
+.i_tryout .s_part3 .hang1 span {
+    color: #e42012;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.i_tryout .s_part3 .hang1 .name{
+	font-size: 12px;
+	color: #e42012;
+}
+.i_tryout .s_part3 .hang2 {
+    padding: 10px 0px 0px 0px;
+    font-size: 12px;
+    border-bottom: 0px;
+}
+.i_tryout .s_part3 .hang3 {
+    height: 47px;
+    line-height: 47px;
+    background-color: #fef1f8;
+    text-align: inherit;
+    color: #e61415;
+	padding: 0px 10px;
+}
+.i_tryout .s_part3 .hang3 img {
+    vertical-align: middle;
+    width: 26px;
+}
+.i_tryout .s_part3 .hang4 {
+    border-top:0px;
+}
+.i_tryout .division{
+	background-color: #f0eff5;
+	height: 7px;
+}
+.i_tryout_s_part4 .a1 {
+    background: #f61d4b;
+    color: #FFF;
+    border: 0px;
+}
+.i_tryout_s_part4 .last_time {
+    float: left;
+    width: 70%;
+    font-size: 14px;
+}
+.i_tryout_s_part4 .right_free{
+	float: left;
+	width: 30%;
+	font-size: 14px;
+	color: #f61d4b;
+	background-color: #fef1f8;
+}
+.i_tryout_s_part4 {
+    text-align: center;
+    padding: 0px;
+    background: #fff;
+    position: fixed;
+    bottom: -7px;
+    width: 100%;
+    z-index: 999;
+}
+.i_tryout .s_part3 .hang4 .ti {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    color: #7f7f7f;
+    padding-top: 5px;
+    font-weight: bolder;
+}
+.i_tryout .s_part3 .hang4 .co {
+    line-height: 24px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f3f3;
+    margin: 10px;
+}
+.i_tryout .s_part3 {
+    padding-bottom: 10px;
+    position: relative;
+    border-bottom: 12px solid #f3f3f3;
+    background-color: #fff;
+}
+.i_tryout .s_part6 {
+    margin: 0px;
+    padding-top: 10px;
+    background-color: #fff;
+}
+.i_tryout .s_part6 .part {
+    border: 0px;
+}
+
+.i_tryout .s_part6 .part {
+    width: 33.3%;
+    float: left;
+    border:0px;
+    border-radius:0px;
+    border:0px;
+    height: 30px;
+    line-height: normal;
+    text-align: center;
+    margin-top: 0px;
+}
+.i_tryout .s_part6 .sel {
+    height: 30px;
+    line-height: normal;
+    margin-top: 0px;
+    color: #f61d4b;
+    border-bottom: 3px solid #f61d4b;
+}
+.i_tryout .s_part3 .hang5 .ti {
+    height: 30px;
+	color: #7f7f7f;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-weight: bolder;
+}
+.i_tryout .s_part3 .hang5 .co {
+    line-height: 24px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    margin: 10px;
+}
+.i_tryout .tips_up{
+	margin: 10px;
+    color: #7f7f7f;
+    font-weight: bolder;
+}
+.i_tryout .icon_tips{
+	width: 24px;
+	margin-top: -5px;
+    margin-right: 4px;;
+}
+.i_tryout .icon_right{
+	float: right;
+	width: 18px;
+}
+.i_tryout .s_part3 .hang4 .co i{
+	background-color: #fef1f8;
+    color: #f61d4b;
+    border-radius: 50%;
+    padding: 2px 6px 2px 6px;
+    margin: 0px 7px 0px 2px;
+}
+.i_tryout .s_part3 .hang4 .lc{
+	line-height: 38px;
+}
+
+
