@@ -12,6 +12,9 @@ a:hover {
   padding-left: 15px;
   font-weight: 600;
 }
+.weui-cells .weui-cell .weui-input {
+  font-size: 14px !important;
+}
 a.weui-btn {
   border-radius: 99px;
   height: 50px;
@@ -138,3 +141,32 @@ a.weui-btn {
   margin-bottom: -6px;
 }
 /*个人中心样式end*/
+
+/*我的使用样式 start*/
+.item_shop {
+  display: flex;
+  flex-direction: column;
+  padding: 5px !important;
+  margin-bottom: 5px !important;
+}
+.item_shop .shop_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.shop_content .shop-left_img {
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+}
+.shop_content .shop-left_img img {
+  width: 120px;
+  height: 120px;
+  vertical-align: middle;
+}
+.item_shop .shop_active {
+  margin-top: 1px;
+  padding: 0 20px 5px;
+  text-align: right;
+}
+/*我的使用样式end*/
