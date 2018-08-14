@@ -1,58 +1,58 @@
 <ion-view view-title="收货地址">
-  <ion-content  style="background-color:#F8F8F8">
-    <ion-list >
-      <form name="myform" >
+  <ion-content style="background-color:#F8F8F8">
+    <ion-list>
+      <form name="myform">
 
-      <div class="list list-inset new-form ">
+        <div class="list list-inset new-form ">
 
-      <label class="item item-input item-select">
-        <div class="input-label">选择省/直辖区</div>
-        <select  ng-model="vm.country" ng-options="a.name for a  in CityData.data">
-          <option value="">-- {{d1}} --</option>
-        </select>
-      </label>
-
-
-        <label class="item item-input item-select">
-          <div class="input-label">选择 /市/区</div>
-          <select  ng-model="vm.province"
-              ng-options="b.name for b in province.data">
-            <option value="">-- {{d2}} --</option>
-          </select>
-        </label>
-
-        <label ng-if=" b3  || city.msg >0 " class="item item-input item-select">
-          <div class="input-label">选择 /县/区</div>
-          <select class="form-control" ng-model="vm.city" ng-options="c.name for c in city.data  ">
-            <option value="">--{{d3}} --</option>
-          </select>
-        </label>
+          <label class="item item-input item-select">
+            <div class="input-label">选择省/直辖区</div>
+            <select ng-model="vm.country" ng-options="a.name for a  in CityData.data">
+              <option value="">-- {{d1}} --</option>
+            </select>
+          </label>
 
 
-        <label class="item item-input light" >
-          <i style="font-size:18px;color:#ff6000" class="ion-home placeholder-icon" ></i>
-          <input type="text" style="font-size:16px;" placeholder="详细地址门牌号" ng-model="data_address.r_address" required ></label>
+          <label class="item item-input item-select">
+            <div class="input-label">选择 /市/区</div>
+            <select ng-model="vm.province" ng-options="b.name for b in province.data">
+              <option value="">-- {{d2}} --</option>
+            </select>
+          </label>
 
-        <label class="item item-input light" >
-          <i style="font-size:18px;color:#47a8ef
+          <label ng-if=" b3  || city.msg >0 " class="item item-input item-select">
+            <div class="input-label">选择 /县/区</div>
+            <select class="form-control" ng-model="vm.city" ng-options="c.name for c in city.data  ">
+              <option value="">--{{d3}} --</option>
+            </select>
+          </label>
+
+
+          <label class="item item-input light">
+            <i style="font-size:18px;color:#ff6000" class="ion-home placeholder-icon"></i>
+            <input type="text" style="font-size:16px;" placeholder="详细地址门牌号" ng-model="data_address.r_address" required></label>
+
+          <label class="item item-input light">
+            <i style="font-size:18px;color:#47a8ef
 " class="icon ion-person placeholder-icon"></i>
-          <input type="text" style="font-size:16px;" placeholder="联系人" ng-model="data_address.r_name" required ></label>
+            <input type="text" style="font-size:16px;" placeholder="联系人" ng-model="data_address.r_name" required></label>
 
-        <label class="item item-input light" >
-          <i style="font-size:18px;color:#aaaaea" class="icon ion-iphone placeholder-icon" ></i>
-          <input type="text" style="font-size:16px;" placeholder="联系手机" ng-model="data_address.r_phone" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" required  ></label>
+          <label class="item item-input light">
+            <i style="font-size:18px;color:#aaaaea" class="icon ion-iphone placeholder-icon"></i>
+            <input type="text" style="font-size:16px;" placeholder="联系手机" ng-model="data_address.r_phone" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/"
+              required></label>
 
-      </div>
+        </div>
 
-      <h5 class="padding-left">温馨提示：</h5>
-      <h5 class="padding-left">1.完善收货地址，可以在积分商城兑换实物。</h5>
-      <h5 class="padding-left">2.可以收到平台定期赠送的礼品。</h5>
-      <div class="padding-left padding-right" >
-        <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edit_address(country_linkageid,province_linkageid,city_linkageid,data_address.r_address,data_address.r_name,data_address.r_phone)">提交</button>
-
-        {{vm.country.name.linkageid}}
-      </div>
-      </form >
+        <h5 class="padding-left">温馨提示：</h5>
+        <h5 class="padding-left">1.完善收货地址，可以在积分商城兑换实物。</h5>
+        <h5 class="padding-left">2.可以收到平台定期赠送的礼品。</h5>
+        <div class="padding-left padding-right">
+          <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edit_address(country_linkageid,province_linkageid,city_linkageid,data_address.r_address,data_address.r_name,data_address.r_phone)">提交</button> -->
+          <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid" ng-click="edit_address(country_linkageid,province_linkageid,city_linkageid,data_address.r_address,data_address.r_name,data_address.r_phone)">提交</a>
+          {{vm.country.name.linkageid}}
+        </div>
+      </form>
     </ion-list>
 
   </ion-content>
