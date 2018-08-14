@@ -7472,6 +7472,8 @@ CREATE TABLE IF NOT EXISTS `prefix_pay_payment` (
   `author` varchar(100) NOT NULL,
   `website` varchar(100) NOT NULL,
   `version` varchar(20) NOT NULL,
+  `is_open` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `logo` text NOT NULL
   PRIMARY KEY (`pay_id`),
   KEY `pay_code` (`pay_code`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
