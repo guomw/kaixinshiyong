@@ -15,46 +15,49 @@
           <div class="hang1">
             <img ng-if="showdata.thumb"   ng-src="{{ showdata.thumb | imgUrl }}" />
           </div>
-          <div class="hang2">
-            <div class="L">{{showdata.title | limitTo:18 }}</div>
-            <div ng-show = "showdata.protype == 2" class="R">送图片商品</div>
-            <div     class="R2">包邮</div>
+          <div>
+            <div ng-show = "showdata.protype == 2" class="R">送图片商品</div>    
           </div>
         </div>
-        <div class="s_part3">
-          <div class="hang1 c5">
-            {{showdata.price_name}}
+        <div class="s_part3">	
+          <div class="hang1">
+			 <div class="L"> <div class="R2">包邮</div>{{showdata.title | limitTo:18 }}</div>
+			  <div style="clear: both"></div>
+			  <div class="money">
             <span>{{showdata.goods_price | currency:"￥"  }}</span> <i ng-show = "showdata.protype == 3 ">(赠
               <span>{{showdata.goods_bonus }}</span>
-              元红包)</i> 
+              元红包)</i><i class="name">  {{showdata.price_name}}</i>
+			  </div>
           </div>
           <div class="hang2">
-          <span class="a1">  <span class="c4">限量份数：</span><span class="c5">{{showdata.goods_number}}份</span></span>
-            <span class="a2"><span class="c4">剩余份数：</span><span class="c5">{{showdata.number}}份</span></span>
-            <span class="a1"><span class="c4">申请人数：</span><span class="c5">{{showdata.apply_people}}人</span></span>
-            <span class="a2">
-              <span class="c4">剩余时间：</span><span class="c5"> <i id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span>
-            </span>
+          <span class="a1">  <span class="c4">限量份数：</span><span>{{showdata.goods_number}}份</span></span>
+            <span class="a1"><span class="c4">剩余份数：</span><span>{{showdata.number}}份</span></span>
+            <span class="a1"><span class="c4">申请人数：</span><span>{{showdata.apply_people}}人</span></span>
             <div class="clearfix"></div>
           </div>
           <!--hang2-->
-          <div class="hang3 c5">
-              <img ng-src="img/a3.jpg"  /> 商家已存保证金<b class="cc" >{{ showdata.goods_deposit | currency:"￥" }}</b>请放心申请
+          <div class="hang3">
+              <img ng-src="img/list-tip2.png"  /> 商家已存保证金<b class="cc" >{{ showdata.goods_deposit | currency:"￥" }}</b>请放心申请
           </div>
           <!--hang3-->
-                   <div class="hang4">
+			<div>
+			<div class="tips_up">
+				<span><img src="../../img/list-tip1.png" class="icon_tips">小贴士</span>
+				<span><img src="../../img/list-tip3.png" class="icon_right"></span>
+				</div>
+            <div class="hang4">
             <div class="ti">试用流程</div>
-            <div class="co c4">
-              1、申请试用，获得试用资格
+            <div class="co c4 lc">
+              <i>1</i>申请试用，获得试用资格
               <br>
-              2、按照提示以 <b class="cc">{{showdata.goods_price | currency:"￥"  }}</b>
+              <i>2</i>按照提示以 <b class="cc">{{showdata.goods_price | currency:"￥"  }}</b>
               去指定平台购物
               <br>
-              3、回平台填写购买付款的订单号
+              <i>3</i>回平台填写购买付款的订单号
               <br>
-              4、确认收货-给予评价-填写试用报告
+              <i>4</i>确认收货-给予评价-填写试用报告
               <br>
-              5、系统返还
+              <i>5</i>系统返还
               <b class="cc">{{ (showdata.goods_bonus -1 +1 )  +  (showdata.goods_price -1 +1 ) | currency:"￥"  }}</b> 
               到您平台账户中
               <br></div>
@@ -81,6 +84,7 @@
               3.在申请理由里面详细的介绍一下个人的试用经历和心得,更有助提高通过率。
               <br></div>
           </div>
+			</div>
           <!--hang5 搜索下单流程图-->
           
           <div class="hang6">
@@ -290,11 +294,14 @@
                   <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
   </script>
 <div class="i_tryout_s_part4" ng-if= "login_status == 0"  >
-    <a ng-click="Apply_trial()" class="a1">免费申请</a>
+    <a ng-click="Apply_trial()" class="a1">
+		<div class="last_time"><span>剩余时间：</span><span> <i style="color: #fff;" id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span></div>
+		<div class="right_free">免费申请</div>
+	</a>
     <div class="clearfix"></div>
 </div>
 
-<div class="i_tryout_s_part4" ng-if= "order_is_join.data == 1 && showdata.number > 0 "  >
+<div class="i_tryout_s_part4" ng-if= "order_is_join.data == 1 && showdata.number > 0 "  >	
     <a ng-click="Apply_trial()" class="a1">免费申请</a>
     <a ng-click="vip_Apply_trial()" ng-show =" showdata.goods_vipfree == 1">vip快速试用</a>
     <a ng-click="jinbi_Apply_trial()" ng-show =" showdata.goods_point > 0" >{{showdata.point_num}}积分兑换</a>
