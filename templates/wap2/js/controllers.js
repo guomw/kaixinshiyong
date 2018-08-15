@@ -1208,6 +1208,7 @@ angular
       User_register1Factory,
       ENV
     ) {
+      $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
       //如果存在会员信息 则不允许注册
 
       //提交注册请求第一步
@@ -1233,6 +1234,34 @@ angular
         //发起后端注册请求
 
         User_register1Factory.set_register(user_phone, user_sms, password)
+      }
+
+      // $scope.email_text = function(user_email, verifyCode, password, repeat_password){
+      //   console.log(user_email, verifyCode, password, repeat_password);
+      // }
+
+      //邮箱注册请求第一步
+      $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
+        console.log(user_email, verifyCode, password, repeat_password)
+        if (password !== repeat_password) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '两次输入的密码不匹配...',
+            duration: 1000
+          })
+
+          return false
+        }
+
+        $ionicLoading.show({
+          noBackdrop: true,
+          template: '正在提交...',
+          duration: 1000
+        })
+
+        //发起后端注册请求
+
+        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
       }
 
       //收到注册结果结果通知
@@ -1261,11 +1290,18 @@ angular
             template: '亲程序员哥哥正在抢修,请稍后',
             duration: 1000
           })
+          $scope.imgText =
+            ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode' + '&imgMath=' + Math.floor(Math.random() * 10000)
         }
       })
 
       $scope.text = '获取验证码'
-      $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
+
+      //获取图形验证码
+      $scope.getImgText = function() {
+        var imgMath = Math.floor(Math.random() * 10000)
+        $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode' + '&imgMath=' + imgMath
+      }
 
       $scope.getsms = function(phone_id) {
         // console.log(phone_id);
@@ -1624,14 +1660,14 @@ angular
         //获取用户签名
         random = StorageFactory.get('user').data.random
       })
-        var imgUrl = ENV.imgUrl;
+      var imgUrl = ENV.imgUrl
 
-        //初始化上传
-        uploadFactory.init('#user_avatar_albums',function (res) {
-            var data = res._raw;
-            $scope.user_avatar2=$.trim(data);
-            $scope.user_avatar=imgUrl+$.trim(data);
-        });
+      //初始化上传
+      uploadFactory.init('#user_avatar_albums', function(res) {
+        var data = res._raw
+        $scope.user_avatar2 = $.trim(data)
+        $scope.user_avatar = imgUrl + $.trim(data)
+      })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
 
@@ -4284,6 +4320,7 @@ angular
       $scope.sy_showloading = true
 
       $scope.Switch = 1
+      $scope.ShowHide = true
 
       $scope.data_time = Math.round(new Date().getTime() / 1000)
 
@@ -4329,6 +4366,15 @@ angular
 
       // 获取商品详情
       rebate_showFactory.get_rebate_show(aid)
+
+      //显示与隐藏小贴士详情
+      $scope.show_hide = function() {
+        if ($scope.ShowHide) {
+          $scope.ShowHide = false
+        } else {
+          $scope.ShowHide = true
+        }
+      }
 
       //商品介绍
 
