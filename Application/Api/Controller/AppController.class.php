@@ -1640,6 +1640,38 @@ class AppController extends BaseController
         }
     }
 
+    /** 激活邮箱
+     * @return bool
+     */
+    public function active_email()
+    {
+        if (IS_POST) {
+            $param = I('param.');
+            extract($param);
+
+            $email_log = model('email_log')->where(array('email' => $email, 'code' => $code))->order('id DESC')->find();
+            if (!$email_log) {
+                $this->json_function(0, '该验证码不存在，请重新获取！');
+                return false;
+            }
+            if (NOW_TIME > ($email_log['posttime'] + 5 * 60)) {
+                $this->json_function(0, '验证码已失效，请重新获取过！');
+                return false;
+            }
+
+            $rs = model('member')->where(array('userid' => $email_log['userid']))->setField('email_status', 1);
+            if ($rs) {
+                runhook('member_attesta_email');
+                $this->json_function(1, '验证通过');
+            } else {
+                $this->json_function(0, '系统繁忙，请稍后再试！');
+            }
+
+        }
+        $this->json_function(0, '请勿非法访问！');
+
+    }
+
 
     public function login()
     {
