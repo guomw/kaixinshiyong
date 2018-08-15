@@ -3641,6 +3641,47 @@ angular.module('starter.services', [])
 
    return {
 
+     init:function(domId,success){
+         var uploader = WebUploader.create({
+             auto:true,
+             fileVal:'Filedata',
+             // swf文件路径
+             swf: 'js/webuploader/webuploader.swf',
+             // 文件接收服务端。
+             server:server,
+             // 选择文件的按钮。可选
+             formData:{
+             },
+             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+             pick: {
+                 id: domId,
+                 multiple:false
+             },
+             accept:{
+                 title: '图片文件',
+                 extensions: 'gif,jpg,jpeg,bmp,png',
+                 mimeTypes: 'image/*'
+             },
+             thumb:{
+                 width: '120',
+                 height: '100'
+             },
+             chunked: false,
+             chunkSize:1000000,
+             // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+             resize: false
+         });
+
+         uploader.onUploadSuccess = function( file, response ) {
+           if(typeof success =="function") {
+              success(response)
+           }
+         }
+         uploader.onUploadError = function(file, reason) {
+             alert('文件上传错误：' + reason);
+         }
+     },
+
     //提交文件上传
     set_upload:function(fle,index){
 

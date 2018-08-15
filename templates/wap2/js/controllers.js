@@ -1612,7 +1612,6 @@ angular
         $rootScope.hideTabs = 'tabs-item-hide'
         //如果不存在会员信息 则跳转登陆页面
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
-          alert()
           $state.go('tab.user_login') //路由跳转
           StorageFactory.remove2()
           return false
@@ -1622,8 +1621,15 @@ angular
         //获取用户签名
         random = StorageFactory.get('user').data.random
       })
+        var imgUrl = ENV.imgUrl;
 
-      var imgUrl = ENV.imgUrl
+        //初始化上传
+        uploadFactory.init('#user_avatar_albums',function (res) {
+            var data = res._raw;
+            $scope.user_avatar2=$.trim(data);
+            $scope.user_avatar=imgUrl+$.trim(data);
+        });
+
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
 
       $scope.user_nickname = {
