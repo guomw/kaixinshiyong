@@ -421,7 +421,7 @@ angular
         .state('tab.task', {
           url: '/task', //我的日赚任务列表
           views: {
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/task/list.html',
               controller: 'task_list'
             }
@@ -431,7 +431,7 @@ angular
         .state('tab.task_show', {
           url: '/task/:id', //日赚任务详情
           views: {
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/task/show.html',
               controller: 'task_show'
             }
@@ -592,7 +592,7 @@ angular
           url: '/jifenduihuan',
           views: {
             //积分兑换
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/Integral/list.html',
               controller: 'integral_list'
             }
@@ -603,7 +603,7 @@ angular
           url: '/jifen/:id',
           views: {
             //积分兑换详情页面
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/Integral/show.html',
               controller: 'integral_show'
             }
@@ -625,7 +625,7 @@ angular
           url: '/invitation',
           views: {
             //推荐好友
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/user/invitation.html',
               controller: 'invitation'
             }
@@ -636,7 +636,7 @@ angular
           url: '/invitation_log',
           views: {
             //推荐好友记录
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/user/invitation.log.html',
               controller: 'invitation'
             }
@@ -647,7 +647,7 @@ angular
           url: '/trial_help_search',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/trial/help.html',
               controller: 'help'
             }
@@ -658,7 +658,7 @@ angular
           url: '/fenxiang',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'index.2.html',
               controller: 'help'
             }
@@ -669,7 +669,7 @@ angular
           url: '/help/order_sn',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/order_help.html',
               controller: 'help'
             }
@@ -680,7 +680,7 @@ angular
           url: '/help/so',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/so_help.html',
               controller: 'help'
             }
@@ -691,7 +691,7 @@ angular
           url: '/help/apply',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/apply_help.html',
               controller: 'help'
             }
@@ -702,7 +702,7 @@ angular
           url: '/help/commission',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/commission_help.html',
               controller: 'help'
             }
@@ -713,7 +713,7 @@ angular
           url: '/help/about',
           views: {
             //搜索下单指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/about_help.html',
               controller: 'help'
             }
@@ -723,7 +723,7 @@ angular
         .state('tab.article_index', {
           url: '/article',
           views: {
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/article_index.html',
               controller: 'help'
             }
@@ -734,7 +734,7 @@ angular
           url: '/trial_help',
           views: {
             //试用新手指引
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/article/trial_help.html',
               controller: 'help'
             }
@@ -745,7 +745,7 @@ angular
           url: '/jiang',
           views: {
             //天天大转盘
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/user/jiang.html',
               controller: 'jiang'
             }
@@ -756,7 +756,7 @@ angular
           url: '/jiang_log',
           views: {
             //天天大转盘
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/user/jiang_log.html',
               controller: 'jiang'
             }
@@ -767,7 +767,7 @@ angular
           url: '/commission',
           views: {
             //闪电试用
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/commission/list.html',
               controller: 'commission_list'
             }
@@ -778,7 +778,7 @@ angular
           url: '/commission/:id',
           views: {
             //闪电试用
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/commission/show.html',
               controller: 'commission_show'
             }
@@ -789,7 +789,7 @@ angular
           url: '/so',
           views: {
             //闪电试用
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/so/list.html',
               controller: 'so_list'
             }

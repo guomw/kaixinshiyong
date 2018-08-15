@@ -30,13 +30,15 @@
         </div>
         <div class="shop-right">
           <h2>{{ d.title | limitTo:15 }}</h2>
-          <p class="" ng-if="d.taobao_account"> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p>
+          <!-- <p class="" ng-if="d.taobao_account"> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p> -->
+          <p class=""> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p>
           <li class="hd_2 c1 txt-flow" style="font-size:0.875em;">
             <span class='c4'>下单价: </span><b class="cc">{{d.goods_price | currency:"￥"}}</b>
           </li>
           <li ng-show="d.status != 4" class="c1 txt-flow" style="font-size:0.875em;">
             <span class='c4'>返还: </span><b class="cc">{{(d.goods_price -0) + (d.goods_bonus-0) | currency:"￥"}}</b>
-            <span style="font-size:10px" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}元</b></i>)</span>
+            <!-- <span style="font-size:10px" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}元</b></i>)</span> -->
+            <span style="font-size:10px">(<i>含红包 <b class="cc">10元</b></i>)</span>
           </li>
 
           <!--  审核失败的时候提示失败原因 -->
