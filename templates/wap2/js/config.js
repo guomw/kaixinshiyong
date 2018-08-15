@@ -78,7 +78,7 @@ var configMod=angular.module("starter.config", []);
 	configMod.constant("ENV", {
 	    "name": "production",
 	    "debug": false,
-	    "api": "http://www.demophp.com:8080/index.php?m=api&c=app",
-	    "siteUrl":"http://www.demophp.com:8080",
-	    "imgUrl":"http://www.demophp.com:8080",
+	    "api": "http://192.168.1.210:8081/index.php?m=api&c=app",
+	    "siteUrl":"http://192.168.1.210:8081",
+	    "imgUrl":"http://192.168.1.210:8081",
 	});

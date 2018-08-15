@@ -93,7 +93,7 @@
   'TENGXUN' => 'http://baidu.com',
   'XINLANG' => 'http://baidu.com',
   'SITE_LOGO_FU' => '/uploadfile/2018/0813/20180813054300612.png',
-  'SITE_LOGO_ZHU' => '/uploadfile/2015/1123/20151123074103272.png',
+  'SITE_LOGO_ZHU' => '/uploadfile/2018/0815/20180815113940702.png',
   'SITE_MAP_IMAGE' => '/uploadfile/2015/0121/20150121112606476.jpg',
   'REWRITE_RULE' => 'array (
   \'enabled\' => \'1\',

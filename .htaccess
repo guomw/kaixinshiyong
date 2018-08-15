@@ -162,7 +162,13 @@ RewriteRule ^try_report/show/(.*)$ index.php?m=product&c=index&a=report_show&%1
 
 RewriteCond %{HTTP_HOST} ^(m|wap|m2)(.|\n)+$ [NC]
 RewriteCond %{REQUEST_URI} !^/templates/wap2/ 
-RewriteRule ^(.*)$  /templates/wap2/$1 
+RewriteRule ^(.*)$  /templates/wap2/$1
+
+
+RewriteCond %{HTTP_HOST} ^(192.168.1.210:8080)+$ [NC]
+RewriteCond %{REQUEST_URI} !^/templates/wap2/
+RewriteRule ^(.*)$  /templates/wap2/$1
+
 
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^yq/(.*)$ index.php?m=friends&c=index&a=index&userid=$1;

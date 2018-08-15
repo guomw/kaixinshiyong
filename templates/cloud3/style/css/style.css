@@ -202,15 +202,15 @@ body #content .list-hdlc_2{ height:56px; background:url(../images/hdlc-bg2.png) 
 #content .list-hdlc_2 .l4{ width:160px; height:100%; }
 #content .list-hdlc_2 .l5{ width:330px; height:100%; }
 
-/* 会员管理中心模块 */
-#user_header{ height:110px; background:#FF6C00; }
+/* 会员管理中心模块 #FF6C00*/
+#user_header{ height:110px; background:#ffffff;border-bottom: #e1e1e1 1px solid; }
 #user_header .user_logo{ height:100%; overflow:hidden; }
 #user_header .user_logo .logo_img{ width:176px; height:100%; overflow:hidden; }
 #user_header .user_logo .logo_img img{ width:176px; height:52px; position:relative; margin-top:-26px; top:50%; left:0; }
-#user_header .user_logo .l_title{ height:40px; line-height:40px; position:relative; top:50%; color:#fff; padding:0 10px; margin:-20px 20px 0; border:solid 1px #fff; border-radius:5px; font-size:16px; }
+#user_header .user_logo .l_title{ height:40px; line-height:40px; position:relative; top:50%; color:#282828; padding:0 10px; margin:-20px 20px 0; border:solid 1px #fff; border-radius:5px; font-size:16px; }
 #user_header .user_nav{ height:110px; line-height:110px; }
 #user_header .user_nav li{ float:left; margin-left:52px; }
-#user_header .user_nav li a{ color:#fff; padding:10px; }
+#user_header .user_nav li a{ color:#282828; padding:10px; }
 
 #content .hint_wz_2{ height:44px; line-height:44px; }
 
