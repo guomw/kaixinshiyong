@@ -6,20 +6,29 @@
 
         <div class="list list-inset new-form">
           <label class="item item-icon-left item-icon-right ">
-            <i style="font-size:18px;color:#47a8ef
-" class="icon ion-person placeholder-icon"></i>
+            <!-- <i style="font-size:18px;color:#47a8ef" class="icon ion-person placeholder-icon"></i> -->
             {{user_Real_name }}
             <i class="item-note" style="font-size:14px;">
               {{name_authentication_status | f_name_status }}
             </i>
           </label>
 
-          <label class="item item-input">
+          <!-- <label class="item item-input">
             <i style="font-size:18px;color:#ff6000" class="icon ion-card placeholder-icon"></i>
             <div class="input-label padding-left ">支付宝</div>
             <input type="text" ng-pattern="/^(1[3|4|5|8][0-9]\d{8}|([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+)$/"
-              ng-model="user_allpay" name="user_allpay" placeholder="请输入您的支付宝" required></label>
-
+              ng-model="user_allpay" name="user_allpay" placeholder="请输入您的支付宝" required></label> -->
+          <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+              <div class="weui-cell__hd">
+                <i style="font-size:18px;color:#ff6000" class="icon ion-card placeholder-icon"></i>
+              </div>
+              <div class="weui-cell__bd">
+                <input class="weui-input" type="text" ng-pattern="/^(1[3|4|5|8][0-9]\d{8}|([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+)$/"
+                  ng-model="user_allpay" name="user_allpay" placeholder="请输入您的支付宝" required>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="text-explain">
           <p>1.支付宝帐号绑定之后，如需修改联系平台客服。</p>

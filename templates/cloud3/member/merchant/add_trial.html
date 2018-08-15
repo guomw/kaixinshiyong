@@ -89,9 +89,9 @@
                     <input type="text" datatype='url' id="goods_url" value="请粘贴pc端宝贝地址" onclick="if(this.value=='请粘贴pc端宝贝地址'){this.value='';}" name="info[goods_url]" />
                   </label>
                 </div>
-                <div class="R7">
-                  <a id="keyget" href="javascript:;" >一键获取</a>
-                </div>
+                <!--<div class="R7">-->
+                  <!--<a id="keyget" href="javascript:;" >一键获取</a>-->
+                <!--</div>-->
                 <div class="clear"></div>
               </div>
                 <script>
@@ -826,7 +826,7 @@ $("#linkage_input_catid").formValidator({
 $("#title").formValidator({
   empty:false,
   onshow:true ,
-  onfocus:"请输入试用品名称,不能超过18个字呃 "
+  onfocus:"请输入试用品名称,不能超过18个字!"
 }).inputValidator({
   min:1,
   onerror:"输入试用品名称,"

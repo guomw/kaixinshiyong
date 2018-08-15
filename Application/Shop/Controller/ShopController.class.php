@@ -72,7 +72,8 @@ class ShopController extends \Admin\Controller\InitController
             }
             foreach ($ids as $id) {
                 $id = (int) $id;
-              
+                //TODO:2018-08-14
+                //这里可以添加个限制，限制id不能被删
                 $this->db->where(array('id' => $id))->delete();
                
             }

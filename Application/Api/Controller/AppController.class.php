@@ -1545,6 +1545,72 @@ class AppController extends BaseController {
 
     }
 
+    /** 邮件注册
+     * @return bool
+     */
+    public  function registerToEmail(){
+        if (IS_POST){
+            $param = I('param.');
+            extract($param);
+            $info = array();
+            if (isemail($user_email)) {
+                $info['email'] = $user_email;
+            }else{
+                $this->json_function(0,'格式错误');
+                return FALSE;
+            }
+            $email_count = model('member')->where(array('email'=>$user_email))->count();
+            if ($email_count > 0) {
+                $this->json_function(0,'该用户已存在');
+                return FALSE;
+            }
+            if (!checkVerify(strtolower($verifyCode))) {
+                $this->error('验证码不正确');
+                return false;
+            }
+
+            $info['password'] = $user_password;
+            $info['modelid'] = I('modelid', '1', 'intval');
+            /* 注册默认值 */
+            $info['encrypt'] = random(6);
+            $info['point'] = (int) 0;
+            $info['groupid'] = (isset($info['groupid']) && is_numeric($info['groupid']) && $info['groupid'] > 1) ? $info['groupid'] : 1;
+            $MemberLogic = D('Member/Member', 'Logic');
+            $User = D('Member/Member', 'Model');
+            $userids = $User->update($info);
+            $result = $MemberLogic->publogin($userids);
+            if (!$result) {
+                $this->json_function(0,'注册失败，请稍后重试');
+                return FALSE;
+            } else {
+                $userid = $userids;
+                $data = array();
+                $data['alias'] = $userid;
+                $data['userid'] = $userid;
+                $data['platform'] = $platform;
+                $data['version'] = $version;
+                $data['reg_time'] = NOW_TIME;
+                $data['name'] = $platform_name;
+                $count = model('mebmer_app')->where(array('userid'=>$userid))->count();
+                if ((int)$count > 0) {
+                    model('member_app')->where(array('userid'=>$userid))->save($data);
+                }else{
+                    model('member_app')->add($data);
+                }
+                $userinfo = getUserInfo($userid);
+                if ($info['agent_id'] > 0 ) {
+                    runhook('member_attesta_email',array('userid'=>$userid));
+                }
+                $this->json_function(1,'注册成功',$userinfo);
+            }
+        }
+        else{
+            $this->json_function(0,'请勿非法访问！');
+            return FALSE;
+        }
+    }
+
+
     public function login(){
         if (IS_POST) {
           /*  $postdata = file_get_contents('php://input',true);
@@ -4388,31 +4454,31 @@ class AppController extends BaseController {
     }*/
 
 
-/*     public function upload_img(){
-        if(!empty($_FILES)){
-            $upload = new \Think\Upload();// 实例化上传类
-            $upload->maxSize  =     3145728 ;
-            $upload->exts     =     array('jpg', 'gif', 'png');
-            $date=date('Y',time());
-            $m_d=date('md',time());
-            $upload->rootPath = './uploadfile/app/'.$date.'/'.$m_d;
-            if(!file_exists($upload->rootPath)){//不存在，则创建
-               mkdir($upload->rootPath, 0777);
-            }
-            $upload->savePath = '';
-            $upload->replace  = TRUE;
-            $upload->saveName = NOW_TIME.random(5,1);
-            $upload->autoSub = FALSE;
-            $upload->saveExt  = 'jpg';
-            $result = $upload->upload($_FILES);
-            $name = __ROOT__.'/uploadfile/app/'.$result['Filedata']['savename'];
-            if($result){
-                exit($name);
-            }else{
-                exit('error');
-            }
-        }
-    }*/
+//     public function upload_img_demo(){
+//        if(!empty($_FILES)){
+//            $upload = new \Think\Upload();// 实例化上传类
+//            $upload->config->maxSize  =     3145728 ;
+//            $upload->exts     =     array('jpg', 'gif', 'png');
+//            $date=date('Y',time());
+//            $m_d=date('md',time());
+//            $upload->rootPath = './uploadfile/app/'.$date.'/'.$m_d;
+//            if(!file_exists($upload->rootPath)){//不存在，则创建
+//               mkdir($upload->rootPath, 0777);
+//            }
+//            $upload->savePath = '';
+//            $upload->replace  = TRUE;
+//            $upload->saveName = NOW_TIME.random(5,1);
+//            $upload->autoSub = FALSE;
+//            $upload->saveExt  = 'jpg';
+//            $result = $upload->upload($_FILES);
+//            $name = __ROOT__.'/uploadfile/app/'.$result['Filedata']['savename'];
+//            if($result){
+//                exit($name);
+//            }else{
+//                exit('error');
+//            }
+//        }
+//    }
 
 
     public function isrecommend(){
@@ -5735,9 +5801,14 @@ class AppController extends BaseController {
                 }
             }
         }
-        
-    
 
+    /**
+     * 创建图形验证码
+     */
+     public function createVerifyCode(){
+         $verifyController=new  \Api\Controller\VerifyController();
+         $verifyController->create();
+     }
 
 
 
