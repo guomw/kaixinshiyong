@@ -1484,6 +1484,7 @@ class AppController extends BaseController
         $verify = strtolower($verify);
         if (checkVerify($verify, FALSE) == TRUE) {
             $this->json_function(1, '验证码输入正确');
+            return true;
         } else {
             $this->json_function(0, '验证码输入错误');
             return FALSE;
@@ -1498,7 +1499,6 @@ class AppController extends BaseController
         $verify = A('Api/Verify');
         $results = $verify->create();
         $this->json_function(1, '获取成功', $results);
-
     }
 
 
@@ -1596,11 +1596,10 @@ class AppController extends BaseController
                 $this->json_function(0, '该用户已存在');
                 return FALSE;
             }
-            if (!checkVerify(strtolower($verifyCode))) {
-                $this->error('验证码不正确');
+            if(!checkAppVerify(strtolower($verifyCode)) == TRUE){
+                $this->json_function(0, '验证码输入错误'.$verifyCode);
                 return false;
             }
-
             $info['password'] = $user_password;
             $info['modelid'] = I('modelid', '1', 'intval');
             /* 注册默认值 */
@@ -5920,8 +5919,7 @@ class AppController extends BaseController
      */
     public function createVerifyCode()
     {
-        $verifyController = new  \Api\Controller\VerifyController();
-        $verifyController->create();
+        $this->get_verify();
     }
 
 
