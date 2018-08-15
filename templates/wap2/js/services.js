@@ -1602,7 +1602,7 @@ angular
 
               user_xinxi = r
 
-              $rootScope.$broadcast('User_register1Factory.setregister')
+              $rootScope.$broadcast('User_register1Factory.setEmailRegister')
             }
           )
         },

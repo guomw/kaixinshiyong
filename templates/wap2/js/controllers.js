@@ -1196,6 +1196,7 @@ angular
     'StorageFactory',
     'User_register1Factory',
     'ENV',
+    'UserProfileFactory',
     function(
       $ionicPlatform,
       $rootScope,
@@ -1206,12 +1207,13 @@ angular
       User_registerFactory,
       StorageFactory,
       User_register1Factory,
-      ENV
+      ENV,
+      UserProfileFactory
     ) {
       $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
       //如果存在会员信息 则不允许注册
 
-      //提交注册请求第一步
+      //提交手机注册请求第一步
       $scope.register = function(user_phone, user_sms, password, repeat_password) {
         //console.log(password, repeat_password);
 
@@ -1234,34 +1236,6 @@ angular
         //发起后端注册请求
 
         User_register1Factory.set_register(user_phone, user_sms, password)
-      }
-
-      // $scope.email_text = function(user_email, verifyCode, password, repeat_password){
-      //   console.log(user_email, verifyCode, password, repeat_password);
-      // }
-
-      //邮箱注册请求第一步
-      $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
-        console.log(user_email, verifyCode, password, repeat_password)
-        if (password !== repeat_password) {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '两次输入的密码不匹配...',
-            duration: 1000
-          })
-
-          return false
-        }
-
-        $ionicLoading.show({
-          noBackdrop: true,
-          template: '正在提交...',
-          duration: 1000
-        })
-
-        //发起后端注册请求
-
-        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
       }
 
       //收到注册结果结果通知
@@ -1290,10 +1264,105 @@ angular
             template: '亲程序员哥哥正在抢修,请稍后',
             duration: 1000
           })
-          $scope.imgText =
-            ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode' + '&imgMath=' + Math.floor(Math.random() * 10000)
         }
       })
+
+      //邮箱注册请求第一步
+      $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
+        console.log(user_email, verifyCode, password, repeat_password)
+        if (password !== repeat_password) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '两次输入的密码不匹配...',
+            duration: 1000
+          })
+
+          return false
+        }
+
+        $ionicLoading.show({
+          noBackdrop: true,
+          template: '正在提交...',
+          duration: 1000
+        })
+
+        //发起后端注册请求
+
+        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
+      }
+      //收到注册结果通知
+      $scope.$on('User_register1Factory.setEmailRegister', function() {
+        var reg_status = User_register1Factory.get_register()
+        $scope.imgText =
+          ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode' + '&imgMath=' + Math.floor(Math.random() * 10000)
+        if (reg_status.status == 0) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: reg_status.msg,
+            duration: 1000
+          })
+        } else if (reg_status.status == 1) {
+          //注册成功
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '注册成功,请激活账号',
+            duration: 1000
+          })
+          $scope.userid = reg_status.data.userid
+          $scope.random = reg_status.data.random
+          $scope.nextEmail = true
+          // $state.go('tab.user')
+          return false
+        } else {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '亲程序员哥哥正在抢修,请稍后',
+            duration: 1000
+          })
+        }
+      })
+
+      //邮箱注册账号激活
+      $scope.email_activate = function(user_email, user_sms) {
+        console.log(user_email, user_sms)
+      }
+
+      //邮箱注册获取验证码
+      $scope.get_emailCode = function(user_email) {
+        var title = '邮箱认证码'
+        var user_id = $scope.userid
+        var username_type = '邮箱:' + user_email
+        var random = $scope.random
+        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
+
+        $scope.$on('UserProfileFactory.set_send_email_code', function() {
+          userRel = UserProfileFactory.get_send_email_code()
+
+          if (userRel == undefined) return false
+
+          if (userRel.status == 0) {
+            //    返回失败原因
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: userRel.msg,
+              duration: 2000
+            })
+          } else if (userRel.status == 1) {
+            //成功提示原因
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '验证码已成功发送到' + username_type,
+              duration: 2000
+            })
+          } else {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '亲，程序猿哥哥正在抢修！',
+              duration: 1500
+            })
+          }
+        })
+      }
 
       $scope.text = '获取验证码'
 
@@ -3836,17 +3905,14 @@ angular
         trialOrderFactory.set_order_info(order_id, userid, random)
       })
 
-        var imgUrl = ENV.imgUrl;
+      var imgUrl = ENV.imgUrl
 
-        //初始化上传
-        uploadFactory.init('#goods_albums',function (res) {
-            var data = res._raw;
-            //$scope.user_avatar2=$.trim(data);
-            $scope.sybg_vm.img=imgUrl+$.trim(data);
-        });
-
-
-
+      //初始化上传
+      uploadFactory.init('#goods_albums', function(res) {
+        var data = res._raw
+        //$scope.user_avatar2=$.trim(data);
+        $scope.sybg_vm.img = imgUrl + $.trim(data)
+      })
 
       $scope.images_list = []
       //接收文件上传通知
@@ -3860,15 +3926,10 @@ angular
         //服务器远程图片地址
         $scope.response = uploadFactory.get_upload()
 
-
         for (x in $scope.response) {
           if (x == 1) $scope.sybg_vm.img = imgUrl + $scope.response[x]
         }
       })
-
-
-
-
 
       //获得传过来的商品id
       var aid = $stateParams.goodid
