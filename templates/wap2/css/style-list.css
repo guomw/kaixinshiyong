@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 .i_tryout {
-    background-color: #f3f3f3;
+    background-color: #fff;
 }
 .i_tryout .s_part2 {
     position: relative;
-    border-bottom: 12px solid #f3f3f3;
+    border-bottom: 12px solid #f0eff5;
 }
 .i_tryout .s_part2 .hang2 {
     height: auto;
@@ -40,14 +40,14 @@
     font-weight: bold;
 }
 .i_tryout .s_part3 .R2 {
-font-size: 12px;
+    font-size: 12px;
     background: #e61415;
     color: #fff;
-    padding: 0px 10px;
+    padding: 0px 6px;
     border-radius: 5px;
-    height: 20px;
-    line-height: 20px;
-    margin-top: 1px;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 4px;
     float: left;
     margin-right: 5px;
     font-weight: normal;
@@ -96,10 +96,10 @@ font-size: 12px;
 .i_tryout .s_part3 .hang3 {
     height: 47px;
     line-height: 47px;
-    background-color: #fef1f8;
+    background-color: #fdfde7;
     text-align: inherit;
     color: #e61415;
-	padding: 0px 10px;
+    padding: 0px 10px;
 }
 .i_tryout .s_part3 .hang3 img {
     vertical-align: middle;
@@ -118,25 +118,46 @@ font-size: 12px;
     border: 0px;
 }
 .i_tryout_s_part4 .last_time {
-    float: left;
-    width: 70%;
     font-size: 14px;
+    background-color: #f61d4b;
+    color: #fff;
+    width: 50%;
+    line-height: 42px;
 }
 .i_tryout_s_part4 .right_free{
-	float: left;
-	width: 30%;
-	font-size: 14px;
-	color: #f61d4b;
-	background-color: #fef1f8;
+    font-size: 14px;
+    color: #f61d4b;
+    border-top: 1px solid #f3f3f3;
+    background-color: #ffffff;
+    -webkit-box-flex: 3;
+    width: 33.333%;
+    -webkit-flex: 3;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+	height: 42px;
+}
+.i_tryout_s_part4 .vip{
+    -webkit-box-flex: 3;
+    width: 33.333%;
+    -webkit-flex: 3;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
 }
 .i_tryout_s_part4 {
     text-align: center;
     padding: 0px;
     background: #fff;
-    position: fixed;
-    bottom: -7px;
     width: 100%;
     z-index: 999;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 .i_tryout .s_part3 .hang4 .ti {
     height: 30px;
@@ -224,5 +245,50 @@ font-size: 12px;
 .i_tryout .s_part3 .hang4 .lc{
 	line-height: 38px;
 }
+.i_tryout_s_part4 a {
+    display: inline-block;
+    margin: 0px;
+    border-radius: 0px;
+    height: 42px;
+    line-height: 36px;
+    background-color: #ffffff;
+    border-left: 1px solid #f3f3f3;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 0px;
+    border-right: 0px;
+    padding: 3px 0px;
+}
+.i_tryout {
+    font-size: 14px;
+    padding-bottom:42px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
