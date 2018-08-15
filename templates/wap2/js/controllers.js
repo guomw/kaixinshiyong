@@ -1324,7 +1324,34 @@ angular
 
       //邮箱注册账号激活
       $scope.email_activate = function(user_email, user_sms) {
-        console.log(user_email, user_sms)
+        // console.log(user_email, user_sms)
+        User_register1Factory.activeEmail(user_email, user_sms)
+
+        $scope.on('User_register1Factory.setEmailActivate',function(){
+          var reg_status = User_register1Factory.get_emaileCode()
+          if (reg_status.status == 0) {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: reg_status.msg,
+              duration: 1000
+            })
+          } else if (reg_status.status == 1) {
+            //注册成功
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '激活成功',
+              duration: 1000
+            })
+            $state.go('tab.user')
+            return false
+          } else {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '亲程序员哥哥正在抢修,请稍后',
+              duration: 1000
+            })
+          }
+        })
       }
 
       //邮箱注册获取验证码

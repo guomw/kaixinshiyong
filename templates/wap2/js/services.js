@@ -1555,6 +1555,7 @@ angular
       var APIUrl = ENV.api
       var resource = $resource(APIUrl + '&a=register')
       var emailResource = $resource(APIUrl + '&a=registerToEmail')
+      var emailActivate = $resource(APIUrl + '&a=active_email')
       // var user_xinxi = "",
 
       //   IMEI = "123456789147852",
@@ -1605,6 +1606,26 @@ angular
               $rootScope.$broadcast('User_register1Factory.setEmailRegister')
             }
           )
+        },
+        //邮箱激活
+        activeEmail: function(user_email, user_sms) {
+          emailActivate.sav(
+            {
+              email: user_email,
+              code: user_sms,
+              version: '1.0',
+              platform: 'IOS',
+              platform_name: 'ce'
+            },
+            function(r) {
+              emailStatus = r
+              $rootScope.$broadcast('User_register1Factory.setEmailActivate')
+            }
+          )
+        },
+
+        get_emaileCode: function() {
+          return emailStatus
         },
 
         get_register: function() {
