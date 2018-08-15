@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="添加app邮箱注册接口">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +30,9 @@
           <entry key="buildpath" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="8" />
-          <entry key="html" value="91" />
+          <entry key="html" value="92" />
           <entry key="inc" value="1" />
-          <entry key="js" value="17" />
+          <entry key="js" value="19" />
           <entry key="key" value="1" />
           <entry key="php" value="290" />
           <entry key="png" value="1" />
@@ -45,10 +44,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="91" />
+          <entry key="HTML" value="92" />
           <entry key="Image" value="1" />
           <entry key="Ini" value="5" />
-          <entry key="JavaScript" value="17" />
+          <entry key="JavaScript" value="19" />
           <entry key="PHP" value="291" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SQL" value="8" />
@@ -65,7 +64,7 @@
           <entry key="js" value="21" />
           <entry key="php" value="618" />
           <entry key="sql" value="8" />
-          <entry key="txt" value="44" />
+          <entry key="txt" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -74,7 +73,7 @@
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="21" />
           <entry key="PHP" value="618" />
-          <entry key="PLAIN_TEXT" value="62" />
+          <entry key="PLAIN_TEXT" value="80" />
           <entry key="SQL" value="8" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -89,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="4136" column="35" selection-start-line="4136" selection-start-column="35" selection-end-line="4136" selection-end-column="35" />
+            <state relative-caret-position="2826">
+              <caret line="4031" column="14" lean-forward="true" selection-start-line="4031" selection-start-column="14" selection-end-line="4031" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -98,8 +97,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="2609" column="58" selection-start-line="2609" selection-start-column="41" selection-end-line="2609" selection-end-column="58" />
+            <state relative-caret-position="280">
+              <caret line="2610" column="6" selection-start-line="2610" selection-start-column="6" selection-end-line="2610" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -125,11 +133,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="169" column="38" lean-forward="true" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+            <state relative-caret-position="420">
+              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="202" column="46" selection-start-line="202" selection-start-column="45" selection-end-line="202" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -144,25 +161,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="491">
               <caret line="84" column="41" lean-forward="true" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-796" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="311" column="37" selection-start-line="311" selection-start-column="25" selection-end-line="311" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#p#0;n#li#3;n#form#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -185,7 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prefix_poster</find>
       <find>dealswill.cn</find>
       <find>big_img</find>
       <find>UserloginFactory</find>
@@ -213,8 +210,9 @@
       <find>register</find>
       <find>userregister</find>
       <find>registerTo</find>
-      <find>sybg_add</find>
       <find>fill_trial_report</find>
+      <find>resource6</find>
+      <find>sybg_add</find>
     </findStrings>
     <dirStrings>
       <dir>H:\projects\PHP\kaixinshiyong\static</dir>
@@ -352,13 +350,6 @@
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud3" type="462c0819:PsiDirectoryNode" />
-              <item name="member" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="wap2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -382,14 +373,6 @@
               <item name="wap2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="trial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wap2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -417,16 +400,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style_update.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/app.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/tabs.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/register.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_profile_alipay.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_profile_bankcard.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-list.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/show.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -434,7 +409,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order1.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -554,7 +528,7 @@
       <workItem from="1533781109570" duration="18257000" />
       <workItem from="1533863282074" duration="14663000" />
       <workItem from="1534122620497" duration="20603000" />
-      <workItem from="1534209202373" duration="17342000" />
+      <workItem from="1534209202373" duration="20964000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -612,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534241514294</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="修改测试接口">
+      <created>1534295750064</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1534295750064</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -621,7 +602,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72638000" />
+    <option name="totallyTimeSpent" value="76260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -687,7 +668,8 @@
     <MESSAGE value="添加修改记录" />
     <MESSAGE value="修改bug" />
     <MESSAGE value="添加app邮箱注册接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加app邮箱注册接口" />
+    <MESSAGE value="修改测试接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改测试接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -746,18 +728,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/pay_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/pay/pay1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Poster/Controller/ApiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -932,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -1039,20 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="4136" column="35" selection-start-line="4136" selection-start-column="35" selection-end-line="4136" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="2609" column="58" selection-start-line="2609" selection-start-column="41" selection-end-line="2609" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
@@ -1072,8 +1021,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="169" column="38" lean-forward="true" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+        <state relative-caret-position="420">
+          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/ng-file-upload.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="2610" column="6" selection-start-line="2610" selection-start-column="6" selection-end-line="2610" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="202" column="46" selection-start-line="202" selection-start-column="45" selection-end-line="202" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2826">
+          <caret line="4031" column="14" lean-forward="true" selection-start-line="4031" selection-start-column="14" selection-end-line="4031" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
         </state>
       </provider>
     </entry>
