@@ -5113,7 +5113,7 @@ class AppController extends BaseController
                 $filename = $rootDir . $userDir . $info['userid'] . '_avatar.jpg';
 
                 if (!is_dir($rootDir . $userDir)) {
-                    mkdir($rootDir . $userDir);
+                    mkdir($rootDir . $userDir,0777,true);
                     chmod($rootDir . $userDir, 0777);
                 }
                 $upload = copy($root_url . $avatar, $filename);
@@ -5122,7 +5122,7 @@ class AppController extends BaseController
                     $this->json_function(1, '头像修改成功', $lists);
                 }
                 else{
-                    $this->json_function(1, '头像修改失败', $lists);
+                    $this->json_function(1, $filename, $lists);
                 }
 
 
