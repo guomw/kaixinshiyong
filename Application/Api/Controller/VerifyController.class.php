@@ -38,5 +38,6 @@ class VerifyController extends Controller
 		if (isset($param['background']) && trim(urldecode($param['background'])) && preg_match('/(^#[a-z0-9]{6}$)/im', trim(urldecode($param['background'])))) $checkcode->background = trim(urldecode($param['background']));
 		$checkcode->doimage();
 		session('verify', $checkcode->get_code());
+		setcache('app_verify', $checkcode->get_code());
 	}	
 }

@@ -1,23 +1,29 @@
 <ion-view view-title="我的昵称">
   <ion-content class="padding-top" style="background-color:#F8F8F8">
     <ion-list>
-
-      <ion-item class="item item-avatar item-icon-right" ng-click="imgurl()">
+      <style>
+        .swf_image_albums{
+          position: absolute;right: 0;width: 100%;text-align: right; height: 72px; line-height: 72px;top: 0;
+        }
+        .swf_image_albums div:last-child{
+          width: 100% !important;
+          left: 0 !important;
+        }
+      </style>
+      <ion-item class="item item-avatar item-icon-right ">
         <img ng-model="user_avatar" src="{{user_avatar}}" />
         <h2>{{user_nickname.nickname}}</h2>
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-        <i class="item-note">修改头像</i>
-
+        <div class="swf_image_albums" id="user_avatar_albums">
+        <i  class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="item-note" style="margin-right: 40px;">修改头像</i>
+        </div>
       </ion-item>
       <label class="item item-input">
         <i style="font-size:18px;color:#f3972b" class="icon ion-android-favorite"></i>
         <div class="input-label padding-left ">您的昵称</div>
         <input type="text" ng-model="user_nickname.nickname" placeholder="" ng-maxlength="20" ng-minlength="1" required>
-        <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"
-          style="display:none;">
-
+        </div>
       </label>
-
       <!--    <item   ng-controller="UserProfileHobby"  class="item item-icon-left item-icon-right "  ng-click="Hobby()" >
         <i style="font-size:18px;color:#f3972b" class="icon ion-android-favorite"></i>
         兴趣爱好

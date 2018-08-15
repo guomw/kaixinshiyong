@@ -1966,6 +1966,22 @@ function checkVerify($string, $reset = TRUE) {
 	}
 }
 
+/**
+ * 校验验证码(app端)
+ * @param $string   验证码
+ * @param bool $reset 是否重置
+ * @return boolean
+ */
+function checkAppVerify($string,$reset=true){
+    if (!empty($string)&&$string==getcache("app_verify")){
+        if($reset === TRUE) delcache('app_verify', NULL);
+        return TRUE;
+    }
+    else{
+        return false;
+    }
+}
+
 
 /* 生成文件 */
 function dmkdir($dir, $mode = 0777, $makeindex = TRUE){
