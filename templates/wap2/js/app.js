@@ -219,7 +219,7 @@ angular
         .state('tab.duo', {
           url: '/duo',
           views: {
-            'tab-duo': {
+            'tab-user': {
               templateUrl: 'templates/duo.html',
               controller: 'duo'
             }

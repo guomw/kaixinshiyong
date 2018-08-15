@@ -564,6 +564,12 @@ angular
         $state.go('tab.user_profile')
       }
 
+      //更多
+      $scope.user_more = function() {
+        // console.log();
+        $state.go('tab.duo')
+      }
+
       //我的试用
 
       $scope.user_order_trial = function() {
@@ -952,14 +958,12 @@ angular
           // });
 
           var timer = $timeout(function() {
-
-              if(url =="/tab/user/forget" || url == "/tab/user/forget_2"  ){
-                $state.go('tab.user'); //路由跳转登录
-                return false;
-
-              }
-                $ionicHistory.goBack(-1);
-              },100);
+            if (url == '/tab/user/forget' || url == '/tab/user/forget_2') {
+              $state.go('tab.user') //路由跳转登录
+              return false
+            }
+            $ionicHistory.goBack(-1)
+          }, 100)
 
           // $state.go('tab.user') //登录成功 跳转会员中心
           return false
