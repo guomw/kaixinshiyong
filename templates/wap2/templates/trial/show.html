@@ -293,20 +293,23 @@
 
                   <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
   </script>
-<div class="i_tryout_s_part4" ng-if= "login_status == 0"  >
-    <a ng-click="Apply_trial()" class="a1">
-		<div class="last_time"><span>剩余时间：</span><span> <i style="color: #fff;" id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span></div>
-		<div class="right_free">免费申请</div>
-	</a>
+<div class="i_tryout_s_part4"   >
+	<div class="last_time"><span>剩余:</span><span> <i style="color: #fff;" id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span></div>
+    <a ng-click="Apply_trial()" class="a1 right_free">免费申请</a>
+	<div ng-if= "order_is_join.data == 1 && showdata.number > 0 " class="vip">	
+	<!--
+		<a ng-click="Apply_trial()" class="a1">
+			<div class="last_time"><span>剩余时间：</span><span> <i style="color: #fff;" id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span></div>
+			<div class="right_free">免费申请</div>
+		</a>
+	-->
+		<a ng-click="vip_Apply_trial()" ng-show =" Member_group != 2&& showdata.goods_vipfree == 1">vip试用</a>
+<!--		<a ng-click="jinbi_Apply_trial()" ng-show =" showdata.goods_point >= 0" >{{showdata.point_num}}积分兑换</a>-->
+	</div>
     <div class="clearfix"></div>
 </div>
 
-<div class="i_tryout_s_part4" ng-if= "order_is_join.data == 1 && showdata.number > 0 "  >	
-    <a ng-click="Apply_trial()" class="a1">免费申请</a>
-    <a ng-click="vip_Apply_trial()" ng-show =" showdata.goods_vipfree == 1">vip快速试用</a>
-    <a ng-click="jinbi_Apply_trial()" ng-show =" showdata.goods_point > 0" >{{showdata.point_num}}积分兑换</a>
-    <div class="clearfix"></div>
-</div>
+
 
   <!--s_part4-->
 <div class="i_tryout_s_part4"  ng-if= "order_is_join.data == 0 &&  showdata.end_time > data_time "  >
