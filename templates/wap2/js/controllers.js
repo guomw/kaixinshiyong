@@ -3836,6 +3836,18 @@ angular
         trialOrderFactory.set_order_info(order_id, userid, random)
       })
 
+        var imgUrl = ENV.imgUrl;
+
+        //初始化上传
+        uploadFactory.init('#goods_albums',function (res) {
+            var data = res._raw;
+            //$scope.user_avatar2=$.trim(data);
+            $scope.sybg_vm.img=imgUrl+$.trim(data);
+        });
+
+
+
+
       $scope.images_list = []
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
@@ -3848,11 +3860,15 @@ angular
         //服务器远程图片地址
         $scope.response = uploadFactory.get_upload()
 
-        var imgUrl = ENV.imgUrl
+
         for (x in $scope.response) {
           if (x == 1) $scope.sybg_vm.img = imgUrl + $scope.response[x]
         }
       })
+
+
+
+
 
       //获得传过来的商品id
       var aid = $stateParams.goodid
