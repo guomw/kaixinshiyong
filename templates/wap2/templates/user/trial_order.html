@@ -1,6 +1,6 @@
 <ion-view hide-nav-bar="true">
   <div class="bar bar-header  bar-stable ">
-    <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
+    <!-- <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a> -->
     <h1 class="title">我的试用</h1>
   </div>
 
@@ -22,29 +22,9 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
     <ion-item class="item_shop" ng-click="add_order_number(d.id,d.goods_id,d.status,d.trial_report)" collection-repeat="d in trial_getorderlists "
-      collection-item-width="100%" collection-item-height="140px">
-      <div class="shop_content">
-        <div class="shop-left_img">
-          <img ng-if="d.thumb" ng-src="{{ENV.siteUrl}}{{d.thumb}}">
-          <img ng-if="!d.thumb" ng-src="img/ionic.png">
-        </div>
-        <div class="shop-right">
-          <h2>{{ d.title | limitTo:15 }}</h2>
-          <!-- <p class="" ng-if="d.taobao_account"> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p> -->
-          <p class=""> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p>
-          <li class="hd_2 c1 txt-flow" style="font-size:0.875em;">
-            <span class='c4'>下单价: </span><b class="cc">{{d.goods_price | currency:"￥"}}</b>
-          </li>
-          <li ng-show="d.status != 4" class="c1 txt-flow" style="font-size:0.875em;">
-            <span class='c4'>返还: </span><b class="cc">{{(d.goods_price -0) + (d.goods_bonus-0) | currency:"￥"}}</b>
-            <!-- <span style="font-size:10px" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}元</b></i>)</span> -->
-            <span style="font-size:10px">(<i>含红包 <b class="cc">10元</b></i>)</span>
-          </li>
-
-          <!--  审核失败的时候提示失败原因 -->
-          <li ng-show="d.status == 4" class="c1 txt-flow" style="font-size:0.875em;">
-            <b class="cc">{{d.cause}}</b>
-          </li>
+      collection-item-width="100%" collection-item-height="160">
+      <div class="shop_active">
+        <div class="shop-active_left">
           <p ng-if="d.status == 1 ">
             申请审核中:
             <b class="cc"><span id="{{d.inputtime - 0 + seller_check_time}}" data-time="">{{ d.inputtime - 0 + seller_check_time
@@ -117,30 +97,50 @@
             </b>
           </p>
         </div>
-      </div>
-      <div class="shop_active">
         <!--         各种活动状态开始  -->
-        <p ng-if="d.status == 1" class=" ">
-          <button ng-click="abandon_application(d.id)" class=" button  button-small button-outline button-assertive">放弃申请</button>
-        </p>
+        <div class="shop-active_left">
+          <p ng-if="d.status == 1" class=" ">
+            <button ng-click="abandon_application(d.id)" class="active_btn">放弃申请</button>
+          </p>
 
-        <p ng-if="d.status == 2 && d.order_sn ==''" class="">
-          <button class="button button-small button-outline button-positive">填写订单号</button>
-        </p>
+          <p ng-if="d.status == 2 && d.order_sn ==''" class="">
+            <button class="active_btn">填写订单号</button>
+          </p>
 
-        <p ng-if=" d.status == 4 && !d.trial_report " class="">
-          <button class="button button-small button-outline button-assertive">修改订单号</button>
-        </p>
+          <p ng-if=" d.status == 4 && !d.trial_report " class="">
+            <button class="active_btn">修改订单号</button>
+          </p>
 
-        <p ng-if=" d.status == 4 && d.trial_report " class=" ">
-          <button class="button button-small button-outline button-assertive">修改报告</button>
-        </p>
+          <p ng-if=" d.status == 4 && d.trial_report " class=" ">
+            <button class="active_btn">修改报告</button>
+          </p>
 
-        <p ng-if="d.status == 8" class="">
-          <a class="button button-small button-outline button-positive">写试用报告</a>
-        </p>
-
+          <p ng-if="d.status == 8" class="">
+            <button class="active_btn">写试用报告</button>
+          </p>
+        </div>
         <!--  各种活动状态结束  -->
+      </div>
+      <div class="shop_content">
+        <div class="shop-left_img">
+          <img ng-if="d.thumb" ng-src="{{ENV.siteUrl}}{{d.thumb}}">
+          <img ng-if="!d.thumb" ng-src="img/ionic.png">
+        </div>
+        <div class="shop-right">
+          <h2>{{ d.title | limitTo:15 }}</h2>
+          <p class="" ng-if="d.taobao_account"> <span class='c4'>淘宝帐号:</span> {{d.taobao_account}}</p>
+          <li class="hd_2 c1 txt-flow" style="font-size:0.875em;">
+            <span class='c4'>下单价: </span><b class="cc">{{d.goods_price | currency:"￥"}}</b>
+          </li>
+          <li ng-show="d.status != 4" class="c1 txt-flow" style="font-size:0.875em;">
+            <span class='c4'>返还: </span><b class="cc">{{(d.goods_price -0) + (d.goods_bonus-0) | currency:"￥"}}</b>
+            <span style="font-size:10px" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}元</b></i>)</span>
+          </li>
+          <!--  审核失败的时候提示失败原因 -->
+          <li ng-show="d.status == 4" class="c1 txt-flow" style="font-size:0.875em;">
+            <b class="cc">{{d.cause}}</b>
+          </li>
+        </div>
       </div>
 
     </ion-item>

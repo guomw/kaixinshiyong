@@ -144,29 +144,44 @@ a.weui-btn {
 
 /*我的使用样式 start*/
 .item_shop {
+  margin-top: 15px;
+  font-size: 16px;
+}
+.item_shop.item {
+  border-width: 0px;
+  padding: 5px 16px 16px;
+  border-bottom: 15px solid #f8f8f8;
+}
+.item_shop .shop_active {
   display: flex;
-  flex-direction: column;
-  padding: 5px !important;
-  margin-bottom: 5px !important;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0eff5;
+  line-height: 30px;
+}
+.shop_active .active_btn {
+  padding: 3px 15px;
+  font-size: 14px;
+  border: 1px solid #f0eff5;
+  border-radius: 5px;
+  /* text-overflow: ellipsis; */
+  background-color: #fff;
 }
 .item_shop .shop_content {
+  padding-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 .shop_content .shop-left_img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   margin-right: 10px;
 }
 .shop_content .shop-left_img img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   vertical-align: middle;
 }
-.item_shop .shop_active {
-  margin-top: 1px;
-  padding: 0 20px 5px;
-  text-align: right;
-}
+
 /*我的使用样式end*/

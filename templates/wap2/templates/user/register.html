@@ -92,10 +92,10 @@
             <i style="font-size:18px;color:#f7ba5b" class="icon ion-unlocked placeholder-icon"></i>
           </div>
           <div class="weui-cell__bd">
-            <input class="weui-input" type="text" ng-model="user_sms" name="user_sms" placeholder="您收到的验证码" required>
+            <input class="weui-input" type="text" ng-model="user_sms" name="user_sms" placeholder="请输入图形验证码" required>
           </div>
           <div class="weui-cell__ft">
-            <img class="weui-vcode-img" src="http://www.demophp.com:8080/index.php?m=Api&c=App&a=createVerifyCode&math=10">
+            <img class="weui-vcode-img" ng-src="{{imgText}}">
           </div>
         </div>
         <div class="weui-cell">
