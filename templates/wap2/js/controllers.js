@@ -578,7 +578,7 @@ angular
           return false
         }
 
-        $state.go('tab.trial_order')
+        $state.go('tab.rebate')
       }
 
       //我的闪电试用
@@ -1195,6 +1195,7 @@ angular
     'User_registerFactory',
     'StorageFactory',
     'User_register1Factory',
+    'ENV',
     function(
       $ionicPlatform,
       $rootScope,
@@ -1204,7 +1205,8 @@ angular
       $interval,
       User_registerFactory,
       StorageFactory,
-      User_register1Factory
+      User_register1Factory,
+      ENV
     ) {
       //如果存在会员信息 则不允许注册
 
@@ -1263,6 +1265,7 @@ angular
       })
 
       $scope.text = '获取验证码'
+      $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
 
       $scope.getsms = function(phone_id) {
         // console.log(phone_id);
