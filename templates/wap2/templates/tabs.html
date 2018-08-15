@@ -18,10 +18,7 @@ navigation history that also transitions its views in and out.
 
     <!-- Account Tab -->
 
-    <ion-tab ng-if='logo_status == 1' title="进度" icon-off="ion-social-usd-outline" icon-on="ion-social-usd" href="#/tab/rebate">
-        <ion-nav-view name="tab-rebate"></ion-nav-view>
-    </ion-tab>
-    <ion-tab ng-else title="进度" icon-off="ion-social-usd-outline" icon-on="ion-social-usd" href="#/tab/user/login">
+    <ion-tab title="进度" icon-off="ion-social-usd-outline" icon-on="ion-social-usd" href="#/tab/rebate">
         <ion-nav-view name="tab-rebate"></ion-nav-view>
     </ion-tab>
 
@@ -29,8 +26,8 @@ navigation history that also transitions its views in and out.
         <ion-nav-view name="tab-user"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab title="更多" icon-off="ion-ios-more-outline" icon-on="ion-ios-more" href="#/tab/duo">
+    <!-- <ion-tab title="更多" icon-off="ion-ios-more-outline" icon-on="ion-ios-more" href="#/tab/duo">
         <ion-nav-view name="tab-duo"></ion-nav-view>
-    </ion-tab>
+    </ion-tab> -->
 
 </ion-tabs>
