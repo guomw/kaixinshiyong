@@ -2315,7 +2315,7 @@ function nickname($userid,$type = ''){
 
 	if (!$userinfo['nickname']) {
 		if($userinfo['email']){
-			$nickname = substr_replace($userinfo['email'],'***',3,8);
+			$nickname = 'ml_'.$userinfo['email'];
 		}else{		
 			$nickname = substr_replace($userinfo['phone'],'***',5,6);
 		}
