@@ -400,8 +400,35 @@
 .i_guide .part .p1 {
     padding: 10px 0px;
 }
-
-
+/*home-loding*/
+.loading_mask .card {
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    line-height: 90px;
+}
+.card {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 0px 0px rgba(0,0,0,.3);
+}
+.card, .list-inset {
+    overflow: hidden;
+    margin: 20px 10px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.tabs-light>.tabs, .tabs.tabs-light {
+    border-color: #ddd;
+    background-color: #fff;
+    background-image: linear-gradient(0deg,#ddd,#ddd 50%,transparent 50%);
+    color: #444;
+    z-index: 1;
+}
 
 
 
