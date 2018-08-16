@@ -276,6 +276,8 @@
 
     $('#js_submit').click(function(){
       var source = $(".s_tryout1 .part3 .R .sel").attr('data-id');
+      if(!source)
+          return;
       var ordertype = $(".js_ordertype > .sel").attr('data-type');
       var postal = $(".js_postal >.sel").attr('data-postal');
       var trial_type = $(".js_trial_type > .sel").attr('data-red');

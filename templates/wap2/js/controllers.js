@@ -36,10 +36,20 @@ angular
       //获取首页幻灯片信息
       $scope.showloading = true
       $scope.showscroll = true
-      $scope.tj_showloading = true
-
-      $scope.quyu = 1
-
+      $scope.tj_showloading = true;
+      var storageKey="quyu";
+      var quyuData = {
+          quyu: 1,
+          hideTabs: ''
+      };
+      // if(!StorageFactory.get(storageKey)) {
+      //     StorageFactory.set(storageKey, quyuData);
+      // }
+      // else {
+      //     quyuData=StorageFactory.get(storageKey);
+      // }
+      $scope.quyu = quyuData.quyu;//显示开屏广告
+      $rootScope.hideTabs = quyuData.hideTabs;
       //获取首页推荐商品
       //获取网站基本信息
       configFactory.set_webinfo()
@@ -54,18 +64,28 @@ angular
       }
 
       $scope.qidongyu = function() {
-        $scope.quyu = 1
-        $rootScope.hideTabs = ''
+        $scope.quyu = 1;
+        $rootScope.hideTabs = '';
+        quyuData = {
+            quyu: 1,
+            hideTabs: ''
+        };
+        StorageFactory.set(storageKey,quyuData);
       }
 
-      $scope.go_changed = function(index) {
-        if (index == 2) {
-          var timer = $timeout(function() {
-            $scope.quyu = 1
-            $rootScope.hideTabs = ''
-          }, 3000)
-        }
-      }
+      // $scope.go_changed = function(index) {
+      //   if (index == 2) {
+      //     var timer = $timeout(function() {
+      //           $scope.quyu = 1;
+      //           $rootScope.hideTabs = '';
+      //           quyuData = {
+      //               quyu: 1,
+      //               hideTabs: ''
+      //           };
+      //           StorageFactory.set(storageKey, quyuData);
+      //     }, 3000)
+      //   }
+      // }
 
       //首页上拉加载更多最新上线
 
@@ -1501,12 +1521,13 @@ angular
       StorageFactory,
       UserPersonalFactory
     ) {
-      var storageKey = 'user'
+      var storageKey = 'user';
 
       //页面加载之前的事件
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = 'tabs-item-hide';
         //如果不存在会员信息 则跳转登陆页面
+          var loaclData=StorageFactory.get(storageKey);
         if (
           !StorageFactory.get(storageKey) ||
           (StorageFactory.get(storageKey) && StorageFactory.get(storageKey).status != 1)
@@ -1547,8 +1568,8 @@ angular
 
       //我的昵称
       $scope.profile_nickname = function() {
-        // $state.go('tab.user_profile_nickname')
-        $ionicHistory.goBack(-1)
+         $state.go('tab.user_profile_nickname')
+        //$ionicHistory.goBack(-1)
       }
 
       // 我的手机
@@ -1763,9 +1784,10 @@ angular
 
       //初始化上传
       uploadFactory.init('#user_avatar_albums', function(res) {
-        var data = res._raw
-        $scope.user_avatar2 = $.trim(data)
-        $scope.user_avatar = imgUrl + $.trim(data)
+        var data = res._raw;
+        $scope.user_avatar2 = $.trim(data);
+        $scope.user_avatar = imgUrl + $.trim(data);
+        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2)
       })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
@@ -3617,7 +3639,7 @@ angular
       configFactory
     ) {
       //页面加载之前事件
-
+        $scope.hideTabs="";
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
@@ -3917,7 +3939,7 @@ angular
           $state.go('tab.user_login') //路由跳转登录
           return false
         }
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = ''
         //获得传过来的商品id
         var aid = $stateParams.goodid
         //获得传过来的订单id

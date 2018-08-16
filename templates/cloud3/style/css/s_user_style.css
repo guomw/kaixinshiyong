@@ -1,7 +1,7 @@
 /* 商家会员中心样式 */ 
 .cd{ color:#309b00; }
 .ch{ color:#333 !important; }
-#user_header.s_user_header{ background:#309b00; }
+#user_header.s_user_header{ background:#ffffff; }
 body .u_index_silde .user_bor .i_u_s_list dd.active a{ color:#309b00; }
 body .u_index_silde .user_bor .i_u_s_list dd a:hover{ color:#309b00; }
 body .user_i_mess_c .yhtx{ width:100%; }

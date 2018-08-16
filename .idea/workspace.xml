@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Admin/Controller/ActivitySettingController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Controller/ActivitySettingController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Install/Data/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Install/Data/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/controllers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,14 +30,14 @@
         <counts>
           <entry key="INI" value="5" />
           <entry key="buildpath" value="2" />
-          <entry key="css" value="3" />
+          <entry key="css" value="7" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="8" />
-          <entry key="html" value="121" />
+          <entry key="html" value="126" />
           <entry key="inc" value="2" />
-          <entry key="js" value="28" />
+          <entry key="js" value="35" />
           <entry key="key" value="1" />
-          <entry key="php" value="314" />
+          <entry key="php" value="322" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="sql" value="9" />
@@ -49,12 +47,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="121" />
+          <entry key="CSS" value="7" />
+          <entry key="HTML" value="126" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="5" />
-          <entry key="JavaScript" value="28" />
-          <entry key="PHP" value="316" />
+          <entry key="JavaScript" value="35" />
+          <entry key="PHP" value="324" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SQL" value="9" />
           <entry key="Smarty" value="9" />
@@ -64,24 +62,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="INI" value="124" />
-          <entry key="css" value="3" />
+          <entry key="css" value="8" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="560" />
-          <entry key="js" value="243" />
-          <entry key="php" value="1002" />
+          <entry key="html" value="661" />
+          <entry key="js" value="473" />
+          <entry key="php" value="1004" />
           <entry key="sql" value="33" />
-          <entry key="txt" value="148" />
+          <entry key="txt" value="193" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="560" />
+          <entry key="CSS" value="8" />
+          <entry key="HTML" value="661" />
           <entry key="Ini" value="124" />
-          <entry key="JavaScript" value="243" />
-          <entry key="PHP" value="1002" />
-          <entry key="PLAIN_TEXT" value="166" />
+          <entry key="JavaScript" value="473" />
+          <entry key="PHP" value="1004" />
+          <entry key="PLAIN_TEXT" value="211" />
           <entry key="SQL" value="33" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -93,136 +91,122 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="1594" column="35" lean-forward="true" selection-start-line="1594" selection-start-column="35" selection-end-line="1594" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Install/Controller/IndexController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="207" column="42" selection-start-line="207" selection-start-column="37" selection-end-line="207" selection-end-column="42" />
-              <folding>
-                <element signature="e#27#34#1" expanded="true" />
-                <element signature="e#38#45#1" expanded="true" />
-                <element signature="e#27#34#1" expanded="true" />
-                <element signature="e#38#45#1" expanded="true" />
-                <element signature="e#27#34#1" expanded="true" />
-                <element signature="e#38#45#1" expanded="true" />
-                <element signature="e#27#34#1" expanded="true" />
-                <element signature="e#38#45#1" expanded="true" />
-                <element signature="e#27#34#1" expanded="true" />
-                <element signature="e#38#45#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-                <element signature="e#42#49#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-                <element signature="e#42#49#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-                <element signature="e#42#49#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-                <element signature="e#31#38#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Install/Data/table.sql">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5263">
-              <caret line="277" lean-forward="true" selection-start-line="277" selection-end-line="433" />
+            <state relative-caret-position="312">
+              <caret line="1571" column="8" lean-forward="true" selection-start-line="1571" selection-start-column="8" selection-end-line="1571" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ActivitySettingController.class.php">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+            <state relative-caret-position="209">
+              <caret line="14" column="87" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register_index.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_register.html">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5909">
-              <caret line="311" column="37" selection-start-line="311" selection-start-column="25" selection-end-line="311" selection-end-column="37" />
+            <state relative-caret-position="228">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="485" column="46" selection-start-line="485" selection-start-column="27" selection-end-line="485" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="279" column="17" selection-start-line="279" selection-start-column="17" selection-end-line="279" selection-end-column="17" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#p#0;n#li#3;n#form#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19000">
-              <caret line="1099" column="5" selection-start-line="1069" selection-start-column="3" selection-end-line="1099" selection-end-column="5" />
+            <state relative-caret-position="471">
+              <caret line="168" column="59" lean-forward="true" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
               <folding>
-                <element signature="e#757#2784#0#PHP" />
-                <element signature="e#2843#4248#0#PHP" />
+                <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1634">
-              <caret line="86" column="40" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#input#1;n#li#1;n#form#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="643">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/css/loading.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret line="162" column="21" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/tabs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="73" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>store_logo</find>
-      <find>user_nickname</find>
-      <find>checkRootPath</find>
-      <find>DOCUMENT_ROOT</find>
-      <find>update</find>
-      <find>imgurl</find>
-      <find>registerToEmail</find>
-      <find>_img</find>
-      <find>upload_img</find>
-      <find>sybgimg</find>
-      <find>set_user_nickname</find>
-      <find>check_sms</find>
-      <find>checkVerify</find>
-      <find>checkverify</find>
-      <find>uploadFactory.init</find>
-      <find>goods_albums</find>
-      <find>toE</find>
-      <find>send_code</find>
-      <find>js_submit</find>
-      <find>verify_img</find>
-      <find>userregister</find>
-      <find>check_email</find>
       <find>check_email_code</find>
       <find>set_emailRegister</find>
       <find>set_username</find>
@@ -231,6 +215,28 @@
       <find>toe</find>
       <find>member_app</find>
       <find>亚马逊</find>
+      <find>website_manage</find>
+      <find>普通活动</find>
+      <find>抱歉，您不能参与该活动</find>
+      <find>普通试用</find>
+      <find>js_submit</find>
+      <find>HomeCtrl</find>
+      <find>$scope.qidongyu</find>
+      <find>hideTabs</find>
+      <find>UserPersonal</find>
+      <find>homeCtrl</find>
+      <find>home</find>
+      <find>trial_order</find>
+      <find>homec</find>
+      <find>trial_order_report</find>
+      <find>rebate</find>
+      <find>qidongyu</find>
+      <find>trial_order_add</find>
+      <find>user</find>
+      <find>tab-user</find>
+      <find>nickname</find>
+      <find>UserProfileNiknname</find>
+      <find>profile_nickname</find>
     </findStrings>
     <dirStrings>
       <dir>H:\projects\PHP\kaixinshiyong\static</dir>
@@ -245,15 +251,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cloud/task/broke.html" />
-        <option value="$PROJECT_DIR$/templates/cloud3/product/index.html" />
-        <option value="$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/v2_register_phone.html" />
         <option value="$PROJECT_DIR$/Application/Framework/Conf/convention.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/database.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/version.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/main.tpl.php" />
-        <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/email.tpl.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/v2_merchant_left.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/complete.html" />
@@ -271,7 +273,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
         <option value="$PROJECT_DIR$/README.INI" />
-        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/shop_source.tpl.php" />
         <option value="$PROJECT_DIR$/Application/Shop/Controller/ShopController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" />
@@ -284,10 +285,8 @@
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/enter_activity.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/style/css/style.css" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/v2_header.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/index.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/services.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/Application/Api/Controller/VerifyController.class.php" />
         <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/user_profile_nickname.html" />
@@ -295,6 +294,14 @@
         <option value="$PROJECT_DIR$/Application/Install/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/ActivitySettingController.class.php" />
         <option value="$PROJECT_DIR$/Application/Install/Data/table.sql" />
+        <option value="$PROJECT_DIR$/Application/Common/Lang/zh-cn.php" />
+        <option value="$PROJECT_DIR$/templates/cloud3/style/css/s_user_style.css" />
+        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/index.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/css/loading.css" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -352,85 +359,20 @@
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Attachment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Attachment" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Install" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Install" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Install" type="462c0819:PsiDirectoryNode" />
-              <item name="Data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud3" type="462c0819:PsiDirectoryNode" />
-              <item name="member" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="wap2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="wap2" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -445,6 +387,14 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="wap2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="wap2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -469,12 +419,169 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/phpStudy/PHPTutorial/php/php-5.6.27-nts/php.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\projects\PHP\kaixinshiyong\templates\wap2\js" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-diy.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style_update.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/controllers.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/Integral/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/Integral/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/about_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/apply_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/article_index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/commission_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/order_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/so_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/trial_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/commission/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/commission/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/rebate/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/rebate/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/so/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/tabs.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/task/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/task/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/list-red.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/commission_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/commission_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/invitation.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/invitation.log.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/jiang_log.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/rebate_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/rebate_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_announce.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_announce_show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_deposite.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_deposite_record.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_forget.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.woff</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -508,7 +615,7 @@
       <workItem from="1533863282074" duration="14663000" />
       <workItem from="1534122620497" duration="20603000" />
       <workItem from="1534209202373" duration="42053000" />
-      <workItem from="1534381364914" duration="3224000" />
+      <workItem from="1534381364914" duration="12214000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -622,7 +729,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534326506728</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="注释无用表数据">
+      <created>1534389377909</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1534389377909</updated>
+    </task>
+    <task id="LOCAL-00018" summary="添加loading">
+      <created>1534400391623</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1534400391623</updated>
+    </task>
+    <task id="LOCAL-00019" summary="修复用户设置脚本错误">
+      <created>1534401398346</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1534401398346</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -631,7 +759,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100573000" />
+    <option name="totallyTimeSpent" value="109563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -649,7 +777,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32899022" />
@@ -704,7 +832,10 @@
     <MESSAGE value="修改试用报告上传图片问题-未完成" />
     <MESSAGE value="修改邮箱注册验证码无效问题" />
     <MESSAGE value="添加邮件激活接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加邮件激活接口" />
+    <MESSAGE value="注释无用表数据" />
+    <MESSAGE value="添加loading" />
+    <MESSAGE value="修复用户设置脚本错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复用户设置脚本错误" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -766,105 +897,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/controllers.js</url>
-          <line>1724</line>
+          <line>1845</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/activity_over.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/EnterActivityController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-741">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/style/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="211" column="58" selection-start-line="211" selection-start-column="58" selection-end-line="211" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/common/header.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/common/v2_merchant_header.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/common/merchant_sign_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/member_index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/common/v2_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/enter_activity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/database.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" lean-forward="true" selection-start-column="51" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/img/logo1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_profile_password.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/webuploader/upload.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="53" column="71" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="31" selection-start-line="31" selection-end-line="31" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -876,13 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="71" column="57" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -995,20 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164236">
-          <caret line="8644" column="28" selection-start-line="8644" selection-start-column="10" selection-end-line="8644" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32395">
-          <caret line="1705" column="20" selection-start-line="1705" selection-start-column="8" selection-end-line="1705" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_forget.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1097,14 +1115,158 @@
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ActivitySettingController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1746" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Templates/main.tpl.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Templates/header.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Lang/zh-cn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/style/css/user_style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/style/css/s_user_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Install/Data/table.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5263">
-          <caret line="277" lean-forward="true" selection-start-line="277" selection-end-line="433" />
+        <state relative-caret-position="297">
+          <caret line="865" column="59" lean-forward="true" selection-start-line="865" selection-start-column="59" selection-end-line="865" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="166" column="26" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Logic/MerchantLogic.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="279" column="17" selection-start-line="279" selection-start-column="17" selection-end-line="279" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/css/loading.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="162" column="21" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="168" column="59" lean-forward="true" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="73" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="485" column="46" selection-start-line="485" selection-start-column="27" selection-end-line="485" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="14" column="87" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="1571" column="8" lean-forward="true" selection-start-line="1571" selection-start-column="8" selection-end-line="1571" selection-end-column="34" />
         </state>
       </provider>
     </entry>
