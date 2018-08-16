@@ -1,8 +1,8 @@
-<ion-view hide-nav-bar="true" >
+<ion-view hide-nav-bar="true" view-title="我的闪电试用">
   <div class="bar bar-header  bar-stable ">
-  <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
-  <h1 class="title">我的闪电试用</h1>
- </div>
+    <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
+    <h1 class="title">我的闪电试用</h1>
+  </div>
   <div class="bar bar-subheader">
     <div class="button-bar sub_header_list" id="sub_header_list">
       <a class="button button-clear sub_button_select" ng-click="trial_order_changeTab(0,1)">进行中</a>
@@ -13,8 +13,7 @@
   </div>
 
   <ion-content class="has-subheader" style="background-color:#F8F8F8">
-    <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-           refreshing-icon="ion-loading-c" on-refresh="wdfl_doRefresh()"></ion-refresher>
+    <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="wdfl_doRefresh()"></ion-refresher>
 
     <div ng-if="wdfl_showloading" style="margin-top:60px;text-align:center">
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
@@ -22,15 +21,14 @@
 
     <ion-list ng-if="wdfl_showloading==false" class="list padding-top">
 
-    <div class="muyou" ng-if="trial_getorderlists.length < 1 ">
-     <img ng-src="img/muyou.png">
-     <p> <span>亲 </span>您当前木有对应的闪电试用商品</p>
-     <a href="#/tab/rebate"  class="button  button-assertive button-outline ">去抢购闪电试用 无需审核 快速试用</a>
-    </div>
+      <div class="muyou" ng-if="trial_getorderlists.length < 1 ">
+        <img ng-src="img/muyou.png">
+        <p> <span>亲 </span>您当前木有对应的闪电试用商品</p>
+        <a href="#/tab/rebate" class="button  button-assertive button-outline ">去抢购闪电试用 无需审核 快速试用</a>
+      </div>
 
-      <ion-item class="item-thumbnail-left"  ng-click="add_order_number(d.id,d.goods_id,d.status,d.rebate_report)"
-            collection-repeat="d in trial_getorderlists " 
-                      collection-item-width="100%" collection-item-height="120px">
+      <ion-item class="item-thumbnail-left" ng-click="add_order_number(d.id,d.goods_id,d.status,d.rebate_report)" collection-repeat="d in trial_getorderlists "
+        collection-item-width="100%" collection-item-height="120px">
 
         <img ng-if="d.thumb" ng-src="{{d.thumb | imgUrl}}">
         <img ng-if="!d.thumb" ng-src="img/ionic.png">
@@ -42,66 +40,68 @@
         </li>
 
         <!--         各种活动状态开始  -->
-        <p ng-if="d.status == 1" class="ordrer_button padding-top " >
-          <button  ng-click="abandon_application(d.id)"  class="button button-small button-outline button-assertive">放弃申请</button>
+        <p ng-if="d.status == 1" class="ordrer_button padding-top ">
+          <button ng-click="abandon_application(d.id)" class="button button-small button-outline button-assertive">放弃申请</button>
         </p>
 
-        <p ng-if="d.status == 2 && d.order_sn ==''" class="ordrer_button padding-top " >
-          <button    class="button button-small button-outline button-positive">填写订单号</button>
+        <p ng-if="d.status == 2 && d.order_sn ==''" class="ordrer_button padding-top ">
+          <button class="button button-small button-outline button-positive">填写订单号</button>
         </p>
 
-        <p ng-if=" d.status == 4  || d.status == 3 " class="ordrer_button padding-top " >
-          <button    class="button button-small button-outline button-assertive">修改订单号</button>
+        <p ng-if=" d.status == 4  || d.status == 3 " class="ordrer_button padding-top ">
+          <button class="button button-small button-outline button-assertive">修改订单号</button>
         </p>
 
-        <p ng-if="d.status == 7 " class="ordrer_button padding-top " >
+        <p ng-if="d.status == 7 " class="ordrer_button padding-top ">
           <a class="button button-small button-outline button-positive">已返还</a>
         </p>
 
         <!--  各种活动状态结束 -- -->
 
-        <li ng-show="d.status != 4"  class="c1 txt-flow" style="font-size:0.875em;">
-          返还: <b class="cc">{{d.fan_price | currency:"￥"}}</b> 
+        <li ng-show="d.status != 4" class="c1 txt-flow" style="font-size:0.875em;">
+          返还: <b class="cc">{{d.fan_price | currency:"￥"}}</b>
         </li>
 
         <!--  审核失败的时候提示失败原因 -->
-        <li ng-show="d.status == 4"  class="c1 txt-flow" style="font-size:0.875em;">
+        <li ng-show="d.status == 4" class="c1 txt-flow" style="font-size:0.875em;">
           <b class="cc">{{d.cause}}</b>
         </li>
 
-        <p ng-if="d.status == 4 " >
+        <p ng-if="d.status == 4 ">
           修改订单号:
           <b class="cc">
-            <span id="{{d.check_time - 0 + buyer_check_update_order_sn}}" >
-              {{ d.check_time - 0 + buyer_check_update_order_sn | f_fomtime  }}
+            <span id="{{d.check_time - 0 + buyer_check_update_order_sn}}">
+              {{ d.check_time - 0 + buyer_check_update_order_sn | f_fomtime }}
             </span>
           </b>
         </p>
 
-        <p ng-if="d.status == 2 " >
+        <p ng-if="d.status == 2 ">
           填写订单号:
           <b class="cc">
             <span id="{{d.create_time - 0 + buyer_write_order_time}}" data-time="">
-              {{ d.create_time - 0 + buyer_write_order_time | f_fomtime  }}
+              {{ d.create_time - 0 + buyer_write_order_time | f_fomtime }}
             </span>
           </b>
         </p>
 
-        <p ng-if="d.status == 5" >
+        <p ng-if="d.status == 5">
           待商家确认返款:
           <b class="cc">
-            <span id="{{d.check_time - 0 + seller_pay_time}}" data-time="">{{ d.check_time - 0 + seller_pay_time | f_fomtime  }}</span>
+            <span id="{{d.check_time - 0 + seller_pay_time}}" data-time="">{{ d.check_time - 0 + seller_pay_time | f_fomtime
+              }}</span>
           </b>
         </p>
 
-        <p ng-if="d.status == 3" >
+        <p ng-if="d.status == 3">
           订单号审核中:
           <b class="cc">
-            <span id="{{d.check_time - 0 + seller_check_time}}" data-time="">{{ d.check_time - 0 + seller_check_time | f_fomtime  }}</span>
+            <span id="{{d.check_time - 0 + seller_check_time}}" data-time="">{{ d.check_time - 0 + seller_check_time | f_fomtime
+              }}</span>
           </b>
         </p>
 
-        <p ng-if="d.status == 7" >
+        <p ng-if="d.status == 7">
           已完成:
           <b class="cc">
             <span id="{{d.create_time - 0 + seller_check_time}}" data-time="">
@@ -110,22 +110,18 @@
           </b>
         </p>
 
-        <p ng-if="d.status == 0" >
+        <p ng-if="d.status == 0">
           已关闭:
           <b class="cc">{{d.cause}}</b>
         </p>
 
-        <p ng-if="d.status == 6 " >
+        <p ng-if="d.status == 6 ">
           <b class="cc">申诉处理中！</b>
         </p>
 
       </ion-item>
 
-      <ion-infinite-scroll
-                   pulling-text="加载更多中"
-                   on-infinite="wdsy_loadMore()"
-                   ng-if="wdfl_hasNextPage"
-                   distance="1%"></ion-infinite-scroll>
+      <ion-infinite-scroll pulling-text="加载更多中" on-infinite="wdsy_loadMore()" ng-if="wdfl_hasNextPage" distance="1%"></ion-infinite-scroll>
 
     </ion-list>
 

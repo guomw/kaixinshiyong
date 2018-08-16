@@ -1,10 +1,10 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true" view-title="邀请好友">
   <div class="bar bar-header bar-color ">
-  <a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-  <h1 class="title">邀请好友</h1>
-  <a  ng-click="set_invitation_log()" style="color:#ffffff;" class="button button-clear head_button1">邀请记录</a>
+    <a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">邀请好友</h1>
+    <a ng-click="set_invitation_log()" style="color:#ffffff;" class="button button-clear head_button1">邀请记录</a>
   </div>
-<ion-content class="padding_head">
+  <ion-content class="padding_head">
     <div class="ibody">
       <div class="i_invite">
         <div class="s_part1">
@@ -22,7 +22,7 @@
             <span>{{total_moeny}}元</span>
           </div>
         </div>
-        
+
         <div class="s_part2" ng-if="login_status ==0">
           <div class="hang1">
             您还未登录 登录后开始赚钱
@@ -57,30 +57,34 @@
             </div>
             <!--hang-->
 
-            <!--hang--> </div>
-          <!--list--> </div>
+            <!--hang-->
+          </div>
+          <!--list-->
+        </div>
         <!--s_part3-->
         <script type="text/javascript">
-      $('.i_invite .s_part3 .list .hang:eq(0)').find('.a1 div').css('background','#e42012')
-      $('.i_invite .s_part3 .list .hang:eq(1)').find('.a1 div').css('background','#e35f55')
-      $('.i_invite .s_part3 .list .hang:eq(2)').find('.a1 div').css('background','#f69f94')
+          $('.i_invite .s_part3 .list .hang:eq(0)').find('.a1 div').css('background', '#e42012')
+          $('.i_invite .s_part3 .list .hang:eq(1)').find('.a1 div').css('background', '#e35f55')
+          $('.i_invite .s_part3 .list .hang:eq(2)').find('.a1 div').css('background', '#f69f94')
 
-    </script>
+        </script>
         <div class="s_part4">
           <div class="ti">邀请好友奖励示意图</div>
           <div class="list c4">
             <div class="hang">
               <div class="L">好友手机认证</div>
-              <div class="R">{{config_data.data.fix.cost}} {{config_data.data.fix.type | f_m_type  }}</div>
+              <div class="R">{{config_data.data.fix.cost}} {{config_data.data.fix.type | f_m_type }}</div>
             </div>
             <!--hang-->
             <div class="hang" ng-repeat="d in config_data.data.setting">
               <div class="L">好友累积完成{{d.num}}单</div>
-              <div class="R">{{d.cost}} {{d.type | f_m_type  }}</div>
+              <div class="R">{{d.cost}} {{d.type | f_m_type }}</div>
             </div>
- 
-            <!--hang--> </div>
-          <!--list--> </div>
+
+            <!--hang-->
+          </div>
+          <!--list-->
+        </div>
         <!--s_part4-->
         <div class="s_part5">
           <div class="ti">邀请规则</div>
@@ -91,8 +95,11 @@
             <div class="hang">您可以把您的专用邀请链接通过QQ.微信.分享给您的朋友，也可以分享到您的朋友圈里面去。</div>
             <div class="hang">如发现有活动作弊,一律取消奖励,严重则直接永久封号</div>
           </div>
-          <!--list--> </div>
-        <!--s_part5--> </div>
-      <!--i_invite--> </div>
+          <!--list-->
+        </div>
+        <!--s_part5-->
+      </div>
+      <!--i_invite-->
+    </div>
   </ion-content>
 </ion-view>

@@ -1,8 +1,8 @@
-<ion-view hide-nav-bar="true" >
-  <div class="bar bar-header  bar-stable ">
-    <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
-  <h1 class="title">我的消息</h1>
- </div>
+<ion-view hide-nav-bar="true" view-title="我的消息">
+    <div class="bar bar-header  bar-stable ">
+        <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
+        <h1 class="title">我的消息</h1>
+    </div>
 
     <div class="bar bar-subheader">
         <div class="button-bar sub_header_list" id="sub_header_list">
@@ -13,35 +13,30 @@
 
     <ion-content class="scroll-content has-subheader" style="background-color:#F8F8F8">
 
-        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-             refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
 
         <div ng-if="showloading" style="margin-top:60px; text-align: center">
             <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
         </div>
 
-        <ion-list ng-if="showloading==false"  >
+        <ion-list ng-if="showloading==false">
 
-        <div class="muyou" ng-if="announcedata.length < 1 ">
-         <img ng-src="img/muyou.png">
-         <p> <span>亲 </span>您当前木有对应下的消息</p>
-         <p> 提示：申请试用品之后留意app推送通知。</p>
-         <a href="#/tab/user"  class="button  button-assertive button-outline ">返回</a>
-        </div>
-            <ion-item class="item item-avatar" ng-repeat="d in announcedata"  ng-click="changeshow(d.new_type,d.message_id)"  >
+            <div class="muyou" ng-if="announcedata.length < 1 ">
+                <img ng-src="img/muyou.png">
+                <p> <span>亲 </span>您当前木有对应下的消息</p>
+                <p> 提示：申请试用品之后留意app推送通知。</p>
+                <a href="#/tab/user" class="button  button-assertive button-outline ">返回</a>
+            </div>
+            <ion-item class="item item-avatar" ng-repeat="d in announcedata" ng-click="changeshow(d.new_type,d.message_id)">
                 <img src="img/avatar.jpg">
-                <h2 > <i style="color:red;">{{d.status |announce_state}} </i>{{d.subject}}</h2>
-                <p class="deta" >{{d.inputtime + '000' | date:"MM-dd h:mm"}}</p>
+                <h2> <i style="color:red;">{{d.status |announce_state}} </i>{{d.subject}}</h2>
+                <p class="deta">{{d.inputtime + '000' | date:"MM-dd h:mm"}}</p>
                 <p>{{d.content}}</p>
             </ion-item>
 
         </ion-list>
 
-        <ion-infinite-scroll
-                    pulling-text="加载更多中"
-                    on-infinite="loadMore()"
-                    ng-if="zz_hasNextPage"
-                    distance="1%">
+        <ion-infinite-scroll pulling-text="加载更多中" on-infinite="loadMore()" ng-if="zz_hasNextPage" distance="1%">
         </ion-infinite-scroll>
 
     </ion-content>

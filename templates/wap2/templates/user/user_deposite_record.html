@@ -1,18 +1,17 @@
-<ion-view hide-nav-bar="true" >
+<ion-view hide-nav-bar="true" view-title="提现记录">
   <div class="bar bar-header bar-stable ">
     <a href="#/tab/user/deposite" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
     <h1 class="title">提现记录</h1>
   </div>
   <ion-content class="padding_head">
-      <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-     refreshing-icon="ion-loading-c" on-refresh="txjl_doRefresh()  "></ion-refresher>
-    <div class="ibody" >
+    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="txjl_doRefresh()  "></ion-refresher>
+    <div class="ibody">
       <div class="i_orderDaily">
         <div class="part" ng-repeat=" d in getusercashlog_data">
-        <div style="position: absolute;left: 60%;"> <span>{{d.status | f_tixian_status }} {{d.cause}}</span></div>
+          <div style="position: absolute;left: 60%;"> <span>{{d.status | f_tixian_status }} {{d.cause}}</span></div>
           <div class="a1">
             <span>时间：</span>
-            {{   d.inputtime +'000' | date:'MM-dd h:mm'    }}
+            {{ d.inputtime +'000' | date:'MM-dd h:mm' }}
           </div>
 
           <div style=" position: absolute;left: 80%;"> <span>- {{d.money}} </span></div>
@@ -23,51 +22,52 @@
           </div>
         </div>
         <!--part
-        <!--part--> </div>
+        <!--part-->
+      </div>
       <!--i_orderDaily-->
     </div>
 
     <p style="color:#A9A9A9" class="padding-left">1.可查看历史所有提现记录</p>
     <p style="color:#A9A9A9" class="padding-left">2.如果提现之后,未收到款项,请及时联系平台客服。</p>
 
-  <ion-infinite-scroll
-    ng-if=" hasNextPage "
-    icon="ion-loading-c"
-    on-infinite="loadMore()"
-    distance="1%">
-  </ion-infinite-scroll>
+    <ion-infinite-scroll ng-if=" hasNextPage " icon="ion-loading-c" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
   </ion-content>
 </ion-view>
 
 <!-- CSS goes in the document HEAD or added to your external stylesheet -->
 <style type="text/css">
-table.altrowstable {
-  padding-left: 10px;
-  font-family: verdana,arial,sans-serif;
-  font-size:11px;
-  color:#333333;
-  border-width: 1px;
-  border-color: #a9c6c9;
-  border-collapse: collapse;
-}
-table.altrowstable th {
-  padding-left: 10px;
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
-  border-color: #a9c6c9;
-}
-table.altrowstable td {
-  padding-left: 10px;
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
-  border-color: #a9c6c9;
-}
-.oddrowcolor{
-  background-color:#d4e3e5;
-}
-.evenrowcolor{
-  background-color:#c3dde0;
-}
+  table.altrowstable {
+    padding-left: 10px;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+  }
+
+  table.altrowstable th {
+    padding-left: 10px;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+  }
+
+  table.altrowstable td {
+    padding-left: 10px;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+  }
+
+  .oddrowcolor {
+    background-color: #d4e3e5;
+  }
+
+  .evenrowcolor {
+    background-color: #c3dde0;
+  }
 </style>
