@@ -1,20 +1,8 @@
 <ion-view view-title="重置密码">
-  <ion-content class="padding-top" style="background-color:#F8F8F8">
+  <ion-content class="padding-top" style="background-color:#fff;">
     <ion-list>
 
       <form name="myform">
-        <!-- <div class="list list-inset new-form ">
-          <label class="item item-input">
-            <i class="icon ion-unlocked" style="font-size:15px;"></i>
-            <input ng-model-options="{ updateOn: 'blur' }" ng-minlength="6" ng-maxlength="20" ng-model-options="{ updateOn: 'blur' }"
-              name="password" type="password" placeholder="请输入新密码" ng-model="password" required>
-          </label>
-          <label class="item item-input">
-            <i class="icon ion-unlocked" style="font-size:15px;"></i>
-            <input repeat="password" ng-minlength="6" name="repeat_password" type="password" placeholder="请再次输入密码" ng-model="repeat_password"
-              required>
-          </label>
-        </div> -->
         <div class="weui-cells weui-cells_form">
           <div class="weui-cell">
             <div class="weui-cell__hd">
@@ -43,7 +31,6 @@
         </div>
 
         <div class="padding-left padding-right">
-          <!-- <button ng-disabled="myform.$invalid" class="button button-block button-assertive  padding-top" ng-click="set_username_password(password,repeat_password)">提交</button> -->
           <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid" ng-click="set_username_password(password,repeat_password)">下一步</a>
         </div>
       </form>

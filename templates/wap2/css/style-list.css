@@ -89,7 +89,7 @@
 	color: #e42012;
 }
 .i_tryout .s_part3 .hang2 {
-    padding: 10px 0px 0px 0px;
+    padding: 10px 0px 5px 0px;
     font-size: 12px;
     border-bottom: 0px;
 }
@@ -262,16 +262,144 @@
     font-size: 14px;
     padding-bottom:42px;
 }
-
-
-
-
-
-
-
-
-
-
+/*试用新手指引*/
+.i_tryProcess {
+    background-color: #fff;
+    font-size: 14px;
+}
+.i_tryProcess .part {
+    padding: 0px 10px;
+    border-bottom: 0px;
+}
+.i_tryProcess .part .p1 {
+    padding: 10px 0px;
+}
+.i_tryProcess .part .p2 {
+    background-color: #f9f9f9;
+    padding: 10px;
+    color: #797979;
+}
+.i_tryProcess .part .p1 .a1 {
+    float: left;
+    height: auto;
+    line-height: normal;
+    background: #fff;
+    padding: 0px;
+    color: #000;
+    border-radius: 0px;
+}
+.a1 {
+    margin-bottom:0px;
+}
+/*搜索下单指引*/
+.i_tryDetail3 {
+    background: none;
+    margin: 0px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.i_tryDetail3 .R .p2 {
+    font-size: 14px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    color: #797979;
+}
+.i_tryDetail3 .R .p1 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0px;
+}
+.i_tryDetail3 .L .co {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-family: 'Glyphicons Halflings';
+    background: #5091ff;
+    color: #FFF;
+    text-align: center;
+    margin: 10px 0px;
+}
+.i_tryDetail3 .part {
+    padding-top: 0px;
+}
+/*试用新手指南*/
+.ibody {
+    margin-bottom: 20px;
+}
+.i_tryDetail4 {
+    background:none;
+    margin: 0px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.i_tryDetail4 .L .co {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-family: 'Glyphicons Halflings';
+    background: #5091ff;
+    color: #FFF;
+    text-align: center;
+}
+.i_tryDetail4 .R .p3 {
+    padding: 20px 0px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.i_tryDetail4 .R .p1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+/*如何获知申请结果*/
+.i_tryDetail2 {
+    background:none;
+    margin: 0px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.i_tryDetail2 .L .co {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-family: 'Glyphicons Halflings';
+    background: #5091ff;
+    color: #FFF;
+    text-align: center;
+}
+.i_tryDetail2 .R .p3 {
+    padding: 20px 0px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.i_tryDetail2 .R .p1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+/*闪电试用流程*/
+.i_guide .part .p1 .a1 {
+    float: left;
+    height: auto;
+    line-height: normal;
+    background: #fff;
+    padding: 0px;
+    color: #000;
+    border-radius: 0px;
+}
+.i_guide .part .p2 {
+    background-color: #f9f9f9;
+    padding: 10px;
+    color: #797979;
+}
+.i_guide {
+    font-size: 14px;
+}
+.i_guide .part {
+    padding: 0px 10px;
+    border-bottom: 0px;
+}
+.i_guide .part .p1 {
+    padding: 10px 0px;
+}
 
 
 
