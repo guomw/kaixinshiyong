@@ -1514,19 +1514,20 @@ angular
       $rootScope,
       $ionicLoading,
       $state,
+      $ionicHistory,
       $ionicActionSheet,
       $timeout,
       UserloginFactory,
       StorageFactory,
-      $ionicHistory,
       UserPersonalFactory
     ) {
-      var storageKey = 'user'
+      var storageKey = 'user';
 
       //页面加载之前的事件
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = 'tabs-item-hide';
         //如果不存在会员信息 则跳转登陆页面
+          var loaclData=StorageFactory.get(storageKey);
         if (
           !StorageFactory.get(storageKey) ||
           (StorageFactory.get(storageKey) && StorageFactory.get(storageKey).status != 1)
