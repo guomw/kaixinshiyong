@@ -1811,7 +1811,7 @@ angular
         })
 
         $scope.showloading = false
-        $state.go('tab.user_profile')
+        // $state.go('tab.user_profile')
       })
 
       $scope.imgurl = function($files) {
