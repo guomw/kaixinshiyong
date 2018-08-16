@@ -22,6 +22,7 @@ angular
     'trial_listFactory',
     'StorageFactory',
     'configFactory',
+    '$ionicLoading',
     function(
       $rootScope,
       $state,
@@ -31,12 +32,14 @@ angular
       ENV,
       trial_listFactory,
       StorageFactory,
-      configFactory
+      configFactory,
+      $ionicLoading
     ) {
       //获取首页幻灯片信息
-      $scope.showloading = true
-      $scope.showscroll = true
-      $scope.tj_showloading = true;
+      $scope.showloading = true;
+      $scope.showscroll = true;
+      $scope.tj_showloading = true;;
+
       var storageKey="quyu";
       var quyuData = {
           quyu: 1,
