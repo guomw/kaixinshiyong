@@ -74,11 +74,11 @@ Class AttachmentController extends BaseController {
                     $new_qian_name = $new_array[0];
                     $new_hou_name = $new_array[1];
                     $new_name = $this->upload_url.$new_qian_name.'_150'.'.'.$new_hou_name;
-                    $this->img2thumb('.'.$this->upload_url.$attachment->uploadedfiles[0]['filepath'],'.'.$new_name,150,0);
+                    $this->img2thumb('.'.$this->upload_url.$attachment->uploadedfiles[0]['filepath'],'.'.$new_name,300,390);
                     //$this->img3thumb('150','.'.$this->upload_url.$attachment->uploadedfiles[0]['filepath'],'.'.$new_name);
                     // 把生成的头像缩略图移动到头像文件夹
                     $new_name = $this->upload_url.$new_qian_name.'250'.'.'.$new_hou_name;
-                    $this->img2thumb('.'.$this->upload_url.$attachment->uploadedfiles[0]['filepath'],'.'.$new_name,250,0);
+                    $this->img2thumb('.'.$this->upload_url.$attachment->uploadedfiles[0]['filepath'],'.'.$new_name,400,490);
 
                 } else {
                     $fileext = $attachment->uploadedfiles[0]['fileext'];
@@ -130,7 +130,9 @@ Class AttachmentController extends BaseController {
         $image = new \Think\Image(); 
         $image->open($src_img);
         // 生成一个缩放后填充大小150*150的缩略图并保存为thumb.jpg
-        $image->thumb($width,$width,\Think\Image::IMAGE_THUMB_FILLED)->save($dst_img);
+        if($height==0)
+            $height=$width;
+        $image->thumb($width,$height,\Think\Image::IMAGE_THUMB_FILLED)->save($dst_img);
 
     }
 
