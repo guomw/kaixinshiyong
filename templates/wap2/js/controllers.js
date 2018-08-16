@@ -271,6 +271,7 @@ angular
     '$stateParams',
     '$ionicSideMenuDelegate',
     'categorylistsFactory',
+    '$ionicHistory',
     function(
       $rootScope,
       $scope,
@@ -281,10 +282,12 @@ angular
       trial_listFactory,
       $stateParams,
       $ionicSideMenuDelegate,
-      categorylistsFactory
+      categorylistsFactory,
+      $ionicHistory
     ) {
       //console.log($stateParams);
-      $scope.ENV = ENV
+      $scope.ENV = ENV;
+      $ionicHistory.createView();
       //显示底部tabs
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
@@ -538,11 +541,14 @@ angular
     'StorageFactory',
     'UserPersonalFactory',
     'qiandaoFactory',
-    function($rootScope, $scope, $ionicLoading, $state, StorageFactory, UserPersonalFactory, qiandaoFactory) {
-      //每次加载前 判断是否登录
+      '$ionicHistory',
+    function($rootScope, $scope, $ionicLoading, $state, StorageFactory, UserPersonalFactory, qiandaoFactory,$ionicHistory) {
 
+      //每次加载前 判断是否登录
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = ''
+        $rootScope.hideTabs = '';
+        $ionicHistory.clearHistory();
+        $ionicHistory.createView();
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
           $scope.logo_status = 0
@@ -1569,9 +1575,7 @@ angular
       //我的昵称
       $scope.profile_nickname = function() {
          $state.go('tab.user_profile_nickname')
-        //$ionicHistory.goBack(-1)
       }
-
       // 我的手机
       $scope.profile_phone = function() {
         $state.go('tab.user_profile_nickname')
@@ -3625,6 +3629,7 @@ angular
     'UserProfileFactory',
     'trialOrderFactory',
     'configFactory',
+    '$ionicHistory',
     function(
       $timeout,
       $scope,
@@ -3636,10 +3641,12 @@ angular
       StorageFactory,
       UserProfileFactory,
       trialOrderFactory,
-      configFactory
+      configFactory,
+      $ionicHistory
     ) {
       //页面加载之前事件
-        $scope.hideTabs="";
+      $scope.hideTabs="";
+      $ionicHistory.createView();
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
