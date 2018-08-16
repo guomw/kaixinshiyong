@@ -96,7 +96,7 @@ Class ActivitySettingController extends InitController {
         $ids = I('param.id');
         if (!$ids)  $this->error('请选择要删除的记录！');
         foreach ($ids as $id) {
-            if($id < 2) continue;
+            //if($id < 2) continue;
             model('shop_set')->delete($id);
         }
         $this->success('删除成功',U('shop_source'));

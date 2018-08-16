@@ -44,7 +44,7 @@
   'SITE_CONTACT_TEL' => '021-88888888',
   'SITE_CONTACT_EMAIL' => '88888888@qq.com',
   'SITE_CONTACT_ADDRESS' => '啥大幅放大法',
-  'SITE_WEB_CLOSE' => '0',
+  'SITE_WEB_CLOSE' => '1',
   'SITE_WEB_CLOSE_CAUSE' => 'asdds',
   'SITE_CONTACT_CITY' => '2',
   'SITE_CONTACT_AREA' => '36',
@@ -92,8 +92,8 @@
 )',
   'TENGXUN' => 'http://baidu.com',
   'XINLANG' => 'http://baidu.com',
-  'SITE_LOGO_FU' => '/uploadfile/2018/0813/20180813054300612.png',
-  'SITE_LOGO_ZHU' => '/uploadfile/2018/0815/20180815113940702.png',
+  'SITE_LOGO_FU' => '/uploadfile/2018/0815/20180815072014394.png',
+  'SITE_LOGO_ZHU' => '/uploadfile/2018/0815/20180815072017715.png',
   'SITE_MAP_IMAGE' => '/uploadfile/2015/0121/20150121112606476.jpg',
   'REWRITE_RULE' => 'array (
   \'enabled\' => \'1\',
@@ -184,6 +184,6 @@
   'MERCHANT_QQ_GROUP' => '88888888',
   'MERCHANT_CODE' => '',
   'BUYER_CODE' => '',
-  'SITE_WEB_NOTICE' => '0',
+  'SITE_WEB_NOTICE' => '1',
 );
 ?>
