@@ -257,3 +257,17 @@ a.weui-btn {
   font-size: 18px;
 }
 /* 底部导航 style end */
+
+/* 试用报告style start */
+.report_list {
+  padding: 0 15px;
+}
+.report_list .item-input,
+.report_list .item {
+  padding: 0;
+}
+.report_list .weui-cells:after,
+.report_list .weui-cells:before {
+  display: none !important;
+}
+/* 试用报告style end */

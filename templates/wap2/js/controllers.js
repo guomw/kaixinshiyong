@@ -1494,11 +1494,11 @@ angular
       $rootScope,
       $ionicLoading,
       $state,
+      $ionicHistory,
       $ionicActionSheet,
       $timeout,
       UserloginFactory,
       StorageFactory,
-      $ionicHistory,
       UserPersonalFactory
     ) {
       var storageKey = 'user'
