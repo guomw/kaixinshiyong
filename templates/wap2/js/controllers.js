@@ -1298,7 +1298,6 @@ angular
 
       //邮箱注册请求第一步
       $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
-        console.log(user_email, verifyCode, password, repeat_password)
         if (password !== repeat_password) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -1356,7 +1355,7 @@ angular
         // console.log(user_email, user_sms)
         User_register1Factory.activeEmail(user_email, user_sms)
 
-        $scope.on('User_register1Factory.setEmailActivate', function() {
+        $scope.$on('User_register1Factory.setEmailActivate', function() {
           var reg_status = User_register1Factory.get_emaileCode()
           if (reg_status.status == 0) {
             $ionicLoading.show({
