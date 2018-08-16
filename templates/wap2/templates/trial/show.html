@@ -170,26 +170,26 @@
 
   <script id="a.html" type="text/ng-template"> 
           <ion-item ng-show="bind_phone == 1 && phone_status == 1 " class="item item-icon-left item-icon-right ">
-              <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+              
               手机认证
               <i class="item-note">已认证</i>
           </ion-item>
 
           <ion-item ng-show="bind_phone == 1   && phone_status != 1"  class="item item-icon-left item-icon-right " href="#/tab/user/profile/phone"  >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+             
               手机认证
               <i class="item-note">未认证</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item>
 
           <ion-item  ng-show="bind_email ==2 && emall_status ==1 " class="item item-icon-left item-icon-right ">
-           <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+          
               邮箱认证
               <i class="item-note">已认证</i>
           </ion-item>
 
           <ion-item ng-show="bind_email == 2   && emall_status != 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/email" >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+         
               邮箱认证
               <i class="item-note">未认证</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
@@ -197,28 +197,28 @@
 
 
           <ion-item  ng-show="realname ==3 && name_status ==1 " class="item item-icon-left item-icon-right ">
-           <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+          
               实名认证
               <i class="item-note">已认证</i>
           </ion-item>
 
 
           <ion-item ng-show="realname == 3 && name_status == -1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/card" >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+              
               实名认证
               <i class="item-note">{{name_status | f_name_status }}</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item>
 
           <ion-item ng-show="realname == 3 && name_status == '' "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/card" >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+              
               实名认证
               <i class="item-note">{{name_status | f_name_status }}</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item>
 
           <ion-item ng-show="realname == 3 && name_status == null "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/card" >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+              
               实名认证
               <i class="item-note">{{name_status | f_name_status }}</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
@@ -226,33 +226,33 @@
 
 
           <ion-item ng-show="realname == 3 && name_status == 0 "  class="item item-icon-left item-icon-right " >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+             
               实名认证
               <i class="item-note">{{name_status | f_name_status }}</i>
           </ion-item>
 
           <ion-item  ng-show="bind_alipay ==5 && allpay_status ==1 " class="item item-icon-left item-icon-right ">
-           <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+          
               支付宝
               <i class="item-note">已绑定</i>
           </ion-item>
 
 
           <ion-item ng-show=" bind_alipay ==5 && allpay_status !=1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/alipay" >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+             
               支付宝
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item>
 
           <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count > 0 "  class="item item-icon-left item-icon-right " >
-              <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
+              
               淘宝帐号
               <i class="item-note">已绑{{data_bind_taobao.count}}个</i>
           </ion-item>
           
           <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count < 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/taobao"    >
-              <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
+             
               淘宝帐号
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
@@ -292,8 +292,8 @@
                   <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
   </script>
   <div class="i_tryout_s_part4">
-    <div class="last_time"><span ng-if="!sy_showloading">剩余:</span><span> <i ng-if="!sy_showloading" style="color: #fff;" id="{{showdata.end_time}}">{{showdata.end_time
-          | f_fomtime }}</i></span></div>
+    <div class="last_time"><span ng-if="!sy_showloading">剩余:</span><span> <i ng-if="!sy_showloading" style="color: #fff;"
+          id="{{showdata.end_time}}">{{showdata.end_time | f_fomtime }}</i></span></div>
     <a ng-click="Apply_trial()" class="a1 right_free">免费申请</a>
     <div ng-if="order_is_join.data == 1 && showdata.number > 0 " class="vip">
       <!--
