@@ -1,8 +1,13 @@
-<ion-view hide-tabs view-title="试用报告">
-  <ion-nav-buttons side="right">
+<ion-view hide-tabs hide-nav-bar="true" view-title="试用报告">
+  <div class="bar bar-header bar-stable ">
+    <a href="#/tab/rebate" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">试用报告</h1>
+    <a style="font-size:1em;" class="button icon ion-clipboard button-clear" ng-click="Order_log()">日志</a>
+  </div>
+  <!-- <ion-nav-buttons side="right">
     <a class="button icon ion-ios-gear-outline button-clear" ng-click="Order_log()">日志</a>
-  </ion-nav-buttons>
-  <ion-content style="background-color:#F8F8F8">
+  </ion-nav-buttons> -->
+  <ion-content style="background-color:#fff" class="padding_head">
     <div ng-if="txddh_showloading" style="margin-top:60px; text-align: center">
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
@@ -32,7 +37,7 @@
         </ul>
       </ion-item>
 
-      <p ng-if="order_info.status == 8 " style="color:#A9A9A9" class="padding-left padding-top ">
+      <p ng-if="order_info.status == 8 " style="color:#A9A9A9;font-size: 14px" class="padding-left padding-top ">
         未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_write_talk_time}}">
             {{ order_info.complete_time - 0 + buyer_write_talk_time | f_fomtime }}
           </span> </b>
@@ -62,7 +67,7 @@
           <label class="item item-input item-stacked-label">
             <span class="input-label">为试用品打分</span>
 
-            <label style="height:50px;" class="item item-input item-select padding-right  ">
+            <label style="height:50px; padding: 0;" class="item item-input item-select padding-right  ">
               <span class="input-label">选择</span>
               <select class=" padding-right  " style="height:50px;padding: 14px 25px 16px 10px;" ng-model="sybg_vm.pinfen " ng-options="a.name for a  in pingfen">
                 <option value="">
@@ -77,7 +82,7 @@
           </label>
 
           <div class="col" id='goods_albums'>
-            <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}"  />
+            <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" />
             <!--<input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*">-->
           </div>
           <label class="item item-input item-stacked-label padding-right  ">
@@ -88,8 +93,9 @@
           </label>
 
         </div>
-        <div class="padding-left padding-right">
-          <button class="button button-block button-assertive  padding-top" ng-click="sybg_add()">提交试用报告</button>
+        <div style="padding:15px;">
+          <!-- <button class="button button-block button-assertive  padding-top" ng-click="sybg_add()">提交试用报告</button> -->
+          <a href="javascript:;" class="weui-btn" ng-click="sybg_add()">提交试用报告</a>
         </div>
 
       </form>

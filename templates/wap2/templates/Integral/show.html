@@ -1,18 +1,18 @@
-<ion-view hide-nav-bar="true" >
-<div class="bar bar-header bar-color ">
-<a href="#/tab/jifenduihuan" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-<h1 class="title">积分兑换</h1>
-<div ng-click="user_order_jifen();"   style="color:#ffffff;" class="button button-clear">兑换记录</div>
-</div>
-  <div class="ibody" >
+<ion-view hide-nav-bar="true" view-title="积分兑换">
+  <div class="bar bar-header bar-color ">
+    <a href="#/tab/jifenduihuan" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">积分兑换</h1>
+    <div ng-click="user_order_jifen();" style="color:#ffffff;" class="button button-clear">兑换记录</div>
+  </div>
+  <div class="ibody">
     <ion-content class="padding_head">
       <div ng-if="shop_show_showloading" style="margin-top:60px; text-align: center">
         <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
       </div>
-      <div class="i_PointsDetail"   ng-if=" shop_show_showloading ==false ">
+      <div class="i_PointsDetail" ng-if=" shop_show_showloading ==false ">
         <div class="s_part2">
           <div class="hang1">
-            <img ng-src="{{shop_show.images |imgUrl }}" ></div>
+            <img ng-src="{{shop_show.images |imgUrl }}"></div>
           <div class="hang2">
             <div class="L">礼品名称:</div>
             <div class="R">{{shop_show.title}}</div>
@@ -22,16 +22,16 @@
         <!--s_part2-->
         <div class="s_part3 c5">
           <div class='c5'>
-          <sapn class='c4'>剩余时间：</sapn><i id="{{shop_show.end_time}}">{{shop_show.end_time |f_fomtime }}</i>
-          <sapn class='c4'>剩余数量: </sapn>
+            <sapn class='c4'>剩余时间：</sapn><i id="{{shop_show.end_time}}">{{shop_show.end_time |f_fomtime }}</i>
+            <sapn class='c4'>剩余数量: </sapn>
             <span>
               {{shop_show.total_num- shop_show.sale_num}}/{{shop_show.total_num}}
             </span>
           </div>
           <div>
-          <i class='c4'>兑换所需积分：</i>
-            <span>{{shop_show.point}} 积分</span> <i ng-show="user_point" > <i class='c4'> 账户剩余积分: </i>
-              <span>{{user_point}}</span></i> 
+            <i class='c4'>兑换所需积分：</i>
+            <span>{{shop_show.point}} 积分</span> <i ng-show="user_point"> <i class='c4'> 账户剩余积分: </i>
+              <span>{{user_point}}</span></i>
           </div>
         </div>
         <div class="s_part6">
@@ -44,69 +44,65 @@
         <!--s_part3-->
         <div class="s_part4 ">
           <span>商品介绍</span>
-           <div class="introduction" >
-          <div ng-bind-html="shop_show.desc|f_img_url  " ></div>
+          <div class="introduction">
+            <div ng-bind-html="shop_show.desc|f_img_url  "></div>
           </div>
         </div>
 
         <div class="s_part4 c4">
           <span>兑换规则</span>
-          <br>
-          1、兑换开始后，所有会员均可点击
+          <br> 1、兑换开始后，所有会员均可点击
           <span>"我要兑换"</span>
           按钮进行宝贝兑换。
-          <br>
-          2、为了更好的回馈会员，所有的宝贝兑换不收取任何费用，我们包邮为您送到家。
-          <br>
-          3、只能获得的积分兑换，积分余额不足则不能兑换。
-          <br>
-          4、兑换成功之后会在3-5个工作日内完成发货，具体到货时间取决于物流的发货速度。
-          <br>
-          5、一旦兑换即扣除相应积分，所兑换的礼品将在后台审核后发出。如审核过程中发现该用户积分行为异常，兑换礼品将不予发放，已扣除积分不退还。如该用户恶意刷积分 行为严重，我们保留不另行通知而直接封禁该用户账号的权利。
+          <br> 2、为了更好的回馈会员，所有的宝贝兑换不收取任何费用，我们包邮为您送到家。
+          <br> 3、只能获得的积分兑换，积分余额不足则不能兑换。
+          <br> 4、兑换成功之后会在3-5个工作日内完成发货，具体到货时间取决于物流的发货速度。
+          <br> 5、一旦兑换即扣除相应积分，所兑换的礼品将在后台审核后发出。如审核过程中发现该用户积分行为异常，兑换礼品将不予发放，已扣除积分不退还。如该用户恶意刷积分 行为严重，我们保留不另行通知而直接封禁该用户账号的权利。
           <br></div>
 
         <div class="clearfix"></div>
         <div class="clearfix"></div>
         <!--s_part4-->
 
-        <!--i_PointsList--> </div>
+        <!--i_PointsList-->
+      </div>
     </ion-content>
-    
 
-    <div class="i_tryout_s_part4"  ng-show="login_status == 0 ">
+
+    <div class="i_tryout_s_part4" ng-show="login_status == 0 ">
       <a ng-click="Exchange(d)" class="a1">登录兑换</a>
       兑换将花费积分 <b class="cc">{{shop_show.point}}</b>
       <div class="clearfix"></div>
     </div>
 
-    <div ng-show = "shop_show.end_time > getTime && login_status ==1 ">
-      <div class="i_tryout_s_part4"  ng-show="(user_point - 0) >= (shop_show.point-0) ">
+    <div ng-show="shop_show.end_time > getTime && login_status ==1 ">
+      <div class="i_tryout_s_part4" ng-show="(user_point - 0) >= (shop_show.point-0) ">
         <a ng-click="Exchange(d)" class="a1">我要兑换</a>
         兑换将花费积分 <b class="cc">{{shop_show.point}}</b>
         <div class="clearfix"></div>
       </div>
 
-      <div class="i_tryout_s_part4" ng-show="(shop_show.sale_num -0 ) >= (shop_show.total_num-0)"  >
+      <div class="i_tryout_s_part4" ng-show="(shop_show.sale_num -0 ) >= (shop_show.total_num-0)">
         <a class="a1" style="background:#ccc;color:#FFF;border:0px">已经兑换光了</a>
         亲,商品被兑换完了,换其他的吧
         <div class="clearfix"></div>
       </div>
 
-      <div class="i_tryout_s_part4" ng-show="(user_point - 0) < (shop_show.point-0) "  >
+      <div class="i_tryout_s_part4" ng-show="(user_point - 0) < (shop_show.point-0) ">
         <a class="a1" style="background:#ccc;color:#FFF;border:0px">积分不足 无法兑换</a>
-        <a href="#/tab/user/trial_order" >参与积分任务赚积分</a>
+        <a href="#/tab/user/trial_order">参与积分任务赚积分</a>
         <div class="clearfix"></div>
       </div>
 
-      <div class="i_tryout_s_part4" ng-show="is_join_shop.data == 1 "  >
+      <div class="i_tryout_s_part4" ng-show="is_join_shop.data == 1 ">
         <a class="a1" style="background:#ccc;color:#FFF;border:0px">已兑换过本商品</a>
         同一商品只能兑换一次
         <div class="clearfix"></div>
       </div>
     </div>
 
-    <div ng-show = "shop_show.end_time < getTime ">
-      <div class="i_tryout_s_part4" ng-show="is_join_shop.data == 1 "  >
+    <div ng-show="shop_show.end_time < getTime ">
+      <div class="i_tryout_s_part4" ng-show="is_join_shop.data == 1 ">
         <a class="a1" style="background:#ccc;color:#FFF;border:0px">活动结束了</a>
         亲来晚了,下次早点来！
         <div class="clearfix"></div>

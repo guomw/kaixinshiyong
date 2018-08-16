@@ -1,33 +1,32 @@
-<ion-view hide-nav-bar="true" >
-  <div class="bar bar-header bar-color ">
-  <a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-  <h1 class="title">日赚任务</h1>
-  </div>
+<ion-view hide-nav-bar="true" view-title="日赚任务">
+    <div class="bar bar-header bar-color ">
+        <a href="#/tab/duo" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+        <h1 class="title">日赚任务</h1>
+    </div>
 
     <ion-content class="padding_head">
 
-        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-             refreshing-icon="ion-loading-c" on-refresh="task_doRefresh()">
+        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="task_doRefresh()">
         </ion-refresher>
-            <div class="ibody"  >
-                <div class="i_moneyEveryday">
-                    <div class="s_img">
-                        <img src="img/a6.jpg">
-                    </div>
-                    <div class="s_ti"  >
-                        <a class="sel"  ng-click="task_changeTab('id',0)" >时间</a>
-                        <a  href="#"   ng-click="task_changeTab('goods_price',1)" >佣金</a>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!--s_ti-->
-                    <div ng-if="task_showloading" style="margin-top:60px; text-align: center">
-                        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
-                    </div>
+        <div class="ibody">
+            <div class="i_moneyEveryday">
+                <div class="s_img">
+                    <img src="img/a6.jpg">
+                </div>
+                <div class="s_ti">
+                    <a class="sel" ng-click="task_changeTab('id',0)">时间</a>
+                    <a href="#" ng-click="task_changeTab('goods_price',1)">佣金</a>
+                    <div class="clearfix"></div>
+                </div>
+                <!--s_ti-->
+                <div ng-if="task_showloading" style="margin-top:60px; text-align: center">
+                    <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+                </div>
 
-                    <div class="s_list"  ng-if="task_showloading == false ">
+                <div class="s_list" ng-if="task_showloading == false ">
 
-                      <div ng-repeat="d in broke_list"  >
-                        <a class="hang" href="#/tab/task/{{d.id}}"  id="aaa"  >
+                    <div ng-repeat="d in broke_list">
+                        <a class="hang" href="#/tab/task/{{d.id}}" id="aaa">
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="L">
@@ -47,49 +46,48 @@
                                                         元,
                                                     </td>
 
-                                                    <td class="a2"  ng-show ="d.number >
-                                                        0 " >
+                                                    <td class="a2" ng-show="d.number >
+                                                        0 ">
                                                         <div class="co">做任务</div>
                                                     </td>
-                                                    <td class="a2"  ng-show ="d.number < 1 " >
+                                                    <td class="a2" ng-show="d.number < 1 ">
                                                         <div class="co" style="background:#ccc">没有了</div>
                                                     </td>
                                                     <!--                       <td class="a2"  ng-show ="d.number < 1 " >
                                                     <div class="co">已参与</div>
                                                 </td>
                                                 -->
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--part2-->
-                                    <div class="part3">
-                                        <div class="a1">
-                                         <i class='c4'> 回答奖励:</i>
-                                            <span>{{d.goods_price }}</span>
+                                                </tr>
+                                            </table>
                                         </div>
-                                        <div class="a2">
-                                          <i class='c4'>   份数：</i>
-                                            <span>{{d.number}}/{{d.goods_number}}</span>
+                                        <!--part2-->
+                                        <div class="part3">
+                                            <div class="a1">
+                                                <i class='c4'> 回答奖励:</i>
+                                                <span>{{d.goods_price }}</span>
+                                            </div>
+                                            <div class="a2">
+                                                <i class='c4'> 份数：</i>
+                                                <span>{{d.number}}/{{d.goods_number}}</span>
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <!--part3--> </td>
-                            </tr>
-                        </table>
-                    </a>
-                </div>
-                    <ion-infinite-scroll
-                                  pulling-text="加载更多中"
-                                  on-infinite="task_loadMore()"
-                                  ng-if="task_hasNextPage"
-                                  distance="1%">
+                                        <!--part3-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </a>
+                    </div>
+                    <ion-infinite-scroll pulling-text="加载更多中" on-infinite="task_loadMore()" ng-if="task_hasNextPage" distance="1%">
                     </ion-infinite-scroll>
 
                 </div>
 
-                <!--s_list--> </div>
-            <!--i_moneyEveryday--> </div>
+                <!--s_list-->
+            </div>
+            <!--i_moneyEveryday-->
+        </div>
 
-</ion-content>
+    </ion-content>
 
 </ion-view>

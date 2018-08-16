@@ -1,5 +1,5 @@
-<ion-view hide-nav-bar="true">
-  <div class="bar bar-header" style="height:auto">
+<ion-view hide-nav-bar="true" view-title="搜索">
+  <!-- <div class="bar bar-header" style="height:auto">
     <a href="#/tab/trial" style="min-height:45px" class="button icon ion-ios-arrow-back button-clear head_button1 soh">返回</a>
     <div class="padding-left " style="width:60%">
       <label class="item item-input">
@@ -10,7 +10,19 @@
       <button name="user_getsms" style="min-height:45px" ng-disabled="myform.user_phone.$invalid" class="button icon-left ion-ios-search-strong   button-outline  "
         ng-click="search(Keyword)">搜索</button>
     </div>
+  </div> -->
+  <div class="bar bar-header search_all" style="">
+    <div class="backtrack">
+      <a href="#/tab/trial" class="icon ion-ios-arrow-back">返回</a>
+    </div>
+    <div class="search_input">
+      <input type="text" ng-model="Keyword" name="Keyword" placeholder="请输入搜索关键词" ng-maxlength="11" ng-minlength="1" required>
+    </div>
+    <div class="search_btn">
+      <button name="user_getsms" ng-disabled="myform.user_phone.$invalid" ng-click="search(Keyword)" class="">搜索</button>
+    </div>
   </div>
+
 
   <ion-content class="padding_head">
 
@@ -30,13 +42,13 @@
           </div>
         </div>
         <div class="padding-top"></div>
-        <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " style="height:40px;" ng-click="search(d)">
+        <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " ng-click="search(d)">
           <i class="icon ion-ios-clock-outline" style="font-size:16px;color:#CCC"></i>
           <h3>{{d}}</h3>
         </ion-item>
 
         <div style="margin-top:60px; text-align: center" ng-if="data_keyword">
-          <button name="user_getsms" class="button icon-left ion-ios-trash-outline button-outline  " ng-click="dedele()">清除历史记录</button>
+          <button name="user_getsms" class="button icon-left ion-ios-trash-outline button-outline " ng-click="dedele()" style="color:#CCC">清除历史记录</button>
         </div>
       </ion-list>
     </div>

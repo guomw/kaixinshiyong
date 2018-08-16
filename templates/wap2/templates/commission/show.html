@@ -1,104 +1,107 @@
-  <ion-view hide-nav-bar="true" >
+<ion-view hide-nav-bar="true" view-title="闪电试用">
   <div class="bar bar-header bar-color ">
-  <a href="#/tab/commission" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-  <h1 class="title">闪电试用</h1>
-  <button style="color:#ffffff;" class="button  icon ion-ios-redo button-clear" ng-click="fenxiang()">分享</button>
+    <a href="#/tab/commission" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+    <h1 class="title">闪电试用</h1>
+    <button style="color:#ffffff;" class="button  icon ion-ios-redo button-clear" ng-click="fenxiang()">分享</button>
   </div>
-<div class="ibody">
-  <ion-content  class="padding_head">
-  <div ng-if="commission_showloading" style="margin-top:60px; text-align: center">
-    <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
-  </div>
+  <div class="ibody">
+    <ion-content class="padding_head">
+      <div ng-if="commission_showloading" style="margin-top:60px; text-align: center">
+        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+      </div>
 
-    <ion-list class="list padding-top" ng-if="commission_showloading ==false  " >
+      <ion-list class="list padding-top" ng-if="commission_showloading ==false  ">
         <div class="ibody">
-        <div class="i_rebateDetail">
-          <div class="s_part2">
-            <div class="hang1">
-              <img ng-src="{{showdata.thumb|imgUrl }}" ></div>
-            <div class="hang2">
-              <div class="L">{{showdata.source|f_source }}</div>
-              <div class="R">{{showdata.title | limitTo:18 }}</div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="s_part3">
-            <div class="hang1 c5">
-            下单价：
-              <span>{{showdata.goods_price | currency:"￥"  }}</span>
-              返还：
-              <span>
-                {{showdata.fan_price | currency:"￥"  }}
-              </span>
-            </div>
-            <div class="hang3">
-              <div class="part">
-                <img ng-src="img/a3.jpg">
-                商家已存保证金：
-                <span>{{showdata.goods_deposit|currency:"￥"}}</span>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <!--hang3-->
-            <div class="hang2 c5">
-            <span class="a1"> <span class='c4'>数量：</span>{{showdata.goods_number}}份</span>
-              <span class="a2"><span class='c4'>剩余数量：</span>{{showdata.number}}份</span>
-              <span class="a1">
-                <span class='c4'> 开始时间：</span>{{showdata.start_time +'000' | date:"yyyy-MM-dd h:mm" }}
-              </span>
-              <span  class="a2"  >
-                <span class='c4'>仅剩：</span><i id= '{{showdata.end_time}}' >{{showdata.end_time  | f_fomtime}}</i>
-              </span>
-              <div class="clearfix"></div>
-            </div>
-            <!--hang2-->
-            <div class="hang5">
-              <div class="ti">温馨提示</div>
-              <div class="co c4">
-                <p class="cc"  ng-show = "showdata.goods_tips.goods_order.remark" >特别注意: {{showdata.goods_tips.goods_order.remark }}</p>
-                <p ng-if ="num_trial_art > 0">参与抢购需完成<span class="cc" > {{num_trial_art}}</span>笔以上普通试用订单</p>
-                <p >违反平台相关规定,不按要求下单,可能会被拒绝返款,冻结帐号</p>
-                </div></div>
-                <!--hang5--> 
-                </div>
-              <!--s_part3-->
-              <div class="s_part6">
-                <div class="part sel" ng-click="goods_body()" style="width:48%;" >活动详情</div>
-                <div class="part"  ng-click="good_user_list()" style="width:48%;">谁抢到了({{showdata.apply_people}})</div>
+          <div class="i_rebateDetail">
+            <div class="s_part2">
+              <div class="hang1">
+                <img ng-src="{{showdata.thumb|imgUrl }}"></div>
+              <div class="hang2">
+                <div class="L">{{showdata.source|f_source }}</div>
+                <div class="R">{{showdata.title | limitTo:18 }}</div>
                 <div class="clearfix"></div>
               </div>
-              <!--s_part6-->
-              <div class="s_part7 c4" style="display:" ng-show= "Switch == 1 ">
-                <div ng-bind-html="showdata.goods_content | f_img_url  " ></div>
+            </div>
+            <div class="s_part3">
+              <div class="hang1 c5">
+                下单价：
+                <span>{{showdata.goods_price | currency:"￥" }}</span>
+                返还：
+                <span>
+                  {{showdata.fan_price | currency:"￥" }}
+                </span>
+              </div>
+              <div class="hang3">
+                <div class="part">
+                  <img ng-src="img/a3.jpg"> 商家已存保证金：
+                  <span>{{showdata.goods_deposit|currency:"￥"}}</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!--hang3-->
+              <div class="hang2 c5">
+                <span class="a1"> <span class='c4'>数量：</span>{{showdata.goods_number}}份</span>
+                <span class="a2"><span class='c4'>剩余数量：</span>{{showdata.number}}份</span>
+                <span class="a1">
+                  <span class='c4'> 开始时间：</span>{{showdata.start_time +'000' | date:"yyyy-MM-dd h:mm" }}
+                </span>
+                <span class="a2">
+                  <span class='c4'>仅剩：</span><i id='{{showdata.end_time}}'>{{showdata.end_time | f_fomtime}}</i>
+                </span>
+                <div class="clearfix"></div>
+              </div>
+              <!--hang2-->
+              <div class="hang5">
+                <div class="ti">温馨提示</div>
+                <div class="co c4">
+                  <p class="cc" ng-show="showdata.goods_tips.goods_order.remark">特别注意: {{showdata.goods_tips.goods_order.remark
+                    }}</p>
+                  <p ng-if="num_trial_art > 0">参与抢购需完成<span class="cc"> {{num_trial_art}}</span>笔以上普通试用订单</p>
+                  <p>违反平台相关规定,不按要求下单,可能会被拒绝返款,冻结帐号</p>
+                </div>
+              </div>
+              <!--hang5-->
+            </div>
+            <!--s_part3-->
+            <div class="s_part6">
+              <div class="part sel" ng-click="goods_body()" style="width:48%;">活动详情</div>
+              <div class="part" ng-click="good_user_list()" style="width:48%;">谁抢到了({{showdata.apply_people}})</div>
+              <div class="clearfix"></div>
+            </div>
+            <!--s_part6-->
+            <div class="s_part7 c4" style="display:" ng-show="Switch == 1 ">
+              <div ng-bind-html="showdata.goods_content | f_img_url  "></div>
+            </div>
+
+            <!--s_part7-->
+            <div class="s_part8" ng-show="Switch == 2 ">
+
+              <div ng-if="user_list_showloading" style="margin-top:60px; text-align: center">
+                <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
               </div>
 
-              <!--s_part7-->
-              <div class="s_part8" ng-show= "Switch == 2 ">
-
-                <div ng-if="user_list_showloading" style="margin-top:60px; text-align: center">
-                  <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
-                </div>
-
-                <div class="list" style="display:"  ng-show=" user_list_showloading==false &&  user_list !=''"  >
-                  <a class="part" ng-repeat="d in user_list"  >
-                    <div class="hang1">
-                      <img ng-src="{{d.avatar | imgUrl}}"></div>
-                    <!--hang1-->
-                    <div class="hang2 c4">{{d.nickname | f_nickname |limitTo :4 }}</div>
-                  </a>
-                   <br/>
-                  <div class="clearfix"></div>
-                </div>
-                <!--s_list-->
-                <div class="tis c4" style="display:" ng-show="user_list_showloading==false && user_list ==''"  >暂时还没有人抢购</div>
+              <div class="list" style="display:" ng-show=" user_list_showloading==false &&  user_list !=''">
+                <a class="part" ng-repeat="d in user_list">
+                  <div class="hang1">
+                    <img ng-src="{{d.avatar | imgUrl}}"></div>
+                  <!--hang1-->
+                  <div class="hang2 c4">{{d.nickname | f_nickname |limitTo :4 }}</div>
+                </a>
+                <br/>
+                <div class="clearfix"></div>
               </div>
-              <!--s_part8-->
-              <!--i_rebateDetail--> </div>
+              <!--s_list-->
+              <div class="tis c4" style="display:" ng-show="user_list_showloading==false && user_list ==''">暂时还没有人抢购</div>
+            </div>
+            <!--s_part8-->
+            <!--i_rebateDetail-->
           </div>
-        </div></div>
-        </ion-list>
+        </div>
+  </div>
+  </div>
+  </ion-list>
 
-        <script id="a.html" type="text/ng-template"> 
+  <script id="a.html" type="text/ng-template"> 
                       <li ng-show="bind_phone == 1 && phone_status == 1 " class="item item-icon-left item-icon-right "> <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
                           手机认证
                           <i class="item-note">已认证</i>
@@ -193,7 +196,7 @@
 
               </script>
 
-        <script id="b.html" type="text/ng-template"> 
+  <script id="b.html" type="text/ng-template"> 
 
                 <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
                   <select ng-model="vm.data_bind_taobao_default.id" ng-options="a.id as a.account for a  in data_bind_taobao.lists">
@@ -208,7 +211,7 @@
 
             </script>
 
-        <script id="c.html" type="text/ng-template">              
+  <script id="c.html" type="text/ng-template">              
                   <ion-item class=" " >{{showdata.goods_rule.ask.question}}</ion-item>
                   <label class="item item-input" >                 
                     <input type="text"  ng-model="vm.Answer" placeholder="请输入答案" ></label>
@@ -218,35 +221,35 @@
                    <p style="color:#A9A9A9" class="padding-left">1.{{showdata.goods_rule.ask.tips}}</p>
                    <p style="color:#A9A9A9" class="padding-left">2.<a href="{{showdata.goods_url}}">点击去宝贝页面找答案</a></p>
             </script>
-      </ion-content>
-      
-      <div class="i_tryout_s_part4" ng-if= "login_status == 0"  >
-          <a href="#/tab/user/login" class="a1">立即登录抢购</a>
-          <div class="clearfix"></div>
-      </div>
+  </ion-content>
 
-      <div ng-if= "showdata.allow_groupid == 0 || showdata.allow_groupid == Member_group " > 
-      <div class="i_rebateDetail_s_part4"   ng-if= "order_is_join.data == 1 && showdata.end_time > data_time "   >
-        <a ng-click="Apply_commission()" class="a1">立即抢购</a>
-        <div class="clearfix"></div>
-      </div>
-     </div>
+  <div class="i_tryout_s_part4" ng-if="login_status == 0">
+    <a href="#/tab/user/login" class="a1">立即登录抢购</a>
+    <div class="clearfix"></div>
+  </div>
 
-      <div class="i_tryout_s_part4"  ng-if= "showdata.allow_groupid != 0 &&showdata.allow_groupid != Member_group "  >
-        <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">活动仅限VIP参与</a>
-        <div class="clearfix"></div>
-      </div>
+  <div ng-if="showdata.allow_groupid == 0 || showdata.allow_groupid == Member_group ">
+    <div class="i_rebateDetail_s_part4" ng-if="order_is_join.data == 1 && showdata.end_time > data_time ">
+      <a ng-click="Apply_commission()" class="a1">立即抢购</a>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 
-      <div class="i_tryout_s_part4"  ng-if= "order_is_join.data == 0"  >
-        <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">已抢购过</a>
-        <a href="#/tab/user/commission_order" >查看我的订单</a>
-        <div class="clearfix"></div>
-      </div>
+  <div class="i_tryout_s_part4" ng-if="showdata.allow_groupid != 0 &&showdata.allow_groupid != Member_group ">
+    <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">活动仅限VIP参与</a>
+    <div class="clearfix"></div>
+  </div>
 
-      <div class="i_tryout_s_part4"  ng-if= " order_is_join.data == 1 && showdata.end_time < data_time "  >
-        <a class="a1" style="background:#ccc; color:#FFF; border:0px ">活动结束</a>
-        当前活动时间已结束,下次早点来呃。
-        <div class="clearfix"></div>
-      </div>
+  <div class="i_tryout_s_part4" ng-if="order_is_join.data == 0">
+    <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">已抢购过</a>
+    <a href="#/tab/user/commission_order">查看我的订单</a>
+    <div class="clearfix"></div>
+  </div>
 
-  </ion-view>
+  <div class="i_tryout_s_part4" ng-if=" order_is_join.data == 1 && showdata.end_time < data_time ">
+    <a class="a1" style="background:#ccc; color:#FFF; border:0px ">活动结束</a>
+    当前活动时间已结束,下次早点来呃。
+    <div class="clearfix"></div>
+  </div>
+
+</ion-view>

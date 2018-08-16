@@ -977,15 +977,15 @@ angular
           //   duration: 1000
           // });
 
-          var timer = $timeout(function() {
-            if (url == '/tab/user/forget' || url == '/tab/user/forget_2') {
-              $state.go('tab.user') //路由跳转登录
-              return false
-            }
-            $ionicHistory.goBack(-1)
-          }, 100)
+          // var timer = $timeout(function() {
+          //   if (url == '/tab/user/forget' || url == '/tab/user/forget_2') {
+          //     $state.go('tab.user') //路由跳转登录
+          //     return false
+          //   }
+          //   $ionicHistory.goBack(-1)
+          // }, 100)
 
-          // $state.go('tab.user') //登录成功 跳转会员中心
+          $state.go('tab.user') //登录成功 跳转会员中心
           return false
         } else {
           $ionicLoading.show({
@@ -1347,7 +1347,7 @@ angular
         // console.log(user_email, user_sms)
         User_register1Factory.activeEmail(user_email, user_sms)
 
-        $scope.on('User_register1Factory.setEmailActivate',function(){
+        $scope.on('User_register1Factory.setEmailActivate', function() {
           var reg_status = User_register1Factory.get_emaileCode()
           if (reg_status.status == 0) {
             $ionicLoading.show({
@@ -1503,6 +1503,7 @@ angular
     '$rootScope',
     '$ionicLoading',
     '$state',
+    '$ionicHistory',
     '$ionicActionSheet',
     '$timeout',
     'UserloginFactory',
@@ -1517,6 +1518,7 @@ angular
       $timeout,
       UserloginFactory,
       StorageFactory,
+      $ionicHistory,
       UserPersonalFactory
     ) {
       var storageKey = 'user'
@@ -1565,7 +1567,8 @@ angular
 
       //我的昵称
       $scope.profile_nickname = function() {
-        $state.go('tab.user_profile_nickname')
+        // $state.go('tab.user_profile_nickname')
+        $ionicHistory.goBack(-1)
       }
 
       // 我的手机

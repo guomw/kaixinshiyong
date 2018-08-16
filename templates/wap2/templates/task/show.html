@@ -1,121 +1,118 @@
-<ion-view hide-nav-bar="true">
-  <div class="bar bar-header bar-color ">
-  <a href="#/tab/task" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
-  <h1 class="title">任务详情</h1>
-<!--   <button style="color:#ffffff;" class="button  icon ion-ios-redo button-clear" ng-click="fenxiang()">分享</button> -->
-  </div>
-<div class="ibody">
-  <ion-content class="padding_head">
-	  <div ng-if="task_show_hasNextPage" style="margin-top:60px; text-align: center">
-	      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
-	  </div>
+<ion-view hide-nav-bar="true" view-title="任务详情">
+	<div class="bar bar-header bar-color ">
+		<a href="#/tab/task" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
+		<h1 class="title">任务详情</h1>
+		<!--   <button style="color:#ffffff;" class="button  icon ion-ios-redo button-clear" ng-click="fenxiang()">分享</button> -->
+	</div>
+	<div class="ibody">
+		<ion-content class="padding_head">
+			<div ng-if="task_show_hasNextPage" style="margin-top:60px; text-align: center">
+				<ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+			</div>
 
-	   <div class="i_moneyEverydayDetail" ng-if="task_show_hasNextPage==false" >
-			<div class="s_part1">
-			<img ng-src="{{task_show.thumb| imgUrl}}"></div>
+			<div class="i_moneyEverydayDetail" ng-if="task_show_hasNextPage==false">
+				<div class="s_part1">
+					<img ng-src="{{task_show.thumb| imgUrl}}"></div>
 
-	     <div ng-show ="login_status == 0"  >
-	        <div class="s_part2"  ng-show="phone_status !=1" >
-	        	<div class="hang1"> 亲您还未登录,请先登录！
-	        	</div>
+				<div ng-show="login_status == 0">
+					<div class="s_part2" ng-show="phone_status !=1">
+						<div class="hang1"> 亲您还未登录,请先登录！
+						</div>
 
-	        	<div class="hang2 padding-top  "  >
-	        		<a href="#/tab/user/login"  class="button button-assertive button-outline " >登录/注册</a>
-	        	</div>
+						<div class="hang2 padding-top  ">
+							<a href="#/tab/user/login" class="button button-assertive button-outline ">登录/注册</a>
+						</div>
 
-	        	<div class="hang5">拥有本站会员可享受多种特权</div>
-	        </div>
-
-	    </div>
-
-
-		<div ng-show ="login_status == 1"  >
-			<div class="s_part2"  ng-show="phone_status ==1 && is_join_borke.data == 0 " >
-				<div class="hang1 c4">回答商家问题，回答正确奖励<b class="cc"> {{task_show.goods_price}}元</b>
-				</div>
-
-				<div class="hang2"  >
-					{{task_show.title}}
-					<span ng-click="zhao_daan(task_show.source)" >去找答案</span>
-				</div>
-
-				<div class="hang3 padding-top" >
-					<div class="L">
-						<input ng-model="daan" type="text" placeholder="请输入答案" />
+						<div class="hang5">拥有本站会员可享受多种特权</div>
 					</div>
-					<div class="R"  ng-click="add_daan(daan)">提交答案</div>
-					<div class="clearfix"></div>
 
 				</div>
 
-				<!--hang3-->
-				<div class="hang5 c4">所有已绑定手机号和淘宝账号的用户均可以回答</div>
-			</div>
 
-			<div class="s_part2"  ng-show="phone_status ==1 && is_join_borke.data == 1 " >
-				<div class="hang1">您也参与过该任务，获得奖励<b class="cc"> {{task_show.goods_price}}元</b>
-				</div>
+				<div ng-show="login_status == 1">
+					<div class="s_part2" ng-show="phone_status ==1 && is_join_borke.data == 0 ">
+						<div class="hang1 c4">回答商家问题，回答正确奖励<b class="cc"> {{task_show.goods_price}}元</b>
+						</div>
 
-				<div class="hang2"  >
-					<span style="background:#ccc; color:#FFF; border:0px " class="button " >当前任务已参与过
-					</span>
-					<a href="#/tab/task" class="padding-left button button-assertive button-outline" >返回参与其它任务</a>
-				</div>
+						<div class="hang2">
+							{{task_show.title}}
+							<span ng-click="zhao_daan(task_show.source)">去找答案</span>
+						</div>
 
-				<!--hang3-->
-				<div class="hang5">同一任务仅限参与一次，把机会留给其它人!</div>
-			</div>
+						<div class="hang3 padding-top">
+							<div class="L">
+								<input ng-model="daan" type="text" placeholder="请输入答案" />
+							</div>
+							<div class="R" ng-click="add_daan(daan)">提交答案</div>
+							<div class="clearfix"></div>
 
-	         <div class="s_part2"  ng-show="phone_status !=1" >
-	         	<div class="hang1"> 非常抱歉！ 亲您还未进行手机认证,请先认证！
-	         	</div>
+						</div>
 
-	         	<div class="hang2 padding-top  "  >
-	         		<a href="#/tab/user/profile"  class="button button-assertive button-outline " >去认证手机</a>
-	         	</div>
-
-	         	<div class="hang5">完成手机认证,即可参与活动！</div>
-	         </div>
-
-	     </div>
-			<!--s_part2-->
-		  <div class="s_part3">
-				<div class="ti">步骤提示</div>
-				<div class="co c4">
-					1、打开
-					<span><b class="cc" >{{task_show.source | f_source }}</b></span>
-					手机APP首页 ，搜索关键字"
-					<span><b class="cc" >{{task_show.keyword}}</b></span>
-					"；
-					<br>
-					2、按照
-					<span><b class="cc" >{{task_show.sort | f_sort }}</b></span>
-					排序搜索；
-					<br>
-					3、宝贝位置大约在 <span>"<b class="cc" >{{task_show.goods_address}}"</b></span>
-					<br>
-	                4、商家店铺 <span>"<b class="cc" >{{task_show.goods_wangwang}}"</b></span>
+						<!--hang3-->
+						<div class="hang5 c4">所有已绑定手机号和淘宝账号的用户均可以回答</div>
 					</div>
-			</div>
 
-			<!--s_part2-->
-			<div class="s_part3">
-				<div class="ti">搜索流程图指引</div>
-				<div class="co c4" ng-if="task_show.goods_albums != ''">
-				<img ng-src="{{d.url | imgUrl}}" ng-repeat="d in task_show.goods_albums" /><br/>
+					<div class="s_part2" ng-show="phone_status ==1 && is_join_borke.data == 1 ">
+						<div class="hang1">您也参与过该任务，获得奖励<b class="cc"> {{task_show.goods_price}}元</b>
+						</div>
+
+						<div class="hang2">
+							<span style="background:#ccc; color:#FFF; border:0px " class="button ">当前任务已参与过
+							</span>
+							<a href="#/tab/task" class="padding-left button button-assertive button-outline">返回参与其它任务</a>
+						</div>
+
+						<!--hang3-->
+						<div class="hang5">同一任务仅限参与一次，把机会留给其它人!</div>
+					</div>
+
+					<div class="s_part2" ng-show="phone_status !=1">
+						<div class="hang1"> 非常抱歉！ 亲您还未进行手机认证,请先认证！
+						</div>
+
+						<div class="hang2 padding-top  ">
+							<a href="#/tab/user/profile" class="button button-assertive button-outline ">去认证手机</a>
+						</div>
+
+						<div class="hang5">完成手机认证,即可参与活动！</div>
+					</div>
+
+				</div>
+				<!--s_part2-->
+				<div class="s_part3">
+					<div class="ti">步骤提示</div>
+					<div class="co c4">
+						1、打开
+						<span><b class="cc">{{task_show.source | f_source }}</b></span>
+						手机APP首页 ，搜索关键字"
+						<span><b class="cc">{{task_show.keyword}}</b></span>
+						"；
+						<br> 2、按照
+						<span><b class="cc">{{task_show.sort | f_sort }}</b></span>
+						排序搜索；
+						<br> 3、宝贝位置大约在 <span>"<b class="cc">{{task_show.goods_address}}"</b></span>
+						<br> 4、商家店铺 <span>"<b class="cc">{{task_show.goods_wangwang}}"</b></span>
+					</div>
+				</div>
+
+				<!--s_part2-->
+				<div class="s_part3">
+					<div class="ti">搜索流程图指引</div>
+					<div class="co c4" ng-if="task_show.goods_albums != ''">
+						<img ng-src="{{d.url | imgUrl}}" ng-repeat="d in task_show.goods_albums" /><br/>
+					</div>
+				</div>
+				<!--s_part3-->
+				<div class="s_part3">
+					<div class="ti">温馨提示：</div>
+					<div class="co c4">
+						1.可以使用<b class="cc"> 'ctrl + f '</b> 快捷键，快速查找。
+						<br> 2.认准商家店铺旺旺名
+						<b class="cc">'{{task_show.goods_wangwang}}'</b>;
+						<br></div>
 				</div>
 			</div>
-			<!--s_part3-->
-			<div class="s_part3">
-				<div class="ti">温馨提示：</div>
-				<div class="co c4">
-	                 1.可以使用<b class="cc"> 'ctrl + f '</b> 快捷键，快速查找。
-					<br>
-					2.认准商家店铺旺旺名<b class="cc">'{{task_show.goods_wangwang}}'</b>;
-					<br></div>
-			</div>
-	   </div>
-	</ion-content>
+		</ion-content>
 
-</div>
+	</div>
 </ion-view>
