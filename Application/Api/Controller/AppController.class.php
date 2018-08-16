@@ -1615,6 +1615,7 @@ class AppController extends BaseController
                 return FALSE;
             } else {
                 $userid = $userids;
+                $random = random(15);
                 $data = array();
                 $data['alias'] = $userid;
                 $data['userid'] = $userid;
@@ -1622,6 +1623,7 @@ class AppController extends BaseController
                 $data['version'] = $version;
                 $data['reg_time'] = NOW_TIME;
                 $data['name'] = $platform_name;
+                $data['target']=$random;
                 $count = model('mebmer_app')->where(array('userid' => $userid))->count();
                 if ((int)$count > 0) {
                     model('member_app')->where(array('userid' => $userid))->save($data);
@@ -1632,7 +1634,14 @@ class AppController extends BaseController
                 if ($info['agent_id'] > 0) {
                     runhook('member_attesta_email', array('userid' => $userid));
                 }
-                $this->json_function(1, '注册成功', $userinfo);
+
+                $return = array();
+                $return['userid'] = $userinfo['userid'];
+                $return['nickname'] = nickname($userinfo['userid']);
+                $return['random'] = $random;
+
+
+                $this->json_function(1, '注册成功', $return);
             }
         } else {
             $this->json_function(0, '请勿非法访问！');
