@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/wap2/css/loading.css" afterDir="false" />
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改路由">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Lang/zh-cn.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Lang/zh-cn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/css/s_user_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/css/s_user_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/wap2/js/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/controllers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/home/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +29,12 @@
         <counts>
           <entry key="INI" value="5" />
           <entry key="buildpath" value="2" />
-          <entry key="css" value="7" />
+          <entry key="css" value="9" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="8" />
-          <entry key="html" value="125" />
+          <entry key="html" value="127" />
           <entry key="inc" value="2" />
-          <entry key="js" value="33" />
+          <entry key="js" value="40" />
           <entry key="key" value="1" />
           <entry key="php" value="322" />
           <entry key="png" value="2" />
@@ -53,11 +46,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="7" />
-          <entry key="HTML" value="125" />
+          <entry key="CSS" value="9" />
+          <entry key="HTML" value="127" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="5" />
-          <entry key="JavaScript" value="33" />
+          <entry key="JavaScript" value="40" />
           <entry key="PHP" value="324" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SQL" value="9" />
@@ -71,21 +64,21 @@
           <entry key="css" value="8" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="661" />
-          <entry key="js" value="418" />
+          <entry key="html" value="721" />
+          <entry key="js" value="623" />
           <entry key="php" value="1004" />
           <entry key="sql" value="33" />
-          <entry key="txt" value="160" />
+          <entry key="txt" value="198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="661" />
+          <entry key="HTML" value="721" />
           <entry key="Ini" value="124" />
-          <entry key="JavaScript" value="418" />
+          <entry key="JavaScript" value="623" />
           <entry key="PHP" value="1004" />
-          <entry key="PLAIN_TEXT" value="178" />
+          <entry key="PLAIN_TEXT" value="216" />
           <entry key="SQL" value="33" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -97,29 +90,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+            <state relative-caret-position="233">
+              <caret line="289" column="33" lean-forward="true" selection-start-line="289" selection-start-column="33" selection-end-line="289" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            <state relative-caret-position="95">
+              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -127,42 +111,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="143" column="35" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="35" />
+            <state relative-caret-position="179">
+              <caret line="168" column="28" selection-start-line="168" selection-start-column="19" selection-end-line="168" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Member/Logic/MerchantLogic.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="48" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="279" column="17" selection-start-line="279" selection-start-column="17" selection-end-line="279" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="186">
+              <caret line="168" column="59" lean-forward="true" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
               <folding>
-                <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -170,19 +138,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+            <state relative-caret-position="114">
+              <caret line="6" column="64" lean-forward="true" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+              <folding>
+                <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/css/loading.css">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/css/style-diy.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="162" column="21" lean-forward="true" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
+            <state relative-caret-position="247">
+              <caret line="199" column="2" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -190,8 +170,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/tabs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="73" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="73" />
+            <state relative-caret-position="380">
+              <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -207,36 +187,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sybgimg</find>
-      <find>set_user_nickname</find>
-      <find>check_sms</find>
-      <find>checkVerify</find>
-      <find>checkverify</find>
-      <find>uploadFactory.init</find>
-      <find>goods_albums</find>
-      <find>toE</find>
-      <find>send_code</find>
-      <find>verify_img</find>
-      <find>userregister</find>
-      <find>check_email</find>
-      <find>check_email_code</find>
-      <find>set_emailRegister</find>
-      <find>set_username</find>
-      <find>StorageFactory.set</find>
-      <find>login</find>
-      <find>toe</find>
-      <find>member_app</find>
-      <find>亚马逊</find>
-      <find>website_manage</find>
-      <find>普通活动</find>
-      <find>抱歉，您不能参与该活动</find>
-      <find>普通试用</find>
       <find>js_submit</find>
       <find>HomeCtrl</find>
-      <find>home</find>
       <find>$scope.qidongyu</find>
       <find>hideTabs</find>
+      <find>homeCtrl</find>
+      <find>home</find>
+      <find>trial_order</find>
+      <find>homec</find>
+      <find>trial_order_report</find>
+      <find>trial_order_add</find>
+      <find>user</find>
+      <find>tab-user</find>
+      <find>nickname</find>
+      <find>UserProfileNiknname</find>
       <find>qidongyu</find>
+      <find>padding_head</find>
+      <find>profile_nickname</find>
+      <find>goback</find>
+      <find>Userhome</find>
+      <find>tab.user</find>
+      <find>userhe</find>
+      <find>tab.user_profile</find>
+      <find>UserPersonal</find>
+      <find>userhom</find>
+      <find>tri</find>
+      <find>rebate</find>
+      <find>trial_</find>
+      <find>trial</find>
+      <find>tab.trial</find>
+      <find>trial_list</find>
     </findStrings>
     <dirStrings>
       <dir>H:\projects\PHP\kaixinshiyong\static</dir>
@@ -251,10 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cloud3/member/v2_register_phone.html" />
-        <option value="$PROJECT_DIR$/Application/Framework/Conf/convention.php" />
-        <option value="$PROJECT_DIR$/Application/Common/Conf/database.php" />
-        <option value="$PROJECT_DIR$/Application/Common/Conf/version.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/main.tpl.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/email.tpl.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/v2_merchant_left.html" />
@@ -297,11 +273,15 @@
         <option value="$PROJECT_DIR$/Application/Common/Lang/zh-cn.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/style/css/s_user_style.css" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/templates/wap2/index.html" />
         <option value="$PROJECT_DIR$/templates/wap2/css/loading.css" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
+        <option value="$PROJECT_DIR$/templates/wap2/css/style-diy.css" />
+        <option value="$PROJECT_DIR$/templates/wap2/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/user/user.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -399,6 +379,14 @@
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="wap2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="uploadfile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -434,15 +422,47 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-diy.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-list.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style_update.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/index.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/controllers.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/services.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/Integral/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/Integral/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/about_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/apply_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/article_index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/commission_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/order_help.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/so_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/trial_help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/commission/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/commission/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/rebate/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/rebate/show.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/so/list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/register.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/tabs.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/task/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/task/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/help.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/list-red.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/show.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/commission_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/commission_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/invitation.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/invitation.log.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/jiang_log.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/rebate_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/rebate_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_announce.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_announce_show.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_deposite.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_deposite_record.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_forget.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_forget_2.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -450,6 +470,11 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.woff</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -457,7 +482,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order1.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -571,7 +595,7 @@
       <workItem from="1533863282074" duration="14663000" />
       <workItem from="1534122620497" duration="20603000" />
       <workItem from="1534209202373" duration="42053000" />
-      <workItem from="1534381364914" duration="9628000" />
+      <workItem from="1534381364914" duration="14304000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -692,7 +716,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534389377909</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="添加loading">
+      <created>1534400391623</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1534400391623</updated>
+    </task>
+    <task id="LOCAL-00019" summary="修复用户设置脚本错误">
+      <created>1534401398346</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1534401398346</updated>
+    </task>
+    <task id="LOCAL-00020" summary="修改路由">
+      <created>1534403211160</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1534403211160</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -701,7 +746,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106977000" />
+    <option name="totallyTimeSpent" value="111653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -719,7 +764,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32899022" />
@@ -775,7 +820,10 @@
     <MESSAGE value="修改邮箱注册验证码无效问题" />
     <MESSAGE value="添加邮件激活接口" />
     <MESSAGE value="注释无用表数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="注释无用表数据" />
+    <MESSAGE value="添加loading" />
+    <MESSAGE value="修复用户设置脚本错误" />
+    <MESSAGE value="修改路由" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改路由" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -837,55 +885,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/controllers.js</url>
-          <line>1840</line>
+          <line>1849</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="53" column="71" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Library/attachment.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="71" column="57" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="548" column="32" selection-start-line="548" selection-start-column="32" selection-end-line="548" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Upload.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="100" column="20" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/complete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="404" column="25" selection-start-line="404" selection-start-column="25" selection-end-line="404" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/js/webuploader/webuploader.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1140,27 +1146,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/tabs.html">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/css/loading.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="73" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="73" />
+        <state relative-caret-position="738">
+          <caret line="162" column="21" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="143" column="35" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="35" />
+        <state relative-caret-position="643">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1171,36 +1177,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/css/loading.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="162" column="21" lean-forward="true" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="186">
+          <caret line="168" column="59" lean-forward="true" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
           <folding>
-            <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/css/style-diy.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="199" column="2" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="64" lean-forward="true" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/lib/js/ionic.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1217">
+          <caret line="54450" column="16" selection-start-line="54450" selection-start-column="4" selection-end-line="54450" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/lib/js/ionic.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2868">
+          <caret line="47005" column="4" selection-start-line="47005" selection-start-column="4" selection-end-line="47005" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="168" column="28" selection-start-line="168" selection-start-column="19" selection-end-line="168" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="289" column="33" lean-forward="true" selection-start-line="289" selection-start-column="33" selection-end-line="289" selection-end-column="33" />
         </state>
       </provider>
     </entry>

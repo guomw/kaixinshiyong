@@ -39,15 +39,15 @@ angular
       $scope.tj_showloading = true;
       var storageKey="quyu";
       var quyuData = {
-          quyu: 2,
-          hideTabs: 'tabs-item-hide'
+          quyu: 1,
+          hideTabs: ''
       };
-      if(!StorageFactory.get(storageKey)) {
-          StorageFactory.set(storageKey, quyuData);
-      }
-      else {
-          quyuData=StorageFactory.get(storageKey);
-      }
+      // if(!StorageFactory.get(storageKey)) {
+      //     StorageFactory.set(storageKey, quyuData);
+      // }
+      // else {
+      //     quyuData=StorageFactory.get(storageKey);
+      // }
       $scope.quyu = quyuData.quyu;//显示开屏广告
       $rootScope.hideTabs = quyuData.hideTabs;
       //获取首页推荐商品
@@ -271,6 +271,7 @@ angular
     '$stateParams',
     '$ionicSideMenuDelegate',
     'categorylistsFactory',
+    '$ionicHistory',
     function(
       $rootScope,
       $scope,
@@ -281,10 +282,12 @@ angular
       trial_listFactory,
       $stateParams,
       $ionicSideMenuDelegate,
-      categorylistsFactory
+      categorylistsFactory,
+      $ionicHistory
     ) {
       //console.log($stateParams);
-      $scope.ENV = ENV
+      $scope.ENV = ENV;
+      $ionicHistory.createView();
       //显示底部tabs
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
@@ -538,11 +541,14 @@ angular
     'StorageFactory',
     'UserPersonalFactory',
     'qiandaoFactory',
-    function($rootScope, $scope, $ionicLoading, $state, StorageFactory, UserPersonalFactory, qiandaoFactory) {
-      //每次加载前 判断是否登录
+      '$ionicHistory',
+    function($rootScope, $scope, $ionicLoading, $state, StorageFactory, UserPersonalFactory, qiandaoFactory,$ionicHistory) {
 
+      //每次加载前 判断是否登录
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = ''
+        $rootScope.hideTabs = '';
+        $ionicHistory.clearHistory();
+        $ionicHistory.createView();
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
           $scope.logo_status = 0
@@ -1514,19 +1520,20 @@ angular
       $rootScope,
       $ionicLoading,
       $state,
+      $ionicHistory,
       $ionicActionSheet,
       $timeout,
       UserloginFactory,
       StorageFactory,
-      $ionicHistory,
       UserPersonalFactory
     ) {
-      var storageKey = 'user'
+      var storageKey = 'user';
 
       //页面加载之前的事件
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = 'tabs-item-hide';
         //如果不存在会员信息 则跳转登陆页面
+          var loaclData=StorageFactory.get(storageKey);
         if (
           !StorageFactory.get(storageKey) ||
           (StorageFactory.get(storageKey) && StorageFactory.get(storageKey).status != 1)
@@ -1567,10 +1574,8 @@ angular
 
       //我的昵称
       $scope.profile_nickname = function() {
-        // $state.go('tab.user_profile_nickname')
-        $ionicHistory.goBack(-1)
+         $state.go('tab.user_profile_nickname')
       }
-
       // 我的手机
       $scope.profile_phone = function() {
         $state.go('tab.user_profile_nickname')
@@ -1783,9 +1788,10 @@ angular
 
       //初始化上传
       uploadFactory.init('#user_avatar_albums', function(res) {
-        var data = res._raw
-        $scope.user_avatar2 = $.trim(data)
-        $scope.user_avatar = imgUrl + $.trim(data)
+        var data = res._raw;
+        $scope.user_avatar2 = $.trim(data);
+        $scope.user_avatar = imgUrl + $.trim(data);
+        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2)
       })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
@@ -3623,6 +3629,7 @@ angular
     'UserProfileFactory',
     'trialOrderFactory',
     'configFactory',
+    '$ionicHistory',
     function(
       $timeout,
       $scope,
@@ -3634,10 +3641,12 @@ angular
       StorageFactory,
       UserProfileFactory,
       trialOrderFactory,
-      configFactory
+      configFactory,
+      $ionicHistory
     ) {
       //页面加载之前事件
-
+      $scope.hideTabs="";
+      $ionicHistory.createView();
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
@@ -3937,7 +3946,7 @@ angular
           $state.go('tab.user_login') //路由跳转登录
           return false
         }
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = ''
         //获得传过来的商品id
         var aid = $stateParams.goodid
         //获得传过来的订单id

@@ -4,9 +4,6 @@
     <h1 class="title">试用报告</h1>
     <a style="font-size:1em;" class="button icon ion-clipboard button-clear" ng-click="Order_log()">日志</a>
   </div>
-  <!-- <ion-nav-buttons side="right">
-    <a class="button icon ion-ios-gear-outline button-clear" ng-click="Order_log()">日志</a>
-  </ion-nav-buttons> -->
   <ion-content style="background-color:#fff" class="padding_head">
     <div ng-if="txddh_showloading" style="margin-top:60px; text-align: center">
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
@@ -48,27 +45,21 @@
         <b class="cc">{{order_info.cause}}</b>
       </p>
 
-      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9" class="padding-left padding-top ">
+      <p ng-if="order_info.status == 4 && order_info.trial_report   " style="color:#A9A9A9;font-size: 14px;" class="padding-left padding-top ">
         未在<b class="cc"> <span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}">
             {{ order_info.complete_time - 0 + buyer_check_update_order_sn | f_fomtime }}
           </span> </b>
         修改试用报告,将失去试用资格!
       </p>
-
-
-      <!--       <p class="padding-left ">
-      试用课堂: <i style="color:#A9A9A9">试用是不用自己掏钱买的,商品是白来的</i>
-    </p>
-    -->
       <form name="myform" novalidate="false">
 
-        <div class="list">
+        <div class="list report_list">
 
           <label class="item item-input item-stacked-label">
-            <span class="input-label">为试用品打分</span>
+            <span class="input-label" style="padding:10px">为试用品打分</span>
 
-            <label style="height:50px; padding: 0;" class="item item-input item-select padding-right  ">
-              <span class="input-label">选择</span>
+            <label style="height:50px;" class="item item-input item-select padding-right">
+              <span class="input-label" style="padding:10px">选择</span>
               <select class=" padding-right  " style="height:50px;padding: 14px 25px 16px 10px;" ng-model="sybg_vm.pinfen " ng-options="a.name for a  in pingfen">
                 <option value="">
                   <b class="cc">★★★一般满意,还有待提高</b>
@@ -78,17 +69,33 @@
           </label>
 
           <label class="item item-input item-stacked-label">
-            <span class="input-label">试用商品图片</span>
+            <span class="input-label" style="padding:10px">试用商品图片</span>
           </label>
-
           <div class="col" id='goods_albums'>
-            <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" />
-            <!--<input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*">-->
+            <!-- <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" /> -->
+            <!-- <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"> -->
+            <div class="weui-cells weui-cells_form" style="margin-top:0;">
+              <div class="weui-cell" style="padding:10px">
+                <div class="weui-cell__bd">
+                  <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                    </div>
+                    <div class="weui-uploader__bd">
+                      <div class="weui-uploader__input-box">
+                        <input id="File1" class="weui-uploader__input" type="file" ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)"
+                          accept="image/*" multiple>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <label class="item item-input item-stacked-label padding-right  ">
-            <span class="input-label">试用过程和感受</span>
+
+          <label class="item item-input item-stacked-label padding-right">
+            <span class="input-label" style="padding:5px 10px">试用过程和感受</span>
             <label class="item item-input">
-              <textarea ng-model="sybg_vm.xinde" placeholder="分享一下试用心得" rows="5"></textarea>
+              <textarea ng-model="sybg_vm.xinde" placeholder="分享一下试用心得" rows="5" style="padding:10px"></textarea>
             </label>
           </label>
 
