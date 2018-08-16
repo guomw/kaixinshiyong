@@ -1,16 +1,4 @@
 <ion-view hide-nav-bar="true" view-title="搜索">
-  <!-- <div class="bar bar-header" style="height:auto">
-    <a href="#/tab/trial" style="min-height:45px" class="button icon ion-ios-arrow-back button-clear head_button1 soh">返回</a>
-    <div class="padding-left " style="width:60%">
-      <label class="item item-input">
-        <input type="text" ng-model="Keyword" name="Keyword" placeholder="请输入搜索关键词" ng-maxlength="11" ng-minlength="1" required>
-      </label>
-    </div>
-    <div class="padding-left solst">
-      <button name="user_getsms" style="min-height:45px" ng-disabled="myform.user_phone.$invalid" class="button icon-left ion-ios-search-strong   button-outline  "
-        ng-click="search(Keyword)">搜索</button>
-    </div>
-  </div> -->
   <div class="bar bar-header search_all" style="">
     <div class="backtrack">
       <a href="#/tab/trial" class="icon ion-ios-arrow-back">返回</a>
@@ -81,13 +69,13 @@
                 <span style="background-color: #FFFFFF;color:red">{{topic.mod_name}}</span>
               </div>
               <ul class="flex txt txt_wrap">
-                <li class="txt-flow" style="font-size:1em;">{{ topic.title | limitTo:18 }}</li>
+                <li class="c5 klj">{{ topic.title | limitTo:18 }}</li>
                 <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;">价值：<b class="cc">¥ {{topic.goods_price
                     }}
                   </b></li>
                 <li class="clear c2 txt-flow" style="font-size:0.85em;">
-                  <p class="fl w1_4">剩余：<b> {{topic.number}} 份</b></p>
-                  <p class="fl w1_6">关注人数：<b>{{ topic.hits}}</b>人</p>
+                  <p class="fl w1_4"><span class="c4 hg">剩余</span><b> {{topic.number}} 份</b></p>
+                  <p class="fl w1_6"><span class="c4 ">关注人数</span><b>{{ topic.hits}}</b>人</p>
                 </li>
               </ul>
 
