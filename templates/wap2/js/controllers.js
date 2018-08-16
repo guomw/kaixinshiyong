@@ -4375,7 +4375,18 @@ angular
       ENV
     ) {
       //获得传过来的商品id
-      var aid = $stateParams.id
+      var aid = $stateParams.id;
+      var home=$stateParams.home;
+      $scope.goBack=function(){
+        if(home)
+        {
+            $state.go('tab.home');
+        }
+        else {
+            $state.go('tab.trial');
+        }
+          $rootScope.hideTabs = '';
+      };
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = 'tabs-item-hide'
 

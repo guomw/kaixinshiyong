@@ -145,6 +145,15 @@ angular
             }
           }
         })
+        .state('tab.home_show_trial', {
+            url: '/:home/trial/:id', //试用活动详情
+            views: {
+                'tab-home': {
+                    templateUrl: 'templates/trial/show.html',
+                    controller: 'show_trial'
+                }
+            }
+        })
 
         .state('tab.trial', {
           url: '/trial',

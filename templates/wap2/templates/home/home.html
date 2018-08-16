@@ -66,7 +66,7 @@
 
       <ion-slide-box ng-if="!tj_showloading" does-continue="true" auto-play="true" slide-interval="5000" show-pager='false'>
         <ion-slide class="slider-slide">
-          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods.slice(0,3) ">
+          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods.slice(0,3) ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -82,7 +82,7 @@
         </ion-slide>
 
         <ion-slide class="slider-slide" ng-if="tj_goods2 != false  ">
-          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods2 ">
+          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods2 ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -100,7 +100,7 @@
 
 
         <ion-slide class="slider-slide" ng-if="tj_goods3 != false ">
-          <a class="indexProRecommendPart" href="#/tab/trial/{{d.id}}" ng-repeat="d in tj_goods3 ">
+          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods3 ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -135,7 +135,7 @@
 
       <div class="indexProList" ng-if="showloading ==false">
 
-        <a class="part" href="#/tab/trial/{{topic.id}}" ng-repeat="topic in goods ">
+        <a class="part" href="#/tab/home/trial/{{topic.id}}" ng-repeat="topic in goods ">
           <div class="co">
             <div class="a1">
               <img class="image-center" ng-src="{{topic.thumb |imgUrl}}" />
