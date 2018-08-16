@@ -72,13 +72,13 @@ angular
 
       //分享
       function fenxiang_init() {
-        $sharesdk.open('iosv1101', true)
-
-        var sinaConf = {}
-        sinaConf['app_key'] = '568898243'
-        sinaConf['app_secret'] = '38a4f8204cc784f81f9f0daaf31e02e3'
-        sinaConf['redirect_uri'] = 'http://www.sharesdk.cn'
-        $sharesdk.setPlatformConfig($sharesdk.platformID.SinaWeibo, sinaConf)
+        // $sharesdk.open('iosv1101', true)
+        //
+        // var sinaConf = {}
+        // sinaConf['app_key'] = '568898243'
+        // sinaConf['app_secret'] = '38a4f8204cc784f81f9f0daaf31e02e3'
+        // sinaConf['redirect_uri'] = 'http://www.sharesdk.cn'
+        // $sharesdk.setPlatformConfig($sharesdk.platformID.SinaWeibo, sinaConf)
       }
     }
   ])

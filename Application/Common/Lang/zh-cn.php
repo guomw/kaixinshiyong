@@ -48,7 +48,7 @@ return array(
 
 
     /* 模型相关 */
-    'website_manage'    => 'Adalways试用系统 - 后台管理中心',
+    'website_manage'    => '魔力试用系统 - 后台管理中心',
     'fieldtype'         => '字段类型',
     'table_name'        => '数据表名',
     'field'             => '字段',

@@ -36,10 +36,20 @@ angular
       //获取首页幻灯片信息
       $scope.showloading = true
       $scope.showscroll = true
-      $scope.tj_showloading = true
-
-      $scope.quyu = 1
-
+      $scope.tj_showloading = true;
+      var storageKey="quyu";
+      var quyuData = {
+          quyu: 2,
+          hideTabs: 'tabs-item-hide'
+      };
+      if(!StorageFactory.get(storageKey)) {
+          StorageFactory.set(storageKey, quyuData);
+      }
+      else {
+          quyuData=StorageFactory.get(storageKey);
+      }
+      $scope.quyu = quyuData.quyu;//显示开屏广告
+      $rootScope.hideTabs = quyuData.hideTabs;
       //获取首页推荐商品
       //获取网站基本信息
       configFactory.set_webinfo()
@@ -54,18 +64,28 @@ angular
       }
 
       $scope.qidongyu = function() {
-        $scope.quyu = 1
-        $rootScope.hideTabs = ''
+        $scope.quyu = 1;
+        $rootScope.hideTabs = '';
+        quyuData = {
+            quyu: 1,
+            hideTabs: ''
+        };
+        StorageFactory.set(storageKey,quyuData);
       }
 
-      $scope.go_changed = function(index) {
-        if (index == 2) {
-          var timer = $timeout(function() {
-            $scope.quyu = 1
-            $rootScope.hideTabs = ''
-          }, 3000)
-        }
-      }
+      // $scope.go_changed = function(index) {
+      //   if (index == 2) {
+      //     var timer = $timeout(function() {
+      //           $scope.quyu = 1;
+      //           $rootScope.hideTabs = '';
+      //           quyuData = {
+      //               quyu: 1,
+      //               hideTabs: ''
+      //           };
+      //           StorageFactory.set(storageKey, quyuData);
+      //     }, 3000)
+      //   }
+      // }
 
       //首页上拉加载更多最新上线
 
