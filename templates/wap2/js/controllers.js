@@ -290,7 +290,7 @@ angular
     ) {
       //console.log($stateParams);
       $scope.ENV = ENV;
-      $ionicHistory.createView();
+      $ionicHistory.clearHistory();
       //显示底部tabs
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
@@ -551,7 +551,6 @@ angular
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = '';
         $ionicHistory.clearHistory();
-        $ionicHistory.createView();
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
           $scope.logo_status = 0
@@ -3648,7 +3647,7 @@ angular
     ) {
       //页面加载之前事件
       $scope.hideTabs="";
-      $ionicHistory.createView();
+      $ionicHistory.clearHistory();
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
