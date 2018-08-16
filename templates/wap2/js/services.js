@@ -1609,7 +1609,7 @@ angular
         },
         //邮箱激活
         activeEmail: function(user_email, user_sms) {
-          emailActivate.sav(
+          emailActivate.save(
             {
               email: user_email,
               code: user_sms,
