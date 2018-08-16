@@ -39,7 +39,8 @@
               <ul class="flex txt_wrap c5">
                 <li class="c5 klj">{{ topic.title | limitTo:18 }}</li>
                 <li class="hd_{{topic.protype}} c1"> <span class="c4">试用值&nbsp;&nbsp;</span><b class="cc">¥ {{topic.goods_price
-                    }}</b></li>
+                    }}
+                  </b></li>
                 <li class="c2">
                   <p class="fl w1_4"><span class="c4 hg">剩余</span><b> {{topic.number}} 份</b></p>
                   <p class="fl w1_6"><span class="c4">关注人数</span><b>{{ topic.hits}}</b>人</p>
@@ -49,7 +50,7 @@
               <!-- </ion-item> -->
             </a>
 
-            <a class="tryoutProListAdd c4 " href="#/tab/trial/{{topic.id}}">
+            <!-- <a class="tryoutProListAdd c4 " href="#/tab/trial/{{topic.id}}">
               <div class="hang1 liuliu" ng-show="topic.protype == 3 ">
                 <div class="L" style="background:red">送</div>
                 <div class="R">本单赠送红包<b class="cc">{{topic.goods_bonus}}</b>元</div>
@@ -78,7 +79,7 @@
                 <div class="clearfix"></div>
               </div>
 
-            </a>
+            </a> -->
 
           </div>
 

@@ -309,9 +309,9 @@ angular
         })
 
         .state('tab.rebate_order', {
-          url: '/user/rebate_order', //我的返利订单
+          url: '/rebate/rebate_order', //我的返利订单
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/rebate_order.html',
               controller: 'rebate_order'
             }
@@ -319,9 +319,9 @@ angular
         })
 
         .state('tab.rebate_order_id', {
-          url: '/user/rebate_order/:id/:goodid', //返利填写订单号
+          url: '/rebate/rebate_order/:id/:goodid', //返利填写订单号
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/rebate_order_add.html',
               controller: 'rebate_order_add'
             }
@@ -329,9 +329,9 @@ angular
         })
 
         .state('tab.commission_order', {
-          url: '/user/commission_order', //我的试用订单
+          url: '/rebate/commission_order', //我的试用订单
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/commission_order.html',
               controller: 'commission_order'
             }
@@ -339,9 +339,9 @@ angular
         })
 
         .state('tab.trial_order', {
-          url: '/user/trial_order', //我的闪电试用订单
+          url: '/rebate/trial_order', //我的闪电试用订单
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/trial_order.html',
               controller: 'trial_order'
             }
@@ -349,9 +349,9 @@ angular
         })
 
         .state('tab.trial_order_id', {
-          url: '/user/trial_order/:id/:goodid', //试用填写订单号
+          url: '/rebate/trial_order/:id/:goodid', //试用填写订单号
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/trial_order_add.html',
               controller: 'trial_order_add'
             }
@@ -359,9 +359,9 @@ angular
         })
 
         .state('tab.commission_order_id', {
-          url: '/user/commission_order/:id/:goodid', //闪电试用填写订单号
+          url: '/rebate/commission_order/:id/:goodid', //闪电试用填写订单号
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/commission_order_add.html',
               controller: 'commission_order_add'
             }
@@ -789,7 +789,7 @@ angular
           url: '/so',
           views: {
             //闪电试用
-            'tab-user': {
+            'tab-trial': {
               templateUrl: 'templates/so/list.html',
               controller: 'so_list'
             }
