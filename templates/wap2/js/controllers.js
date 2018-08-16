@@ -39,15 +39,15 @@ angular
       $scope.tj_showloading = true;
       var storageKey="quyu";
       var quyuData = {
-          quyu: 2,
-          hideTabs: 'tabs-item-hide'
+          quyu: 1,
+          hideTabs: ''
       };
-      if(!StorageFactory.get(storageKey)) {
-          StorageFactory.set(storageKey, quyuData);
-      }
-      else {
-          quyuData=StorageFactory.get(storageKey);
-      }
+      // if(!StorageFactory.get(storageKey)) {
+      //     StorageFactory.set(storageKey, quyuData);
+      // }
+      // else {
+      //     quyuData=StorageFactory.get(storageKey);
+      // }
       $scope.quyu = quyuData.quyu;//显示开屏广告
       $rootScope.hideTabs = quyuData.hideTabs;
       //获取首页推荐商品
@@ -1568,8 +1568,8 @@ angular
 
       //我的昵称
       $scope.profile_nickname = function() {
-        // $state.go('tab.user_profile_nickname')
-        $ionicHistory.goBack(-1)
+         $state.go('tab.user_profile_nickname')
+        //$ionicHistory.goBack(-1)
       }
 
       // 我的手机
@@ -1784,9 +1784,10 @@ angular
 
       //初始化上传
       uploadFactory.init('#user_avatar_albums', function(res) {
-        var data = res._raw
-        $scope.user_avatar2 = $.trim(data)
-        $scope.user_avatar = imgUrl + $.trim(data)
+        var data = res._raw;
+        $scope.user_avatar2 = $.trim(data);
+        $scope.user_avatar = imgUrl + $.trim(data);
+        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2)
       })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
@@ -3638,7 +3639,7 @@ angular
       configFactory
     ) {
       //页面加载之前事件
-
+        $scope.hideTabs="";
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
@@ -3938,7 +3939,7 @@ angular
           $state.go('tab.user_login') //路由跳转登录
           return false
         }
-        $rootScope.hideTabs = 'tabs-item-hide'
+        $rootScope.hideTabs = ''
         //获得传过来的商品id
         var aid = $stateParams.goodid
         //获得传过来的订单id

@@ -369,9 +369,9 @@ angular
         })
 
         .state('tab.order_appeal', {
-          url: '/user/order_appeal/:id/:aid', //订单申诉
+          url: '/rebate/order_appeal/:id/:aid', //订单申诉
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/order_appeal.html',
               controller: 'order_Appeal'
             }
@@ -379,9 +379,9 @@ angular
         })
 
         .state('tab.order_log', {
-          url: '/user/order_log/:id', //订单日志
+          url: '/rebate/order_log/:id', //订单日志
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/order_log.html',
               controller: 'Userorder_log'
             }
@@ -389,9 +389,9 @@ angular
         })
 
         .state('tab.trial_order_report', {
-          url: '/user/trial_order/report/:id/:goodid', //填写试用报告
+          url: '/rebate/trial_order/report/:id/:goodid', //填写试用报告
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/trial_order_add_report.html',
               controller: 'trial_order_add'
             }
@@ -399,9 +399,9 @@ angular
         })
 
         .state('tab.rebate_The_sun', {
-          url: '/user/rebate_The_sun/report/:id/:goodid', //晒单分享
+          url: '/rebate/rebate_The_sun/report/:id/:goodid', //晒单分享
           views: {
-            'tab-user': {
+            'tab-rebate': {
               templateUrl: 'templates/user/rebate_The_sun.html',
               controller: 'rebate_order_add'
             }
