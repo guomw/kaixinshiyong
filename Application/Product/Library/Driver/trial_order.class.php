@@ -120,7 +120,7 @@ class trial_order extends \Product\Library\OrderInterface {
             $rs = model('member_finance_log')->where(array('only'=>$sign))->find();
             if(!$rs){
                 /*评优奖励会员明细*/
-                action_finance_log($this->order_info['seller_id'], -$val, 'money', '订单结算(并赠送会员'.$val.'元 试用报告优秀奖励)', $sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                action_finance_log($this->order_info['seller_id'], -$val, 'money', '订单结算(并赠送会员'.$val.'美元 试用报告优秀奖励)', $sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
             }else{
                 $this->error = '商家订单结算，重复操作';
                 return FALSE;
@@ -141,14 +141,14 @@ class trial_order extends \Product\Library\OrderInterface {
                     $ret = _ps_send('money',$infos);
                     $data = php_data($ret);
                     if ($data['status'] == 1) {
-                       action_finance_log($this->order_info['buyer_id'], $price+$val, 'money', '订单结算(并获得商家'.$val.'元 试用报告优秀奖励)', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                       action_finance_log($this->order_info['buyer_id'], $price+$val, 'money', '订单结算(并获得商家'.$val.'美元 试用报告优秀奖励)', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                     }else{
                         $this->error = '试用订单结算失败';
                     }
                     # code...
                  }else{
 
-                     action_finance_log($this->order_info['buyer_id'], $price+$val, 'money', '订单结算(并获得商家'.$val.'元 试用报告优秀奖励)', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                     action_finance_log($this->order_info['buyer_id'], $price+$val, 'money', '订单结算(并获得商家'.$val.'美元 试用报告优秀奖励)', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                  }
 
             }else{
@@ -157,7 +157,7 @@ class trial_order extends \Product\Library\OrderInterface {
             }
             // 设置该订单状态(字段：appraised)为已评优
             model('order')->where(array('id'=>$this->order_info['id']))->setField('appraised','1');
-            $this->write_log('商家确认订单并付款(并赠送会员'.$val.'元试用报告优秀奖励)');
+            $this->write_log('商家确认订单并付款(并赠送会员'.$val.'美元试用报告优秀奖励)');
         }else{
             // 增加会员的余额
             if ($this->product_info['mod'] == 'trial') {
@@ -224,7 +224,7 @@ class trial_order extends \Product\Library\OrderInterface {
         $msign = '1-'.$this->product_info['mod'].'-'.$this->order_info['seller_id'].'-'.$this->order_info['goods_id'].'-'.$this->order_info['id'].'-'.$minus_money.'-1';
         $m = model('member_finance_log')->where(array('only'=>$msign))->find();
         if(!$m){
-            action_finance_log($this->order_info['seller_id'], -$minus_money, 'deposit', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，扣除'.$minus_money.'元保证金', $msign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
+            action_finance_log($this->order_info['seller_id'], -$minus_money, 'deposit', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，扣除'.$minus_money.'美元保证金', $msign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
         }else{
             $this->error = '扣除商家保证金，重复操作';
             return FALSE;
@@ -259,14 +259,14 @@ class trial_order extends \Product\Library\OrderInterface {
                     $ret = _ps_send('money',$infos);
                     $data = php_data($ret);
                     if ($data['status'] == 1) {
-                      action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                      action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'美元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                     }else{
                         $this->error = '平台补贴失败';
                     }
                     # code...
                 }else{
 
-                    action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                    action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'美元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                 }
 
              }
@@ -282,7 +282,7 @@ class trial_order extends \Product\Library\OrderInterface {
             $hsign = '1-'.$this->product_info['mod'].'-'.$this->order_info['seller_id'].'-'.$this->order_info['goods_id'].'-'.$this->order_info['id'].'-'.$this->product_info['goods_bonus'].'-2';
             $h = model('member_finance_log')->where(array('only'=>$hsign))->find();
             if(!$h){
-                action_finance_log($this->order_info['seller_id'], -$this->product_info['goods_bonus'], 'deposit', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，扣除'.$this->product_info['goods_bonus'].'元红包', $hsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
+                action_finance_log($this->order_info['seller_id'], -$this->product_info['goods_bonus'], 'deposit', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，扣除'.$this->product_info['goods_bonus'].'美元红包', $hsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
             }else{
                 $this->error = '扣除商家红包，重复操作';
                 return FALSE;
@@ -307,14 +307,14 @@ class trial_order extends \Product\Library\OrderInterface {
                     $ret = _ps_send('money',$infos);
                     $data = php_data($ret);
                     if ($data['status'] == 1) {
-                       action_finance_log($this->order_info['buyer_id'], $this->product_info['goods_bonus'], 'money', '('.$this->product_info['title'].')活动完成后奖励'.$this->product_info['goods_bonus'].'元红包', $bsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                       action_finance_log($this->order_info['buyer_id'], $this->product_info['goods_bonus'], 'money', '('.$this->product_info['title'].')活动完成后奖励'.$this->product_info['goods_bonus'].'美元红包', $bsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                     }else{
                         $this->error = '试用订单结算失败';
                     }
                     # code...
                 }else{
 
-                      action_finance_log($this->order_info['buyer_id'], $this->product_info['goods_bonus'], 'money', '('.$this->product_info['title'].')活动完成后奖励'.$this->product_info['goods_bonus'].'元红包', $bsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                      action_finance_log($this->order_info['buyer_id'], $this->product_info['goods_bonus'], 'money', '('.$this->product_info['title'].')活动完成后奖励'.$this->product_info['goods_bonus'].'美元红包', $bsign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
                 }
 
 
@@ -323,7 +323,7 @@ class trial_order extends \Product\Library\OrderInterface {
                 $this->error = '会员红包增加，重复操作';
                 return FALSE;
             }
-            $this->write_log('试用完成后奖励'.$this->product_info['goods_bonus'].'元红包');
+            $this->write_log('试用完成后奖励'.$this->product_info['goods_bonus'].'美元红包');
         }
 
         /*收取会员缴纳的平台服务费*/
@@ -335,7 +335,7 @@ class trial_order extends \Product\Library\OrderInterface {
             $fee_count = model('member_finance_log')->where(array('only'=>$_fee_sign))->count();
 
             if ($fee_count < 1) {
-                 action_finance_log($this->order_info['buyer_id'], -$fee_price, 'money', '('.$this->product_info['title'].')活动完成,缴纳'.$fee_price.'元平台服务费', $_fee_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                 action_finance_log($this->order_info['buyer_id'], -$fee_price, 'money', '('.$this->product_info['title'].')活动完成,缴纳'.$fee_price.'美元平台服务费', $_fee_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
             }
 
         }
@@ -356,7 +356,7 @@ class trial_order extends \Product\Library\OrderInterface {
                     if($agent['fee_type'] == 2){
                         $money =sprintf("%.2f",$agent['service_fee']/100 * $this->product_info['goods_price']);
                         if($money > 0){
-                            $msg = "买家(id:".$this->order_info['buyer_id']."),完成试用活动(id:".$this->order_info['goods_id']."),订单(id:".$this->order_info['id'].")，您获得单笔下单价提成".$money."元";
+                            $msg = "买家(id:".$this->order_info['buyer_id']."),完成试用活动(id:".$this->order_info['goods_id']."),订单(id:".$this->order_info['id'].")，您获得单笔下单价提成".$money."美元";
                                 $infos = array();
                                 $infos['time'] = NOW_TIME;
                                 $infos['type'] = 2;
@@ -372,7 +372,7 @@ class trial_order extends \Product\Library\OrderInterface {
                     if($agent['fee_type'] == 3){
                         $money =sprintf("%.2f", $agent['service_fee'] / 100 * $this->product_info['goods_service']);
                         if($money > 0){
-                            $msg = "买家(id:".$this->order_info['buyer_id']."),完成试用活动(id:".$this->order_info['goods_id']."),订单(id:".$this->order_info['id'].")，您获得单笔服务费的 ".$agent['service_fee']."% 提成".$money."元";
+                            $msg = "买家(id:".$this->order_info['buyer_id']."),完成试用活动(id:".$this->order_info['goods_id']."),订单(id:".$this->order_info['id'].")，您获得单笔服务费的 ".$agent['service_fee']."% 提成".$money."美元";
                             $infos = array();
                             $infos['time'] = NOW_TIME;
                             $infos['type'] = 5;

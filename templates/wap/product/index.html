@@ -165,10 +165,10 @@
 							<span class="s-int">
 								<strong class="int-t">{str_cut($r[title],54)}</strong>
 								<em>
-                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">￥{price($r[id])}</font>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">${price($r[id])}</font>
                             	</em>&nbsp;&nbsp;
                                 <em>
-                                	<font color="#808080" style="text-decoration: line-through;">￥{$r[goods_price]}</font>
+                                	<font color="#808080" style="text-decoration: line-through;">${$r[goods_price]}</font>
                                 </em>
 								<strong class="int-mess">
                                     <b>浏览(<i>{$r[hits]}</i>)</b>
@@ -194,10 +194,10 @@
 							<span class="s-int">
 								<strong class="int-t">{str_cut($r[title],54)}</strong>
 								<em>
-                                    {activitiy_price_name($r[mod])}：<font color="#bb000d" style="text-decoration: line-through;">￥{price($r[id])}</font>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d" style="text-decoration: line-through;">${price($r[id])}</font>
                                 </em>&nbsp;&nbsp;
                                 {if $r[mod] == 'trial' && $r[goods_bonus] != 0}
-                                <em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">￥{$r[goods_bonus]}</font></em>
+                                <em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">${$r[goods_bonus]}</font></em>
                                 {/if}
 								<strong class="int-mess">
                                     <b>浏览(<i>{$r[hits]}</i>)</b>
@@ -227,7 +227,7 @@
 							<span class="s-int">
 								<strong class="int-t">{str_cut($r[title],54)}</strong>
 								<em>
-                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">￥{price($r[id])}</font>
+                                    {activitiy_price_name($r[mod])}：<font color="#bb000d">${price($r[id])}</font>
                                 </em>
 								<strong class="int-mess">
                                     <b>浏览(<i>{$r[hits]}</i>)</b>
@@ -310,8 +310,8 @@
                     _html +='<span class="s-int">';
                     _html +='<strong class="int-t">'+ n.title+'</strong>';
                     if(n.mod == 'rebate'){
-                    	_html +='<em>'+n.mod_unit+'：<font color="#bb000d">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
-                    	_html +='<em><font color="#808080" style="text-decoration: line-through;">￥'+ n.goods_price +'</font></em>';
+                    	_html +='<em>'+n.mod_unit+'：<font color="#bb000d">$'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    	_html +='<em><font color="#808080" style="text-decoration: line-through;">$'+ n.goods_price +'</font></em>';
                     	_html +='<strong class="int-mess">';
                     	_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
                     	_html +='<span class="goods_num">总数<b>'+n.goods_number+'</b>份</span>';
@@ -319,9 +319,9 @@
                     }
                     else{
                     	if(n.mod == 'trial'){
-                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d" style="text-decoration: line-through;">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d" style="text-decoration: line-through;">$'+ n.mod_price +'</font></em>&nbsp;&nbsp';
                     		if(n.goods_bonus != 0){
-                    			_html +='<em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">￥'+n.goods_bonus+'</font></em>'
+                    			_html +='<em style="float: right; padding-right: 3%;">赠送红包<font color="#bb000d">$'+n.goods_bonus+'</font></em>'
                     		}
                     		_html +='<strong class="int-mess">';
                     		_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
@@ -329,7 +329,7 @@
                     		_html +='<span class="goods_num" style="float: right; text-align: right; padding-right: 3%;">剩余<b>'+n.number+'</b>份</span>';
                     	}
                     	else{
-                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d">￥'+ n.mod_price +'</font></em>&nbsp;&nbsp';
+                    		_html +='<em>'+n.mod_unit+'：<font color="#bb000d">$'+ n.mod_price +'</font></em>&nbsp;&nbsp';
                     		_html +='<strong class="int-mess">';
                     		_html +='<b>浏览(<i>'+ n.hits+'</i>)</b>';
                     		_html +='<span class="goods_num">限量<b>'+n.goods_number+'</b>份</span>';

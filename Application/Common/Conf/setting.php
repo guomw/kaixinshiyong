@@ -28,7 +28,7 @@
   'WATERMARK_ENABLE' => '1',
   'COOKIE_PREFIX' => 'Ofe',
   'SESSION_PREFIX' => 'AWQ',
-  'SITE_WEB_TITLE' => '每折0元购',
+  'SITE_WEB_TITLE' => '每折0美元购',
   'SITE_WEB_LOGO' => '/uploadfile/2015/0112/20150112042610362.png',
   'SITE_WEB_COPYRIGHT' => 'adalways inc',
   'SITE_STATISTICAL_CODE' => '统计的代码',
@@ -159,7 +159,7 @@
   'TRIAL_SHOW' => 'array (
   \'show_trial_title\' => \'{title}[免费试用]-{site_title}\',
   \'show_trial_keyword\' => \'{title},{site_title}试用专区,{site_title}.\',
-  \'show_trial_description\' => \'{title}0元试用,真正的免费试用,即刻申请,数量有限,注册{site_title}买家会员,现在即可在线申请,通过率高。\',
+  \'show_trial_description\' => \'{title}0美元试用,真正的免费试用,即刻申请,数量有限,注册{site_title}买家会员,现在即可在线申请,通过率高。\',
 )',
   'POSTAL_SHOW' => 'array (
   \'show_postal_title\' => \'{title}9.9包邮-{site_title}\',

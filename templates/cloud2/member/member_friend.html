@@ -338,7 +338,7 @@
 	        				<p class="arrow_bt"></p>
 	        				<p class="reward_text">奖励</p>
 	        				<div>
-	        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</p>
+	        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}美元{else}积分{/if}</p>
 	        					<p class="plus">+</p>
 	        				</div>
 	        			</li>
@@ -357,7 +357,7 @@
 	        				<p class="arrow_bt"></p>
 	        				<p class="reward_text">奖励</p>
 	        				<div>
-	        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}元&nbsp;&nbsp;现金{else}积分{/if}</p>
+	        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}美元&nbsp;&nbsp;现金{else}积分{/if}</p>
 	        					<p class="plus">+</p>
 	        				</div>
 	        			</li>
@@ -368,7 +368,7 @@
         			<ul>
         			{if $money != 0 && $point == 0}
         				<li>
-        					<span class="f24">￥</span>
+        					<span class="f24">$</span>
         					<span class="f42">{$money}</span>
         				</li>
         			{elseif $point != 0 && $money == 0}	
@@ -380,7 +380,7 @@
         				{else}
         				<li style="padding-top: 7px;">
         					<p>
-        						<span class="c_ffff00">￥</span>
+        						<span class="c_ffff00">$</span>
         						<span class="c_ffff00 f24">{$money}</span>
         					</p>
         					<p>
@@ -415,7 +415,7 @@
 		        				<p class="arrow_bt"></p>
 		        				<p class="reward_text">奖励</p>
 		        				<div>
-		        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</p>
+		        					<p class="fraction">{$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}美元{else}积分{/if}</p>
 		        					<p class="plus">+</p>
 		        				</div>
 		        			</li>
@@ -434,7 +434,7 @@
 		        				<p class="arrow_bt"></p>
 		        				<p class="reward_text">奖励</p>
 		        				<div>
-		        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}元&nbsp;&nbsp;现金{else}积分{/if}</p>
+		        					<p class="reward_price">{$s[cost]} {if $s[type] == 'money'}美元&nbsp;&nbsp;现金{else}积分{/if}</p>
 		        					<p class="plus">+</p>
 		        				</div>
 		        			</li>
@@ -445,7 +445,7 @@
 	        			<ul>
 	        				{if $money != 0 && $point == 0}
         				<li>
-        					<span class="f24">￥</span>
+        					<span class="f24">$</span>
         					<span class="f42">{$money}</span>
         				</li>
 						{elseif $point != 0 && $money == 0}	
@@ -457,7 +457,7 @@
         				{else}
         				<li style="padding-top: 7px;">
         					<p>
-        						<span class="c_ffff00">￥</span>
+        						<span class="c_ffff00">$</span>
         						<span class="c_ffff00 f24">{$money}</span>
         					</p>
         					<p>
@@ -538,12 +538,12 @@
 					<span class="yaoq_p_span">邀请好友记录</span>
 					<span class="yaoq_right">
 						您总共成功邀请 <span class="yaoq_color">{$count}</span> 位好友,
-						当前已获得 <span class="yaoq_color">{$money_count}</span> 元 及 <span class="yaoq_color">{$inter_count}</span> 个积分,
+						当前已获得 <span class="yaoq_color">{$money_count}</span> 美元 及 <span class="yaoq_color">{$inter_count}</span> 个积分,
 						加油哦！
 					</span>
 				</p>
 	        	<script language="javascript">
-				$(function(){// dom元素加载完毕
+				$(function(){// dom美元素加载完毕
 					$('#invite_table tbody tr:even').css("backgroundColor","whiteSmoke");
 				})
 				</script>
@@ -563,9 +563,9 @@
                     {loop $agent $v}
 					<tr class="yaoq_table_td1">			
 					    <td class="yaoq_td1_user">{if $v[nickname]}{$v[nickname]}{else}{$v[email]}{/if}</td>
-					    <td class="yaoq_td1_user">{if $v[phone_status]}<font color="green">已认证 + {$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}元{else}积分{/if}</font>{else}未认证{/if}</td>
+					    <td class="yaoq_td1_user">{if $v[phone_status]}<font color="green">已认证 + {$friend_setting[fix][cost]}{if $friend_setting[fix][type] == 'money'}美元{else}积分{/if}</font>{else}未认证{/if}</td>
                         {loop $setting $s}
-                        <td class="yaoq_td1_user">{if $v[order_count]>= $s[num]}<font color="green">获得{$s[cost]}元</font>{else}<font color="#DADADA">待获得{$s[cost]}元</font>{/if}</td>
+                        <td class="yaoq_td1_user">{if $v[order_count]>= $s[num]}<font color="green">获得{$s[cost]}美元</font>{else}<font color="#DADADA">待获得{$s[cost]}美元</font>{/if}</td>
                         {/loop}
 					    <td class="yaoq_td1_user"><?php echo date('Y-m-d H:i:s',$v['regdate']);?></td>
 					</tr>
@@ -657,7 +657,7 @@
          			<p>
 						<span style="color: rgb(139, 139, 139);">已赚</span>
 						<span style="color: rgb(231, 76, 60); font-weight: bold;">{$f[num]}</span>
-						<span style="color: rgb(139, 139, 139);">元</span>
+						<span style="color: rgb(139, 139, 139);">美元</span>
 					</p>
          		</div>
          	</li>

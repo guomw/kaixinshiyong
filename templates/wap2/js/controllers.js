@@ -1792,7 +1792,7 @@ angular
         var data = res._raw;
         $scope.user_avatar2 = $.trim(data);
         $scope.user_avatar = imgUrl + $.trim(data);
-        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2)
+        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2,true)
       })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
@@ -1811,7 +1811,7 @@ angular
         })
 
         $scope.showloading = false
-        // $state.go('tab.user_profile')
+        $state.go('tab.user_profile')
       })
 
       $scope.imgurl = function($files) {
@@ -3423,7 +3423,7 @@ angular
         if (money < $scope.bank_configure.min_money) {
           $ionicLoading.show({
             noBackdrop: true,
-            template: '亲，提现金额不能低于' + $scope.bank_configure.min_money + '元',
+            template: '亲，提现金额不能低于' + $scope.bank_configure.min_money + '美元',
             duration: 2000
           })
           return false
@@ -4150,7 +4150,7 @@ angular
       // 试用小课堂
       // 试用是不用拿钱买的,最终下单的钱是需要返还回来的。
       // 商家拿产品来试用，是为了提高曝光率,提示销量。
-      // 试用品价值从几元-几百不等,每天都有好货额。
+      // 试用品价值从几美元-几百不等,每天都有好货额。
       // 商家提供了喜欢的试用品,咋可得给人家一个好评。
       // 快速提现,最快2小时到账额。
       // 加入vip,什么审核都是浮云,vip要的就是快。
@@ -6785,7 +6785,7 @@ angular
             template:
               '恭喜您,回答正确,获得本次任务现金奖励' +
               $scope.task_show.goods_price +
-              '元，奖励已实时发送至您账户当中！',
+              '美元，奖励已实时发送至您账户当中！',
             duration: 2000
           })
 
@@ -7520,7 +7520,7 @@ angular
       //分享之后的抽奖次数
       //获取最新中奖人数
 
-      $scope.rank1 = '现金100元'
+      $scope.rank1 = '现金100美元'
 
       //发起抽奖请求
 
@@ -8614,10 +8614,10 @@ angular
                 '\n' +
                 '5.活动下单价：' +
                 $scope.txddh_showdata.goods_price +
-                ' 元\n' +
+                ' 美元\n' +
                 '6.活动完成：返还' +
                 $filter('f_xiaoshu')($scope.txddh_showdata.fan_price) +
-                ' 元\n' +
+                ' 美元\n' +
                 '7.下单完成之后，记得填写订单号。'
             )
           })
@@ -8765,7 +8765,7 @@ angular
 
         if ($scope.data_keyword) {
           for (var i in $scope.data_keyword) {
-            //该元素在tmp内部不存在才允许追加
+            //该美元素在tmp内部不存在才允许追加
             if (Keyword.indexOf($scope.data_keyword[i]) == -1) {
               key = $scope.data_keyword.concat(Keyword)
               StorageFactory.set('keyword', key)

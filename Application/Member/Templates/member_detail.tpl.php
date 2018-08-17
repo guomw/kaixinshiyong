@@ -114,7 +114,7 @@
 		<?php }else if($v['type'] == 'exp'){?>
 		<td align="left"><?php echo substr($v['num'],0,-3).'(成长值)';?></td>
 		<?php }else{?>
-		<td align="left"><?php echo $v['num'].'(元)';?></td>
+		<td align="left"><?php echo $v['num'].'(美元)';?></td>
 		<?php }?>-->
 		        <td align="left"><?php echo $v['total_money'] ?></td>
    

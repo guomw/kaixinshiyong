@@ -210,7 +210,7 @@ include $this->admin_tpl('header','admin');?>
 	<?php if ($rs['trial_type'] == '3'){?>
 	<tr>
 		<th>每单赠送用户红包：</th>
-		<td><input type="text" value="<?php echo $rs['goods_bonus'];?>" name="info[goods_bonus]" id="goods_bonus" disabled/>/元&nbsp;</td>
+		<td><input type="text" value="<?php echo $rs['goods_bonus'];?>" name="info[goods_bonus]" id="goods_bonus" disabled/>/美元&nbsp;</td>
 	</tr>
 	<?php }?>	
 	<?php if(C_READ('seller_vip_isopen') == 1){?>
@@ -346,7 +346,7 @@ $("input[name='info[goods_point]']:radio").click(function(){
 		<td><label><input type="radio" name="info[subsidy_type]" value="" <?php if($rs['subsidy_type'] == 0) {?> checked <?php } ?>>&nbsp;不补贴</label>
 			<label><input type="radio" name="info[subsidy_type]" value="1" <?php if($rs['subsidy_type'] == 1) {?> checked <?php } ?>>&nbsp;积分</label>
 			<label><input type="radio" name="info[subsidy_type]" value="2" <?php if($rs['subsidy_type'] == 2) {?> checked <?php } ?>>&nbsp;金额</label>
-			<label><input type="text" name="info[subsidy]"  style="width:80px;" value="<?php echo $rs['subsidy'] ?>" />/元或积分</label>
+			<label><input type="text" name="info[subsidy]"  style="width:80px;" value="<?php echo $rs['subsidy'] ?>" />/美元或积分</label>
 		</td>
 	</tr>	
 
@@ -355,7 +355,7 @@ $("input[name='info[goods_point]']:radio").click(function(){
 		<td>
 		<label><input type="radio" name="info[goods_postage]" value="0" <?php if ($rs['goods_postage'] == 0): ?>checked<?php endif ?>>&nbsp;不预存</label>
 		<label><input type="radio" name="info[goods_postage]" value="1" <?php if ($rs['goods_postage'] != 0): ?>checked<?php endif ?>>&nbsp;预存</label>
-		<label for="field_goods_postage" <?php if ($rs['goods_postage'] == 0): ?>style="display:none;"<?php endif ?>><input type="text" name="info[field_goods_postage]" id="field_goods_postage" value="<?php echo $rs['goods_postage'] ?>" style="width:80px;" />元/份</label>
+		<label for="field_goods_postage" <?php if ($rs['goods_postage'] == 0): ?>style="display:none;"<?php endif ?>><input type="text" name="info[field_goods_postage]" id="field_goods_postage" value="<?php echo $rs['goods_postage'] ?>" style="width:80px;" />美元/份</label>
 	</tr> -->
 
 	<script type="text/javascript">
@@ -402,9 +402,9 @@ $("input[name='info[goods_point]']:radio").click(function(){
 			<div class="bk3"></div>
 			<label>默认快递：<input type="text" name="info[goods_tips][goods_order][kuaidi]" value="<?php echo $rs['goods_tips']['goods_order']['kuaidi'] ?>"/></label><div class="bk3"></div>
 			<label>拍下须知：<input type="text" name="info[goods_tips][goods_order][remark]" value="<?php echo $rs['goods_tips']['goods_order']['remark'] ?>"/></label><div class="bk3"></div>
-			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['cost'] ?>">元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" value="<?php echo $rs['goods_tips']['goods_order']['price']['after'] ?>" style="width:50px;">元</label>
+			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['cost'] ?>">美元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" value="<?php echo $rs['goods_tips']['goods_order']['price']['after'] ?>" style="width:50px;">美元</label>
 			<div class="bk3"></div>
-			请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['lv'] ?>">元下单
+			请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['lv'] ?>">美元下单
 		</td>
 	</tr>	
 	

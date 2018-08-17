@@ -46,10 +46,10 @@
 						<tr class="t_t_bg">
 							<th class="t_w_1 tc">商品名称</th>
 							<th class="t_w_2 tc">当前状态</th>
-							<th class="t_w_2 tc">下单价{if $proInfo['mod']=='trial'}/红包{/if}(元)</th>
-							<th class="t_w_3 tc">平台损耗费（元）</th>
+							<th class="t_w_2 tc">下单价{if $proInfo['mod']=='trial'}/红包{/if}(美元)</th>
+							<th class="t_w_3 tc">平台损耗费（美元）</th>
 							<th class="t_w_4 tc">数量</th>
-							<th class="t_w_5 tc">合计（元）</th>
+							<th class="t_w_5 tc">合计（美元）</th>
 						</tr>
 					</thead>
 					<tbody id="test">
@@ -97,7 +97,7 @@
 						平台损耗费=下单价×{$proInfo['goods_service']}%
 					{/if}
 					<font> （注：每次计算结果只取小数点后两位，不四舍五入）</font>
-					总计：<span class="all_sum">{$records['com_total_fee']}</span>元
+					总计：<span class="all_sum">{$records['com_total_fee']}</span>美元
 					<a href="javascript:;" class="btn">确定支付</a>
 				</p>
 				<p class="r_state">说明：担保金款项部分作为本次活动返还给购买者的折扣款项，另一部分在活动中逐笔退还到您的会员中心；平台损耗费

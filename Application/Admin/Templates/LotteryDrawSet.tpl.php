@@ -193,7 +193,7 @@ a:hover {text-decoration:underline;}
       <div class="clear"></div>
     </div>
     <!--h1-->
-    <div class="h3">备注：现金的单位 元</div>
+    <div class="h3">备注：现金的单位 美元</div>
     <div class="h2"> 
        <div class="a1">抽奖次数</div><div class="a2"><input type="text" name="lottery_draw_num"  value="<?php echo $lottery_draw_set2['lottery_draw_num']?>"  /></div><div class="a1">分享后可以抽奖的次数</div><div class="a2"><input type="text" name="lottery_draw_num_after_share"  value="<?php echo $lottery_draw_set2['lottery_draw_num_after_share']?>"  /></div>
         <div class="clear"></div>

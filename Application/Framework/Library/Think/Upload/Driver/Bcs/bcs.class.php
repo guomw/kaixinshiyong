@@ -1096,7 +1096,7 @@ class BaiduBCS {
 	}
 
 	/**
-	 * 使用特定function对数组中所有元素做处理
+	 * 使用特定function对数组中所有美元素做处理
 	 * @param string    &$array        要处理的字符串
 	 * @param string    $function    要执行的函数
 	 * @param boolean   $apply_to_keys_also     是否也应用到key上

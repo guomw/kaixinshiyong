@@ -603,7 +603,7 @@ var utils = UE.utils = {
     },
 
     /**
-     * 获取元素item在数组array中首次出现的位置, 如果未找到item， 则返回-1
+     * 获取美元素item在数组array中首次出现的位置, 如果未找到item， 则返回-1
      * @method indexOf
      * @remind 该方法的匹配过程使用的是恒等“===”
      * @param { Array } array 需要查找的数组对象
@@ -620,7 +620,7 @@ var utils = UE.utils = {
      */
 
     /**
-     * 获取元素item数组array中首次出现的位置, 如果未找到item， 则返回-1。通过start的值可以指定搜索的起始位置。
+     * 获取美元素item数组array中首次出现的位置, 如果未找到item， 则返回-1。通过start的值可以指定搜索的起始位置。
      * @method indexOf
      * @remind 该方法的匹配过程使用的是恒等“===”
      * @param { Array } array 需要查找的数组对象
@@ -649,10 +649,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 移除数组array中所有的元素item
+     * 移除数组array中所有的美元素item
      * @method removeItem
-     * @param { Array } array 要移除元素的目标数组
-     * @param { * } item 将要被移除的元素
+     * @param { Array } array 要移除美元素的目标数组
+     * @param { * } item 将要被移除的美元素
      * @remind 该方法的匹配过程使用的是恒等“===”
      * @example
      * ```javascript
@@ -699,7 +699,7 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将字符串str以','分隔成数组后，将该数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
+     * 将字符串str以','分隔成数组后，将该数组转换成哈希对象， 其生成的hash对象的key为数组中的美元素， value为1
      * @method listToMap
      * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
      * @param { String } str 该字符串将被以','分割为数组， 然后进行转化
@@ -714,7 +714,7 @@ var utils = UE.utils = {
      */
 
     /**
-     * 将字符串数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
+     * 将字符串数组转换成哈希对象， 其生成的hash对象的key为数组中的美元素， value为1
      * @method listToMap
      * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
      * @param { Array } arr 字符串数组
@@ -1702,13 +1702,13 @@ var dtd = dom.dtd = (function() {
 
         // $ 表示自定的属性
 
-        // body外的元素列表.
+        // body外的美元素列表.
         $nonBodyContent: X( V, U, S ),
 
-        //块结构元素列表
+        //块结构美元素列表
         $block : block,
 
-        //内联元素列表
+        //内联美元素列表
         $inline : L,
 
         $inlineWithA : X(_({a:1}),L),
@@ -1717,26 +1717,26 @@ var dtd = dom.dtd = (function() {
 
         $cdata : _({script:1,style:1}),
 
-        //自闭和元素
+        //自闭和美元素
         $empty : empty,
 
         //不是自闭合，但不能让range选中里边
         $nonChild : _({iframe:1,textarea:1}),
-        //列表元素列表
+        //列表美元素列表
         $listItem : _({dd:1,dt:1,li:1}),
 
-        //列表根元素列表
+        //列表根美元素列表
         $list: _({ul:1,ol:1,dl:1}),
 
-        //不能认为是空的元素
+        //不能认为是空的美元素
         $isNotEmpty : _({table:1,ul:1,ol:1,dl:1,iframe:1,area:1,base:1,col:1,hr:1,img:1,embed:1,input:1,link:1,meta:1,param:1,h1:1,h2:1,h3:1,h4:1,h5:1,h6:1}),
 
-        //如果没有子节点就可以删除的元素列表，像span,a
+        //如果没有子节点就可以删除的美元素列表，像span,a
         $removeEmpty : _({a:1,abbr:1,acronym:1,address:1,b:1,bdo:1,big:1,cite:1,code:1,del:1,dfn:1,em:1,font:1,i:1,ins:1,label:1,kbd:1,q:1,s:1,samp:1,small:1,span:1,strike:1,strong:1,sub:1,sup:1,tt:1,u:1,'var':1}),
 
         $removeEmptyBlock : _({'p':1,'div':1}),
 
-        //在table元素里的元素列表
+        //在table美元素里的美元素列表
         $tableContent : _({caption:1,col:1,colgroup:1,tbody:1,td:1,tfoot:1,th:1,thead:1,tr:1,table:1}),
         //不转换的标签
         $notTransContent : _({pre:1,script:1,style:1,textarea:1}),
@@ -1925,7 +1925,7 @@ var domUtils = dom.domUtils = {
      *
      *      //0
      *      case UE.dom.domUtils.POSITION_IDENTICAL:
-     *          console.log('元素相同');
+     *          console.log('美元素相同');
      *          break;
      *      //1
      *      case UE.dom.domUtils.POSITION_DISCONNECTED:
@@ -2513,7 +2513,7 @@ var domUtils = dom.domUtils = {
         return !new RegExp('[^ \t\n\r' + domUtils.fillChar + ']').test(node.nodeValue);
     },
     /**
-     * 获取元素element相对于viewport的位置坐标
+     * 获取美元素element相对于viewport的位置坐标
      * @method getXY
      * @param { Node } element 需要计算位置的节点对象
      * @return { Object } 返回形如{x:left,y:top}的一个key-value映射对象， 其中键x代表水平偏移距离，
@@ -2536,7 +2536,7 @@ var domUtils = dom.domUtils = {
         return { 'x':x, 'y':y};
     },
     /**
-     * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
+     * 为美元素element绑定原生DOM事件，type为事件类型，handler为处理函数
      * @method on
      * @param { Node } element 需要绑定事件的节点对象
      * @param { String } type 绑定的事件类型
@@ -2544,13 +2544,13 @@ var domUtils = dom.domUtils = {
      * @example
      * ```javascript
      * UE.dom.domUtils.on(document.body,"click",function(e){
-     *     //e为事件对象，this为被点击元素对戏那个
+     *     //e为事件对象，this为被点击美元素对戏那个
      * });
      * ```
      */
 
     /**
-     * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
+     * 为美元素element绑定原生DOM事件，type为事件类型，handler为处理函数
      * @method on
      * @param { Node } element 需要绑定事件的节点对象
      * @param { Array } type 绑定的事件类型数组
@@ -2558,7 +2558,7 @@ var domUtils = dom.domUtils = {
      * @example
      * ```javascript
      * UE.dom.domUtils.on(document.body,["click","mousedown"],function(evt){
-     *     //evt为事件对象，this为被点击元素对象
+     *     //evt为事件对象，this为被点击美元素对象
      * });
      * ```
      */
@@ -2603,7 +2603,7 @@ var domUtils = dom.domUtils = {
      * @example
      * ```javascript
      * UE.dom.domUtils.un(document.body,"click",function(evt){
-     *     //evt为事件对象，this为被点击元素对象
+     *     //evt为事件对象，this为被点击美元素对象
      * });
      * ```
      */
@@ -2617,7 +2617,7 @@ var domUtils = dom.domUtils = {
      * @example
      * ```javascript
      * UE.dom.domUtils.un(document.body, ["click","mousedown"],function(evt){
-     *     //evt为事件对象，this为被点击元素对象
+     *     //evt为事件对象，this为被点击美元素对象
      * });
      * ```
      */
@@ -2720,7 +2720,7 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断节点nodeA与节点nodeB的元素的style属性是否一致
+     * 判断节点nodeA与节点nodeB的美元素的style属性是否一致
      * @method isSameStyle
      * @param { Node } nodeA 需要比较的节点
      * @param { Node } nodeB 需要比较的节点
@@ -2779,12 +2779,12 @@ var domUtils = dom.domUtils = {
         return true;
     },
     /**
-     * 检查节点node是否为block元素
+     * 检查节点node是否为block美元素
      * @method isBlockElm
      * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 是否是block元素节点
-     * @warning 该方法的判断规则如下： 如果该元素原本是block元素， 则不论该元素当前的css样式是什么都会返回true；
-     *          否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
+     * @return { Boolean } 是否是block美元素节点
+     * @warning 该方法的判断规则如下： 如果该美元素原本是block美元素， 则不论该美元素当前的css样式是什么都会返回true；
+     *          否则，检测该美元素的css样式， 如果该美元素当前是block美元素， 则返回true。 其余情况下都返回false。
      * @example
      * ```html
      * <span id="test1" style="display: block"></span>
@@ -2811,8 +2811,8 @@ var domUtils = dom.domUtils = {
     /**
      * 检测node节点是否为body节点
      * @method isBody
-     * @param { Element } node 需要检测的dom元素
-     * @return { Boolean } 给定的元素是否是body元素
+     * @param { Element } node 需要检测的dom美元素
+     * @return { Boolean } 给定的美元素是否是body美元素
      * @example
      * ```javascript
      * //output: true
@@ -2922,7 +2922,7 @@ var domUtils = dom.domUtils = {
     /**
      * 删除node节点下首尾两端的空白文本子节点
      * @method trimWhiteTextNode
-     * @param { Element } node 需要执行删除操作的元素对象
+     * @param { Element } node 需要执行删除操作的美元素对象
      * @example
      * ```javascript
      *      var node = document.createElement("div");
@@ -3027,7 +3027,7 @@ var domUtils = dom.domUtils = {
     /**
      * 将节点node提取到父节点上
      * @method mergeToParent
-     * @param { Element } node 需要提取的元素对象
+     * @param { Element } node 需要提取的美元素对象
      * @example
      * ```html
      * <div id="parent">
@@ -3154,7 +3154,7 @@ var domUtils = dom.domUtils = {
     /**
      * 设置节点node及其子节点不会被选中
      * @method unSelectable
-     * @param { Element } node 需要执行操作的dom元素
+     * @param { Element } node 需要执行操作的dom美元素
      * @remind 执行该操作后的节点， 将不能被鼠标选中
      * @example
      * ```javascript
@@ -3249,12 +3249,12 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 在doc下创建一个标签名为tag，属性为attrs的元素
+     * 在doc下创建一个标签名为tag，属性为attrs的美元素
      * @method createElement
-     * @param { DomDocument } doc 新创建的元素属于该document节点创建
-     * @param { String } tagName 需要创建的元素的标签名
-     * @param { Object } attrs 新创建的元素的属性key-value集合
-     * @return { Element } 新创建的元素对象
+     * @param { DomDocument } doc 新创建的美元素属于该document节点创建
+     * @param { String } tagName 需要创建的美元素的标签名
+     * @param { Object } attrs 新创建的美元素的属性key-value集合
+     * @return { Element } 新创建的美元素对象
      * @example
      * ```javascript
      * var ele = UE.dom.domUtils.createElement( document, 'div', {
@@ -3275,9 +3275,9 @@ var domUtils = dom.domUtils = {
     /**
      * 为节点node添加属性attrs，attrs为属性键值对
      * @method setAttributes
-     * @param { Element } node 需要设置属性的元素对象
+     * @param { Element } node 需要设置属性的美元素对象
      * @param { Object } attrs 需要设置的属性名-值对
-     * @return { Element } 设置属性的元素对象
+     * @return { Element } 设置属性的美元素对象
      * @example
      * ```html
      * <span id="test"></span>
@@ -3321,9 +3321,9 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 获取元素element经过计算后的样式值
+     * 获取美元素element经过计算后的样式值
      * @method getComputedStyle
-     * @param { Element } element 需要获取样式的元素对象
+     * @param { Element } element 需要获取样式的美元素对象
      * @param { String } styleName 需要获取的样式名
      * @return { String } 获取到的样式值
      * @example
@@ -3376,9 +3376,9 @@ var domUtils = dom.domUtils = {
         return utils.transUnitToPx(utils.fixColor(styleName, value));
     },
     /**
-     * 删除元素element指定的className
+     * 删除美元素element指定的className
      * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
+     * @param { Element } ele 需要删除class的美元素节点
      * @param { String } classNames 需要删除的className， 多个className之间以空格分开
      * @example
      * ```html
@@ -3397,9 +3397,9 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 删除元素element指定的className
+     * 删除美元素element指定的className
      * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
+     * @param { Element } ele 需要删除class的美元素节点
      * @param { Array } classNames 需要删除的className数组
      * @example
      * ```html
@@ -3430,9 +3430,9 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 给元素element添加className
+     * 给美元素element添加className
      * @method addClass
-     * @param { Node } ele 需要增加className的元素
+     * @param { Node } ele 需要增加className的美元素
      * @param { String } classNames 需要添加的className， 多个className之间以空格分割
      * @remind 相同的类名不会被重复添加
      * @example
@@ -3452,9 +3452,9 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 给元素element添加className
+     * 给美元素element添加className
      * @method addClass
-     * @param { Node } ele 需要增加className的元素
+     * @param { Node } ele 需要增加className的美元素
      * @param { Array } classNames 需要添加的className的数组
      * @remind 相同的类名不会被重复添加
      * @example
@@ -3483,11 +3483,11 @@ var domUtils = dom.domUtils = {
         elm.className = utils.trim(cls);
     },
     /**
-     * 判断元素element是否包含给定的样式类名className
+     * 判断美元素element是否包含给定的样式类名className
      * @method hasClass
-     * @param { Node } ele 需要检测的元素
+     * @param { Node } ele 需要检测的美元素
      * @param { String } classNames 需要检测的className， 多个className之间用空格分割
-     * @return { Boolean } 元素是否包含所有给定的className
+     * @return { Boolean } 美元素是否包含所有给定的className
      * @example
      * ```html
      * <span id="test1" class="cls1 cls2"></span>
@@ -3505,11 +3505,11 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 判断元素element是否包含给定的样式类名className
+     * 判断美元素element是否包含给定的样式类名className
      * @method hasClass
-     * @param { Node } ele 需要检测的元素
+     * @param { Node } ele 需要检测的美元素
      * @param { Array } classNames 需要检测的className数组
-     * @return { Boolean } 元素是否包含所有给定的className
+     * @return { Boolean } 美元素是否包含所有给定的className
      * @example
      * ```html
      * <span id="test1" class="cls1 cls2"></span>
@@ -3551,9 +3551,9 @@ var domUtils = dom.domUtils = {
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
     },
     /**
-     * 删除元素element指定的样式
+     * 删除美元素element指定的样式
      * @method removeStyle
-     * @param { Element } element 需要删除样式的元素
+     * @param { Element } element 需要删除样式的美元素
      * @param { String } styleName 需要删除的样式名
      * @example
      * ```html
@@ -3592,12 +3592,12 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 获取元素element的style属性的指定值
+     * 获取美元素element的style属性的指定值
      * @method getStyle
-     * @param { Element } element 需要获取属性值的元素
+     * @param { Element } element 需要获取属性值的美元素
      * @param { String } styleName 需要获取的style的名称
-     * @warning 该方法仅获取元素style属性中所标明的值
-     * @return { String } 该元素包含指定的style属性值
+     * @warning 该方法仅获取美元素style属性中所标明的值
+     * @return { String } 该美元素包含指定的style属性值
      * @example
      * ```html
      * <div id="test" style="color: red;"></div>
@@ -3620,9 +3620,9 @@ var domUtils = dom.domUtils = {
         return utils.fixColor(name, value);
     },
     /**
-     * 为元素element设置样式属性值
+     * 为美元素element设置样式属性值
      * @method setStyle
-     * @param { Element } element 需要设置样式的元素
+     * @param { Element } element 需要设置样式的美元素
      * @param { String } styleName 样式名
      * @param { String } styleValue 样式值
      * @example
@@ -3650,9 +3650,9 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 为元素element设置多个样式属性值
+     * 为美元素element设置多个样式属性值
      * @method setStyles
-     * @param { Element } element 需要设置样式的元素
+     * @param { Element } element 需要设置样式的美元素
      * @param { Object } styles 样式名值对
      * @example
      * ```html
@@ -3695,8 +3695,8 @@ var domUtils = dom.domUtils = {
     /**
      * 获取子节点的数量
      * @method getChildCount
-     * @param { Element } node 需要检测的元素
-     * @return { Number } 给定的node元素的子节点数量
+     * @param { Element } node 需要检测的美元素
+     * @return { Number } 给定的node美元素的子节点数量
      * @example
      * ```html
      * <div id="test">
@@ -3715,9 +3715,9 @@ var domUtils = dom.domUtils = {
     /**
      * 根据给定的过滤规则， 获取符合条件的子节点的数量
      * @method getChildCount
-     * @param { Element } node 需要检测的元素
+     * @param { Element } node 需要检测的美元素
      * @param { Function } fn 过滤器， 要求对符合条件的子节点返回true， 反之则要求返回false
-     * @return { Number } 符合过滤条件的node元素的子节点数量
+     * @return { Number } 符合过滤条件的node美元素的子节点数量
      * @example
      * ```html
      * <div id="test">
@@ -3893,10 +3893,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断给定的元素是否是一个空元素
+     * 判断给定的美元素是否是一个空美元素
      * @method isEmptyBlock
-     * @param { Element } node 需要判断的元素
-     * @return { Boolean } 是否是空元素
+     * @param { Element } node 需要判断的美元素
+     * @return { Boolean } 是否是空美元素
      * @example
      * ```html
      * <div id="test"></div>
@@ -3909,11 +3909,11 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 根据指定的判断规则判断给定的元素是否是一个空元素
+     * 根据指定的判断规则判断给定的美元素是否是一个空美元素
      * @method isEmptyBlock
-     * @param { Element } node 需要判断的元素
+     * @param { Element } node 需要判断的美元素
      * @param { RegExp } reg 对内容执行判断的正则表达式对象
-     * @return { Boolean } 是否是空元素
+     * @return { Boolean } 是否是空美元素
      */
     isEmptyBlock:function (node,reg) {
         if(node.nodeType != 1)
@@ -3931,10 +3931,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 移动元素使得该元素的位置移动指定的偏移量的距离
+     * 移动美元素使得该美元素的位置移动指定的偏移量的距离
      * @method setViewportOffset
-     * @param { Element } element 需要设置偏移量的元素
-     * @param { Object } offset 偏移量， 形如{ left: 100, top: 50 }的一个键值对， 表示该元素将在
+     * @param { Element } element 需要设置偏移量的美元素
+     * @param { Object } offset 偏移量， 形如{ left: 100, top: 50 }的一个键值对， 表示该美元素将在
      *                                  现有的位置上向水平方向偏移offset.left的距离， 在竖直方向上偏移
      *                                  offset.top的距离
      * @example
@@ -4418,20 +4418,20 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      */
 
     /**
-     * @property { Node } startContainer 当前Range的开始边界的容器节点, 可以是一个元素节点或者是文本节点
+     * @property { Node } startContainer 当前Range的开始边界的容器节点, 可以是一个美元素节点或者是文本节点
      */
 
     /**
-     * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, 如果是元素节点，
+     * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, 如果是美元素节点，
      *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
      */
 
     /**
-     * @property { Node } endContainer 当前Range的结束边界的容器节点, 可以是一个元素节点或者是文本节点
+     * @property { Node } endContainer 当前Range的结束边界的容器节点, 可以是一个美元素节点或者是文本节点
      */
 
     /**
-     * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, 如果是元素节点，
+     * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, 如果是美元素节点，
      *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
      */
 
@@ -4501,7 +4501,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         /**
          * 克隆选区的内容到一个DocumentFragment里
          * @method cloneContents
-         * @return { DocumentFragment | NULL } 如果选区是闭合的将返回null， 否则， 返回包含所clone内容的DocumentFragment元素
+         * @return { DocumentFragment | NULL } 如果选区是闭合的将返回null， 否则， 返回包含所clone内容的DocumentFragment美元素
          * @example
          * ```html
          * <body>
@@ -4624,9 +4624,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         /**
          * 设置Range的开始容器节点和偏移量
          * @method  setStart
-         * @remind 如果给定的节点是元素节点，那么offset指的是其子元素中索引为offset的元素，
+         * @remind 如果给定的节点是美元素节点，那么offset指的是其子美元素中索引为offset的美元素，
          *          如果是文本节点，那么offset指的是其文本内容的第offset个字符
-         * @remind 如果提供的容器节点是一个不能包含子元素的节点， 则该选区的开始容器将被设置
+         * @remind 如果提供的容器节点是一个不能包含子美元素的节点， 则该选区的开始容器将被设置
          *          为该节点的父节点， 此时， 其距离开始容器的偏移量也变成了该节点在其父节点
          *          中的索引
          * @param { Node } node 将被设为当前选区开始边界容器的节点对象
@@ -4760,7 +4760,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 设置Range的开始位置到node节点内的第一个子节点之前
          * @method  setStartAtFirst
          * @remind 选区的开始容器将变成给定的节点， 且偏移量为0
-         * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
+         * @remind 如果给定的节点是美元素节点， 则该节点必须是允许包含子节点的美元素。
          * @param { Node } node 目标节点
          * @see UE.dom.Range:setStartBefore(Node)
          * @return { UE.dom.Range } 当前range对象
@@ -4788,7 +4788,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 设置Range的开始位置到node节点内的最后一个节点之后
          * @method setStartAtLast
          * @remind 选区的开始容器将变成给定的节点， 且偏移量为该节点的子节点数
-         * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
+         * @remind 如果给定的节点是美元素节点， 则该节点必须是允许包含子节点的美元素。
          * @param { Node } node 目标节点
          * @see UE.dom.Range:setStartAtFirst(Node)
          * @return { UE.dom.Range } 当前range对象
@@ -4802,7 +4802,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @method  setEndAtFirst
          * @param { Node } node 目标节点
          * @remind 选区的结束容器将变成给定的节点， 且偏移量为0
-         * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
+         * @remind node必须是一个美元素节点， 且必须是允许包含子节点的美元素。
          * @see UE.dom.Range:setStartAtFirst(Node)
          * @return { UE.dom.Range } 当前range对象
          */
@@ -4815,7 +4815,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @method  setEndAtLast
          * @param { Node } node 目标节点
          * @remind 选区的结束容器将变成给定的节点， 且偏移量为该节点的子节点数量
-         * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
+         * @remind node必须是一个美元素节点， 且必须是允许包含子节点的美元素。
          * @see UE.dom.Range:setStartAtFirst(Node)
          * @return { UE.dom.Range } 当前range对象
          */
@@ -5002,7 +5002,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             if (!ignoreEnd) {
                 while (me.endContainer.nodeType == 1//是element
-                    && me.endOffset > 0 //如果是空元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
+                    && me.endOffset > 0 //如果是空美元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
                     && (child = me.endContainer.childNodes[me.endOffset - 1]) //子节点也是element
                     && check(child)) {
                     me.setEnd(child, child.childNodes.length);
@@ -6405,9 +6405,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取开始元素，用于状态反射
+         * 获取开始美元素，用于状态反射
          * @method getStart
-         * @return { Element } 获得开始元素
+         * @return { Element } 获得开始美元素
          * @example
          * ```javascript
          * editor.selection.getStart();
@@ -6425,7 +6425,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     //todo 给第一个值可能会有问题
                     return this.document.body.firstChild;
                 }
-                //control元素
+                //control美元素
                 if ( range.item ){
                     return range.item( 0 );
                 }
@@ -7091,13 +7091,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
         /**
          * 同步数据到编辑器所在的form
-         * 从编辑器的容器节点向上查找form元素，若找到，就同步编辑内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况
+         * 从编辑器的容器节点向上查找form美元素，若找到，就同步编辑内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况
          * 后台取得数据的键值，使用你容器上的name属性，如果没有就使用参数里的textarea项
          * @method sync
          * @example
          * ```javascript
          * editor.sync();
-         * form.sumbit(); //form变量已经指向了form元素
+         * form.sumbit(); //form变量已经指向了form美元素
          * ```
          */
 
@@ -9124,7 +9124,7 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取当前节点所代表的元素属性，即获取attrs对象下的属性值
+         * 获取当前节点所代表的美元素属性，即获取attrs对象下的属性值
          * @method getAttr
          * @param { String } attrName 要获取的属性名称
          * @return { * } 返回attrs对象下的属性值
@@ -9138,7 +9138,7 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 设置当前节点所代表的元素属性，即设置attrs对象下的属性值
+         * 设置当前节点所代表的美元素属性，即设置attrs对象下的属性值
          * @method setAttr
          * @param { String } attrName 要设置的属性名称
          * @param { * } attrVal 要设置的属性值，类型视设置的属性而定
@@ -9215,9 +9215,9 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在当前节点下，根据元素名称查找节点列表
+         * 在当前节点下，根据美元素名称查找节点列表
          * @method getNodesByTagName
-         * @param { String } tagNames 要查找的元素名称
+         * @param { String } tagNames 要查找的美元素名称
          * @return { Array } 返回找到的节点列表
          * @example
          * ```javascript
@@ -10986,7 +10986,7 @@ UE.commands['imagefloat'] = {
                             tmpNode.removeAttribute('id');
                             tmpNode = tmpNode.firstChild;
                             range.selectNode(tmpNode).select();
-                            //去掉后边多余的元素
+                            //去掉后边多余的美元素
                             next = tmpNode.parentNode.nextSibling;
                             if (next && domUtils.isEmptyNode(next)) {
                                 domUtils.remove(next);
@@ -11045,7 +11045,7 @@ UE.commands['imagefloat'] = {
  * @param { String } cmd 命令字符串
  * @param { Object } opt 属性键值对，这些属性都将被复制到当前插入图片
  * @remind 该命令第二个参数可接受一个图片配置项对象的数组，可以插入多张图片，
- * 此时数组的每一个元素都是一个Object类型的图片属性集合。
+ * 此时数组的每一个美元素都是一个Object类型的图片属性集合。
  * @example
  * ```javascript
  * editor.execCommand( 'insertimage', {
@@ -12520,7 +12520,7 @@ UE.plugins['selectall'] = function(){
                 range = me.selection.getRange();
             range.selectNodeContents(body);
             if(domUtils.isEmptyBlock(body)){
-                //opera不能自动合并到元素的里边，要手动处理一下
+                //opera不能自动合并到美元素的里边，要手动处理一下
                 if(browser.opera && body.firstChild && body.firstChild.nodeType == 1){
                     range.setStartAtFirst(body.firstChild);
                 }
@@ -12618,7 +12618,7 @@ UE.plugins['paragraph'] = function() {
                     tmpRange.insertNode( para );
 
                     var parent = para.parentNode;
-                    //如果para上一级是一个block元素且不是body,td就删除它
+                    //如果para上一级是一个block美元素且不是body,td就删除它
                     if ( block( parent ) && !domUtils.isBody( para.parentNode ) && utils.indexOf(notExchange,parent.tagName)==-1) {
                         //存储dir,style
                         if(!(sourceCmdName && sourceCmdName == 'customstyle')){
@@ -16662,7 +16662,7 @@ UE.plugins['keystrokes'] = function() {
                 }
             }
 
-            //解决选中control元素不能删除的问题
+            //解决选中control美元素不能删除的问题
             if (start = rng.getClosedNode()) {
                 me.fireEvent('saveScene');
                 rng.setStartBefore(start);
@@ -17648,7 +17648,7 @@ UE.plugins['video'] = function (){
      * @command insertvideo
      * @method execCommand
      * @param { String } cmd 命令字符串
-     * @param { Array } videoArr 需要插入的视频的数组， 其中的每一个元素都是一个键值对对象， 描述了一个视频的所有属性
+     * @param { Array } videoArr 需要插入的视频的数组， 其中的每一个美元素都是一个键值对对象， 描述了一个视频的所有属性
      * @example
      * ```javascript
      *
@@ -17678,7 +17678,7 @@ UE.plugins['video'] = function (){
      * @command insertvideo
      * @method queryCommandState
      * @param { String } cmd 需要查询的命令字符串
-     * @return { int } 如果当前光标所在处的元素是一个视频对象， 则返回1，否则返回0
+     * @return { int } 如果当前光标所在处的美元素是一个视频对象， 则返回1，否则返回0
      * @example
      * ```javascript
      *
@@ -17763,9 +17763,9 @@ UE.plugins['video'] = function (){
     };
 
     /**
-     * 获取单元格或者单元格组的“对齐”状态。 如果当前的检测对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的
-     * 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单元格， 则直接返回当前单元格的对齐状态；
-     * @param table cell or table cells , 支持单个单元格dom对象 或者 单元格dom对象数组
+     * 获取单美元格或者单美元格组的“对齐”状态。 如果当前的检测对象是一个单美元格组， 只有在满足所有单美元格的 水平和竖直 对齐属性都相同的
+     * 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单美元格， 则直接返回当前单美元格的对齐状态；
+     * @param table cell or table cells , 支持单个单美元格dom对象 或者 单美元格dom对象数组
      * @return { align: 'left' || 'right' || 'center', valign: 'top' || 'middle' || 'bottom' } 或者 null
      */
     UETable.getTableCellAlignState = function ( cells ) {
@@ -17950,7 +17950,7 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取当前cell旁边的单元格，
+         * 获取当前cell旁边的单美元格，
          * @param cell
          * @param right
          */
@@ -17960,7 +17960,7 @@ UE.plugins['video'] = function (){
                     previewRowIndex, previewColIndex;
                 var len = this.selectedTds.length,
                     range = this.cellsRange;
-                //首行或者首列没有前置单元格
+                //首行或者首列没有前置单美元格
                 if ((!right && (!len ? !cellInfo.colIndex : !range.beginColIndex)) || (right && (!len ? (cellInfo.colIndex == (this.colsNum - 1)) : (range.endColIndex == this.colsNum - 1)))) return null;
 
                 previewRowIndex = !len ? cellInfo.rowIndex : range.beginRowIndex;
@@ -17990,7 +17990,7 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取视觉上的后置单元格
+         * 获取视觉上的后置单美元格
          * @param cell
          * @param bottom
          */
@@ -18000,7 +18000,7 @@ UE.plugins['video'] = function (){
                     nextRowIndex, nextColIndex;
                 var len = this.selectedTds.length && !ignoreRange,
                     range = this.cellsRange;
-                //末行或者末列没有后置单元格
+                //末行或者末列没有后置单美元格
                 if ((!bottom && (cellInfo.rowIndex == 0)) || (bottom && (!len ? (cellInfo.rowIndex + cellInfo.rowSpan > this.rowsNum - 1) : (range.endRowIndex == this.rowsNum - 1)))) return null;
 
                 nextRowIndex = !bottom ? ( !len ? cellInfo.rowIndex - 1 : range.beginRowIndex - 1)
@@ -18012,7 +18012,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 获取相同结束位置的单元格，xOrY指代了是获取x轴相同还是y轴相同
+         * 获取相同结束位置的单美元格，xOrY指代了是获取x轴相同还是y轴相同
          */
         getSameEndPosCells:function (cell, xOrY) {
             try {
@@ -18027,8 +18027,8 @@ UE.plugins['video'] = function (){
                         //对应行的td已经被上面行rowSpan了
                         if (tmpEnd > end && flag) break;
                         if (cell == tmpCell || end == tmpEnd) {
-                            //只获取单一的单元格
-                            //todo 仅获取单一单元格在特定情况下会造成returns为空，从而影响后续的拖拽实现，修正这个。需考虑性能
+                            //只获取单一的单美元格
+                            //todo 仅获取单一单美元格在特定情况下会造成returns为空，从而影响后续的拖拽实现，修正这个。需考虑性能
                             if (tmpCell[flag ? "colSpan" : "rowSpan"] == 1) {
                                 returns.push(tmpCell);
                             }
@@ -18046,7 +18046,7 @@ UE.plugins['video'] = function (){
         },
         cloneCell:UETable.cloneCell,
         /**
-         * 获取跟当前单元格的右边竖线为左边的所有未合并单元格
+         * 获取跟当前单美元格的右边竖线为左边的所有未合并单美元格
          */
         getSameStartPosXCells:function (cell) {
             try {
@@ -18098,7 +18098,7 @@ UE.plugins['video'] = function (){
                     var colIndex = cellIndex,
                         rowSpan = cell.rowSpan || 1,
                         colSpan = cell.colSpan || 1;
-                    //当已经被上一行rowSpan或者被前一列colSpan了，则跳到下一个单元格进行
+                    //当已经被上一行rowSpan或者被前一列colSpan了，则跳到下一个单美元格进行
                     while (this.indexTable[rowIndex][colIndex]) colIndex++;
                     for (var j = 0; j < rowSpan; j++) {
                         for (var k = 0; k < colSpan; k++) {
@@ -18164,7 +18164,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 获取单元格的索引信息
+         * 获取单美元格的索引信息
          */
         getCellInfo:function (cell) {
             if (!cell) return;
@@ -18180,13 +18180,13 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 根据行列号获取单元格
+         * 根据行列号获取单美元格
          */
         getCell:function (rowIndex, cellIndex) {
             return rowIndex < this.rowsNum && this.table.rows[rowIndex].cells[cellIndex] || null;
         },
         /**
-         * 删除单元格
+         * 删除单美元格
          */
         deleteCell:function (cell, rowIndex) {
             rowIndex = typeof rowIndex == 'number' ? rowIndex : cell.parentNode.rowIndex;
@@ -18194,7 +18194,7 @@ UE.plugins['video'] = function (){
             row.deleteCell(cell.cellIndex);
         },
         /**
-         * 根据始末两个单元格获取被框选的所有单元格范围
+         * 根据始末两个单美元格获取被框选的所有单美元格范围
          */
         getCellsRange:function (cellA, cellB) {
             function checkRange(beginRowIndex, beginColIndex, endRowIndex, endColIndex) {
@@ -18243,7 +18243,7 @@ UE.plugins['video'] = function (){
                         }
                     }
                 }
-                //递归调用直至所有完成所有框选单元格的扩展
+                //递归调用直至所有完成所有框选单美元格的扩展
                 if (tmpBeginRowIndex != beginRowIndex || tmpBeginColIndex != beginColIndex || tmpEndRowIndex != endRowIndex || tmpEndColIndex != endColIndex) {
                     return checkRange(tmpBeginRowIndex, tmpBeginColIndex, tmpEndRowIndex, tmpEndColIndex);
                 } else {
@@ -18281,7 +18281,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 依据cellsRange获取对应的单元格集合
+         * 依据cellsRange获取对应的单美元格集合
          */
         getCells:function (range) {
             //每次获取cells之前必须先清除上次的选择，否则会对后续获取操作造成影响
@@ -18309,7 +18309,7 @@ UE.plugins['video'] = function (){
             return returnTds;
         },
         /**
-         * 清理已经选中的单元格
+         * 清理已经选中的单美元格
          */
         clearSelected:function () {
             UETable.removeSelectedClass(this.selectedTds);
@@ -18317,7 +18317,7 @@ UE.plugins['video'] = function (){
             this.cellsRange = {};
         },
         /**
-         * 根据range设置已经选中的单元格
+         * 根据range设置已经选中的单美元格
          */
         setSelected:function (range) {
             var cells = this.getCells(range);
@@ -18338,7 +18338,7 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取视觉上的前置单元格，默认是左边，top传入时
+         * 获取视觉上的前置单美元格，默认是左边，top传入时
          * @param cell
          * @param top
          */
@@ -18348,7 +18348,7 @@ UE.plugins['video'] = function (){
                     nextRowIndex, nextColIndex;
                 var len = this.selectedTds.length && !ignoreRange,
                     range = this.cellsRange;
-                //末行或者末列没有后置单元格
+                //末行或者末列没有后置单美元格
                 if ((!bottom && (cellInfo.rowIndex == 0)) || (bottom && (!len ? (cellInfo.rowIndex + cellInfo.rowSpan > this.rowsNum - 1) : (range.endRowIndex == this.rowsNum - 1)))) return null;
 
                 nextRowIndex = !bottom ? ( !len ? cellInfo.rowIndex - 1 : range.beginRowIndex - 1)
@@ -18365,7 +18365,7 @@ UE.plugins['video'] = function (){
                     previewRowIndex, previewColIndex;
                 var len = this.selectedTds.length,
                     range = this.cellsRange;
-                //首行或者首列没有前置单元格
+                //首行或者首列没有前置单美元格
                 if ((!top && (!len ? !cellInfo.colIndex : !range.beginColIndex)) || (top && (!len ? (cellInfo.rowIndex > (this.colsNum - 1)) : (range.endColIndex == this.colsNum - 1)))) return null;
 
                 previewRowIndex = !top ? ( !len ? cellInfo.rowIndex : range.beginRowIndex )
@@ -18378,7 +18378,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 移动单元格中的内容
+         * 移动单美元格中的内容
          */
         moveContent:function (cellTo, cellFrom) {
             if (UETable.isEmptyBlock(cellFrom)) return;
@@ -18395,7 +18395,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 向右合并单元格
+         * 向右合并单美元格
          */
         mergeRight:function (cell) {
             var cellInfo = this.getCellInfo(cell),
@@ -18404,7 +18404,7 @@ UE.plugins['video'] = function (){
                 rightCell = this.getCell(rightCellInfo.rowIndex, rightCellInfo.cellIndex);
             //合并
             cell.colSpan = cellInfo.colSpan + rightCellInfo.colSpan;
-            //被合并的单元格不应存在宽度属性
+            //被合并的单美元格不应存在宽度属性
             cell.removeAttribute("width");
             //移动内容
             this.moveContent(cell, rightCell);
@@ -18413,7 +18413,7 @@ UE.plugins['video'] = function (){
             this.update();
         },
         /**
-         * 向下合并单元格
+         * 向下合并单美元格
          */
         mergeDown:function (cell) {
             var cellInfo = this.getCellInfo(cell),
@@ -18476,7 +18476,7 @@ UE.plugins['video'] = function (){
             this.update();
         },
         /**
-         * 插入一行单元格
+         * 插入一行单美元格
          */
         insertRow:function (rowIndex, sourceCell) {
             var numCols = this.colsNum,
@@ -18504,7 +18504,7 @@ UE.plugins['video'] = function (){
                 }
             }
 
-            //首行直接插入,无需考虑部分单元格被rowspan的情况
+            //首行直接插入,无需考虑部分单美元格被rowspan的情况
             if (rowIndex == 0 || rowIndex == this.rowsNum) {
                 for (var colIndex = 0; colIndex < numCols; colIndex++) {
                     cell = this.cloneCell(sourceCell, true);
@@ -18518,7 +18518,7 @@ UE.plugins['video'] = function (){
                     cellIndex = 0;
                 for (colIndex = 0; colIndex < numCols; colIndex++) {
                     var cellInfo = infoRow[colIndex];
-                    //如果存在某个单元格的rowspan穿过待插入行的位置，则修改该单元格的rowspan即可，无需插入单元格
+                    //如果存在某个单美元格的rowspan穿过待插入行的位置，则修改该单美元格的rowspan即可，无需插入单美元格
                     if (cellInfo.rowIndex < rowIndex) {
                         cell = this.getCell(cellInfo.rowIndex, cellInfo.cellIndex);
                         cell.rowSpan = cellInfo.rowSpan + 1;
@@ -18535,7 +18535,7 @@ UE.plugins['video'] = function (){
             return row;
         },
         /**
-         * 删除一行单元格
+         * 删除一行单美元格
          * @param rowIndex
          */
         deleteRow:function (rowIndex) {
@@ -18715,7 +18715,7 @@ UE.plugins['video'] = function (){
             // 修改Cell的rowSpan
             cell.rowSpan = 1;
             results.push(cell);
-            // 补齐单元格
+            // 补齐单美元格
             for (var i = rowIndex, endRow = rowIndex + cellInfo.rowSpan; i < endRow; i++) {
                 if (i == rowIndex)continue;
                 var tableRow = this.table.rows[i],
@@ -18754,7 +18754,7 @@ UE.plugins['video'] = function (){
             cell.colSpan = 1;
             cell.setAttribute("width", backWidth);
             results.push(cell);
-            // 补齐单元格
+            // 补齐单美元格
             for (var j = colIndex, endCol = colIndex + cellInfo.colSpan; j < endCol; j++) {
                 if (j == colIndex)continue;
                 var tableRow = this.table.rows[rowIndex],
@@ -19578,7 +19578,7 @@ UE.plugins['video'] = function (){
         }
     };
 
-    //单元格对齐方式
+    //单美元格对齐方式
     UE.commands['cellalignment'] = {
         queryCommandState: function () {
             return getTableItemsByRange(this).table ? 0 : -1
@@ -19604,7 +19604,7 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 查询当前点击的单元格的对齐状态， 如果当前已经选择了多个单元格， 则会返回所有单元格经过统一协调过后的状态
+         * 查询当前点击的单美元格的对齐状态， 如果当前已经选择了多个单美元格， 则会返回所有单美元格经过统一协调过后的状态
          * @see UE.UETable.getTableCellAlignState
          */
         queryCommandValue: function (cmd) {
@@ -19621,7 +19621,7 @@ UE.plugins['video'] = function (){
 
             } else {
 
-                //获取同时选中的其他单元格
+                //获取同时选中的其他单美元格
                 var cells = UE.UETable.getUETable(activeMenuCell).selectedTds;
 
                 !cells.length && ( cells = activeMenuCell );
@@ -19670,7 +19670,7 @@ UE.plugins['video'] = function (){
             }
         }
     };
-    //单元格属性
+    //单美元格属性
     UE.commands['edittd'] = {
         queryCommandState: function () {
             return getTableItemsByRange(this).table ? 0 : -1
@@ -19807,10 +19807,10 @@ UE.plugins['table'] = function () {
         tableDragTimer = null,
         //双击计时器
         tableResizeTimer = null,
-        //单元格最小宽度
+        //单美元格最小宽度
         cellMinWidth = 5,
         isInResizeBuffer = false,
-        //单元格边框大小
+        //单美元格边框大小
         cellBorderWidth = 5,
         //鼠标偏移距离
         offsetOfTableCell = 10,
@@ -19858,7 +19858,7 @@ UE.plugins['table'] = function () {
     var startTd = null, //鼠标按下时的锚点td
         currentTd = null, //当前鼠标经过时的td
         onDrag = "", //指示当前拖动状态，其值可为"","h","v" ,分别表示未拖动状态，横向拖动状态，纵向拖动状态，用于鼠标移动过程中的判断
-        onBorder = false, //检测鼠标按下时是否处在单元格边缘位置
+        onBorder = false, //检测鼠标按下时是否处在单美元格边缘位置
         dragButton = null,
         dragOver = false,
         dragLine = null, //模拟的拖动线
@@ -20581,7 +20581,7 @@ UE.plugins['table'] = function () {
                 }
             }
 
-            //修改单元格大小时的鼠标移动
+            //修改单美元格大小时的鼠标移动
             if (onDrag && dragTd) {
                 singleClickState = 0;
                 me.body.style.webkitUserSelect = 'none';
@@ -20838,7 +20838,7 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取鼠标与当前单元格的相对位置
+     * 获取鼠标与当前单美元格的相对位置
      * @param ele
      * @param mousePos
      */
@@ -21003,7 +21003,7 @@ UE.plugins['table'] = function () {
 
         removeSelectedClass(domUtils.getElementsByTagName(me.body, "td th"));
         //trace:3113
-        //选中单元格，点击table外部，不会清掉table上挂的ueTable,会引起getUETableBySelected方法返回值
+        //选中单美元格，点击table外部，不会清掉table上挂的ueTable,会引起getUETableBySelected方法返回值
         utils.each(me.document.getElementsByTagName('table'), function (t) {
             t.ueTable = null;
         });
@@ -21272,7 +21272,7 @@ UE.plugins['table'] = function () {
         var ut = getUETable(cell);
         if (ut) {
 
-            //根据当前移动的边框获取相关的单元格
+            //根据当前移动的边框获取相关的单美元格
             var table = ut.table,
                 cells = getCellsByMoveBorder( cell, table );
 
@@ -21323,8 +21323,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取调整单元格大小的相关单元格
-     * @isContainMergeCell 返回的结果中是否包含发生合并后的单元格
+     * 获取调整单美元格大小的相关单美元格
+     * @isContainMergeCell 返回的结果中是否包含发生合并后的单美元格
      */
     function getCellsByMoveBorder( cell, table, isContainMergeCell ) {
 
@@ -21336,14 +21336,14 @@ UE.plugins['table'] = function () {
             return null;
         }
 
-        //获取到该单元格所在行的序列号
+        //获取到该单美元格所在行的序列号
         var index = domUtils.getNodeIndex( cell ),
             temp = cell,
             rows = table.rows,
             colIndex = 0;
 
         while( temp ) {
-            //获取到当前单元格在未发生单元格合并时的序列
+            //获取到当前单美元格在未发生单美元格合并时的序列
             if( temp.nodeType === 1 ) {
                 colIndex += (temp.colSpan || 1);
             }
@@ -21352,7 +21352,7 @@ UE.plugins['table'] = function () {
 
         temp = null;
 
-        //记录想关的单元格
+        //记录想关的单美元格
         var borderCells = [];
 
         utils.each(rows, function( tabRow ){
@@ -21395,7 +21395,7 @@ UE.plugins['table'] = function () {
 
 
     /**
-     * 通过给定的单元格集合获取最小的单元格width
+     * 通过给定的单美元格集合获取最小的单美元格width
      */
     function getMinWidthByTableCells( cells ) {
 
@@ -21413,7 +21413,7 @@ UE.plugins['table'] = function () {
 
     function correctChangeValue( changeValue, relatedCell, cells ) {
 
-        //为单元格的paading预留空间
+        //为单美元格的paading预留空间
         changeValue -= getTabcellSpace();
 
         if( changeValue < 0 ) {
@@ -21427,12 +21427,12 @@ UE.plugins['table'] = function () {
 
         changeValue = Math.abs(changeValue);
 
-        //只关心非最后一个单元格就可以
+        //只关心非最后一个单美元格就可以
         utils.each( cells, function( cellGroup ){
 
             var curCell = cellGroup[direction];
 
-            //为单元格保留最小空间
+            //为单美元格保留最小空间
             if( curCell ) {
                 changeValue = Math.min( changeValue, getTableCellWidth( curCell )-cellMinWidth );
             }
@@ -21474,7 +21474,7 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取单元格所在表格的最末单元格的偏移量
+     * 获取单美元格所在表格的最末单美元格的偏移量
      */
     function getTableCellOffset( cell ) {
 
@@ -21486,7 +21486,7 @@ UE.plugins['table'] = function () {
 
             if( prev ) {
 
-                //最后一个单元格和前一个单元格的width diff结果 如果恰好为一个border width， 则条件成立
+                //最后一个单美元格和前一个单美元格的width diff结果 如果恰好为一个border width， 则条件成立
                 tab.offsetVal = cell.offsetWidth - prev.offsetWidth === UT.borderWidth ? UT.borderWidth : 0;
 
             } else {
@@ -21623,7 +21623,7 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取当前拖动的单元格
+     * 获取当前拖动的单美元格
      */
     function getTargetTd(editor, evt) {
 
@@ -21777,7 +21777,7 @@ UE.plugins['tablesort'] = function () {
                 '   background-image:url(' + me.options.themePath + me.options.theme + '/images/sortable.png);}',
             me.document);
 
-        //做单元格合并操作时,清除可排序标识
+        //做单美元格合并操作时,清除可排序标识
         me.addListener("afterexeccommand", function (type, cmd) {
             if( cmd == 'mergeright' || cmd == 'mergedown' || cmd == 'mergecells') {
                 this.execCommand('disablesort');
@@ -23050,7 +23050,7 @@ UE.plugins['customstyle'] = function() {
             return  parent ? parent.getAttribute('label') : '';
         }
     };
-    //当去掉customstyle是，如果是块元素，用p代替
+    //当去掉customstyle是，如果是块美元素，用p代替
     me.addListener('keyup', function(type, evt) {
         var keyCode = evt.keyCode || evt.which;
 
@@ -24042,7 +24042,7 @@ UE.plugin.register('charts', function (){
 
         for ( var i = 1, row; row = table.rows[ i ]; i++ ) {
 
-            //每行单元格数不匹配， 返回false
+            //每行单美元格数不匹配， 返回false
             if ( row.cells.length != cellCount ) {
                 return false;
             }
@@ -25537,7 +25537,7 @@ UE.ui = baidu.editor.ui = {};
     
     baidu.editor.ui.Stateful = {
         alwalysHoverable: false,
-        target:null,//目标元素和this指向dom不一样
+        target:null,//目标美元素和this指向dom不一样
         Stateful_init: function (){
             this._Stateful_dGetHtmlTpl = this.getHtmlTpl;
             this.getHtmlTpl = this.Stateful_getHtmlTpl;
@@ -26115,7 +26115,7 @@ UE.ui = baidu.editor.ui = {};
         UIBase = baidu.editor.ui.UIBase;
 
     /**
-     * 该参数将新增一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单元格的初始
+     * 该参数将新增一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单美元格的初始
      * 对齐状态为： 竖直居上，水平居中; 其中 align的取值为：'center', 'left', 'right'; valign的取值为: 'top', 'middle', 'bottom'
      * @update 2013/4/2 hancong03@baidu.com
      */
@@ -26459,7 +26459,7 @@ UE.ui = baidu.editor.ui = {};
             if (options.className && options.className.indexOf("aligntd") != -1) {
                 var me = this;
 
-                //获取单元格对齐初始状态
+                //获取单美元格对齐初始状态
                 this.subMenu.selected = this.editor.queryCommandValue( 'cellalignment' );
 
                 this.subMenu = new Popup({

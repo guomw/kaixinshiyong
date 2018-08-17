@@ -325,7 +325,7 @@ $("#bonus_price").formValidator({
 	fun:function(val,elem){
 		var goods_bonus =  $("#bonus").val();
 		if(parseInt(val) < parseInt(goods_bonus)){
-			return '赠送用户红包的最低'+goods_bonus+'元起';
+			return '赠送用户红包的最低'+goods_bonus+'美元起';
 		}else{
 			return true;
 		}

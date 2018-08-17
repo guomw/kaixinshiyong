@@ -77,7 +77,7 @@ hljs.initHighlightingOnLoad();
           <td>String</td>
           <td rowspan="2">'loading..'</td>
           <td rowspan="2">消息内容。<br />
-            1、如果传入的是HTMLElement类型，如果是隐藏元素会给其设置display:block以显示该元素，其他属性与绑定的事件都会完整保留，对话框关闭后此元素又将恢复原来的display属性，并且重新插入原文档所在位置<br />
+            1、如果传入的是HTMLElement类型，如果是隐藏美元素会给其设置display:block以显示该美元素，其他属性与绑定的事件都会完整保留，对话框关闭后此美元素又将恢复原来的display属性，并且重新插入原文档所在位置<br />
             2、如果没有设定content的值则会有loading的动画</td>
         </tr>
         <tr>
@@ -169,8 +169,8 @@ hljs.initHighlightingOnLoad();
           <th rowspan="2"><a href="#follow">follow</a></th>
           <td>HTMLElement</td>
           <td rowspan="2">null</td>
-          <td rowspan="2">让对话框依附在指定元素附近。<br />
-            可传入元素ID名称，注意ID名称需要以“#”号作为前缀</td>
+          <td rowspan="2">让对话框依附在指定美元素附近。<br />
+            可传入美元素ID名称，注意ID名称需要以“#”号作为前缀</td>
         </tr>
         <tr class="odd">
           <td>String</td>
@@ -327,11 +327,11 @@ hljs.initHighlightingOnLoad();
         </tr>
         <tr>
           <th>title(value)</th>
-          <td colspan="3">写入标题。无参数则返回标题容器元素</td>
+          <td colspan="3">写入标题。无参数则返回标题容器美元素</td>
         </tr>
         <tr>
           <th>content(value)</th>
-          <td colspan="3">向消息容器中写入内容。参数支持字符串、DOM对象，无参数则返回内容容器元素</td>
+          <td colspan="3">向消息容器中写入内容。参数支持字符串、DOM对象，无参数则返回内容容器美元素</td>
         </tr>
         <tr class="odd">
           <th>button(arguments)</th>
@@ -353,7 +353,7 @@ hljs.initHighlightingOnLoad();
         </tr>
         <tr>
           <th>follow(element)</th>
-          <td colspan="3">让对话框吸附到指定元素附近</td>
+          <td colspan="3">让对话框吸附到指定美元素附近</td>
         </tr>
         <tr class="odd">
           <th>position(left, top)</th>
@@ -389,7 +389,7 @@ hljs.initHighlightingOnLoad();
       <button class="runCode" name="demoCode_content">运行&raquo;</button>
     </p>
     <h4>2. 传入HTMLElement</h4>
-    <p>备注：1、元素不是复制而是完整移动到对话框中，所以原有的事件与属性都将会保留 2、如果隐藏元素被传入到对话框，会设置display:block属性显示该元素 3、对话框关闭的时候元素将恢复到原来在页面的位置，style display属性也将恢复</p>
+    <p>备注：1、美元素不是复制而是完整移动到对话框中，所以原有的事件与属性都将会保留 2、如果隐藏美元素被传入到对话框，会设置display:block属性显示该美元素 3、对话框关闭的时候美元素将恢复到原来在页面的位置，style display属性也将恢复</p>
     <div id="demoCode_content_DOM">
       <pre><code class="javascript">art.dialog({
     content: document.getElementById('demoCode_content_DOM'),
@@ -522,12 +522,12 @@ art.dialog({id: 'testID2'}).title('3秒后关闭').time(3);
     <p class="buttons">
       <button class="runCode" name="demoCode_lock">运行&raquo;</button>
     </p>
-    <h3 id="follow">跟随元素 [follw]</h3>
+    <h3 id="follow">跟随美元素 [follw]</h3>
     <h4>1、标准形式</h4>
     <div id="demoCode_follow">
       <pre><code class="javascript">art.dialog({
 	follow: document.getElementById('followTestBtn'),
-	content: '让对话框跟着某个元素，一个元素同时只能出现一个对话框'
+	content: '让对话框跟着某个美元素，一个美元素同时只能出现一个对话框'
 });</code></pre>
     </div>
     <p class="buttons">
@@ -536,10 +536,10 @@ art.dialog({id: 'testID2'}).title('3秒后关闭').time(3);
     <h4>2、使用简写形式 （已经绑定onclick事件，注意此返回值不再是对话框扩展方法）</h4>
     <div id="demoCode_follow_fn">
       <pre><code class="javascript">art('#demoCode_follow_a').dialog({
-	content: '让对话框跟着某个元素，一个元素同时只能出现一个对话框'
+	content: '让对话框跟着某个美元素，一个美元素同时只能出现一个对话框'
 });</code></pre>
     </div>
-    <p class="buttons"><a href="javascript:alert('点击运行后再来点击我！');void(0)" id="demoCode_follow_a" style="margin-right:10px; text-decoration:underline">元素触发</a>
+    <p class="buttons"><a href="javascript:alert('点击运行后再来点击我！');void(0)" id="demoCode_follow_a" style="margin-right:10px; text-decoration:underline">美元素触发</a>
       <button class="runCode" id="followTestBtn" title="id=followTestBtn" name="demoCode_follow_fn">运行&raquo;</button>
     </p>
     <h3>自定义坐标 [left &amp; top]<span id="left"></span><span id="top"></span></h3>

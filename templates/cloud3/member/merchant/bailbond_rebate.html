@@ -33,14 +33,14 @@
       <div  class="title"> 存入活动担保金 </div>
       <div class="s_tryout2">
         <div class="part1"><img src="{THEME_STYLE_PATH}style/images/a4.jpg" alt=""/></div>
-        <div class="part2"> <span class="a1">商品名称</span><span class="a2">商品下单价(元)</span><span class="a3">数量</span><span class="a4">平台损耗费（元）</span><span class="a5">合计</span> </div>
+        <div class="part2"> <span class="a1">商品名称</span><span class="a2">商品下单价(美元)</span><span class="a3">数量</span><span class="a4">平台损耗费（美元）</span><span class="a5">合计</span> </div>
         <!--part2-->
-        <div class="part3"> <span class="a1"><img src="{$thumb}" alt="" />{str_cut($title,55)}</span><span class="a2">￥{$goods_price} /{$goods_discount}折</span><span class="a3">{$goods_number}</span><span class="a4">￥<?php echo sprintf("%.2f",$goods_price*$service/100);?></span><span class="a5" id="totalmoney"></span> </div>
+        <div class="part3"> <span class="a1"><img src="{$thumb}" alt="" />{str_cut($title,55)}</span><span class="a2">${$goods_price} /{$goods_discount}折</span><span class="a3">{$goods_number}</span><span class="a4">$<?php echo sprintf("%.2f",$goods_price*$service/100);?></span><span class="a5" id="totalmoney"></span> </div>
 
       <div class="part5">
          {if $service_type ==2}
          保证金计算方式 =( (下单价 ) -(折扣部分 ) + （单份平台服务费)) * 数量<BR/>
-         示例：某商品 下单价100元 折扣4折 数量10件 平台服务费为5%  那么总缴纳保证金为 (100-(100/10*4) +(100 * 0.05) ) * 10 = 650 <BR/>
+         示例：某商品 下单价100美元 折扣4折 数量10件 平台服务费为5%  那么总缴纳保证金为 (100-(100/10*4) +(100 * 0.05) ) * 10 = 650 <BR/>
          <span>当前保证金缴纳方式为(返还部分缴纳) 只需缴纳返还给会员部分即可。</span>
          {/if}
  						平台损耗费=下单价×<?php echo $service;?>%

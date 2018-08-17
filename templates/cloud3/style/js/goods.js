@@ -264,7 +264,7 @@ var page_detail = (function() {
 										 + 			'</tr>'
 										 + 			'<tr>'
 										 + 				'<td>下单价：</td>'
-										 + 				'<td style="font-weight:bold;color:#000;">￥'+ goods.goods_price +'</td>'
+										 + 				'<td style="font-weight:bold;color:#000;">$'+ goods.goods_price +'</td>'
 										 + 			'</tr>'
 										 + 			'<tr>'
 										 + 				'<td>订单编号：</td>'
@@ -352,11 +352,11 @@ var page_detail = (function() {
 			// 下单方式
 			switch(goods.type) {
 				case 'general': //普通下单
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'qrcode': //二维码下单
 				  	buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=82" target="_blank">二维码下单帮助</a></p><font class="font f_bg_yes font_2">抢购成功，请扫描以下二维码</font>';
-				  	buy_succes += '<img src="'+goods.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em> 元，请在下单页面核对下单信息是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您的划算金额。</li>';
+				  	buy_succes += '<img src="'+goods.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em> 美元，请在下单页面核对下单信息是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您的划算金额。</li>';
 				  	buy_succes += '<li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'search': //搜索下单
@@ -369,12 +369,12 @@ var page_detail = (function() {
 						buy_succes += '<li>3、搜索提示：<span style="color:red;">'+ goods.goods_rule.keyword2 +'</span></li>';
 					}
 					buy_succes += '</ul><ul class="hint_text_2"><p>请注意以下事项：</p>';
-					buy_succes += '<li>1、下单价：<em>'+goods.goods_price+'</em> 元，请在下单页面核对下单价是否一致。</li>';
-					buy_succes += '<li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您的划算金额。</li>';
+					buy_succes += '<li>1、下单价：<em>'+goods.goods_price+'</em> 美元，请在下单页面核对下单价是否一致。</li>';
+					buy_succes += '<li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您的划算金额。</li>';
 					buy_succes += '<li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'ask' : //问答下单
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+goods.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(goods.goods_price-goods.goods_price*goods.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ goods.act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 			}
 		},

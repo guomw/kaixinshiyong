@@ -83,7 +83,7 @@ $(function(){
 <tr>
 <td>基本工资</td>
 <td>
-<input type="text" name="info[fee_money]" value="" class="input-text"></input>元/月
+<input type="text" name="info[fee_money]" value="" class="input-text"></input>美元/月
 </td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ $(function(){
 <tr>
 <td>钻石商家每次升级提成</td>
 <td>
-<input type="text" name="info[config][service_zuan_fee]" value="" size="10">/元</input>
+<input type="text" name="info[config][service_zuan_fee]" value="" size="10">/美元</input>
 （该招商专员下的商家 每次充值/续费 钻石vip会员 招商专员的一次性提成。）
 </td>
 </tr>
@@ -112,7 +112,7 @@ $(function(){
 <tr>
 <td>皇冠商家每次升级提成</td>
 <td>
-<input type="text" name="info[config][service_huang_fee]" value="" size="10">/元</input>
+<input type="text" name="info[config][service_huang_fee]" value="" size="10">/美元</input>
 （该招商专员下的商家 每次充值/续费 皇冠vip会员 招商专员的一次性提成。）
 </td>
 </tr>

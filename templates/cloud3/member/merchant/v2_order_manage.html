@@ -94,11 +94,11 @@ var order_data = {
 						<h3 class="title s_bor_t">订单管理-{$pro['title']}</h3>
 						<ul class="s_s_list s_bor_t">
 							<li>试用品名称：<a href="{$pro['url']}" target="_blank"><span>{$pro['title']}</span></a></li>
-							<li>下单价：<span>￥<b>{$pro['goods_price']}</b></span>
+							<li>下单价：<span>$<b>{$pro['goods_price']}</b></span>
 								{if $mod == 'trial' && $pro['goods_bonus'] > 0}
-								<strong class="cr" style="margin-left:6px;">赠送红包<b>{$pro[goods_bonus]}</b>元</strong>
+								<strong class="cr" style="margin-left:6px;">赠送红包<b>{$pro[goods_bonus]}</b>美元</strong>
 								{elseif $mod == 'commission' && $pro['bonus_price']}
-								<strong class="cr" style="margin-left:6px;">试客佣金<b>{$pro[bonus_price]}</b>元</strong>
+								<strong class="cr" style="margin-left:6px;">试客佣金<b>{$pro[bonus_price]}</b>美元</strong>
 								{/if}
 
 							</li>
@@ -919,11 +919,11 @@ var order_data = {
 											<li>成功返还会员</li>
 											{if $r[act_mod] == 'trial' }
 
-											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['goods_bonus']}</b>元</span>(含红包)</li>
+											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['goods_bonus']}</b>美元</span>(含红包)</li>
 											{elseif $r['act_mod'] == 'commission'}
-											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['bonus_price']}</b>元</span>(含佣金)</li>
+											<li class="ch"><span class="cs"><b>{php echo $pro['goods_price'] + $pro['bonus_price']}</b>美元</span>(含佣金)</li>
 											{elseif $r['act_mod'] == 'rebate'}
-											<li class="ch"><span class="cs"><b>{php echo sprintf('%.2f',$pro['goods_price']-$pro['goods_price'] * $pro['goods_discount']/10)}</b>元</span></li>
+											<li class="ch"><span class="cs"><b>{php echo sprintf('%.2f',$pro['goods_price']-$pro['goods_price'] * $pro['goods_discount']/10)}</b>美元</span></li>
 											{/if}
 
 										</ul>

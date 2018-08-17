@@ -183,11 +183,11 @@ var order = (function() {
 			// 下单方式			
 			switch(_order.type) {
 				case 'general': //普通下单
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'qrcode': //二维码下单
 				  	buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=82" target="_blank">二维码下单帮助</a></p><font class="font f_bg_yes font_2">抢购成功，请扫描以下二维码</font>';
-				  	buy_succes += '<img src="'+_order.pro.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em> 元，请在下单页面核对下单信息是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您的划算金额。</li>';
+				  	buy_succes += '<img src="'+_order.pro.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em> 美元，请在下单页面核对下单信息是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您的划算金额。</li>';
 				  	buy_succes += '<li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'search': //搜索下单
@@ -200,12 +200,12 @@ var order = (function() {
 						buy_succes += '<li>3、搜索提示：<span style="color:red;">'+ _order.pro.goods_rule.keyword2 +'</span></li>';
 					}
 					buy_succes += '</ul><ul class="hint_text_2"><p>请注意以下事项：</p>';
-					buy_succes += '<li>1、下单价：<em>'+_order.goods_price+'</em> 元，请在下单页面核对下单价是否一致。</li>';
-					buy_succes += '<li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您的划算金额。</li>';
+					buy_succes += '<li>1、下单价：<em>'+_order.goods_price+'</em> 美元，请在下单页面核对下单价是否一致。</li>';
+					buy_succes += '<li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您的划算金额。</li>';
 					buy_succes += '<li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'ask' : //问答下单
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 			}
 			if (_order.type == 'search') {
@@ -237,7 +237,7 @@ var order = (function() {
 								 + 			'</tr>'
 								 + 			'<tr>'
 								 + 				'<td>下单价：</td>'
-								 + 				'<td style="font-weight:bold;color:#000;">￥'+ _order.pro.goods_price +'</td>'
+								 + 				'<td style="font-weight:bold;color:#000;">$'+ _order.pro.goods_price +'</td>'
 								 + 			'</tr>'
 								 + 			'<tr>'
 								 + 				'<td>订单编号：</td>'
@@ -324,7 +324,7 @@ var order = (function() {
 			// 下单方式
 			switch(_order.type) {
 				case 'general': //普通下单
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">恭喜您，已获得试用资格，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 元。</li>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=79" target="_blank">普通下单常见问题</a></p><font class="font f_bg_yes font_2">恭喜您，已获得试用资格，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 美元。</li>';
 					if (_order.goods_tryproduct > 0 ) {
 					buy_succes += '<li>3、最终试用商品：<em>'+_order.goods_tryproduct+'</em></li>';
 					};
@@ -332,7 +332,7 @@ var order = (function() {
 					break;
 				case 'qrcode': //二维码下单
 				  	buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=82" target="_blank">二维码下单帮助</a></p><font class="font f_bg_yes font_2">恭喜您，已获得试用资格！请扫描以下二维码</font>';
-				  	buy_succes += '<img src="'+_order.pro.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em> 元，请在下单页面核对下单信息是否一致。</li><li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 元。</li>';
+				  	buy_succes += '<img src="'+_order.pro.goods_rule.qrcode+'" alt="" class="QR_code" /><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em> 美元，请在下单页面核对下单信息是否一致。</li><li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 美元。</li>';
 				  	if (_order.goods_tryproduct > 0 ) {
 					buy_succes += '<li>3、最终试用商品：<em>'+_order.goods_tryproduct+'</em></li>';
 					};
@@ -351,13 +351,13 @@ var order = (function() {
 					buy_succes += '<li>3、最终试用商品：<em>'+_order.goods_tryproduct+'</em></li></ul>';
 					};
 					buy_succes += '<ul class="hint_text_2"><p>请注意以下事项：</p>';
-					buy_succes += '<li>1、下单价：<em>'+_order.goods_price+'</em> 元，请在下单页面核对下单价是否一致。</li>';
-					buy_succes += '<li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 元。</li>';
+					buy_succes += '<li>1、下单价：<em>'+_order.goods_price+'</em> 美元，请在下单页面核对下单价是否一致。</li>';
+					buy_succes += '<li>2、试用完成后将返还试用金：<em>'+_order.goods_price+'</em> 美元。</li>';
 					buy_succes += '<li>注意：获得资格后<em>'+ act_config.buyer_write_order_time +'小时内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
 					break;
 				case 'ask' : //问答下单
-					// buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
-					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">恭喜您，已获得试用资格，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+_order.goods_price+'</em> 元，交易完成后，将返还给您金额。</li>';
+					// buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">抢购成功，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+(_order.pro.goods_price-_order.pro.goods_price*_order.pro.goods_discount/10).toFixed(2)+'</em> 美元，交易完成后，将返还给您金额。</li><li>注意：报名抢购后<em>'+ act_config.buyer_write_order_time+'分钟内</em>不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>';
+					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=81" target="_blank">答案下单常见问题</a></p><font class="font f_bg_yes font_2">恭喜您，已获得试用资格，请确认以下优惠哦！</font><ul class="hint_text_2"><p>请注意以下事项：</p><li>1、下单价：<em>'+_order.goods_price+'</em>，请在下单页面核对下单价是否一致。</li><li>2、返还划算金：<em>'+_order.goods_price+'</em> 美元，交易完成后，将返还给您金额。</li>';
 					if (_order.goods_tryproduct > 0 ) {
 					buy_succes += '<li>3、最终试用商品：<em>'+_order.goods_tryproduct+'</em></li>';
 					};
@@ -391,7 +391,7 @@ var order = (function() {
 								 + 			'</tr>'
 								 + 			'<tr>'
 								 + 				'<td>下单价：</td>'
-								 + 				'<td style="font-weight:bold;color:#000;">￥'+ _order.pro.goods_price +'</td>'
+								 + 				'<td style="font-weight:bold;color:#000;">$'+ _order.pro.goods_price +'</td>'
 								 + 			'</tr>'
 								 + 			'<tr>'
 								 + 				'<td>订单编号：</td>'
@@ -504,7 +504,7 @@ var order = (function() {
 						 + 			'</tr>'
 						 + 			'<tr>'
 						 + 				'<td>下单价：</td>'
-						 + 				'<td style="font-weight:bold;color:#000;">￥'+ order.price +'</td>'
+						 + 				'<td style="font-weight:bold;color:#000;">$'+ order.price +'</td>'
 						 + 			'</tr>'
 						 + 			'<tr>'
 						 + 				'<td>订单编号：</td>'
@@ -914,7 +914,7 @@ var order = (function() {
 						 + 			'</tr>'
 						 + 			'<tr>'
 						 + 				'<td>下单价：</td>'
-						 + 				'<td style="font-weight:bold;color:#000;">￥'+ order.price +'</td>'
+						 + 				'<td style="font-weight:bold;color:#000;">$'+ order.price +'</td>'
 						 + 			'</tr>'
 						 + 			'<tr>'
 						 + 				'<td>订单编号：</td>'

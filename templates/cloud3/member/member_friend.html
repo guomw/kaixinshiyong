@@ -19,7 +19,7 @@
 				<img src="{THEME_STYLE_PATH}/style/img/images/noup.jpg"/ class="noup">
 				<div class="renshu">
 					<p class="rsp1">累计已发放奖励金额</p>
-					<p class="rsp2">{$z_num} 元</p>
+					<p class="rsp2">{$z_num} 美元</p>
 				</div>
 				<div class="haoyou5">
 					  <span class="hyb1"><b >每</b></span>
@@ -39,7 +39,7 @@
 		<div class="main_boxz">
 			<div class="mainz">
 				<p class="makemoneyzzz">你还没有邀请好友! 第一名都赚了<span>	{loop $friend_list $k $f} {if $k == 0}{$f['num']}{/if}
-              {/loop}</span>元了!快行动吧！么么哒</p>
+              {/loop}</span>美元了!快行动吧！么么哒</p>
               
               {if $this->userid > 0}
 				<div class="link_sharing-boxz clearFix">
@@ -81,7 +81,7 @@
 					<div class="sharz">
 						<div class="sharz-topz">
 							<p class="stp1">选择<br/><span>B</span></p>
-							<p class="stp2">分享到社交平台 更多人看到，更快拿到<span>90</span>元哦！</p>
+							<p class="stp2">分享到社交平台 更多人看到，更快拿到<span>90</span>美元哦！</p>
 						</div>
 								<div class="sharz-bottomz" id="sharzbottomz" >
 									<div class="sharz-type clearFix" id="sharztype">
@@ -122,7 +122,7 @@
 						</div>
 					</div>
 					<div class="notopz">
-						<p class="nzp1">每邀请4位好友最高奖<span>90</span>元</p>
+						<p class="nzp1">每邀请4位好友最高奖<span>90</span>美元</p>
 						<p class="nzp2">邀请无上限</p>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 									<td class="tdz2"><?php echo date('Y-m-d',$v['regdate']);?> </td>
 									<td class="tdz3">{$v['order_count']}</td>
 									<td class="tdz4">{if $v[phone_status] == 1}<font color="green">{substr_replace(nickname($v[phone]),'***',5)}</font>{else}未认证{/if}</td>
-									<td class="tdz5">{$v['total_money']}元</td>
+									<td class="tdz5">{$v['total_money']}美元</td>
 									<td class="tdz5">{$v['total_point']} 积分</td>
 								</tr>
 								{/loop}
@@ -179,7 +179,7 @@
 								<tr>
 									<td class="rmtd1 {if $n >3}rmtdhui{/if}">{$n}</td>
 									<td class="rmtd2">{substr_replace($f[nickname],'***',6)}</td>
-									<td class="rmtd3">{$f[num]}元</td>
+									<td class="rmtd3">{$f[num]}美元</td>
 
 								</tr>
 								{/loop}
@@ -192,7 +192,7 @@
 				<div class="personinvitez">
 					<div class="personztitlez">
 						<p class="pp1">个人奖励机制</p>
-						<p class="pp2">*每邀请<span>1</span>位好友可获得<span> <b> {if $money1}{$money1}</b>元现金 {/if}{if $print1}  <b>{$print1}</b>积分{/if}</span>奖励  *</p>
+						<p class="pp2">*每邀请<span>1</span>位好友可获得<span> <b> {if $money1}{$money1}</b>美元现金 {/if}{if $print1}  <b>{$print1}</b>积分{/if}</span>奖励  *</p>
 					</div>
 					<div class="personztitlez-mainz">
 						<div class="pmainzleft ">
@@ -208,7 +208,7 @@
 						<div class="pmainzmiddle">
 							<div class="jiangli8">
 								<p>奖励</p>
-								<p class="bayuan"><span class="pspan1">￥</span><span><b>{$money1}</b></span></p>
+								<p class="bayuan"><span class="pspan1">$</span><span><b>{$money1}</b></span></p>
 							</div>
 						</div>
 						<div class="pmainzright">
@@ -218,16 +218,16 @@
 							</div>
 							<div class="pmaindiv">
 								<p class="pmp1 clearFix"><span id="" class="gpp1 gppm1">
-									奖励<b>{$setting[0]['cost']}</b>{if $setting[0]['type'] == "point"}积分{else}元{/if}   
+									奖励<b>{$setting[0]['cost']}</b>{if $setting[0]['type'] == "point"}积分{else}美元{/if}
 								</span>
 									<span id="" class="gppm2">
 									奖励即时到账，可无限邀请
 								</span>
 								</p>
 								<div class="gpp2div clearFix">
-									<p class="gpp1 gpp21">再奖<b>{$setting[1]['cost']}</b>{if $setting[1]['type'] == "point"}积分{else}元{/if}</p>
-									<p class="gpp1 gpp22">再奖{$setting[2]['cost']}</b>{if $setting[2]['type'] == "point"}积分{else}元{/if}</p>
-									<p class="gpp1 gpp22">再奖{$setting[3]['cost']}</b>{if $setting[2]['type'] == "point"}积分{else}元{/if}</p>
+									<p class="gpp1 gpp21">再奖<b>{$setting[1]['cost']}</b>{if $setting[1]['type'] == "point"}积分{else}美元{/if}</p>
+									<p class="gpp1 gpp22">再奖{$setting[2]['cost']}</b>{if $setting[2]['type'] == "point"}积分{else}美元{/if}</p>
+									<p class="gpp1 gpp22">再奖{$setting[3]['cost']}</b>{if $setting[2]['type'] == "point"}积分{else}美元{/if}</p>
 									<p class="gpp2divab">完成相应标准一次性发放奖励。<br/> 满足条件即可即时到账（直接发放到您的
 										<br/> {C('WEBNAME')}账户余额）
 									</p>
@@ -246,19 +246,19 @@
 						<p>举个栗(例)子：</p>
 
 						{if $levels[1] }
-						<p>您邀请了A，您获得 <span><b>{$levels[1]['cost']}</b>{if $levels[1]['type'] == "point"}积分{else}元现金{/if}</span>; </p>
+						<p>您邀请了A，您获得 <span><b>{$levels[1]['cost']}</b>{if $levels[1]['type'] == "point"}积分{else}美元现金{/if}</span>; </p>
                          {/if}
 
                          {if $levels[2] }
-						<p>A邀请了B 您可以获得 <span><b>{$levels[2]['cost']}</b>{if $levels[2]['type'] == "point"}积分{else}元现金{/if}</span> ;</p>
+						<p>A邀请了B 您可以获得 <span><b>{$levels[2]['cost']}</b>{if $levels[2]['type'] == "point"}积分{else}美元现金{/if}</span> ;</p>
 						 {/if}
 
                          {if $levels[3] }
-						<p>B邀请了C 您可以获得 <span><b>{$levels[3]['cost']}</b>{if $levels[3]['type'] == "point"}积分{else}元现金{/if}</span> ;</p>
+						<p>B邀请了C 您可以获得 <span><b>{$levels[3]['cost']}</b>{if $levels[3]['type'] == "point"}积分{else}美元现金{/if}</span> ;</p>
 						 {/if}
 
 	                      {if $levels[3] }
-							<p>C邀请了D 您可以获得 <span><b>{$levels[4]['cost']}</b>{if $levels[4]['type'] == "point"}积分{else}元现金{/if}</span> ;</p>
+							<p>C邀请了D 您可以获得 <span><b>{$levels[4]['cost']}</b>{if $levels[4]['type'] == "point"}积分{else}美元现金{/if}</span> ;</p>
 						   {/if}
 
 
@@ -267,15 +267,15 @@
 						<div class="picturez">
 							<div class="jiangli8 picd1">
 								<p>奖励</p>
-								<p class="qianfuhao">￥<b>{$levels[1]['cost']}</b></p>
+								<p class="qianfuhao">$<b>{$levels[1]['cost']}</b></p>
 							</div>
 							<div class="jiangli8 picd2">
 								<p>奖励</p>
-								<p class="qianfuhao">￥<b>{$levels[3]['cost']}</b></p>
+								<p class="qianfuhao">$<b>{$levels[3]['cost']}</b></p>
 							</div>
 							<div class="jiangli8 picd3">
 								<p>奖励</p>
-								<p class="qianfuhao">￥<b>{$levels[2]['cost']}</b></p>
+								<p class="qianfuhao">$<b>{$levels[2]['cost']}</b></p>
 							</div>
 						</div>
 					</div>

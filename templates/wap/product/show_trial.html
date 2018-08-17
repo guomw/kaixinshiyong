@@ -55,14 +55,14 @@
 
 			<div class="act-mess">
 				<ul class="price_lists">
-					<li class="fl f1_5" style="margin-right: 3%;">{activitiy_price_name($mod)}：<b class="c-bb000d f1_5 td_lt"><i>￥</i>{price($id)}</b></li>
+					<li class="fl f1_5" style="margin-right: 3%;">{activitiy_price_name($mod)}：<b class="c-bb000d f1_5 td_lt"><i>$</i>{price($id)}</b></li>
 					{if $mod == 'trial' && $goods_bonus != 0}
-					<li class="fr f1_5">赠送红包：<b style="padding: 2%; background: #bb000d; color: #ffffff; border-radius: 10px;"><i>￥</i>{$goods_bonus}</b></li>
+					<li class="fr f1_5">赠送红包：<b style="padding: 2%; background: #bb000d; color: #ffffff; border-radius: 10px;"><i>$</i>{$goods_bonus}</b></li>
 					{/if}
 					<div class="clear"></div>
 				</ul>
 				<ul class="list l-line-h clear">
-					<li class="bt_aeaeae" style="width: 100%; font-size: 2em; line-height: 1.6em;">卖家已交担保金：<b class="c-bb000d"><i>￥</i>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b></li>
+					<li class="bt_aeaeae" style="width: 100%; font-size: 2em; line-height: 1.6em;">卖家已交担保金：<b class="c-bb000d"><i>$</i>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b></li>
                     <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">限量份数：<b class="c-bb000d">{$goods_number}</b>件</li>
                     <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">剩余份数：<b class="c-bb000d">{php echo $goods_number - $already_num}</b>件</li>
                     <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">已申请试用：<b class="c-bb000d">{get_trial_by_gid($rs['id'])}</b></li>
@@ -104,25 +104,25 @@
 
                 {if ($rs['goods_tips']['goods_order']['price']['cost'])}
                 <dl class="hint-list clear f1_5">
-                    <dt class="fl">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，
-                        拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元
+                    <dt class="fl">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}美元，
+                        拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}美元
                     </dt>
                 </dl>
                 {/if}
 
                 {if ($rs['goods_tips']['goods_order']['price']['lv'])}
                 <dl class="hint-list clear f1_5">
-                    <dt class="fl">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</dt>
+                    <dt class="fl">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}美元下单</dt>
                 </dl>
                 {/if}
 
                 <dl class="hint-list clear f1_5">
                     <dt class="fl">
                     <font class="try_hint_t">试用有奖：</font>
-                    <!--   本单试用奖励现金红包XXX元 实际试用商品XXXX -->
+                    <!--   本单试用奖励现金红包XXX美元 实际试用商品XXXX -->
                     {if $goods_bonus > 0 || $goods_tryproduct}
                     {if $goods_bonus > 0}
-                    本单试用奖励现金红包{$goods_bonus}元
+                    本单试用奖励现金红包{$goods_bonus}美元
                     {/if}
                     {if $goods_tryproduct}
                     实际试用商品{$goods_tryproduct}

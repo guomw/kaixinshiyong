@@ -123,7 +123,7 @@ class commission_order extends \Product\Library\OrderInterface {
             $sign1 = '1-'.$this->product_info['mod'].'-'.$this->order_info['seller_id'].'-'.$this->order_info['goods_id'].'-'.$this->order_info['id'].'-'.sprintf('%.2f',($price+$this->product_info['goods_service']));
             $rs1 = model('member_finance_log')->where(array('only'=>$sign1))->find();
             if(!$rs1){
-                action_finance_log($this->order_info['seller_id'], -(sprintf('%.2f',($price+$this->product_info['goods_service']))), 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.sprintf('%.2f',($price+$this->product_info['goods_service'])).'元保证金', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
+                action_finance_log($this->order_info['seller_id'], -(sprintf('%.2f',($price+$this->product_info['goods_service']))), 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.sprintf('%.2f',($price+$this->product_info['goods_service'])).'美元保证金', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
             }else{
                 $this->error = '重复操作'; 
                 return FALSE;
@@ -144,7 +144,7 @@ class commission_order extends \Product\Library\OrderInterface {
 
                  action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'point', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'积分', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
              }elseif($this->product_info['subsidy_type'] == 2 && $this->product_info['subsidy'] > 0){
-                    action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+                    action_finance_log($this->order_info['buyer_id'], $this->product_info['subsidy'], 'money', '('.$this->product_info['title'].')订单[ID:'.$this->order_info['id'].']完成，平台补贴'.$this->product_info['subsidy'].'美元', $subsidy_sign, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
 
              }
             

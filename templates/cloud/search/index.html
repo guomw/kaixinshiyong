@@ -157,7 +157,7 @@ function getContent(page) {
                _html += '<font class="sort_name sort_name_bg_0'+ _ul_border +'">'+ n.mod_name +'</font>';
                _html += '<li><a href="'+ n.url +'" target="_blank"><img class="small_img" src="'+ n.thumb +'" alt="'+ n.title +'"></a></li>';
                _html += '<li class="shop_name"><span><img src="'+ n.img_source +'"/></span><a href="'+ n.url +'" target="_blank">'+ n.title +'</a></li>';
-               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>'+ n.mod_price +'</font><font class="color_999999 text_style_1">'+n.goods_price+'</font>';
+               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>'+ n.mod_price +'</font><font class="color_999999 text_style_1">'+n.goods_price+'</font>';
                _html += '</ul>';
            });
            $("#goods_lists").html(_html);

@@ -42,7 +42,7 @@ class Weixin extends Pay  {
       $input->SetBody($product_info['name']);
       $input->SetAttach($product_info['userid']);
       $input->SetOut_trade_no($product_info['trade_sn']);
-      $input->SetTotal_fee($product_info['total_fee'] * 100  ); //元转换为分 
+      $input->SetTotal_fee($product_info['total_fee'] * 100  ); //美元转换为分
       $input->SetTime_start(date("YmdHis"));
       $input->SetTime_expire(date("YmdHis", time() + 600));
       $input->SetGoods_tag("");

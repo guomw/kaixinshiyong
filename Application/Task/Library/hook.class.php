@@ -279,7 +279,7 @@ class hook {
         foreach ($_levels as $k => $v) {
             $sign = '11-'.$_levels[$k].'-'.$param['userid'];
             if ($level[$k+1]['type'] == 'money') {
-                $msg = '您的'.($k+1).'级好友(会员id:'.$param['userid'].'),完成邀请任务,您获得奖励'.$level[$k+1]['cost'].'元';
+                $msg = '您的'.($k+1).'级好友(会员id:'.$param['userid'].'),完成邀请任务,您获得奖励'.$level[$k+1]['cost'].'美元';
                 $reward = sprintf('%.2f',$level[$k+1]['cost']);
                 $type = 'money';
             }else{
@@ -330,7 +330,7 @@ class hook {
             if ($setting['fix']['type3'] == 'point') {
                 $msg = '积分';
             }else{
-                $msg = '元金额';
+                $msg = '美元金额';
             }
             if (!$_rs) {
                 action_finance_log($param['userid'], $setting['fix']['cost3'] , $setting['fix']['type3'] , '您被好友邀请且完成了3笔订单获得奖励'.$setting['fix']['cost3'].$msg,$_signs,array(' '=>'1'));

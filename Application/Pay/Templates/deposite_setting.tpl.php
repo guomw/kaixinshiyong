@@ -63,7 +63,7 @@ function SwapTab(name,cls_show,cls_hide,cnt,cur) {
             <tr>
                 <th><?php echo L('提现金额')?></th>
                 <td class="y-bg">
-                    	最小<input type="text" class="input-text" name="setting[min_money]" value="<?php echo $pay_setting['min_money'];?>" size="6"/>/元&nbsp;&nbsp;
+                    	最小<input type="text" class="input-text" name="setting[min_money]" value="<?php echo $pay_setting['min_money'];?>" size="6"/>/美元&nbsp;&nbsp;
                     	倍数<input type="text" class="input-text" name="setting[multiple_money]" value="<?php echo $pay_setting['multiple_money'];?>" size="6"/>提示：提现时按照当前的倍数提现
                 </td>
             </tr>

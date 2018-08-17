@@ -77,7 +77,7 @@
 		<td align="left"><?php echo $v['email']?></td>
 		<td align="left"><?php if(empty($v['agent_id'])) {echo '-';}else{echo nickname($v['agent_id'],1);}?></td>
 		<td align="left"><?php echo $v['success_order_count'].'/'.$v['order_count'];?></td>
-		<td align="left">￥<?php echo $v['money']?></td>
+		<td align="left">$<?php echo $v['money']?></td>
 		<td align="left"><?php echo $v['point']?></td>
 		<td align="left"><?php echo dgmdate($v['regdate'], 'Y-m-d');?></td>
 		<td align="left"><?php echo $v['loginnum'] ?></td>

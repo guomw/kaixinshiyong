@@ -50,8 +50,8 @@ if(is_array($attract_lists)){
         <td align="left"><?php echo $a['username'];?></td>
         <td align="left"><?php echo $a['add_merchant'];?>名商家</td>
         <td align="left"><?php echo $a['month_seller'];?>名商家</td>
-        <td align="left"><?php echo sprintf("%.2f",$a['today_money']);?>/元</td>
-        <td align="left"><?php echo sprintf("%.2f",$a['month_money']);?>/元</td>
+        <td align="left"><?php echo sprintf("%.2f",$a['today_money']);?>/美元</td>
+        <td align="left"><?php echo sprintf("%.2f",$a['month_money']);?>/美元</td>
         <td>
     <a href="<?php echo U('admin/admin/company_log',array('userid'=>$a['userid'])) ?>">[历史记录]</a>          
   <a href="<?php echo U('Admin/Statistics/detail',array('userid'=>$a['userid']));?>" >[查看详细统计]</a>

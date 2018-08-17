@@ -163,7 +163,7 @@ var commission = {
   				 + 			'</tr>'
   				 + 			'<tr>'
   				 + 				'<td>下单价：</td>'
-  				 + 				'<td style="font-weight:bold;color:#000;">￥'+ goods.goods_price +'</td>'
+  				 + 				'<td style="font-weight:bold;color:#000;">$'+ goods.goods_price +'</td>'
   				 + 			'</tr>'
   				 + 			'<tr>'
   				 + 				'<td>订单编号：</td>'

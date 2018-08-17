@@ -40,8 +40,8 @@ $(function(){
                 <th><?php echo L('赠送红包金额范围')?></th>
                 <td class="y-bg">
                     <label>最少<input type="text" size="6" class="input-text" name="setting[bonus_price][min]" value="<?php if($setting['bonus_price']['min']){ echo $setting['bonus_price']['min']; }else{?>1 <?php }?>"/></label>
-                    <label>最多<input type="text" size="6" class="input-text" name="setting[bonus_price][max]" value="<?php echo $setting['bonus_price']['max'];?>"/>元</label>
-                    &nbsp;例如：1-50元
+                    <label>最多<input type="text" size="6" class="input-text" name="setting[bonus_price][max]" value="<?php echo $setting['bonus_price']['max'];?>"/>美元</label>
+                    &nbsp;例如：1-50美元
                 </td>
             </tr>
             

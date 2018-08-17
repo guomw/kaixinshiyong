@@ -61,17 +61,17 @@
                         请注意以下事项：
                     </dd>
                     <dd>
-                        1、下单价：<span style="color:red;">{$product_info['goods_price']}</span>元
+                        1、下单价：<span style="color:red;">{$product_info['goods_price']}</span>美元
                     </dd>
                     {if $product_info['mod'] == 'rebate'}
                     <dd>
-                        2、返还划算金：<span style="color:red;"><?php echo number_format($product_info['goods_price']-$product_info['goods_price']*$product_info['goods_discount']/10,2);?></span>元
+                        2、返还划算金：<span style="color:red;"><?php echo number_format($product_info['goods_price']-$product_info['goods_price']*$product_info['goods_discount']/10,2);?></span>美元
                     </dd>
                     {/if}
 
                     {if $product_info['mod'] == 'trial'}
                     <dd>
-                        2、返还：<span style="color:red;"><?php echo number_format($product_info['goods_price']+$product_info['goods_bonus'],2);?></span>元
+                        2、返还：<span style="color:red;"><?php echo number_format($product_info['goods_price']+$product_info['goods_bonus'],2);?></span>美元
                     </dd>
                     {/if}
                     <dd>

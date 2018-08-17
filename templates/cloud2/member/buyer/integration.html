@@ -52,7 +52,7 @@
 								<dd>
 									<div class="{if $k == 0}integration_phone{elseif $k == 1}integration_email{elseif $k == 2}integration_name{elseif $k == 3}integration_friend{else}integration_registration{/if} bg mb10"></div>
 									<p class="f14">{$v[task_name]}</p>
-									<p>可得<span>{$v[task_reward]}</span>{if $v['task_type'] == 'point'}积分{elseif $v['task_type'] == 'money'}元{elseif $v['task_type'] == 'exp'}经验值{/if}</p>
+									<p>可得<span>{$v[task_reward]}</span>{if $v['task_type'] == 'point'}积分{elseif $v['task_type'] == 'money'}美元{elseif $v['task_type'] == 'exp'}经验值{/if}</p>
 									<p><a href="{__ROOT__}{$v[url]}">立即参与></a></p>
 								</dd>
 

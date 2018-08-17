@@ -52,13 +52,13 @@
 
 			<div class="act-mess">
 				<ul class="price_lists">
-					<li class="fl f1_5" style="margin-right: 3%;">{activitiy_price_name($mod)}：<b class="c-bb000d f1_5"><i>￥</i>{price($id)}</b></li>
+					<li class="fl f1_5" style="margin-right: 3%;">{activitiy_price_name($mod)}：<b class="c-bb000d f1_5"><i>$</i>{price($id)}</b></li>
 					<li class="fl"><b class="td_lt f1_5">{$goods_price}</b></li>
-					<li class="fr f1_5">购买后返现：<b style="padding: 2%; background: #bb000d; color: #ffffff; border-radius: 10px;"><i>￥</i>{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</b></li>
+					<li class="fr f1_5">购买后返现：<b style="padding: 2%; background: #bb000d; color: #ffffff; border-radius: 10px;"><i>$</i>{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</b></li>
 					<div class="clear"></div>
 				</ul>
 				<ul class="list l-line-h clear">
-					<li class="bt_aeaeae" style="width: 100%; font-size: 2em; line-height: 1.6em;">卖家已交担保金：<b class="c-bb000d"><i>￥</i>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b></li>
+					<li class="bt_aeaeae" style="width: 100%; font-size: 2em; line-height: 1.6em;">卖家已交担保金：<b class="c-bb000d"><i>$</i>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b></li>
                     <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">限量份数：<b class="c-bb000d">{$goods_number}</b>件</li>
                     <li class="bt_aeaeae f1_5" style="line-height: 2.6em;">剩余份数：<b class="c-bb000d">{php echo $goods_number - $already_num}</b>件</li>
 				</ul>
@@ -99,15 +99,15 @@
 
                 {if ($rs['goods_tips']['goods_order']['price']['cost'])}
                 <dl class="hint-list clear">
-                    <dt class="fl">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，
-                        拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元
+                    <dt class="fl">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}美元，
+                        拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}美元
                     </dt>
                 </dl>
                 {/if}
 
                 {if ($rs['goods_tips']['goods_order']['price']['lv'])}
                 <dl class="hint-list clear">
-                    <dt class="fl">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</dt>
+                    <dt class="fl">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}美元下单</dt>
                 </dl>
                 {/if}
 

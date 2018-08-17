@@ -504,12 +504,12 @@ class Date {
      * @static
      * @access public
      * @param integer $yearStr 年份数字
-     * @param boolean $flag 是否显示公元
+     * @param boolean $flag 是否显示公美元
      * @return string
      */
     public function  yearToCh( $yearStr ,$flag=false ) {
         $array = array('零','一','二','三','四','五','六','七','八','九');
-        $str = $flag? '公元' : '';
+        $str = $flag? '公美元' : '';
         for($i=0;$i<4;$i++){
             $str .= $array[substr($yearStr,$i,1)];
         }

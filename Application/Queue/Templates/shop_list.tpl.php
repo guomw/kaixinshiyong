@@ -25,7 +25,7 @@
             <th align="left" width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th>
             <th align="left">ID</th>
             <th align="left">商品名称</th>
-            <th width="100" align="left">商品价值（￥）</th>
+            <th width="100" align="left">商品价值（$）</th>
             <th width="80">商品份数</th>
             <th width="80">当前剩余</th>
             <th width="100">所需积分</th>

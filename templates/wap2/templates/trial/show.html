@@ -26,9 +26,9 @@
             </div>
             <div style="clear: both"></div>
             <div class="money">
-              <span>{{showdata.goods_price | currency:"￥" }}</span> <i ng-show="showdata.protype == 3 ">(赠
+              <span>{{showdata.goods_price | currency:"$" }}</span> <i ng-show="showdata.protype == 3 ">(赠
                 <span>{{showdata.goods_bonus }}</span>
-                元红包)</i><i class="name"> {{showdata.price_name}}</i>
+                美元红包)</i><i class="name"> {{showdata.price_name}}</i>
             </div>
           </div>
           <div class="hang2">
@@ -39,7 +39,7 @@
           </div>
           <!--hang2-->
           <div class="hang3">
-            <img ng-src="img/list-tip2.png" /> 商家已存保证金<b class="cc">{{ showdata.goods_deposit | currency:"￥" }}</b>请放心申请
+            <img ng-src="img/list-tip2.png" /> 商家已存保证金<b class="cc">{{ showdata.goods_deposit | currency:"$" }}</b>请放心申请
           </div>
           <!--hang3-->
           <div>
@@ -52,7 +52,7 @@
               <div class="co c4 lc">
                 <i>1</i>申请试用，获得试用资格
                 <br>
-                <i>2</i>按照提示以 <b class="cc">{{showdata.goods_price | currency:"￥" }}</b>
+                <i>2</i>按照提示以 <b class="cc">{{showdata.goods_price | currency:"$" }}</b>
                 去指定平台购物
                 <br>
                 <i>3</i>回平台填写购买付款的订单号
@@ -60,7 +60,7 @@
                 <i>4</i>确认收货-给予评价-填写试用报告
                 <br>
                 <i>5</i>系统返还
-                <b class="cc">{{ (showdata.goods_bonus -1 +1 ) + (showdata.goods_price -1 +1 ) | currency:"￥" }}</b>
+                <b class="cc">{{ (showdata.goods_bonus -1 +1 ) + (showdata.goods_price -1 +1 ) | currency:"$" }}</b>
                 到您平台账户中
                 <br></div>
             </div>

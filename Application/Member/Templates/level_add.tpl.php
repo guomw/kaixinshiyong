@@ -123,15 +123,15 @@ $(function(){
 			<td>
 				<span class="ik lf" style="width:120px;">
 					<?php echo "包月"?>：
-					<input type="text" name="info[price_m]" class="input-text" id="price_m" size="6">元	
+					<input type="text" name="info[price_m]" class="input-text" id="price_m" size="6">美元
 				</span>
 				<span class="ik lf" style="width:120px;">
 					<?php echo "包季"?>：
-					<input type="text" name="info[price_p]" class="input-text" id="price_p" size="6">元
+					<input type="text" name="info[price_p]" class="input-text" id="price_p" size="6">美元
 				</span>
 				<span class="ik lf" style="width:120px;">
 					<?php echo L('member_group_yearprice')?>：
-					<input type="text" name="info[price_y]" class="input-text" id="price_y" size="6">元
+					<input type="text" name="info[price_y]" class="input-text" id="price_y" size="6">美元
 				</span>
 			</td>
 		</tr>

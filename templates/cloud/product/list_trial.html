@@ -166,7 +166,7 @@
 						<li><a href="{$p[url]}" target="_blank"><img class="small_img" src="{$p[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($p['source'], 'small_logo')}"width="16px" height="16px"/></span><a href="{$p[url]}" target="_blank">{$p[title]}</a></li>
 						<li class="shop_sum">{activitiy_price_name($p[mod])}：
-							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>{price($p[id])}</font>
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>{price($p[id])}</font>
 							<font class="color_999999"> 剩余 <i class="color_30bbfe"><?php echo $p[goods_number] - $p[already_num];?></i> 份</font>
 						</li>
 						<li><a href="{$p[url]}" target="_blank" class="btn_style">免费试用</a></li>
@@ -185,7 +185,7 @@
 					<ul class="list_box border_solid_dddddd">
 						<li><a href="{$a[url]}" target="_blank"><img class="small_img" src="{$a[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($a['source'], 'small_logo')}" width="16px" height="16px"/></span><a href="{$a[url]}" target="_blank">{$a[title]}</a></li>
-						<li class="shop_sum">{activitiy_price_name($a[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>{price($a[id])}</font><font class="color_999999 text_style_1">{$a[goods_price]}</font><span class="over_hint">已结束</span></li>
+						<li class="shop_sum">{activitiy_price_name($a[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">$</em>{price($a[id])}</font><font class="color_999999 text_style_1">{$a[goods_price]}</font><span class="over_hint">已结束</span></li>
 					</ul>
 					{/loop}
 					{/pc}
@@ -233,9 +233,9 @@
                            }
                            _html += '<div class="pa'+ divstyle +'"></div></li>';
 			               _html += '<li class="shop_name"><span><img src="'+ n.img_source +'"width="16px" height="16px"/></span><a href="'+ n.url +'" target="_blank">'+ n.title +'</a></li>';
-			               _html += '<li class="shop_sum"><font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em><span class="t_lt">'+ n.mod_price +'</span></font><font class="color_999999"> 剩余 <i class="color_30bbfe">'+n.number+'</i> 份</font></li><li class="h19">';
+			               _html += '<li class="shop_sum"><font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em><span class="t_lt">'+ n.mod_price +'</span></font><font class="color_999999"> 剩余 <i class="color_30bbfe">'+n.number+'</i> 份</font></li><li class="h19">';
 			               if(n.mod=='trial' && n.goods_bonus != 0){
-			            	   _html += '<span>赠送红包</span><span class="red_bg"></span><span class="ff0000">'+n.goods_bonus+'</span>元';
+			            	   _html += '<span>赠送红包</span><span class="red_bg"></span><span class="ff0000">'+n.goods_bonus+'</span>美元';
 			               }
 			               _html += '</li><li><a href="'+n.url+'" class="btn_style mt-25" target="_blank">';
 			               if (n.mod == "rebate"){

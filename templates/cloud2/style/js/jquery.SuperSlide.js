@@ -8,15 +8,15 @@
 		delayTime : 500, //效果持续时间
 		interTime : 2500,//自动运行间隔。当effect为无缝滚动的时候，相当于运行速度。
 		defaultIndex : 0,//默认的当前位置索引。0是第一个
-		titCell:".hd li",//导航元素
-		mainCell:".bd",//内容元素的父层对象
+		titCell:".hd li",//导航美元素
+		mainCell:".bd",//内容美元素的父层对象
 		trigger: "mouseover",//触发方式 || mouseover：鼠标移过触发；|| click：鼠标点击触发；
 		scroll:1,//每次滚动个数。
 		vis:1,//visible，可视范围个数，当内容个数少于可视个数的时候，不执行效果。
 		titOnClassName:"on",//当前位置自动增加的class名称
-		autoPage:false,//系统自动分页，当为true时，titCell则为导航元素父层对象，同时系统会在titCell里面自动插入分页li元素(1.2版本新增)
-		prevCell:".prev",//前一个按钮元素。
-		nextCell:".next"//后一个按钮元素。
+		autoPage:false,//系统自动分页，当为true时，titCell则为导航美元素父层对象，同时系统会在titCell里面自动插入分页li美元素(1.2版本新增)
+		prevCell:".prev",//前一个按钮美元素。
+		nextCell:".next"//后一个按钮美元素。
 		};
 
 		return this.each(function() {
@@ -24,9 +24,9 @@
 			var index=opts.defaultIndex;
 			var prevBtn = $(opts.prevCell, $(this));
 			var nextBtn = $(opts.nextCell, $(this));
-			var navObj = $(opts.titCell, $(this));//导航子元素结合
+			var navObj = $(opts.titCell, $(this));//导航子美元素结合
 			var navObjSize = navObj.size();
-			var conBox = $(opts.mainCell , $(this));//内容元素父层对象
+			var conBox = $(opts.mainCell , $(this));//内容美元素父层对象
 			var conBoxSize=conBox.children().size();
 			var slideH=0;
 			var slideW=0;
@@ -45,7 +45,7 @@
 				navObjSize=1+parseInt(tempS%opts.scroll!=0?(tempS/opts.scroll+1):(tempS/opts.scroll)); 
 				navObj.html(""); 
 				for( var i=0; i<navObjSize; i++ ){ navObj.append("<li>"+(i+1)+"</li>") }
-				var navObj = $("li", navObj);//重置导航子元素对象
+				var navObj = $("li", navObj);//重置导航子美元素对象
 			}
 
 			conBox.children().each(function(){ //取最大值

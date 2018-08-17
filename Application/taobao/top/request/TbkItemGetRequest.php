@@ -13,7 +13,7 @@ class TbkItemGetRequest
 	private $cat;
 	
 	/** 
-	 * 折扣价范围上限，单位：元
+	 * 折扣价范围上限，单位：美元
 	 **/
 	private $endPrice;
 	
@@ -68,7 +68,7 @@ class TbkItemGetRequest
 	private $sort;
 	
 	/** 
-	 * 折扣价范围下限，单位：元
+	 * 折扣价范围下限，单位：美元
 	 **/
 	private $startPrice;
 	

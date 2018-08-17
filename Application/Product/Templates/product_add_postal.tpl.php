@@ -159,7 +159,7 @@ include $this->admin_tpl('header','admin');?>
 			<div class="bk3"></div>
 			<label>拍下须知：<input type="text" name="info[goods_tips][goods_order][remark]" style="width:250px;"/></label>
 			<div class="bk3"></div>
-			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;">元</label>，<label>拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;">元
+			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;">美元</label>，<label>拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;">美元
 		</td>
 	</tr>	
 	

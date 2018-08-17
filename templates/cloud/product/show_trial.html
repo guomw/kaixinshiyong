@@ -138,13 +138,13 @@ var month_count = {php echo $month_count;};
 						<li>完成试用<font class="color_03">{get_over_trial_by_gid($rs['id'])}</font></li>
 						<li>剩余<font class="color_04">{php echo $goods_number - buyer_count_by_gid($rs['id'])}</font></li>
 					</ul>
-					<p class="ass_sum"><span>保证金：</span>商家已存入总试用担保金 <font>{php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</font> 元，请放心申请。</p>
+					<p class="ass_sum"><span>保证金：</span>商家已存入总试用担保金 <font>{php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</font> 美元，请放心申请。</p>
 					<p class="shop_cost">
-						<font class="s_bg_01">下单价</font><span class="t_d_l_th">￥{$rs['goods_price']}</span>
-						<font class="s_bg_02">完成试用返还</font><span>￥<font style="color: #F60;">{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</font>
+						<font class="s_bg_01">下单价</font><span class="t_d_l_th">${$rs['goods_price']}</span>
+						<font class="s_bg_02">完成试用返还</font><span>$<font style="color: #F60;">{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</font>
 						
 						{if $goods_bonus > 0}
-						+&nbsp;红包￥<font style="color: #F60;">{$goods_bonus}</font>
+						+&nbsp;红包$<font style="color: #F60;">{$goods_bonus}</font>
 						{/if}
 						</span>
 					</p>
@@ -153,7 +153,7 @@ var month_count = {php echo $month_count;};
 						class = try-search  	搜索下单
 						class = try-insert      答案下单
 					-->
-					<p class="try-{if $type == 'search'}search{elseif $type == 'ask'}insert{elseif $type == 'qrcode'}two-code{/if} try_cost">{activitiy_price_name($mod)}：<span><em>￥</em>{price($id)}</span></p>
+					<p class="try-{if $type == 'search'}search{elseif $type == 'ask'}insert{elseif $type == 'qrcode'}two-code{/if} try_cost">{activitiy_price_name($mod)}：<span><em>$</em>{price($id)}</span></p>
 					<p class="btn">
                         <a href="javascript:;" class="btn_no" onclick="trial_detail.buy();" id="btn_buy" style="float: left;display: block">申请试用</a>
 
@@ -187,10 +187,10 @@ var month_count = {php echo $month_count;};
 					</p>
 					<p class="try_hint">
 						<font class="try_hint_t">试用有奖：</font>
-						<!--   本单试用奖励现金红包XXX元 实际试用商品XXXX -->
+						<!--   本单试用奖励现金红包XXX美元 实际试用商品XXXX -->
 						{if $goods_bonus > 0 || $goods_tryproduct}
 						{if $goods_bonus > 0}
-						本单试用奖励现金红包{$goods_bonus}元
+						本单试用奖励现金红包{$goods_bonus}美元
 						{/if}
 						{if $goods_tryproduct}
 						实际试用商品{$goods_tryproduct}
@@ -223,12 +223,12 @@ var month_count = {php echo $month_count;};
 				<ul class="approve_flow">
 					<h6>试用流程：</h6>
 					<li><img class="approve_flow_img1" src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />获得试用资格</li>
-					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />以<em class="color_ff6600">{$rs['goods_price']}</em>元到指定平台购买试用品产</li>
+					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />以<em class="color_ff6600">{$rs['goods_price']}</em>美元到指定平台购买试用品产</li>
 					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />提交订单编号</li>
 					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />提交试用报告</li>
 					<li><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />返还<em color="color_ff6600">{$rs['goods_price']} {if $goods_bonus > 0}
 						+ 红包{$goods_bonus}
-						{/if} </em>元</li>
+						{/if} </em>美元</li>
 
 					<li class="border_none"><img src="{THEME_STYLE_PATH}style/images/try_out_apply.png" alt="" />到会员中心申请提现</li>
 
@@ -244,7 +244,7 @@ var month_count = {php echo $month_count;};
 					<p class="box_title">
 						<a href="{$r[url]}"><img src="{$r['source_img']}" alt="{$r[title]}"/>{str_cut($r[title],57)}</a>
 					</p>
-					<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>￥{$r[mod_price]}</b></span><span>￥{$r['goods_price']}</span></p>
+					<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>${$r[mod_price]}</b></span><span>${$r['goods_price']}</span></p>
 				</div>
 				{/loop}
 				{/pc}
@@ -284,10 +284,10 @@ var month_count = {php echo $month_count;};
 						<li class="li_margin"><span>拍下须知：</span>{$rs['goods_tips']['goods_order']['remark']}</li>
 					{/if}
 					{if ($rs['goods_tips']['goods_order']['price']['cost'])}
-						<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元</li>
+						<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}美元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}美元</li>
 					{/if}
 					{if ($rs['goods_tips']['goods_order']['price']['lv'])}
-						<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</li>
+						<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}美元下单</li>
 					{/if}
 				</ul>
 				<div style="clear: both;"></div>

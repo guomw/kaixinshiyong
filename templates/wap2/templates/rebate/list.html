@@ -44,9 +44,9 @@
                         </div>
                         <!--part1-->
                         <div class="part2"> <i class="c4">活动价：</i><span>{{topic.goods_price / 10 * topic.goods_discount |
-                            currency:"￥"}}</span> <i style="margin-right:6%;float:right;" class="c4"> 折扣：<span>{{topic.goods_discount}}</span>折</i></div>
+                            currency:"$"}}</span> <i style="margin-right:6%;float:right;" class="c4"> 折扣：<span>{{topic.goods_discount}}</span>折</i></div>
                         <div class="part3">
-                          <div class="a1">返{{topic.goods_price - topic.mod_price | currency:"￥"}}</div>
+                          <div class="a1">返{{topic.goods_price - topic.mod_price | currency:"$"}}</div>
                           <div class="a2"><span class="c4">数量：</span>{{topic.number}}/{{topic.goods_number}}</div>
                           <div class="clearfix"></div>
                         </div>
@@ -65,10 +65,10 @@
                 <img ng-if="!topic.thumb" ng-src="img/ionic.png">
                 <h2>{{ topic.title | limitTo:15 }} </h2>
                 <p class="">
-                {{topic.price_name}}:{{topic.mod_price}}  <span class="p2">{{topic.goods_price | currency:"￥"}} </span> 
+                {{topic.price_name}}:{{topic.mod_price}}  <span class="p2">{{topic.goods_price | currency:"$"}} </span>
                 </p>
                 <p class="">
-                <span >省{{topic.goods_price - topic.mod_price | currency:"￥"}}</span> 剩余 {{topic.number}}/{{topic.number}}
+                <span >省{{topic.goods_price - topic.mod_price | currency:"$"}}</span> 剩余 {{topic.number}}/{{topic.number}}
                 </p>
             </ion-item> -->
               </div>

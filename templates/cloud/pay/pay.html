@@ -67,7 +67,7 @@
 								<font class="up_name">充值金额：</font>
 								<input type="text" name="money" id="money" value="" />
 								<input type="hidden" name="total_money" id="total_money"/>
-								<font>元</font>
+								<font>美元</font>
 								<div id="set_note"  style="color:#32CD32;padding-left:20px;margin-top:10px;"></div>
 							 </li>
 							<li class="top_icon"><font  class="up_name">充值方式：</font><a href="javascript:;"></a></li>
@@ -91,7 +91,7 @@
 						<input type="hidden" name="info[userid]" value="{$userid}" />
 						<ul class="top_up_list margin">
 							<li class="w_1"><font class="up_name">交易号：</font><input type="text" name="info[tran_number]" id="tran_number" /><!-- <div class="set_note">请输入您要充值的金额</div> --><a href="{U('Document/Index/show',array('catid'=>89,'id'=>268))}" target="_blank" class="hint">什么是交易号？</a></li>
-							<li class="w_1"><font class="up_name">充值金额：</font><input type="text" name="info[money]" id="normal_money"/><font>元</font><!-- <span class="set_note">请输入您要充值的金额</span> --></li>
+							<li class="w_1"><font class="up_name">充值金额：</font><input type="text" name="info[money]" id="normal_money"/><font>美元</font><!-- <span class="set_note">请输入您要充值的金额</span> --></li>
 							<li class="top_icon"><font  class="up_name">充值方式：</font><a href="javascript:;"></a></li>
 							<p><input type="submit" value="立即充值" id="myform_submit" class="topUp_btn"/></p>
 						</ul>
@@ -168,8 +168,8 @@ $("#money").formValidator({
 				async: false,
 				data:{'money':val},
 				success : function(msg){
-					//$("#quick").append('<p id="set_note"  style="display:block;color:#32CD32;padding-left:20px;margin-top:10px;">*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元</p>') ;
-					$("#set_note").html('*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元');
+					//$("#quick").append('<p id="set_note"  style="display:block;color:#32CD32;padding-left:20px;margin-top:10px;">*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'美元;共需支付'+msg.total+'美元</p>') ;
+					$("#set_note").html('*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'美元;共需支付'+msg.total+'美元');
 					$("#moneyTip").hide();
 					$("#total_money").val(msg.total);
 				}

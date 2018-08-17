@@ -151,7 +151,7 @@
 						<li><a href="{$d[url]}" target="_blank"><img class="small_img" src="{$d[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($d['source'], 'small_logo')}"/></span><a href="{$d[url]}" target="_blank">{$d[title]}</a></li>
 						<li class="shop_sum">{activitiy_price_name($d[mod])}：
-							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>
 								{php echo sprintf('%.2f',price($d[id]))}</font>
 							<font class="color_999999"> 剩余 <i class="color_30bbfe"><?php echo $d[goods_number] - $d[already_num];?></i> 份</font>
 						</li>
@@ -171,7 +171,7 @@
 					<ul class="list_box border_solid_dddddd">
 						<li><a href="{$r[url]}" target="_blank"><img class="small_img" src="{$r[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($r['source'], 'small_logo')}"/></span><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
-						<li class="shop_sum">{activitiy_price_name($r[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>{price($r[id])}</font><font class="color_999999 text_style_1">{$r[goods_price]}</font><span class="over_hint">已结束</span></li>
+						<li class="shop_sum">{activitiy_price_name($r[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">$</em>{price($r[id])}</font><font class="color_999999 text_style_1">{$r[goods_price]}</font><span class="over_hint">已结束</span></li>
 					</ul>
 					{/loop}
 					{/pc}					
@@ -206,7 +206,7 @@
 			               _html += '<ul class="list_box border_solid_dddddd"'+ _ul_margin +'>';
 			               _html += '<li><a href="'+ n.url +'" target="_blank"><img class="small_img" src="'+ n.thumb +'" alt="'+ n.title +'"></a></li>';
 			               _html += '<li class="shop_name"><span><img src="'+ n.img_source +'"/></span><a href="'+ n.url +'" target="_blank">'+ n.title +'</a></li>';
-			               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>'+ n.mod_price +'</font><font class="color_999999"> 剩余 <i class="color_30bbfe">'+n.number+'</i> 份</font></li>';
+			               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>'+ n.mod_price +'</font><font class="color_999999"> 剩余 <i class="color_30bbfe">'+n.number+'</i> 份</font></li>';
 			               if (n.number >0) {
 			               		 _html += '<li><a href="'+n.url+'" class="btn_style">';
 			               }else{

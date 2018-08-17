@@ -2252,7 +2252,7 @@ angular
         },
 
         // 提交后台x修改昵称 头像
-        set_nickname: function(userid, random, nickname, user_avatar) {
+        set_nickname: function(userid, random, nickname, user_avatar,flag) {
           //console.log(userid,random,nickname,user_avatar);
           resource19.save(
             {
@@ -2264,7 +2264,8 @@ angular
             function(r) {
               //console.log(r);
               data18 = r
-              $rootScope.$broadcast('UserProfileFactory.set_nickname')
+              if(!flag)
+                $rootScope.$broadcast('UserProfileFactory.set_nickname')
             }
           )
         },
@@ -3565,7 +3566,7 @@ angular
             server: server,
             // 选择文件的按钮。可选
             formData: {},
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            // 内部根据当前运行是创建，可能是input美元素，也可能是flash.
             pick: {
               id: domId,
               multiple: false

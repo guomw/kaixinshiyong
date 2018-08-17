@@ -19,14 +19,14 @@
           <li class="txt-flow" style="font-size:1em;">
             <img ng-src="{{ txddh_showdata.source | f_img_source}}">{{ txddh_showdata.title | limitTo:15 }}</li>
           <li class="hd_{{txddh_showdata.protype}} c1 txt-flow" style="font-size:0.875em;">
-            下单： <b class="cc">{{txddh_showdata.goods_price | currency:"￥"}}</b>
+            下单： <b class="cc">{{txddh_showdata.goods_price | currency:"$"}}</b>
           </li>
 
           <li class="  c1 txt-flow" style="font-size:0.875em;">
-            返还： <b class="cc">{{ txddh_showdata.fan_price | currency:"￥"}}</b>
+            返还： <b class="cc">{{ txddh_showdata.fan_price | currency:"$"}}</b>
             <span ng-show=" txddh_showdata.bonus_price > 0 "> (含红包
               <b class="cc">{{ txddh_showdata.bonus_price }}</b>
-              元)
+              美元)
             </span>
 
           </li>
@@ -80,7 +80,7 @@
           <p>推荐身边好友加入,小伙伴们都来试用吧。</p>
           <p>
             每推荐一人,可最高得
-            <b class="cc">百元</b>
+            <b class="cc">百美元</b>
             现金奖励。
           </p>
         </div>

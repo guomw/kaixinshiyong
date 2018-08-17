@@ -152,7 +152,7 @@ return array(
 	'register_protocol'       => '会员注册协议',
 	'show_register_protocol'  => '是否显示注册协议',
 	'show_app_point'          => '是否启用应用间积分兑换',
-	'rmb_point_rate'          => '1元人民币购买积分数量',
+	'rmb_point_rate'          => '1美元人民币购买积分数量',
 	/*友情链接*/
 	'add_link'                => '添加友情连接',
 	'link_type'               => '链接类型',

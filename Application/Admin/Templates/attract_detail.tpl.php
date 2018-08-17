@@ -35,7 +35,7 @@
 			</td>
 		</tr>
 
-		<tr><td colspan="2">本月累计获得提成<font color="red"><?php echo $admininfo['month_money'] ?></font>元，基本工资<font color="red"><?php echo $admininfo['fee_money'] ?></font>元，预计月发放工资<font color="red"><?php echo sprintf("%.2f",$admininfo['month_money']+$admininfo['fee_money']) ?></font>元。</td></tr>
+		<tr><td colspan="2">本月累计获得提成<font color="red"><?php echo $admininfo['month_money'] ?></font>美元，基本工资<font color="red"><?php echo $admininfo['fee_money'] ?></font>美元，预计月发放工资<font color="red"><?php echo sprintf("%.2f",$admininfo['month_money']+$admininfo['fee_money']) ?></font>美元。</td></tr>
 
 		
 	</table>
@@ -163,7 +163,7 @@
 	<table>
 		<tr>
 			<td width="120">基本工资</td> 
-			<td><font color="red"><?php echo $admininfo['fee_money'];?></font> /元</td>  
+			<td><font color="red"><?php echo $admininfo['fee_money'];?></font> /美元</td>
 		</tr>
 		
 		<tr>
@@ -179,12 +179,12 @@
 
 		<tr>
 			<td width="120">升级/续费 钻石商家</td> 
-			<td><font color="red"><?php echo $_name['service_zuan_fee'];?></font> /元</td>  
+			<td><font color="red"><?php echo $_name['service_zuan_fee'];?></font> /美元</td>
 		</tr>
 
 		<tr>
 			<td width="120">升级/续费 皇冠商家</td> 
-			<td><font color="red"><?php echo $_name['service_huang_fee'];?></font> /元</td>  
+			<td><font color="red"><?php echo $_name['service_huang_fee'];?></font> /美元</td>
 		</tr>
 		
 		
@@ -197,23 +197,23 @@
 	<table>
 		<tr>
 			<td width="120">今日已获得充值/续费 钻石vip提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_zuan']);?> </font>/元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_zuan']);?> </font>/美元</td>
 		</tr>
 		
 		<tr>
 			<td width="120">今日已获得充值/续费 皇冠vip</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_huang']);?> </font>/元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_huang']);?> </font>/美元</td>
 		</tr>
 		<?php if ($admininfo['fee_type'] == 2): ?>
 		
 		<tr>
 			<td width="120">今日获得已完成订单提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_one_order']);?> </font>/元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_one_order']);?> </font>/美元</td>
 		</tr>
 
 		<tr>
 			<td width="120">累计今日已获得提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f", $admininfo['day_money_zuan']+$admininfo['day_money_huang']+$admininfo['day_one_order']);?> </font>/元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f", $admininfo['day_money_zuan']+$admininfo['day_money_huang']+$admininfo['day_one_order']);?> </font>/美元</td>
 		</tr>
 
 	   <?php endif ?>
@@ -222,12 +222,12 @@
 
 		<tr>
 			<td width="120">今日获得缴纳保证金提成</td> 
-			<td><font color="red"><?php echo $admininfo['day_goods_service'];?></font> /元</td>  
+			<td><font color="red"><?php echo $admininfo['day_goods_service'];?></font> /美元</td>
 		</tr>
 
 		<tr>
 			<td width="120">累计今日已获得提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_zuan']+$admininfo['day_money_huang']+$admininfo['day_goods_service']);?></font> /元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['day_money_zuan']+$admininfo['day_money_huang']+$admininfo['day_goods_service']);?></font> /美元</td>
 		</tr>
 
 	    <?php endif ?>
@@ -241,23 +241,23 @@
 	<table>
 		<tr>
 			<td width="120">本月已获得充值/续费 钻石vip提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']) ;?> </font> /元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']) ;?> </font> /美元</td>
 		</tr>
 		
 		<tr>
 			<td width="120">本月已获得充值/续费 皇冠vip</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_huang']);?></font> /元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_huang']);?></font> /美元</td>
 		</tr>
 		<?php if ($admininfo['fee_type'] == 2): ?>
 		
 		<tr>
 			<td width="120">本月获得已完成订单提成</td> 
-			<td><font color="red"><?php echo $admininfo['month_one_order']?$admininfo['month_one_order']:0;?></font> /元</td>  
+			<td><font color="red"><?php echo $admininfo['month_one_order']?$admininfo['month_one_order']:0;?></font> /美元</td>
 		</tr>
 
 		<tr>
 			<td width="120">累计本月已获得提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']+$admininfo['month_money_huang']+$admininfo['month_one_order']) ;?></font> /元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']+$admininfo['month_money_huang']+$admininfo['month_one_order']) ;?></font> /美元</td>
 		</tr>
 
 	   <?php endif ?>
@@ -266,12 +266,12 @@
 
 		<tr>
 			<td width="120">本月获得缴纳保证金提成</td> 
-			<td><font color="red"><?php echo $admininfo['month_goods_service']?$admininfo['month_goods_service']:0;?> </font> /元</td>  
+			<td><font color="red"><?php echo $admininfo['month_goods_service']?$admininfo['month_goods_service']:0;?> </font> /美元</td>
 		</tr>
 
 		<tr>
 			<td width="120">累计本月已获得提成</td> 
-			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']+$admininfo['month_money_huang']+$admininfo['month_goods_service']) ;?></font> /元</td>  
+			<td><font color="red"><?php echo sprintf("%.2f",$admininfo['month_money_zuan']+$admininfo['month_money_huang']+$admininfo['month_goods_service']) ;?></font> /美元</td>
 		</tr>
 
 	    <?php endif ?>

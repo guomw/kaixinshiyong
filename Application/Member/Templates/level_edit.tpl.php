@@ -111,7 +111,7 @@ $(function(){
                     <option value="2" <?php if($pricetype[0] == 2){?> selected<?php }?>>按季</option>
                     <option value="3" <?php if($pricetype[0] == 3){?> selected<?php }?>>按年</option>
                 </select>
-                <input type="text" name="info[pricetype][]" class="input-text" size="6" value="<?php echo $pricetype[1];?>">/元
+                <input type="text" name="info[pricetype][]" class="input-text" size="6" value="<?php echo $pricetype[1];?>">/美元
             </td>
         </tr>
         <tr>

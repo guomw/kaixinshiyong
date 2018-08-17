@@ -465,7 +465,7 @@ class Db {
         return empty($whereStr)?'':' WHERE '.$whereStr;
     }
 
-    // where子单元分析
+    // where子单美元分析
     protected function parseWhereItem($key,$val) {
         $whereStr = '';
         if(is_array($val)) {

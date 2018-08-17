@@ -147,7 +147,7 @@
 						<li><a href="{$p[url]}" target="_blank"><img class="small_img" src="{$p[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($p['source'], 'small_logo')}" width="16px" height="16px"/></span><a href="{$p[url]}" target="_blank">{$p[title]}</a></li>
 						<li class="shop_sum">{activitiy_price_name($p[mod])}：
-							<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>{price($p[id])}</font>
+							<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>{price($p[id])}</font>
 							<font class="color_999999">剩余 <i class="color_30bbfe"><?php echo $p[goods_number] - $p[already_num];?></i> 份</font>
 						</li>
 						<li><a href="{$p[url]}" target="_blank" class="btn_style">去{shop_set($p[source],'name')}看看</a></li>
@@ -166,7 +166,7 @@
 					<ul class="list_box border_solid_dddddd">
 						<li><a href="{$t[url]}" target="_blank"><img class="small_img" src="{$t[thumb]}" alt="" /></a></li>
 						<li class="shop_name"><span><img src="{get_shop_set($t['source'], 'small_logo')}" width="16px" height="16px"/></span><a href="{$t[url]}" target="_blank">{$t[title]}</a></li>
-						<li class="shop_sum">{activitiy_price_name($t[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">￥</em>{price($t[id])}</font><font class="color_999999 text_style_1">{$t[goods_price]}</font><span class="over_hint">已结束</span></li>
+						<li class="shop_sum">{activitiy_price_name($t[mod])}：<font class="font_size_18 sum_txt_style_2"><em class="font_size_16">$</em>{price($t[id])}</font><font class="color_999999 text_style_1">{$t[goods_price]}</font><span class="over_hint">已结束</span></li>
 					</ul>
 					{/loop}
 					{/pc}
@@ -204,7 +204,7 @@
 			               _html += '<ul class="list_box border_solid_dddddd"'+ _ul_margin +'>';
 			               _html += '<li><a href="'+ n.url +'" target="_blank"><img class="small_img" src="'+ n.thumb +'" alt="'+ n.title +'"></a></li>';
 			               _html += '<li class="shop_name"><span><img src="'+ n.img_source +'" width="16px" height="16px"/></span><a href="'+ n.url +'" target="_blank">'+ n.title +'</a></li>';
-			               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">￥</em>'+ n.mod_price +'</font></li>';
+			               _html += '<li class="shop_sum">'+ n.mod_unit +'：<font class="font_size_18 sum_txt_style"><em class="font_size_16">$</em>'+ n.mod_price +'</font></li>';
 			               _html += '<li><a href="'+n.url+'" class="btn_style" target="_blank">';
 			               if (n.mod == "rebate"){
 			            	   _html += '我要抢购';

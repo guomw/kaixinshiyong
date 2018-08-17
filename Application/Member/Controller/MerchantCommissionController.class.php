@@ -129,7 +129,7 @@ class MerchantCommissionController extends InitController{
 			
 			//用户当前余额
 			$money = $this->db->getFieldByUserid($this->userid,'money');
-			if ($money < $total) $this->error('您的余额不足，请充值！当前余额'.$money.'元,<span style="color:red;">还需充值'.($total-$money).'元</span>');
+			if ($money < $total) $this->error('您的余额不足，请充值！当前余额'.$money.'美元,<span style="color:red;">还需充值'.($total-$money).'美元</span>');
 			//将该商品的状态改为未审核已付款(待审核)
 			
 			//将此信息写入记录表中

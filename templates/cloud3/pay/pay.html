@@ -69,7 +69,7 @@
 						<!--<a href="javascript:;"  class="a_link" >普通充值</a>-->
 					<!--</h2>-->
 					<dd> <strong>可用金额：</strong>
-						<span class="cc">{$minfo['money']}元</span>
+						<span class="cc">{$minfo['money']}美元</span>
 					</dd>
 
 					<div class="right_title_box dn">
@@ -86,7 +86,7 @@
 							<dd class="clear czje"> <strong class="fl">充值金额：</strong>
 								<p class="fl">
 									<input type="text" placeholder="输入充值金额" id="money" name="money"/>
-									元
+									美元
 									<input type="hidden" name="total_money" id="total_money"/>
 								</p>
 							</dd>
@@ -134,7 +134,7 @@
 							<strong class="fl">充值金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
 							<p class="fl">
 								<input type="text" placeholder="输入充值金额" id="normal_money2" name="info[money]"/>
-								元
+								美元
 								<span style="padding-left:0;background:none;margin-left:20px;" id="set_note"></span>
 							</p>
 						</dd>
@@ -334,8 +334,8 @@ $("#money").formValidator({
 				async: false,
 				data:{'money':val},
 				success : function(msg){
-					//$("#quick").append('<p id="set_note"  style="display:block;color:#32CD32;padding-left:20px;margin-top:10px;">*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元</p>') ;
-					$("#set_note").html('*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元');
+					//$("#quick").append('<p id="set_note"  style="display:block;color:#32CD32;padding-left:20px;margin-top:10px;">*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'美元;共需支付'+msg.total+'美元</p>') ;
+					$("#set_note").html('*当前手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'美元;共需支付'+msg.total+'美元');
 					$("#moneyTip").hide();
 					$("#total_money").val(msg.total);
 				}
@@ -410,7 +410,7 @@ function check_money(val){
 			async: false,
 			data:{'money':val,'code':code},
 			success : function(msg){
-				$("#set_note").html('*当前支付平台收取手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'元;共需支付'+msg.total+'元');
+				$("#set_note").html('*当前支付平台收取手续费为(收取'+msg.fee+'%)：'+msg.pay_fee+'美元;共需支付'+msg.total+'美元');
 				$("#moneyTip").hide();
 				$("#total_money").val(msg.total);
 			}

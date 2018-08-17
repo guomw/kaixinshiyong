@@ -88,12 +88,12 @@
 						{/if}
                         {/if}
                          
-						{if $goods_bonus > 0}完成本单赠送红包{$goods_bonus}元 {/if} 
+						{if $goods_bonus > 0}完成本单赠送红包{$goods_bonus}美元 {/if}
 						{$rs['goods_tips']['goods_order']['remark']}&nbsp;&nbsp;
 						{if $rs[subsidy_type] == 1 && $rs['subsidy'] > 0}
 						 完成本单平台将额外补贴{$rs[subsidy]}积分
 						{elseif $rs[subsidy_type] ==2 && $rs['subsidy'] > 0}
-						完成本单平台将额外补贴{$rs[subsidy]}元
+						完成本单平台将额外补贴{$rs[subsidy]}美元
 						{/if}
 					</p>
 
@@ -109,12 +109,12 @@
 							<dd>剩余份数</dd>
 						</dl>
 						<dl class="fl">
-							<dt class="cc">￥{$rs[goods_price]}</dt>
+							<dt class="cc">${$rs[goods_price]}</dt>
 							<dd>商品价值</dd>
 						</dl>
 						<dl class="fl">
 							<dt class="cc">
-								￥{php echo sprintf('%.2f',$rs[goods_price]+$rs['goods_bonus'])}
+								${php echo sprintf('%.2f',$rs[goods_price]+$rs['goods_bonus'])}
 							</dt>
 							<dd>返还金额</dd>
 						</dl>
@@ -136,7 +136,7 @@
 							</div>
 						</div>
 						<div class="db fl" style="width:300px">
-							商家已缴纳保证金{php echo sprintf('%.2f',($rs['goods_price'] + $rs['goods_bonus']) *  $goods_number)} 元，请放心申请
+							商家已缴纳保证金{php echo sprintf('%.2f',($rs['goods_price'] + $rs['goods_bonus']) *  $goods_number)} 美元，请放心申请
 						</div>
 					</div>
 
@@ -223,7 +223,7 @@
 						购买
 						<span class="g_hint">
 							原价
-							<b class="cc">￥{$goods_price}</b>
+							<b class="cc">${$goods_price}</b>
 							下单领取（包邮）
 						</span>
 					</dt>
@@ -244,7 +244,7 @@
 						返还担保金
 						<span class="g_hint">
 							返还
-							<b class="cc">￥{$goods_price}</b>
+							<b class="cc">${$goods_price}</b>
 							{if $goods_bonus > 0}
 								+&nbsp;
 							<b class="cc">{$goods_bonus}</b>
@@ -331,12 +331,12 @@
 							{/if}
 									{if ($rs['goods_tips']['goods_order']['price']['cost'])}
 							<dd>
-								原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元
+								原价为：{$rs['goods_tips']['goods_order']['price']['cost']}美元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}美元
 							</dd>
 							{/if}
 									{if ($rs['goods_tips']['goods_order']['price']['lv'])}
 							<dd>
-								请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单
+								请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}美元下单
 							</dd>
 							{/if}
 							<dd>请按照活动要求下单</dd>

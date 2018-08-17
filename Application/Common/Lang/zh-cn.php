@@ -232,7 +232,7 @@ return array(
 'can_enter' => '还可输入',
 'characters' => '个字符',
 
-'money' => '元',
+'money' => '美元',
 
 
 'att_upload_succ'            => '文件上传成功',

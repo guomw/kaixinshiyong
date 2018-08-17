@@ -182,7 +182,7 @@ include $this->admin_tpl('header','admin');?>
 		<td>
 			<label><input type="radio" name="info[subsidy_type]" value="1" <?php if($rs['subsidy_type'] == 1) {?> checked <?php } ?>>&nbsp;积分</label>
 			<label><input type="radio" name="info[subsidy_type]" value="2" <?php if($rs['subsidy_type'] == 2) {?> checked <?php } ?>>&nbsp;金额</label>
-			<label><input type="text" name="info[subsidy]"  style="width:80px;" value="<?php echo $rs['subsidy'] ?>" />/元或积分</label>
+			<label><input type="text" name="info[subsidy]"  style="width:80px;" value="<?php echo $rs['subsidy'] ?>" />/美元或积分</label>
 		</td>
 	</tr>
 
@@ -356,7 +356,7 @@ $("#bonus_price").formValidator({
 	fun:function(val,elem){
 		var goods_bonus =  $("#bonus").val();
 		if(parseInt(val) < parseInt(goods_bonus)){
-			return '赠送用户红包的最低'+goods_bonus+'元起';
+			return '赠送用户红包的最低'+goods_bonus+'美元起';
 		}else{
 			return true;
 		}

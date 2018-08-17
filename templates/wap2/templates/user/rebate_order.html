@@ -35,7 +35,7 @@
         <h2 class='c5'>{{ d.title | limitTo:15 }}</h2>
         <p class="c5"><span class="c4">抢购时间 : </span> {{d.create_time +'000' | date:"yyyy-MM-dd h:mm" }}</p>
         <li class="hd_2 c1 txt-flow c4" style="font-size:0.875em;">
-          下单: <b class="cc">{{d.goods_price | currency:"￥"}}</b>
+          下单: <b class="cc">{{d.goods_price | currency:"$"}}</b>
         </li>
 
         <!--         各种活动状态开始  -->
@@ -62,7 +62,7 @@
         <!--  各种活动状态结束 -- -->
 
         <li ng-show="d.status != 4" class="c1 txt-flow c4" style="font-size:0.875em;">
-          返还: <b class="cc">{{d.goods_price - (d.goods_price * d.goods_discount /10 ) | currency:"￥"}}</b>
+          返还: <b class="cc">{{d.goods_price - (d.goods_price * d.goods_discount /10 ) | currency:"$"}}</b>
           <span style="font-size:14px">
             (
             <b class="cc">{{d.goods_discount }}
@@ -115,7 +115,7 @@
           已完成:
           <b class="cc">
             <span id="{{d.create_time - 0 + seller_check_time}}" data-time="">
-              已返还{{d.goods_price - (d.goods_price * d.goods_discount /10 ) | currency:"￥"}}
+              已返还{{d.goods_price - (d.goods_price * d.goods_discount /10 ) | currency:"$"}}
             </span>
           </b>
         </p>

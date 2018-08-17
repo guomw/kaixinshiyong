@@ -27,7 +27,7 @@
 		<td align="center"><?php echo $v['groupid']?></td>
 		<td align="center"><?php echo $v['name'];?></td>
 		<!-- 收费标准 -->
-		<td align="center"><?php if($pricetype[0] == 1){echo '￥'.$pricetype[1].'元/月';}elseif ($pricetype[0] == 2) {echo '￥'.$pricetype[1].'元/季';}else{echo '￥'.$pricetype[1].'元/年';}?></td>
+		<td align="center"><?php if($pricetype[0] == 1){echo '$'.$pricetype[1].'美元/月';}elseif ($pricetype[0] == 2) {echo '$'.$pricetype[1].'美元/季';}else{echo '$'.$pricetype[1].'美元/年';}?></td>
 		<td align="center"><img src="<?php echo $v['image'];?>" width="20" height="20"/></td>
 		<td align="center">
 			<a href="<?php echo U('edit', array('groupid' => $v['groupid'])) ?>">[<?php echo L('edit')?>]</a> 

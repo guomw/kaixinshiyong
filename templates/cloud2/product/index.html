@@ -255,9 +255,9 @@
 								<a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title],38)}</a>
 							</div>
                             <div class="nohover2">
-								<a>￥{price($r[id])}</a>
+								<a>${price($r[id])}</a>
 								<a class="left1">限量<b class="font-red"><?php echo $r[goods_number] - $r[already_num];?></b>份</a>
-								<span>赠送</span><span class="red_bg"></span><span class="ff0000">{$r['goods_bonus']}</span><span>元</span>
+								<span>赠送</span><span class="red_bg"></span><span class="ff0000">{$r['goods_bonus']}</span><span>美元</span>
 							</div>
                             <div class="top1">
 								<a href="{$r[url]}" target="_blank" class="anniu_button3 left5">免费试用</a>
@@ -312,7 +312,7 @@
 								<a href="{$p[url]}" target="_blank" title="{$p[title]}" alt="{$p[title]}">{str_cut($p[title],39)}</a>
 							</div>
                             <div class="nohover2">
-								<a>￥{price($p[id])}</a>
+								<a>${price($p[id])}</a>
 								<a class="left1">限量<b class="font-red"><?php echo $p[goods_number] - $p[already_num];?></b>份</a>
 							</div>
                         </li>
@@ -356,9 +356,9 @@
 							</div>
                             <div class="jing-top top">
                                 <div class="fleat top" style="width: 100%;">
-                                    <div class="fleat top1"><span class="money">￥</span><span class="big2">{price($p[id])}</span></div>
+                                    <div class="fleat top1"><span class="money">$</span><span class="big2">{price($p[id])}</span></div>
                                     <div class="original-a left1" style="float: right;">
-                                        <div><span class="line_m">￥{$p[goods_price]}</span>|3折</div>
+                                        <div><span class="line_m">${$p[goods_price]}</span>|3折</div>
                                         <div><span>剩余<?php echo $p[goods_number] - $p[already_num];?>/{$p[goods_number]}</span></div>
                                     </div>
                                 </div>

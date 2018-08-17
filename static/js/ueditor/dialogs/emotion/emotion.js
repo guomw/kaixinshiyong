@@ -62,16 +62,16 @@ function switchTab( index ) {
         emotion.tabExist[index] = 1;
         createTab( 'tab' + index );
     }
-    //获取呈现元素句柄数组
+    //获取呈现美元素句柄数组
     var tabHeads = $G( "tabHeads" ).getElementsByTagName( "span" ),
             tabBodys = $G( "tabBodys" ).getElementsByTagName( "div" ),
             i = 0, L = tabHeads.length;
-    //隐藏所有呈现元素
+    //隐藏所有呈现美元素
     for ( ; i < L; i++ ) {
         tabHeads[i].className = "";
         tabBodys[i].style.display = "none";
     }
-    //显示对应呈现元素
+    //显示对应呈现美元素
     tabHeads[index].className = "focus";
     tabBodys[index].style.display = "block";
 }

@@ -19,7 +19,7 @@ namespace Org\Util;
 class ArrayList implements IteratorAggregate {
 
     /**
-     * 集合元素
+     * 集合美元素
      * @var array
      * @access protected
      */
@@ -28,7 +28,7 @@ class ArrayList implements IteratorAggregate {
     /**
      * 架构函数
      * @access public
-     * @param string $elements  初始化数组元素
+     * @param string $elements  初始化数组美元素
      */
     public function __construct($elements = array()) {
         if (!empty($elements)) {
@@ -46,9 +46,9 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 增加元素
+     * 增加美元素
      * @access public
-     * @param mixed $element  要添加的元素
+     * @param mixed $element  要添加的美元素
      * @return boolen
      */
     public function add($element) {
@@ -66,9 +66,9 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 增加元素列表
+     * 增加美元素列表
      * @access public
-     * @param ArrayList $list  元素列表
+     * @param ArrayList $list  美元素列表
      * @return boolen
      */
     public function addAll($list) {
@@ -81,7 +81,7 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 清除所有元素
+     * 清除所有美元素
      * @access public
      */
     public function clear() {
@@ -89,9 +89,9 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 是否包含某个元素
+     * 是否包含某个美元素
      * @access public
-     * @param mixed $element  查找元素
+     * @param mixed $element  查找美元素
      * @return string
      */
     public function contains($element) {
@@ -99,7 +99,7 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 根据索引取得元素
+     * 根据索引取得美元素
      * @access public
      * @param integer $index 索引
      * @return mixed
@@ -109,10 +109,10 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 查找匹配元素，并返回第一个元素所在位置
+     * 查找匹配美元素，并返回第一个美元素所在位置
      * 注意 可能存在0的索引位置 因此要用===False来判断查找失败
      * @access public
-     * @param mixed $element  查找元素
+     * @param mixed $element  查找美元素
      * @return integer
      */
     public function indexOf($element) {
@@ -120,7 +120,7 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 判断元素是否为空
+     * 判断美元素是否为空
      * @access public
      * @return boolen
      */
@@ -129,9 +129,9 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 最后一个匹配的元素位置
+     * 最后一个匹配的美元素位置
      * @access public
-     * @param mixed $element  查找元素
+     * @param mixed $element  查找美元素
      * @return integer
      */
     public function lastIndexOf($element) {
@@ -145,8 +145,8 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 根据索引移除元素
-     * 返回被移除的元素
+     * 根据索引移除美元素
+     * 返回被移除的美元素
      * @access public
      * @param integer $index 索引
      * @return mixed
@@ -186,11 +186,11 @@ class ArrayList implements IteratorAggregate {
     }
 
     /**
-     * 设置列表元素
+     * 设置列表美元素
      * 返回修改之前的值
      * @access public
      * @param integer $index 索引
-     * @param mixed $element  元素
+     * @param mixed $element  美元素
      * @return mixed
      */
     public function set($index, $element) {

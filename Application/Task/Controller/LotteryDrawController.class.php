@@ -55,7 +55,7 @@ public function LotteryDrawIndex() {
 	 $rank1=$rank1.'积分';
 	}
 	else{
-	$rank1=$rank1.'元';
+	$rank1=$rank1.'美元';
 	}
 	
 	
@@ -66,7 +66,7 @@ public function LotteryDrawIndex() {
 	 $rank2=$rank2.'积分';
 	}
 	else{
-	$rank2=$rank2.'元';
+	$rank2=$rank2.'美元';
 	}
 
    $where['rank']=3;
@@ -76,7 +76,7 @@ public function LotteryDrawIndex() {
 	 $rank3=$rank3.'积分';
 	}
 	else{
-	$rank3=$rank3.'元';
+	$rank3=$rank3.'美元';
 	}
 	
 	
@@ -87,7 +87,7 @@ public function LotteryDrawIndex() {
 	 $rank4=$rank4.'积分';
 	}
 	else{
-	$rank4=$rank4.'元';
+	$rank4=$rank4.'美元';
 	}
 	
 		
@@ -98,7 +98,7 @@ public function LotteryDrawIndex() {
 	 $rank5=$rank5.'积分';
 	}
 	else{
-	$rank5=$rank5.'元';
+	$rank5=$rank5.'美元';
 	}
 	
 	
@@ -115,7 +115,7 @@ public function LotteryDrawIndex() {
 	 $rank6=$rank6.'积分';
 	}
 	else{
-	$rank6=$rank6.'元';
+	$rank6=$rank6.'美元';
 	}
 	
 	$data2=M('lottery_draw_list')->limit('10')->select();
@@ -231,7 +231,7 @@ public function LotteryDrawIndexFunAjax_part_rank6Save($userid) {        //当6�
    // $data_user2['money'] = $data_user['money'] + $rangNum_rank6;
    // M('member')->where($where_user)->save($data_user2);
 
-     $result='现金'.$rangNum_rank6.'元';
+     $result='现金'.$rangNum_rank6.'美元';
     // 8-reward-userid-当前时间-1
     $msg = '六等奖，抽取'.$result;
     $sign = '8-reward-'.$userid.'-'.NOW_TIME.'-1';
@@ -298,7 +298,7 @@ public function LotteryDrawIndexFunAjax_part_otherSave($where_result, $userid) {
         $data_user = M('member')->where($where_user)->find();
        // $data_user2['money'] = $data_user['money'] + $data['num'];
        // M('member')->where($where_user)->save($data_user2);
-        $result='现金'.$data['num'].'元';
+        $result='现金'.$data['num'].'美元';
         $msg = $where_result['rank'].'等奖，抽取'.$result;
 
         $sign = '8-reward-'.$userid.'-'.NOW_TIME.'-1';

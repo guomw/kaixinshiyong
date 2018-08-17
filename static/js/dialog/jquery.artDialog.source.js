@@ -155,7 +155,7 @@ artDialog.fn = artDialog.prototype = {
 			$content.html(msg);
 		} else if (msg && msg.nodeType === 1) {
 		
-			// 让传入的元素在对话框关闭后可以返回到原来的地方
+			// 让传入的美元素在对话框关闭后可以返回到原来的地方
 			display = msg.style.display;
 			prev = msg.previousSibling;
 			next = msg.nextSibling;
@@ -328,7 +328,7 @@ artDialog.fn = artDialog.prototype = {
 	},
 	
 	/**
-	 * 跟随元素
+	 * 跟随美元素
 	 * @param	{HTMLElement, String}
 	 */
 	follow: function (elem) {
@@ -339,7 +339,7 @@ artDialog.fn = artDialog.prototype = {
 			elem = $elem[0];
 		};
 		
-		// 隐藏元素不可用
+		// 隐藏美元素不可用
 		if (!elem || !elem.offsetWidth && !elem.offsetHeight) {
 			return that.position(that._left, that._top);
 		};
@@ -525,7 +525,7 @@ artDialog.fn = artDialog.prototype = {
 				var elem = this._focus && this._focus[0] || this.DOM.close[0];
 				elem && elem.focus();
 			}
-		} catch (e) {}; // IE对不可见元素设置焦点会报错
+		} catch (e) {}; // IE对不可见美元素设置焦点会报错
 		return this;
 	},
 	
@@ -635,7 +635,7 @@ artDialog.fn = artDialog.prototype = {
 		return that;
 	},
 	
-	// 获取元素
+	// 获取美元素
 	_getDOM: function () {	
 		var wrap = document.createElement('div'),
 			body = document.body;
@@ -1042,7 +1042,7 @@ artDialog.defaults = {
 	esc: true,					// 是否支持Esc键关闭
 	focus: true,				// 是否支持对话框按钮自动聚焦
 	show: true,					// 初始化后是否显示对话框
-	follow: null,				// 跟随某元素(即让对话框在元素附近弹出)
+	follow: null,				// 跟随某美元素(即让对话框在美元素附近弹出)
 	path: _path,				// artDialog路径
 	lock: false,				// 是否锁屏
 	background: '#000',			// 遮罩颜色

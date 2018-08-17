@@ -87,25 +87,25 @@
       <p style="color:#A9A9A9" class="padding-left">
         可提现金额:
         <span style='color:red;font-size:14px;'>{{money}}</span>
-        元
+        美元
       </p>
 
       <form name="myform">
         <label class="item item-input">
           <div class="input-label">提现金额</div>
-          <input type="text" ng-minlength="number" ng-pattern="/^[0-9]*$/" ng-model=" t_money" name="sub_branch" placeholder="输入提现金额, 最低{{bank_configure.min_money}}元"
+          <input type="text" ng-minlength="number" ng-pattern="/^[0-9]*$/" ng-model=" t_money" name="sub_branch" placeholder="输入提现金额, 最低{{bank_configure.min_money}}美元"
             required></label>
       </form>
       <p ng-if="Present_method == 1" style="color:#A9A9A9" class="padding-left">
-        手续费{{ t_money * (service_Counter_Fee / 100) | currency:"￥" }} ,最终到账
+        手续费{{ t_money * (service_Counter_Fee / 100) | currency:"$" }} ,最终到账
         <span style='color:red;font-size:14px;'>
-          {{ t_money - (t_money * (service_Counter_Fee / 100)) | currency:"￥" }}
+          {{ t_money - (t_money * (service_Counter_Fee / 100)) | currency:"$" }}
         </span>
       </p>
 
       <p ng-if="Present_method == 0" style="color:#A9A9A9" class="padding-left">
         不收手续费,最终到账
-        <span style='color:red;font-size:14px;'>{{ t_money | currency:"￥" }}</span>
+        <span style='color:red;font-size:14px;'>{{ t_money | currency:"$" }}</span>
       </p>
 
       <h5 class="padding-left">温馨提醒</h5>

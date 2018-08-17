@@ -86,9 +86,9 @@ $.fn = $.prototype = {
 
     /**
 	 * 读写样式<br />
-     * css(name) 访问第一个匹配元素的样式属性<br />
-     * css(properties) 把一个"名/值对"对象设置为所有匹配元素的样式属性<br />
-     * css(name, value) 在所有匹配的元素中，设置一个样式属性的值<br />
+     * css(name) 访问第一个匹配美元素的样式属性<br />
+     * css(properties) 把一个"名/值对"对象设置为所有匹配美元素的样式属性<br />
+     * css(name, value) 在所有匹配的美元素中，设置一个样式属性的值<br />
 	 */
     css: function (name, value) {
         var i, elem = this[0], obj = arguments[0];
@@ -112,12 +112,12 @@ $.fn = $.prototype = {
         return this;
     },
 	
-	/** 显示元素 */
+	/** 显示美元素 */
 	show: function () {
 		return this.css('display', 'block');
 	},
 	
-	/** 隐藏元素 */
+	/** 隐藏美元素 */
 	hide: function () {
 		return this.css('display', 'none');
 	},
@@ -245,8 +245,8 @@ $.isArray = function (obj) {
 };
 
 /**
- * 搜索子元素
- * 注意：只支持nodeName或.className的形式，并且只返回第一个元素
+ * 搜索子美元素
+ * 注意：只支持nodeName或.className的形式，并且只返回第一个美元素
  * @param	{String}
  */
 $.fn.find = function (expr) {
@@ -309,7 +309,7 @@ $.each = function (obj, callback) {
 
 /**
  * 读写缓存
- * @param		{HTMLElement}	元素
+ * @param		{HTMLElement}	美元素
  * @param		{String}		缓存名称
  * @param		{Any}			数据
  * @return		{Any}			如果无参数data则返回缓存数据
@@ -327,7 +327,7 @@ $.data = function (elem, name, data) {
 
 /**
  * 删除缓存
- * @param		{HTMLElement}	元素
+ * @param		{HTMLElement}	美元素
  * @param		{String}		缓存名称
  */
 $.removeData = function (elem, name) {
@@ -356,7 +356,7 @@ $.uuid = 0;
 $.cache = {};
 $.expando = '@cache' + + new Date
 
-// 标记元素唯一身份
+// 标记美元素唯一身份
 function uuid (elem) {
 	var expando = $.expando,
 		id = elem === window ? 0 : elem[expando];
@@ -374,7 +374,7 @@ $.event = {
 	
 	/**
 	 * 添加事件
-	 * @param		{HTMLElement}	元素
+	 * @param		{HTMLElement}	美元素
 	 * @param		{String}		事件类型
 	 * @param		{Function}		要添加的函数
 	 */
@@ -399,7 +399,7 @@ $.event = {
 	
 	/**
 	 * 卸载事件
-	 * @param		{HTMLElement}	元素
+	 * @param		{HTMLElement}	美元素
 	 * @param		{String}		事件类型
 	 * @param		{Function}		要卸载的函数
 	 */
@@ -469,9 +469,9 @@ $.event = {
 };
 
 /**
- * 清理元素集的事件与缓存
+ * 清理美元素集的事件与缓存
  * @requires	[$.removeData, $.event]
- * @param		{HTMLCollection}	元素集
+ * @param		{HTMLCollection}	美元素集
  */
 $.cleanData = function (elems) {
 	var i = 0, elem,
@@ -972,7 +972,7 @@ artDialog.fn = artDialog.prototype = {
 			$content.html(msg);
 		} else if (msg && msg.nodeType === 1) {
 		
-			// 让传入的元素在对话框关闭后可以返回到原来的地方
+			// 让传入的美元素在对话框关闭后可以返回到原来的地方
 			display = msg.style.display;
 			prev = msg.previousSibling;
 			next = msg.nextSibling;
@@ -1145,7 +1145,7 @@ artDialog.fn = artDialog.prototype = {
 	},
 	
 	/**
-	 * 跟随元素
+	 * 跟随美元素
 	 * @param	{HTMLElement, String}
 	 */
 	follow: function (elem) {
@@ -1156,7 +1156,7 @@ artDialog.fn = artDialog.prototype = {
 			elem = $elem[0];
 		};
 		
-		// 隐藏元素不可用
+		// 隐藏美元素不可用
 		if (!elem || !elem.offsetWidth && !elem.offsetHeight) {
 			return that.position(that._left, that._top);
 		};
@@ -1342,7 +1342,7 @@ artDialog.fn = artDialog.prototype = {
 				var elem = this._focus && this._focus[0] || this.DOM.close[0];
 				elem && elem.focus();
 			}
-		} catch (e) {}; // IE对不可见元素设置焦点会报错
+		} catch (e) {}; // IE对不可见美元素设置焦点会报错
 		return this;
 	},
 	
@@ -1452,7 +1452,7 @@ artDialog.fn = artDialog.prototype = {
 		return that;
 	},
 	
-	// 获取元素
+	// 获取美元素
 	_getDOM: function () {	
 		var wrap = document.createElement('div'),
 			body = document.body;
@@ -1859,7 +1859,7 @@ artDialog.defaults = {
 	esc: true,					// 是否支持Esc键关闭
 	focus: true,				// 是否支持对话框按钮自动聚焦
 	show: true,					// 初始化后是否显示对话框
-	follow: null,				// 跟随某元素(即让对话框在元素附近弹出)
+	follow: null,				// 跟随某美元素(即让对话框在美元素附近弹出)
 	path: _path,				// artDialog路径
 	lock: false,				// 是否锁屏
 	background: '#000',			// 遮罩颜色

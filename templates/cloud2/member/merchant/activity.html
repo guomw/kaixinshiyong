@@ -114,11 +114,11 @@
 								</ol>
 							</td>
 							<td class="t_tr_w_3 tc">
-								{$l[goods_price]}元
+								{$l[goods_price]}美元
 								{if $mod == 'rebate'}
 									<font class="t_h_wi_he background_2ebcfe color_ffffff">{$l[goods_discount]}折</font>
 								{elseif $mod=='trial' && $l['goods_bonus'] > 0}
-									/<font class="t_h_wi_he background_2ebcfe color_ffffff">{$l[goods_bonus]}元红包</font>
+									/<font class="t_h_wi_he background_2ebcfe color_ffffff">{$l[goods_bonus]}美元红包</font>
 								{/if}
 							</td>
 							<td class="t_tr_w_4 t_tr_w_4_1 tc">{if ($mod == 'rebate' || $mod=='trial')}{$l[goods_number]}{else}-{/if}</td>

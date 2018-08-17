@@ -22,14 +22,14 @@ class Stack extends ArrayList {
     /**
      * 架构函数
      * @access public
-     * @param array $values  初始化数组元素
+     * @param array $values  初始化数组美元素
      */
     public function __construct($values = array()) {
         parent::__construct($values);
     }
 
     /**
-     * 将堆栈的内部指针指向第一个单元
+     * 将堆栈的内部指针指向第一个单美元
      * @access public
      * @return mixed
      */
@@ -38,7 +38,7 @@ class Stack extends ArrayList {
     }
 
     /**
-     * 元素进栈
+     * 美元素进栈
      * @access public
      * @param mixed $value
      * @return mixed

@@ -92,7 +92,7 @@ Class MemberFriendController extends SystemController{
 
         $weixin_url = 'http://'.$_SERVER['HTTP_HOST'].'/yq/'.$this->userid;
 
-        $type =  $friend_setting[fix][type] == 'money' ? '元' :'积分';
+        $type =  $friend_setting[fix][type] == 'money' ? '美元' :'积分';
 
         $siteTitle = '我已经在'.C('WEBNAME').'免费试用网领取了好多试用品，通过率高达80%以上，现在喊你一起来'.C('WEBNAME').',立即注册你还可以【免费】得到'.$friend_setting[fix][cost].$type.'新人福袋奖励，快来注册！';
         $summary = $siteTitle;

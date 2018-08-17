@@ -183,7 +183,7 @@ return array(
 	'register_protocol'       => '会员注册协议',
 	'show_register_protocol'  => '是否显示注册协议',
 	'show_app_point'          => '是否启用应用间积分兑换',
-	'rmb_point_rate'          => '1元人民币购买积分数量',
+	'rmb_point_rate'          => '1美元人民币购买积分数量',
 	
 	'please_input_mobile'         => '请输入手机号码',
 	'get_sms_code'                => '获取短信验证码',

@@ -170,7 +170,7 @@ word-wrap: break-word;
 							{loop $lists $r}
 								<tr>
 									<td><a href="{$r[product_info][url]}" target="_blank">{$r[product_info][title]}</a></td>
-									<td>￥{$r[product_info][goods_price]}</td>
+									<td>${$r[product_info][goods_price]}</td>
 									<td>
 										{dgmdate($r[create_time])}
 										{if $mod == 'trial'}

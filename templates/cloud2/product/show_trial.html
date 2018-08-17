@@ -152,7 +152,7 @@ line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
                     <a class="nohover">申请<p class="lc-p">获得试用资格</p></a>
                 </li>
                 <li style="width: 180px;">
-                    <a class="nohover">原价<b class="font-red">￥{$rs['goods_price']}</b>购买<p class="lc-p">用原价去平台购买</p></a>
+                    <a class="nohover">原价<b class="font-red">${$rs['goods_price']}</b>购买<p class="lc-p">用原价去平台购买</p></a>
                 </li>
                 <li style="width: 190px;">
                     <a class="nohover">提交订单编号<p class="lc-p">来云划算填写付款订单编号</p></a>
@@ -161,7 +161,7 @@ line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
                     <a class="nohover">提交试用报告<p class="lc-p">提交图文并茂的试用报告</p></a>
                 </li>
                 <li style="width: 180px;">
-                    <a class="nohover">返还￥{$rs['goods_price']}                 
+                    <a class="nohover">返还${$rs['goods_price']}
                      {if $goods_bonus > 0}+红包{$goods_bonus}{/if}<p class="lc-p">试用报告通过后返还试用担保金</p></a>
                 </li>
             </ul>
@@ -225,9 +225,9 @@ line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
                             <b class="big-red">{$total_count}<!-- {get_trial_by_gid($rs['id'])} --></b>人已申请，
                             <b class="big-red">{get_over_trial_by_gid($rs['id'])}</b>人已完成
                         </a></li>
-                        <li style="float: left;"><a>下单金额:<b class="big-ju">{$rs['goods_price']}</b>元</a><span class="anniu_button7 top1">完成试用返{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</span>
+                        <li style="float: left;"><a>下单金额:<b class="big-ju">{$rs['goods_price']}</b>美元</a><span class="anniu_button7 top1">完成试用返{php echo $rs['goods_price'] - $rs['goods_price'] * $rs['goods_discount'] / 10}</span>
                         </li>
-                        <li style="float: left; line-height: 37px;">{if $goods_bonus > 0}&nbsp;+&nbsp;红包￥<font style="color: #F47130;">{$goods_bonus}</font>元{/if}</li>
+                        <li style="float: left; line-height: 37px;">{if $goods_bonus > 0}&nbsp;+&nbsp;红包$<font style="color: #F47130;">{$goods_bonus}</font>美元{/if}</li>
                         <li style="clear: both; border: none;"></li>
                         <li><a>剩余份数:<b class="big-red">{php echo $goods_number - buyer_count_by_gid($rs['id'])}</b>/<b class="big-red"><?php echo $goods_number;?></b></a>
                             <span style="position: absolute;margin-left: 200px;">
@@ -269,7 +269,7 @@ line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
                 <div class="top3 fleat left3" style="border: 1px dashed #d2d2d2;padding: 4px;">
                     <div><img src="{THEME_STYLE_PATH}style/images/bao.jpg"></div>
                     <p><a class="nohover">商家已存入试用担保金</a></p>
-                    <p><a class="big-red">￥{php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</a></p>
+                    <p><a class="big-red">${php echo sprintf('%.2f', (($goods_price+$goods_bonus) * $goods_number))}</a></p>
                     <p><a class="nohover">{C('webname')}担保&nbsp;请放心申请</a></p>
                 </div>
             </div>
@@ -350,10 +350,10 @@ line-height:33px; text-indent:10px; color:#fff; background:#ff6600; }
 									<li class="li_margin" style="height:auto"><span style="padding:0;">拍下须知：</span>{$rs['goods_tips']['goods_order']['remark']}</li>
 								{/if}
 								{if ($rs['goods_tips']['goods_order']['price']['cost'])}
-									<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}元</li>
+									<li class="li_margin">原价为：{$rs['goods_tips']['goods_order']['price']['cost']}美元，拍下后价格为：{$rs['goods_tips']['goods_order']['price']['after']}美元</li>
 								{/if}
 								{if ($rs['goods_tips']['goods_order']['price']['lv'])}
-									<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}元下单</li>
+									<li class="li_margin">请用V1-V3价格{$rs['goods_tips']['goods_order']['price']['lv']}美元下单</li>
 								{/if}
 							</ul>
 							<dl class="tips">
