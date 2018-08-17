@@ -34,13 +34,15 @@
         </ul>
       </ion-item>
 
-      <p ng-if="order_info.status == 4 " style="color:#A9A9A9" class="padding-left ">
+      <p ng-if="order_info.status == 4 " style="color:#A9A9A9;padding: 10px" class="padding-left ">
         提示:
         <b class="cc">{{order_info.cause}}</b>
 
       </p>
-      <p class="padding-left " ng-if="order_info.taobao">请使用绑定淘宝帐号<b class="cc">"{{order_info.taobao}} "</b>下单</p>
-      <p ng-if="order_info.status == 4 && !order_info.trial_report " class="padding-left ">
+      <p class="padding-left " ng-if="order_info.taobao" style="padding: 10px">请使用绑定淘宝帐号<b class="cc">"{{order_info.taobao}}
+          "
+        </b>下单</p>
+      <p ng-if="order_info.status == 4 && !order_info.trial_report " class="padding-left " style="padding: 10px">
         未在:
         <b class="cc"><span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}" data-time="">
             {{ order_info.complete_time - 0 + buyer_check_update_order_sn | f_fomtime }}
@@ -48,7 +50,7 @@
         修改订单号,将失去资格!
       </p>
 
-      <p ng-if="order_info.status == 2 && order_info.order_sn =='' " style="color:#A9A9A9d" class="padding-left padding-top ">
+      <p ng-if="order_info.status == 2 && order_info.order_sn =='' " style="color:#A9A9A9;padding: 10px" class="padding-left padding-top ">
         提示:未在
         <b class="cc">
 
@@ -63,7 +65,7 @@
         填写订单号,将失去资格!
       </p>
 
-      <p ng-if="order_info.status == 2 && order_info.order_sn !=''   " class="padding-left">
+      <p ng-if="order_info.status == 2 && order_info.order_sn !=''   " class="padding-left" style="padding: 10px 0;">
         订单号审核中:
         <b class="cc">
           <span id="{{order_info.complete_time - 0 + buyer_write_order_time}}" data-time="">
@@ -93,9 +95,8 @@
       <!-- 普通下单区域 -->
       <div ng-show="txddh_showdata.type == 'general' ">
         <ion-item class="item item-icon-left item-icon-right " href="#/tab/trial_help">
-          <!-- <i style="font-size:18px;color:#aaaaea" class="icon ion-android-person"></i> -->
           新手帮助
-          <i class="item-note">一分钟学会试用,当试用达人</i>
+          <i class="item-note" style="line-height:26px;">一分钟学会试用,当试用达人</i>
           <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
         </ion-item>
 
@@ -117,7 +118,7 @@
       <!-- 搜索下单区域   -->
       <div ng-show="txddh_showdata.type == 'search' ">
         <div class="item item-divider item-icon-left ">
-          <i style="font-size:18px;color:#7687f1" class="icon ion-android-search"></i>
+          <!-- <i style="font-size:18px;color:#7687f1" class="icon ion-android-search"></i> -->
           搜索下单
         </div>
         <p style="color:#A9A9A9;text-align:right; " class="padding-right">了解和学习搜索下单流程</p>
@@ -161,7 +162,7 @@
       <!-- 二维码下单区域   -->
       <div ng-if="txddh_showdata.type == 'qrcode'">
         <div class="item item-divider item-icon-left ">
-          <i style="font-size:18px;color:#f7ba5b" class="icon ion-android-expand "></i>
+          <!-- <i style="font-size:18px;color:#f7ba5b" class="icon ion-android-expand "></i> -->
           扫描二维码下单
         </div>
         <p style="color:#A9A9A9;text-align:right; " class="padding-right">了解二维码下单</p>
