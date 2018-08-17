@@ -8,4 +8,4 @@
 define('IN_ADMIN', TRUE);
 // $_GET['m'] = 'Admin';
 // require './index.php';
-header("Location:index.php?m=Admin");
+header("Location:index.php?m=Admin&c=Index&a=login");

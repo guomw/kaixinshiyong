@@ -46,7 +46,33 @@ angular
       configFactory,
       jpushService
     ) {
-      $ionicPlatform.ready(function() {
+
+
+        //路由监听事件
+        $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams) {
+            console.log(event);
+            console.log(toState);
+            console.log(toParams);
+            console.log(fromState);
+            console.log(fromParams);
+            switch (toState.name) {
+                case "tab.home":
+                case "tab.trial":
+                case "tab.rebate":
+                case "tab.user":
+                    $rootScope.hideTabs = '';
+                    break;
+                default:
+                    $rootScope.hideTabs = 'tabs-item-hide';
+                    break;
+            }
+
+        });
+
+
+
+
+                $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -98,7 +124,7 @@ angular
         fixedPixelsTop: 0, // the number of pixels of your fixed header, default 0 (iOS and Android)
         fixedPixelsBottom: 0, // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android)
         triggerTransitionEvent: '$ionicView.afterEnter', // internal ionic-native-transitions option
-        backInOppositeDirection: false // Takes over default back transition and state back transition to use the opposite direction transition to go back
+        backInOppositeDirection: true // Takes over default back transition and state back transition to use the opposite direction transition to go back
       })
 
       $ionicNativeTransitionsProvider.setDefaultTransition({
