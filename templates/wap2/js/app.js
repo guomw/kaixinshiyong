@@ -50,11 +50,6 @@ angular
 
         //路由监听事件
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams) {
-            console.log(event);
-            console.log(toState);
-            console.log(toParams);
-            console.log(fromState);
-            console.log(fromParams);
             switch (toState.name) {
                 case "tab.home":
                 case "tab.trial":
@@ -98,13 +93,13 @@ angular
 
       //分享
       function fenxiang_init() {
-        // $sharesdk.open('iosv1101', true)
-        //
-        // var sinaConf = {}
-        // sinaConf['app_key'] = '568898243'
-        // sinaConf['app_secret'] = '38a4f8204cc784f81f9f0daaf31e02e3'
-        // sinaConf['redirect_uri'] = 'http://www.sharesdk.cn'
-        // $sharesdk.setPlatformConfig($sharesdk.platformID.SinaWeibo, sinaConf)
+        $sharesdk.open('iosv1101', true)
+
+        var sinaConf = {}
+        sinaConf['app_key'] = '568898243'
+        sinaConf['app_secret'] = '38a4f8204cc784f81f9f0daaf31e02e3'
+        sinaConf['redirect_uri'] = 'http://www.sharesdk.cn'
+        $sharesdk.setPlatformConfig($sharesdk.platformID.SinaWeibo, sinaConf)
       }
     }
   ])

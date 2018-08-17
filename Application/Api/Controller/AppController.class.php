@@ -5552,13 +5552,30 @@ class AppController extends BaseController
         $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
         $upload->rootPath = $_SERVER['DOCUMENT_ROOT'] . '/uploadfile/app/'; // 设置附件上传根目录
         // 上传单个文件
-        $info = $upload->uploadone($_FILES["Filedata"]);
+        $info = $upload->uploadone($_FILES["file"]);
         if (!$info) {// 上传错误提示错误信息
             echo($upload->getError());
         } else {// 上传成功 获取上传文件信息
             echo '/uploadfile/app/' . $info['savepath'] . $info['savename'];
         }
     }
+
+    public function upload_img_json(){
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize = 31457280;// 设置附件上传大小
+        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath = $_SERVER['DOCUMENT_ROOT'] . '/uploadfile/app/'; // 设置附件上传根目录
+        // 上传单个文件
+        $info = $upload->uploadone($_FILES["file"]);
+        if (!$info) {// 上传错误提示错误信息
+            $this->json_function(0, $upload->getError());
+        } else {// 上传成功 获取上传文件信息
+            $url='/uploadfile/app/' . $info['savepath'] . $info['savename'];
+            $this->json_function(1, '上传成功', $url);
+        }
+
+    }
+
 
     //单个图片进行转码
     public function upload_img2()

@@ -23,6 +23,7 @@ angular
     'StorageFactory',
     'configFactory',
     '$ionicLoading',
+    '$ionicHistory',
     function(
       $rootScope,
       $state,
@@ -33,14 +34,23 @@ angular
       trial_listFactory,
       StorageFactory,
       configFactory,
-      $ionicLoading
+      $ionicLoading,
+      $ionicHistory
     ) {
       //获取首页幻灯片信息
+<<<<<<< HEAD
       $scope.showloading = true
       $scope.showscroll = true
       $scope.tj_showloading = true
 
       var storageKey = 'quyu'
+=======
+      $scope.showloading = true;
+      $scope.showscroll = true;
+      $scope.tj_showloading = true;;
+      $ionicHistory.clearHistory();
+      var storageKey="quyu";
+>>>>>>> 8743b785355f8a1a0ad80568ecfec32d2e333068
       var quyuData = {
         quyu: 1,
         hideTabs: ''
@@ -3955,7 +3965,7 @@ angular
           $state.go('tab.user_login') //路由跳转登录
           return false
         }
-        $rootScope.hideTabs = ''
+        //$rootScope.hideTabs = ''
         //获得传过来的商品id
         var aid = $stateParams.goodid
         //获得传过来的订单id
@@ -3973,15 +3983,14 @@ angular
         trialOrderFactory.set_order_info(order_id, userid, random)
       })
 
-      var imgUrl = ENV.imgUrl
+      var imgUrl = ENV.imgUrl;
 
-      //初始化上传
-      uploadFactory.init('#goods_albums', function(res) {
-        var data = res._raw
-        //$scope.user_avatar2=$.trim(data);
-        $scope.sybg_vm.img = imgUrl + $.trim(data)
-      })
-
+      // //初始化上传
+      // uploadFactory.init('#goods_albums', function(res) {
+      //   var data = res._raw
+      //   //$scope.user_avatar2=$.trim(data);
+      //   $scope.sybg_vm.img = imgUrl + $.trim(data)
+      // });
       $scope.images_list = []
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
@@ -4061,20 +4070,31 @@ angular
         img: 'img/shai_img.jpg',
         xinde: ''
       }
-
+      $scope.uploaded=false;
       $scope.onFileSelect = function($files) {
         $ionicLoading.show({
           noBackdrop: true,
           template: '正在上传 请稍后...',
           duration: 1000
-        })
+        });
+        uploadFactory.upload($files,function (res) {
+          if(res.status==1) {
+              $ionicLoading.show({
+                  noBackdrop: true,
+                  template: '图片上传完成',
+                  duration: 1000
+              });
+              $scope.uploaded=true;
+              $scope.images_list.push($.trim(res.data));
+              $scope.sybg_vm.img = ENV.imgUrl + $.trim(res.data);
+          }
+        });
 
-        uploadFactory.set_upload($files)
       }
 
       //填写试用报告
       $scope.sybg_add = function() {
-        if ($scope.sybg_vm.img != 'img/shai_img.jpg') {
+        if ($scope.sybg_vm.img == 'img/shai_img.jpg') {
           $ionicLoading.show({
             noBackdrop: true,
             template: '亲,请分享一张宝贝图片...',
@@ -4143,8 +4163,7 @@ angular
             noBackdrop: true,
             template: '图片上传完成',
             duration: 1000
-          })
-
+          });
           $scope.sybg_vm.img = ENV.imgUrl + data.url
         } else {
           $ionicLoading.show({
@@ -5141,7 +5160,7 @@ angular
       $scope.taobao_reason = function() {
         if (($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) || $scope.reason == 7) {
           var alertPopup = $ionicPopup.alert({
-            title: '选择帐号',
+            title: '申请理由',
             templateUrl: 'b.html',
             scope: $scope,
             okText: '提交申请',
@@ -8060,7 +8079,7 @@ angular
       $scope.taobao_reason = function() {
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           var alertPopup = $ionicPopup.alert({
-            title: '选择帐号',
+            title: '申请理由',
             templateUrl: 'b.html',
             scope: $scope,
             okText: '提交申请',
