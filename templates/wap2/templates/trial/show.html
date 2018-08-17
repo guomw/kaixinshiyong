@@ -289,17 +289,11 @@
 
                   <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
   </script>
-  <div class="i_tryout_s_part4">
+  <div class="i_tryout_s_part4" ng-if="order_is_join.data > 0 &&  showdata.end_time < data_time">
     <div class="last_time"><span ng-if="!sy_showloading">剩余:</span><span> <i ng-if="!sy_showloading" style="color: #fff;"
           id="{{showdata.end_time}}">{{showdata.end_time | f_fomtime }}</i></span></div>
     <a ng-click="Apply_trial()" class="a1 right_free">免费申请</a>
-    <div ng-if="order_is_join.data == 1 && showdata.number > 0 " class="vip">
-      <!--
-		<a ng-click="Apply_trial()" class="a1">
-			<div class="last_time"><span>剩余时间：</span><span> <i style="color: #fff;" id="{{showdata.end_time}}"  >{{showdata.end_time  | f_fomtime  }}</i></span></div>
-			<div class="right_free">免费申请</div>
-		</a>
-	-->
+    <div ng-if="order_is_join.data == 1 && showdata.number > 0&&Member_group == 2 " class="vip">
       <a ng-click="vip_Apply_trial()" ng-show=" Member_group == 2&& showdata.goods_vipfree == 1">vip试用</a>
       <!--		<a ng-click="jinbi_Apply_trial()" ng-show =" showdata.goods_point >= 0" >{{showdata.point_num}}积分兑换</a>-->
     </div>
@@ -310,20 +304,19 @@
 
   <!--s_part4-->
   <div class="i_tryout_s_part4" ng-if="order_is_join.data == 0 &&  showdata.end_time > data_time ">
-    <a href="#" class="a1" style="background:#ccc; color:#FFF; border:0px ">已申请过</a>
+    <a class="a1" style="background:#ccc; color:#FFF; border:0px ">已申请过</a>
     <a href="#/tab/user/trial_order">查看我的订单</a>
     <div class="clearfix"></div>
   </div>
 
   <div class="i_tryout_s_part4" ng-if=" order_is_join.data == 1 && showdata.end_time < data_time ">
     <a class="a1" style="background:#ccc; color:#FFF; border:0px ">活动结束</a>
-    当前活动时间已结束,下次早点来呃。
+    <!--当前活动时间已结束,下次早点来呃。-->
     <div class="clearfix"></div>
   </div>
 
   <div class="i_tryout_s_part4" ng-if=" showdata.number < 1 ">
     <a class="a1" style="background:#ccc; color:#FFF; border:0px ">木有了 下次早点来</a>
-    留意后续是否有追加。
     <div class="clearfix"></div>
   </div>
 

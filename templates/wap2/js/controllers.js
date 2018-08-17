@@ -38,19 +38,11 @@ angular
       $ionicHistory
     ) {
       //获取首页幻灯片信息
-<<<<<<< HEAD
-      $scope.showloading = true
-      $scope.showscroll = true
-      $scope.tj_showloading = true
-
-      var storageKey = 'quyu'
-=======
       $scope.showloading = true;
       $scope.showscroll = true;
       $scope.tj_showloading = true;;
       $ionicHistory.clearHistory();
       var storageKey="quyu";
->>>>>>> 8743b785355f8a1a0ad80568ecfec32d2e333068
       var quyuData = {
         quyu: 1,
         hideTabs: ''
@@ -8718,9 +8710,6 @@ angular
     'StorageFactory',
     'soFactory',
     function($rootScope, $scope, $ionicLoading, StorageFactory, soFactory) {
-      $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = 'tabs-item-hide'
-      })
 
       //获取服务器热门搜索
       $scope.hot_showloading = true

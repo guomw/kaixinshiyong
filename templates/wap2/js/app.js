@@ -45,7 +45,8 @@ angular
       $ionicLoading,
       ENV,
       configFactory,
-      jpushService
+      jpushService,
+      $ionicHistory
     ) {
 
 
@@ -56,6 +57,7 @@ angular
                 case "tab.trial":
                 case "tab.rebate":
                 case "tab.user":
+                case "tab.so":
                     $rootScope.hideTabs = '';
                     $ionicHistory.clearHistory();
                     break;
@@ -820,8 +822,8 @@ angular
         .state('tab.so', {
           url: '/so',
           views: {
-            //闪电试用
-            'tab-trial': {
+            //搜索
+            'tab-so': {
               templateUrl: 'templates/so/list.html',
               controller: 'so_list'
             }

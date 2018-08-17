@@ -5735,6 +5735,7 @@ class AppController extends BaseController
         $num = (isset($num) && is_numeric($num)) ? abs($num) : 10;
         $keyword = remove_xss($keyword);
         $sqlmap = array();
+        $sqlmap["p.mod"]='trial';
         if ($keyword) {
             if ($type == 'c') {
                 $com_map = array();
@@ -5780,7 +5781,7 @@ class AppController extends BaseController
 
             // echo model('product')->getLastSql();
         } else {
-            $sqlmap['p.mod'] = array('NEQ', 'postal');
+            $sqlmap['p.mod'] ='trial'; //array('NEQ', 'postal');
             $count = model('product')->alias('p')->where($sqlmap)->count();
             $ids = model('product')->alias('p')->where($sqlmap)->field('p.id')->page($page, $num)->order($orderby . ' ' . $orderway)->select();
 
