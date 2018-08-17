@@ -4,7 +4,7 @@
     <h1 class="title">我的试用</h1>
   </div>
 
-  <div class="bar bar-subheader c5">
+  <div class="bar bar-subheader c5" style="margin-left:0;">
     <div class="button-bar sub_header_list" id="sub_header_list">
       <a class="button button-clear" ng-click="trial_order_changeTab(0,-1)">待审核</a>
       <a class="button button-clear sub_button_select" ng-click="trial_order_changeTab(1,1)">已通过</a>
@@ -144,7 +144,7 @@
       </div>
 
     </ion-item>
-    <div class="no_record" ng-if="!trial_getorderlists.length">
+    <div class="no_record" ng-if="!trial_getorderlists.length && !wdsy_hasNextPage">
       <i class="iconfont icon-wushuju"></i>
       <p>暂无记录</p>
     </div>
