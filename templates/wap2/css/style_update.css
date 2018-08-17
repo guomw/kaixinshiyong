@@ -271,3 +271,42 @@ a.weui-btn {
   display: none !important;
 }
 /* 试用报告style end */
+
+.bar.bar-stable {
+  display: none;
+}
+
+.has-subheader {
+  top: 44px;
+}
+
+.bar-subheader {
+  top: 0 !important;
+}
+.bar.bar-header {
+  display: none;
+}
+.ibody {
+  margin-bottom: 0px !important;
+}
+
+.has-header {
+  top: 0;
+}
+
+.list {
+  padding-top: 0 !important;
+}
+
+.register_forget {
+  width: 100%;
+  text-align: center;
+  padding: 0px 15px 10px;
+  box-sizing: border-box;
+}
+.register_forget > a {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: underline;
+  color: #5091ff;
+}

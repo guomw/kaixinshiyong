@@ -1,4 +1,4 @@
-<ion-view view-title="登录" hide-tabs>
+<ion-view view-title="登录" hide-nav-bar="true">
   <ion-nav-buttons side="right">
     <a class="button button-clear" href="#/tab/user/forget">找回密码</a>
   </ion-nav-buttons>
@@ -7,7 +7,7 @@
     <ion-list class="list ">
       <div style="margin-top:60px;text-align:center">
         <!-- <img ng-src="{{logo}}" /> -->
-        <p class="h-title">欢迎使用XX</p>
+        <p class="h-title">欢迎使用试用商场</p>
       </div>
       <form name="myform" novalidate="false">
         <div class="weui-cells weui-cells_form">
@@ -27,28 +27,29 @@
             </div>
           </div>
         </div>
-        <div class="padding-top" style="padding: 30px 15px 20px; box-sizing: border-box;">
+        <div class="padding-top" style="padding: 30px 15px 10px; box-sizing: border-box;">
           <a href="javascript:;" ng-disabled="myform.$invalid" class="weui-btn" ng-click="login()">登录</a>
         </div>
-        <div style="padding: 0px 15px 10px; box-sizing: border-box;">
-          <a href="#/tab/register" class="weui-btn" style="border:1px solid #ef473a;color:#ef473a;background-color: #fff;">注册</a>
+        <div style="" class="register_forget">
+          <a href="#/tab/register">注册</a>
+          <a href=" #/tab/user/forget ">找回密码</a>
         </div>
       </form>
-      <p class="padding-left c4">温馨提示:pc端已注册的会员可直接登录</p>
+      <p class="padding-left c4 ">温馨提示:pc端已注册的会员可直接登录</p>
     </ion-list>
     <br/>
-    <!-- <div  style="height:150px">
-  <div class="i_login">
-    <div class="s_part1">
-      <div class="co">第三方登录</div>
+    <!-- <div  style="height:150px ">
+  <div class="i_login ">
+    <div class="s_part1 ">
+      <div class="co ">第三方登录</div>
     </div>
-    <div class="s_part2">
-      <a href="http://shi. .cn/index.php?m=Oauth&c=Index&a=login" class="p" target="_bank">
-        <div class="a1">
-          <img src="img/qq.png"  width="30"></div>
-        <div class="a2">QQ</div>
+    <div class="s_part2 ">
+      <a href="http://shi. .cn/index.php?m=Oauth&c=Index&a=login " class="p " target="_bank ">
+        <div class="a1 ">
+          <img src="img/qq.png "  width="30 "></div>
+        <div class="a2 ">QQ</div>
       </a>
-      <div class="clearfix"></div>
+      <div class="clearfix "></div>
     </div>
   </div>
 </div> -->
