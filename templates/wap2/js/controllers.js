@@ -38,11 +38,11 @@ angular
       $ionicHistory
     ) {
       //获取首页幻灯片信息
-      $scope.showloading = true;
-      $scope.showscroll = true;
-      $scope.tj_showloading = true;;
-      $ionicHistory.clearHistory();
-      var storageKey="quyu";
+      $scope.showloading = true
+      $scope.showscroll = true
+      $scope.tj_showloading = true
+      $ionicHistory.clearHistory()
+      var storageKey = 'quyu'
       var quyuData = {
         quyu: 1,
         hideTabs: ''
@@ -1398,7 +1398,7 @@ angular
         var username_type = '邮箱:' + user_email
         var random = $scope.random
         UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-
+        alert('user_id:' + user_id, 'username_type:' + username_type)
         $scope.$on('UserProfileFactory.set_send_email_code', function() {
           userRel = UserProfileFactory.get_send_email_code()
 
@@ -3975,7 +3975,7 @@ angular
         trialOrderFactory.set_order_info(order_id, userid, random)
       })
 
-      var imgUrl = ENV.imgUrl;
+      var imgUrl = ENV.imgUrl
 
       // //初始化上传
       // uploadFactory.init('#goods_albums', function(res) {
@@ -4062,26 +4062,25 @@ angular
         img: 'img/shai_img.jpg',
         xinde: ''
       }
-      $scope.uploaded=false;
+      $scope.uploaded = false
       $scope.onFileSelect = function($files) {
         $ionicLoading.show({
           noBackdrop: true,
           template: '正在上传 请稍后...',
           duration: 1000
-        });
-        uploadFactory.upload($files,function (res) {
-          if(res.status==1) {
-              $ionicLoading.show({
-                  noBackdrop: true,
-                  template: '图片上传完成',
-                  duration: 1000
-              });
-              $scope.uploaded=true;
-              $scope.images_list.push($.trim(res.data));
-              $scope.sybg_vm.img = ENV.imgUrl + $.trim(res.data);
+        })
+        uploadFactory.upload($files, function(res) {
+          if (res.status == 1) {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '图片上传完成',
+              duration: 1000
+            })
+            $scope.uploaded = true
+            $scope.images_list.push($.trim(res.data))
+            $scope.sybg_vm.img = ENV.imgUrl + $.trim(res.data)
           }
-        });
-
+        })
       }
 
       //填写试用报告
@@ -4155,7 +4154,7 @@ angular
             noBackdrop: true,
             template: '图片上传完成',
             duration: 1000
-          });
+          })
           $scope.sybg_vm.img = ENV.imgUrl + data.url
         } else {
           $ionicLoading.show({
@@ -8710,7 +8709,6 @@ angular
     'StorageFactory',
     'soFactory',
     function($rootScope, $scope, $ionicLoading, StorageFactory, soFactory) {
-
       //获取服务器热门搜索
       $scope.hot_showloading = true
 
