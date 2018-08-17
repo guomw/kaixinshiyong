@@ -7,7 +7,7 @@
     <ion-list class="list ">
       <div style="margin-top:60px;text-align:center">
         <!-- <img ng-src="{{logo}}" /> -->
-        <p class="h-title">欢迎使用试用商场</p>
+        <p class="h-title">欢迎使用魔力试用</p>
       </div>
       <form name="myform" novalidate="false">
         <div class="weui-cells weui-cells_form">
@@ -30,12 +30,14 @@
         <div class="padding-top" style="padding: 30px 15px 10px; box-sizing: border-box;">
           <a href="javascript:;" ng-disabled="myform.$invalid" class="weui-btn" ng-click="login()">登录</a>
         </div>
-        <div style="" class="register_forget">
-          <a href="#/tab/register">注册</a>
-          <a href=" #/tab/user/forget ">找回密码</a>
+        <div>
+          <a href="#/tab/user/forget " style="padding: 10px 30px;text-align:right;color:#5091ff;float: right;margin-top:10px;">找回密码</a>
+        </div>
+        <div style="clear: both;" class="register_forget">
+          <a href="#/tab/register">新用户注册</a>
+          <a href="#/tab/home">返回首页</a>
         </div>
       </form>
-      <p class="padding-left c4 ">温馨提示:pc端已注册的会员可直接登录</p>
     </ion-list>
     <br/>
     <!-- <div  style="height:150px ">

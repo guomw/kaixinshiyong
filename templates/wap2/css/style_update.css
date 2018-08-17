@@ -155,6 +155,18 @@ a.weui-btn {
 /*个人中心样式end*/
 
 /*我的使用样式 start*/
+.no_record {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
+  padding-top: 20%;
+  text-align: center;
+  color: #999;
+}
+.no_record > i {
+  font-size: 40px;
+}
+
 .item_shop {
   margin-top: 15px;
   font-size: 16px;
@@ -162,7 +174,7 @@ a.weui-btn {
 .item_shop.item {
   border-width: 0px;
   padding: 5px 16px 16px;
-  border-bottom: 15px solid #f8f8f8;
+  border-bottom: 15px solid #f0eff5;
 }
 .item_shop .shop_active {
   display: flex;
@@ -301,6 +313,8 @@ a.weui-btn {
 }
 
 .register_forget {
+  position: fixed;
+  bottom: 5%;
   width: 100%;
   text-align: center;
   padding: 0px 15px 10px;
@@ -309,11 +323,29 @@ a.weui-btn {
 .register_forget > a {
   display: inline-block;
   padding: 5px 10px;
-  text-decoration: underline;
-  color: #5091ff;
+  color: #999;
 }
 
 p {
   margin: 0;
   line-height: 1.6;
+}
+
+.tabs {
+  height: 52px;
+  padding-top: 4px;
+}
+
+.item h1,
+.item h2,
+.item h3,
+.item h4,
+.item h5,
+.item h6 {
+  font-weight: 400;
+}
+
+.loading-container .loading {
+  margin: 0 5%;
+  font-size: 14px;
 }
