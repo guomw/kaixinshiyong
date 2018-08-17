@@ -71,17 +71,17 @@
           <label class="item item-input item-stacked-label">
             <span class="input-label" style="padding:10px">试用商品图片</span>
           </label>
-          <div class="col" id='goods_albums'>
-            <!-- <img ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" /> -->
+          <div class="col" >
+             <img ng-if="uploaded" style="margin: 10px;" ng-model="sybg_vm.img" height="45%" width="45%" ng-src="{{sybg_vm.img}}" />
             <!-- <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"> -->
-            <div class="weui-cells weui-cells_form" style="margin-top:0;">
+            <div ng-if="!uploaded" class="weui-cells weui-cells_form" style="margin-top:0;">
               <div class="weui-cell" style="padding:10px">
                 <div class="weui-cell__bd">
                   <div class="weui-uploader">
                     <div class="weui-uploader__hd">
                     </div>
                     <div class="weui-uploader__bd">
-                      <div class="weui-uploader__input-box">
+                      <div class="weui-uploader__input-box" id='goods_albums'>
                         <input id="File1" class="weui-uploader__input" type="file" ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)"
                           accept="image/*" multiple>
                       </div>

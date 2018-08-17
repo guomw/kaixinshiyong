@@ -3545,21 +3545,22 @@ angular
     '$ionicLoading',
     '$rootScope',
     'ENV',
-    function($resource, $ionicLoading, $rootScope, ENV) {
+    'Upload',
+    function($resource, $ionicLoading, $rootScope, ENV,Upload) {
       var APIUrl = ENV.api
       var data_upad = {
         1: '',
         2: '',
         3: ''
       }
-      var server = APIUrl + '&a=upload_img'
-      var server2 = APIUrl + '&a=upload_avatar_img'
-
+      var server = APIUrl + '&a=upload_img';
+      var server2 = APIUrl + '&a=upload_avatar_img';
+      var server3=APIUrl+"&a=upload_img_json";
       return {
         init: function(domId, success) {
-          var uploader = WebUploader.create({
+          var uploader = new WebUploader.Uploader({
             auto: true,
-            fileVal: 'Filedata',
+            fileVal: 'file',
             // swf文件路径
             swf: 'js/webuploader/webuploader.swf',
             // 文件接收服务端。
@@ -3584,8 +3585,7 @@ angular
             chunkSize: 1000000,
             // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
             resize: false
-          })
-
+          });
           uploader.onUploadSuccess = function(file, response) {
             if (typeof success == 'function') {
               success(response)
@@ -3595,9 +3595,29 @@ angular
             alert('文件上传错误：' + reason)
           }
         },
-
+        upload:function(fle,success){
+            Upload.upload({
+                //服务端接收
+                url: server3,
+                //上传的同时带的参数
+                file: fle
+            }).progress(function (evt) {
+                //进度条
+            }).success(function (data, status, headers, config) {
+                //上传成功
+                //console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                //$scope.uploadImg = data;
+                if (typeof success == 'function') {
+                    success(data);
+                }
+            }).error(function (data, status, headers, config) {
+                //上传失败
+                //console.log('上传失败');
+            });
+        },
         //提交文件上传
         set_upload: function(fle, index) {
+
           /*$cordovaFileTransfer.upload(server,fle).then(function(result) {
         
         if(!index) index =1;

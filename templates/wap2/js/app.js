@@ -50,11 +50,6 @@ angular
 
         //路由监听事件
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams) {
-            console.log(event);
-            console.log(toState);
-            console.log(toParams);
-            console.log(fromState);
-            console.log(fromParams);
             switch (toState.name) {
                 case "tab.home":
                 case "tab.trial":
