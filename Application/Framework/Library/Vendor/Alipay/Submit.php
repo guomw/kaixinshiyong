@@ -33,7 +33,7 @@ class AlipaySubmit {
 	 * return 签名结果字符串
 	 */
 	function buildRequestMysign($para_sort) {
-		//把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+		//把数组所有美元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
 		$prestr = createLinkstring($para_sort);
 		
 		$mysign = "";
@@ -79,7 +79,7 @@ class AlipaySubmit {
 		//待请求参数数组
 		$para = $this->buildRequestPara($para_temp);
 		
-		//把参数组中所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串，并对字符串做urlencode编码
+		//把参数组中所有美元素，按照“参数=参数值”的模式用“&”字符拼接成字符串，并对字符串做urlencode编码
 		$request_data = createLinkstringUrlencode($para);
 		
 		return $request_data;

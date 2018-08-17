@@ -129,7 +129,7 @@
     }
 
     /**
-     * 将元素id下的所有代表视频的图片插入编辑器中
+     * 将美元素id下的所有代表视频的图片插入编辑器中
      * @param id
      */
     function insertSearch(id){

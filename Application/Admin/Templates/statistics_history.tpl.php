@@ -53,7 +53,7 @@ if($starttime && $endtime){
         <td align="left"><?php if(empty($v)){echo '-';}else{echo $v['userid'];}?></td>
         <td align="left"><?php if(empty($v)){echo '-';}else{echo $v['username'];}?></td>
         <td align="left"><?php if(empty($v)){echo '0';}else{echo $v['merchant_num'];}?>名商家</td>
-        <td align="left"><?php if(empty($v)){echo '0';}else{echo $v['rebate_num'];}?>元</td>
+        <td align="left"><?php if(empty($v)){echo '0';}else{echo $v['rebate_num'];}?>美元</td>
         <td align="left"><?php if(empty($v)){echo '-';}else{echo $v['trial_num'];}?></td>
         <td align="left"><?php if(empty($v)){echo '-';}else{echo $v['trial_deposite'];}?></td>
         <td align="left"><?php if(empty($v)){echo '-';}else{echo $v['rebate_deposite'];}?></td>
@@ -72,7 +72,7 @@ if($starttime && $endtime){
         <td align="left"></td>
         <td align="left"></td>
         <td align="left"><?php echo $merchant_num;?>名商家</td>
-        <td align="left"><?php echo $rebate_num;?>元</td>
+        <td align="left"><?php echo $rebate_num;?>美元</td>
         <td align="left"><?php echo $trial_num;?></td>
         <td align="left"><?php echo $trial_deposite_num;?></td>
         <td align="left"><?php echo $rebate_deposite_num;?></td>

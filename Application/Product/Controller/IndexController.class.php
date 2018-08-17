@@ -157,7 +157,7 @@ Class IndexController extends BaseController {
         include template('list_famous');
     }
 
-    /*0元邮*/
+    /*0美元邮*/
     public function favourable($catid = 0, $tpl = '', $extra = '',$mod='postal'){
         $catid = (int) $catid;
         $page = max(1, (int) I('page'));

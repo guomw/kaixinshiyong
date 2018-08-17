@@ -48,7 +48,7 @@ class IndexController extends \Common\Controller\BaseController {
 			}elseif($v['task_type'] == 'exp'){
 				$v['record'] = $v['task_reward'].'经验';
 			}else{
-				$v['record'] = $v['task_reward'].'元';
+				$v['record'] = $v['task_reward'].'美元';
 			}
             $tasks[$k] = $v;
         }

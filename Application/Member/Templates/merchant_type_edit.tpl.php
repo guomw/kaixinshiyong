@@ -52,7 +52,7 @@ $(function(){
 					<option value="2" <?php if($pricetype[0] == 2){?> selected<?php }?>>按季</option>
 					<option value="3" <?php if($pricetype[0] == 3){?> selected<?php }?>>按年</option>
 				</select>
-				<input type="text" name="info[pricetype][]" class="input-text" size="6" value="<?php echo $pricetype[1];?>">/元	
+				<input type="text" name="info[pricetype][]" class="input-text" size="6" value="<?php echo $pricetype[1];?>">/美元
 			</td>
 		</tr>
 		
@@ -181,7 +181,7 @@ $(function(){
 			<?php $seller_charge_money = C_READ('seller_charge_money'); ?>
 			<td>
 				单份商品
-				<input type="text" value="<?php if($trial['cost']['product_cost']){echo $trial['cost']['product_cost'];}else{echo '8';};?>" name="info[config][trial][cost][product_cost]" size="6">/元&nbsp;&nbsp;
+				<input type="text" value="<?php if($trial['cost']['product_cost']){echo $trial['cost']['product_cost'];}else{echo '8';};?>" name="info[config][trial][cost][product_cost]" size="6">/美元&nbsp;&nbsp;
 			</td>
 		</tr>
 
@@ -203,7 +203,7 @@ $(function(){
 
 		 <tr <?php if ($trial['a_b_cost'] ==1 && $trial['is_a_b'] == 2){?> ''  <?php }else{ ?> style="display :none;" <?php } ?> class="js_fee_show">
               <th>拍A发B收费规则</th>
-              <td  class="y-bg"><input type="button" id="a_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：下单单价>=100.00元，金额为7.00元</td></tr>
+              <td  class="y-bg"><input type="button" id="a_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：下单单价>=100.00美元，金额为7.00美元</td></tr>
 
                <?php 
 
@@ -215,7 +215,7 @@ $(function(){
                		<th></th>
 	                <td class="y-bg">
 	                    下单价>=：<input type="text" class="input-text" id='check_time' name="info[config][trial][a_b][<?php echo $k;?>][min]" size="3" value="<?php echo $v['min']?>" />
-	                    <label>提取金额：<input type="text" class="input-text" id='check_time' name="info[config][trial][a_b][<?php echo $k;?>][a_b_trial]" size="3" value="<?php echo $v['a_b_trial']?>" />/元</label>
+	                    <label>提取金额：<input type="text" class="input-text" id='check_time' name="info[config][trial][a_b][<?php echo $k;?>][a_b_trial]" size="3" value="<?php echo $v['a_b_trial']?>" />/美元</label>
 	                    <?php if ($k > 0): ?>
 	                    <a class="delete" style="color:red;cursor:pointer">删除</a>
 	                    <?php endif ?>
@@ -250,8 +250,8 @@ $(function(){
                         html += '<tr>';
                         html += '<th></th>';
                         html += '<td class="y-bg">';
-                        html += '下单价>=：<input type="text" class="input-text" id="check_time" name="info[config][trial][a_b]['+num+'][min]" size="3" value="" />/元';
-                        html += '<label> 提取金额：<input type="text" class="input-text" id="check_time" name="info[config][trial][a_b]['+num+'][a_b_trial]" size="3" value="" />/元</label>';
+                        html += '下单价>=：<input type="text" class="input-text" id="check_time" name="info[config][trial][a_b]['+num+'][min]" size="3" value="" />/美元';
+                        html += '<label> 提取金额：<input type="text" class="input-text" id="check_time" name="info[config][trial][a_b]['+num+'][a_b_trial]" size="3" value="" />/美元</label>';
                         html += '<span class="delete" style="color:red;cursor:pointer">删除</span>';
                         html += '</td>';
                         html += '</tr>';
@@ -287,7 +287,7 @@ $(function(){
 
 		 <tr <?php if ($trial['red_cost'] == 1 && $trial['is_red'] == 2){?> ''  <?php }else{ ?> style="display:none;" <?php } ?>class="js_fee_red_show">
               <th>红包收费规则</th>
-              <td  class="y-bg"><input type="button" id="red_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：下单单价>=100.00元，金额为7.00元</td></tr>
+              <td  class="y-bg"><input type="button" id="red_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：下单单价>=100.00美元，金额为7.00美元</td></tr>
     	     
 
                <?php 
@@ -298,7 +298,7 @@ $(function(){
                		<th></th>
 	                <td class="y-bg">
 	                    下单价>=：<input type="text" class="input-text" id='check_time' name="info[config][trial][red][<?php echo $k;?>][min]" size="3" value="<?php echo $v['min']?>" />
-	                    <label>提取金额：<input type="text" class="input-text" id='check_time' name="info[config][trial][red][<?php echo $k;?>][red_trial]" size="3" value="<?php echo $v['red_trial']?>" />/元</label>
+	                    <label>提取金额：<input type="text" class="input-text" id='check_time' name="info[config][trial][red][<?php echo $k;?>][red_trial]" size="3" value="<?php echo $v['red_trial']?>" />/美元</label>
 	                    <?php if ($k > 0): ?>
 	                    <a class="delete" style="color:red;cursor:pointer">删除</a>
 	                    <?php endif ?>
@@ -332,8 +332,8 @@ $(function(){
                         html += '<tr>';
                         html += '<th></th>';
                         html += '<td class="y-bg">';
-                        html += '下单价>=：<input type="text" class="input-text" id="check_time" name="info[config][trial][red]['+num+'][min]" size="3" value="" />/元';
-                        html += '<label> 提取佣金：<input type="text" class="input-text" id="check_time" name="info[config][trial][red]['+num+'][red_trial]" size="3" value="" />/元</label>';
+                        html += '下单价>=：<input type="text" class="input-text" id="check_time" name="info[config][trial][red]['+num+'][min]" size="3" value="" />/美元';
+                        html += '<label> 提取佣金：<input type="text" class="input-text" id="check_time" name="info[config][trial][red]['+num+'][red_trial]" size="3" value="" />/美元</label>';
                         html += '<span class="delete" style="color:red;cursor:pointer">删除</span>';
                         html += '</td>';
                         html += '</tr>';
@@ -427,7 +427,7 @@ $(function(){
 
         <tr <?php if ($commission['service_price']){?> ''  <?php }else{ ?> style="display:none;" <?php } ?>class="js_show">
               <th>佣金规则</th>
-              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价100.00元，佣金为7.00元</td>
+              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价100.00美元，佣金为7.00美元</td>
              </tr>
 
                <?php foreach ($commission['service_price'] as $k=>$v) {?>
@@ -436,7 +436,7 @@ $(function(){
 	                <th></th>
 	                <td class="y-bg">
 	                    下单价：<input type="text" class="input-text" id='check_time' name="info[config][commission][service_price][<?php echo $k;?>][min]" size="3" value="<?php echo $v['min']?>" /> ~ <input type="text" class="input-text" id='check_time' name="info[config][commission][service_price][<?php echo $k;?>][max]" size="3" value="<?php echo $v['max']?>" />
-	                    <label>提取佣金：<input type="text" class="input-text" id='check_time' name="info[config][commission][service_price][<?php echo $k;?>][commission]" size="3" value="<?php echo $v['commission']?>" />/元</label>
+	                    <label>提取佣金：<input type="text" class="input-text" id='check_time' name="info[config][commission][service_price][<?php echo $k;?>][commission]" size="3" value="<?php echo $v['commission']?>" />/美元</label>
 	                    <?php if ($k > 0): ?>
 	                    <a class="delete" style="color:red;cursor:pointer">删除</a>
 	                    <?php endif ?>
@@ -476,7 +476,7 @@ $(function(){
                         html += '<th></th>';
                         html += '<td class="y-bg">';
                         html += '下单价：<input type="text" class="input-text" id="check_time" name="info[config][commission][service_price]['+num+'][min]" size="3" value="" /> ~ <input type="text" class="input-text" id="check_time" name="info[config][commission][service_price]['+num+'][max]" size="3" value="" />';
-                        html += '<label> 提取佣金：<input type="text" class="input-text" id="check_time" name="info[config][commission][service_price]['+num+'][commission]" size="3" value="" />/元</label>';
+                        html += '<label> 提取佣金：<input type="text" class="input-text" id="check_time" name="info[config][commission][service_price]['+num+'][commission]" size="3" value="" />/美元</label>';
                         html += '<span class="delete" style="color:red;cursor:pointer">删除</span>';
                         html += '</td>';
                         html += '</tr>';

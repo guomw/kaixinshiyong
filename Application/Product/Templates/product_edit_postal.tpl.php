@@ -156,7 +156,7 @@ include $this->admin_tpl('header','admin');?>
 			<div class="bk3"></div>
 			<label>拍下须知：<input type="text" name="info[goods_tips][goods_order][remark]" style="width:250px;" value="<?php echo $rs['goods_tips']['goods_order']['remark'] ?>"></label>
 			<div class="bk3"></div>
-			原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['cost'] ?>">元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['after'] ?>">元
+			原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['cost'] ?>">美元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;" value="<?php echo $rs['goods_tips']['goods_order']['price']['after'] ?>">美元
 		</td>
 	</tr>	
 	

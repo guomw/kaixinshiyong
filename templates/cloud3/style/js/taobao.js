@@ -176,7 +176,7 @@ var bind = {
 		var url = $(o).attr('data-url');
 		var money = $(o).attr('data-money');
 		url = bind.ajax_url(url);
-		art.dialog.confirm('您确定购买/续费皇冠商家？ ￥'+money, function() {
+		art.dialog.confirm('您确定购买/续费皇冠商家？ $'+money, function() {
 			$.get(url, {money:money,type:type}, function(ret) {
 				if(ret.status == 1){
 					bind.show_message('提示信息',ret.info,'S');
@@ -196,7 +196,7 @@ var bind = {
 		var url = $(o).attr('data-url');
 		var money = $(o).attr('data-money');
 		url = bind.ajax_url(url);
-		art.dialog.confirm('您确定购买/续费钻石商家？ ￥'+money, function() {
+		art.dialog.confirm('您确定购买/续费钻石商家？ $'+money, function() {
 			$.get(url, {money:money,type:type}, function(ret) {
 				if(ret.status == 1){
 					bind.show_message('提示信息',ret.info,'S');
@@ -217,7 +217,7 @@ var bind = {
         var url = $(o).attr('data-url');
         var money = $(o).attr('data-money');
         url = bind.ajax_url(url);
-        art.dialog.confirm('您确定购买VIP会员？ ￥'+money, function() {
+        art.dialog.confirm('您确定购买VIP会员？ $'+money, function() {
                 $.get(url, {money:money,type:type}, function(ret) {
                     if(ret.status == 1){
                         bind.show_message('提示信息',ret.info,'S');

@@ -232,7 +232,7 @@ include $this->admin_tpl('header','admin');?>
 	<?php if(C_READ('seller_bonus_isopen') == 1){?>
 	<tr id="trial_type3" style="background-color:#ccc">
 		<th>每单赠送用户红包：</th>
-		<td><input type="text" name="info[goods_bonus]" id="goods_bonus"/>/元&nbsp;</td>
+		<td><input type="text" name="info[goods_bonus]" id="goods_bonus"/>/美元&nbsp;</td>
 	</tr>
 	<?php }?>	
 		<script type="text/javascript">
@@ -306,7 +306,7 @@ include $this->admin_tpl('header','admin');?>
 		<td>
 		<label><input type="radio" name="info[goods_postage]" value="0" checked>&nbsp;不预存</label>
 		<label><input type="radio" name="info[goods_postage]" value="1">&nbsp;预存</label>
-		<label for="field_goods_postage" style="display:none;"><input type="text" name="info[field_goods_postage]" id="field_goods_postage" style="width:80px;" />元/份</label>
+		<label for="field_goods_postage" style="display:none;"><input type="text" name="info[field_goods_postage]" id="field_goods_postage" style="width:80px;" />美元/份</label>
 	</tr> -->
 
 	<script type="text/javascript">
@@ -350,9 +350,9 @@ include $this->admin_tpl('header','admin');?>
 			<div class="bk3"></div>
 			<label>拍下须知：<input type="text" name="info[goods_tips][goods_order][remark]" style="width:250px;"/></label>
 			<div class="bk3"></div>
-			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;">元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;">元</label>
+			<label>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;">美元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;">美元</label>
 			<div class="bk3"></div>
-			请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;">元下单
+			请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;">美元下单
 		</td>
 	</tr>	
 	

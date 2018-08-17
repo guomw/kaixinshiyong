@@ -77,11 +77,11 @@ var month_count = {php echo $month_count;};
 							{/if}
 							{str_cut($rs[title],80)}</h2>
 						<p class="t-hint t-hint_2 txt-flow">
-							本单奖励红包 {$rs['bonus_price']}元 &nbsp;&nbsp;
+							本单奖励红包 {$rs['bonus_price']}美元 &nbsp;&nbsp;
 							{if $rs[subsidy_type] == 1 && $rs['subsidy'] > 0}
 							 完成本单平台将额外补贴{$rs[subsidy]}积分
 							{elseif $rs[subsidy_type] ==2 && $rs['subsidy'] > 0}
-							完成本单平台将额外补贴{$rs[subsidy]}元
+							完成本单平台将额外补贴{$rs[subsidy]}美元
 							{/if}
 						</p>
 						
@@ -91,11 +91,11 @@ var month_count = {php echo $month_count;};
 								<dd>剩余份数</dd>
 							</dl>
 							<dl class="fl">
-								<dt class="cc">￥{$rs[goods_price]}</dt>
+								<dt class="cc">${$rs[goods_price]}</dt>
 								<dd>下单价</dd>
 							</dl>
 							<dl class="fl">
-								<dt class="cc">￥<?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?></dt>
+								<dt class="cc">$<?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?></dt>
 								<dd>返还金额</dd>
 							</dl>
 						</div>
@@ -139,7 +139,7 @@ var month_count = {php echo $month_count;};
 					<div class="c box l3 fl">
 						<p class="fl">2</p>
 						<dl>
-							<dt>购买<span class="g_hint">原价<b class="cc">￥{$rs['goods_price']}</b>下单领取（包邮）</span></dt>
+							<dt>购买<span class="g_hint">原价<b class="cc">${$rs['goods_price']}</b>下单领取（包邮）</span></dt>
 							<dd>以原价去指定平台购买</dd>
 						</dl>
 					</div>
@@ -153,7 +153,7 @@ var month_count = {php echo $month_count;};
 					<div class="b box l5 fl">
 						<p class="fl">4</p>
 						<dl>
-							<dt>返还担保金<span class="g_hint">返还<b class="cc">￥<?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?></b>到您的账户</span></dt>
+							<dt>返还担保金<span class="g_hint">返还<b class="cc">$<?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?></b>到您的账户</span></dt>
 							<dd>试用报告通过后返还试用担保金，提现</dd>
 						</dl>
 					</div>
@@ -689,8 +689,8 @@ html, body {
 	         commisson_html +="<li>4、宝贝位置大约在 <span style='color:red'>'{$rs[goods_address]}'</span></li>";
 	         commisson_html +="<li>5、认准商家旺旺<span style='color:red'> '{$rs[goods_wangwang]}'</span></p> <br/>";
              commisson_html += '</ul><ul class="hint_text_2"><p>请注意以下事项：</p>';
-             commisson_html += "<li>1、下单价：<span style='color:red'> {$rs[goods_price]} </span> 元，请在下单页面核对下单价是否一致。</li>";
-             commisson_html += "<li>2、返还金额：<span style='color:red'> <?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?> </span> 元，交易完成后，将返还给您的金额。</li>";
+             commisson_html += "<li>1、下单价：<span style='color:red'> {$rs[goods_price]} </span> 美元，请在下单页面核对下单价是否一致。</li>";
+             commisson_html += "<li>2、返还金额：<span style='color:red'> <?php echo sprintf("%.2f",$rs['goods_price'] + $rs['bonus_price']); ?> </span> 美元，交易完成后，将返还给您的金额。</li>";
              commisson_html +="<li>3、可以根据活动页面上的，搜索流程图下单。</li> ";
              commisson_html +="<li>4、可以使用 <span style='color:red'> ctrl + F </span>  快速查找商家旺旺。</li> ";
              commisson_html += "<li>注意：报名抢购后 <span style='color:red'>{C_READ('buyer_write_order_time','commission')}分钟内</span> 不下单付款并返回填写订单号，本次订单将自动关闭。</li></ul></div>";

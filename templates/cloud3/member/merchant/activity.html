@@ -113,15 +113,15 @@
 									</td>
 									<td>
 										<ul>
-											<li>￥{$l[goods_price]}</li>
+											<li>${$l[goods_price]}</li>
 												{if $l[mod] == 'trial' && $l['goods_bonus'] > 0}
 												<li><a href="javascript:;" class="hb">赠送红包<span>
 
-												￥{$l[goods_bonus]}
+												${$l[goods_bonus]}
 												{elseif $l[mod] == 'commission' && $l['bonus_price'] > 0}
 												<li><a href="javascript:;" class="hb">闪电佣金<span>
 
-												￥{$l[bonus_price]}
+												${$l[bonus_price]}
 												{/if}
 
 											</span></a></li>

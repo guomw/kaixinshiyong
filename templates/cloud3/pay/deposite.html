@@ -58,7 +58,7 @@
 					<h2 class="user_page_title">提现</h2>
 					<p>
 						可提现金额 :
-						<span class="cc">{$money}元</span>
+						<span class="cc">{$money}美元</span>
 					</p>
 					<div class="tixian_fs_wrap">
 						<p class="tx_fs_t">选择提现方式:</p>
@@ -145,9 +145,9 @@
 								<strong class="fl">提现金额:</strong>
 								<div class="fl">
 									<input id="money" placeholder="输入金额" class="txt_input"  style="color: red;"  type="text"  />	
-									元
+									美元
 								</div>
-								<p class="fl err dn">请输入0.01元以上的金额</p>
+								<p class="fl err dn">请输入0.01美元以上的金额</p>
 							</li>
 							<li class="clear">
 								<strong class="fl">提现模式:</strong>
@@ -162,7 +162,7 @@
 							<li class="clear js_show2" style="display: none;">
 								到帐时间: 最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
 								<span class="totalmoney"></span>
-								元
+								美元
 							</li>
 						</ul>
 					{if in_array('weixin',$type) &&  $modelid ==1}	
@@ -183,9 +183,9 @@
 	                       		<strong class="fl">提现金额:</strong>
 	                       		<div class="fl">
 	                       			<input id="wx_money" placeholder="输入金额" class="txt_input"  style="color: red;"  type="text"  />	
-	                       			元
+	                       			美元
 	                       		</div>
-	                       		<p class="fl err dn">请输入1元以上的金额</p>
+	                       		<p class="fl err dn">请输入1美元以上的金额</p>
 	                       	</li>
 	                        
 	                        <li class="clear">
@@ -193,7 +193,7 @@
 	                        	<div class="fl wxqbao">
 	                               <img height="30" src="{$opens['headimgurl']}" > {$opens['nickname']}
 	                        	</div>
-	                        	<p class="fl err dn">请输入0.01元以上的金额</p>
+	                        	<p class="fl err dn">请输入0.01美元以上的金额</p>
 	                        </li>
 
 	                       	<li class="clear">
@@ -207,7 +207,7 @@
 	                       	<li class="clear js_show2" >
 	                       		到帐时间: 最快10秒到账，{if $wx_fee >0 }<i class="cc">{$wx_fee}%</i>{else}无{/if} 手续费，实际到账
 	                       		<span class="cc totalmoney" ></span>
-	                       		元
+	                       		美元
 	                       	</li>
 	                     </ul>
                        {/if}
@@ -255,7 +255,7 @@
 			$('.err').eq(q).removeClass('dn').html('请输入一个正确的金额'); 
 			return false;
 		}else if(n < parseInt(min_money)){
-			$('.err').eq(q).removeClass('dn').html("提现金额不能小于" + min_money+'元'); 
+			$('.err').eq(q).removeClass('dn').html("提现金额不能小于" + min_money+'美元');
 			return false;
 		}else if(n % parseInt(multiple_money) != 0){
 			$('.err').eq(q).addClass('dn').html("提现金额需是" + multiple_money + "倍数"); 

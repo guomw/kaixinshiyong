@@ -45,15 +45,15 @@ if(is_array($infos)){
 </td>
 <td ><?php echo $info['service_fee']?$info['service_fee']:0?>%</td>
 <?php $info['company_config'] = string2array($info['company_config']); ?>
-<td ><?php echo $info['company_config']['service_zuan_fee']?$info['company_config']['service_zuan_fee']:0; ?> 元</td>
-<td ><?php echo $info['company_config']['service_huang_fee']?$info['company_config']['service_huang_fee']:0?>元</td>
+<td ><?php echo $info['company_config']['service_zuan_fee']?$info['company_config']['service_zuan_fee']:0; ?> 美元</td>
+<td ><?php echo $info['company_config']['service_huang_fee']?$info['company_config']['service_huang_fee']:0?>美元</td>
 <td >本月累计获得提成 
 <?php 
 	 $sqlmap = array();
 	 $sqlmap['agent_id'] = $info['userid'];
 	 $sqlmap['time'] = array('EGT',strtotime(date('Y-m')));
     echo model('company_log')->where($sqlmap)->sum('money'); 
- ?>元</td>
+ ?>美元</td>
 <td  align="center">
 <a href="<?php echo U('admin/admin/company_log', array('userid' => $info['userid'])) ?>" >提成明细</a> |
 <a href="<?php echo U('admin/edit', array('userid' => $info['userid'])) ?>" onclick="javascript:edit(this, '<?php echo dhtmlspecialchars($info['username'])?>'); return false;"><?php echo L('edit')?></a> | 

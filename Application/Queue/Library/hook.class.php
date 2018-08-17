@@ -49,7 +49,7 @@ class hook {
 
 
             if ($order['status'] == 2 && $goods['mod'] == 'trial') {
-                 $html = "亲爱的{nickname} 您已获得了（id：{goods_id}）商品的试用资格，但您还未下单填写订单号,请您在到期时间之前完成下单并返回平台填写订单号，逾期将失去试用资格！\r\n<br/><br/> 试用品名称：{goods_name}<br/>试用品价值：{goods_price}元<br/>申请时间：{apply_time}<br/>获得资格时间：{check_time}<br/><br/>当前状态： 请及时按照活动要求下单，并返回平台填写订单号。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写订单号，将视为您主动放弃试用资格！<br/>2.在下单过程中，如有任何疑问请及时联系在线客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
+                 $html = "亲爱的{nickname} 您已获得了（id：{goods_id}）商品的试用资格，但您还未下单填写订单号,请您在到期时间之前完成下单并返回平台填写订单号，逾期将失去试用资格！\r\n<br/><br/> 试用品名称：{goods_name}<br/>试用品价值：{goods_price}美元<br/>申请时间：{apply_time}<br/>获得资格时间：{check_time}<br/><br/>当前状态： 请及时按照活动要求下单，并返回平台填写订单号。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写订单号，将视为您主动放弃试用资格！<br/>2.在下单过程中，如有任何疑问请及时联系在线客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
                   $arr = array();
                   $apply_time = dgmdate($order['create_time'], 'Y-m-d');
                   $check_time = dgmdate($order['check_time'], 'Y-m-d');
@@ -65,7 +65,7 @@ class hook {
                   $result = $SmsApi->send($item['phone'], $html,$arr);
             }elseif($order['status'] == 8){
 
-               $html2 = "亲爱的{nickname}！ 您已获得了（id：{goods_id}）商品的试用资格，但您还未填写试用报告，请在到期时间之前填写试用报告<br/><br/> 试用品名称：{goods_name}<br/>试用品价值：{goods_price}元<br/>申请时间：{apply_time}<br/>获得资格时间：{check_time}<br/><br/>当前状态： 请及时填写试用报告。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写试用报告，将视为您主动放弃试用资格！<br/>2.如因为快递等非人为原因，导致还未收到商品，请主动联系平台客服，延长时间！<br/><br/>3.如有任何疑问，请及时联系平台客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
+               $html2 = "亲爱的{nickname}！ 您已获得了（id：{goods_id}）商品的试用资格，但您还未填写试用报告，请在到期时间之前填写试用报告<br/><br/> 试用品名称：{goods_name}<br/>试用品价值：{goods_price}美元<br/>申请时间：{apply_time}<br/>获得资格时间：{check_time}<br/><br/>当前状态： 请及时填写试用报告。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写试用报告，将视为您主动放弃试用资格！<br/>2.如因为快递等非人为原因，导致还未收到商品，请主动联系平台客服，延长时间！<br/><br/>3.如有任何疑问，请及时联系平台客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
 
                   $arr = array();
                   $apply_time = dgmdate($order['create_time'], 'Y-m-d');
@@ -83,7 +83,7 @@ class hook {
 
             }elseif ($order['status'] == 2 && $goods['mod'] == 'rebate') {
 
-               $html3 = "亲爱的{nickname}！ 您抢购了活动（id：{goods_id}）商品，您还未填写订单号，请在到期时间之前填写订单号！<br/><br/>活动品名称：{goods_name}<br/>原价: {goods_price}元<br/>活动价: {money} 元<br/>折扣: {discount}折<br/>抢购时间：{create_time}<br/><br/>当前状态： 请及时下单并返回平台填写订单号。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写订单号，将视为您主动放弃抢购资格！<br/>2.在下单过程中，如有任何疑问请及时联系在线客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
+               $html3 = "亲爱的{nickname}！ 您抢购了活动（id：{goods_id}）商品，您还未填写订单号，请在到期时间之前填写订单号！<br/><br/>活动品名称：{goods_name}<br/>原价: {goods_price}美元<br/>活动价: {money} 美元<br/>折扣: {discount}折<br/>抢购时间：{create_time}<br/><br/>当前状态： 请及时下单并返回平台填写订单号。<br/>到期时间：{end_time}<br/><br/>温馨提示：<br/>1.未及时填写订单号，将视为您主动放弃抢购资格！<br/>2.在下单过程中，如有任何疑问请及时联系在线客服！<br/><br/>&nbsp;&nbsp;&nbsp;{webname}品质试用，贴心试用每一天，祝您每天生活愉快";
 
                   $arr = array();
                   $apply_time = dgmdate($order['create_time'], 'Y-m-d');

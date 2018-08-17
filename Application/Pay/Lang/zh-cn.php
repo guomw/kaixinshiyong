@@ -13,7 +13,7 @@ return array(
 		'usernote' => '备注',
 		'adminnote' => '管理员操作',
 		'user_balance' => '用户余额：',
-		'yuan' => '&nbsp元',
+		'yuan' => '&nbsp美元',
 		'dian' => '&nbsp点',
 		'trade_succ' => '成功',
 		'checking' => '验证中..',
@@ -37,7 +37,7 @@ return array(
 		'op_sendemail' => '发送e-mail通知会员',
 		'send_account_changes_notice' => '账户变更通知',
 		'background_operation' => '后台操作',
-		'account_changes_notice_tips' => '尊敬的{username},您好！<br/>您的账户于{time}发生变动,操作：{op},理由:{note},当前余额：{amount}元，{point}积分。',
+		'account_changes_notice_tips' => '尊敬的{username},您好！<br/>您的账户于{time}发生变动,操作：{op},理由:{note},当前余额：{amount}美元，{point}积分。',
 		
 		//payment.php
 		'basic_config' => '基本设置',
@@ -52,7 +52,7 @@ return array(
 		'order_ip' => '订单生成IP',
 		'payment_type' => '支付类型',
 		'order' => '订单',
-		'disount_notice' => '要给顾客便宜10元,降价请输入“-10”',
+		'disount_notice' => '要给顾客便宜10美元,降价请输入“-10”',
 		
 		'discount' => '订单改价',
 		'recharge' => '在线充值',

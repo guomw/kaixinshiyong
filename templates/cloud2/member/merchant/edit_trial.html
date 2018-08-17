@@ -232,7 +232,7 @@
 									<option value="0" {if $goods_bonus == '0'} selected {/if}>否</option>
 									<option value="1" {if $goods_bonus != '0'} selected {/if}>是</option>
 								</select>
-								<label for="field_goods_bonus" {if $goods_bonus == '0'}style="display:none;"{/if}><input type="text" value="{$goods_bonus}" name="info[goods_bonus]" id="field_goods_bonus" class="shop_cost2 input_width_2 height_100 " style="width:50px;" /><span class="font_size14" style="margin-left: 5px;  float:none;">元</span></label>
+								<label for="field_goods_bonus" {if $goods_bonus == '0'}style="display:none;"{/if}><input type="text" value="{$goods_bonus}" name="info[goods_bonus]" id="field_goods_bonus" class="shop_cost2 input_width_2 height_100 " style="width:50px;" /><span class="font_size14" style="margin-left: 5px;  float:none;">美元</span></label>
 							</li>
 							{/if}
 							<script type="text/javascript">
@@ -309,7 +309,7 @@
 							<!-- 商品价格判断 -->	
 							<li class="shop_soure set_line_height width_100 float_left">
 								<span class="font_size14 shop_value_name text_align_right">下单价格：</span>
-								<span class=""><input type="text" name="info[goods_price]" class="shop_cost1 float_left input_width_2 height_100 " value="{$goods_price}"  id="goods_price"/>元</span>
+								<span class=""><input type="text" name="info[goods_price]" class="shop_cost1 float_left input_width_2 height_100 " value="{$goods_price}"  id="goods_price"/>美元</span>
 								<span class="color_red margin_left_right_5"></span>
 							</li>
 							
@@ -317,7 +317,7 @@
 								<span class="font_size14 shop_value_name text_align_right">预存邮费：</span>
 								<label><input type="radio" name="info[goods_postage]" value="0" {if $goods_postage == 0}checked {/if} />&nbsp;不预存</label>
 								<label><input type="radio" name="info[goods_postage]" value="1" {if $goods_postage != 0}checked {/if} />&nbsp;预存</label>
-								<label for="field_goods_postage" {if $goods_postage == 0}style="display:none;"{/if}><input type="text" name="info[field_goods_postage]" value="{$goods_postage}" id="field_goods_postage" class="shop_cost2 input_width_2 height_100 " style="width:80px;" />元/份</label>
+								<label for="field_goods_postage" {if $goods_postage == 0}style="display:none;"{/if}><input type="text" name="info[field_goods_postage]" value="{$goods_postage}" id="field_goods_postage" class="shop_cost2 input_width_2 height_100 " style="width:80px;" />美元/份</label>
 							</li>	 -->
 							<script type="text/javascript">
 							$("input[name='info[goods_postage]']").click(function(){
@@ -349,8 +349,8 @@
 									<li><label><input type="checkbox" name="info[goods_tips][order_tip][]" value="2" {if in_array(2,$goods_tips['order_tip'])}checked {/if}/>&nbsp;请不要催促商家返款</label></li>
 									<li><label>默认快递：<input type="text" name="info[goods_tips][goods_order][kuaidi]" style="width:250px;" value="{$goods_tips['goods_order']['kuaidi']}" /></label></li>
 									<li><label>拍下须知：<input type="text" name="info[goods_tips][goods_order][remark]" style="width:250px;" value="{$goods_tips['goods_order']['remark']}" /></label></li>
-									<li>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="{$goods_tips['goods_order']['price']['cost']}" />元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;" value="{$goods_tips['goods_order']['price']['after']}" />元</li>
-									<li>请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;" value="{$goods_tips['goods_order']['price']['lv']}" />元下单</li>
+									<li>原价为：<input type="text" name="info[goods_tips][goods_order][price][cost]" style="width:50px;" value="{$goods_tips['goods_order']['price']['cost']}" />美元，拍下后价格为：<input type="text" name="info[goods_tips][goods_order][price][after]" style="width:50px;" value="{$goods_tips['goods_order']['price']['after']}" />美元</li>
+									<li>请用V1-V3价格<input type="text" name="info[goods_tips][goods_order][price][lv]" style="width:50px;" value="{$goods_tips['goods_order']['price']['lv']}" />美元下单</li>
 								</ul>
 							</li>	
 							
@@ -604,7 +604,7 @@ $(document).ready(function() {
 		    	"isadmin":"1",
 		    	"groupid":"2"
 		    },
-		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    // 内部根据当前运行是创建，可能是input美元素，也可能是flash.
 		    pick: {
 		    	id: '#img' + (i+1),
 		    	multiple:false

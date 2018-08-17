@@ -105,9 +105,9 @@ $(function(){
                 <th>兑换规则</th>
                 <td class="y-bg">
                     
-                    1元 =
+                    1美元 =
                     <input type="text" class="input-text" name="setting[trial_point]" size='6' value="<?php if(!$setting['trial_point']){echo '0.1';}else{echo $setting['trial_point'];}?>"/>积分
-                    (示例：后台设置1元 = 0.1 如果某试用品价值100元 则兑换这件商品需要10积分 根据运营自行设定积分大小值 如果换算后不足1分，按照1分算 )
+                    (示例：后台设置1美元 = 0.1 如果某试用品价值100美元 则兑换这件商品需要10积分 根据运营自行设定积分大小值 如果换算后不足1分，按照1分算 )
                 </td>
             </tr>
 			
@@ -297,7 +297,7 @@ $(function(){
 
             <tr >
               <th>收费规则</th>
-              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价大于等于100.00元，收取1.00元平台服务费</td>
+              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价大于等于100.00美元，收取1.00美元平台服务费</td>
             </tr>
 
                <?php foreach ($trial_data['trial_fee_price'] as $k=>$v) {?>
@@ -306,7 +306,7 @@ $(function(){
                 <th></th>
                 <td class="y-bg">
                     下单价大于等于：<input type="text" class="input-text" id='check_time' name="setting[config][trial][trial_fee_price][<?php echo $k;?>][min]" size="3" value="<?php echo $v['min']?>" />
-                    <label>收取<input type="text" class="input-text" id='check_time' name="setting[config][trial][trial_fee_price][<?php echo $k;?>][trial]" size="3" value="<?php echo $v['trial']?>" />/元平台服务费</label>
+                    <label>收取<input type="text" class="input-text" id='check_time' name="setting[config][trial][trial_fee_price][<?php echo $k;?>][trial]" size="3" value="<?php echo $v['trial']?>" />/美元平台服务费</label>
                     <?php if ($k > 1): ?>
                     <a class="delete" style="color:red;cursor:pointer">删除</a>
                     <?php endif ?>
@@ -328,7 +328,7 @@ $(function(){
                         html += '<th></th>';
                         html += '<td class="y-bg">';
                         html += '下单价大于等于：<input type="text" class="input-text" id="check_time" name="setting[config][trial][trial_fee_price]['+num+'][min]" size="3" value="" />';
-                        html += '<label> 收取：<input type="text" class="input-text" id="check_time" name="setting[config][trial][trial_fee_price]['+num+'][trial]" size="3" value="" />/元平台服务费</label>';
+                        html += '<label> 收取：<input type="text" class="input-text" id="check_time" name="setting[config][trial][trial_fee_price]['+num+'][trial]" size="3" value="" />/美元平台服务费</label>';
                         html += '<span class="delete" style="color:red;cursor:pointer">删除</span>';
                         html += '</td>';
                         html += '</tr>';
@@ -365,8 +365,8 @@ $(function(){
                 <th><?php echo L('赠送红包金额范围')?></th>
                 <td class="y-bg">
                     <label>最少<input type="text" size="6" class="input-text" name="setting[bonus_price][min]" value="<?php if($setting['bonus_price']['min']){ echo $setting['bonus_price']['min']; }else{?>1 <?php }?>"/></label>
-                    <label>最多<input type="text" size="6" class="input-text" name="setting[bonus_price][max]" value="<?php echo $setting['bonus_price']['max'];?>"/>元</label>
-                    &nbsp;例如：1-50元
+                    <label>最多<input type="text" size="6" class="input-text" name="setting[bonus_price][max]" value="<?php echo $setting['bonus_price']['max'];?>"/>美元</label>
+                    &nbsp;例如：1-50美元
                 </td>
             </tr>
             

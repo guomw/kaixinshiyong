@@ -35,11 +35,11 @@ $show_header = false;
 		</tr>
 		<tr>
 			<td>商品下单价</td>
-			<td><?php echo $info['goods_price'] ?>元</td>
+			<td><?php echo $info['goods_price'] ?>美元</td>
 		</tr>
 		<tr>
 			<td>赠送红包</td>
-			<td><?php echo $info['goods_bonus'] ?>元</td>
+			<td><?php echo $info['goods_bonus'] ?>美元</td>
 		</tr>
 		<?php if ($info['mod'] == 'rebate') { ?>
 		<tr>
@@ -55,7 +55,7 @@ $show_header = false;
 		<?php }elseif ($info['mod'] == 'trial'){ ?>		
 			<tr>
 				<td>收费方式</td>
-				<td><?php if ($info['goods_charge_way'] == 1 ){echo '按单场:';}else{echo '按单份:';};echo '('.$info['goods_service'].'元)' ?></td>
+				<td><?php if ($info['goods_charge_way'] == 1 ){echo '按单场:';}else{echo '按单份:';};echo '('.$info['goods_service'].'美元)' ?></td>
 			</tr>
 			<tr>
 				<td>剩余推广费退还</td>
@@ -64,7 +64,7 @@ $show_header = false;
 			<tr>
 				<td>总推广费</td>
 				<td>
-					<?php if ($info['goods_charge_way'] == 0){echo $info['goods_service_total'];}else{echo $info['goods_service'];} ?> 元；
+					<?php if ($info['goods_charge_way'] == 0){echo $info['goods_service_total'];}else{echo $info['goods_service'];} ?> 美元；
 					<span style='margin-left:10px;'>
 						<?php if ($info['goods_charge_way'] == 0) { ?>
 							总推广费 = 单份推广费 * 已售份数
@@ -77,17 +77,17 @@ $show_header = false;
 		<?php } ?>		
 		<tr> 
 			<td>已返还总额</td>
-			<td><?php echo $info['goods_member_total'] ?> 元；已返给会员的总金额</td>
+			<td><?php echo $info['goods_member_total'] ?> 美元；已返给会员的总金额</td>
 		</tr>
 		<?php if ($info['mod'] == 'rebate'){ ?>
 			<tr>
 				<td>总平台损耗费</td>
-				<td><?php echo $info['goods_service_total'] ?> 元；<span style='margin-left:10px;'>总保证金 = 总份数 - (总份数 * 下单价 * 单笔平台损耗费)</span></td>
+				<td><?php echo $info['goods_service_total'] ?> 美元；<span style='margin-left:10px;'>总保证金 = 总份数 - (总份数 * 下单价 * 单笔平台损耗费)</span></td>
 			</tr>
 		<?php }elseif ($info['mod'] == 'trial'){ ?>
 			<tr>
 				<td>总保证金</td>
-				<td><?php echo $info['goods_deposit'] ?> 元； 
+				<td><?php echo $info['goods_deposit'] ?> 美元； 
 					<span style='margin-left:10px;'>
 						<?php if ($info['goods_charge_way'] == 0){ ?>
 							<!-- 按单份 -->
@@ -101,7 +101,7 @@ $show_header = false;
 		<?php } ?>
 		<tr>
 			<td>应退还保证金</td>
-			<td><?php echo $info['goods_company_return']; ?> 元；
+			<td><?php echo $info['goods_company_return']; ?> 美元；
 				<span style='margin-left:10px;'>
 					<?php if ($info['mod']== 'rebate' ) { ?>
 						应退还保证金=总保证金-已售份数*(返还会员金额+单笔平台损耗费)

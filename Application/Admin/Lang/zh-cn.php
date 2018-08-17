@@ -101,7 +101,7 @@ return array (
 	'default_readpoint'             => '默认收取',
 	'readpoint'                     => '点',
 	'readpoint_tips'                => '（会员在此栏目下查看信息时，该信息默认的收费），当这里设置为0时，发布页设置了，可只对设置的文章收费，<font color=>"red">生成静态时收费无效</font>',
-	'money'                         => '元',
+	'money'                         => '美元',
 	'repeatchargedays'              => '重复收费设置',
 	'repeat_tips'                   => '天内不重复收费',
 	'repeat_tips2'                  => '最小设置为1天',

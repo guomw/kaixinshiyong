@@ -55,17 +55,17 @@
         <!--part2-->
         <div class="part3">
          <span class="a1"><img src="{$thumb}" alt="" />{str_cut($title,25)}</span>
-         <span class="a2">￥{$goods_price}</span>
+         <span class="a2">${$goods_price}</span>
          <span class="a3">{$goods_number}</span>
-          <span class="a3">￥{$bonus_price}</span>
+          <span class="a3">${$bonus_price}</span>
 
-         <span class="a4">￥<?php echo sprintf("%.2f",$service);?></span>
+         <span class="a4">$<?php echo sprintf("%.2f",$service);?></span>
          <span class="a5" id="totalmoney">{php echo sprintf('%.2f', ($goods_price+$bonus_price+$service)*$goods_number)}</span>
           </div>
         <!--part3-->
-    <!--     <div class="part3"> <span class="a1"><img src="images/a5.jpg" alt="" />商品名称11111</span><span class="a2">￥16.00</span><span class="a3">10</span><span class="a4">￥5(单份)</span><span class="a5">￥5474</span> </div> -->
+    <!--     <div class="part3"> <span class="a1"><img src="images/a5.jpg" alt="" />商品名称11111</span><span class="a2">$16.00</span><span class="a3">10</span><span class="a4">$5(单份)</span><span class="a5">$5474</span> </div> -->
         <!--part3--> 
-<!--         <div  class="part4">总计：<span>5474 元</span></div>
+<!--         <div  class="part4">总计：<span>5474 美元</span></div>
  -->        <div  class="part5">
 
  						<?php if($cost['cost'] == 0){?><!-- 单份 -->

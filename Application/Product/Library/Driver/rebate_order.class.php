@@ -130,7 +130,7 @@ class rebate_order extends \Product\Library\OrderInterface {
             $sign1 = '1-'.$this->product_info['mod'].'-'.$this->order_info['seller_id'].'-'.$this->order_info['goods_id'].'-'.$this->order_info['id'].'-'.sprintf('%.2f',($price+$this->product_info['goods_price']*$this->product_info['goods_service']/100));
             $rs1 = model('member_finance_log')->where(array('only'=>$sign1))->find();
             if(!$rs1){
-                action_finance_log($this->order_info['seller_id'], -(sprintf('%.2f',($price+$this->product_info['goods_price']*$this->product_info['goods_service']/100))), 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.sprintf('%.2f',($price+$this->product_info['goods_price']*$this->product_info['goods_service']/100)).'元保证金', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
+                action_finance_log($this->order_info['seller_id'], -(sprintf('%.2f',($price+$this->product_info['goods_price']*$this->product_info['goods_service']/100))), 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.sprintf('%.2f',($price+$this->product_info['goods_price']*$this->product_info['goods_service']/100)).'美元保证金', $sign1, array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
             }else{
                 $this->error = '重复操作'; 
                 return FALSE;

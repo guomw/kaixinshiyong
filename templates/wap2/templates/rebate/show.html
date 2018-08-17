@@ -26,14 +26,14 @@
             <div class="s_part3 c5">
               <div class="hang1">
                 {{showdata.price_name}}：
-                <span>{{showdata.goods_price / 10 * showdata.goods_discount | currency:"￥" }}</span>
-                下单价:{{showdata.goods_price | currency:"￥" }} 返还： {{showdata.goods_price - (showdata.goods_price * showdata.goods_discount
-                /10 ) | currency:"￥"}}
+                <span>{{showdata.goods_price / 10 * showdata.goods_discount | currency:"$" }}</span>
+                下单价:{{showdata.goods_price | currency:"$" }} 返还： {{showdata.goods_price - (showdata.goods_price * showdata.goods_discount
+                /10 ) | currency:"$"}}
               </div>
               <div class="hang3 c5">
                 <div class="part">
                   <img ng-src="img/a3.jpg"> 商家已存保证金：
-                  <span>{{showdata.goods_deposit|currency:"￥"}}</span>
+                  <span>{{showdata.goods_deposit|currency:"$"}}</span>
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -64,13 +64,13 @@
                     }}</p>
 
                   <p ng-show="showdata.goods_tips.goods_order.price.cost || showdata.goods_tips.goods_order.price.after ">
-                    原价为 <b class="cc">{{showdata.goods_tips.goods_order.price.cost | currency:"￥" }}</b>
-                    ,拍下后会自动改价为 <b class="cc">{{showdata.goods_tips.goods_order.price.after | currency:"￥"}}</b>
+                    原价为 <b class="cc">{{showdata.goods_tips.goods_order.price.cost | currency:"$" }}</b>
+                    ,拍下后会自动改价为 <b class="cc">{{showdata.goods_tips.goods_order.price.after | currency:"$"}}</b>
                   </p>
 
                   <p ng-show="showdata.goods_tips.goods_order.kuaidi">
                     请用V1-V3价格
-                    <b class="cc">{{showdata.goods_tips.goods_order.price.lv | currency:"￥" }}</b>
+                    <b class="cc">{{showdata.goods_tips.goods_order.price.lv | currency:"$" }}</b>
                     下单
                   </p>
 

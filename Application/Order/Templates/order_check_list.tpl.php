@@ -124,8 +124,8 @@ var site = {
         剩余<?php echo $v['product_info']['goods_number'] - $v['product_info']['already_num'];?>份
         </td>
         <td align="left">
-        试用价： ￥<?php echo $v['product_info']['goods_price']?><br />
-        赠送红包：￥<?php echo $v['product_info']['goods_bonus'];?>
+        试用价： $<?php echo $v['product_info']['goods_price']?><br />
+        赠送红包：$<?php echo $v['product_info']['goods_bonus'];?>
         </td>
         <td align="left">
         店铺名称：<?php echo  $v['merchant_info']['store_name'];?><br />

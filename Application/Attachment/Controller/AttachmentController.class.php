@@ -67,7 +67,8 @@ Class AttachmentController extends BaseController {
             if($aids[0]) {
                 $filename= (strtolower(CHARSET) != 'utf-8') ? iconv('gbk', 'utf-8', $attachment->uploadedfiles[0]['filename']) : $attachment->uploadedfiles[0]['filename'];
                 if($attachment->uploadedfiles[0]['isimage']) {
-                    echo $aids[0].','.$this->upload_url.$attachment->uploadedfiles[0]['filepath'].','.$attachment->uploadedfiles[0]['isimage'].','.$filename;
+                    $output=$aids[0].','.$this->upload_url.$attachment->uploadedfiles[0]['filepath'].','.$attachment->uploadedfiles[0]['isimage'].','.$filename;
+                    echo $output;
 
                     // 生成缩略图
                     $new_array = explode(".",$attachment->uploadedfiles[0]['filepath']);

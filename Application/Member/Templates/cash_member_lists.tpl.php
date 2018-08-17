@@ -40,7 +40,7 @@
 			<th align="left"><?php echo L('ID')?></th>
 			<th align="left"><?php echo L('用户账号')?></th>
 			<th align="left"><?php echo L('支付宝账号')?></th>
-			<th align="left"><?php echo L('提现金额(元)')?></th>
+			<th align="left"><?php echo L('提现金额(美元)')?></th>
 			<th align="left"><?php echo L('审核状态')?></th>
 			<th align="left"><?php echo L('申请时间')?></th>
 			<th align="left"><?php echo L('审核时间')?></th>

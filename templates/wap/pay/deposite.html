@@ -58,7 +58,7 @@
 			<div class="apply-with  d-block apply-set">
 				<ul class="form">
                     <form action="{U('Pay/Index/deposite')}" method="post" name="myform" id="myform">
-					<li>你的账户可提现金额:<b class="c-bb000d s_color">{$money}</b>元</li>
+					<li>你的账户可提现金额:<b class="c-bb000d s_color">{$money}</b>美元</li>
 					<li>选择提现方式:</li>
                     <li>
                         {if in_array('bank',$type)}
@@ -69,7 +69,7 @@
                         <label><input type="radio" name="type" value="2" />提现到支付宝</label>
                         {/if}
                     </li>
-                    <li><span>提现金额：</span><input type="text" name="money" id="money" value="" class="import"/><span>元</span></li>
+                    <li><span>提现金额：</span><input type="text" name="money" id="money" value="" class="import"/><span>美元</span></li>
                     <li class="w_sort"><span>提现模式：</span>
                         <a href="#" class="a_active" data-id='1'>普通提现</a>
                         <a href="#" data-id='2'>快速提现</a>
@@ -78,7 +78,7 @@
                     <li class="w_s_h">到账时间：
                         <b id="show1">{$common[time]}到账（无手续费）</b>
                         <b id="show2" style="display: none">最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
-                            <span id="totalmoney"></span>元</b>
+                            <span id="totalmoney"></span>美元</b>
                     </li>
                     </form>
                 </ul>

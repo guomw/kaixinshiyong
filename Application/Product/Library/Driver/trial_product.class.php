@@ -646,7 +646,7 @@ class trial_product extends \Product\Library\ProductInterface {
         //用户当前余额
         $money = model('member')->getFieldByUserid($userid,'money');
         if ($money < $total){
-            $this->error = '商家账户余额不足，请充值！当前余额'.$money.'元,<span style="color:red;">还需充值'.($total-$money).'元</span>';
+            $this->error = '商家账户余额不足，请充值！当前余额'.$money.'美元,<span style="color:red;">还需充值'.($total-$money).'美元</span>';
             return FALSE;
         }
         $sign = '2-'.$this->product_info['mod'].'-'.$this->product_info['company_id'].'-'.$this->product_info['id'].'-3';

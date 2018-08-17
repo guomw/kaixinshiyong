@@ -21,7 +21,7 @@ include $this->admin_tpl('header');?>
             <tr>
                 <th><?php echo L('每份最低佣金')?></th>
                 <td class="y-bg">
-                    <input type="text" class="input-text" name="setting[task_price]" value="<?php echo $setting['task_price'];?>"/>&nbsp;例如：￥1.00元
+                    <input type="text" class="input-text" name="setting[task_price]" value="<?php echo $setting['task_price'];?>"/>&nbsp;例如：$1.00美元
                 </td>
             </tr>
             
@@ -81,7 +81,7 @@ $(document).ready(function() {
 			"isadmin":"1",
 			"groupid":"2"
 		},
-		// 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		// 内部根据当前运行是创建，可能是input美元素，也可能是flash.
 		pick: {
 			id: '#imgupload',
 			multiple:false

@@ -40,16 +40,16 @@ baidu.dom = baidu.dom || {};
 
 
 /**
- * 从文档中获取指定的DOM元素
+ * 从文档中获取指定的DOM美元素
  * @name baidu.dom.g
  * @function
  * @grammar baidu.dom.g(id)
- * @param {string|HTMLElement} id 元素的id或DOM元素.
+ * @param {string|HTMLElement} id 美元素的id或DOM美元素.
  * @shortcut g,T.G
  * @meta standard
  * @see baidu.dom.q
  *
- * @return {HTMLElement|null} 获取的元素，查找不到时返回null,如果参数不合法，直接返回参数.
+ * @return {HTMLElement|null} 获取的美元素，查找不到时返回null,如果参数不合法，直接返回参数.
  */
 baidu.dom.g = function(id) {
     if (!id) return null;
@@ -72,12 +72,12 @@ baidu.array = baidu.array || {};
 
 
 /**
- * 遍历数组中所有元素
+ * 遍历数组中所有美元素
  * @name baidu.array.each
  * @function
  * @grammar baidu.array.each(source, iterator[, thisObject])
  * @param {Array} source 需要遍历的数组
- * @param {Function} iterator 对每个数组元素进行调用的函数，该函数有两个参数，第一个为数组元素，第二个为数组索引值，function (item, index)。
+ * @param {Function} iterator 对每个数组美元素进行调用的函数，该函数有两个参数，第一个为数组美元素，第二个为数组索引值，function (item, index)。
  * @param {Object} [thisObject] 函数调用时的this指针，如果没有此参数，默认是当前遍历的数组
  * @remark
  * each方法不支持对Object的遍历,对Object的遍历使用baidu.object.each 。
@@ -168,11 +168,11 @@ baidu.browser.opera = /opera(\/| )(\d+(\.\d+)?)(.+?(version\/(\d+(\.\d+)?)))?/i.
 
 
 /**
- * 在目标元素的指定位置插入HTML代码
+ * 在目标美元素的指定位置插入HTML代码
  * @name baidu.dom.insertHTML
  * @function
  * @grammar baidu.dom.insertHTML(element, position, html)
- * @param {HTMLElement|string} element 目标元素或目标元素的id
+ * @param {HTMLElement|string} element 目标美元素或目标美元素的id
  * @param {string} position 插入html的位置信息，取值为beforeBegin,afterBegin,beforeEnd,afterEnd
  * @param {string} html 要插入的html
  * @remark
@@ -184,7 +184,7 @@ baidu.browser.opera = /opera(\/| )(\d+(\.\d+)?)(.+?(version\/(\d+(\.\d+)?)))?/i.
  * @shortcut insertHTML
  * @meta standard
  *             
- * @returns {HTMLElement} 目标元素
+ * @returns {HTMLElement} 目标美元素
  */
 baidu.dom.insertHTML = function (element, position, html) {
     element = baidu.dom.g(element);
@@ -451,7 +451,7 @@ baidu.swf.createHTML = function (options) {
  * @param {boolean} options.swliveconnect 		第一次加载flash时浏览器是否应启动Java。允许值：true/false
  * @param {Object} 	options.vars 				要传递给flash的参数，支持JSON或string类型。
  * 
- * @param {HTMLElement|string} [container] 		flash对象的父容器元素，不传递该参数时在当前代码位置创建flash对象。
+ * @param {HTMLElement|string} [container] 		flash对象的父容器美元素，不传递该参数时在当前代码位置创建flash对象。
  * @meta standard
  * @see baidu.swf.createHTML,baidu.swf.getMovie
  */

@@ -57,7 +57,7 @@ include $this->admin_tpl('header');
 			<?php else: ?>
 			<a href="javascript:;"><?php echo U('Member/Index/register',array('modelid'=>2,'agent_id'=>session('userid')),'',TRUE,TRUE);?></a>
 		    <?php endif ?>
-			&nbsp;您本月目前预计可获得工资 <?php echo $admininfo['fee_money']+$totals; ?>元（含基本工资<?php echo $admininfo['fee_money'] ?>，提成<?php echo $totals; ?>）.
+			&nbsp;您本月目前预计可获得工资 <?php echo $admininfo['fee_money']+$totals; ?>美元（含基本工资<?php echo $admininfo['fee_money'] ?>，提成<?php echo $totals; ?>）.
 			以最终实际发放为准。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo U('admin/admin/company_log',array('userid'=>session('userid'))) ?>">[提成明细]</a>
 		</div>
 			<!-- 订单信息 start -->
@@ -98,18 +98,18 @@ include $this->admin_tpl('header');
 							<span class="fl lh28">今日提成金额</span>
 							<span class="fr lh28">
 								<?php echo sprintf("%.2f",$total_day); ?>
-							元</span>
+							美元</span>
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">本月提成金额</span>
 							<span class="fr lh28">
 							<?php echo sprintf("%.2f",$totals); ?>
-							元</span>
+							美元</span>
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">累计提成金额：</span>
 							<span class="fr lh28">
-							<?php echo sprintf("%.2f",$total_money); ?>元</span>
+							<?php echo sprintf("%.2f",$total_money); ?>美元</span>
 
 						</li>
 						
@@ -145,13 +145,13 @@ include $this->admin_tpl('header');
 						<?php endif ?>
 
 						<li class="lh28">
-							<span class="fl lh28">2.您名下商家充值/续费 钻石vip，您可获得单笔 <?php echo $company['service_zuan_fee'] ?> 元提成奖励。
+							<span class="fl lh28">2.您名下商家充值/续费 钻石vip，您可获得单笔 <?php echo $company['service_zuan_fee'] ?> 美元提成奖励。
 							</span>
 							<span class="fr lh28">
 							</span>
 						</li>
 						<li class="lh28">
-							<span class="fl lh28">3.您名下商家 充值/续费 皇冠vip，您可获得单笔<?php echo $company['service_huang_fee'] ?>元，提成奖励。
+							<span class="fl lh28">3.您名下商家 充值/续费 皇冠vip，您可获得单笔<?php echo $company['service_huang_fee'] ?>美元，提成奖励。
 							</span>
 							<span class="fr lh28">
 							</span>
@@ -199,7 +199,7 @@ include $this->admin_tpl('header');
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">待审核充值：</span>
-							<span class="fr lh28">￥
+							<span class="fr lh28">$
 							<?php 
 							$check_pay = deposite_count(2);
 							if($check_pay > 0){
@@ -208,11 +208,11 @@ include $this->admin_tpl('header');
 							<?php }else{
 								echo $check_pay;
 							}?>
-							元</span>
+							美元</span>
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">待审核提现：</span>
-							<span class="fr lh28">￥
+							<span class="fr lh28">$
 							<?php 
 							$check_pay_money = deposite_count(3);
 							if($check_pay > 0){
@@ -221,7 +221,7 @@ include $this->admin_tpl('header');
 							<?php }else{
 								echo $check_pay_money;
 							}?>
-							元</span>
+							美元</span>
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">待处理申诉订单：</span>
@@ -287,7 +287,7 @@ include $this->admin_tpl('header');
 						<h1 class="title fw lh28">今日统计概况</h1>
 						<li class="lh28">
 							<span class="fl lh28">今日在线充值总额：</span>
-							<span class="fr lh28">￥
+							<span class="fr lh28">$
 								<?php
 									$money_count = deposite_count(1,'1');
 									if($money_count > 0){?>
@@ -295,7 +295,7 @@ include $this->admin_tpl('header');
 								<?php }else{?>
 									<?php echo sprintf('%.2f',$money_count);?>
 								<?php }?>									
-							元</span>
+							美元</span>
 						</li>
 						<li class="lh28">
 							<span class="fl lh28">今日订单数量：</span>
@@ -337,7 +337,7 @@ include $this->admin_tpl('header');
 						</li>
 						<li class="bt_none lh28">
 							<span class="fl lh28">今日新增提现：</span>
-							<span class="fr lh28">￥ 
+							<span class="fr lh28">$ 
 							<?php 
 							$deosite =  deposite_count(4,'1');
 							if($deosite > 0){
@@ -346,7 +346,7 @@ include $this->admin_tpl('header');
 							<?php }else{
 								echo $deosite;
 							}?>
-							 元</span>
+							 美元</span>
 						</li>
 					</ul>
 				</dd>

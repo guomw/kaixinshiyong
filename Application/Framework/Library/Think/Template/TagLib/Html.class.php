@@ -279,7 +279,7 @@ class Html extends TagLib{
             $parseStr .= '<th >操作</th>';
         }
         $parseStr .= '</tr>';
-        $parseStr .= '<volist name="'.$datasource.'" id="'.$name.'" ><tr class="row" >';	//支持鼠标移动单元行颜色变化 具体方法在js中定义
+        $parseStr .= '<volist name="'.$datasource.'" id="'.$name.'" ><tr class="row" >';	//支持鼠标移动单美元行颜色变化 具体方法在js中定义
 
         if(!empty($key)) {
             $parseStr .= '<td>{$i}</td>';
@@ -435,7 +435,7 @@ class Html extends TagLib{
         }
 
         $parseStr .= '</tr>';
-        $parseStr .= '<volist name="'.$datasource.'" id="'.$name.'" ><tr class="row" ';	//支持鼠标移动单元行颜色变化 具体方法在js中定义
+        $parseStr .= '<volist name="'.$datasource.'" id="'.$name.'" ><tr class="row" ';	//支持鼠标移动单美元行颜色变化 具体方法在js中定义
         if(!empty($checkbox)) {
         //    $parseStr .= 'onmouseover="over(event)" onmouseout="out(event)" onclick="change(event)" ';
         }

@@ -4,10 +4,10 @@ return array(
     'WECHAT_ACCOUNT_YBIND_TPL' => "{nickname}您好，您已绑定云划算帐号。\r\n现在可使用以下功能：\r\n\r\n1.可使用微信快捷服务\r\n2.可收取实时订单通知\r\n3.可获取优惠活动信息",
     
     //我的余额
-    'WECHAT_ACCOUNT_BALANCE' => "{nickname}您好，您账户账户余额\r\n可用余额：￥ {balance}\r\n可提现金额：￥ {balance}\r\n\r\n<a href=\"{url}\">申请提现</a>",
+    'WECHAT_ACCOUNT_BALANCE' => "{nickname}您好，您账户账户余额\r\n可用余额：$ {balance}\r\n可提现金额：$ {balance}\r\n\r\n<a href=\"{url}\">申请提现</a>",
     
     //申请提现
-    'WECHAT_ACCOUNT_CASH' => "{nickname}您好，您目前\r\n可提现金额为 ￥ {balance}\r\n<a href=\"{url}\">申请提现</a>\r\n\r\n温馨提示：\r\n1.普通提现到账时间为3-7天。\r\n2.快速提现到账时间为24小时以内",
+    'WECHAT_ACCOUNT_CASH' => "{nickname}您好，您目前\r\n可提现金额为 $ {balance}\r\n<a href=\"{url}\">申请提现</a>\r\n\r\n温馨提示：\r\n1.普通提现到账时间为3-7天。\r\n2.快速提现到账时间为24小时以内",
     
     // 我的积分
     'WECHAT_ACCOUNT_POINT' => "{nickname}您好，您目前\r\n可用积分：{point}\r\n\r\n <a href=\"{url}\">去积分商城兑换</a>\r\n\r\n温馨提示：\r\n1.积分可到积分商城兑换礼物\r\n2.每日可参与任务赚取积分\r\n<a href=\"{url}\">去做任务</a>",

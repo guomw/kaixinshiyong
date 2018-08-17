@@ -38,7 +38,7 @@
                 <div class="a2" ng-show="userInfo.nickname =='' ">修改头像昵称</div>
               </td>
               <td class="R">
-                <div class="hang1">账户余额:￥{{userInfo.money}}</div>
+                <div class="hang1">账户余额:${{userInfo.money}}</div>
                 <div class="hang2">我的积分:{{userInfo.point}}</div>
                 <div class="hang3">
                   <a ng-click="user_qiandao()">每日签到</a>
@@ -64,7 +64,7 @@
         </div>
         <div class="user-signIn_account">
           <div class="user-account_blance">
-            <span>￥{{userInfo.money}}</span>
+            <span>${{userInfo.money}}</span>
             <span>账户余额</span>
           </div>
           <div class="user-account_blance">

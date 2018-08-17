@@ -91,7 +91,7 @@ function mk_pay_btn($data,$attr='class="payment-show"',$ishow='1') {
  * @param return 签名结果字符串
 */
 function build_mysign($sort_array,$security_code,$sign_type = "MD5") {
-    $prestr = create_linkstring($sort_array);       //把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+    $prestr = create_linkstring($sort_array);       //把数组所有美元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
     $prestr = $prestr.$security_code;               //把拼接后的字符串再与安全校验码直接连接起来
     $mysgin = sign($prestr,$sign_type);             //把最终的字符串加密，获得签名结果
     return $mysgin;
@@ -99,7 +99,7 @@ function build_mysign($sort_array,$security_code,$sign_type = "MD5") {
 
 
 /**
- * 把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+ * 把数组所有美元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
  * @param $array 需要拼接的数组
  * @param return 拼接完成以后的字符串
 */

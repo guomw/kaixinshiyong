@@ -160,7 +160,7 @@ include $this->admin_tpl('header','admin');?>
 					<p class="cps_ipt">
 					<?php if ($r['goods_bonus'] >0): ?>
 						<span style="color:red;">
-						<?php echo $r['goods_bonus']; ?> 元红包</span><br/>
+						<?php echo $r['goods_bonus']; ?> 美元红包</span><br/>
 					<?php endif ?>
 				
 					</p>

@@ -210,7 +210,7 @@
 
         //customstyle
         //自定义样式，不支持国际化，此处配置值即可最后显示值
-        //block的元素是依据设置段落的逻辑设置的，inline的元素依据BIU的逻辑设置
+        //block的美元素是依据设置段落的逻辑设置的，inline的美元素依据BIU的逻辑设置
         //尽量使用一些常用的标签
         //参数说明
         //tag 使用的标签名字
@@ -241,7 +241,7 @@
         //,shortcutMenu:["fontfamily", "fontsize", "bold", "italic", "underline", "forecolor", "backcolor", "insertorderedlist", "insertunorderedlist"]
 
         //elementPathEnabled
-        //是否启用元素路径，默认是显示
+        //是否启用美元素路径，默认是显示
         //,elementPathEnabled : true
 
         //wordCount

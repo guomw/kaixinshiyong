@@ -18,7 +18,7 @@
     $G = function ( id ) {
         return document.getElementById( id )
     };
-    //focus元素
+    //focus美元素
     $focus = function ( node ) {
         setTimeout( function () {
             if ( browser.ie ) {

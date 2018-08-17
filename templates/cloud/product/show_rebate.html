@@ -95,19 +95,19 @@
 							</li>
 							<li>
 								<span>担保金</span>
-								<font>商家已预存担保金<b>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b>元，请放心购买</font>
+								<font>商家已预存担保金<b>{php echo sprintf('%.2f', ($goods_price * $goods_number))}</b>美元，请放心购买</font>
 							</li>
 						</ul>
 						<!-- 判断图章 -->
 						<ul class="shop_mess {if $type == 'search'}search_try_out_img{elseif $type == 'ask'}answer_try_out{elseif $type == 'qrcode'}two_t_code_try_out_img{/if}">
 							<li class="set_color"><span>限量份数：<b>{$goods_number}</b>份</span><span>剩余份数：<b>{php echo $goods_number - $already_num}</b>份</span><a href="javascript:;" class="margin_btn" onclick="margin_dialog();">(补仓提醒)</a>
 							</li>
-							<li><span>下单价：<b>{$goods_price}</b>元</span><span>折扣：<b>{$goods_discount}</b>折</span><span>返还划算金：<b>{php echo sprintf('%.2f',$rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10)}</b>元</span>
+							<li><span>下单价：<b>{$goods_price}</b>美元</span><span>折扣：<b>{$goods_discount}</b>折</span><span>返还划算金：<b>{php echo sprintf('%.2f',$rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10)}</b>美元</span>
 							</li>
 						</ul>
 						<ul class="cost_buy_btn">
 							<p>
-								<span>{activitiy_price_name($mod)}：<b>￥<em>{php echo sprintf('%.2f',price($id))}</em></b></span>
+								<span>{activitiy_price_name($mod)}：<b>$<em>{php echo sprintf('%.2f',price($id))}</em></b></span>
 								<font>
 									<a class="shop_buy_btn_off" href="javascript:;" onclick="page_detail.buy();" id="btn_buy">立即抢购</a>
 									<i class="timeRemaining-cont"><font></font></i>
@@ -200,7 +200,7 @@
 							<span>4</span>
 							<font>
 								<em>返划算金</em>
-								<i>商家审核后返还划算金<b>{php echo sprintf('%.2f',$rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10)}</b>元</i>
+								<i>商家审核后返还划算金<b>{php echo sprintf('%.2f',$rs['goods_price']-$rs['goods_price'] * $rs['goods_discount']/10)}</b>美元</i>
 							</font>
 						</p>
 					</div>
@@ -302,7 +302,7 @@
 							<p class="box_title">
 								<a href="{$r[url]}"><img src="{$r['source_img']}" alt="{$r[title]}"/>{str_cut($r[title],57)}</a>
 							</p>
-							<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>￥</b>	{sprintf('%.2f',price($r[id]))}</span><span>￥{$r['goods_price']}</span><a href="{$r[url]}" class="btn">立即抢购</a>
+							<p class="box_sum">{activitiy_price_name($r[mod])}：<span class="font_size"><b>$</b>	{sprintf('%.2f',price($r[id]))}</span><span>${$r['goods_price']}</span><a href="{$r[url]}" class="btn">立即抢购</a>
 							</p>
 						</div>
 						{/loop}

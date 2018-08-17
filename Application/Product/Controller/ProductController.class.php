@@ -249,7 +249,7 @@ class ProductController extends InitController
                     if ($agent) {
                         if ($agent['fee_type'] == 1 && $agent['roleid'] == 6) {
                             $money =sprintf("%.2f",$rs['goods_deposit']*$agent['service_fee']/100);
-                            $msg = "商家(id:".$rs['company_id']."),缴纳活动(id:".$rs['id'].")保证金".$rs['goods_deposit']."元，提成".$money."元";
+                            $msg = "商家(id:".$rs['company_id']."),缴纳活动(id:".$rs['id'].")保证金".$rs['goods_deposit']."美元，提成".$money."美元";
                                 $infos = array();
                                 $infos['time'] = NOW_TIME;
                                 $infos['type'] = 1;
@@ -687,7 +687,7 @@ class ProductController extends InitController
                     if ($agent) {
                         if ($agent['fee_type'] == 1 && $agent['roleid'] == 6) {
                             $money =sprintf("%.2f",$result['com_total_fee']*$agent['service_fee']/100);
-                            $msg = "商家(id:".$product_info['company_id']."),追加活动(id:".$product_info['id'].")保证金".$result['com_total_fee']."元，提成".$money."元";
+                            $msg = "商家(id:".$product_info['company_id']."),追加活动(id:".$product_info['id'].")保证金".$result['com_total_fee']."美元，提成".$money."美元";
                                 $infos = array();
                                 $infos['time'] = NOW_TIME;
                                 $infos['type'] = 1;

@@ -12,13 +12,13 @@
 			<td>
 				当邀请的好友完成手机认证成功，邀请人获得奖励： <input type="text" class="input-text" name="fix[cost]" value="<?php if($setting['fix']['cost'] >= 0 ){echo $setting['fix']['cost'];}else{echo 100;}?>" size="5"/> 
                    <select name="fix[type]">
-                   		<option value="money" <?php if($setting['fix']['type'] == 'money'){?>selected<?php }?>>现金/元</option>
+                   		<option value="money" <?php if($setting['fix']['type'] == 'money'){?>selected<?php }?>>现金/美元</option>
                    		<option value="point" <?php if($setting['fix']['type'] == 'point'){?>selected<?php }?>>积分</option>
                    </select>
             				
             	 被邀请者可获得奖励： <input type="text" class="input-text" name="fix[cost2]" value="<?php if($setting['fix']['cost2'] >= 0 ){echo $setting['fix']['cost2'];}else{echo 100;}?>" size="5"/> 
                                <select name="fix[type2]">
-                               		<option value="money" <?php if($setting['fix']['type2'] == 'money'){?>selected<?php }?>>现金/元</option>
+                               		<option value="money" <?php if($setting['fix']['type2'] == 'money'){?>selected<?php }?>>现金/美元</option>
                                		<option value="point" <?php if($setting['fix']['type2'] == 'point'){?>selected<?php }?>>积分</option>
                                </select>
                         </td>
@@ -29,7 +29,7 @@
 	<td>
 		被邀请者奖励： <input type="text" class="input-text" name="fix[cost2]" value="<?php if($setting['fix']['cost2'] >= 0 ){echo $setting['fix']['cost2'];}else{echo 100;}?>" size="5"/> 
                    <select name="fix[type2]">
-                   		<option value="money" <?php if($setting['fix']['type2'] == 'money'){?>selected<?php }?>>现金/元</option>
+                   		<option value="money" <?php if($setting['fix']['type2'] == 'money'){?>selected<?php }?>>现金/美元</option>
                    		<option value="point" <?php if($setting['fix']['type2'] == 'point'){?>selected<?php }?>>积分</option>
                    </select>
             </td>
@@ -40,7 +40,7 @@
 			<td>
 				  被邀请者完成三笔(试用订单或者赚佣金活动) 被邀请者可获得一次性奖励： <input type="text" class="input-text" name="fix[cost3]" value="<?php if($setting['fix']['cost3'] >= 0 ){echo $setting['fix']['cost3'];}else{echo 100;}?>" size="5"/> 
                    <select name="fix[type3]">
-                   		<option value="money" <?php if($setting['fix']['type3'] == 'money'){?>selected<?php }?>>现金/元</option>
+                   		<option value="money" <?php if($setting['fix']['type3'] == 'money'){?>selected<?php }?>>现金/美元</option>
                    		<option value="point" <?php if($setting['fix']['type3'] == 'point'){?>selected<?php }?>>积分</option>
                    </select>
                    (用于鼓励被邀请人参与网站活动)
@@ -52,7 +52,7 @@
 			<td>
 				当邀请的好友注册成功，奖励 <input type="text" class="input-text" name="fix[r_cost]" value="<?php //if($setting['fix']['r_cost'] >= 0){echo $setting['fix']['r_cost'];}else{echo 100;}?>" size="5"/> 
 		                   <select name="fix[r_type]">
-		                   		<option value="money" <?php //if($setting['fix']['r_type'] == 'money'){?>selected<?php //}?>>现金/元</option>
+		                   		<option value="money" <?php //if($setting['fix']['r_type'] == 'money'){?>selected<?php //}?>>现金/美元</option>
 		                   		<option value="point" <?php //if($setting['fix']['r_type'] == 'point'){?>selected<?php //}?>>积分</option>
 		                   </select>
 			</td>
@@ -137,7 +137,7 @@
 				当用户累积完成	<input type="text" class="input-text" name="setting[0][num]" value="1" size="5"/> 笔订单（含试用和返利），奖励
 				<input type="text" class="input-text" name="setting[0][cost]" value="5" size="5"/>&nbsp;&nbsp;
 				<select name="setting[0][type]">
-                   		<option value="money" >现金/元</option>
+                   		<option value="money" >现金/美元</option>
                    		<option value="point" selected>积分</option>
                </select>
 			</td>
@@ -150,7 +150,7 @@
 				当用户累积完成	<input type="text" class="input-text" name="setting[<?php echo $k;?>][num]" value="<?php echo $v['num'];?>" size="5"/> 笔订单（含试用和返利），奖励
 				<input type="text" class="input-text" name="setting[<?php echo $k;?>][cost]" value="<?php echo $v['cost'];?>" size="5"/>&nbsp;&nbsp;
 				<select name="setting[<?php echo $k;?>][type]">
-                   		<option value="money"  <?php if($v['type'] == 'money'){?>selected<?php }?>>现金/元</option>
+                   		<option value="money"  <?php if($v['type'] == 'money'){?>selected<?php }?>>现金/美元</option>
                    		<option value="point" <?php if($v['type'] == 'point'){?>selected<?php }?>>积分</option>
                </select>
                
@@ -191,7 +191,7 @@ $(document).ready(function(){
 		html += '当用户累积完成	<input type="text" class="input-text" name="setting['+num+'][num]" value="" size="5"/> 笔订单（含试用和返利），奖励';
 		html += '<input type="text" class="input-text" name="setting['+num+'][cost]" value="" size="5"/>&nbsp;&nbsp;';
 		html += '<select name="setting['+num+'][type]">';
-		html += '<option value="money" selected>现金/元</option>';
+		html += '<option value="money" selected>现金/美元</option>';
 		html += '<option value="point">积分</option>';
 		html += '</select>    <span style="cursor:pointer" class="delete">删除</span>';
 		html += '</td>';

@@ -71,7 +71,7 @@
 				<h1 class="c_r_title">提现</h1>
 				<form action="{U('Pay/Index/deposite')}" method="post" name="myform" id="myform">
 				<ul class="withdraw">
-					<li>账户余额：<b class="s_color">{$money}</b>元</li>
+					<li>账户余额：<b class="s_color">{$money}</b>美元</li>
 					<li>选择提现方式：</li>
 					<li>
 						{if in_array('bank',$type)}
@@ -84,13 +84,13 @@
 						 {/if}
 						 <span id="alipaymsg" style="color:red;"></span>
 					</li>
-					<li style="margin-top:40px;"><span>提现金额：</span><input type="text" name="money" id="money" value=""/><span>元</span></li>
+					<li style="margin-top:40px;"><span>提现金额：</span><input type="text" name="money" id="money" value=""/><span>美元</span></li>
 					<li class="w_sort"><span>提现模式：</span>
 						<a href="#" class="a_active" data-id='1'>普通提现</a>
 						<a href="#" data-id='2'>快速提现</a>
 						<input type="hidden" name="paypal" id="paypal" value="1"/>
 					</li>
-					<li class="w_s_h">到账时间：<b>{$common[time]}到账（无手续费）</b><b class="display_none">最快{$quick[time]}到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账<span id="totalmoney"></span>元</b></li>
+					<li class="w_s_h">到账时间：<b>{$common[time]}到账（无手续费）</b><b class="display_none">最快{$quick[time]}到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账<span id="totalmoney"></span>美元</b></li>
 					<li><a href="javascript:;" class="sub_btn">提交</a></li>
 				</ul>
 				</form>

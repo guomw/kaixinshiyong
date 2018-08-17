@@ -78,8 +78,8 @@ include $this->admin_tpl('header','admin');?>
 			<th width="60">缩略图</th>
 			<th width="220">商品标题</th>
 			<th width="100">所属商家</th>
-            <th width="100">追加保证金(元)</th>
-            <th width="70">下单价(元)</th>
+            <th width="100">追加保证金(美元)</th>
+            <th width="70">下单价(美元)</th>
             <th width="40">追加份数</th>
             <th width="70">追加天数</th>
             <th width="70">状态</th>

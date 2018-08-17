@@ -123,7 +123,7 @@ $(function(){
 		</tr>
 		<tr>
 			<td>商品价值</td>
-			<td><input type="text" name="price" id="price" value="<?php echo $rs['price'] ?>" class="input-text"/>元
+			<td><input type="text" name="price" id="price" value="<?php echo $rs['price'] ?>" class="input-text"/>美元
 			</td>
 		</tr>
 		<tr>

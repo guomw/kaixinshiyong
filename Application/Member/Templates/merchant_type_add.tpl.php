@@ -51,7 +51,7 @@ $(function(){
 					<option value="2">按季</option>
 					<option value="3">按年</option>
 				</select>
-				<input type="text" name="info[pricetype][]" class="input-text" size="6">/元	
+				<input type="text" name="info[pricetype][]" class="input-text" size="6">/美元
 			</td>
 		</tr>
 		
@@ -160,12 +160,12 @@ $(function(){
 		
 		<!-- tr>
 			<td width="80"><?php echo '单份商品费用';?></td> 
-			<td><input type="text" name="info[config][trial][product_cost]" class="input-text" id="f_part" size="20" value="10">/元</td>
+			<td><input type="text" name="info[config][trial][product_cost]" class="input-text" id="f_part" size="20" value="10">/美元</td>
 		</tr>
 		
 		<tr>
 			<td width="80"><?php echo '单场活动费用';?></td> 
-			<td><input type="text" name="info[config][trial][activity_cost]" class="input-text" id="f_field" size="20" value="100">/元</td>
+			<td><input type="text" name="info[config][trial][activity_cost]" class="input-text" id="f_field" size="20" value="100">/美元</td>
 		</tr> -->
 		
 		<tr>
@@ -175,7 +175,7 @@ $(function(){
 						<option value="1">单份商品</option>
 						<option value="2">单场活动</option>
 					</select>
-				<label><input type="text" value="0" name="info[config][trial][cost][price]" size="6">/元</label>&nbsp;&nbsp;
+				<label><input type="text" value="0" name="info[config][trial][cost][price]" size="6">/美元</label>&nbsp;&nbsp;
 			</td>
 		</tr>
 		

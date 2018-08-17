@@ -127,7 +127,7 @@ include $this->admin_tpl('header','admin');?>
 	
 	<tr>
 		<th>每份佣金：<font color="red">*</font></th>
-		<td><input type="text" name="info[goods_price]" id="goods_price" value=""/>元</td>
+		<td><input type="text" name="info[goods_price]" id="goods_price" value=""/>美元</td>
 	</tr>	
 	
 	<tr>

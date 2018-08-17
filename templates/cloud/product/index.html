@@ -225,7 +225,7 @@
                             <div class="list_com_hot">
                                 <a href="{$r[url]}" class="hont_pic_wrap" target="_blank"><img src="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" /></a>
                                 <p class="hot_com_title"><a href="{$r[url]}" target="_blank"> {str_cut($r[title],45)}</a></p>
-                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">￥<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
+                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">$<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
                             </div>
                             {/loop}
                             {/pc}
@@ -237,7 +237,7 @@
                             <div class="list_com_hot">
                                 <a href="{$r[url]}" class="hont_pic_wrap" target="_blank"><img src="{$r[thumb]}" class="hot_com_pic" alt="{$r[title]}" /></a>
                                 <p class="hot_com_title"><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">￥<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
+                                <p class="hot_com_btn"><font class="hot_com_t_bg">{activitiy_price_name($r[mod])}<b class="boult"></b></font><b class="list_com_num">$<i>{php echo sprintf('%.2f',price($r[id]))}</i></b></p>
                             </div>
                             {/loop}
                             {/pc}
@@ -270,7 +270,7 @@
 									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
 								</div>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}">{str_cut($r[title],45)}</a></p><!-- {php echo sprintf('%.2f',price($r[id]))} -->
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -285,7 +285,7 @@
 										<p class="hot_show_title_bg"></p>
 										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -302,7 +302,7 @@
 									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
 								</div>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -318,7 +318,7 @@
 										<span class="hot_show_title">
 											<font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -336,7 +336,7 @@
 									<img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" />
 								</div>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -351,7 +351,7 @@
 										<p class="hot_show_title_bg">{str_cut($r[title],45)}</p>
 										<span class="hot_show_title"><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number]- $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -388,7 +388,7 @@
 										<p class="hot_show_title_bg"></p>
 										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -398,7 +398,7 @@
 							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -419,7 +419,7 @@
 											<font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font>
 										</span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_number]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -429,7 +429,7 @@
 							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -448,7 +448,7 @@
 										<p class="hot_show_title_bg"></p>
 										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_number]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -458,7 +458,7 @@
 							<div class="Large_wrap floatLeft" style="margin-left:-7px;">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_number]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -489,7 +489,7 @@
 							<div class="Large_wrap floatLeft">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>
 								<!-- 剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件 -->
 								</p>
 							</div>
@@ -508,7 +508,7 @@
 										<!--<font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font> -->
 										</span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -521,7 +521,7 @@
 							<div class="Large_wrap floatLeft">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -538,7 +538,7 @@
 										<!-- <font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font> -->
 										</span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}
@@ -551,7 +551,7 @@
 							<div class="Large_wrap floatLeft">
 								<a href="{$r[url]}" target="_blank"><img data-original="{img2thumb($r['thumb'],'',1)}" class="Large_key" alt="{$r[title]}" /></a>
 								<p class="hot_com_title"><img src="{get_shop_set($r[source],'small_logo')}" alt="" /><a href="{$r[url]}" target="_blank">{str_cut($r[title],45)}</a></p>
-								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
+								<p class="hot_com_btn"><span>{activitiy_price_name($r[mod])}:</span><span class="colorYellow font_family font_size_18"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font>剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</p>
 							</div>
 							{/loop}
 							{/pc}
@@ -566,7 +566,7 @@
 										<p class="hot_show_title_bg"></p>
 										<span class="hot_show_title"><font class="set_t_w">{str_cut($r[title],45)}</font><font class="float_right">剩余<b class="color_blue"><?php echo $r[goods_number] - $r[already_num];?></b>件</font></span>
 									</div>
-									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">￥</span>{price($r[id])}</span><font class="line_through">￥{$r[goods_price]}</font></p>
+									<p class="hot_com_btn"><span class="price">{activitiy_price_name($r[mod])}:</span><span class="colorYellow fontSize"><span class="autoSize" style="">$</span>{price($r[id])}</span><font class="line_through">${$r[goods_price]}</font></p>
 								</div>
 								{/loop}
 								{/pc}

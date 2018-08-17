@@ -62,10 +62,10 @@ include $this->admin_tpl('header','admin');?>
 			<th width="60">缩略图</th>
 			<th width="220">商品标题</th>
 			<th width="100">所属商家</th>
-            <th width="40">保证金(元)</th>
-            <th width="70">下单价(元)</th>
-            <th width="70">试客佣金(元)</th>
-            <th width="70">平台佣金(元)</th>
+            <th width="40">保证金(美元)</th>
+            <th width="70">下单价(美元)</th>
+            <th width="70">试客佣金(美元)</th>
+            <th width="70">平台佣金(美元)</th>
             <th width="40">数量</th>
             <th width="118">发布时间</th>
 			<th width="72">管理操作</th>

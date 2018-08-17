@@ -64,10 +64,10 @@ class TotalController extends InitController{
 		$sellermoney['t.modelid'] = array('EQ','2');
 		$seller_money = model('member_finance_log')->alias('p')->join(C('DB_PREFIX').'member AS t ON p.userid = t.userid')->where($sellermoney)->SUM('p.num');
 
-		/*总成功处理提现多少元: 将提现记录里面已经成功的提现累计相加*/
+		/*总成功处理提现多少美元: 将提现记录里面已经成功的提现累计相加*/
 		$cash_total = model('cash_records')->where(array('status'=>1))->SUM('totalmoney');
 
-		/*待处理提现多少元:将提现中的待审核提现的累计相加*/
+		/*待处理提现多少美元:将提现中的待审核提现的累计相加*/
 		$have_cash = model('cash_records')->where(array('status'=>0))->SUM('totalmoney');
 
 		/*会员账户余额累计*/

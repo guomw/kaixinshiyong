@@ -121,7 +121,7 @@
 									    	"isadmin":"1",
 									    	"groupid":"2"
 									    },
-									    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+									    // 内部根据当前运行是创建，可能是input美元素，也可能是flash.
 									    pick: {
 									    	id: '#imgs1',
 									    	multiple:false
@@ -206,14 +206,14 @@
 
 							<li class="shop_soure set_line_height width_100 float_left">
 								<span class="font_size14 shop_value_name text_align_right">下单价格：</span>
-								<span class=""><input type="text" name="info[goods_price]" class="shop_cost1 float_left input_width_2 height_100 " id="goods_price"/>元</span>
+								<span class=""><input type="text" name="info[goods_price]" class="shop_cost1 float_left input_width_2 height_100 " id="goods_price"/>美元</span>
 								<span class="color_red margin_left_right_5"></span>
 								<input type="hidden" id="bonus" value="">
 							</li>
 							<!-- 每份佣金 -->	
 							<li class="shop_soure set_line_height width_100 float_left">
 								<span class="font_size14 shop_value_name text_align_right">试客佣金：</span>
-								<input type="text" name="info[bonus_price]" value="" id="bonus_price" class="shop_cost1 float_left input_width_2 height_100 " />元
+								<input type="text" name="info[bonus_price]" value="" id="bonus_price" class="shop_cost1 float_left input_width_2 height_100 " />美元
 							</li>
 
 							<li class="shop_soure set_line_height width_100 float_left">
@@ -364,7 +364,7 @@ $("#bonus_price").formValidator({
 	fun:function(val,elem){
 		var goods_bonus =  $("#bonus").val();
 		if(parseInt(val) < parseInt(goods_bonus)){
-			return '赠送用户红包的最低'+goods_bonus+'元起';
+			return '赠送用户红包的最低'+goods_bonus+'美元起';
 		}else{
 			return true;
 		}
@@ -387,7 +387,7 @@ $("#bonus_price").formValidator({
             return false;
         }
     },
-   // onerror:'请区间的佣金最低'+goods_bonus+'元'
+   // onerror:'请区间的佣金最低'+goods_bonus+'美元'
 });
 
 /* 商品位置 */
@@ -486,7 +486,7 @@ $("#linkage_input_catid").formValidator({
 		    	"isadmin":"1",
 		    	"groupid":"2"
 		    },
-		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    // 内部根据当前运行是创建，可能是input美元素，也可能是flash.
 		    pick: {
 		    	id: '#img' + (i+1),
 		    	multiple:false

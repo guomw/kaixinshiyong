@@ -2315,7 +2315,7 @@ function nickname($userid,$type = ''){
 
 	if (!$userinfo['nickname']) {
 		if($userinfo['email']){
-			$nickname = substr_replace($userinfo['email'],'***',3,8);
+			$nickname = 'ml_'.$userinfo['email'];
 		}else{		
 			$nickname = substr_replace($userinfo['phone'],'***',5,6);
 		}
@@ -3069,7 +3069,7 @@ function go_jd($url){
     //获取商品标题
     preg_match('/<meta name="keywords" .*?content="(.*?)".*? \/>/is', $text, $keywords);
     //获取商品关键字
-    preg_match('/class="p-price">￥([^<>]*)<\/strong>/', $text, $price);
+    preg_match('/class="p-price">$([^<>]*)<\/strong>/', $text, $price);
     //获取价格
     preg_match('/<a class="slogo-shopname"[^>]*>([^<>]*)<\/a>/', $text, $wangwang);
     //获取旺旺 去掉空白
@@ -3148,10 +3148,10 @@ function push($receive,$title,$content,$m_type='',$m_txt='',$m_time='0',$userid)
 
 
 //积分兑换 用于计算后台的积分兑换规则
-//规则如下 1元等于多少积分 
+//规则如下 1美元等于多少积分
 //根据下单价来进行自动结算 
 //传入下单价 后台设置的积分兑换值 
-// 如果1元价值需要1积分  后台自行设置1元价值 需要多少积分 保留小数点2位  那么10元价值就需要10积分。
+// 如果1美元价值需要1积分  后台自行设置1美元价值 需要多少积分 保留小数点2位  那么10美元价值就需要10积分。
 
 function Integral_quantity($goods_jiage){
  $goods_jiage = floor($goods_jiage) * C_READ('trial_point');

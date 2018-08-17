@@ -85,7 +85,7 @@ $(function(){
 
             <tr>
               <th>佣金规则</th>
-              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价100.00元，佣金为7.00元</td>
+              <td  class="y-bg"><input type="button" id="type_add" value="新增" style="width:50px;height:25px;" />&nbsp;&nbsp;提示：订单价100.00美元，佣金为7.00美元</td>
              </tr>
 
                <?php foreach ($bonus['commission_price'] as $k=>$v) {?>
@@ -94,7 +94,7 @@ $(function(){
                 <th></th>
                 <td class="y-bg">
                     下单价：<input type="text" class="input-text" id='check_time' name="setting[config][commission][commission_price][<?php echo $k;?>][min]" size="3" value="<?php echo $v['min']?>" /> ~ <input type="text" class="input-text" id='check_time' name="setting[config][commission][commission_price][<?php echo $k;?>][max]" size="3" value="<?php echo $v['max']?>" />
-                    <label>佣金不低于：<input type="text" class="input-text" id='check_time' name="setting[config][commission][commission_price][<?php echo $k;?>][commission]" size="3" value="<?php echo $v['commission']?>" />/元</label>
+                    <label>佣金不低于：<input type="text" class="input-text" id='check_time' name="setting[config][commission][commission_price][<?php echo $k;?>][commission]" size="3" value="<?php echo $v['commission']?>" />/美元</label>
                     <?php if ($k > 1): ?>
                     <a class="delete" style="color:red;cursor:pointer">删除</a>
                     <?php endif ?>
@@ -362,7 +362,7 @@ $(function(){
                         html += '<th></th>';
                         html += '<td class="y-bg">';
                         html += '下单价：<input type="text" class="input-text" id="check_time" name="setting[config][commission][commission_price]['+num+'][min]" size="3" value="" /> ~ <input type="text" class="input-text" id="check_time" name="setting[config][commission][commission_price]['+num+'][max]" size="3" value="" />';
-                        html += '<label> 试客佣金不低于：<input type="text" class="input-text" id="check_time" name="setting[config][commission][commission_price]['+num+'][commission]" size="3" value="" />/元</label>';
+                        html += '<label> 试客佣金不低于：<input type="text" class="input-text" id="check_time" name="setting[config][commission][commission_price]['+num+'][commission]" size="3" value="" />/美元</label>';
                         html += '<span class="delete" style="color:red;cursor:pointer">删除</span>';
                         html += '</td>';
                         html += '</tr>';

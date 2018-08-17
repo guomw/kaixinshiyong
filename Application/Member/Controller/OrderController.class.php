@@ -293,7 +293,7 @@ class OrderController extends InitController {
                             if($agent['fee_type'] == 2){
                                 $money =sprintf("%.2f", $agent['service_fee'] / 100 * $factory->product_info['goods_price']);
                                 if($money > 0){
-                                    $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔下单价提成".$money."元";
+                                    $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔下单价提成".$money."美元";
                                         $infos = array();
                                         $infos['time'] = NOW_TIME;
                                         $infos['type'] = 2;
@@ -309,7 +309,7 @@ class OrderController extends InitController {
                             if($factory->order_info['act_mod'] == 'rebate'){
                                 if($agent['fee_type'] == 3 && $factory->product_info['goods_service'] >0){
                                     $money =sprintf("%.2f", $agent['service_fee'] / 100 * ($factory->product_info['goods_price'] /100 * $factory->product_info['goods_service']));
-                                        $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔服务费 ".$agent['service_fee']."% 的提成".$money."元";
+                                        $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔服务费 ".$agent['service_fee']."% 的提成".$money."美元";
                                         $infos = array();
                                         $infos['time'] = NOW_TIME;
                                         $infos['type'] = 5;
@@ -324,7 +324,7 @@ class OrderController extends InitController {
                             if($factory->order_info['act_mod'] == 'commission'){
                                 if($agent['fee_type'] == 3 && $factory->product_info['goods_service'] >0){
                                     $money =sprintf("%.2f", $agent['service_fee'] / 100 * $factory->product_info['goods_service']);
-                                        $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔服务费 ".$agent['service_fee']."% 的提成".$money."元";
+                                        $msg = "买家(id:".$factory->order_info['buyer_id']."),完成".$mod."活动(id:".$factory->order_info['goods_id']."),订单(id:".$factory->order_info['id'].")，您获得单笔服务费 ".$agent['service_fee']."% 的提成".$money."美元";
                                         $infos = array();
                                         $infos['time'] = NOW_TIME;
                                         $infos['type'] = 5;
@@ -628,7 +628,7 @@ class OrderController extends InitController {
          
         if (!$info['pay_appraised']) $this->error('未选择付款操作');
         if ($info['pay_appraised'] == 2){ // 付款并优评
-            if ((int)$info['val'] < 1)   $this->error('赠送金额必须大于等于1元');
+            if ((int)$info['val'] < 1)   $this->error('赠送金额必须大于等于1美元');
             // 校验余额
             $check = $this->checkSellerCheck((int)$info['val']);
             if (!$check)   $this->error('您当前余额不足，请充值！');

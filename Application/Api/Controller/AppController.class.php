@@ -1540,6 +1540,7 @@ class AppController extends BaseController
             /* 注册默认值 */
             $info['encrypt'] = random(6);
             $info['point'] = (int)0;
+            $info['nickname']='ml_'.$user_phone;
             $info['groupid'] = (isset($info['groupid']) && is_numeric($info['groupid']) && $info['groupid'] > 1) ? $info['groupid'] : 1;
             $User = D('Member/Member', 'Model');
             $userids = $User->update($info);
@@ -1605,6 +1606,7 @@ class AppController extends BaseController
             /* 注册默认值 */
             $info['encrypt'] = random(6);
             $info['point'] = (int)0;
+            $info['nickname']='ml_'.$user_email;
             $info['groupid'] = (isset($info['groupid']) && is_numeric($info['groupid']) && $info['groupid'] > 1) ? $info['groupid'] : 1;
             $MemberLogic = D('Member/Member', 'Logic');
             $User = D('Member/Member', 'Model');

@@ -131,7 +131,7 @@
 									{elseif $v[type] == 'exp'}
 									(经验值)
 									{/if}
-									{else}{$v[reward]}(元){/if}{else}--{/if}</td>-->  
+									{else}{$v[reward]}(美元){/if}{else}--{/if}</td>-->
 							<td>{if $v[phone_status]}<font color="green">已认证</font>{else}未认证{/if}</td>
 							<td>{$v[order_count]}</td>
 							<td>{$v[loginnum]}次</td>
@@ -162,7 +162,7 @@
 								{loop $reword_list $v}
 								<tr>
 									<td><?php echo dgmdate($v['dateline']); ?></td>
-									<td {if $v[num] >0 }class="income"{else}class="expenditure"{/if}>{substr($v[num],0,-3)} {if $type == 3}元{else}积分{/if}</td>
+									<td {if $v[num] >0 }class="income"{else}class="expenditure"{/if}>{substr($v[num],0,-3)} {if $type == 3}美元{else}积分{/if}</td>
 									<td>{$v[cause]}</td>
 								</tr>
 								{/loop}								

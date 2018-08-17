@@ -29,7 +29,7 @@
         <td align="center"><input type="text" name="sort[<?php echo $v['groupid']?>]" class="input-text" size="1" value="<?php echo $v['sort']?>"></th>
         <td align="center" title="<?php echo $v['description']?>"><?php echo $v['name']?></td>
         <td align="center"><img src="<?php echo $v['icon']?>"></td>
-        <td align="center"><?php if($pricetype[0] == 1){echo '￥'.$pricetype[1].'元/月';}elseif ($pricetype[0] == 2) {echo '￥'.$pricetype[1].'元/季';}else{echo '￥'.$pricetype[1].'元/年';}?></td>
+        <td align="center"><?php if($pricetype[0] == 1){echo '$'.$pricetype[1].'美元/月';}elseif ($pricetype[0] == 2) {echo '$'.$pricetype[1].'美元/季';}else{echo '$'.$pricetype[1].'美元/年';}?></td>
         <td align="center">
            <?php if ($v['status'] == 1){  echo "正在使用";}else{
                 echo "禁用";

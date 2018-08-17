@@ -110,7 +110,7 @@ a:hover {text-decoration:underline;}
 			});
         </script>
         <div class="btn" onclick="form.submit()">搜索</div><a class="btn" href="/index.php?m=Admin&c=LotteryDraw&a=LotteryDrawList">重置</a>
-        <div class="a4">合计：发放总积分为：<?php echo $totalPoints ?> 总现金为：<?php echo $totalcash ?>元 </div>
+        <div class="a4">合计：发放总积分为：<?php echo $totalPoints ?> 总现金为：<?php echo $totalcash ?>美元 </div>
         <div class="clear"></div>
   </div>
   <!--search-->
@@ -121,7 +121,7 @@ a:hover {text-decoration:underline;}
       <div class="part">抽奖时间</div>
       <div class="part">奖品等奖</div>
       <div class="part">奖品类型</div>
-      <div class="part">奖品数量（现金的单位 元）</div>
+      <div class="part">奖品数量（现金的单位 美元）</div>
       <div class="clear"></div>
     </div>
     <div class="h2">

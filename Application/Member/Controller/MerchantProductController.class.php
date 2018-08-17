@@ -465,7 +465,7 @@ class MerchantProductController extends InitController{
 				// 如果为部分缴纳方式
 		       if($service_type == 2){
 		       	$total = sprintf("%.2f",(($goods_price-($goods_price / 10 * $goods_discount ) )+ ($goods_price * $service / 100)) * $goods_number);
-		       }                                     //下单价100  折扣1折 需返还给会员90元
+		       }                                     //下单价100  折扣1折 需返还给会员90美元
 
 			}elseif($mod == 'commission'){
 				if ($cost['cost'] == 0) {
@@ -494,7 +494,7 @@ class MerchantProductController extends InitController{
 			$ids = (int) I('id');//商品id
 			//用户当前余额
 			$money = $this->db->getFieldByUserid($this->userid,'money');
-			if ($money < $total) $this->error('您的余额不足，请充值！当前余额'.$money.'元,<span style="color:red;">还需充值'.($total-$money).'元</span>');
+			if ($money < $total) $this->error('您的余额不足，请充值！当前余额'.$money.'美元,<span style="color:red;">还需充值'.($total-$money).'美元</span>');
 
 
 			//将该商品的状态改为未审核已付款(待审核)

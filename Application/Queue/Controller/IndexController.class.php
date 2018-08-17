@@ -42,7 +42,7 @@ class IndexController extends \Common\Controller\BaseController
                     $data['title'] = '您参与的活动（id：'.$this->order_info['goods_id'].'）即将失去试用资格! ';
                     $data['body']  = '亲爱的'.$nickname.'！ 您已获得了（id：'.$this->order_info['goods_id']."）商品的试用资格，但您还未下单填写订单号,请您在到期时间之前完成下单并返回平台填写订单号，逾期将失去试用资格！\r\n<br/><br/> ";
                     $data['body']  .='试用品名称：'.$this->goods_info['title']."<br/> ";
-                    $data['body']  .= '试用品价值：'.$goods_price." 元<br/>";
+                    $data['body']  .= '试用品价值：'.$goods_price." 美元<br/>";
                     $data['body']  .='申请时间：'.dgmdate($this->order_info['create_time']).'<br/>';
                     $data['body']  .='获得资格时间：'.dgmdate($this->order_info['check_time'])."<br/><br/>";
                     $data['body']  .='当前状态： 请及时按照活动要求下单，并返回平台填写订单号。'."<br/>";
@@ -85,7 +85,7 @@ class IndexController extends \Common\Controller\BaseController
                     $data['title'] = '请及时填写活动（id：'.$this->order_info['goods_id'].'）试用报告  ';
                     $data['body']  = '亲爱的'.$nickname.'！ 您已获得了（id：'.$this->order_info['goods_id']."）商品的试用资格，但您还未填写试用报告，请在到期时间之前填写试用报告<br/><br/> ";
                     $data['body']  .='试用品名称：'.$this->goods_info['title']."<br/> ";
-                    $data['body']  .= '试用品价值：'.$goods_price." 元<br/>";
+                    $data['body']  .= '试用品价值：'.$goods_price." 美元<br/>";
                     $data['body']  .='申请时间：'.dgmdate($this->order_info['create_time']).'<br/>';
                     $data['body']  .='获得资格时间：'.dgmdate($this->order_info['check_time'])."<br/><br/>";
                     $data['body']  .='当前状态： 请及时填写试用报告。'."<br/>";
@@ -130,8 +130,8 @@ class IndexController extends \Common\Controller\BaseController
                 $data['title'] = '请及时填写活动（id：'.$this->order_info['goods_id'].'）订单号!  ';
                 $data['body']  = '亲爱的'.$nickname.'！ 您抢购了活动（id：'.$this->order_info['goods_id']."）商品，您还未填写订单号，请在到期时间之前填写订单号！<br/><br/> ";
                 $data['body']  .='活动品名称：'.$this->goods_info['title']."<br/> ";
-                $data['body']  .= '原价 '.$this->goods_info['goods_price']." 元<br/>";
-                $data['body']  .= '活动价 '.$this->goods_info['goods_price'] / 10 * $goods_discount." 元<br/>";
+                $data['body']  .= '原价 '.$this->goods_info['goods_price']." 美元<br/>";
+                $data['body']  .= '活动价 '.$this->goods_info['goods_price'] / 10 * $goods_discount." 美元<br/>";
                 $data['body']  .= '折扣 '.$goods_discount." 折<br/>";
                 $data['body']  .='抢购时间：'.dgmdate($this->order_info['create_time']).'<br/><br/>';
                 $data['body']  .='当前状态： 请及时下单并返回平台填写订单号。'."<br/>";

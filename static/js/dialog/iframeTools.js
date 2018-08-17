@@ -37,7 +37,7 @@
                 };
 
                 return window[name].artDialog
-                    // 框架集无法显示第三方元素
+                    // 框架集无法显示第三方美元素
                     && doc.getElementsByTagName('frameset').length === 0;
             };
 

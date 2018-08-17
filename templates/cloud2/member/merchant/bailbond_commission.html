@@ -43,11 +43,11 @@
 					<thead>
 						<tr class="t_t_bg">
 							<th class=" tc">商品名称</th>
-							<th class=" tc">商品下单价（元）</th>
+							<th class=" tc">商品下单价（美元）</th>
 							<th class=" tc">数量</th>
-							<th class=" tc">试客佣金（元）</th>
-							<th class=" tc">平台佣金（元）</th>
-							<th class=" tc">合计（元）</th>
+							<th class=" tc">试客佣金（美元）</th>
+							<th class=" tc">平台佣金（美元）</th>
+							<th class=" tc">合计（美元）</th>
 						</tr>
 					</thead>
 					<tbody id="test">
@@ -79,7 +79,7 @@
 						<?php }else{?>
 							总保证金计算方式 = (下单价  + 试客佣金 + 平台佣金 ) *数量
 						<?php }?>
-						<span style="float:right;">总计：<span class="all_sum">{php echo sprintf('%.2f', ($goods_price+$bonus_price+$service)*$goods_number)}</span>元</span>
+						<span style="float:right;">总计：<span class="all_sum">{php echo sprintf('%.2f', ($goods_price+$bonus_price+$service)*$goods_number)}</span>美元</span>
 					</p>
 					<div style="clear:both;"></div>
 					<p>

@@ -204,7 +204,7 @@ class MerchantController extends InitController{
 
 		                	}
 		                    
-		                    $msg = "商家(id:".$this->userid."),升级/续费".$name.")，提成".$money."元";
+		                    $msg = "商家(id:".$this->userid."),升级/续费".$name.")，提成".$money."美元";
 		                    $infos = array();
 		                    $infos['time'] = NOW_TIME;
 		                    $infos['type'] = $_levels;

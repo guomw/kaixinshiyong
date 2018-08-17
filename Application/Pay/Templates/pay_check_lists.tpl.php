@@ -59,7 +59,7 @@ if(is_array($pay_lists)){
 		<td align="center"><?php echo $info['contact_name']?></td>
 		<td align="center"><?php echo $info['tran_number']?></td>
 		<td align="center"><?php echo date('Y-m-d H:i:s',$info['inputtime'])?></td>
-		<td align="center">￥<?php echo $info['money'];?>元</td>
+		<td align="center">$<?php echo $info['money'];?>美元</td>
 		<td align="center"><a><?php if ( $info['status'] == 0){echo '未审核';}elseif ($info['status'] == 1){echo '<font color="green">已审核</font>';}else{echo '<font color="red">未通过</font>';}?> </a>
 		<td align="center">
 			<!-- <a href="<?php echo U('Pay/PayCheck/payinfo',array('id'=>$info['id']));?>"><?php echo '详细充值信息';?></a> | -->

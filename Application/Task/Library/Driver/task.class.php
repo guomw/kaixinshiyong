@@ -108,7 +108,7 @@ class task extends \Task\Library\TaskInterface {
 		//用户当前余额
 		$balance = model('member')->getFieldByUserid($userid,'money');
 		if($balance < $money){
-		    $this->error = '商家账户余额不足，请充值！当前余额'.$balance.'元,<span style="color:red;">还需充值'.($money-$balance).'元</span>';
+		    $this->error = '商家账户余额不足，请充值！当前余额'.$balance.'美元,<span style="color:red;">还需充值'.($money-$balance).'美元</span>';
 		    return FALSE;
 		}
 		

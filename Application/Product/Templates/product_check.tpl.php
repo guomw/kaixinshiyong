@@ -77,9 +77,9 @@ include $this->admin_tpl('header','admin');?>
 			<th width="220">商品标题</th>
 			<th width="130">所属商家</th>
 			<th width="130">下属店铺</th>
-            <th width="40">保证金(元)</th>
-            <th width="70">手续费(元)</th>
-            <th width="70">下单价(元)</th>
+            <th width="40">保证金(美元)</th>
+            <th width="70">手续费(美元)</th>
+            <th width="70">下单价(美元)</th>
             <th width="40">数量</th>
             <th width="70">折扣/红包/佣金</th>
             <th width="118">发布时间</th>
@@ -150,9 +150,9 @@ include $this->admin_tpl('header','admin');?>
 			<td align='center'>
 				<?php if($r['mod']=='rebate'){echo '折扣:'.$r['goods_discount'].'折';}
 						elseif($r['mod']=='trial'){
-							if ($r['goods_bonus'] > 0){echo '红包:'.$r['goods_bonus'].'元';}else{echo '红包:无';}
+							if ($r['goods_bonus'] > 0){echo '红包:'.$r['goods_bonus'].'美元';}else{echo '红包:无';}
 						}elseif($r['mod']=='commission'){
-							if ($r['bonus_price'] > 0){echo '佣金:'.$r['bonus_price'].'元';}else{echo '佣金:无';}
+							if ($r['bonus_price'] > 0){echo '佣金:'.$r['bonus_price'].'美元';}else{echo '佣金:无';}
 						}else{echo '--';};?>
 			</td>
 			<td align='center'><?php echo dgmdate($r['inputtime'], 'Y/m/d H:i:s')?></td>

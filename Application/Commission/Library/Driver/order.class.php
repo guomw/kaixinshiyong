@@ -102,7 +102,7 @@ class order extends \Commission\Library\OrderInterface {
         $price = sprintf('%.2f',($this->product_info['goods_price'] + $this->product_info['goods_bonus'] ));
         $money = model('member')->getFieldByUserid($this->product_info['company_id'],'money');
         if ($money < $price){
-            $this->error = '商家账户余额不足，请充值！当前余额'.$money.'元,<span style="color:red;">还需充值'.($price-$money).'元</span>';
+            $this->error = '商家账户余额不足，请充值！当前余额'.$money.'美元,<span style="color:red;">还需充值'.($price-$money).'美元</span>';
             return FALSE;
         }
 
@@ -116,11 +116,11 @@ class order extends \Commission\Library\OrderInterface {
            /* action_finance_log($this->order_info['buyer_id'], $price, 'money', '订单结算', array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));*/
 
              // 增加商家的余额下单价+红包
-           action_finance_log($this->order_info['seller_id'], $price, 'money', '订单结算，平台退还给商家的资金为:'.$price."元", array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
+           action_finance_log($this->order_info['seller_id'], $price, 'money', '订单结算，平台退还给商家的资金为:'.$price."美元", array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']));
             // 扣除商家冻结保证金
             $seller_price = sprintf('%.2f',($this->product_info['goods_service']+$price));
             
-            action_finance_log($this->order_info['seller_id'], -$seller_price, 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.$seller_price.'元保证金', array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
+            action_finance_log($this->order_info['seller_id'], -$seller_price, 'deposit', '订单[ID:'.$this->order_info['id'].']完成，扣除'.$seller_price.'美元保证金', array('goods_id' => $this->order_info['goods_id'], 'order_id' => $this->order_info['id']),FALSE);
             /*保证金*/
 
             model('member_merchant')->where(array('userid' => $this->order_info['seller_id']))->setDec('frozen_deposit',$seller_price);

@@ -77,7 +77,7 @@ foreach($roles as $role) {
 <tr>
 <td>基本工资</td>
 <td>
-<input type="text" name="info[fee_money]" value="<?php echo $fee_money ?>" class="input-text"></input>元/月
+<input type="text" name="info[fee_money]" value="<?php echo $fee_money ?>" class="input-text"></input>美元/月
 </td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@ foreach($roles as $role) {
 <tr>
 <td>钻石商家</td>
 <td>
-<input type="text" name="info[config][service_zuan_fee]" value="<?php echo $fee['service_zuan_fee'] ?>" size="10">/元
+<input type="text" name="info[config][service_zuan_fee]" value="<?php echo $fee['service_zuan_fee'] ?>" size="10">/美元
 （该招商专员下的商家 每次充值/续费 钻石vip会员 招商专员的一次性提成。）
 </td>
 </tr>
@@ -121,7 +121,7 @@ foreach($roles as $role) {
 <tr>
 <td>皇冠商家</td>
 <td>
-<input type="text" name="info[config][service_huang_fee]" value="<?php echo $fee['service_huang_fee'] ?>" size="10">/元
+<input type="text" name="info[config][service_huang_fee]" value="<?php echo $fee['service_huang_fee'] ?>" size="10">/美元
 </td>
 </tr>
 

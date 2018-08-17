@@ -35,7 +35,7 @@ $show_header = false;
 		</tr>
 		<tr>
 			<td>商品下单价</td>
-			<td><?php echo $info['goods_price'] ?>元</td>
+			<td><?php echo $info['goods_price'] ?>美元</td>
 		</tr>
 		
 		<tr>

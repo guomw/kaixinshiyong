@@ -100,7 +100,7 @@ class MessageController extends BaseController {
         $this->replace['{nickname}'] = $user_info['nickname'];  
         $this->replace['{money}'] = $param['money'];                  
         $subject = '充值审核处理';
-        $content = "普通充值审核处理：\r\n{nickname}您好：\r\n您提交的普通充值申请,审核{state}。充值金额：{money}元。";
+        $content = "普通充值审核处理：\r\n{nickname}您好：\r\n您提交的普通充值申请,审核{state}。充值金额：{money}美元。";
         if($result == 1) {
             $content .= "\r\n资金已实时充入您的网站账户,请登录网站查看,祝您生意兴隆!";
         } else {
@@ -161,7 +161,7 @@ class MessageController extends BaseController {
         $this->replace['{cause}'] = $param['cause'];
         $subject = '提现审核处理';
         $content .= $subject;
-        $content .= "\r\n{nickname}您好：\r\n您提交的{paypal}提现申请审核{state}！\r\n提现金额：{money}元\r\n";
+        $content .= "\r\n{nickname}您好：\r\n您提交的{paypal}提现申请审核{state}！\r\n提现金额：{money}美元\r\n";
         if($param['result'] == 1) {
             $content .= "资金将在{time}到达您的提现账户，请注意查收。";
         } else {

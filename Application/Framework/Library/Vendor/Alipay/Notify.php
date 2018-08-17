@@ -120,7 +120,7 @@ class AlipayNotify {
 		//对待签名参数数组排序
 		$para_sort = argSort($para_filter);
 		
-		//把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+		//把数组所有美元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
 		$prestr = createLinkstring($para_sort);
 		
 		$isSgin = false;
