@@ -5146,7 +5146,7 @@ angular
       $scope.taobao_reason = function() {
         if (($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) || $scope.reason == 7) {
           var alertPopup = $ionicPopup.alert({
-            title: '选择帐号',
+            title: '申请理由',
             templateUrl: 'b.html',
             scope: $scope,
             okText: '提交申请',
@@ -8065,7 +8065,7 @@ angular
       $scope.taobao_reason = function() {
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           var alertPopup = $ionicPopup.alert({
-            title: '选择帐号',
+            title: '申请理由',
             templateUrl: 'b.html',
             scope: $scope,
             okText: '提交申请',
