@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +34,7 @@
           <entry key="css" value="11" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="8" />
-          <entry key="html" value="156" />
+          <entry key="html" value="157" />
           <entry key="inc" value="2" />
           <entry key="js" value="61" />
           <entry key="json" value="1" />
@@ -51,7 +50,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="11" />
-          <entry key="HTML" value="156" />
+          <entry key="HTML" value="157" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="5" />
           <entry key="JSON" value="1" />
@@ -69,7 +68,7 @@
           <entry key="css" value="10" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="910" />
+          <entry key="html" value="912" />
           <entry key="js" value="1344" />
           <entry key="php" value="1270" />
           <entry key="sql" value="33" />
@@ -79,7 +78,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="910" />
+          <entry key="HTML" value="912" />
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="1344" />
           <entry key="PHP" value="1270" />
@@ -116,15 +115,37 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1662">
-              <caret line="294" column="28" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="28" />
+            <state relative-caret-position="285">
+              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,7 +166,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/so/list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-133">
@@ -168,15 +189,6 @@
                 <element signature="n#style#0;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="827" column="34" selection-start-line="827" selection-start-column="27" selection-end-line="827" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -310,7 +322,6 @@
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/user.html" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html" />
         <option value="$PROJECT_DIR$/templates/wap2/css/style-list.css" />
-        <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_rebate.html" />
         <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
@@ -325,11 +336,12 @@
         <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
         <option value="$PROJECT_DIR$/templates/wap2/css/style_update.css" />
         <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
-        <option value="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/register.html" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/so/list.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" />
       </list>
     </option>
   </component>
@@ -489,6 +501,14 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="wap2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="wap2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -682,7 +702,7 @@
       <workItem from="1534122620497" duration="20603000" />
       <workItem from="1534209202373" duration="42053000" />
       <workItem from="1534381364914" duration="25348000" />
-      <workItem from="1534467337938" duration="24990000" />
+      <workItem from="1534467337938" duration="25631000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -929,7 +949,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534494501001</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="修改">
+      <created>1534497779232</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1534497779232</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -938,7 +965,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147687000" />
+    <option name="totallyTimeSpent" value="148328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1173,25 +1200,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
           <caret line="136" selection-start-line="136" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1441,18 +1449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1662">
-          <caret line="294" column="28" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-271">
@@ -1494,6 +1490,38 @@
             <element signature="n#style#0;n#li#1;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#4;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#8;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#ion-content#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
