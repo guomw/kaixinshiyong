@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +35,7 @@
           <entry key="css" value="11" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="8" />
-          <entry key="html" value="154" />
+          <entry key="html" value="156" />
           <entry key="inc" value="2" />
           <entry key="js" value="61" />
           <entry key="json" value="1" />
@@ -48,7 +51,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="11" />
-          <entry key="HTML" value="154" />
+          <entry key="HTML" value="156" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="5" />
           <entry key="JSON" value="1" />
@@ -66,21 +69,21 @@
           <entry key="css" value="10" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="884" />
+          <entry key="html" value="910" />
           <entry key="js" value="1344" />
           <entry key="php" value="1270" />
           <entry key="sql" value="33" />
-          <entry key="txt" value="320" />
+          <entry key="txt" value="328" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="884" />
+          <entry key="HTML" value="910" />
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="1344" />
           <entry key="PHP" value="1270" />
-          <entry key="PLAIN_TEXT" value="338" />
+          <entry key="PLAIN_TEXT" value="346" />
           <entry key="SQL" value="33" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -92,11 +95,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="4565" column="18" lean-forward="true" selection-start-line="4565" selection-start-column="18" selection-end-line="4565" selection-end-column="18" />
+              <caret line="4568" lean-forward="true" selection-start-line="4568" selection-end-line="4568" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="100" column="117" selection-start-line="100" selection-start-column="117" selection-end-line="100" selection-end-column="117" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,24 +131,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/css/style_update.css">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="213" column="12" lean-forward="true" selection-start-line="213" selection-start-column="12" selection-end-line="213" selection-end-column="12" />
+            <state relative-caret-position="380">
+              <caret line="36" column="65" lean-forward="true" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-list#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/so/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="42" column="55" lean-forward="true" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+            <state relative-caret-position="-133">
+              <caret line="83" column="49" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
               <folding>
                 <element signature="n#style#1;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#ion-item#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#2;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="3139" column="42" selection-start-line="3139" selection-start-column="22" selection-end-line="3139" selection-end-column="42" />
+            <state relative-caret-position="-271">
+              <caret line="158" column="29" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -179,19 +212,10 @@
         <entry file="file://$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="158" column="122" lean-forward="true" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
+              <caret line="158" column="122" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Product/Factory/product.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -207,7 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>元</find>
       <find>￥</find>
       <find>$factory$factory</find>
       <find>$rootScope</find>
@@ -233,10 +256,11 @@
       <find>so_list</find>
       <find>trial_list</find>
       <find>show_trial</find>
-      <find>注意</find>
       <find>get_activity_config</find>
-      <find>Apply_trial</find>
       <find>activity_setseller_join_condition</find>
+      <find>Apply_trial</find>
+      <find>注意</find>
+      <find>goodslists</find>
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
@@ -255,7 +279,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cloud3/common/toper.html" />
         <option value="$PROJECT_DIR$/Application/Pay/Controller/PayController.class.php" />
         <option value="$PROJECT_DIR$/Application/Pay/Templates/payment_list.tpl.php" />
         <option value="$PROJECT_DIR$/Application/Pay/Templates/payment_detail.tpl.php" />
@@ -299,13 +322,14 @@
         <option value="$PROJECT_DIR$/templates/wap2/js/services.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/duo.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
         <option value="$PROJECT_DIR$/templates/wap2/css/style_update.css" />
-        <option value="$PROJECT_DIR$/templates/wap2/templates/so/list.html" />
         <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/user/register.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/templates/so/list.html" />
       </list>
     </option>
   </component>
@@ -405,19 +429,6 @@
               <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Attachment" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Member" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Member" type="462c0819:PsiDirectoryNode" />
-              <item name="Templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -527,13 +538,22 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-diy.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-list.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style_update.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/controllers.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/lib/newFont/iconfont.woff</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/so/list.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/tabs.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/show.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/trial/list.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/login.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/user_deposite.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -662,7 +682,7 @@
       <workItem from="1534122620497" duration="20603000" />
       <workItem from="1534209202373" duration="42053000" />
       <workItem from="1534381364914" duration="25348000" />
-      <workItem from="1534467337938" duration="22863000" />
+      <workItem from="1534467337938" duration="24990000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -902,7 +922,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534487042389</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="修改">
+      <created>1534494501001</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1534494501001</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -911,7 +938,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145560000" />
+    <option name="totallyTimeSpent" value="147687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1064,20 +1091,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/controllers.js</url>
-          <line>1858</line>
+          <line>1866</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Think.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/shop/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2245" />
@@ -1330,16 +1350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="40" column="108" selection-start-line="40" selection-start-column="108" selection-end-line="40" selection-end-column="108" />
-          <folding>
-            <element signature="e#1968#1974#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-475">
@@ -1372,27 +1382,14 @@
     <entry file="file://$PROJECT_DIR$/Application/Product/Factory/product.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/css/style_update.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="213" column="12" lean-forward="true" selection-start-line="213" selection-start-column="12" selection-end-line="213" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/so/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="42" column="55" lean-forward="true" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#1;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="508">
+          <caret line="225" column="12" selection-start-line="225" selection-start-column="12" selection-end-line="225" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1400,6 +1397,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="827" column="34" selection-start-line="827" selection-start-column="27" selection-end-line="827" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="158" column="122" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="38" column="61" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="4568" lean-forward="true" selection-start-line="4568" selection-end-line="4568" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="100" column="117" selection-start-line="100" selection-start-column="117" selection-end-line="100" selection-end-column="117" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1415,41 +1453,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="-271">
+          <caret line="158" column="29" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="158" column="122" lean-forward="true" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
+        <state relative-caret-position="380">
+          <caret line="36" column="65" lean-forward="true" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-list#0;n#ion-content#0;n#ion-side-menu-content#0;n#ion-side-menus#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/so/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="38" column="61" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="3139" column="42" selection-start-line="3139" selection-start-column="22" selection-end-line="3139" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="4565" column="18" lean-forward="true" selection-start-line="4565" selection-start-column="18" selection-end-line="4565" selection-end-column="18" />
+        <state relative-caret-position="-133">
+          <caret line="83" column="49" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#1;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#ion-item#0;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#ion-list#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#li#2;n#ul#0;n#a#0;n#div#0;n#div#1;n#ion-list#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
