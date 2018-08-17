@@ -36,54 +36,20 @@
                 <img ng-if="topic.thumb" ng-src="{{ENV.siteUrl}}{{topic.thumb}}" />
                 <img ng-if="!topic.thumb" ng-src="img/ionic.png">
               </div>
-              <ul class="flex txt_wrap c5">
+              <ul class="flex txt_wrap c5" style="position: relative;padding-left:10px; box-sizing: border-box;">
                 <li class="c5 klj">{{ topic.title | limitTo:18 }}</li>
-                <li class="hd_{{topic.protype}} c1"> <span class="c4">试用价格&nbsp;&nbsp;</span><b class="cc">$ {{topic.goods_price
-                    }}
+                <li class="hd_{{topic.protype}} c1" style="position:absolute;bottom: 25px;"> <span class="c4">试用价格&nbsp;&nbsp;</span><b
+                    class="cc">$ {{topic.goods_price }}
                   </b></li>
-                <li class="c2">
-                  <p class="fl w1_4"><span class="c4 hg">剩余</span><b> {{topic.number}} 份</b></p>
-                  <p class="fl w1_6"><span class="c4">关注人数</span><b>{{ topic.hits}}</b>人</p>
+                <li class="c2" style="position:absolute;bottom: 5px;width: 100%;">
+                  <p class="fl"><span class="c4 hg">剩余</span><b> {{topic.number}}份</b></p>
+                  <p class="" style="float:right;margin-right: 20px;"><span class="c4">关注人数</span><b>{{ topic.hits}}</b>人</p>
                 </li>
               </ul>
-
-              <!-- </ion-item> -->
             </a>
-
-            <!-- <a class="tryoutProListAdd c4 " href="#/tab/trial/{{topic.id}}">
-              <div class="hang1 liuliu" ng-show="topic.protype == 3 ">
-                <div class="L" style="background:red">送</div>
-                <div class="R">本单赠送红包<b class="cc">{{topic.goods_bonus}}</b>美元</div>
-                <div class="clearfix"></div>
-              </div>
-
-              <div class="hang1" ng-show="topic.protype == 2 ">
-                <div class="L" style="background:#36C">B</div>
-                <div class="R">拍A送<b class="cc">{{topic.goods_tryproduct}}</b></div>
-                <div class="clearfix"></div>
-              </div>
-
-              <div class="hang1" ng-if="topic.subsidy> 0">
-                <div class="L" style=" background:#36C">贴</div>
-                <div class="R">完成本单平台额外补贴<b class="cc">{{topic.subsidy}}</b>{{topic.subsidy_type | f_bu }}</div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="hang1" ng-if="topic.point_num > 0">
-                <div class="L" style=" background:#e42012">换</div>
-                <div class="R">可使用<b class="cc">{{topic.point_num}}</b>积分兑换试用资格。</div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="hang1" ng-if="topic.goods_vipfree  == 1">
-                <div class="L" style=" background:#e42012">vip</div>
-                <div class="R">该活动<b class="cc">vip会员</b>可免审核 直接试用</div>
-                <div class="clearfix"></div>
-              </div>
-
-            </a> -->
-
           </div>
 
-
+          <div style="height:10px"></div>
 
         </ion-list>
 

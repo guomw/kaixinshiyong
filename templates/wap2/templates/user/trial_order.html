@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <ion-content class="has-subheader" style="background-color:#F8F8F8">
+  <ion-content class="has-subheader" style="background-color:#f0eff5">
 
     <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="wdsy_doRefresh()">
     </ion-refresher>
@@ -144,7 +144,10 @@
       </div>
 
     </ion-item>
-
+    <div class="no_record" ng-if="!trial_getorderlists.length">
+      <i class="iconfont icon-wushuju"></i>
+      <p>暂无记录</p>
+    </div>
 
 
     </ion-list>
