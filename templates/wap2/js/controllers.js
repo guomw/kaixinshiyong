@@ -1391,6 +1391,9 @@ angular
         })
       }
 
+
+
+
       //邮箱注册获取验证码
       $scope.get_emailCode = function(user_email) {
         var title = '邮箱认证码'
@@ -1398,7 +1401,6 @@ angular
         var username_type = '邮箱:' + user_email
         var random = $scope.random
         UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-        alert('user_id:' + user_id, 'username_type:' + username_type)
         $scope.$on('UserProfileFactory.set_send_email_code', function() {
           userRel = UserProfileFactory.get_send_email_code()
 

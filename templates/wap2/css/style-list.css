@@ -256,7 +256,7 @@
   border-top: 1px solid #f3f3f3;
   border-bottom: 0px;
   border-right: 0px;
-  padding: 3px 0px;
+  /* padding: 3px 0px; */
 }
 .i_tryout {
   font-size: 14px;
