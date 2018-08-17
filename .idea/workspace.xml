@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/css/style_update.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/css/style_update.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/js/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/controllers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/so/list.html" afterDir="false" />
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +37,7 @@
           <entry key="js" value="61" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
-          <entry key="php" value="354" />
+          <entry key="php" value="356" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="sql" value="9" />
@@ -59,7 +53,7 @@
           <entry key="Ini" value="5" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="61" />
-          <entry key="PHP" value="356" />
+          <entry key="PHP" value="358" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SQL" value="9" />
           <entry key="Smarty" value="9" />
@@ -72,21 +66,21 @@
           <entry key="css" value="10" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="870" />
+          <entry key="html" value="884" />
           <entry key="js" value="1344" />
           <entry key="php" value="1270" />
           <entry key="sql" value="33" />
-          <entry key="txt" value="315" />
+          <entry key="txt" value="320" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="870" />
+          <entry key="HTML" value="884" />
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="1344" />
           <entry key="PHP" value="1270" />
-          <entry key="PLAIN_TEXT" value="333" />
+          <entry key="PLAIN_TEXT" value="338" />
           <entry key="SQL" value="33" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -98,20 +92,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="8730" column="49" selection-start-line="8730" selection-start-column="49" selection-end-line="8730" selection-end-column="49" />
+            <state relative-caret-position="223">
+              <caret line="4565" column="18" lean-forward="true" selection-start-line="4565" selection-start-column="18" selection-end-line="4565" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="306" column="7" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
+            <state relative-caret-position="1662">
+              <caret line="294" column="28" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -155,36 +149,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/directive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3648">
-              <caret line="45" column="34" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/filter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="105" column="3" lean-forward="true" selection-start-line="105" selection-start-column="3" selection-end-line="105" selection-end-column="3" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="3750" column="57" selection-start-line="3750" selection-start-column="45" selection-end-line="3750" selection-end-column="57" />
+            <state relative-caret-position="480">
+              <caret line="54" column="40" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -193,7 +161,28 @@
         <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
-              <caret line="5783" column="38" selection-start-line="5783" selection-start-column="38" selection-end-line="5783" selection-end-column="38" />
+              <caret line="3139" column="42" selection-start-line="3139" selection-start-column="22" selection-end-line="3139" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="38" column="61" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="158" column="122" lean-forward="true" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -218,14 +207,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>150</find>
-      <find>submit</find>
-      <find>pass</find>
       <find>元</find>
       <find>￥</find>
       <find>$factory$factory</find>
       <find>$rootScope</find>
-      <find>trial_list</find>
       <find>修改用</find>
       <find>trial_order_add</find>
       <find>uploadFactory.init</find>
@@ -237,17 +222,21 @@
       <find>checkUpdate</find>
       <find>fenxiang</find>
       <find>选择帐号</find>
-      <find>show_trial</find>
       <find>goods_show</find>
       <find>show.html</find>
       <find>homectr</find>
       <find>当前活动</find>
-      <find>注意</find>
       <find>.backtrack</find>
       <find>so</find>
       <find>tab.so</find>
-      <find>so_list</find>
       <find>search_goods</find>
+      <find>so_list</find>
+      <find>trial_list</find>
+      <find>show_trial</find>
+      <find>注意</find>
+      <find>get_activity_config</find>
+      <find>Apply_trial</find>
+      <find>activity_setseller_join_condition</find>
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
@@ -312,11 +301,11 @@
         <option value="$PROJECT_DIR$/templates/wap2/templates/duo.html" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/templates/wap2/css/style_update.css" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/so/list.html" />
         <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -375,6 +364,26 @@
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,6 +405,19 @@
               <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Attachment" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Member" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Member" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -640,7 +662,7 @@
       <workItem from="1534122620497" duration="20603000" />
       <workItem from="1534209202373" duration="42053000" />
       <workItem from="1534381364914" duration="25348000" />
-      <workItem from="1534467337938" duration="16807000" />
+      <workItem from="1534467337938" duration="22863000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1533881512996</created>
@@ -873,7 +895,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534483952899</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="修改">
+      <created>1534487042389</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1534487042389</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -882,7 +911,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139504000" />
+    <option name="totallyTimeSpent" value="145560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1023,6 +1052,11 @@
           <line>51</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php</url>
+          <line>16</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/services.js</url>
           <line>11</line>
@@ -1037,20 +1071,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/product/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="34" column="33" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Framework/system.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Think.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -1383,36 +1403,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="8730" column="49" selection-start-line="8730" selection-start-column="49" selection-end-line="8730" selection-end-column="49" />
+        <state relative-caret-position="1662">
+          <caret line="294" column="28" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="3750" column="57" selection-start-line="3750" selection-start-column="45" selection-end-line="3750" selection-end-column="57" />
+        <state relative-caret-position="480">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="158" column="122" lean-forward="true" selection-start-line="158" selection-start-column="122" selection-end-line="158" selection-end-column="122" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/ActivityController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="38" column="61" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="5783" column="38" selection-start-line="5783" selection-start-column="38" selection-end-line="5783" selection-end-column="38" />
+          <caret line="3139" column="42" selection-start-line="3139" selection-start-column="22" selection-end-line="3139" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="306" column="7" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="223">
+          <caret line="4565" column="18" lean-forward="true" selection-start-line="4565" selection-start-column="18" selection-end-line="4565" selection-end-column="18" />
         </state>
       </provider>
     </entry>

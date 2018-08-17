@@ -289,7 +289,7 @@
 
                   <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
   </script>
-  <div class="i_tryout_s_part4" ng-if="order_is_join.data > 0 &&  showdata.end_time < data_time">
+  <div class="i_tryout_s_part4">
     <div class="last_time"><span ng-if="!sy_showloading">剩余:</span><span> <i ng-if="!sy_showloading" style="color: #fff;"
           id="{{showdata.end_time}}">{{showdata.end_time | f_fomtime }}</i></span></div>
     <a ng-click="Apply_trial()" class="a1 right_free">免费申请</a>
