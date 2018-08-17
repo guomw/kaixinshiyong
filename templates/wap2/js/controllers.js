@@ -38,23 +38,31 @@ angular
       $ionicHistory
     ) {
       //获取首页幻灯片信息
+<<<<<<< HEAD
+      $scope.showloading = true
+      $scope.showscroll = true
+      $scope.tj_showloading = true
+
+      var storageKey = 'quyu'
+=======
       $scope.showloading = true;
       $scope.showscroll = true;
       $scope.tj_showloading = true;;
       $ionicHistory.clearHistory();
       var storageKey="quyu";
+>>>>>>> 8743b785355f8a1a0ad80568ecfec32d2e333068
       var quyuData = {
-          quyu: 1,
-          hideTabs: ''
-      };
+        quyu: 1,
+        hideTabs: ''
+      }
       // if(!StorageFactory.get(storageKey)) {
       //     StorageFactory.set(storageKey, quyuData);
       // }
       // else {
       //     quyuData=StorageFactory.get(storageKey);
       // }
-      $scope.quyu = quyuData.quyu;//显示开屏广告
-      $rootScope.hideTabs = quyuData.hideTabs;
+      $scope.quyu = quyuData.quyu //显示开屏广告
+      $rootScope.hideTabs = quyuData.hideTabs
       //获取首页推荐商品
       //获取网站基本信息
       configFactory.set_webinfo()
@@ -69,13 +77,13 @@ angular
       }
 
       $scope.qidongyu = function() {
-        $scope.quyu = 1;
-        $rootScope.hideTabs = '';
+        $scope.quyu = 1
+        $rootScope.hideTabs = ''
         quyuData = {
-            quyu: 1,
-            hideTabs: ''
-        };
-        StorageFactory.set(storageKey,quyuData);
+          quyu: 1,
+          hideTabs: ''
+        }
+        StorageFactory.set(storageKey, quyuData)
       }
 
       // $scope.go_changed = function(index) {
@@ -291,8 +299,8 @@ angular
       $ionicHistory
     ) {
       //console.log($stateParams);
-      $scope.ENV = ENV;
-      $ionicHistory.clearHistory();
+      $scope.ENV = ENV
+      $ionicHistory.clearHistory()
       //显示底部tabs
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
@@ -546,13 +554,21 @@ angular
     'StorageFactory',
     'UserPersonalFactory',
     'qiandaoFactory',
-      '$ionicHistory',
-    function($rootScope, $scope, $ionicLoading, $state, StorageFactory, UserPersonalFactory, qiandaoFactory,$ionicHistory) {
-
+    '$ionicHistory',
+    function(
+      $rootScope,
+      $scope,
+      $ionicLoading,
+      $state,
+      StorageFactory,
+      UserPersonalFactory,
+      qiandaoFactory,
+      $ionicHistory
+    ) {
       //每次加载前 判断是否登录
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = '';
-        $ionicHistory.clearHistory();
+        $rootScope.hideTabs = ''
+        $ionicHistory.clearHistory()
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
           $scope.logo_status = 0
@@ -1530,13 +1546,13 @@ angular
       StorageFactory,
       UserPersonalFactory
     ) {
-      var storageKey = 'user';
+      var storageKey = 'user'
 
       //页面加载之前的事件
       $scope.$on('$ionicView.beforeEnter', function() {
-        $rootScope.hideTabs = 'tabs-item-hide';
+        $rootScope.hideTabs = 'tabs-item-hide'
         //如果不存在会员信息 则跳转登陆页面
-          var loaclData=StorageFactory.get(storageKey);
+        var loaclData = StorageFactory.get(storageKey)
         if (
           !StorageFactory.get(storageKey) ||
           (StorageFactory.get(storageKey) && StorageFactory.get(storageKey).status != 1)
@@ -1577,7 +1593,7 @@ angular
 
       //我的昵称
       $scope.profile_nickname = function() {
-         $state.go('tab.user_profile_nickname')
+        $state.go('tab.user_profile_nickname')
       }
       // 我的手机
       $scope.profile_phone = function() {
@@ -1791,10 +1807,10 @@ angular
 
       //初始化上传
       uploadFactory.init('#user_avatar_albums', function(res) {
-        var data = res._raw;
-        $scope.user_avatar2 = $.trim(data);
-        $scope.user_avatar = imgUrl + $.trim(data);
-        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2,true)
+        var data = res._raw
+        $scope.user_avatar2 = $.trim(data)
+        $scope.user_avatar = imgUrl + $.trim(data)
+        UserProfileFactory.set_nickname(userid, random, $scope.user_nickname.nickname, $scope.user_avatar2, true)
       })
 
       $scope.user_avatar = imgUrl + StorageFactory.get('profile').avatar
@@ -3648,8 +3664,8 @@ angular
       $ionicHistory
     ) {
       //页面加载之前事件
-      $scope.hideTabs="";
-      $ionicHistory.clearHistory();
+      $scope.hideTabs = ''
+      $ionicHistory.clearHistory()
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $scope.userInfo = ''
@@ -4384,18 +4400,16 @@ angular
       ENV
     ) {
       //获得传过来的商品id
-      var aid = $stateParams.id;
-      var home=$stateParams.home;
-      $scope.goBack=function(){
-        if(home)
-        {
-            $state.go('tab.home');
+      var aid = $stateParams.id
+      var home = $stateParams.home
+      $scope.goBack = function() {
+        if (home) {
+          $state.go('tab.home')
+        } else {
+          $state.go('tab.trial')
         }
-        else {
-            $state.go('tab.trial');
-        }
-          $rootScope.hideTabs = '';
-      };
+        $rootScope.hideTabs = ''
+      }
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = 'tabs-item-hide'
 
@@ -4692,11 +4706,11 @@ angular
         }
 
         //判断后台配置开启的参与活动条件 根据配置提示用户完善
+        // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||
         if (
           ($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||
           ($scope.realname == 3 && $scope.name_status != 1) ||
           ($scope.bind_email == 2 && $scope.emall_status != 1) ||
-          ($scope.bind_phone == 1 && $scope.phone_status != 1) ||
           ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
         ) {
           //弹出提示窗口页面 提示用户完成活动条件

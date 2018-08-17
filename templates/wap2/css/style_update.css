@@ -203,12 +203,13 @@ a.weui-btn {
 /*搜索style start*/
 .search_all {
   width: 100%;
-  /* background-color: red; */
   height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #f0eff5;
+  background-color: #fff;
+  padding: 5px 0;
 }
 .backtrack {
   width: 15%;
@@ -239,6 +240,7 @@ a.weui-btn {
 }
 .search_btn {
   width: 15%;
+  text-align: center;
 }
 .search_btn button {
   background-color: #fff;

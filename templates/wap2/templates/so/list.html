@@ -1,8 +1,8 @@
 <ion-view hide-nav-bar="true" view-title="搜索">
-  <div class="bar bar-header search_all" style="">
-    <div class="backtrack">
+  <div class="search_all" style="" style="display:block">
+    <!-- <div class="backtrack">
       <a href="#/tab/trial" class="icon ion-ios-arrow-back">返回</a>
-    </div>
+    </div> -->
     <div class="search_input">
       <input type="text" ng-model="Keyword" name="Keyword" placeholder="请输入搜索关键词" ng-maxlength="11" ng-minlength="1" required>
     </div>
@@ -13,49 +13,61 @@
 
 
   <ion-content class="padding_head">
-
-    <div ng-if="quyu == 1">
-      <div ng-if="hot_showloading" style="margin-top:60px; text-align: center">
-        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    <div class="search_all">
+      <div class=" backtrack ">
+        <!-- <a href="#/tab/trial " class="icon ion-ios-arrow-back ">返回</a> -->
+      </div>
+      <div class="search_input ">
+        <input type="text " ng-model="Keyword " name="Keyword " placeholder="请输入搜索关键词 " ng-maxlength="11
+      " ng-minlength="1 " required>
+      </div>
+      <div class="search_btn ">
+        <button name="user_getsms " ng-disabled="myform.user_phone.$invalid " ng-click="search(Keyword) " class=" ">搜索</button>
+      </div>
+    </div>
+    <div ng-if="quyu==1 ">
+      <div ng-if="hot_showloading " style="margin-top:60px; text-align: center ">
+        <ion-spinner icon="ios " style="height: 60px; width: 60px;; "></ion-spinner>
       </div>
 
 
-      <ion-list ng-if="hot_showloading==false">
-        <div class="padding-left padding-right padding-top" style="background-color:white">
+      <ion-list ng-if="hot_showloading==false ">
+        <div class="padding-left padding-right padding-top " style="background-color:white ">
 
-          <div class="padding-top">热门搜索:</div>
-          <hr style=" height:2px;border:none;border-top:2px dotted #d9d9d9;" />
-          <div class="so_list">
-            <a ng-click="search(d.name)" ng-repeat="d in keyword_hot">{{d.name}}</a>
+          <div class="padding-top ">热门搜索:</div>
+          <hr style=" height:2px;border:none;border-top:2px dotted #d9d9d9; " />
+          <div class="so_list ">
+            <a ng-click="search(d.name) " ng-repeat="d in keyword_hot ">{{d.name}}</a>
           </div>
         </div>
-        <div class="padding-top"></div>
-        <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " ng-click="search(d)">
-          <i class="icon ion-ios-clock-outline" style="font-size:16px;color:#CCC"></i>
+        <div class="padding-top "></div>
+        <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " ng-click="search(d) ">
+          <i class="icon ion-ios-clock-outline " style="font-size:16px;color:#CCC "></i>
           <h3>{{d}}</h3>
         </ion-item>
 
-        <div style="margin-top:60px; text-align: center" ng-if="data_keyword">
-          <button name="user_getsms" class="button icon-left ion-ios-trash-outline button-outline " ng-click="dedele()" style="color:#CCC">清除历史记录</button>
+        <div style="margin-top:60px; text-align: center " ng-if="data_keyword ">
+          <button name="user_getsms " class="button icon-left ion-ios-trash-outline button-outline " ng-click="dedele()
+      " style="color:#CCC ">清除历史记录</button>
         </div>
       </ion-list>
     </div>
 
-    <div ng-if="quyu == 2">
+    <div ng-if="quyu==2 ">
 
-      <div ng-if="so_showloading" style="margin-top:60px; text-align: center">
-        <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+      <div ng-if="so_showloading " style="margin-top:60px; text-align: center ">
+        <ion-spinner icon="ios " style="height: 60px; width: 60px;; "></ion-spinner>
       </div>
 
-      <ion-list ng-if="so_showloading==false">
+      <ion-list ng-if="so_showloading==false ">
 
-        <div class="muyou" ng-if="search_goods.status == 0">
-          <img ng-src="img/muyou.png">
+        <div class="muyou " ng-if="search_goods.status==0 ">
+          <img ng-src="img/muyou.png ">
           <p> <span>亲 </span>没有搜索到关键词对应的商品</p>
           <p> 换个关键词试下</p>
         </div>
 
-        <div ng-repeat="topic in search_goods.lists " class="active" ng-if="search_goods.count > 0">
+        <div ng-repeat="topic in search_goods.lists " class="active " ng-if="search_goods.count> 0">
 
           <div ng-if="topic.mod == 'trial'">
             <a href="#/tab/trial/{{topic.id}}" class="list_w">
