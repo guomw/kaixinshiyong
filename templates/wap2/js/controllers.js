@@ -23,6 +23,7 @@ angular
     'StorageFactory',
     'configFactory',
     '$ionicLoading',
+    '$ionicHistory',
     function(
       $rootScope,
       $state,
@@ -33,13 +34,14 @@ angular
       trial_listFactory,
       StorageFactory,
       configFactory,
-      $ionicLoading
+      $ionicLoading,
+      $ionicHistory
     ) {
       //获取首页幻灯片信息
       $scope.showloading = true;
       $scope.showscroll = true;
       $scope.tj_showloading = true;;
-
+      $ionicHistory.clearHistory();
       var storageKey="quyu";
       var quyuData = {
           quyu: 1,
