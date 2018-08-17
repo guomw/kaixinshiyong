@@ -285,7 +285,7 @@ class AppController extends BaseController
         $lists['id'] = $rs['id'];
         $lists['source'] = $rs['source'];/*店铺来源*/
         $lists['type'] = $rs['type'];/*下单方式*/
-        $lists['thumb'] = $rs['thumb'];
+        $lists['thumb'] =str_replace("_150","",$rs['thumb']);
         $lists['url'] = $rs['url'];
         $lists['goods_url'] = $rs['goods_url'];
         $lists['goods_rule'] = $rs['goods_rule'];

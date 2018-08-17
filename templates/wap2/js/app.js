@@ -33,6 +33,7 @@ angular
     'ENV',
     'configFactory',
     'jpushService',
+    '$ionicHistory',
     function(
       $rootScope,
       $location,
@@ -56,6 +57,7 @@ angular
                 case "tab.rebate":
                 case "tab.user":
                     $rootScope.hideTabs = '';
+                    $ionicHistory.clearHistory();
                     break;
                 default:
                     $rootScope.hideTabs = 'tabs-item-hide';
