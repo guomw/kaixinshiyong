@@ -80,14 +80,13 @@
               <!-- <div style="position:absolute;width:100px;height:100px;z-indent:2;left:2%;">
                 <span style="background-color: #FFFFFF;color:red">{{topic.mod_name}}</span>
               </div> -->
-              <ul class="flex txt txt_wrap" style="position: relative; padding-left:10px; box-sizing: border-box;">
+              <ul class="flex txt txt_wrap" style="padding-top:6px;">
                 <li class="c5 klj">{{ topic.title | limitTo:18 }}</li>
-                <li class="hd_{{topic.protype}} c1 txt-flow" style="font-size:0.875em;position:absolute;bottom: 25px;">价值：<b
-                    class="cc">¥ {{topic.goods_price }}
+                <li class="hd_{{topic.protype}} c1 txt-flow">价值：<b class="cc">¥ {{topic.goods_price }}
                   </b></li>
-                <li class="clear c2 txt-flow" style="font-size:0.85em;position:absolute;bottom: 5px;width: 100%; ">
-                  <p class="fl"><span class="c4 hg ">剩余</span><b> {{topic.number}} 份</b></p>
-                  <p class="fl" style="float:right;margin-right: 20px;"><span class="c4 ">关注人数</span><b>{{ topic.hits}}</b>人</p>
+                <li class="clear c2 txt-flow">
+                  <p class="fl w1_4"><span class="c4 hg ">剩余</span><b> {{topic.number}} 份</b></p>
+                  <p class="fl w1_6"><span class="c4 ">关注人数</span><b>{{ topic.hits}}</b>人</p>
                 </li>
               </ul>
 
