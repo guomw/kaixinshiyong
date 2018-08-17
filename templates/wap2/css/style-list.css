@@ -127,7 +127,7 @@
 .i_tryout_s_part4 .right_free {
   font-size: 14px;
   color: #f61d4b;
-  border-top: 1px solid #f3f3f3;
+  /* border-top: 1px solid #f3f3f3; */
   background-color: #ffffff;
   -webkit-box-flex: 3;
   width: 33.333%;
@@ -136,6 +136,7 @@
   -ms-flex: 3;
   flex: 3;
   height: 42px;
+  line-height: 42px;
 }
 .i_tryout_s_part4 .vip {
   -webkit-box-flex: 3;
@@ -146,6 +147,7 @@
   flex: 3;
 }
 .i_tryout_s_part4 {
+  border-top: 1px solid #f0eff5;
   text-align: center;
   padding: 0px;
   background: #fff;
