@@ -3,6 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>用户登录-{C('WEBNAME')}</title>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,user-scalable=no,maximum-scale=1,initial-scale=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="description" content="" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
 		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
 		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/user.css"/>
@@ -41,12 +49,12 @@
 				<h2 class="user-header-hint fl">欢迎登录</h2>
 				
 				<dl class="clear fr user-nav">
-					<dt class="fl">欢迎光临{C('WEBNAME')}</dt>
-					<dd class="fl"><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes">在线客服</a></dd>
-					<dd class="fl"><a href="{U('Member/Profile/index')}">我的{C('WEBNAME')}</a></dd>
-					<dd class="fl"><a href="{U('Member/EnterActivity/index')}">卖家报名</a></dd>
-					<dd class="fl"><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></dd>
-					<dd class="fl"><a href="{U('navigation/index/index')}">网站导航</a></dd>
+					<!--<dt class="fl">欢迎光临{C('WEBNAME')}</dt>-->
+					<!--<dd class="fl"><a href="http://wpa.qq.com/msgrd?v=3&uin={C("site_contact_qq1")}&site=qq&menu=yes">在线客服</a></dd>-->
+					<!--<dd class="fl"><a href="{U('Member/Profile/index')}">我的{C('WEBNAME')}</a></dd>-->
+					<!--<dd class="fl"><a href="{U('Member/EnterActivity/index')}">卖家报名</a></dd>-->
+					<!--<dd class="fl"><a href="{U('document/index/lists',array('catid'=>2))}">帮助中心</a></dd>-->
+					<!--<dd class="fl"><a href="{U('navigation/index/index')}">网站导航</a></dd>-->
 				</dl>
 				
 			</div>
@@ -84,8 +92,9 @@
 									</li>					
 
 									<li class="ic">
-										<span class="fl qq-icon"><a href="{U('Oauth/Index/login')}" target="_blank">QQ登录</a></span>
-										<span class="fr cc"><a href="{U('Member/Index/register_index')}">注册新账号</a></span>
+										<!--<span class="fl qq-icon"><a href="{U('Oauth/Index/login')}" target="_blank">QQ登录</a></span>-->
+										<!--<span class="fr cc"><a href="{U('Member/Index/register_index')}">注册新账号</a></span>-->
+										<span class="fr cc"><a href="/index.php?m=Member&c=Index&a=userregister&modelid=2">注册新账号</a></span>
 									</li>
 								</ul>
 							</form>

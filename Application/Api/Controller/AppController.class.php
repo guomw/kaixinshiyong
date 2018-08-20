@@ -874,6 +874,7 @@ class AppController extends BaseController
         $orders = model('order')->where($sqlmap)->page($page, $num)->order($orderby . ' ' . $orderway)->select();
         $lists = array();
         foreach ($orders as $k => $v) {
+
             $r['id'] = $v['id'];
             $r['buyer_id'] = $v['buyer_id'];
             $r['goods_id'] = $v['goods_id'];
@@ -886,8 +887,6 @@ class AppController extends BaseController
                 $order_list = model('order_log')->where($data1)->order('id DESC')->limit(1)->find();
                 $r['cause'] = $order_list['cause'];
             }
-
-
             if ($v['act_mod'] == 'trial') {
                 $r['trial_report'] = model('trial_report')->where(array('order_id' => $v['id']))->find();
             }
@@ -914,7 +913,7 @@ class AppController extends BaseController
             $r['goods_price'] = $factory->product_info['goods_price'];
             $r['goods_bonus'] = $factory->product_info['goods_bonus'];
             $r['goods_discount'] = $factory->product_info['goods_discount'];
-
+            $r['goods_url']=$factory->product_info['goods_url'];
             if ($v['act_mod'] == 'commission') {
                 $data2['id'] = $v['goods_id'];
                 $r['bonus_price'] = model('product_commission')->where($data2)->getField('bonus_price');
