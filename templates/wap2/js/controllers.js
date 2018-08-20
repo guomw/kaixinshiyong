@@ -3730,6 +3730,7 @@ angular
         console.log($scope.trial_getorderlists)
       })
 
+      //试用商品评价
       $scope.goCommon = function(order_id) {
         var getorderurl = $scope.trial_getorderlists
         for (k in getorderurl) {
@@ -3739,22 +3740,19 @@ angular
         }
         $ionicPopup
           .confirm({
-            title: '评价', // String. 弹窗的标题。
-            //   subTitle: '', // String (可选)。弹窗的副标题。
-            // template: '一旦放弃申请,则不可再申请该试用商品,您确定要放弃申请？', // String (可选)。放在弹窗body内的html模板。
-            cancelText: '已评价', // String (默认: 'Cancel')。取消按钮的文字。
-            cancelType: '', // String (默认: 'button-default')。取消按钮的类型。
-            okText: '去评价', // String (默认: 'OK')。OK按钮的文字。
-            okType: '' // String (默认: 'button-positive')。OK按钮的类型。
+            title: '评价',
+            cancelText: '已评价',
+            cancelType: '',
+            okText: '去评价',
+            okType: ''
           })
           .then(function(res) {
             console.log(res)
             if (res == false) {
               var star = 5
               var content = '商品很好，很喜欢'
-              var img=
+              var img = 'img/shai_img.jpg'
               trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
-              trialOrderFactory.set_getorderlists(userid, 'trial', type, random)
             } else {
               window.location.href = linkurl
             }
