@@ -31,7 +31,6 @@ if(!$_GET["m"]){
     $_REQUEST["m"]=$_GET["m"]="Member";
     $_REQUEST["c"]=$_GET["c"]="Index";
     $_REQUEST["a"]=$_GET["a"]="login";
-
 }
 //载入框架入口文件
 require APP_PATH . 'Framework/system.php';
