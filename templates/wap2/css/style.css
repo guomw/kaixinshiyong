@@ -1845,15 +1845,28 @@ a {
 }
 
 .i_orderDaily {
+  padding: 10px 15px;
 }
 .i_orderDaily .part {
-  padding: 10px;
-  border-bottom: 1px solid #dcdcdc;
+  padding: 5px;
+  /* border-bottom: 1px solid #dcdcdc; */
+  background-color: #fff;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
 }
-.i_orderDaily .part span {
-  color: #e42012;
+.i_orderDaily .part .part_left {
+  /* color: #e42012; */
+  width: 25%;
+  min-height: 50px;
+  font-size: 18px;
+  text-align: center;
+  margin-right: 2%;
 }
-
+.i_orderDaily .part .part_right {
+  width: 73%;
+  font-size: 14px;
+}
 .i_login {
   color: #666;
 }

@@ -3727,7 +3727,6 @@ angular
         $scope.trial_getorderlists = trialOrderFactory.get_getorderlists()
         $scope.wdsy_hasNextPage = trialOrderFactory.get_wdsy_hasNextPage()
         $scope.$broadcast('scroll.infiniteScrollComplete') //广播通知！
-        console.log($scope.trial_getorderlists)
       })
 
       //试用商品评价
@@ -3753,8 +3752,10 @@ angular
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
               trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
+              window.location.reload()
             } else {
-              window.location.href = linkurl
+              // window.location.href = linkurl
+              window.open(linkurl)
             }
           })
       }
