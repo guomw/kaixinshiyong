@@ -23,58 +23,50 @@
         <i class="item-note">{{userInfo.phone }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </a> -->
-      <ion-item class="item item-icon-left item-icon-right " ng-click="profile_qq()">
-
+      <!-- <ion-item class="item item-icon-left item-icon-right " ng-click="profile_qq()">
         我的QQ
         <i class="item-note">{{userInfo.qq | f_user_qq }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-      </ion-item>
+      </ion-item> -->
 
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_email()">
-
         我的邮箱
         <i class="item-note">{{userInfo.email}}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
-      <ion-item class="item item-icon-left item-icon-right " ng-click="profile_address()">
-
+      <!-- <ion-item class="item item-icon-left item-icon-right " ng-click="profile_address()">
         收货地址
         <i class="item-note"></i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-      </ion-item>
+      </ion-item> -->
 
       <div class="padding-top"></div>
 
-      <ion-item class="item item-icon-left item-icon-right " ng-click="profile_taobao()">
-
+      <!-- <ion-item class="item item-icon-left item-icon-right " ng-click="profile_taobao()">
         淘宝账号
         <i class="item-note"></i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-      </ion-item>
+      </ion-item> -->
 
       <ion-item ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right " ng-click="profile_card()">
-
         实名认证
         <i class="item-note">{{userInfo.name_status | f_name_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.name_status == 1 || userInfo.name_status == 0 " class="item item-icon-left item-icon-right ">
-
         实名认证
         <i class="item-note">{{ userInfo.name_status | f_name_status }}</i>
       </ion-item>
 
-      <ion-item ng-show="userInfo.alipay_status != 1" ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
-
+      <!-- <ion-item ng-show="userInfo.alipay_status != 1" ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
         我的支付宝
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.alipay_status == 1" class="item item-icon-left item-icon-right ">
-
         我的支付宝
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status}}</i>
       </ion-item>
@@ -88,15 +80,13 @@
       <ion-item class="item item-icon-left item-icon-right " ng-if="userInfo.bank_status ==1">
         我的银行卡
         <i class="item-note">{{userInfo.bank_status |f_bank_status }}</i>
-      </ion-item>
+      </ion-item> -->
 
       <div class="padding-top"></div>
-
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_password()">
         修改密码
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
-
       <div class="padding-left padding-right padding-top">
         <!-- <button class="button button-block button-assertive padding-top" ng-click="logout()">退出登录</button> -->
         <a href="javascript:;" class="weui-btn" ng-click="logout()">退出登录</a>

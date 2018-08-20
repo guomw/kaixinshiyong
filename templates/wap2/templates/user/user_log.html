@@ -1,53 +1,49 @@
-<ion-view hide-nav-bar="true" >
+<ion-view hide-nav-bar="true">
   <div class="bar bar-header  bar-stable ">
     <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear ">返回</a>
-  <h1 class="title">账户明细</h1>
- </div>
+    <h1 class="title">账户明细</h1>
+  </div>
   <div class="bar bar-subheader">
     <div class="button-bar sub_header_list c5" id="sub_header_list">
       <a class="button button-clear sub_button_select" ng-click="zhmx_changeTab(0,1)">金钱</a>
       <a class="button button-clear " ng-click="zhmx_changeTab(1,2)">积分</a>
     </div>
   </div>
-       <ion-content class="scroll-content has-subheader" style="background-color:#F8F8F8">
+  <ion-content class="scroll-content has-subheader" style="background-color:#f0eff5">
 
-       <div ng-if="zhmx_showloading" style="margin-top:60px;text-align:center">
-         <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
-       </div>
-    <ion-list  ng-if="zhmx_showloading==false">
-      <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" 
-     refreshing-icon="ion-loading-c" on-refresh="zhmx_doRefresh()  "></ion-refresher>
-        <div class="muyou" ng-if="log_data.length < 1 ">
-         <img ng-src="img/muyou.png">
-         <p class='c4'> <span>亲 </span>您当前木有对应的明细记录</p>
-         <a href="#/tab/trial"  class="button  button-assertive button-outline ">去参与第一个试用活动</a>
-        </div>
+    <div ng-if="zhmx_showloading" style="margin-top:60px;text-align:center">
+      <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+    </div>
+    <ion-list ng-if="zhmx_showloading==false">
+      <ion-refresher pulling-text="下拉更新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="zhmx_doRefresh()  "></ion-refresher>
+      <div class="muyou" ng-if="log_data.length < 1 ">
+        <img ng-src="img/muyou.png">
+        <p class='c4'> <span>亲 </span>您当前木有对应的明细记录</p>
+        <a href="#/tab/trial" class="button  button-assertive button-outline ">去参与第一个试用活动</a>
+      </div>
 
-        <div class="ibody c4" >
-          <div class="i_orderDaily">
-            <div class="part" ng-repeat=" d in log_data">
-            <div style="position: absolute;left: 60%;">  <span ng-bind-html="d.num | f_mobey" ></span></div>
-              <div class="a1">
-                <span>时间：</span>
-                {{d.dateline +'000' | date:'MM-dd h:mm'  }}
-              </div>
-
-              <div class="a1">
-                <span>备注：</span>
-               {{ d.cause }}
-              </div>
+      <div class="ibody c4">
+        <div class="i_orderDaily">
+          <div class="part" ng-repeat=" d in log_data">
+            <div style="position: absolute;left: 60%;"> <span ng-bind-html="d.num | f_mobey"></span></div>
+            <div class="a1">
+              <span>时间：</span>
+              {{d.dateline +'000' | date:'MM-dd h:mm' }}
             </div>
-            <!--part
-            <!--part--> </div>
-          <!--i_orderDaily-->
-        </div>
 
-      <ion-infinite-scroll
-    ng-if = "zhmx_hasNextPage"
-    icon="ion-loading-c"
-    on-infinite="loadMore()"
-    distance="10%">
-    </ion-infinite-scroll>
+            <div class="a1">
+              <span>备注：</span>
+              {{ d.cause }}
+            </div>
+          </div>
+          <!--part
+            <!--part-->
+        </div>
+        <!--i_orderDaily-->
+      </div>
+
+      <ion-infinite-scroll ng-if="zhmx_hasNextPage" icon="ion-loading-c" on-infinite="loadMore()" distance="10%">
+      </ion-infinite-scroll>
 
     </ion-list>
   </ion-content>

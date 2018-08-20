@@ -63,11 +63,11 @@
           </div>
         </div>
         <div class="user-signIn_account">
-          <div class="user-account_blance">
+          <div class="user-account_blance" ng-click="getmessage()">
             <span>${{userInfo.money}}</span>
             <span>账户余额</span>
           </div>
-          <div class="user-account_blance">
+          <div class="user-account_blance" ng-click="getmessage()">
             <span>{{userInfo.point}}</span>
             <span>我的积分</span>
           </div>
@@ -97,21 +97,21 @@
                 <h3>我的兑换</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666" ></i>
             </item>-->
-      <item class="item item-icon-left item-icon-right " style="color:#fd3636; padding-left: 45px;" ng-click="user_deposite()">
+      <!-- <item class="item item-icon-left item-icon-right " style="color:#fd3636; padding-left: 45px;" ng-click="user_deposite()">
         <i class="icon ion-social-usd" style="font-size: 22px"></i>
         <h3>余额提现</h3>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-      </item>
+      </item> -->
       <!--     <ion-item href="#/tab/jifenduihuan"   class="item item-icon-left item-icon-right " style="font-size:18px;color:#2cb4ff">
                 <i class="icon ion-ios-infinite"></i>
                 <h3>积分兑换</h3>
                 <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
             </ion-item>-->
-      <item class="item item-icon-left item-icon-right " style="color:#fea16e; padding-left: 45px;" ng-click="getmessage()">
+      <!-- <item class="item item-icon-left item-icon-right " style="color:#fea16e; padding-left: 45px;" ng-click="getmessage()">
         <i class="icon ion-android-more-vertical" style="font-size: 22px"></i>
         <h3>账户明细</h3>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-      </item>
+      </item> -->
       <item ng-click="announce()" class="item item-icon-left item-icon-right" style="color:#73bbee; padding-left: 45px;">
         <i class="icon ion-ios-chatbubble" style="font-size: 22px"></i>
         <h3>我的消息</h3>

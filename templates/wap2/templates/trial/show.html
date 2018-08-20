@@ -22,7 +22,7 @@
         <div class="s_part3">
           <div class="hang1">
             <div class="L">
-              <div class="R2">包邮</div>{{showdata.title  }}
+              <div class="R2">包邮</div>{{showdata.title }}
             </div>
             <div style="clear: both"></div>
             <div class="money">
@@ -43,7 +43,7 @@
           </div>
           <!--hang3-->
           <div>
-            <div class="tips_up"  ng-click="show_hide()">
+            <div class="tips_up" ng-click="show_hide()">
               <span><img src="../../img/list-tip1.png" class="icon_tips">小贴士</span>
               <span><img src="../../img/list-tip3.png" class="icon_right"></span>
             </div>
@@ -179,7 +179,7 @@
               <i class="item-note">未认证</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item> -->
-
+<!-- 
           <ion-item  ng-show="bind_email ==2 && emall_status ==1 " class="item item-icon-left item-icon-right ">
           
               邮箱认证
@@ -191,7 +191,7 @@
               邮箱认证
               <i class="item-note">未认证</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-          </ion-item>
+          </ion-item> -->
 
 
           <ion-item  ng-show="realname ==3 && name_status ==1 " class="item item-icon-left item-icon-right ">
@@ -229,7 +229,7 @@
               <i class="item-note">{{name_status | f_name_status }}</i>
           </ion-item>
 
-          <ion-item  ng-show="bind_alipay ==5 && allpay_status ==1 " class="item item-icon-left item-icon-right ">
+          <!-- <ion-item  ng-show="bind_alipay ==5 && allpay_status ==1 " class="item item-icon-left item-icon-right ">
           
               支付宝
               <i class="item-note">已绑定</i>
@@ -254,11 +254,11 @@
               亚马逊帐号
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-          </ion-item>
+          </ion-item> -->
   </script>
   <script id="b.html" type="text/ng-template"> 
 
-                <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
+                <!-- <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
                   <select ng-model="vm.data_bind_taobao_default.id" ng-options="a.id as a.account for a  in data_bind_taobao.lists">
                   </select>
                 </label>
@@ -267,7 +267,7 @@
                   <label ng-if=' reason == 7 ' class="item item-input" >
                     <textarea  ng-model="vm.Application_reasons"  placeholder="对商家说点什么,提高通过率" rows="4"></textarea>
                   </label>                
-                  <p style="color:#A9A9A9" class="padding-left">未按要求下单,可能会被取消资格!</p>
+                  <p style="color:#A9A9A9" class="padding-left">未按要求下单,可能会被取消资格!</p> -->
 
   </script>
   <script id="c.html" type="text/ng-template">              

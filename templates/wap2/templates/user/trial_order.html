@@ -60,7 +60,7 @@
           </p>
 
           <p ng-if="d.status == 8">
-            填写试用报告:
+            评价:
             <b class="cc">
               <span id="{{d.complete_time - 0 + buyer_write_talk_time}}" data-time="">
                 {{ d.complete_time - 0 + buyer_write_talk_time | f_fomtime }}
@@ -69,7 +69,7 @@
           </p>
 
           <p ng-if="d.status == 3">
-            试用报告审核中:
+            评论审核中:
             <b class="cc">
               <span id="{{d.complete_time - 0 + seller_trialtalk_check}}" data-time="">
                 {{ d.complete_time - 0 + seller_trialtalk_check | f_fomtime }}
@@ -83,7 +83,7 @@
           </p>
 
           <p ng-if="d.status == 4 && d.trial_report ">
-            修改试用报告:
+            修改评价:
             <b class="cc">
               <span id="{{d.complete_time - 0 + buyer_check_update_order_sn}}" data-time="">
                 {{ d.complete_time - 0 + buyer_check_update_order_sn | f_fomtime }}
@@ -112,11 +112,11 @@
           </p>
 
           <p ng-if=" d.status == 4 && d.trial_report " class=" ">
-            <button class="active_btn">修改报告</button>
+            <button class="active_btn">修改评价</button>
           </p>
 
           <p ng-if="d.status == 8" class="">
-            <button class="active_btn">写试用报告</button>
+            <button class="active_btn">评价</button>
           </p>
         </div>
         <!--  各种活动状态结束  -->

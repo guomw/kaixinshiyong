@@ -1391,9 +1391,6 @@ angular
         })
       }
 
-
-
-
       //邮箱注册获取验证码
       $scope.get_emailCode = function(user_email) {
         var title = '邮箱认证码'
@@ -3684,7 +3681,7 @@ angular
 
       //默认显示已审核
 
-      var type = 0;
+      var type = 1
 
       //默认关闭上拉加载更多
       $scope.wdsy_hasNextPage = false
@@ -3730,7 +3727,39 @@ angular
         $scope.trial_getorderlists = trialOrderFactory.get_getorderlists()
         $scope.wdsy_hasNextPage = trialOrderFactory.get_wdsy_hasNextPage()
         $scope.$broadcast('scroll.infiniteScrollComplete') //广播通知！
+        console.log($scope.trial_getorderlists)
       })
+
+      $scope.goCommon = function(order_id) {
+        var getorderurl = $scope.trial_getorderlists
+        for (k in getorderurl) {
+          if (getorderurl[k].id == order_id) {
+            linkurl = getorderurl[k].goods_url
+          }
+        }
+        $ionicPopup
+          .confirm({
+            title: '评价', // String. 弹窗的标题。
+            //   subTitle: '', // String (可选)。弹窗的副标题。
+            // template: '一旦放弃申请,则不可再申请该试用商品,您确定要放弃申请？', // String (可选)。放在弹窗body内的html模板。
+            cancelText: '已评价', // String (默认: 'Cancel')。取消按钮的文字。
+            cancelType: '', // String (默认: 'button-default')。取消按钮的类型。
+            okText: '去评价', // String (默认: 'OK')。OK按钮的文字。
+            okType: '' // String (默认: 'button-positive')。OK按钮的类型。
+          })
+          .then(function(res) {
+            console.log(res)
+            if (res == false) {
+              var star = 5
+              var content = '商品很好，很喜欢'
+              var img
+              trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
+              trialOrderFactory.set_getorderlists(userid, 'trial', type, random)
+            } else {
+              window.location.href = linkurl
+            }
+          })
+      }
 
       //点击订单跳转填写订单号页面
 
@@ -3752,12 +3781,12 @@ angular
 
           //如果订单状态是填写试用报告 则跳转试用报告填写页面
         } else if (order_status == 8 || (order_status == 4 && trial_report)) {
-          //填写试用报告
-
-          $state.go('tab.trial_order_report', {
-            id: order_id,
-            goodid: goods_id
-          })
+          // 填写试用报告
+          $scope.goCommon(order_id)
+          // $state.go('tab.trial_order_report', {
+          //   id: order_id,
+          //   goodid: goods_id
+          // })
         } else {
           $state.go('tab.show_trial', {
             id: goods_id
@@ -3831,11 +3860,11 @@ angular
                   })
                 } else if (order_status == 8) {
                   //填写试用报告
-
-                  $state.go('tab.trial_order_report', {
-                    id: order_id,
-                    goodid: goods_id
-                  })
+                  $scope.goCommon(order_id)
+                  // $state.go('tab.trial_order_report', {
+                  //   id: order_id,
+                  //   goodid: goods_id
+                  // })
                 } else {
                   $state.go('tab.trial_order_id', {
                     id: order_id,
@@ -3872,11 +3901,11 @@ angular
             })
           } else if (order_status == 8) {
             //填写试用报告
-
-            $state.go('tab.trial_order_report', {
-              id: order_id,
-              goodid: goods_id
-            })
+            $scope.goCommon(order_id)
+            // $state.go('tab.trial_order_report', {
+            //   id: order_id,
+            //   goodid: goods_id
+            // })
           } else {
             $state.go('tab.trial_order_id', {
               id: order_id,
@@ -4486,7 +4515,7 @@ angular
       $scope.sy_showloading = true
 
       $scope.Switch = 1
-      $scope.ShowHide = false;
+      $scope.ShowHide = false
 
       $scope.data_time = Math.round(new Date().getTime() / 1000)
 
@@ -4557,17 +4586,17 @@ angular
         rebate_showFactory.set_good_user_list(aid, 1)
       }
 
-      //获取试用报告列表
-      $scope.report_lists = function() {
-        $scope.report_list_showloading = true
-        $scope.Switch = 3
-        rebate_showFactory.set_trial_report_lists(aid)
-      }
+      // //获取试用报告列表
+      // $scope.report_lists = function() {
+      //   $scope.report_list_showloading = true
+      //   $scope.Switch = 3
+      //   rebate_showFactory.set_trial_report_lists(aid)
+      // }
 
-      //试用报告上拉加载更多
-      $scope.sybg_loadMore = function() {
-        rebate_showFactory.sybg_loadMore(aid)
-      }
+      // //试用报告上拉加载更多
+      // $scope.sybg_loadMore = function() {
+      //   rebate_showFactory.sybg_loadMore(aid)
+      // }
 
       //接收配置请求通知
       $scope.$on('configFactory.set_trial_config', function() {
@@ -5153,16 +5182,16 @@ angular
       $scope.taobao_reason = function() {
         if (($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) || $scope.reason == 7) {
           var alertPopup = $ionicPopup.alert({
-            title: '申请理由',
+            title: '确认申请',
             templateUrl: 'b.html',
             scope: $scope,
-            okText: '提交申请',
+            okText: '确认',
             buttons: [
               {
-                text: '放弃'
+                text: '取消'
               },
               {
-                text: '提交申请',
+                text: '确认',
                 type: 'button-assertive',
                 onTap: function(e) {
                   $scope.Submit_trial()
