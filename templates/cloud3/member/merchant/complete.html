@@ -295,7 +295,7 @@ $(document).ready(function() {
 							 <!--h1-->
              
 
-                <div class="h1">
+                <div class="h1" style="display: none;">
                 <div class="L">
                   <span>*</span>
                    <dfn>店铺旺旺&nbsp;&nbsp;:</dfn>
@@ -306,7 +306,7 @@ $(document).ready(function() {
                 <div class="clear"></div>
               </div>
 
-              <div class="h1">
+              <div class="h1" style="display: none;">
                 <div class="L">
                   <span>*</span>
                    <dfn>联系QQ&nbsp;&nbsp;:&nbsp;</dfn>
@@ -342,10 +342,11 @@ $(document).ready(function() {
                 <span>*</span> 店铺类型
              </div>
              <div class="R js_store">
-               <span {if $store[store_type] == 1 || !$store[store_type]} class="sel" {/if} data-type="1">淘宝</span>
-               <span {if $store[store_type] == 2} class="sel" {/if}  data-type="2">天猫 </span>
-               <span {if $store[store_type] == 3} class="sel" {/if}  data-type="3">亚马逊 </span>
-               <input type="hidden" name="store_type" id="store_type" value="{if $store['store_type']}{$store['store_type']}{else}1{/if}">
+               <!--<span {if $store[store_type] == 1 || !$store[store_type]} class="sel" {/if} data-type="1">淘宝</span>-->
+               <!--<span {if $store[store_type] == 2} class="sel" {/if}  data-type="2">天猫 </span>-->
+               <span class="sel" data-type="3">亚马逊 </span>
+                 <input type="hidden" name="store_type" id="store_type" value="3">
+               <!--<input type="hidden" name="store_type" id="store_type" value="{if $store['store_type']}{$store['store_type']}{else}1{/if}">-->
               </div>
 
               <div class="clear"></div>
@@ -443,7 +444,7 @@ $(document).ready(function() {
       							<tr>
       								<th style="width:156px"  valign="middle">店铺名称</th>
       								<th style="width:312px" >网店地址</th>
-      								<th style="width:162px">店铺旺旺</th>
+      								<!--<th style="width:162px">店铺旺旺</th>-->
       								<th style="width:109px">类型</th>
       								<th style="width:97px">经营范围</th>
                       <th style="width:97px">默认状态</th>
@@ -454,7 +455,7 @@ $(document).ready(function() {
       							<tr>
       								<td >{$s[store_name]}</td>
       								<td  style="word-break: break-all;">{$s[store_address]}</td>
-      								<td>{$s['contact_want']}</td>
+      								<!--<td>{$s['contact_want']}</td>-->
       								<td>{if $s['store_type'] == 1}淘宝{else}天猫{/if}</td>
       								<td>{$s[type]}</td>
                       <td>{if $s[is_default] == 1}<font color="green">是</font>{else}否{/if}</td>

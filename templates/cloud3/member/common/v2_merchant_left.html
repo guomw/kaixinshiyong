@@ -42,7 +42,7 @@
 	</dl>
 	{/if}
 
-		<dl class="i_u_s_list">
+		<dl class="i_u_s_list" style="display: none;">
 			<dt>申诉管理</dt>
 			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == -1}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage',array('state'=>-1))}">申诉管理</a></dd>
 			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == 0}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage', array('state' => 0))}">待商家处理</a></dd>
@@ -57,7 +57,7 @@
 
 		</dl>
 
-		<dl class="i_u_s_list">
+		<dl class="i_u_s_list" style="display: none;">
 			<dt>财务管理</dt>
 			<dd {if ACTION_NAME == 'pay' && CONTROLLER_NAME=='Index'}class="active"{/if} ><a href="{U('Pay/Index/pay')}">快速充值</a></dd>
 			<dd {if ACTION_NAME == 'deposite' && CONTROLLER_NAME=='Index'}class="active"{/if}><a href="{U('Pay/Index/deposite')}">快速提现</a></dd>
