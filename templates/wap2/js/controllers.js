@@ -7448,10 +7448,37 @@ angular
     '$rootScope',
     '$scope',
     'ENV',
-    function($rootScope, $scope, ENV) {
+    '$ionicLoading',
+    function($rootScope, $scope, ENV,$ionicLoading) {
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
       })
+      // $scope.fenxiang = function() {
+      //   var title = '魔力试用'
+      //   var content ='好东西每天限量试用，快来申请吧！'
+      //   var url = ENV.siteUrl + '/#/tab/home'
+      //   var imageurl = $filter('imgUrl')($scope.showdata.thumb)
+      //   window.plugins.Baidushare.bdshare(
+      //     title,
+      //     content,
+      //     url,
+      //     imageurl,
+      //     function(success) {
+      //       if (success == 1) {
+      //         $ionicLoading.show({
+      //           noBackdrop: true,
+      //           template: '分享成功！',
+      //           duration: 1000
+      //         })
+      //       } else if (success == 2) {
+      //       } else {
+      //       }
+      //     },
+      //     function(fail) {
+      //       alert('encoding failed: ' + fail)
+      //     }
+      //   )
+      // }
     }
   ])
 
