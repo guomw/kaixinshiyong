@@ -17,7 +17,7 @@
         </div>
         <ul class="flex txt txt_wrap">
           <li class="txt-flow" style="font-size:1em;">
-            <img ng-src="{{ txddh_showdata.source | f_img_source}}">{{ txddh_showdata.title | limitTo:15 }}</li>
+            {{ txddh_showdata.title }}</li>
           <li class="hd_{{txddh_showdata.protype}} c1 txt-flow" style="font-size:0.875em;">
             下单： <b class="cc">{{txddh_showdata.goods_price | currency:"$"}}</b>
           </li>
@@ -39,7 +39,7 @@
         <b class="cc">{{order_info.cause}}</b>
 
       </p>
-      <p class="padding-left " ng-if="order_info.taobao" style="padding: 10px 15px;">请使用绑定淘宝帐号<b class="cc">"{{order_info.taobao}}
+      <p class="padding-left " ng-if="order_info.taobao" style="padding: 10px 15px;">请使用绑定亚马逊帐号<b class="cc">"{{order_info.taobao}}
           "
         </b>下单</p>
       <p ng-if="order_info.status == 4 && !order_info.trial_report " class="padding-left " style="padding: 10px 15px;">
@@ -102,11 +102,6 @@
 
         <div style="color:#A9A9A9" class="padding-left padding-top ">
           <p>推荐身边好友加入,小伙伴们都来试用吧。</p>
-          <p>
-            每推荐一人,可最高得
-            <b class="cc">百美元</b>
-            现金奖励。
-          </p>
           <p>
             试用课堂:
             <i style="color:#A9A9A9">试用是不用自己掏钱买的,商品是白来的</i>

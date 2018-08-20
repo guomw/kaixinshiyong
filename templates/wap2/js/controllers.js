@@ -3752,7 +3752,7 @@ angular
             if (res == false) {
               var star = 5
               var content = '商品很好，很喜欢'
-              var img
+              var img=
               trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
               trialOrderFactory.set_getorderlists(userid, 'trial', type, random)
             } else {
