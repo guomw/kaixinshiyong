@@ -3684,7 +3684,7 @@ angular
 
       //默认显示已审核
 
-      var type = 1
+      var type = 0;
 
       //默认关闭上拉加载更多
       $scope.wdsy_hasNextPage = false
@@ -4486,7 +4486,7 @@ angular
       $scope.sy_showloading = true
 
       $scope.Switch = 1
-      $scope.ShowHide = true
+      $scope.ShowHide = false;
 
       $scope.data_time = Math.round(new Date().getTime() / 1000)
 

@@ -43,9 +43,9 @@
           </div>
           <!--hang3-->
           <div>
-            <div class="tips_up">
+            <div class="tips_up"  ng-click="show_hide()">
               <span><img src="../../img/list-tip1.png" class="icon_tips">小贴士</span>
-              <span ng-click="show_hide()"><img src="../../img/list-tip3.png" class="icon_right"></span>
+              <span><img src="../../img/list-tip3.png" class="icon_right"></span>
             </div>
             <div class="hang4" ng-show="!ShowHide">
               <div class="ti">试用流程</div>
@@ -93,7 +93,7 @@
         <div class="s_part6 c5">
           <div class="part sel" ng-click="goods_body()">活动详情</div>
           <div class="part" ng-click="good_user_list()">已申请({{showdata.apply_people}})</div>
-          <div class="part" ng-click="report_lists()">试用报告({{showdata.finish_people}})</div>
+          <!--<div class="part" ng-click="report_lists()">试用报告({{showdata.finish_people}})</div>-->
           <div class="clearfix"></div>
         </div>
         <!--s_part6-->
@@ -245,13 +245,13 @@
 
           <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count > 0 "  class="item item-icon-left item-icon-right " >
               
-              淘宝帐号
+              亚马逊帐号
               <i class="item-note">已绑{{data_bind_taobao.count}}个</i>
           </ion-item>
           
           <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count < 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/taobao"    >
-             
-              淘宝帐号
+
+              亚马逊帐号
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
           </ion-item>
@@ -287,7 +287,7 @@
                   </select>
                 </label>
 
-                  <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
+                  <p  ng-if='bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定亚马逊帐号下单</p>
   </script>
   <div class="i_tryout_s_part4">
     <div class="last_time"><span ng-if="!sy_showloading">剩余:</span><span> <i ng-if="!sy_showloading" style="color: #fff;"
@@ -305,7 +305,7 @@
   <!--s_part4-->
   <div class="i_tryout_s_part4" ng-if="order_is_join.data == 0 &&  showdata.end_time > data_time ">
     <a class="a1" style="background:#ccc; color:#FFF; border:0px ">已申请过</a>
-    <a href="#/tab/user/trial_order">查看我的订单</a>
+    <a href="#/tab/rebate">查看我的订单</a>
     <div class="clearfix"></div>
   </div>
 
