@@ -9,7 +9,7 @@ return array (
 	'logout_success'       => '安全退出！',
 
 	'current_position'   => '当前位置：',
-	'admin_site_title'   => 'Adalways试用系统 - 后台管理中心',
+	'admin_site_title'   => '魔力试用系统 - 后台管理中心',
 	'expand_or_contract' => '展开与收缩',
 	'phpcms_title'       => 'TPCMS内容管理系统',
 	'official_site'      => '官方网站',

@@ -134,7 +134,18 @@ angular
       })
 
       $scope.$on('configFactory.set_focus', function() {
-        $scope.focus = configFactory.get_focus()
+        var _data=configFactory.get_focus();
+        var d=[];
+        _data.forEach(function (value,index,array) {
+            d.push({
+                endtime:value.endtime,
+                image:value.image,
+                title:value.title,
+                url:value.url
+            })
+        });
+        $scope.focus =d;
+        console.log($scope.focus);
       })
     }
   ])

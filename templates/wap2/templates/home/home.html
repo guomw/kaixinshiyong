@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" view-title="魔力试用">
+<ion-view hide-nav-bar="true" view-title="{{webinfo.webname}}">
   <!--<div class="bar bar-header bar-color" ng-if=" quyu == 1 " style="display: none">-->
     <!--<a href="#/tab/trial" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1"></a>-->
     <!--<h1 class="title">{{webinfo.webname}}</h1>-->
@@ -17,33 +17,29 @@
       </ion-refresher>
       <!-- 首页幻灯 -->
       <div class="home-slide">
-        <!--<ion-slide-box does-continue="true" auto-play="true" slide-interval="3000">
-          <ion-slide ng-show = 'focus[0]'>
-            <img  ng-src="{{focus[0].image | imgUrl}}">
-          </ion-slide>
-          <ion-slide ng-show = 'focus[1]'>
-            <img  ng-src="{{focus[1].image | imgUrl}}">
-          </ion-slide>
-          <ion-slide ng-show = 'focus[2]'>
-            <img  ng-src="{{focus[2].image | imgUrl}}">
-          </ion-slide>
-        </ion-slide-box>-->
-        <ion-slide-box does-continue="true" auto-play="true" slide-interval="3000">
-          <ion-slide ng-show='focus[0]'>
-            <img ng-src="img/ab (1).jpg">
-          </ion-slide>
-          <ion-slide ng-show='focus[0]'>
-            <img ng-src="img/ab (2).jpg">
-          </ion-slide>
-          <ion-slide ng-show='focus[0]'>
-            <img ng-src="img/ab (3).jpg">
+        <ion-slide-box ng-if="focus" does-continue="true" auto-play="true" slide-interval="3000">
+          <ion-slide ng-repeat="f in  focus">
+            <a href="{{f.url}}">
+              <img style="height: 170px;" ng-src="{{f.image | imgUrl}}">
+            </a>
           </ion-slide>
         </ion-slide-box>
+        <!--<ion-slide-box does-continue="true" auto-play="true" slide-interval="3000">-->
+          <!--<ion-slide ng-show='focus[0]'>-->
+            <!--<img ng-src="img/ab (1).jpg">-->
+          <!--</ion-slide>-->
+          <!--<ion-slide ng-show='focus[0]'>-->
+            <!--<img ng-src="img/ab (2).jpg">-->
+          <!--</ion-slide>-->
+          <!--<ion-slide ng-show='focus[0]'>-->
+            <!--<img ng-src="img/ab (3).jpg">-->
+          <!--</ion-slide>-->
+        <!--</ion-slide-box>-->
       </div>
 
 
-      <p class="buk"><img src="../../img/dg.jpg" style="width: 100%;"></p>
-      <div style="height:14px; width: 100%; background-color: #f0eff5"></div>
+      <p ng-if="focus" class="buk"><img src="../../img/dg.jpg" style="width: 100%;"></p>
+      <div ng-if="focus" style="height:14px; width: 100%; background-color: #f0eff5"></div>
 
 
       <!-- 精品推荐 -->

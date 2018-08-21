@@ -1,4 +1,4 @@
-body{color:#444; height:100%}a{text-decoration:none; color:#444}
+﻿body{color:#444; height:100%}a{text-decoration:none; color:#444}
 html.off,html.off body {background: #e2e9ea url(../images/admin_img/left_bg.png) repeat-y -40px top;}
 html.on,html.on body{background: #e2e9ea; background-image:none;}
 html.addbg,html.addbg body{background:#e2e9ea}
@@ -33,8 +33,8 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 
 /*头部*/
 .crumbs,.tab-web-panel li a:hover,.tab-web-panel li.on a{background: url(../images/admin_img/icon_use.png) no-repeat}
-.header {background:#2a8bbb url(../images/admin_img/logo.png) no-repeat left bottom; height:100px; position:relative}
-.header .logo{float:left;width:290px;height:80px;margin-right:10px;_margin-right:7px;background: url(../images/admin_img/logo.png) no-repeat;}
+.header {background:#2a8bbb url(../images/admin_img/logo.png) no-repeat left; height:100px; position:relative}
+.header .logo{float:left;width:290px;height:80px;margin-right:10px;_margin-right:7px;}
 .header .logo a{display:block;height:80px;text-decoration: none;}
 .header .rt-col{position:absolute;top:0px; right:0px; width:280px; height:44px; z-index:10}
 .header .nav{ display:block; height:34px; position:relative; bottom:-10px}
