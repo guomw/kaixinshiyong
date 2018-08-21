@@ -14,7 +14,7 @@ class hook
 			cookie('ismobile', null);
 			return FALSE;
 		}
-		$setting = getcache('setting', 'wap');
+		$setting = getcache('setting', 'wap2');
 		if ($setting['wap_enable'] == 1 && $setting['wap_domain']) {
 			$http_host = $_SERVER['HTTP_HOST'];
 			$wap_domain = ltrim($setting['wap_domain'], "'http://'");
@@ -24,10 +24,10 @@ class hook
 					return False;
 				};
 				cookie('ismobile', 1, 86400);
-				define('DEFAULT_THEME', 'wap');
+				define('DEFAULT_THEME', 'wap2');
 		        if(strtolower(MODULE_NAME) != 'admin') {
-		            C('TMPL_ACTION_SUCCESS',TPL_PATH.'wap/success.tpl');
-		            C('TMPL_ACTION_ERROR',TPL_PATH.'wap/error.tpl');   
+		            C('TMPL_ACTION_SUCCESS',TPL_PATH.'wap2/success.tpl');
+		            C('TMPL_ACTION_ERROR',TPL_PATH.'wap2/error.tpl');
 		        }
 			}
 		}

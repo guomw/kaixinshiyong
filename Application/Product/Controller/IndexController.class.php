@@ -24,7 +24,7 @@ Class IndexController extends BaseController {
      * @author   <jason>
      */
     public function index() {
-        $setting2 = getcache('setting', 'wap');
+        $setting2 = getcache('setting', 'wap2');
         $wap_domain = ltrim($setting2['wap_domain'], "'http://'");
         $detect = new \Wap\Library\Mobile_Detect();
         if ($detect->isMobile() && C('system_auth_type') == 'professional' ) {
@@ -202,7 +202,7 @@ Class IndexController extends BaseController {
         if ($id < 1) $this->error('参数错误');
 
         //手机端图片调用250的
-        $setting2 = getcache('setting', 'wap');
+        $setting2 = getcache('setting', 'wap2');
         $http_host = $_SERVER['HTTP_HOST'];
         $wap_domain = ltrim($setting2['wap_domain'], "'http://'");
         $detect = new \Wap\Library\Mobile_Detect();

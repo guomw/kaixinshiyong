@@ -2,16 +2,14 @@
 
 	<div id="wrapper">
 		<div id="header-style">
-			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
-			用户登录
-			<a href="{U('Member/Index/register')}" class="t-link fr c-white">用户注册</a>
+			商家登录
+			<a href="{U('Member/Index/register')}" class="t-link fr c-white">商家注册</a>
 		</div>
-
 		<div class="content">
 			<div class="logo-box">
 				<img src="{C('SITE_LOGO_FU')}" alt="{C('WEBNAME')}" />
 			</div>
-			<div class="import">
+			<div class="import" style="font-size: 20px;">
 				<span>
 					<b class="l-user-icon"></b>
 					<input type="text" placeholder="邮箱/手机号" id="username"/>
@@ -21,17 +19,9 @@
 				<span>
 					<b class="l-pass-icon"></b>
 					<input type="password" placeholder="请输入密码" id="pwd"/>
-					<!--  v-on v-off 暂无off图片  -->
-					<!--<strong class="verify-hint v-off"></strong>-->
 				</span>
-                <p class="user_verify" style="display:none;"></p>
+                <p class="user_verify" style="display:none;font-size: 18px;"></p>
 				<p class="l-submit"><input type="submit" class="btn-s-01" value="登录" id="js_login"/></p>
-			</div>
-			<div class="l-oauth">
-				<a href="javascript:;" class="oauth-btn f1_5">第三方登录</a>
-				<ul class="oauth-list clear">
-					<li><a href="{U('Oauth/Index/login')}"><img src="{THEME_STYLE_PATH}style/default/images/tencent-icon.png" alt="" /></a></li>
-				</ul>
 			</div>
 		</div>
 		

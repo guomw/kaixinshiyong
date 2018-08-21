@@ -802,7 +802,7 @@ class IndexController extends BaseController
         if (I('agent_id') > 0) cookie('_agent_id', I('agent_id'), 86400);
 
         /*手机打开邀请好友链接*/
-        $setting2 = getcache('setting', 'wap');
+        $setting2 = getcache('setting', 'wap2');
         $http_host = $_SERVER['HTTP_HOST'];
         $wap_domain = ltrim($setting2['wap_domain'], "'http://'");
         $detect = new \Wap\Library\Mobile_Detect();

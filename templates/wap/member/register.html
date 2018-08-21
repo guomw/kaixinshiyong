@@ -5,7 +5,7 @@
 	<div id="wrapper">
 		<div id="header-style">
 			<a href="javascript:;" onclick="javascript:history.back(-1);" class="skip fl"></a>
-			<strong class="d-block uset-t-text">买家注册</strong>
+			<strong class="d-block uset-t-text">商家注册</strong>
 		</div>
 		<div class="content">
             <form action="{U('Member/Index/register')}" method="POST" id="myform" class="login_form ">
@@ -38,7 +38,7 @@
                             <span class="fl ta-r f1_5">验证码:</span>
                             <input type="text"  class="fl s-w" name="info[verify]" id="verify"/>
                             <a href="javascript:;" class="fl">
-                                <img class="hint_img" id="verify_img" src="{U('Api/Verify/create')}" onclick="refresh_verify();" style="cursor:pointer; " />
+                                <img class="hint_img" id="verify_img" src="{U('Api/Verify/create')}" onclick="refresh_verify();" style="cursor:pointer; height: 70px;" />
                             </a>
                         </div>
                     </li>
@@ -68,14 +68,14 @@
 				</p>
 			</div>
             </form>
-			<div class="l-oauth">
-				<a href="javascript:;" class="oauth-btn f1_5">第三方登录</a>
-				<ul class="oauth-list clear">
-					<li><a href="#"><img src="Default/images/shopping-icon.png" alt="" /></a></li>
-					<li><a href="#"><img src="Default/images/tencent-icon.png" alt="" /></a></li>
-					<li><a href="#"><img src="Default/images/sina-icon.png" alt="" /></a></li>
-				</ul>
-			</div>
+			<!--<div class="l-oauth">-->
+				<!--<a href="javascript:;" class="oauth-btn f1_5">第三方登录</a>-->
+				<!--<ul class="oauth-list clear">-->
+					<!--<li><a href="#"><img src="Default/images/shopping-icon.png" alt="" /></a></li>-->
+					<!--<li><a href="#"><img src="Default/images/tencent-icon.png" alt="" /></a></li>-->
+					<!--<li><a href="#"><img src="Default/images/sina-icon.png" alt="" /></a></li>-->
+				<!--</ul>-->
+			<!--</div>-->
 		</div>
 		
 <script type="text/javascript">

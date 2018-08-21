@@ -1341,7 +1341,7 @@ function template($file, $module = '', $style = '') {
 	$_default_style = DEFAULT_THEME;
 	$_default_theme = DEFAULT_THEME;
 	$_style = ($_default_style) ? $_default_style : $_default_theme;
-	$style = (empty($style)) ? $_style : 'cloud';
+	$style = (empty($style)) ? $_style : 'cloud3';
 	$template = template_file($module, $file, $style);
 	$tpl = new \Common\Library\template();
 	$tmplCacheFile = $tpl->loadTemplate($template);
@@ -1359,7 +1359,7 @@ function template_file($module = '', $file = '', $style = 'default') {
 	$tplfile = $tmpdir.$dep.$module.$dep.$file.$suffix;
 	/* 模板不存在时取默认模板 */
 	if ($style != 'default' && !file_exists ($tplfile)) {
-		$tplfile = C('VIEW_PATH').'cloud'.$dep.$module.$dep.$file.$suffix;
+		$tplfile = C('VIEW_PATH').'cloud3'.$dep.$module.$dep.$file.$suffix;
 	}
 	$tplfile = (!file_exists($tplfile)) ? MODULE_PATH.'Templates/'.$file.$suffix : $tplfile;
 	if (!file_exists ($tplfile)) {
