@@ -192,7 +192,7 @@
 }
 
 .i_tryout .s_part6 .part {
-  width: 49.5%;/*33.3%*/
+  width: 49.5%; /*33.3%*/
   float: left;
   border: 0px;
   border-radius: 0px;
@@ -432,4 +432,8 @@
   background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
   color: #444;
   z-index: 10;
+}
+
+.item-icon-left.item-icon-right .icon:first-child {
+  right: 11px;
 }

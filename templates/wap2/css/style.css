@@ -2681,6 +2681,8 @@ a:hover {
   padding: 5px 10px 5px;
   margin-right: 3px;
   border: 1px solid #ccc;
+  border-radius: 30px;
+  margin-top: 5px;
 }
 
 .ccc {
