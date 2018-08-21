@@ -4763,12 +4763,9 @@ angular
         }
 
         //判断后台配置开启的参与活动条件 根据配置提示用户完善
-        // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||
+        // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||($scope.bind_email == 2 && $scope.emall_status != 1) ||($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
         if (
-          ($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||
-          ($scope.realname == 3 && $scope.name_status != 1) ||
-          ($scope.bind_email == 2 && $scope.emall_status != 1) ||
-          ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
+          ($scope.realname == 3 && $scope.name_status != 1) 
         ) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.alert({
