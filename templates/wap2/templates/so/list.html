@@ -12,7 +12,7 @@
   </div>
 
 
-  <ion-content class="padding_head" style="background-color:#f0eff5;">
+  <ion-content class="padding_head" style="background-color:#fff;">
     <div class="search_all">
       <div class=" backtrack ">
         <!-- <a href="#/tab/trial " class="icon ion-ios-arrow-back ">返回</a> -->
@@ -33,23 +33,32 @@
 
       <ion-list ng-if="hot_showloading==false ">
         <div class="padding-left padding-right padding-top " style="background-color:white;padding-top:0px !important;padding-bottom: 5px; ">
-
-          <div class="padding-top" style="padding-top:5px !important;font-weight: 400;">热门搜索:</div>
+          <div class="padding-top" style="padding-top:5px !important;font-weight: 400;">热门搜索</div>
           <!--<hr style=" height:2px;border:none;border-top:2px dotted #d9d9d9; " />-->
           <div class="so_list ">
             <a ng-click="search(d.name) " ng-repeat="d in keyword_hot ">{{d.name}}</a>
           </div>
+			<div class="padding-top" style="padding-top:5px !important;font-weight: 400;">历史搜索<span class="delete"><img src="../../img/delete.png" width="20px"></span></div>
+          <!--<hr style=" height:2px;border:none;border-top:2px dotted #d9d9d9; " />-->
+          <div class="so_list">
+            <a ng-click="search(d) ">1111</a>
+          </div>
+			
+			
+			
         </div>
         <div class="padding-top " style="padding-top:5px"></div>
-        <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " ng-click="search(d) ">
+       <!-- <ion-item ng-repeat="d in data_keyword " class="item item-icon-left " ng-click="search(d) ">
           <i class="icon ion-ios-clock-outline " style="font-size:16px;color:#CCC "></i>
           <h3>{{d}}</h3>
-        </ion-item>
+        </ion-item>-->
 
+<!--
         <div style="margin-top:60px; text-align: center ">
           <button name="user_getsms " class="button icon-left ion-ios-trash-outline button-outline " ng-click="dedele()
       " style="color:#CCC ">清除历史记录</button>
         </div>
+-->
       </ion-list>
     </div>
 
