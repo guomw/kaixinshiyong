@@ -64,11 +64,11 @@
         </div>
         <div class="user-signIn_account">
           <div class="user-account_blance" ng-click="getmessage()">
-            <span>${{userInfo.money}}</span>
+            <span>${{userInfo.money || 0.00}}</span>
             <span>账户余额</span>
           </div>
           <div class="user-account_blance" ng-click="getmessage()">
-            <span>{{userInfo.point}}</span>
+            <span>{{userInfo.point || 0 }}</span>
             <span>我的积分</span>
           </div>
         </div>

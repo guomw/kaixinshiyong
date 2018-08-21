@@ -2482,7 +2482,21 @@ angular
     'UserloginFactory',
     'StorageFactory',
     'UserProfileFactory',
-    function($scope, $state, $interval, $ionicLoading, UserloginFactory, StorageFactory, UserProfileFactory) {
+    '$ionicHistory',
+    function(
+      $scope,
+      $state,
+      $interval,
+      $ionicLoading,
+      UserloginFactory,
+      StorageFactory,
+      UserProfileFactory,
+      $ionicHistory
+    ) {
+      $ionicHistory.clearHistory()
+      $scope.oldpass = ''
+      $scope.password = ''
+      $scope.repeat_password = ''
       var storageKey = 'user'
       //如果不存在会员信息 则跳转登陆页面
       if (
@@ -2502,7 +2516,7 @@ angular
 
       //提交后台修改用户密码
 
-      $scope.edit_password = function(oldpass, password) {
+      $scope.edit_password = function(oldpass, password, repeat_password) {
         if (oldpass == password) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -2511,7 +2525,14 @@ angular
           })
           return false
         }
-
+        if (password !== repeat_password) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '亲，两次输入的密码不一致哦',
+            duration: 1000
+          })
+          return false
+        }
         // 后端请求修改
         UserProfileFactory.set_update_pwd(oldpass, password, userid, random)
 
@@ -2539,7 +2560,6 @@ angular
           })
         } else if (userRel.status == 1) {
           //修改成功
-
           $ionicLoading.show({
             noBackdrop: true,
             template: '修改密码成功,快来登录验证一下',
@@ -2552,6 +2572,9 @@ angular
           //跳转到登录页面  验证密码
           $state.go('tab.user_login')
         } else {
+          $scope.oldpass = ''
+          $scope.password = ''
+          $scope.repeat_password = ''
           $ionicLoading.show({
             noBackdrop: true,
             template: '亲，程序猿哥哥正在抢修！',
@@ -3301,7 +3324,7 @@ angular
 
         var profile = StorageFactory.get('profile')
 
-        console.log(profile)
+        // console.log(profile)
 
         $scope.alipay_status = profile.alipay_status
 
@@ -4330,7 +4353,8 @@ angular
             domain = 'http://m.' + domain[1] + '.' + domain[2]
             return domain != null && domain.length > 0 ? domain : url
           }
-          window.open(url)
+          // window.open(url)
+          window.location.href = url
         }
 
         if (type == 'qrcode') {
@@ -4345,7 +4369,8 @@ angular
 
         if (type == 'general' || type == 'ask') {
           //普通下单
-          window.open(url)
+          // window.open(url)
+          window.location.href = url
         }
       }
 
@@ -5731,12 +5756,10 @@ angular
       $scope.add_order_number = function(order_id, goods_id, order_status, trial_report) {
         //如果订单状态是待审核资格，则跳转商品页面
         if (order_status == 1) {
-          $state.go('tab.rebate_show', {
-            id: goods_id
-          })
-
-          return false
-
+          // $state.go('tab.rebate_show', {
+          //   id: goods_id
+          // })
+          // return false
           //如果订单状态是已通过待填写订单号 则跳转订单号填写页面
         } else if (order_status == 2 || order_status == 4 || order_status == 3) {
           $state.go('tab.rebate_order_id', {
@@ -5761,9 +5784,9 @@ angular
 
           return false
         } else {
-          $state.go('tab.rebate_show', {
-            id: goods_id
-          })
+          // $state.go('tab.rebate_show', {
+          //   id: goods_id
+          // })
         }
 
         //订单状态是已通过(不含试用报告) 跳转订单号填写页面
@@ -6519,7 +6542,8 @@ angular
             domain = domain[1] + 'm.' + domain[4] + domain[5]
             return domain != null && domain.length > 0 ? domain : ''
           }
-          window.open(url)
+          // window.open(url)
+          window.location.href = url
         }
 
         if (type == 'qrcode') {
@@ -6534,7 +6558,8 @@ angular
 
         if (type == 'general' || type == 'ask') {
           //普通下单
-          window.open(url)
+          // window.open(url)
+          window.location.href = url
         }
       }
 
@@ -7449,7 +7474,7 @@ angular
     '$scope',
     'ENV',
     '$ionicLoading',
-    function($rootScope, $scope, ENV,$ionicLoading) {
+    function($rootScope, $scope, ENV, $ionicLoading) {
       $scope.$on('$ionicView.beforeEnter', function() {
         $rootScope.hideTabs = ''
       })

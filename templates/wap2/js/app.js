@@ -48,30 +48,24 @@ angular
       jpushService,
       $ionicHistory
     ) {
+      //路由监听事件
+      $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        switch (toState.name) {
+          case 'tab.home':
+          case 'tab.trial':
+          case 'tab.rebate':
+          case 'tab.user':
+          case 'tab.so':
+            $rootScope.hideTabs = ''
+            $ionicHistory.clearHistory()
+            break
+          default:
+            $rootScope.hideTabs = 'tabs-item-hide'
+            break
+        }
+      })
 
-
-        //路由监听事件
-        $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams) {
-            switch (toState.name) {
-                case "tab.home":
-                case "tab.trial":
-                case "tab.rebate":
-                case "tab.user":
-                case "tab.so":
-                    $rootScope.hideTabs = '';
-                    $ionicHistory.clearHistory();
-                    break;
-                default:
-                    $rootScope.hideTabs = 'tabs-item-hide';
-                    break;
-            }
-
-        });
-
-
-
-
-                $ionicPlatform.ready(function() {
+      $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -171,13 +165,13 @@ angular
           }
         })
         .state('tab.home_show_trial', {
-            url: '/:home/trial/:id', //试用活动详情
-            views: {
-                'tab-home': {
-                    templateUrl: 'templates/trial/show.html',
-                    controller: 'show_trial'
-                }
+          url: '/:home/trial/:id', //试用活动详情
+          views: {
+            'tab-home': {
+              templateUrl: 'templates/trial/show.html',
+              controller: 'show_trial'
             }
+          }
         })
 
         .state('tab.trial', {
