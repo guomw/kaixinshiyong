@@ -4294,7 +4294,7 @@ angular
               text: '确定',
               type: 'button-assertive',
               onTap: function(e) {
-                var patten = /^\d{9,20}$/
+                var patten = /^[A-Za-z0-9_-]{9,25}$/
                 if (!patten.test($scope.order_vm.mum)) {
                   e.preventDefault()
                   $ionicLoading.show({
