@@ -289,15 +289,15 @@ angular
         //获取网站幻灯片
         set_focus: function() {
           resource9.query({}, function(r) {
-            focus = r
+            focus = r;
 
-            console.log(r)
+
 
             $rootScope.$broadcast('configFactory.set_focus')
           })
         },
         get_focus: function() {
-          return focus
+          return focus;
         }
       }
     }
@@ -477,7 +477,7 @@ angular
               mod: mod
             },
             function(r) {
-              //console.log(r);
+
               data_isrecommend = r
               //在这里请求完成以后  通知control
               $rootScope.$broadcast('trial_listFactory.set_goods_isrecommend')
@@ -487,6 +487,7 @@ angular
 
         //接收推荐商品
         get_goods_isrecommend: function() {
+            console.log(data_isrecommend.data);
           return data_isrecommend.data
         },
 

@@ -631,7 +631,7 @@ class AppController extends BaseController
     {
         $param = I('param.');
         extract($param);
-        $num = (isset($num) && is_numeric($num)) ? abs($num) : 3;
+        $num = (isset($num) && is_numeric($num)) ? abs($num) : 6;
         if ($orderby == '' || $orderway == '') {
             $orderby = 'id';
             $orderway = 'DESC';
@@ -651,7 +651,6 @@ class AppController extends BaseController
             }
         }
         echo json_encode($lists);
-
     }
 
 
