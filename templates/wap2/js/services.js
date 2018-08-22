@@ -289,15 +289,13 @@ angular
         //获取网站幻灯片
         set_focus: function() {
           resource9.query({}, function(r) {
-            focus = r;
-
-
+            focus = r
 
             $rootScope.$broadcast('configFactory.set_focus')
           })
         },
         get_focus: function() {
-          return focus;
+          return focus
         }
       }
     }
@@ -477,7 +475,6 @@ angular
               mod: mod
             },
             function(r) {
-
               data_isrecommend = r
               //在这里请求完成以后  通知control
               $rootScope.$broadcast('trial_listFactory.set_goods_isrecommend')
@@ -487,7 +484,7 @@ angular
 
         //接收推荐商品
         get_goods_isrecommend: function() {
-            console.log(data_isrecommend.data);
+          console.log(data_isrecommend.data)
           return data_isrecommend.data
         },
 
@@ -2253,7 +2250,7 @@ angular
         },
 
         // 提交后台x修改昵称 头像
-        set_nickname: function(userid, random, nickname, user_avatar,flag) {
+        set_nickname: function(userid, random, nickname, user_avatar, flag) {
           //console.log(userid,random,nickname,user_avatar);
           resource19.save(
             {
@@ -2265,8 +2262,7 @@ angular
             function(r) {
               //console.log(r);
               data18 = r
-              if(!flag)
-                $rootScope.$broadcast('UserProfileFactory.set_nickname')
+              if (!flag) $rootScope.$broadcast('UserProfileFactory.set_nickname')
             }
           )
         },
@@ -2842,7 +2838,6 @@ angular
           img2,
           img3,
           buyer_phone,
-          buyer_qq,
           userid,
           random
         ) {
@@ -3547,16 +3542,16 @@ angular
     '$rootScope',
     'ENV',
     'Upload',
-    function($resource, $ionicLoading, $rootScope, ENV,Upload) {
+    function($resource, $ionicLoading, $rootScope, ENV, Upload) {
       var APIUrl = ENV.api
       var data_upad = {
         1: '',
         2: '',
         3: ''
       }
-      var server = APIUrl + '&a=upload_img';
-      var server2 = APIUrl + '&a=upload_avatar_img';
-      var server3=APIUrl+"&a=upload_img_json";
+      var server = APIUrl + '&a=upload_img'
+      var server2 = APIUrl + '&a=upload_avatar_img'
+      var server3 = APIUrl + '&a=upload_img_json'
       return {
         init: function(domId, success) {
           var uploader = new WebUploader.Uploader({
@@ -3586,7 +3581,7 @@ angular
             chunkSize: 1000000,
             // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
             resize: false
-          });
+          })
           uploader.onUploadSuccess = function(file, response) {
             if (typeof success == 'function') {
               success(response)
@@ -3596,29 +3591,31 @@ angular
             alert('文件上传错误：' + reason)
           }
         },
-        upload:function(fle,success){
-            Upload.upload({
-                //服务端接收
-                url: server3,
-                //上传的同时带的参数
-                file: fle
-            }).progress(function (evt) {
-                //进度条
-            }).success(function (data, status, headers, config) {
-                //上传成功
-                //console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-                //$scope.uploadImg = data;
-                if (typeof success == 'function') {
-                    success(data);
-                }
-            }).error(function (data, status, headers, config) {
-                //上传失败
-                //console.log('上传失败');
-            });
+        upload: function(fle, success) {
+          Upload.upload({
+            //服务端接收
+            url: server3,
+            //上传的同时带的参数
+            file: fle
+          })
+            .progress(function(evt) {
+              //进度条
+            })
+            .success(function(data, status, headers, config) {
+              //上传成功
+              //console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+              //$scope.uploadImg = data;
+              if (typeof success == 'function') {
+                success(data)
+              }
+            })
+            .error(function(data, status, headers, config) {
+              //上传失败
+              //console.log('上传失败');
+            })
         },
         //提交文件上传
         set_upload: function(fle, index) {
-
           /*$cordovaFileTransfer.upload(server,fle).then(function(result) {
         
         if(!index) index =1;

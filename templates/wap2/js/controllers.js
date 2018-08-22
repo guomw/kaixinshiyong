@@ -5420,24 +5420,24 @@ angular
       var random = StorageFactory.get('user').data.random
 
       //console.log(StorageFactory.get('profile'));
+      $scope.images_list = []
 
       //传入的订单id
 
       //获得用户已存在的手机 QQ
 
-      $scope.appeal = {
-        type: '',
-        buyer_cause: '',
-        buyer_cause_img1: 'img/pz1.jpg',
-        buyer_cause_img2: 'img/pz2.jpg',
-        buyer_cause_img3: 'img/pz3.jpg',
-        buyer_phone: StorageFactory.get('profile').phone,
-        buyer_qq: StorageFactory.get('profile').qq == 0 ? '' : StorageFactory.get('profile').qq
-      }
+    
 
       $scope.set_appeal = function() {
-        //console.log($scope.appeal);
-
+       
+        $scope.appeal = {
+          type: '',
+          buyer_cause: '',
+          buyer_cause_img1: $scope.images_list.length > 0 ? $scope.images_list[0] : 'img/pz1.jpg',
+          buyer_cause_img2: $scope.images_list.length > 1 ? $scope.images_list[1] : 'img/pz2.jpg',
+          buyer_cause_img3: $scope.images_list.length > 2 ? $scope.images_list[2] : 'img/pz3.jpg',
+          buyer_phone: StorageFactory.get('profile').phone
+        }
         if (!$scope.appeal.type) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5477,16 +5477,6 @@ angular
 
           return false
         }
-
-        if ($scope.appeal.buyer_qq == '') {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请填写联系QQ！',
-            duration: 1500
-          })
-
-          return false
-        }
         //发起后端申诉请求
         trialOrderFactory.set_appeal_order(
           $scope.order_id,
@@ -5497,7 +5487,6 @@ angular
           $scope.appeal.buyer_cause_img2,
           $scope.appeal.buyer_cause_img3,
           $scope.appeal.buyer_phone,
-          $scope.appeal.buyer_qq,
           userid,
           random
         )
@@ -5516,7 +5505,8 @@ angular
           })
 
           //跳转返回个人中心
-          $state.go('tab.user')
+          // $state.go('tab.user')
+          window.location.goBack()
         } else {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5529,11 +5519,6 @@ angular
       // $scope.imgurl = function(id) {
       //   $scope.IMGid = id
       //   return $('#File' + id).click()
-      // }
-      $scope.images_list = []
-
-      // $scope.sybg_vm = {
-      //   img: ''
       // }
 
       $scope.onFileSelect = function($files) {
@@ -5550,7 +5535,7 @@ angular
               duration: 1000
             })
             $scope.uploaded = true
-            $scope.images_list.push(ENV.imgUrl +$.trim(res.data))
+            $scope.images_list.push(ENV.imgUrl + $.trim(res.data))
             // $scope.sybg_vm.img = ENV.imgUrl + $.trim(res.data)
           }
         })
@@ -5560,7 +5545,6 @@ angular
 
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
-
         $ionicLoading.show({
           noBackdrop: true,
           template: '图片已成功上传',
