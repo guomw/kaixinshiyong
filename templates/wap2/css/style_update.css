@@ -313,8 +313,7 @@ a.weui-btn {
 }
 
 .register_forget {
-  position: fixed;
-  bottom: 5%;
+  margin-top: 150px;
   width: 100%;
   text-align: center;
   padding: 0px 15px 10px;

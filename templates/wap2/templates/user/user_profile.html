@@ -15,7 +15,7 @@
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_nickname()">
         我的昵称
         <i class="item-note">{{userInfo.nickname}}</i>
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
       <!-- <a class="item item-icon-left item-icon-right " href="#/tab/user/profile/phone">
 
@@ -32,7 +32,7 @@
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_email()">
         我的邮箱
         <i class="item-note">{{userInfo.email}}</i>
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <!-- <ion-item class="item item-icon-left item-icon-right " ng-click="profile_address()">
@@ -52,7 +52,7 @@
       <ion-item ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right " ng-click="profile_card()">
         实名认证
         <i class="item-note">{{userInfo.name_status | f_name_status }}</i>
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.name_status == 1 || userInfo.name_status == 0 " class="item item-icon-left item-icon-right ">
@@ -85,7 +85,7 @@
       <!-- <div class="padding-top"></div> -->
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_password()">
         修改密码
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
       <div class="padding-left padding-right padding-top">
         <!-- <button class="button button-block button-assertive padding-top" ng-click="logout()">退出登录</button> -->
