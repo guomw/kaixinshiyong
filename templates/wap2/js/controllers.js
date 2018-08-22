@@ -921,9 +921,9 @@ angular
         url = !$ionicHistory.viewHistory().forwardView ? '' : $ionicHistory.viewHistory().forwardView.url
 
         //清除本地所有缓存数据。
-        StorageFactory.remove('user')
-        StorageFactory.remove('profile')
-        StorageFactory.remove('taobao')
+        // StorageFactory.remove('user')
+        // StorageFactory.remove('profile')
+        // StorageFactory.remove('taobao')
 
         //获取网站logo
         configFactory.set_webinfo()
@@ -1714,6 +1714,10 @@ angular
       var logout = function() {
         //console.log('logout');
         UserloginFactory.logout()
+        StorageFactory.remove('user')
+        StorageFactory.remove('profile')
+        StorageFactory.remove('taobao')
+
         $state.go('tab.user') //路由跳转
       }
 
@@ -5929,6 +5933,7 @@ angular
       trialOrderFactory,
       ENV
     ) {
+      $state.go('tab.rebate_order')
       //获得传过来的商品id
       var aid = $stateParams.id
 
