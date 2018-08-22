@@ -1692,7 +1692,7 @@ angular
 
       $scope.logout = function() {
         // Show the action sheet
-        var hideSheet = $ionicActionSheet.show({
+        $ionicActionSheet.show({
           destructiveText: '退出登录',
           titleText: '确定退出当前登录账号么？',
           cancelText: '取消',
@@ -1706,9 +1706,9 @@ angular
         })
 
         // For example's sake, hide the sheet after two seconds
-        $timeout(function() {
-          hideSheet()
-        }, 3000)
+        // $timeout(function() {
+        //   hideSheet()
+        // }, 3000)
       }
       //退出登录的方法
       var logout = function() {
