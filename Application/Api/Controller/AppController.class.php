@@ -4211,10 +4211,10 @@ class AppController extends BaseController
                 $this->json_function(0, '手机号码不能为空');
                 exit();
             }
-            if ($data['buyer_qq'] == null) {
-                $this->json_function(0, 'QQ号码不能为空');
-                exit();
-            }
+//            if ($data['buyer_qq'] == null) {
+//                $this->json_function(0, 'QQ号码不能为空');
+//                exit();
+//            }
 
             $conditions = array();
             $conditions[] = $data['buyer_imgs_url_img1'];
