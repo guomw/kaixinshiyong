@@ -134,18 +134,18 @@ angular
       })
 
       $scope.$on('configFactory.set_focus', function() {
-        var _data=configFactory.get_focus();
-        var d=[];
-        _data.forEach(function (value,index,array) {
-            d.push({
-                endtime:value.endtime,
-                image:value.image,
-                title:value.title,
-                url:value.url
-            })
-        });
-        $scope.focus =d;
-        console.log($scope.focus);
+        var _data = configFactory.get_focus()
+        var d = []
+        _data.forEach(function(value, index, array) {
+          d.push({
+            endtime: value.endtime,
+            image: value.image,
+            title: value.title,
+            url: value.url
+          })
+        })
+        $scope.focus = d
+        console.log($scope.focus)
       })
     }
   ])
@@ -921,9 +921,9 @@ angular
         url = !$ionicHistory.viewHistory().forwardView ? '' : $ionicHistory.viewHistory().forwardView.url
 
         //清除本地所有缓存数据。
-        StorageFactory.remove('user')
-        StorageFactory.remove('profile')
-        StorageFactory.remove('taobao')
+        // StorageFactory.remove('user')
+        // StorageFactory.remove('profile')
+        // StorageFactory.remove('taobao')
 
         //获取网站logo
         configFactory.set_webinfo()
@@ -1692,7 +1692,7 @@ angular
 
       $scope.logout = function() {
         // Show the action sheet
-        var hideSheet = $ionicActionSheet.show({
+        $ionicActionSheet.show({
           destructiveText: '退出登录',
           titleText: '确定退出当前登录账号么？',
           cancelText: '取消',
@@ -1706,14 +1706,18 @@ angular
         })
 
         // For example's sake, hide the sheet after two seconds
-        $timeout(function() {
-          hideSheet()
-        }, 3000)
+        // $timeout(function() {
+        //   hideSheet()
+        // }, 3000)
       }
       //退出登录的方法
       var logout = function() {
         //console.log('logout');
         UserloginFactory.logout()
+        StorageFactory.remove('user')
+        StorageFactory.remove('profile')
+        StorageFactory.remove('taobao')
+
         $state.go('tab.user') //路由跳转
       }
 
@@ -1851,7 +1855,6 @@ angular
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
         var data = uploadFactory.get_upload()
-
         if (data.status == 1) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -4764,9 +4767,7 @@ angular
 
         //判断后台配置开启的参与活动条件 根据配置提示用户完善
         // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||($scope.bind_email == 2 && $scope.emall_status != 1) ||($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
-        if (
-          ($scope.realname == 3 && $scope.name_status != 1) 
-        ) {
+        if ($scope.realname == 3 && $scope.name_status != 1) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.alert({
             title: '参与条件',
@@ -5419,24 +5420,24 @@ angular
       var random = StorageFactory.get('user').data.random
 
       //console.log(StorageFactory.get('profile'));
+      $scope.images_list = []
 
       //传入的订单id
 
       //获得用户已存在的手机 QQ
 
-      $scope.appeal = {
-        type: '',
-        buyer_cause: '',
-        buyer_cause_img1: 'img/pz1.jpg',
-        buyer_cause_img2: 'img/pz2.jpg',
-        buyer_cause_img3: 'img/pz3.jpg',
-        buyer_phone: StorageFactory.get('profile').phone,
-        buyer_qq: StorageFactory.get('profile').qq == 0 ? '' : StorageFactory.get('profile').qq
-      }
+    
 
       $scope.set_appeal = function() {
-        //console.log($scope.appeal);
-
+       
+        $scope.appeal = {
+          type: '',
+          buyer_cause: '',
+          buyer_cause_img1: $scope.images_list.length > 0 ? $scope.images_list[0] : 'img/pz1.jpg',
+          buyer_cause_img2: $scope.images_list.length > 1 ? $scope.images_list[1] : 'img/pz2.jpg',
+          buyer_cause_img3: $scope.images_list.length > 2 ? $scope.images_list[2] : 'img/pz3.jpg',
+          buyer_phone: StorageFactory.get('profile').phone
+        }
         if (!$scope.appeal.type) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5476,16 +5477,6 @@ angular
 
           return false
         }
-
-        if ($scope.appeal.buyer_qq == '') {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请填写联系QQ！',
-            duration: 1500
-          })
-
-          return false
-        }
         //发起后端申诉请求
         trialOrderFactory.set_appeal_order(
           $scope.order_id,
@@ -5496,7 +5487,6 @@ angular
           $scope.appeal.buyer_cause_img2,
           $scope.appeal.buyer_cause_img3,
           $scope.appeal.buyer_phone,
-          $scope.appeal.buyer_qq,
           userid,
           random
         )
@@ -5515,7 +5505,8 @@ angular
           })
 
           //跳转返回个人中心
-          $state.go('tab.user')
+          // $state.go('tab.user')
+          window.location.goBack()
         } else {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5525,10 +5516,10 @@ angular
         }
       })
 
-      $scope.imgurl = function(id) {
-        $scope.IMGid = id
-        return $('#File' + id).click()
-      }
+      // $scope.imgurl = function(id) {
+      //   $scope.IMGid = id
+      //   return $('#File' + id).click()
+      // }
 
       $scope.onFileSelect = function($files) {
         $ionicLoading.show({
@@ -5536,62 +5527,21 @@ angular
           template: '正在上传 请稍后...',
           duration: 1000
         })
+        uploadFactory.upload($files, function(res) {
+          if (res.status == 1) {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '图片上传完成',
+              duration: 1000
+            })
+            $scope.uploaded = true
+            $scope.images_list.push(ENV.imgUrl + $.trim(res.data))
+            // $scope.sybg_vm.img = ENV.imgUrl + $.trim(res.data)
+          }
+        })
 
         uploadFactory.set_upload($files)
       }
-
-      $scope.$on('uploadFactory.set_upload', function() {
-        var data = uploadFactory.get_upload()
-
-        if (data.status == 1) {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '图片上传完成',
-            duration: 1000
-          })
-
-          var arr = new Array(2)
-          arr[0] = '$scope.appeal.buyer_cause_img'
-
-          if ($scope.IMGid == '1') {
-            $scope.appeal.buyer_cause_img1 = ENV.imgUrl + data.url
-          }
-
-          if ($scope.IMGid == '2') {
-            $scope.appeal.buyer_cause_img2 = ENV.imgUrl + data.url
-          }
-
-          if ($scope.IMGid == '3') {
-            $scope.appeal.buyer_cause_img3 = ENV.imgUrl + data.url
-          }
-        } else {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '图片上传失败',
-            duration: 1000
-          })
-        }
-      })
-
-      $scope.$on('uploadFactory.set_upload', function() {
-        var data = uploadFactory.get_upload()
-
-        if (data.status == 1) {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '图片上传完成',
-            duration: 1000
-          })
-
-          $scope.sybg_vm.img = ENV.imgUrl + data.url
-        } else {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '图片上传失败',
-            duration: 1000
-          })
-        }
-      })
 
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
@@ -5929,6 +5879,7 @@ angular
       trialOrderFactory,
       ENV
     ) {
+      $state.go('tab.rebate_order')
       //获得传过来的商品id
       var aid = $stateParams.id
 

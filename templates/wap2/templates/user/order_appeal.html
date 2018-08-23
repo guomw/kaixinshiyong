@@ -1,17 +1,17 @@
-<ion-view view-title="订单申诉"  hide-tabs>
+<ion-view view-title="订单申诉" hide-tabs>
   <ion-content style="background-color:#F8F8F8">
-    <ion-list >
+    <ion-list>
 
-    <ion-item class="item item-icon-left item-icon-right " > 
-    申诉订单id: {{order_id }}
-    </ion-item>
-        
-        <div class="padding-top"></div>
+      <!-- <ion-item class="item item-icon-left item-icon-right ">
+        申诉订单id: {{order_id }}
+      </ion-item> -->
+
+      <div class="padding-top"></div>
       <form name="myform" novalidate="false">
 
         <label class="item item-input item-select">
           <div class="input-label">申诉类型</div>
-          <select  ng-model="appeal.type">
+          <select ng-model="appeal.type">
             <option value="">--请选择--</option>
             <option value="1">订单号错误</option>
             <option value="2">单号审核有误</option>
@@ -20,56 +20,67 @@
           </select>
         </label>
 
-      <div class="padding-top"></div>
+        <div class="padding-top"></div>
 
-      <label class="item item-input " >
-        <textarea ng-model="appeal.buyer_cause" placeholder="补充说明原因和理由" required></textarea>
-      </label>
+        <label class="item item-input ">
+          <textarea ng-model="appeal.buyer_cause" placeholder="补充说明原因和理由" required></textarea>
+        </label>
 
-      <div class="padding-top"></div>
+        <div class="padding-top"></div>
 
-      <label class="item item-input item-stacked-label"  >
-        <span class="input-label">上传凭证</span>
-      </label>
-
-      <div class="row" >
-        <div class="col">
-          <img ng-model="appeal.buyer_cause_img1" ng-click="imgurl(1)" height="100%" width="100%" src="{{appeal.buyer_cause_img1}}" />
-          <input type="file" id='File1' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"  style="display:none;">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">上传凭证</span>
+        </label>
+        <div class="row">
+          <div class="col">
+            <div class="weui-cells weui-cells_form" style="margin-top:0;">
+              <div class="weui-cell" style="padding:10px">
+                <div class="weui-cell__bd">
+                  <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                    </div>
+                    <div class="weui-uploader__bd">
+                      <ul class="weui-uploader__files" ng-if="uploaded">
+                        <li class="weui-uploader__file" ng-repeat="img in images_list ">
+                          <img style="margin: 10px;" ng-model="sybg_vm.img" height="70%" ng-src="{{img}}" />
+                        </li>
+                      </ul>
+                      <div class="weui-uploader__input-box" ng-if='images_list.length<3'>
+                        <input id="File1" class="weui-uploader__input" type="file" ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)"
+                          accept="image/*" multiple>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <img ng-model="appeal.buyer_cause_img2"   ng-click="imgurl(2)" height="100%" width="100%"  src="{{appeal.buyer_cause_img2}}" />
-          <input type="file" id='File2' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"  style="display:none;">
+
+        <div class="padding-top"></div>
+        <label class="item item-input">
+          <div class="input-label">联系手机</div>
+          <input type="text" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" ng-model=" appeal.buyer_phone" name="user_phone" placeholder="请输入您的联系手机"
+            ng-maxlength="11" ng-minlength="11" required></label>
+
+
+        <div style="color:#A9A9A9;font-size: 14px;padding:5px 0 0 15px">
+          <p>温馨提示:</p>
+          <p>1.当您在试用过程当中，商家故意刁难。</p>
+          <p>2.迟迟未收到试用品，商家拒绝发货。</p>
+          <p>3.商家要求到其它平台进行交易</p>
+          <p>4.或者遇到其它损害您消费者权益的时候</p>
+          <p>5.可发起申诉，要求平台进行仲裁！</p>
         </div>
-        <div class="col">
-          <img ng-model="appeal.buyer_cause_img3"  ng-click="imgurl(3)" height="100%" width="100%" src="{{appeal.buyer_cause_img3}}" />
-          <input type="file" id='File3' ng-model="picFile" file-model="myFile" ng-file-select="onFileSelect($files)" multiple accept="image/*"  style="display:none;">
+
+        <div class="padding-left padding-right padding-top">
+          <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="set_appeal()">提交</button> -->
+          <a href="javascript:;" class="weui-btn" ng-click="set_appeal()">提交</a>
         </div>
-      </div>
 
-      <div class="padding-top"></div>
-      <label class="item item-input" >
-        <div class="input-label">联系手机</div>
-        <input type="text" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" ng-model=" appeal.buyer_phone" name="user_phone" placeholder="请输入您的联系手机" ng-maxlength="11" ng-minlength="11" required></label>
+      </form>
 
-      <label class="item item-input" >
-        <div class="input-label">联系QQ</div>
-        <input type="text" ng-model="appeal.buyer_qq" name="user_phone" placeholder="请输入您的联系QQ" ng-maxlength="15" ng-minlength="5" required></label>
+    </ion-list>
 
-      <h5 style="color:#A9A9A9" class="padding-left">温馨提示:</h5>
-      <p style="color:#A9A9A9" class="padding-left">1.当您在试用过程当中，商家故意刁难。</p>
-      <p style="color:#A9A9A9" class="padding-left">2.迟迟未收到试用品，商家拒绝发货。</p>
-      <p style="color:#A9A9A9" class="padding-left">3.商家要求到其它平台进行交易</p>
-      <p style="color:#A9A9A9" class="padding-left">4.或者遇到其它损害您消费者权益的时候</p>
-      <p style="color:#A9A9A9" class="padding-left">5.可发起申诉，要求平台进行仲裁！</p>
-
-      <div class="padding-left padding-right" >
-        <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="set_appeal()">提交</button>
-      </div>
-
-    </form>
-
-  </ion-list>
-
-</ion-content>
+  </ion-content>
 </ion-view>
