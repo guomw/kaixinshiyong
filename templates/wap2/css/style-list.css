@@ -492,8 +492,20 @@
     margin: 10px 0px 20px 0px;
     font-size: 14px;
 }
+.item_shop.item{
+	overflow: initial;
+    text-overflow: inherit;
+    white-space: normal;
+}
+.item_shop.item h2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	 white-space: initial;
 
-
+}
 
 
 
