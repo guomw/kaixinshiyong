@@ -3,6 +3,7 @@
 namespace Api\Controller;
 
 use \Common\Controller\BaseController;
+use Wechat\Library\factory;
 
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST');
@@ -1672,12 +1673,15 @@ class AppController extends BaseController
             if ($rs) {
                 runhook('member_attesta_email');
                 $this->json_function(1, '验证通过');
+                return true;
             } else {
                 $this->json_function(0, '系统繁忙，请稍后再试！');
+                return false;
             }
 
         }
         $this->json_function(0, '请勿非法访问！');
+
 
     }
 
