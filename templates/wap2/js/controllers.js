@@ -1317,7 +1317,7 @@ angular
       })
 
       //邮箱注册请求第一步
-      $scope.email_Register = function(user_email, user_sms,verifyCode, password, repeat_password) {
+      $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
         if (password !== repeat_password) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -1333,10 +1333,10 @@ angular
           template: '正在提交...',
           duration: 1000
         })
-
+        $scope.email = user_email
         //发起后端注册请求
 
-        User_register1Factory.set_emailRegister(user_email, user_sms,verifyCode, password)
+        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
       }
       //收到注册结果通知
       $scope.$on('User_register1Factory.setEmailRegister', function() {
@@ -1359,7 +1359,11 @@ angular
           // $scope.userid = reg_status.data.userid
           // $scope.random = reg_status.data.random
           // $scope.nextEmail = true
-          $state.go('tab.user')
+          $state.go('tab.activate_email', {
+            id: reg_status.data.userid,
+            random: reg_status.data.random,
+            email: $scope.email
+          })
           return false
         } else {
           $ionicLoading.show({
@@ -1515,6 +1519,120 @@ angular
             })
 
             $scope.isDisabled = false
+          }
+        })
+      }
+    }
+  ])
+
+  /**
+   * 邮箱激活
+   */
+
+  .controller('UserActivate_email', [
+    '$ionicPlatform',
+    '$rootScope',
+    '$scope',
+    '$state',
+    '$ionicLoading',
+    '$interval',
+    'User_activateEmail',
+    'StorageFactory',
+    'ENV',
+    'UserProfileFactory',
+    '$stateParams',
+    function(
+      $ionicPlatform,
+      $rootScope,
+      $scope,
+      $state,
+      $ionicLoading,
+      $interval,
+      User_activateEmail,
+      StorageFactory,
+      ENV,
+      UserProfileFactory,
+      $stateParams
+    ) {
+      var user_id = $stateParams.id
+      var random = $stateParams.random
+      $scope.user_email = $stateParams.email
+
+      //邮箱注册账号激活
+      $scope.email_activate = function(user_email, user_sms) {
+        // console.log(user_email, user_sms)
+        User_activateEmail.setEmailActivate(user_email, user_sms)
+        $ionicLoading.show({
+          noBackdrop: true,
+          template: '正在提交...',
+          duration: 1000
+        })
+      }
+      //接受请求处理
+      $scope.$on('User_activateEmail.setEmailActivate', function() {
+        var reg_status = User_activateEmail.get_emaileCode()
+        console.log(reg_status);
+        if (reg_status.status == 0) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: reg_status.msg,
+            duration: 1000
+          })
+        } else if (reg_status.status == 1) {
+          //注册成功
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '激活成功',
+            duration: 1000
+          })
+          StorageFactory.remove('user')
+          StorageFactory.remove('profile')
+          $state.go('tab.user_login')
+          return false
+        } else {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '亲程序员哥哥正在抢修,请稍后',
+            duration: 1000
+          })
+        }
+      })
+
+      $scope.text = '获取验证码'
+
+      //邮箱注册获取验证码
+      $scope.get_emailCode = function(user_email) {
+        console.log(user_id, random, user_email)
+        var title = '邮箱认证码'
+        // var user_id = $scope.userid
+        var username_type = '邮箱:' + user_email
+        // var random = $scope.random
+        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
+        $scope.$on('UserProfileFactory.set_send_email_code', function() {
+          userRel = UserProfileFactory.get_send_email_code()
+
+          if (userRel == undefined) return false
+
+          if (userRel.status == 0) {
+            //    返回失败原因
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: userRel.msg,
+              duration: 2000
+            })
+          } else if (userRel.status == 1) {
+            //成功提示原因
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '验证码已成功发送到' + username_type,
+              duration: 2000
+            })
+          } else {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '亲，程序猿哥哥正在抢修！',
+              duration: 1500
+            })
           }
         })
       }
@@ -5426,10 +5544,7 @@ angular
 
       //获得用户已存在的手机 QQ
 
-    
-
       $scope.set_appeal = function() {
-       
         $scope.appeal = {
           type: '',
           buyer_cause: '',

@@ -335,7 +335,15 @@ angular
             }
           }
         })
-
+        .state('tab.activate_email', {
+          url: '/activate_email/:id/:random/:email',
+          views: {
+            'tab-user': {
+              templateUrl: 'templates/user/activate_email.html',
+              controller: 'UserActivate_email'
+            }
+          }
+        })
         .state('tab.rebate_order', {
           url: '/rebate/rebate_order', //我的返利订单
           views: {
