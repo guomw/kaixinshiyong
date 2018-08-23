@@ -22,7 +22,7 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
     <ion-item class="item_shop" ng-click="add_order_number(d.id,d.goods_id,d.status,d.trial_report)" collection-repeat="d in trial_getorderlists "
-      collection-item-width="100%" collection-item-height="160">
+      collection-item-width="100%">
       <div class="shop_active">
         <div class="shop-active_left">
           <p ng-if="d.status == 1 ">
@@ -126,20 +126,20 @@
         </div>
         <!--  各种活动状态结束  -->
       </div>
-      <div class="shop_content">
+      <div class="shop_content" style="width: 100%">
         <div class="shop-left_img">
           <img ng-if="d.thumb" ng-src="{{ENV.siteUrl}}{{d.thumb}}">
           <img ng-if="!d.thumb" ng-src="img/ionic.png">
         </div>
-        <div class="shop-right">
+        <div class="shop-right" style="width: 70%">
           <h2>{{ d.title | limitTo:15 }}</h2>
           <p class="" ng-if="d.taobao_account"> <span class='c4'>亚马逊帐号:</span> {{d.taobao_account}}</p>
-          <li class="hd_2 c1 txt-flow" style="font-size:0.875em;">
+          <li class="hd_2 c1 txt-flow" style="font-size:0.875em; ">
             <span class='c4'>下单价: </span><b class="cc">{{d.goods_price | currency:"$"}}</b>
           </li>
           <li ng-show="d.status != 4" class="c1 txt-flow" style="font-size:0.875em;">
-            <span class='c4'>返还: </span><b class="cc">{{(d.goods_price -0) + (d.goods_bonus-0) | currency:"$"}}</b>
-            <span style="font-size:10px" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}美元</b></i>)</span>
+            <span class='c4' style=" ">返还: <b class="cc">{{(d.goods_price -0) + (d.goods_bonus-0) | currency:"$"}}</b></span>
+            <span style="font-size:10px;" ng-if="d.goods_bonus > 0 ">(<i>含红包 <b class="cc">{{d.goods_bonus}}美元</b></i>)</span>
           </li>
           <!--  审核失败的时候提示失败原因 -->
           <li ng-show="d.status == 4" class="c1 txt-flow" style="font-size:0.875em;">

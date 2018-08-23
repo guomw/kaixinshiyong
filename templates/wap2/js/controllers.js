@@ -1350,15 +1350,6 @@ angular
             duration: 1000
           })
         } else if (reg_status.status == 1) {
-          //注册成功
-          // $ionicLoading.show({
-          //   noBackdrop: true,
-          //   template: '注册成功,请激活账号',
-          //   duration: 1000
-          // })
-          // $scope.userid = reg_status.data.userid
-          // $scope.random = reg_status.data.random
-          // $scope.nextEmail = true
           $state.go('tab.activate_email', {
             id: reg_status.data.userid,
             random: reg_status.data.random,
@@ -1373,76 +1364,6 @@ angular
           })
         }
       })
-
-      //邮箱注册账号激活
-      $scope.email_activate = function(user_email, user_sms) {
-        // console.log(user_email, user_sms)
-        User_register1Factory.activeEmail(user_email, user_sms)
-
-        $scope.$on('User_register1Factory.setEmailActivate', function() {
-          var reg_status = User_register1Factory.get_emaileCode()
-          if (reg_status.status == 0) {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: reg_status.msg,
-              duration: 1000
-            })
-          } else if (reg_status.status == 1) {
-            //注册成功
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '激活成功',
-              duration: 1000
-            })
-            $state.go('tab.user')
-            return false
-          } else {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '亲程序员哥哥正在抢修,请稍后',
-              duration: 1000
-            })
-          }
-        })
-      }
-
-      //邮箱注册获取验证码
-      $scope.get_emailCode = function(user_email) {
-        var title = '邮箱认证码'
-        var user_id = $scope.userid
-        var username_type = '邮箱:' + user_email
-        var random = $scope.random
-        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-        $scope.$on('UserProfileFactory.set_send_email_code', function() {
-          userRel = UserProfileFactory.get_send_email_code()
-
-          if (userRel == undefined) return false
-
-          if (userRel.status == 0) {
-            //    返回失败原因
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: userRel.msg,
-              duration: 2000
-            })
-          } else if (userRel.status == 1) {
-            //成功提示原因
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '验证码已成功发送到' + username_type,
-              duration: 2000
-            })
-          } else {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '亲，程序猿哥哥正在抢修！',
-              duration: 1500
-            })
-          }
-        })
-      }
-
-      $scope.text = '获取验证码'
 
       //获取图形验证码
       $scope.getImgText = function() {
@@ -1571,7 +1492,6 @@ angular
       //接受请求处理
       $scope.$on('User_activateEmail.setEmailActivate', function() {
         var reg_status = User_activateEmail.get_emaileCode()
-        console.log(reg_status);
         if (reg_status.status == 0) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -1602,14 +1522,13 @@ angular
 
       //邮箱注册获取验证码
       $scope.get_emailCode = function(user_email) {
-        console.log(user_id, random, user_email)
         var title = '邮箱认证码'
         // var user_id = $scope.userid
         var username_type = '邮箱:' + user_email
         // var random = $scope.random
-        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-        $scope.$on('UserProfileFactory.set_send_email_code', function() {
-          userRel = UserProfileFactory.get_send_email_code()
+        User_activateEmail.setSendEmailCode(user_email, title, user_id, random)
+        $scope.$on('User_activateEmail.setSendEmailCode', function() {
+          userRel = User_activateEmail.getSendEmailCode()
 
           if (userRel == undefined) return false
 

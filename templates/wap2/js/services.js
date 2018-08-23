@@ -1605,26 +1605,6 @@ angular
             }
           )
         },
-        // //邮箱激活
-        // activeEmail: function(user_email, user_sms) {
-        //   emailActivate.save(
-        //     {
-        //       email: user_email,
-        //       code: user_sms,
-        //       version: '1.0',
-        //       platform: 'IOS',
-        //       platform_name: 'ce'
-        //     },
-        //     function(r) {
-        //       emailStatus = r
-        //       $rootScope.$broadcast('User_register1Factory.setEmailActivate')
-        //     }
-        //   )
-        // },
-
-        // get_emaileCode: function() {
-        //   return emailStatus
-        // },
 
         get_register: function() {
           return user_xinxi
@@ -1644,11 +1624,30 @@ angular
     'ENV',
     function($resource, $rootScope, ENV) {
       var APIUrl = ENV.api
-      var resource = $resource(APIUrl + '&a=register')
-      var emailResource = $resource(APIUrl + '&a=registerToEmail')
       var emailActivate = $resource(APIUrl + '&a=active_email')
+      var resource11 = $resource(APIUrl + '&a=send_email_code')
 
       return {
+        // 后台请求发送邮箱验证码
+        setSendEmailCode: function(account, title, userid, random) {
+          return resource11.save(
+            {
+              account: account,
+              title: title, //姓名
+              userid: userid,
+              random: random
+            },
+            function(r) {
+              //console.log(r);
+              emailCode = r
+              $rootScope.$broadcast('User_activateEmail.setSendEmailCode')
+            }
+          )
+        },
+        getSendEmailCode: function() {
+          return emailCode
+        },
+
         //邮箱激活
         setEmailActivate: function(user_email, user_sms) {
           emailActivate.save(
