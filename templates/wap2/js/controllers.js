@@ -1317,7 +1317,7 @@ angular
       })
 
       //邮箱注册请求第一步
-      $scope.email_Register = function(user_email, verifyCode, password, repeat_password) {
+      $scope.email_Register = function(user_email, user_sms,verifyCode, password, repeat_password) {
         if (password !== repeat_password) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -1336,7 +1336,7 @@ angular
 
         //发起后端注册请求
 
-        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
+        User_register1Factory.set_emailRegister(user_email, user_sms,verifyCode, password)
       }
       //收到注册结果通知
       $scope.$on('User_register1Factory.setEmailRegister', function() {
@@ -1351,15 +1351,15 @@ angular
           })
         } else if (reg_status.status == 1) {
           //注册成功
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '注册成功,请激活账号',
-            duration: 1000
-          })
-          $scope.userid = reg_status.data.userid
-          $scope.random = reg_status.data.random
-          $scope.nextEmail = true
-          // $state.go('tab.user')
+          // $ionicLoading.show({
+          //   noBackdrop: true,
+          //   template: '注册成功,请激活账号',
+          //   duration: 1000
+          // })
+          // $scope.userid = reg_status.data.userid
+          // $scope.random = reg_status.data.random
+          // $scope.nextEmail = true
+          $state.go('tab.user')
           return false
         } else {
           $ionicLoading.show({
