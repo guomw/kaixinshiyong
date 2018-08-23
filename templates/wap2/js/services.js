@@ -1605,26 +1605,26 @@ angular
             }
           )
         },
-        //邮箱激活
-        activeEmail: function(user_email, user_sms) {
-          emailActivate.save(
-            {
-              email: user_email,
-              code: user_sms,
-              version: '1.0',
-              platform: 'IOS',
-              platform_name: 'ce'
-            },
-            function(r) {
-              emailStatus = r
-              $rootScope.$broadcast('User_register1Factory.setEmailActivate')
-            }
-          )
-        },
+        // //邮箱激活
+        // activeEmail: function(user_email, user_sms) {
+        //   emailActivate.save(
+        //     {
+        //       email: user_email,
+        //       code: user_sms,
+        //       version: '1.0',
+        //       platform: 'IOS',
+        //       platform_name: 'ce'
+        //     },
+        //     function(r) {
+        //       emailStatus = r
+        //       $rootScope.$broadcast('User_register1Factory.setEmailActivate')
+        //     }
+        //   )
+        // },
 
-        get_emaileCode: function() {
-          return emailStatus
-        },
+        // get_emaileCode: function() {
+        //   return emailStatus
+        // },
 
         get_register: function() {
           return user_xinxi
@@ -1635,6 +1635,43 @@ angular
     }
   ])
 
+  /**
+   * 邮箱激活
+   */
+  .factory('User_activateEmail', [
+    '$resource',
+    '$rootScope',
+    'ENV',
+    function($resource, $rootScope, ENV) {
+      var APIUrl = ENV.api
+      var resource = $resource(APIUrl + '&a=register')
+      var emailResource = $resource(APIUrl + '&a=registerToEmail')
+      var emailActivate = $resource(APIUrl + '&a=active_email')
+
+      return {
+        //邮箱激活
+        setEmailActivate: function(user_email, user_sms) {
+          emailActivate.save(
+            {
+              email: user_email,
+              code: user_sms,
+              version: '1.0',
+              platform: 'IOS',
+              platform_name: 'ce'
+            },
+            function(r) {
+              emailStatus = r
+              $rootScope.$broadcast('User_activateEmail.setEmailActivate')
+            }
+          )
+        },
+
+        get_emaileCode: function() {
+          return emailStatus
+        }
+      }
+    }
+  ])
   /*
  name [用户登录]
  */

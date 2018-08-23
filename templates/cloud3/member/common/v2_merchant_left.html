@@ -42,7 +42,7 @@
 	</dl>
 	{/if}
 
-		<dl class="i_u_s_list" style="display: none;">
+		<dl class="i_u_s_list">
 			<dt>申诉管理</dt>
 			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == -1}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage',array('state'=>-1))}">申诉管理</a></dd>
 			<dd {if ACTION_NAME == 'appeal_manage' && I('state') == 0}class="active"{/if}><a href="{U('Member/Appeal/appeal_manage', array('state' => 0))}">待商家处理</a></dd>

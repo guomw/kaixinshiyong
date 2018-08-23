@@ -86,9 +86,6 @@
                     <input type="text" datatype='url' id="goods_url" value="{$goods_url}" name="info[goods_url]" />
                   </label>
                 </div>
-                <div class="R7">
-                  <a id="keyget" href="javascript:;" >一键获取</a>
-                </div>
                 <div class="clear"></div>
               </div>
                 <script>
@@ -356,9 +353,9 @@
                 <input type="hidden" name="info[goods_albums]" value="1" />
 
                 <div class="R4" id="goods_albums" >
-                  <div class="a1">
-                    <a href="javascript:;" >上传宝贝主图</a>
-                  </div>
+                  <!--<div class="a1">-->
+                    <!--<a href="javascript:;" >上传宝贝主图</a>-->
+                  <!--</div>-->
                   <div class="p2" >
                     <li id="filePicker" class="big_small_img float_left">
                       <span class="border_dddddd">
@@ -435,13 +432,13 @@
                 </div>
                 <div class="R6">vip免审</div>
                 <div class="R8">(vip买家可免审核 直接试用)&nbsp;</div>
-                <div class="R12">
+                <div class="R12" style="display: none">
                   <input type="checkbox"  name="check_box" {if $goods_point == 1} checked="checkbox" {/if}  value="1" id="js_check"/>
                   <input type="hidden" name="info[goods_point]" value="{$goods_point}"  id="goods_point">
                 </div>
-                <div class="R6">积分兑换</div>
-                <div class="R8">（会员可用积分兑换资格 免审核资格）</div>
-                <div class="clear"></div>
+                <!--<div class="R6">积分兑换</div>-->
+                <!--<div class="R8">（会员可用积分兑换资格 免审核资格）</div>-->
+                <!--<div class="clear"></div>-->
               </div>
 
               <!--h1-->
@@ -458,7 +455,7 @@
               </div>
               <!--h1-->
 
-              <div class="h1">
+              <div class="h1" style="display: none">
                 <div class="L">
                   <span>*</span>
                   掌柜旺旺
@@ -475,7 +472,7 @@
               </div>
               <!--h1-->
 
-              <div class="h1 h2">
+              <div class="h1 h2" style="display: none">
                 <div class="L">
                   <span>*</span>
                   QQ
