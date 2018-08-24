@@ -3821,7 +3821,6 @@ angular
           })
           .then(function(res) {
             if (res == false) {
-              alert(order_id, userid, random)
               var star = 5
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
@@ -3829,7 +3828,6 @@ angular
               //接收试用报告  返回结果
               $scope.$on('trialOrderFactory.set_trial_report', function() {
                 var sybg_data = trialOrderFactory.get_trial_report()
-                alert(JSON.stringify(sybg_data))
                 if (sybg_data.status == 1) {
                   $ionicLoading.show({
                     noBackdrop: true,
@@ -4076,6 +4074,14 @@ angular
       uploadFactory,
       fileReader
     ) {
+      $scope.go_order_sn_help = function() {
+        $('.popup-container.popup-showing.active').hide()
+        $('.backdrop').hide()
+        $('body').removeClass('popup-open')
+        $state.go('tab.help_order_sn')
+
+      }
+
       $scope.$on('$ionicView.beforeEnter', function() {
         if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
           $state.go('tab.user_login') //路由跳转登录
@@ -4259,7 +4265,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.trial_order')
+          $state.go('tab.rebate')
         } else {
           $ionicLoading.show({
             noBackdrop: true,
@@ -4396,7 +4402,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.trial_order')
+          $state.go('tab.rebate')
         } else {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5782,7 +5788,6 @@ angular
           })
           .then(function(res) {
             if (res == false) {
-              alert(order_id, userid, random)
               var star = 5
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
@@ -5790,14 +5795,12 @@ angular
               //接收试用报告  返回结果
               $scope.$on('trialOrderFactory.set_trial_report', function() {
                 var sybg_data = trialOrderFactory.get_trial_report()
-                alert(sybg_data)
                 if (sybg_data.status == 1) {
                   $ionicLoading.show({
                     noBackdrop: true,
                     template: sybg_data.msg,
                     duration: 1000
                   })
-
                   //跳转返回我的订单页面
                   window.location.reload()
                 } else {
@@ -6493,7 +6496,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.rebate_order')
+          $state.go('tab.rebate')
 
           return false
         } else {
@@ -6594,7 +6597,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.rebate_order')
+          $state.go('tab.rebate')
         } else {
           $ionicLoading.show({
             noBackdrop: true,
@@ -8610,7 +8613,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.rebate_order')
+          $state.go('tab.rebate')
 
           return false
         } else {
@@ -8691,7 +8694,7 @@ angular
           })
 
           //跳转返回我的订单页面
-          $state.go('tab.commission_order')
+          $state.go('tab.rebate')
         } else {
           $ionicLoading.show({
             noBackdrop: true,
