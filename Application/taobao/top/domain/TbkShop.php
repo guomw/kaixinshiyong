@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 淘宝客店铺
+ * 亚马逊店铺
  * @author auto create
  */
 class TbkShop

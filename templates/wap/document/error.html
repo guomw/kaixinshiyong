@@ -33,7 +33,7 @@
 				<!-- ap-on  ap-off -->
 				<p class="app-s-h approve-hint ap-off ap3 c-bb000d set-p-bottom">
                     {if ($msg==1)}
-                    用此淘宝账号购买：
+                    用此亚马逊账号购买：
                     <select name="bind_taobao" id="bind_taobao" style="width: 50%; height: 2em;">
                         {loop $bind_tbs $tb}
                             {if $tb['is_default']==1}
@@ -44,7 +44,7 @@
                         {/loop}
                     </select>
                     {elseif ($msg==2)}
-                    暂无绑定的淘宝账号！<a href="/index.php?m=Member&c=Attesta&a=bindtaobao" target="_blank" style="color:red;">点此去绑定</a>
+                    暂无绑定的亚马逊账号！<a href="/index.php?m=Member&c=Attesta&a=bindtaobao" target="_blank" style="color:red;">点此去绑定</a>
                     {elseif ($msg==3)}
                     {else}
                     <?php echo($msg); ?>
@@ -81,7 +81,7 @@
 <script>
     <?php
     $userinfo = is_login();
-    // 已绑定的淘宝账号
+    // 已绑定的亚马逊账号
     $bind_tbs = get_bind_taobao($userinfo['userid']);
     // 活动后台设置
     $bind_set = string2array(C_READ('buyer_join_condition','trial'));
@@ -96,7 +96,7 @@
         var phone = /^(1)[0-9]{10}$/;
         var url = /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&]*([^<>])*$/;
         var qq = /^\d{5,10}$/;
-        // 若后台活动设置开启需要绑定淘宝账号后则校验;
+        // 若后台活动设置开启需要绑定亚马逊账号后则校验;
         var bind_taobao = $('#bind_taobao').val();
 
         if(phone.test(talk_content) || url.test(talk_content) || qq.test(talk_content) || (bind_set==4&&isNaN(bind_taobao)==true)){
@@ -108,7 +108,7 @@
             }else if(qq.test(talk_content)){
                 str = '禁止输入数字等联系方式';
             }else if(isNaN(bind_taobao) == true){
-                str = '请选择要绑定的淘宝帐号';
+                str = '请选择要绑定的亚马逊帐号';
             }
             art.dialog({
                 lock: true,
@@ -124,7 +124,7 @@
         // 抢购成功
         $.post(site.site_root + '/index.php?m=product&c=api&a=pay_submit',{
             goods_id : {I('id')},
-            bind_taobao: bind_taobao,	// 淘宝帐号id
+            bind_taobao: bind_taobao,	// 亚马逊帐号id
             talk_content : talk_content //对商家说点什么
         },function(ret){
             if (ret.status==1){

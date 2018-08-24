@@ -88,7 +88,7 @@ include $this->admin_tpl('header','admin');?>
     </tr>
 
 	<tr id="field_taobaoke" <?php if ($rs['source'] > 2): ?>style="display: none;"<?php endif ?>>
-		<th>淘宝客推广：</th>
+		<th>亚马逊推广：</th>
 		<td>
 			<label><input type="radio" name="info[taobaoke]" value="1" <?php if ($rs['taobaoke'] == 1): ?>checked<?php endif ?>/>&nbsp;是</label>
 			<label><input type="radio" name="info[taobaoke]" value="0" <?php if ($rs['taobaoke'] == 0): ?>checked<?php endif ?>/>&nbsp;否</label>

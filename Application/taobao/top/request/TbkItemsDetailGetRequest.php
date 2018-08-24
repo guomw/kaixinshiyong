@@ -14,7 +14,7 @@ class TbkItemsDetailGetRequest
 	private $fields;
 	
 	/** 
-	 * 淘宝客商品数字id串.最大输入40个.格式如:"value1,value2,value3" 用" , "号分隔商品数字id
+	 * 亚马逊商品数字id串.最大输入40个.格式如:"value1,value2,value3" 用" , "号分隔商品数字id
 	 **/
 	private $numIids;
 	

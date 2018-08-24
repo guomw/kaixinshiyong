@@ -114,10 +114,10 @@ class OrderController extends InitController{
 			
 			
             if (!empty($v['bind_id'])) {
-            	 //绑定的淘宝账号
+            	 //绑定的亚马逊账号
                $orders[$k]['taobao'] = model('member_bind')->where(array('id'=>$v['bind_id']))->getField('account');
             }else{
-            	//用户的淘宝账号
+            	//用户的亚马逊账号
 				$taobao = get_personal($v['buyer_id'],'taobao');
 				$orders[$k]['taobao'] = $taobao['account'];
 			}
@@ -363,10 +363,10 @@ class OrderController extends InitController{
 			
 			
             if (!empty($v['bind_id'])) {
-            	 //绑定的淘宝账号
+            	 //绑定的亚马逊账号
                $orders[$k]['taobao'] = model('member_bind')->where(array('id'=>$v['bind_id']))->getField('account');
             }else{
-            	//用户的淘宝账号
+            	//用户的亚马逊账号
 				$taobao = get_personal($v['buyer_id'],'taobao');
 				$orders[$k]['taobao'] = $taobao['account'];
 			}

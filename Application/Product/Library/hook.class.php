@@ -35,7 +35,7 @@ class hook {
         return FALSE;
 	}
 
-	/* 更新绑定淘宝账号信息 */
+	/* 更新绑定亚马逊账号信息 */
 	public function get_bind_taobao(&$param) {
 		$id = (int)$param['id'];
 		if ($id < 1) return FALSE;

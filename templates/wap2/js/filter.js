@@ -69,7 +69,7 @@ m1.filter('f_user_qq', function() {
 
 
 /**
- * @name [显示默认淘宝帐号]
+ * @name [显示默认亚马逊帐号]
  */
 m1.filter('is_default_taobao', function($sce) {
 
@@ -154,13 +154,13 @@ m1.filter('f_protype', function() {
 
 
 /**
- * @name [商品来源 1.淘宝 2.天猫 3.京东 4.苏宁 5.1号店]
+ * @name [商品来源 1.亚马逊 2.天猫 3.京东 4.苏宁 5.1号店]
  */
 m1.filter('f_source', function() {
 
   return function(r) {
     if (r == 1) {
-      return "淘宝 ";
+      return "亚马逊 ";
 
     } else if (r == 2) { //拍a发b
 
@@ -477,7 +477,7 @@ m1.filter('f_nickname', function() {
 
 
 /**
- * @name [已绑定淘宝默认帐号]
+ * @name [已绑定亚马逊默认帐号]
  */
 
 

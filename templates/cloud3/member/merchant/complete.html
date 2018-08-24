@@ -327,7 +327,7 @@ $(document).ready(function() {
                 </div>
                 <div class="shop_type_z">
                   <span>亚马逊</span>
-                  <span>淘宝</span>
+                  <span>亚马逊</span>
                   <span>天猫</span>
                   
                   
@@ -342,7 +342,7 @@ $(document).ready(function() {
                 <span>*</span> 店铺类型
              </div>
              <div class="R js_store">
-               <!--<span {if $store[store_type] == 1 || !$store[store_type]} class="sel" {/if} data-type="1">淘宝</span>-->
+               <!--<span {if $store[store_type] == 1 || !$store[store_type]} class="sel" {/if} data-type="1">亚马逊</span>-->
                <!--<span {if $store[store_type] == 2} class="sel" {/if}  data-type="2">天猫 </span>-->
                <span class="sel" data-type="3">亚马逊 </span>
                  <input type="hidden" name="store_type" id="store_type" value="3">
@@ -456,7 +456,7 @@ $(document).ready(function() {
       								<td >{$s[store_name]}</td>
       								<td  style="word-break: break-all;">{$s[store_address]}</td>
       								<!--<td>{$s['contact_want']}</td>-->
-      								<td>{if $s['store_type'] == 1}淘宝{else}天猫{/if}</td>
+      								<td>{if $s['store_type'] == 1}亚马逊{else}天猫{/if}</td>
       								<td>{$s[type]}</td>
                       <td>{if $s[is_default] == 1}<font color="green">是</font>{else}否{/if}</td>
 
@@ -474,7 +474,7 @@ $(document).ready(function() {
       								<td>qiubi服饰旗舰店</td>
       								<td>https://qiubifs.tmall.com</td>
       								<td>qiubi服饰旗舰店</td>
-      								<td>淘宝</td>
+      								<td>亚马逊</td>
       								<td>服饰鞋包</td>
       								<td>
       									<span >修改</span>

@@ -10,7 +10,7 @@
 	<table width="100%" class="table_form" id="goods_albums">
 		<tr>
 			<td width="80">来源名称</td> 
-			<td><input type="text" name="name"  class="input-text"/>&nbsp;例如 淘宝、天猫、京东等</td>
+			<td><input type="text" name="name"  class="input-text"/>&nbsp;例如 亚马逊、天猫、京东等</td>
 		</tr>
 		<tr>
 			<td>小LOGO</td> 

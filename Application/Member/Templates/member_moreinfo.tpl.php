@@ -211,14 +211,14 @@
 
 <?php if($memberinfo['modelid'] == 1){?>
 <fieldset>
-	<legend><?php echo '已绑定淘宝帐号';?></legend>
+	<legend><?php echo '已绑定亚马逊亚马逊帐号';?></legend>
 	<table width="100%" cellspacing="0">
 	<thead>
 		<tr>
-			<th align="left"><?php echo '淘宝帐号'?></th>
+			<th align="left"><?php echo '亚马逊帐号'?></th>
 			<th align="left"><?php echo '绑定时间';?></th>
 			<th align="left"><?php echo '买家信誉';?></th>
-			<th align="left"><?php echo '淘宝截图'?></th>
+			<th align="left"><?php echo '亚马逊截图'?></th>
 		</tr>
 	</thead>
 <tbody>
@@ -277,7 +277,7 @@
 
 		<td align="left"><?php echo $v['contact_name'];?></td>
 		<td align="left"><?php echo $v['contact_want'];?></td>
-		<td align="left"><?php if( $v['store_type'] == 1){echo '淘宝';}else{echo '天猫';};?></td>
+		<td align="left"><?php if( $v['store_type'] == 1){echo '亚马逊';}else{echo '亚马逊';};?></td>
 	    <td align="left"><?php echo $v['type'];?></td>
     </tr>
 <?php

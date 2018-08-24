@@ -8,7 +8,7 @@ class CheckController extends InitController{
 		$this->pagecurr = max(1,I('page','','intval'));
 		$this->pagesize = 10;
 		$this->userid = session('userid');
-		//淘宝等级
+		//亚马逊等级
 		$this->grade = array('安全','一般','危险');
 		//商家类型
 		$group = getcache('merchant_group','member');
@@ -122,7 +122,7 @@ class CheckController extends InitController{
 			//用户真实姓名
 			$r = get_personal($v['buyer_id'],'identity');
 			$member_info['realname'] = $r['name'];
-			//用户绑定淘宝账号信息
+			//用户绑定亚马逊账号信息
 			$taobao = model('member_bind')->where(array('userid'=>$v['buyer_id'],'status'=>array('NEQ',2)))->find();
 			$member_info['taobao'] = $taobao;
 			

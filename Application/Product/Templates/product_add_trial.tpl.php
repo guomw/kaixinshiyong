@@ -78,7 +78,7 @@ include $this->admin_tpl('header','admin');?>
 
     <tr>
         <th>获取信息：</th>
-        <td><input type="text" name="info[go_link]" class="input-text" style="width:300px" />(请输入商品链接 支持淘宝 天猫 京东) <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
+        <td><input type="text" name="info[go_link]" class="input-text" style="width:300px" />(请输入商品链接 支持亚马逊 天猫 京东) <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
     </tr>
 
 	<tr>
@@ -87,7 +87,7 @@ include $this->admin_tpl('header','admin');?>
     </tr>
 
 	<tr id="field_taobaoke">
-		<th>淘宝客推广：</th>
+		<th>亚马逊推广：</th>
 		<td>
 			<label><input type="radio" name="info[taobaoke]" value="1"/>&nbsp;是</label>
 			<label><input type="radio" name="info[taobaoke]" value="0"/>&nbsp;否</label>
@@ -543,7 +543,7 @@ $(".keyget").click(function(){
         if(ret.status == 1) {
             if(!ret.title || ret.title =='' ){
 
-                alert('一键获取失败，请手动发布商品！一键获取只支持已加入淘宝客的淘宝.天猫商品')
+                alert('一键获取失败，请手动发布商品！一键获取只支持已加入亚马逊的亚马逊.天猫商品')
 
                  return false;
             }

@@ -23,11 +23,11 @@ class ApiController extends \Common\Controller\BaseController
 
         if ($Factory->product_info['mod'] == 'trial' && $bind_set['bind_taobao'] == 4) {
             $bind_taobao = (int)trim($_POST['bind_taobao']);
-            if ($bind_taobao < 1) $this->error('请选择您要购买的淘宝帐号');
+            if ($bind_taobao < 1) $this->error('请选择您要购买的亚马逊帐号');
             $result = $Factory->pay_submit($talk_content,$bind_taobao,$data_type);
         }elseif($Factory->product_info['mod'] == 'commission' && $com_set['bind_taobao'] == 4){
             $bind_taobao = (int)trim($_POST['bind_taobao']);
-            if ($bind_taobao < 1) $this->error('请选择您要购买的淘宝帐号');
+            if ($bind_taobao < 1) $this->error('请选择您要购买的亚马逊帐号');
             $result = $Factory->pay_submit($bind_taobao);
         }else{
           
@@ -299,7 +299,7 @@ class ApiController extends \Common\Controller\BaseController
         echo json_encode($result);
     }
 
-    /*一键获取淘宝商品信息*/
+    /*一键获取亚马逊商品信息*/
     public function go_link(){
         $go_link = I('go_link');
 

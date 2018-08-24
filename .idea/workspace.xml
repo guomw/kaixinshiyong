@@ -1,16 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/financial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/financial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/Controller/SettingController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Controller/SettingController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/Templates/api_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Templates/api_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/Templates/push_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Templates/push_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/Templates/shop_add.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Templates/shop_add.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Api/Templates/push_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Templates/push_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Commission/Library/Driver/commission.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Commission/Library/Driver/commission.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Common/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Common/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Document/Templates/document_add_rebate.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Document/Templates/document_add_rebate.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Install/Data/demo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Install/Data/demo.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Install/Data/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Install/Data/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/AppealsController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/AppealsController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/AttestaController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/AttestaController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/MemberController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/MemberController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/OrderController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/OrderController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/ProfileController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/ProfileController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/bind_list.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/bind_list.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/commission_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/commission_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/member_moreinfo.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/member_moreinfo.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/postal_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/postal_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/rebate_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/rebate_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/set_bind_tb.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/set_bind_tb.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/trial_list.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/trial_list.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Templates/trial_set.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Oauth/Product/Library/Driver/trial_product.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Oauth/Product/Library/Driver/trial_product.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Order/Controller/CheckController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Order/Controller/CheckController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Order/Controller/OrderController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Order/Controller/OrderController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Order/Templates/order_check_list.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Order/Templates/order_check_list.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Order/Templates/order_list.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Order/Templates/order_list.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Order/Templates/refuse_list.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Order/Templates/refuse_list.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Controller/ApiController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Controller/ApiController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Controller/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Controller/IndexController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/Driver/commission_product.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/Driver/commission_product.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/Driver/rebate_product.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/Driver/rebate_product.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/Driver/trial_product.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/Driver/trial_product.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/hook.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/hook.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/postal_input.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/postal_input.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/rebate_input.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/rebate_input.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Library/trial_input.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Library/trial_input.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_add_postal.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_add_postal.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_add_rebate.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_add_rebate.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_add_trial.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_add_trial.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_edit_postal.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_edit_postal.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_edit_rebate.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_edit_rebate.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Product/Templates/product_edit_trial.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Product/Templates/product_edit_trial.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Task/Controller/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Task/Controller/IndexController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/domain/NTbkItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/domain/NTbkItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/domain/NTbkShop.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/domain/NTbkShop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/domain/TbkItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/domain/TbkItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/domain/TbkShop.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/domain/TbkShop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemGetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemGetRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemsDetailGetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemsDetailGetRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemsGetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/taobao/top/request/TbkItemsGetRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/css/personal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/css/personal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/js/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/js/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/js/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/js/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/js/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/js/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/buyer/bind.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/buyer/bind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/buyer/order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/buyer/order_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/common/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/common/member_left.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/common/member_left.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/add_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/add_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/add_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/add_rebate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/add_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/add_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/alert_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/alert_card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_rebate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/edit_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/rebate_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/rebate_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/member/merchant/trial_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/member/merchant/trial_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/product/check_alipay.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/product/check_alipay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/product/show_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/product/show_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/shop/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/shop/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/css/gabalnara.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/css/gabalnara.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/taobao_popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/taobao_popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud/style/js/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud/style/js/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/buyer/bind.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/buyer/bind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/buyer/order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/buyer/order_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/common/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/common/member_left.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/common/member_left.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_rebate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/add_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/alert_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/alert_card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_commission.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_commission.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_rebate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/edit_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/rebate_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/rebate_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/member/merchant/trial_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/member/merchant/trial_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/product/list_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/product/list_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/product/show_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/product/show_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/product/show_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/product/show_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/shop/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/shop/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/css/gabalnara.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/css/gabalnara.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/taobao_popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/taobao_popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud2/style/js/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud2/style/js/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/bind.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/bind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/commission_order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/commission_order_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/order_manage1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/order_manage1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/rebate_order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/rebate_order_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/buyer/trial_order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/buyer/trial_order_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/common/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/common/member_left.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/common/member_left.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_rebate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/attestation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/attestation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/alert_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/alert_card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_commission.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_commission.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_rebate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_rebate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/v2_order_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/v2_order_manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/rebate_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/rebate_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/trial_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/trial_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/check_alipay.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/check_alipay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/list_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/list_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/person_check.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/person_check.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/show_commission.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/show_commission.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/show_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/show_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/product/show_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/product/show_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/shop/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/shop/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/css/gabalnara.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/css/gabalnara.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/css2/gabalnara.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/css2/gabalnara.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/commission.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/commission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/taobao_popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/taobao_popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/style/js2/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/style/js2/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/task/broke_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/task/broke_show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/document/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/document/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/member/buyer/bind.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/member/buyer/bind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/member/buyer/edit_ordernum.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/member/buyer/edit_ordernum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/member/buyer/infomation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/member/buyer/infomation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/product/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/product/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/product/list_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/product/list_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/product/show_postal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/product/show_postal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/product/show_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/product/show_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/shop/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/shop/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/style/default/js/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/style/default/js/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/style/default/js/taobao.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/style/default/js/taobao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/style/default/js/trial.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/style/default/js/trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap/task/broke_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap/task/broke_show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/app.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/article/about_help.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/article/about_help.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/commission/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/commission/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/rebate/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/rebate/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/task/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/task/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/commission_order_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/commission_order_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/invitation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/invitation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/templates/user/user_profile_taobao.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/templates/user/user_profile_taobao.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +206,15 @@
         <counts>
           <entry key="INI" value="5" />
           <entry key="buildpath" value="2" />
-          <entry key="css" value="14" />
+          <entry key="css" value="15" />
           <entry key="gitignore" value="2" />
           <entry key="htaccess" value="9" />
-          <entry key="html" value="231" />
+          <entry key="html" value="234" />
           <entry key="inc" value="2" />
-          <entry key="js" value="76" />
+          <entry key="js" value="77" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
-          <entry key="php" value="380" />
+          <entry key="php" value="382" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="sql" value="9" />
@@ -58,13 +224,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="14" />
-          <entry key="HTML" value="231" />
+          <entry key="CSS" value="15" />
+          <entry key="HTML" value="234" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="5" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="76" />
-          <entry key="PHP" value="382" />
+          <entry key="JavaScript" value="77" />
+          <entry key="PHP" value="384" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SQL" value="9" />
           <entry key="Smarty" value="9" />
@@ -77,21 +243,21 @@
           <entry key="css" value="36" />
           <entry key="gitignore" value="18" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="1349" />
+          <entry key="html" value="1357" />
           <entry key="js" value="1600" />
-          <entry key="php" value="1400" />
+          <entry key="php" value="1432" />
           <entry key="sql" value="33" />
-          <entry key="txt" value="383" />
+          <entry key="txt" value="389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="36" />
-          <entry key="HTML" value="1349" />
+          <entry key="HTML" value="1357" />
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="1600" />
-          <entry key="PHP" value="1400" />
-          <entry key="PLAIN_TEXT" value="401" />
+          <entry key="PHP" value="1432" />
+          <entry key="PLAIN_TEXT" value="407" />
           <entry key="SQL" value="33" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -104,45 +270,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/register.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/activate_email.html">
+        <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            <state relative-caret-position="337">
+              <caret line="1665" column="13" selection-start-line="1665" selection-start-column="13" selection-end-line="1665" selection-end-column="13" />
+              <folding>
+                <element signature="e#34#72#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/blacklist.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/task_list.html">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1254" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="121" column="67" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="67" />
+            <state relative-caret-position="130">
+              <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Member/Templates/merchant_lists.tpl.php">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/login.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="32" column="109" selection-start-line="32" selection-start-column="107" selection-end-line="32" selection-end-column="109" />
+            <state relative-caret-position="403">
+              <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -167,23 +333,38 @@
         <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="513">
-              <caret line="440" column="6" selection-start-line="440" selection-start-column="6" selection-end-line="442" selection-end-column="45" />
+              <caret line="590" column="18" selection-start-line="590" selection-start-column="22" selection-end-line="590" selection-end-column="109" />
               <folding>
                 <element signature="n#style#0;n#div#4;n#div#16;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#25;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Member/Templates/commission_set.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="158" column="215" selection-start-line="158" selection-start-column="215" selection-end-line="158" selection-end-column="215" />
+              <folding>
+                <element signature="e#10774#10780#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="455" column="23" lean-forward="true" selection-start-line="455" selection-start-column="23" selection-end-line="455" selection-end-column="23" />
+            <state relative-caret-position="375">
+              <caret line="584" column="109" selection-start-line="584" selection-start-column="22" selection-end-line="584" selection-end-column="109" />
               <folding>
                 <element signature="n#style#0;n#div#4;n#div#16;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#18;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#19;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#25;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -200,10 +381,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>QQ用户登录</find>
-      <find>join</find>
-      <find>left join</find>
-      <find>goods_url</find>
       <find>goods_show</find>
       <find>getorderlists</find>
       <find>register_index</find>
@@ -228,12 +405,17 @@
       <find>logo-box</find>
       <find>商家会员不能</find>
       <find>申诉</find>
-      <find>淘宝</find>
       <find>账户明细</find>
+      <find>qq</find>
+      <find>淘宝客</find>
+      <find>淘宝</find>
+      <find>天猫</find>
+      <find>toE</find>
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
       <replace>$</replace>
+      <replace>亚马逊</replace>
     </replaceStrings>
     <dirStrings>
       <dir>H:\projects\PHP\kaixinshiyong\static</dir>
@@ -292,7 +474,6 @@
         <option value="$PROJECT_DIR$/templates/wap/style/default/css/user.css" />
         <option value="$PROJECT_DIR$/templates/wap/member/login.html" />
         <option value="$PROJECT_DIR$/Application/Product/Controller/IndexController.class.php" />
-        <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/v2_merchant_left.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/header.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant_index.html" />
@@ -302,8 +483,9 @@
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/attestation.html" />
         <option value="$PROJECT_DIR$/Application/Member/Templates/merchant_lists.tpl.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/buyer/financial.html" />
-        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" />
+        <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" />
+        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" />
       </list>
     </option>
   </component>
@@ -357,6 +539,19 @@
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -487,10 +682,11 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/css/style-list.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/index.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/controllers.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/js/services.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/register.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/article/article_index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -498,7 +694,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/wap2/templates/user/activate_email.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -624,14 +819,7 @@
       <workItem from="1534558091106" duration="2473000" />
       <workItem from="1534725845289" duration="9109000" />
       <workItem from="1534909250394" duration="3575000" />
-      <workItem from="1534986669173" duration="6768000" />
-    </task>
-    <task id="LOCAL-00001" summary="修改">
-      <created>1533881512996</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1533881512996</updated>
+      <workItem from="1534986669173" duration="13965000" />
     </task>
     <task id="LOCAL-00002" summary="修改">
       <created>1534125802707</created>
@@ -962,7 +1150,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535010538023</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="修改">
+      <created>1535014541015</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1535014541015</updated>
+    </task>
+    <task id="LOCAL-00050" summary="修改">
+      <created>1535024749086</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1535024749087</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -971,7 +1173,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191584000" />
+    <option name="totallyTimeSpent" value="198781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1094,7 +1296,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php</url>
-          <line>5547</line>
+          <line>5551</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1124,48 +1326,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/controllers.js</url>
-          <line>1997</line>
+          <line>1916</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Lang/zh-cn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/ueditor/ueditor.all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="7403" column="8" selection-start-line="7403" selection-start-column="8" selection-end-line="7403" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="2685" column="18" selection-start-line="2685" selection-start-column="18" selection-end-line="2685" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/help.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1280,13 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80332">
-          <caret line="4228" column="50" selection-start-line="4228" selection-start-column="50" selection-end-line="4228" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/member_index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1380,13 +1540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -1438,24 +1591,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
+    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="440" column="6" selection-start-line="440" selection-start-column="6" selection-end-line="442" selection-end-column="45" />
+        <state relative-caret-position="337">
+          <caret line="1665" column="13" selection-start-line="1665" selection-start-column="13" selection-end-line="1665" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#div#4;n#div#16;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#34#72#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/login.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/css/style-list.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="455" column="23" lean-forward="true" selection-start-line="455" selection-start-column="23" selection-end-line="455" selection-end-column="23" />
+        <state relative-caret-position="375">
+          <caret line="584" column="109" selection-start-line="584" selection-start-column="22" selection-end-line="584" selection-end-column="109" />
           <folding>
             <element signature="n#style#0;n#div#4;n#div#16;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#18;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#19;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#25;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="590" column="18" selection-start-line="590" selection-start-column="22" selection-end-line="590" selection-end-column="109" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#16;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#25;n#form#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Templates/commission_set.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="158" column="215" selection-start-line="158" selection-start-column="215" selection-end-line="158" selection-end-column="215" />
+          <folding>
+            <element signature="e#10774#10780#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

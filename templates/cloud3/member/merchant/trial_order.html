@@ -176,7 +176,7 @@ var order_data = {
 		<!--ht_pxx-->
 		<div class="ht_pxx">
 			<select id="selectsearchtype" name="type">
-				<option value="1" {if $type == 1} selected{/if}>淘宝账号查询</option>
+				<option value="1" {if $type == 1} selected{/if}>亚马逊账号查询</option>
 				<option value="2" {if $type == 2} selected{/if}>订单号查询</option>
 			</select>
 			<input id="usertext" type="text" name="keyword" placeholder="请输入查询" class="shou" />
@@ -206,7 +206,7 @@ var order_data = {
 						<strong>用户昵称</strong>
 					</td>
 					<td width="160" height="30" bgcolor="#eaeaea" align="center">
-						<strong>淘宝账号</strong>
+						<strong>亚马逊账号</strong>
 					</td>
 					<td width="150" height="30" bgcolor="#eaeaea" align="center">
 						<strong>状态</strong>
@@ -240,7 +240,7 @@ var order_data = {
 							</div>
 						</td>
 						<td width="160" height="60" valign="middle" align="center">
-							<span>淘宝账号：{if $s[taobao][bind_account]}{$s[taobao][account]}{else}-{/if}</span>
+							<span>亚马逊账号：{if $s[taobao][bind_account]}{$s[taobao][account]}{else}-{/if}</span>
 							<br />
 							<span>安全等级：{if $s[taobao][bind_account]}{$level[$s[taobao][safe_grade]]}{else}-{/if}</span>
 							<br />

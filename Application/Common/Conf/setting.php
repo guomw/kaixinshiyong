@@ -139,7 +139,7 @@
   'POSTAL_SEO' => 'array (
   \'postal_title\' => \'九块九包邮商品列表 - 限时折扣,品牌折扣店-{site_title}\',
   \'postal_keyword\' => \'折扣商品,超低折扣商品,低折扣商品,1折商品,9.9包邮,19.9包邮,特价商品。\',
-  \'postal_description\' => \'全场折扣商品均由职业买手从淘宝精选砍价而来,每天10点开抢-速度来抢购。\',
+  \'postal_description\' => \'全场折扣商品均由职业买手从亚马逊精选砍价而来,每天10点开抢-速度来抢购。\',
 )',
   'SHAI_SEO' => 'array (
   \'shai_title\' => \'买家晒单,分享您的精彩购物之旅-{site_title}\',

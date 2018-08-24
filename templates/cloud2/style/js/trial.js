@@ -254,9 +254,9 @@ var trial_detail = (function() {
             }else{
                 var talk_html = '<div class="CPM_style CPM_style_2 border_radius_5" style="position: static;width:332px;">';
             }
-            if (bind_set == 4) {	//	后台活动设置开启 需要淘宝账号时启用
+            if (bind_set == 4) {	//	后台活动设置开启 需要亚马逊账号时启用
                 if (bind_tbs != 0) {
-                    talk_html += '<font class="font font_2" style="padding-left: 20px;color:blue;">用此淘宝账号购买：<select name="bind_taobao" id="bind_taobao">';
+                    talk_html += '<font class="font font_2" style="padding-left: 20px;color:blue;">用此亚马逊账号购买：<select name="bind_taobao" id="bind_taobao">';
                     $.each(bind_tbs,function(k,tb) {
                         if (tb.is_default == 1) {
                             talk_html += '<option value="'+ tb.id +'" selected>'+ tb.account +'</option>';
@@ -266,7 +266,7 @@ var trial_detail = (function() {
                     });
                     talk_html += '</select></font><br/>';
                 }else{
-                    talk_html += '<font class="font font_2" style="padding-left: 20px;color:blue;">暂无绑定的淘宝账号！<a href="/index.php?m=Member&c=Attesta&a=bindtaobao" target="_blank" style="color:red;">点此去绑定</a></font><br/>';
+                    talk_html += '<font class="font font_2" style="padding-left: 20px;color:blue;">暂无绑定的亚马逊账号！<a href="/index.php?m=Member&c=Attesta&a=bindtaobao" target="_blank" style="color:red;">点此去绑定</a></font><br/>';
                 }
             }
 
@@ -329,7 +329,7 @@ var trial_detail = (function() {
 					var phone = /^(1)[0-9]{10}$/; 
 					var url = /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&]*([^<>])*$/;
 					var qq = /^\d{5,10}$/;
-					// 若后台活动设置开启需要绑定淘宝账号后则校验;
+					// 若后台活动设置开启需要绑定亚马逊账号后则校验;
 					var bind_taobao = $('#bind_taobao').val();
 					if(phone.test(talk_content) || url.test(talk_content) || qq.test(talk_content) || (bind_set==4&&isNaN(bind_taobao)==true)){
 						var str = '';
@@ -340,7 +340,7 @@ var trial_detail = (function() {
 						}else if(qq.test(talk_content)){
 							str = '禁止输入数字等联系方式';
 						}else if(isNaN(bind_taobao) == true){
-							str = '请选择要绑定的淘宝帐号';
+							str = '请选择要绑定的亚马逊帐号';
 						}
 						art.dialog({
 							lock: true,
@@ -371,7 +371,7 @@ var trial_detail = (function() {
 			// 抢购成功
 			$.post(site.site_root + '/?m=product&c=api&a=pay_submit',{
 				goods_id : goods.id,
-				bind_taobao: bind_taobao,	// 淘宝帐号id
+				bind_taobao: bind_taobao,	// 亚马逊帐号id
 				talk_content : talk_content, //对商家说点什么
                 data_type:mss  //是否是VIP申请
             },function(ret){

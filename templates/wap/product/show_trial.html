@@ -195,7 +195,7 @@
     $goods['report_count'] = report_count_by_gid($id);
     $goods['buyer_count'] = buyer_count_by_gid($id);
     $userinfo = is_login();
-    // 已绑定的淘宝账号
+    // 已绑定的亚马逊账号
     $bind_tbs = get_bind_taobao($userinfo['userid']);
     // 活动后台设置
     $bind_set = string2array(C_READ('buyer_join_condition','trial'));

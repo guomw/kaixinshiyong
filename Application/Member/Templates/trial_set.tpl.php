@@ -235,11 +235,11 @@ $(function(){
                 <th width="120">参与条件</th>
                 <td class="y-bg">
                     <label><input type="checkbox" name="setting[buyer_join_condition][information]" class="input-radio" <?php if(in_array(6, $setting['buyer_join_condition'])){echo 'checked';}?> value='6'>需完善基本资料</label>&nbsp;
-                    <label><input type="checkbox" name="setting[buyer_join_condition][phone]" class="input-radio" <?php if(in_array(1, $setting['buyer_join_condition'])){echo 'checked';}?> value='1'>需完成手机认证</label>&nbsp;
+<!--                    <label><input type="checkbox" name="setting[buyer_join_condition][phone]" class="input-radio" --><?php //if(in_array(1, $setting['buyer_join_condition'])){echo 'checked';}?><!-- value='1'>需完成手机认证</label>&nbsp;-->
                     <label><input type="checkbox" name="setting[buyer_join_condition][email]" class="input-radio" <?php if(in_array(2, $setting['buyer_join_condition'])){echo 'checked';}?> value='2'>需完成邮箱认证</label>&nbsp;
                     <label><input type="checkbox" name="setting[buyer_join_condition][realname]" class="input-radio" <?php if(in_array(3, $setting['buyer_join_condition'])){echo 'checked';}?> value='3'>需完成实名认证</label>&nbsp;
-                    <label><input type="checkbox" name="setting[buyer_join_condition][bind_taobao]" class="input-radio" <?php if(in_array(4, $setting['buyer_join_condition'])){echo 'checked';}?> value='4'>需绑定淘宝账号</label>&nbsp;
-                    <label><input type="checkbox" name="setting[buyer_join_condition][bind_alipay]" class="input-radio" <?php if(in_array(5, $setting['buyer_join_condition'])){echo 'checked';}?> value='5'>需绑定支付宝账号</label>
+                    <label><input type="checkbox" name="setting[buyer_join_condition][bind_taobao]" class="input-radio" <?php if(in_array(4, $setting['buyer_join_condition'])){echo 'checked';}?> value='4'>需绑定亚马逊账号</label>&nbsp;
+<!--                    <label><input type="checkbox" name="setting[buyer_join_condition][bind_alipay]" class="input-radio" --><?php //if(in_array(5, $setting['buyer_join_condition'])){echo 'checked';}?><!-- value='5'>需绑定支付宝账号</label>-->
                      <label><input type="checkbox" name="setting[buyer_join_condition][reason]" class="input-radio" <?php if(in_array(7, $setting['buyer_join_condition'])){echo 'checked';}?> value='7'>需申请理由</label>
 
                 </td>

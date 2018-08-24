@@ -79,7 +79,7 @@
 							</li>
 							
 							<li class="shop_soure set_line_height width_100 float_left"  id="field_taobaoke">
-								<span class="js_set_input font_size14 shop_value_name text_align_right">淘宝客佣金：</span>
+								<span class="js_set_input font_size14 shop_value_name text_align_right">亚马逊佣金：</span>
 								<!-- <label><input type="radio" name="info[taobaoke]" value="1" {if $taobaoke == 1} checked {/if}/>&nbsp;是</label>
 								<label><input type="radio" name="info[taobaoke]" value="0" {if $taobaoke == 0} checked {/if}/>&nbsp;否</label> -->
 								<input type="text" class="float_left input_width_2 height_100 " name="info[taobao_charge]"  id="taobao" value="{$taobao_charge}" />
@@ -138,7 +138,7 @@
 							</li>
 							<script type="text/javascript" src="{THEME_STYLE_PATH}style/js/common.js"></script>
 							<script type="text/javascript">
-								/* 点击淘宝 天猫 */
+								/* 点击亚马逊 天猫 */
 								$(document).ready(function(){
 									$('.shop_cost2 ').blur(function(){
 										var oShopRental = parseFloat($('.shop_cost1').val());
@@ -383,23 +383,23 @@ $("#goods_content").formValidator({
 		return true;
 	}
 });
-/*淘宝佣金*/
+/*亚马逊佣金*/
 $("#taobao").formValidator({
 	empty:false,
-	onempty:'淘宝佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
-	onshow:'淘宝佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
-	onfocus:'请输入淘宝佣金'
+	onempty:'亚马逊佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
+	onshow:'亚马逊佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
+	onfocus:'请输入亚马逊佣金'
 }).functionValidator({
 	fun:function(val,elem){
 		if('<?php echo $activity_set["seller_charge_money"];?>' != '' && val < '<?php echo $activity_set["seller_charge_money"];?>'){
-			return '淘宝佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功';
+			return '亚马逊佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功';
 		}
 		return true;
 	}
 }).regexValidator({
 	regexp:'decmal1',
 	datatype:'enum',
-	onerror:'淘宝佣金输入错入'	
+	onerror:'亚马逊佣金输入错入'
 });
 </script>
 <link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />

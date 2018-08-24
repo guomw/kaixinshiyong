@@ -555,7 +555,7 @@ angular
         })
 
         .state('tab.user_profile_taobao', {
-          url: '/user/profile/taobao', //我的淘宝帐号绑定
+          url: '/user/profile/taobao', //我的亚马逊帐号绑定
           views: {
             'tab-user': {
               templateUrl: 'templates/user/user_profile_taobao.html',

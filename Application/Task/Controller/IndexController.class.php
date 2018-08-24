@@ -144,12 +144,12 @@ class IndexController extends \Common\Controller\BaseController {
     	//判断用户是否完成过
     	$modelid = model('member')->getFieldByUserid($userinfo['userid'],'modelid');
     	if($modelid != 1) $this->error('只限于买家参与',U('broke'));
-    	//查看该用户是否绑定手机、淘宝账号
+    	//查看该用户是否绑定手机、亚马逊账号
       
-        if(DEFAULT_THEME != 'wap'){ //手机没有绑定淘宝号
+        if(DEFAULT_THEME != 'wap'){ //手机没有绑定亚马逊号
             $taobao = model('member_bind')->where(array('userid'=>$userinfo['userid']))->find();
             if(!$taobao){
-                $this->error('您还没有绑定淘宝，去绑定',U('Member/Attesta/bindtaobao'));
+                $this->error('您还没有绑定亚马逊，去绑定',U('Member/Attesta/bindtaobao'));
             }
         }
 

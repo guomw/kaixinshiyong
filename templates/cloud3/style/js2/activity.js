@@ -81,7 +81,7 @@ function error(msg) {	//	错误提示
 };
 var goods = {
 	/**
-	 * 发布商品淘宝客选择否时提示
+	 * 发布商品亚马逊选择否时提示
 	 */
 	taoke_tip : function() {
 		var html = '<li>1、如选择“否”，则买家购买时产生的淘客佣金，由商家承担。</li>';

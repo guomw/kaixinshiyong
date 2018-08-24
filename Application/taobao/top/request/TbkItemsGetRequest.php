@@ -78,7 +78,7 @@ class TbkItemsGetRequest
 	private $keyword;
 	
 	/** 
-	 * 是否商城的商品，设置为true表示该商品是属于淘宝商城的商品，设置为false或不设置表示不判断这个属性
+	 * 是否商城的商品，设置为true表示该商品是属于亚马逊商城的商品，设置为false或不设置表示不判断这个属性
 	 **/
 	private $mallItem;
 	

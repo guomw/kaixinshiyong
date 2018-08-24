@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 淘宝客商品
+ * 亚马逊商品
  * @author auto create
  */
 class TbkItem
@@ -28,7 +28,7 @@ class TbkItem
 	public $nick;
 	
 	/** 
-	 * 淘宝客商品数字id
+	 * 亚马逊商品数字id
 	 **/
 	public $numIid;
 	

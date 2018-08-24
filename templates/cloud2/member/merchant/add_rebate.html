@@ -90,7 +90,7 @@
                             <li class="shop_soure width_100 float_left">
                                 <span class="font_size14 shop_value_name text_align_right">获取信息：</span>
                                 <input type="text" name="info[go_link]" class="input-text" style="width:300px" />
-                                (请输入商品链接 支持淘宝 天猫 京东)
+                                (请输入商品链接 支持亚马逊 天猫 京东)
                                 <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
                             </li>
                             <script>
@@ -193,13 +193,13 @@
 							<li class="position_relative set_line_height float_left set_display_index">
 								<p class="padding_left_right_10  border_dddddd activity_mold_hint" id="field_taobaoke">
 									<img src="{THEME_STYLE_PATH}style/images/activity_mold_bg.jpg" alt="" />
-									<span>店铺或商品是否正在做淘宝推广</span>
+									<span>店铺或商品是否正在做亚马逊推广</span>
  									<span><label><input type="radio" class="float_left margin_left_right_5 margin_top_8" name="info[taobaoke]" value="1" onclick="goods.taoke_tip()"/>是</label></span>
 									<span><label><input type="radio" class="float_left margin_left_right_5 margin_top_8" name="info[taobaoke]" value="0" onclick="goods.taoke_tip()"/>否</label></span>
 								</p>							
 								<p class="activity_mold_hint border_dddddd" id="search">
 									<img src="{THEME_STYLE_PATH}style/images/activity_mold_bg.jpg" style="left:70px;top:-6px;" alt=""  />										
-									<input type="text" name="info[goods_rule][keyword]" class="margin_top_5 margin_left_5 border_dddddd search_value text_indent_10 border_none" placeholder="请输入淘宝关键词，例如：韩版春装，韩版女装 用 ， 分隔"/>
+									<input type="text" name="info[goods_rule][keyword]" class="margin_top_5 margin_left_5 border_dddddd search_value text_indent_10 border_none" placeholder="请输入亚马逊关键词，例如：韩版春装，韩版女装 用 ， 分隔"/>
 									<input type="text" name="info[goods_rule][keyword2]" class="margin_top_5 margin_left_5 border_dddddd search_value text_indent_10 border_none" placeholder="例如：用ctr/ + f 查找店铺关键字，找到活动商品。"/>
 								</p>	
 								<p class="activity_mold_hint  border_dddddd" id="question">
@@ -261,7 +261,7 @@
 								</ul>
 							</li>
 							<script type="text/javascript">
-								/* 点击淘宝 天猫 */
+								/* 点击亚马逊 天猫 */
 								$(document).ready(function(){
 									$('.shop_cost2 ').blur(function(){
 										var oShopRental = parseFloat($('.shop_cost1').val());

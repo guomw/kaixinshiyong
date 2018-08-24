@@ -693,28 +693,28 @@ class AttestaController extends InitController {
 	}
 
 	/**
-	 * 绑定淘宝账号
+	 * 绑定亚马逊账号
 	 * @author   <master@ .cn>
      * @copyright: adalways inc
      * @date：2016-10-06
      * @version：1.0
      */
 	public function bindtaobao(){
-		$SEO = seo('','淘宝账号绑定');
+		$SEO = seo('','亚马逊账号绑定');
 		if ($this->userinfo['modelid'] != 1) $this->error('请登录买家账号',U('member/index/login'));
 		if(IS_POST){
 			$info = I('post.data');
 			$account = $info['account'];
-			if (!$account) $this->error('请输入要绑定的淘宝帐号');
+			if (!$account) $this->error('请输入要绑定的亚马逊帐号');
 
 			/* 统计该会员已绑定数量 */		
 			$bind_tb_nums = C('bind_tb_nums');	//	后台允许绑定的个数
 			$count = model('member_bind')->where(array('userid' => $this->userid,'status'=>array('NEQ',2)))->count();
-			if ($count >= $bind_tb_nums) $this->error('您已绑定了'.$count.'个淘宝帐号，已达到最高绑定数量了！');
+			if ($count >= $bind_tb_nums) $this->error('您已绑定了'.$count.'个亚马逊帐号，已达到最高绑定数量了！');
 
 			/* 该账号是否已经被绑定 */
 			$account_count = model('member_bind')->where(array('account'=>$account))->count();
-			if($account_count) $this->error('该淘宝账号已经被绑定过，请更换淘宝账号');
+			if($account_count) $this->error('该亚马逊账号已经被绑定过，请更换亚马逊账号');
 
 			$data                   = array();
 			$data['userid']         = $this->userid;
@@ -726,7 +726,7 @@ class AttestaController extends InitController {
 		    $data['inputtime']      = NOW_TIME;
             $data['is_default'] = 0;
             $result = model('member_bind')->add($data);
-			if(!$result) $this->error('绑定淘宝账号失败');
+			if(!$result) $this->error('绑定亚马逊账号失败');
 			$this->success('绑定成功');
 		}else{
 			/* 已绑定的账号记录 */
@@ -737,7 +737,7 @@ class AttestaController extends InitController {
 	}
 
 	/**
-	 * 解除淘宝绑定
+	 * 解除亚马逊绑定
 	 * @author   <master@ .cn>
      * @copyright: adalways inc
      * @date：2016-10-06
@@ -745,7 +745,7 @@ class AttestaController extends InitController {
      */
 	public function unbind(){
 		$id = (int)$_POST['id'];
-		if ($id < 1) $this->error('该淘宝帐号不存在');
+		if ($id < 1) $this->error('该亚马逊帐号不存在');
 		//判断该账号是否是该会员操作
 		$rs = model('member_bind')->find($id);
 		if ($rs['userid'] != $this->userid) $this->error('请登录您的会员帐号！',U('member/index/login/'));
@@ -760,7 +760,7 @@ class AttestaController extends InitController {
 	}
 
 	/**
-	 * 删除淘宝绑定
+	 * 删除亚马逊绑定
 	 * @author   <master@ .cn>
      * @copyright: adalways inc
      * @date：2016-10-06
@@ -808,7 +808,7 @@ class AttestaController extends InitController {
 	}
 
 	/**
-	 * 设置为默认淘宝帐号
+	 * 设置为默认亚马逊帐号
 	 * @author   <master@ .cn>
      * @copyright: adalways inc
      * @date：2016-10-06
@@ -816,7 +816,7 @@ class AttestaController extends InitController {
      */
 	public function setdefault() {
 		$id = (int)$_GET['id'];
-		if ($id < 1) $this->error('该淘宝帐号不存在');
+		if ($id < 1) $this->error('该亚马逊帐号不存在');
 		//判断该账号是否是该会员操作
 		$rs = model('member_bind')->find($id);
 		if ($rs['userid'] != $this->userid) $this->error('请登录您的会员帐号！',U('member/index/login/'));

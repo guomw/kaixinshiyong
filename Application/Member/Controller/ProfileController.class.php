@@ -251,7 +251,7 @@ class ProfileController extends InitController {
             foreach ($infos as $key=>$val) {
                 $arr[$val['type']] = $val;
             }
-			//是否绑定淘宝账号
+			//是否绑定亚马逊账号
 			$is_bind = model('member_bind')->where(array('userid'=>$this->userid))->count();
 			include template('buyer/infomation');
 		}

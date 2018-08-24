@@ -255,7 +255,7 @@ var order = (function() {
 					art.dialog({
 						lock	: true,
 						fixed	: true,
-						title	: '填写淘宝订单号',
+						title	: '填写亚马逊订单号',
 						content	: diy_form,
 						init	: function(){
 							var dialog = this;
@@ -396,7 +396,7 @@ var order = (function() {
 					art.dialog({
 						lock	: true,
 						fixed	: true,
-						title	: '填写淘宝订单号',
+						title	: '填写亚马逊订单号',
 						content	: diy_form,
 						init	: function(){
 							var dialog = this;
@@ -511,7 +511,7 @@ var order = (function() {
 				lock	: true,
 				fixed	: true,
 				id		: 'fill_trade_no',
-				title	: '填写淘宝订单号',
+				title	: '填写亚马逊订单号',
 				content	: diy_form,
 				init	: function(){
 					var dialog = this;

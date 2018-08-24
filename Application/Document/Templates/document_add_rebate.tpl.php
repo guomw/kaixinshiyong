@@ -66,7 +66,7 @@ include $this->admin_tpl('header','admin');?>
 	<tr>
       <th>商品来源：</th>
       <td>
-			<label><input type="radio" name="" id="1" />&nbsp;淘宝</label>
+			<label><input type="radio" name="" id="1" />&nbsp;亚马逊</label>
 			<label><input type="radio" name="" id="2" />&nbsp;天猫</label>
 			<label><input type="radio" name="" id="3" />&nbsp;京东</label>
 			<label><input type="radio" name="" id="4" />&nbsp;苏宁</label>

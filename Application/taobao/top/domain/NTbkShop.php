@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 淘宝客店铺
+ * 亚马逊店铺
  * @author auto create
  */
 class NTbkShop
@@ -28,7 +28,7 @@ class NTbkShop
 	public $shopTitle;
 	
 	/** 
-	 * 店铺类型，B：天猫，C：淘宝
+	 * 店铺类型，B：天猫，C：亚马逊
 	 **/
 	public $shopType;
 	

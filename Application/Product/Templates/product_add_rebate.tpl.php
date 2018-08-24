@@ -78,7 +78,7 @@ include $this->admin_tpl('header','admin');?>
 
     <tr>
         <th>获取信息：</th>
-        <td><input type="text" name="info[go_link]" class="input-text" style="width:300px" />(请输入商品链接 支持淘宝 天猫 京东) <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
+        <td><input type="text" name="info[go_link]" class="input-text" style="width:300px" />(请输入商品链接 支持亚马逊 天猫 京东) <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
     </tr>
 
 
@@ -88,7 +88,7 @@ include $this->admin_tpl('header','admin');?>
     </tr>
 
 	<tr id="field_taobaoke">
-		<th>淘宝客推广：</th>
+		<th>亚马逊推广：</th>
 		<td>
 			<label><input type="radio" name="info[taobaoke]" value="1"/>&nbsp;是</label>
 			<label><input type="radio" name="info[taobaoke]" value="0"/>&nbsp;否</label>

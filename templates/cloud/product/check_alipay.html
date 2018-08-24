@@ -30,7 +30,7 @@
             function checktaobao() {
                 var taobao = $(this).siblings('.pulldown').children('#taobao').val();
                 if (taobao == "") {
-                    alert("请选择淘宝账号");
+                    alert("请选择亚马逊账号");
                 }
             }
         </script>
@@ -39,11 +39,11 @@
         <div class="ling_mian">
         	{if empty($rs)}
         	<div class="Choice" id="errorMsg">
-               	你还没有绑定淘宝账号，<a href="{U('Member/Attesta/alipay_attesta')}" target="_blank"style="float: right; margin: 0px -45px 0 0; text-decoration: blink;color: #0d92e7">去绑定</a>
+               	你还没有绑定亚马逊账号，<a href="{U('Member/Attesta/alipay_attesta')}" target="_blank"style="float: right; margin: 0px -45px 0 0; text-decoration: blink;color: #0d92e7">去绑定</a>
             </div>
         	{else}
             <div class="Choice" id="errorMsg">
-               	请选择本次下单的淘宝账号
+               	请选择本次下单的亚马逊账号
             </div>
             <div class="pulldown">
                 <select id="taobao" name="cars" class="pull">
@@ -52,7 +52,7 @@
             </div>
             {/if}
             <div class="taobao">
-                <p style="color: red;margin-bottom:10px;"> 必须使用选择的淘宝账号下单 </p>
+                <p style="color: red;margin-bottom:10px;"> 必须使用选择的亚马逊账号下单 </p>
                 <p style="color: red"> 否则将不予返款同时冻结账户</p>
             </div>
             <!-- <div class="Grayb" onclick="checktaobao()"> 确认 </div> -->

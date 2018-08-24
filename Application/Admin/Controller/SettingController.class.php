@@ -75,7 +75,7 @@ Class SettingController extends InitController {
         $setting = $this->db->getField('key,value');
         include $this->admin_tpl('imgset');
     }
-    /* 1.5 淘宝联盟设置 [Adalways试用系统] */
+    /* 1.5 亚马逊联盟设置 [Adalways试用系统] */
     public function taobaoset(){
         $setting = $this->db->getField('key,value');
         include $this->admin_tpl('taobaoset');

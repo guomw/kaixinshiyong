@@ -274,10 +274,10 @@ Class IndexController extends BaseController {
             $buyer_join_condition = ($buyer_join_condition) ? string2array($buyer_join_condition) : '';
              // 统计实名认证
              $identity_count = model('member_attesta')->where(array('userid'=>$this->user_info['userid'],'type'=>'identity'))->count();
-             /* 绑定淘宝账号 */
+             /* 绑定亚马逊账号 */
              $tb_count = model('member_bind')->where(array('userid'=>$this->user_info['userid'],'status'=>1))->count();
 
-            // 已绑定的淘宝账号
+            // 已绑定的亚马逊账号
              $bind_tbs = get_bind_taobao($this->user_info['userid']);
 
              /* 是否绑定支付宝 */
@@ -461,7 +461,7 @@ Class IndexController extends BaseController {
      * 抢购支付宝检测
      */
     public function alipay_check(){
-        //判断该用户是否绑定淘宝账号
+        //判断该用户是否绑定亚马逊账号
         $rs = model('member_bind')->where(array('userid'=>$this->user_info['userid']))->select();
         
         include template('check_alipay');
@@ -479,7 +479,7 @@ Class IndexController extends BaseController {
         $buyer_join_condition = ($buyer_join_condition) ? string2array($buyer_join_condition) : '';
          // 统计实名认证
         $identity_count = model('member_attesta')->where(array('userid'=>$this->user_info['userid'],'type'=>'identity'))->count();
-         /* 绑定淘宝账号 */
+         /* 绑定亚马逊账号 */
         $tb_count = model('member_bind')->where(array('userid'=>$this->user_info['userid'],'status'=>1))->count();
          /* 是否绑定支付宝 */
         $account = model('member_attesta')->where(array('userid'=>$this->user_info['userid'],'type'=>'alipay'))->count(); 

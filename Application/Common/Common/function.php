@@ -2818,14 +2818,14 @@ function get_store_value($company_id = 0,$goos_ww ='',$value = 'store_name') {
 }
 
 
-/* 获取该会员绑定淘宝信息 */
+/* 获取该会员绑定亚马逊信息 */
 function get_bind_taobao($userid = '') {
 	$userid = (int)$userid;
 	if ($userid < 1) return FALSE;
 	return model('member_bind')->where(array('userid'=>$userid,'status'=>1))->order('id DESC')->select();
 }
 
-/*统计会员绑定的淘宝帐号数量*/
+/*统计会员绑定的亚马逊帐号数量*/
 function get_bind_taobao_num($userid = '') {
 
 	if(!isset($userid)) echo $userid =cookie('_userid');
@@ -2904,7 +2904,7 @@ function go_taobao($url){
 	$id = $id[1];
 	require APP_PATH."taobao/TopSdk.php";
 	$c = new TopClient;
-	// 获取淘宝商品信息
+	// 获取亚马逊商品信息
     $c->appkey = C('API_KEY');
     $c->secretKey = C('API_SECRET');
 	$req = new TbkItemInfoGetRequest;

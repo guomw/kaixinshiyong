@@ -70,7 +70,7 @@ var site = {
             <th align="left">订单号</th>
             <th align="left" width="15%">申请人</th>
             <th align="left" width="12%">联系信息</th>
-            <th align="left" width="13%">淘宝账号</th>
+            <th align="left" width="13%">亚马逊账号</th>
             <th align="left" width="4%">申请留言</th>
             <th align="left" width="10%">活动信息</th>
             <th align="left">试用价格</th>  
@@ -108,7 +108,7 @@ var site = {
 		<?php }?>
         </td>
         <td align="left">
-        淘宝账号：<?php echo $v['member_info']['taobao']['account'];?><br />
+        亚马逊账号：<?php echo $v['member_info']['taobao']['account'];?><br />
         安全等级：<?php echo $this->grade[$v['member_info']['taobao']['safe_grade']];?><br />
         买家信用：<?php echo $v['member_info']['taobao']['bscore'];?><br />
         好评率：<?php echo $v['member_info']['taobao']['favorable_rate'];?><br />

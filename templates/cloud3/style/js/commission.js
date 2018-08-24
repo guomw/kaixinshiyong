@@ -192,7 +192,7 @@ var commission = {
   		lock	: true,
   		fixed	: true,
   		id		: 'fill_trade_no',
-  		title	: '填写淘宝订单号',
+  		title	: '填写亚马逊订单号',
   		content	: diy_form,
   		init	: function(){
   			var dialog = this;
@@ -345,7 +345,7 @@ var commission = {
 	code:function(id,taobao){
 		
 	},
-	/* 检测是否绑定淘宝账号 */
+	/* 检测是否绑定亚马逊账号 */
 	buy:function(id){
         if (id > 0) {
         	//检测是否已经登录
@@ -363,7 +363,7 @@ var commission = {
 		                id:'goods_logs',
 		                lock : true,
 		                fixed : true,
-		                title : '淘宝绑定',
+		                title : '亚马逊绑定',
 		                drag : false,
 		                init : function() {
 		                    var win = this;
@@ -385,7 +385,7 @@ var commission = {
 		                	var taobao = top.document.getElementById("taobao").value;
 
 		                   if (taobao == "") {
-		                      alert("请选择淘宝账号");
+		                      alert("请选择亚马逊账号");
 		                  }
 		                	 commission.general(id,taobao);
 

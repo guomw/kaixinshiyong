@@ -233,7 +233,7 @@
 		<div class="cmp_right">
 			<div class="shops_list">
 				<p>
-					<span class="s_w">淘宝账号：<b class="c_f60">{if $userinfo['taobao']['account']}<span style="color:#bb0000">{$userinfo['taobao']['account']}</span>{else}该订单未绑定{/if}</b></span>
+					<span class="s_w">亚马逊账号：<b class="c_f60">{if $userinfo['taobao']['account']}<span style="color:#bb0000">{$userinfo['taobao']['account']}</span>{else}该订单未绑定{/if}</b></span>
 					<font>{if $userinfo['taobao']}【<a href="http://cha.yunhuasuan.net" target="_blank" style="color:#77b7f7;">手动查询</a>】{else}&nbsp;{/if}</font>
 				</p>
 				{if $userinfo['taobao']}
@@ -244,7 +244,7 @@
 								{if $userinfo['taobao'][is_real_name] & 1}
 									支付宝实名认证
 								{elseif $userinfo['taobao'][is_real_name] & 1 << 1}
-									淘宝个人实名认证
+									亚马逊个人实名认证
 								{elseif $userinfo['taobao'][is_real_name] & 1 << 2}
 									手机验证
 								{elseif $userinfo['taobao'][is_real_name] & 1 << 3}

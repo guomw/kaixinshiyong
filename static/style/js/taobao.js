@@ -145,13 +145,13 @@ var bind = {
 	},
 
 	/**
-	 * 删除淘宝帐号
+	 * 删除亚马逊帐号
 	 */
 	unbind:function(o){
 		var id = parseInt($(o).attr('data-id'));
 		var url = $(o).attr('data-url');
 		url = bind.ajax_url(url);
-		art.dialog.confirm('确定删除该淘宝帐号？', function() {
+		art.dialog.confirm('确定删除该亚马逊帐号？', function() {
 			$.get(url, {id:id}, function(ret) {
 				if(ret.status == 1){
 					bind.show_message('提示信息',ret.info,'S');
@@ -212,7 +212,7 @@ var bind = {
 		var id = parseInt($(o).attr('data-id'));
 		var url = $(o).attr('data-url');
 		url = bind.ajax_url(url);
-		art.dialog.confirm('确定设置该淘宝帐号为默认？', function() {
+		art.dialog.confirm('确定设置该亚马逊帐号为默认？', function() {
 			$.get(url, {id:id}, function(ret) {
 				if(ret.status == 1){
 					bind.show_message('提示信息',ret.info,'S');

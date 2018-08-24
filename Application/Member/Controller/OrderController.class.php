@@ -13,7 +13,7 @@ class OrderController extends InitController {
      */
     public function order_manage($mod=''){
         $mod = (string) $mod;
-        //用户绑定淘宝账号的安全等级
+        //用户绑定亚马逊账号的安全等级
         $level = array('安全','一般','危险');
         //进行中的活动
         $sql = array();
@@ -34,7 +34,7 @@ class OrderController extends InitController {
             }
             if(!empty($keyword)){
                 switch ($type){
-                    case 1://淘宝账号
+                    case 1://亚马逊账号
                         $account = model('member_bind')->where(array('account'=>$keyword))->getField('bind_id');                        
                         $sqlMap['bind_id'] = $account;
                         break;
@@ -54,7 +54,7 @@ class OrderController extends InitController {
         foreach ($order_list as $k=>$v) {
             //查询用户信息
             $order_list[$k]['userinfo'] = getUserInfo($v['buyer_id']);
-            //绑定的淘宝账号
+            //绑定的亚马逊账号
             if (!empty($v['bind_id'])) {
                 $order_list[$k]['taobao'] = model('member_bind')->getById($v['bind_id']);
             }
@@ -122,7 +122,7 @@ class OrderController extends InitController {
             $value['report_count'] = model('report')->where(array('goods_id'=>$value['goods_id'],'userid'=>$this->userid))->count();
             // 买家平台账号
             $value['nickname'] = model('member')->where(array('userid'=>$value['buyer_id']))->getField("nickname");
-            //绑定的淘宝账号
+            //绑定的亚马逊账号
             if (!empty($value['bind_id'])) {
                 $value['bind_account'] = model('member_bind')->where(array('id'=>$value['bind_id']))->getField('account');
 
@@ -169,12 +169,12 @@ class OrderController extends InitController {
         $sqlmap['status'] = 7;
         $userinfo['appraised_count'] = model('order')->where($sqlmap)->count();
 
-        // 淘宝帐号
+        // 亚马逊帐号
         $userinfo['taobao'] = model('member_bind')->find($order_info['bind_id']);
         if ($order_info['act_mod'] == 'trial') {
             // 读取后台活动设置：参与条件
             $bind_set = string2array(C_READ('buyer_join_condition','trial'));
-            /* 更新已绑定淘宝帐号信息 */
+            /* 更新已绑定亚马逊帐号信息 */
             if ($bind_set['bind_taobao'] == 4) {
                 runhook('get_bind_taobao',array('id'=>$order_info['bind_id']));
             }
@@ -1215,7 +1215,7 @@ class OrderController extends InitController {
             $provice = string2array(model('member')->where(array('userid'=>$value['buyer_id']))->getField("address"));
             $value['provice'] = model('linkage')->getFieldByLinkageid($provice['provice'],'name');
 
-            //绑定的淘宝账号
+            //绑定的亚马逊账号
             if (!empty($value['bind_id'])) {
                 $value['bind_account'] = model('member_bind')->where(array('id'=>$value['bind_id']))->getField('account');
                 $value['account_level'] = model('member_bind')->where(array('id'=>$value['bind_id']))->getField('account_level');

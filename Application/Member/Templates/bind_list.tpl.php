@@ -21,7 +21,7 @@
 					<!-- <option value='1' <?php if(isset($_GET['type']) && $_GET['type']==1){?>selected<?php }?>><?php echo L('username')?></option>
 					<option value='2' <?php if(isset($_GET['type']) && $_GET['type']==2){?>selected<?php }?>><?php echo L('uid')?></option> -->
 					<option value='0'>请选择</option>
-					<option value='1' <?php if(isset($_GET['type']) && $_GET['type']==1){?>selected<?php }?>><?php echo L('淘宝账号')?></option>
+					<option value='1' <?php if(isset($_GET['type']) && $_GET['type']==1){?>selected<?php }?>><?php echo L('亚马逊账号')?></option>
 					<option value='2' <?php if(isset($_GET['type']) && $_GET['type']==2){?>selected<?php }?>><?php echo L('邮箱账号')?></option>
 					
 				</select>				
@@ -44,10 +44,10 @@
 			<th align="left"   width="5%"><?php echo '会员名称';?></th>
 			<th align="left"   width="10%"><?php echo '会员邮箱';?></th>
 			<th align="left"   width="5%"><?php echo '会员等级';?></th>
-			<th align="left" width="10%">淘宝账号</th>
+			<th align="left" width="10%">亚马逊账号</th>
 			<th align="left" width="5%">安全等级</th>
-			<th align="left" width="10%">淘宝信誉</th>
-			<th align="left" width="10%">淘宝信誉截图</th>
+			<th align="left" width="10%">亚马逊信誉</th>
+			<th align="left" width="10%">亚马逊信誉截图</th>
 			<th align="left" width="5%">账号等级</th>
 			<th align="left" width="10%">绑定状态</th>
 			<th align="left" width="10%">绑定时间</th>

@@ -1659,7 +1659,7 @@ angular
         $state.go('tab.user_profile_password')
       }
 
-      // 淘宝帐号
+      // 亚马逊帐号
       $scope.profile_taobao = function() {
         $state.go('tab.user_profile_taobao')
       }
@@ -2637,7 +2637,7 @@ angular
   ])
 
   /**
-   * @name [绑定淘宝账号]
+   * @name [绑定亚马逊账号]
    */
 
   .controller('UserProfiletaobao', [
@@ -2675,19 +2675,19 @@ angular
 
         random = StorageFactory.get('user').data.random
 
-        //获取后台绑定淘宝帐号数量设置
+        //获取后台绑定亚马逊帐号数量设置
 
-        //获取当前用户已绑定淘宝帐号数量
+        //获取当前用户已绑定亚马逊帐号数量
         UserProfileFactory.set_username_taobao(userid, random)
       })
 
-      //接收通知 当前用户已绑定淘宝帐号
+      //接收通知 当前用户已绑定亚马逊帐号
       $scope.$on('UserProfileFactory.set_username_taobao', function() {
         $scope.data_bind_taobao = UserProfileFactory.get_username_taobao()
         //console.log($scope.data_bind_taobao);
       })
 
-      //用户删除 设为默认淘宝帐号
+      //用户删除 设为默认亚马逊帐号
 
       $scope.delete_taobao = function(taobao) {
         var taobao_id = taobao //全局变量
@@ -2742,7 +2742,7 @@ angular
         })
       }
 
-      //提交后台绑定新淘宝账号
+      //提交后台绑定新亚马逊账号
 
       $scope.bind_taobao = function(oaccount) {
         //console.log(oaccount);
@@ -2752,7 +2752,7 @@ angular
           template: '查询中,请稍等...'
         })
 
-        // 后端请求绑定淘宝账号
+        // 后端请求绑定亚马逊账号
         UserProfileFactory.set_bind_taobao(oaccount, userid, random)
       }
 
@@ -2790,7 +2790,7 @@ angular
       //接收设为默认结果通知
       $scope.$on('UserProfileFactory.set_bind_taobao_setdefault', function() {
         var data_bind_taobao_setdefault = UserProfileFactory.get_bind_taobao_setdefault()
-        UserProfileFactory.set_username_taobao(userid) //重新获取淘宝帐号
+        UserProfileFactory.set_username_taobao(userid) //重新获取亚马逊帐号
 
         $ionicLoading.show({
           noBackdrop: true,
@@ -2805,7 +2805,7 @@ angular
       $scope.$on('UserProfileFactory.set_bind_del_tb', function() {
         var data_bind_del_tb = UserProfileFactory.get_bind_del_tb()
         if (data_bind_del_tb.status == 1) {
-          UserProfileFactory.set_username_taobao2(userid, random) //重新获取淘宝帐号
+          UserProfileFactory.set_username_taobao2(userid, random) //重新获取亚马逊帐号
         }
 
         $ionicLoading.show({
@@ -4412,8 +4412,8 @@ angular
         }
       })
 
-      //点击去下单 普通下单直接跳转至淘宝,搜索下单,直接跳转淘宝引导页面
-      //点击去下单 普通下单直接跳转至淘宝,搜索下单,直接跳转淘宝引导页面
+      //点击去下单 普通下单直接跳转至亚马逊,搜索下单,直接跳转亚马逊引导页面
+      //点击去下单 普通下单直接跳转至亚马逊,搜索下单,直接跳转亚马逊引导页面
       $scope.To_order = function(type, source, url) {
         source = $filter('f_source')(source)
 
@@ -4563,7 +4563,7 @@ angular
           // 获取用户手机认证状态
           $scope.phone_status = StorageFactory.get('profile').phone_status
 
-          //获取用户绑定的淘宝帐号数量
+          //获取用户绑定的亚马逊帐号数量
           UserProfileFactory.set_username_taobao(userid, random)
 
           //获取会员是否参与过本次活动
@@ -4620,11 +4620,11 @@ angular
 
       $scope.data_time = Math.round(new Date().getTime() / 1000)
 
-      //接收通知 当前用户已绑定淘宝帐号
+      //接收通知 当前用户已绑定亚马逊帐号
       $scope.$on('UserProfileFactory.set_username_taobao', function() {
         $scope.data_bind_taobao = UserProfileFactory.get_username_taobao()
 
-        //获得用户默认淘宝帐号 如果为空 则指定第一个
+        //获得用户默认亚马逊帐号 如果为空 则指定第一个
         var lists = $scope.data_bind_taobao.lists
 
         function data_bind_taobao_default() {
@@ -4645,7 +4645,7 @@ angular
           $scope.data_bind_taobao_default == undefined ? '' : $scope.data_bind_taobao_default.id
       })
 
-      // 定义选择淘宝号 和申请理由数组   答案下单的时候 的问题和答案
+      // 定义选择亚马逊号 和申请理由数组   答案下单的时候 的问题和答案
       var vm = ($scope.vm = {
         data_bind_taobao_default: {
           id: 0
@@ -4707,7 +4707,7 @@ angular
 
         $scope.bind_alipay = trial_config.data.buyer_join_condition.bind_alipay //绑定支付宝
 
-        $scope.bind_taobao = trial_config.data.buyer_join_condition.bind_taobao //绑定淘宝
+        $scope.bind_taobao = trial_config.data.buyer_join_condition.bind_taobao //绑定亚马逊
 
         $scope.bind_email = trial_config.data.buyer_join_condition.email //绑定邮箱
 
@@ -4782,12 +4782,12 @@ angular
         0.如果当前活动状态不为进行中，拒绝申请。
         1.检测用户是否被商家拉入黑名单                      ---------------
         2.再次判断用户参与活动状态
-        2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定淘宝账号   需绑定支付宝账号  需申请理由
+        2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定亚马逊账号   需绑定支付宝账号  需申请理由
         2.2 判断下单类型 如果是答案下单 则跳转输入答案页面
 
         3.判断后台设置，是否允许同一用户申请一个商家下的多次试用 ----------
-        4.如果后台开启了让用户选择淘宝账号，则弹出让用户选择淘宝帐号，如果未绑定，则先跳转绑定页面
-        5.如果后台开启了多商家说点什么，则同时跟淘宝帐号一起显示
+        4.如果后台开启了让用户选择亚马逊账号，则弹出让用户选择亚马逊帐号，如果未绑定，则先跳转绑定页面
+        5.如果后台开启了多商家说点什么，则同时跟亚马逊帐号一起显示
         6.提交后台申请，等待返回结果。提交参数 userid 商品id 签名 
 
     */
@@ -4981,25 +4981,25 @@ angular
           return false
         }
 
-        // 如果后台开启了 需要绑定淘宝帐号 则vip弹出选择淘宝帐号
+        // 如果后台开启了 需要绑定亚马逊帐号 则vip弹出选择亚马逊帐号
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1) {
           //弹出提示窗口页面 提示用户完成活动条件
           $ionicLoading.show({
             noBackdrop: true,
-            template: '请先绑定淘宝帐号，才能使用vip特权！',
+            template: '请先绑定亚马逊帐号，才能使用vip特权！',
             duration: 2000
           })
 
-          $state.go('tab.user_profile_taobao') //路由跳转绑定淘宝帐号
+          $state.go('tab.user_profile_taobao') //路由跳转绑定亚马逊帐号
 
           return false
         }
 
-        //选择淘宝帐号 好下单
+        //选择亚马逊帐号 好下单
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.confirm({
-            title: '请选择要用的淘宝帐号',
+            title: '请选择要用的亚马逊帐号',
             templateUrl: 'e.html',
             cancelText: '放弃试用', // String (默认: 'Cancel')。一个取消按钮的文字。
             okText: '确定试用', // String (默认: 'OK')。OK按钮的文字。
@@ -5045,25 +5045,25 @@ angular
           return false
         }
 
-        // 如果后台开启了 需要绑定淘宝帐号 则vip弹出选择淘宝帐号
+        // 如果后台开启了 需要绑定亚马逊帐号 则vip弹出选择亚马逊帐号
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1) {
           //弹出提示窗口页面 提示用户完成活动条件
           $ionicLoading.show({
             noBackdrop: true,
-            template: '请先绑定淘宝帐号，才能使用vip特权！',
+            template: '请先绑定亚马逊帐号，才能使用vip特权！',
             duration: 2000
           })
 
-          $state.go('tab.user_profile_taobao') //路由跳转绑定淘宝帐号
+          $state.go('tab.user_profile_taobao') //路由跳转绑定亚马逊帐号
 
           return false
         }
 
-        //选择淘宝帐号 好下单
+        //选择亚马逊帐号 好下单
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.confirm({
-            title: '请选择要用的淘宝帐号',
+            title: '请选择要用的亚马逊帐号',
             templateUrl: 'e.html',
             cancelText: '放弃试用', // String (默认: 'Cancel')。一个取消按钮的文字。
             okText: '确定试用', // String (默认: 'OK')。OK按钮的文字。
@@ -5089,7 +5089,7 @@ angular
 
       /*   1.首先获得该商品兑换所需积分
      2.如果会员积分小于本次兑换所需积分，则提示积分不足
-     3.如果积分充足 那么则提示绑定淘宝帐号 或者选择试用淘宝帐号
+     3.如果积分充足 那么则提示绑定亚马逊帐号 或者选择试用亚马逊帐号
      4.最后再确定是否兑换
 */
       $scope.jinbi_Apply_trial = function() {
@@ -5169,20 +5169,20 @@ angular
           //弹出提示窗口页面 提示用户完成活动条件
           $ionicLoading.show({
             noBackdrop: true,
-            template: '请先绑定淘宝帐号，才能使用积分兑换！',
+            template: '请先绑定亚马逊帐号，才能使用积分兑换！',
             duration: 2000
           })
 
-          $state.go('tab.user_profile_taobao') //路由跳转绑定淘宝帐号
+          $state.go('tab.user_profile_taobao') //路由跳转绑定亚马逊帐号
 
           return false
         }
 
-        //选择淘宝帐号 好下单
+        //选择亚马逊帐号 好下单
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.confirm({
-            title: '请选择要用的淘宝帐号',
+            title: '请选择要用的亚马逊帐号',
             subTitle: '积分余额 ' + $scope.user_point + ' 本次兑换花费 ' + $scope.showdata.point_num + ' 积分',
             templateUrl: 'e.html',
             cancelText: '放弃兑换',
@@ -5235,20 +5235,20 @@ angular
           //弹出提示窗口页面 提示用户完成活动条件
           $ionicLoading.show({
             noBackdrop: true,
-            template: '请先绑定淘宝帐号，才能使用积分兑换！',
+            template: '请先绑定亚马逊帐号，才能使用积分兑换！',
             duration: 2000
           })
 
-          $state.go('tab.user_profile_taobao') //路由跳转绑定淘宝帐号
+          $state.go('tab.user_profile_taobao') //路由跳转绑定亚马逊帐号
 
           return false
         }
 
-        //选择淘宝帐号 好下单
+        //选择亚马逊帐号 好下单
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.confirm({
-            title: '请选择要用的淘宝帐号',
+            title: '请选择要用的亚马逊帐号',
             subTitle: '积分余额 ' + $scope.user_point + ' 本次兑换花费 ' + $scope.showdata.point_num + ' 积分',
             templateUrl: 'e.html',
             cancelText: '放弃兑换',
@@ -5273,7 +5273,7 @@ angular
         trialOrderFactory.point_apply_order(aid, '', '', userid, random)
       }
 
-      //弹出选择淘宝号 和对商家说点什么  根据后台配置来的 如果后台关闭了则不需要
+      //弹出选择亚马逊号 和对商家说点什么  根据后台配置来的 如果后台关闭了则不需要
 
       $scope.taobao_reason = function() {
         if (($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) || $scope.reason == 7) {
@@ -6035,7 +6035,7 @@ angular
           // 获取用户手机认证状态
           $scope.phone_status = StorageFactory.get('profile').phone_status
 
-          //获取用户绑定的淘宝帐号数量
+          //获取用户绑定的亚马逊帐号数量
           UserProfileFactory.set_username_taobao(userid, random)
 
           //获取会员是否参与过本次活动
@@ -6100,7 +6100,7 @@ angular
         $scope.Switch = 1
       }
 
-      // 定义选择淘宝号 和申请理由数组   答案下单的时候 的问题和答案
+      // 定义选择亚马逊号 和申请理由数组   答案下单的时候 的问题和答案
       var vm = ($scope.vm = {})
 
       //后台请求获取后台的活动配置
@@ -6116,7 +6116,7 @@ angular
 
         $scope.bind_alipay = rebate_config.data.buyer_join_condition.bind_alipay //绑定支付宝
 
-        $scope.bind_taobao = rebate_config.data.buyer_join_condition.bind_taobao //绑定淘宝
+        $scope.bind_taobao = rebate_config.data.buyer_join_condition.bind_taobao //绑定亚马逊
 
         $scope.bind_email = rebate_config.data.buyer_join_condition.email //绑定邮箱
 
@@ -6172,12 +6172,12 @@ angular
         0.如果当前活动状态不为进行中，拒绝申请。
         1.检测用户是否被商家拉入黑名单                      ---------------
         2.再次判断用户参与活动状态
-        2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定淘宝账号   需绑定支付宝账号  需申请理由
+        2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定亚马逊账号   需绑定支付宝账号  需申请理由
         2.2 判断下单类型 如果是答案下单 则跳转输入答案页面
 
         3.判断后台设置，是否允许同一用户申请一个商家下的多次试用 ----------
-        4.如果后台开启了让用户选择淘宝账号，则弹出让用户选择淘宝帐号，如果未绑定，则先跳转绑定页面
-        5.如果后台开启了多商家说点什么，则同时跟淘宝帐号一起显示
+        4.如果后台开启了让用户选择亚马逊账号，则弹出让用户选择亚马逊帐号，如果未绑定，则先跳转绑定页面
+        5.如果后台开启了多商家说点什么，则同时跟亚马逊帐号一起显示
         6.提交后台申请，等待返回结果。提交参数 userid 商品id 签名 
 
     */
@@ -6607,7 +6607,7 @@ angular
         }
       })
 
-      //点击去下单 普通下单直接跳转至淘宝,搜索下单,直接跳转淘宝引导页面
+      //点击去下单 普通下单直接跳转至亚马逊,搜索下单,直接跳转亚马逊引导页面
       $scope.To_order = function(type, source, url) {
         // //console.log($filter('f_xiaoshu' )($scope.txddh_showdata.goods_price - ($scope.txddh_showdata.goods_price * $scope.txddh_showdata.goods_discount /10 ) ));
 
@@ -7991,7 +7991,7 @@ angular
           // 获取用户手机认证状态
           $scope.phone_status = StorageFactory.get('profile').phone_status
 
-          //获取用户绑定的淘宝帐号数量
+          //获取用户绑定的亚马逊帐号数量
           UserProfileFactory.set_username_taobao(userid, random)
 
           //获取会员是否参与过本次活动
@@ -8048,12 +8048,12 @@ angular
 
       $scope.data_time = Math.round(new Date().getTime() / 1000)
 
-      //接收通知 当前用户已绑定淘宝帐号
+      //接收通知 当前用户已绑定亚马逊帐号
       $scope.$on('UserProfileFactory.set_username_taobao', function() {
         $scope.data_bind_taobao = UserProfileFactory.get_username_taobao()
 
         //console.log($scope.data_bind_taobao);
-        //获得用户默认淘宝帐号 如果为空 则指定第一个
+        //获得用户默认亚马逊帐号 如果为空 则指定第一个
         var lists = $scope.data_bind_taobao.lists
 
         function data_bind_taobao_default() {
@@ -8070,7 +8070,7 @@ angular
         $scope.vm.data_bind_taobao_default.id = $scope.data_bind_taobao_default.id
       })
 
-      // 定义选择淘宝号 和申请理由数组   答案下单的时候 的问题和答案
+      // 定义选择亚马逊号 和申请理由数组   答案下单的时候 的问题和答案
       var vm = ($scope.vm = {
         data_bind_taobao_default: {
           id: 0
@@ -8104,7 +8104,7 @@ angular
       $scope.$on('configFactory.set_commission_config', function() {
         var trial_config = configFactory.get_commission_config() //网站试用配置
         $scope.bind_alipay = trial_config.data.buyer_join_condition.bind_alipay //绑定支付宝
-        $scope.bind_taobao = trial_config.data.buyer_join_condition.bind_taobao //绑定淘宝
+        $scope.bind_taobao = trial_config.data.buyer_join_condition.bind_taobao //绑定亚马逊
         $scope.bind_email = trial_config.data.buyer_join_condition.email //绑定邮箱
         $scope.bind_phone = trial_config.data.buyer_join_condition.phone //绑定手机
         $scope.realname = trial_config.data.buyer_join_condition.realname // 实名认证
@@ -8149,12 +8149,12 @@ angular
           0.如果当前活动状态不为进行中，拒绝申请。
           1.检测用户是否被商家拉入黑名单                      ---------------
           2.再次判断用户参与活动状态
-          2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定淘宝账号   需绑定支付宝账号  需申请理由
+          2.1 判断后台设置 需完善基本资料   需完成手机认证   需完成邮箱认证   需完成实名认证   需绑定亚马逊账号   需绑定支付宝账号  需申请理由
           2.2 判断下单类型 如果是答案下单 则跳转输入答案页面
 
           3.判断后台设置，是否允许同一用户申请一个商家下的多次试用 ----------
-          4.如果后台开启了让用户选择淘宝账号，则弹出让用户选择淘宝帐号，如果未绑定，则先跳转绑定页面
-          5.如果后台开启了多商家说点什么，则同时跟淘宝帐号一起显示
+          4.如果后台开启了让用户选择亚马逊账号，则弹出让用户选择亚马逊帐号，如果未绑定，则先跳转绑定页面
+          5.如果后台开启了多商家说点什么，则同时跟亚马逊帐号一起显示
           6.提交后台申请，等待返回结果。提交参数 userid 商品id 签名 
 
       */
@@ -8225,11 +8225,11 @@ angular
 
       /*   1.首先获得该商品兑换所需积分
        2.如果会员积分小于本次兑换所需积分，则提示积分不足
-       3.如果积分充足 那么则提示绑定淘宝帐号 或者选择试用淘宝帐号
+       3.如果积分充足 那么则提示绑定亚马逊帐号 或者选择试用亚马逊帐号
        4.最后再确定是否兑换
   */
 
-      //弹出选择淘宝号 和对商家说点什么  根据后台配置来的 如果后台关闭了则不需要
+      //弹出选择亚马逊号 和对商家说点什么  根据后台配置来的 如果后台关闭了则不需要
 
       $scope.taobao_reason = function() {
         if ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count > 0) {
@@ -8704,8 +8704,8 @@ angular
         }
       })
 
-      //点击去下单 普通下单直接跳转至淘宝,搜索下单,直接跳转淘宝引导页面
-      //点击去下单 普通下单直接跳转至淘宝,搜索下单,直接跳转淘宝引导页面
+      //点击去下单 普通下单直接跳转至亚马逊,搜索下单,直接跳转亚马逊引导页面
+      //点击去下单 普通下单直接跳转至亚马逊,搜索下单,直接跳转亚马逊引导页面
       $scope.To_order = function(type, source, url) {
         source = $filter('f_source')(source)
 

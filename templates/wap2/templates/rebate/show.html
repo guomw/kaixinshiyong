@@ -222,13 +222,13 @@
 
                       <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count > 0 "  class="item item-icon-left item-icon-right " >
                           <i class="icon ion-checkmark-circled" style="font-size:18px;color:green" ></i>
-                          淘宝帐号
+                          亚马逊帐号
                           <i class="item-note">已绑{{data_bind_taobao.count}}个</i>
                       </ion-item>
                       
                       <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count < 1 "  class="item item-icon-left item-icon-right " href="#/tab/user/profile/taobao"    >
                           <i class=" icon ion-close-circled"   style="font-size:18px;color:red"></i>
-                          淘宝帐号
+                          亚马逊帐号
                           <i class="item-note">未绑定</i>
                           <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
                       </ion-item>
@@ -242,7 +242,7 @@
                   </select>
                 </label>
 
-                  <p  ng-if=' bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定淘宝帐号下单</p>
+                  <p  ng-if=' bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定亚马逊帐号下单</p>
                   <label ng-if=' reason == 7 ' class="item item-input" >
                     <textarea  ng-model="vm.Application_reasons"  placeholder="对商家说点什么,提高通过率" rows="4"></textarea>
                   </label>                

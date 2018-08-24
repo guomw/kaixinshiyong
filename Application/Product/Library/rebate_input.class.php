@@ -56,7 +56,7 @@ class rebate_input {
 		return trim($value);
 	}
 	
-	/* 是否参与淘宝客 */
+	/* 是否参与亚马逊 */
 	public function taobaoke($field, $value){
 		$value = (int) $value;
 		return ($this->data['source'] < 2) ? $value : 0;

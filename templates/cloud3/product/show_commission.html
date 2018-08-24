@@ -20,7 +20,7 @@ unset($rs['goods_content']);
 $goods['report_count'] = report_count_by_gid($id);
 $goods['buyer_count'] = buyer_count_by_gid($id);
 $userinfo = is_login();
-// 已绑定的淘宝账号
+// 已绑定的亚马逊账号
 $bind_tbs = get_bind_taobao($userinfo['userid']);
 // 活动后台设置
 $bind_set = string2array(C_READ('buyer_join_condition','trial'));
@@ -186,7 +186,7 @@ var month_count = {php echo $month_count;};
 									<dt>注意事项：</dt>
 									<dd>1、与商家旺旺聊天时不要提及“{C('WEBNAME')}、试客、{C('WEBNAME')}试客”等信息，否则试用无效。</dd>
 									<dd>2、禁止使用信用卡、淘金币、优惠券、红包、天猫积分等。</dd>
-									<dd>3、禁止通过淘宝客、返利网、一淘等返现返利网链接下单。</dd>
+									<dd>3、禁止通过亚马逊、返利网、一淘等返现返利网链接下单。</dd>
 									<dd>4、非手机端活动，禁止使用手机端下单。</dd>
 									<dd>以上由于买家违规下单所产生的费用，由买家承担。{C('WEBNAME')}有权冻结其帐号，限制提现操作，IP列入黑名单。</dd>
 								</dl>
@@ -367,7 +367,7 @@ var month_count = {php echo $month_count;};
                 
                 {if array_key_exists("bind_taobao", $buyer_join_condition)}
                 <p {if $buyer_join_condition['bind_taobao'] && $tb_count < 1} {else} style="color: #888888" {/if}>
-                    <span>●</span>&nbsp;已绑定淘宝账号。
+                    <span>●</span>&nbsp;已绑定亚马逊账号。
                     {if $buyer_join_condition['bind_taobao'] && $tb_count < 1}
                     <img src="{THEME_STYLE_PATH}style/images/cax.jpg" />
                     <a href="{U('Member/Attesta/bindtaobao')}" target="_blank">去绑定</a>
@@ -684,7 +684,7 @@ html, body {
 		    commisson_html += '<font class="font f_bg_yes font_2">抢购成功，请使用搜索方式下单</font>';
             commisson_html += '<ul class="hint_text_2 margin_b_10"><p>搜索下单提示：</p>';
             commisson_html += "<li>1、请在 <span style='color:red'> {C_READ('buyer_write_order_time','commission')} 分钟</span> 内完成下单,并填写订单号</li>";
-	         commisson_html +="<li>2、打开淘宝首页 搜索关键词<span style='color:red'>'{$rs[keyword]}'</span></li>";
+	         commisson_html +="<li>2、打开亚马逊首页 搜索关键词<span style='color:red'>'{$rs[keyword]}'</span></li>";
 	         commisson_html +="<li>3、按照 <span style='color:red'>" + sort + "</span>方式排序</li>";
 	         commisson_html +="<li>4、宝贝位置大约在 <span style='color:red'>'{$rs[goods_address]}'</span></li>";
 	         commisson_html +="<li>5、认准商家旺旺<span style='color:red'> '{$rs[goods_wangwang]}'</span></p> <br/>";
@@ -763,7 +763,7 @@ html, body {
                 id:'goods_logs',
                 lock : true,
                 fixed : true,
-                title : '淘宝绑定',
+                title : '亚马逊绑定',
                 content:$('.ling_mian').html(),
                 drag : false,
                 ok:function(){

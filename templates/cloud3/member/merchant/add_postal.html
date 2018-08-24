@@ -86,7 +86,7 @@
                             <li class="shop_soure width_100 float_left">
                                 <span class="font_size14 shop_value_name text_align_right">获取信息：</span>
                                 <input type="text" name="info[go_link]" class="input-text" style="width:300px" />
-                                (请输入商品链接 支持淘宝 天猫 京东)
+                                (请输入商品链接 支持亚马逊 天猫 京东)
                                 <input type="button" value="一键获取" class="button keyget" name="keyget"></td>
                             </li>
                             <script>
@@ -135,7 +135,7 @@
 							</li>
 							
 							<li class="shop_soure set_line_height width_100 float_left"  id="field_taobaoke">
-								<span class="js_set_input font_size14 shop_value_name text_align_right">淘宝客佣金：</span>
+								<span class="js_set_input font_size14 shop_value_name text_align_right">亚马逊佣金：</span>
 								<input type="text" class="float_left input_width_2 height_100 " name="info[taobao_charge]"  id="taobao" />
 							</li>
 							<script type="text/javascript">
@@ -191,7 +191,7 @@
 								</ul>
 							</li>
 							<script type="text/javascript">
-								/* 点击淘宝 天猫 */
+								/* 点击亚马逊 天猫 */
 								$(document).ready(function(){
 									$('.shop_cost2 ').blur(function(){
 										var oShopRental = parseFloat($('.shop_cost1').val());
@@ -436,23 +436,23 @@ $("#goods_content").formValidator({
 		return true;
 	}
 });
-/*淘宝佣金*/
+/*亚马逊佣金*/
 $("#taobao").formValidator({
 	empty:false,
-	onempty:'淘宝佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
+	onempty:'亚马逊佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功',
 	onshow:true,
-	onfocus:'请输入淘宝佣金'
+	onfocus:'请输入亚马逊佣金'
 }).functionValidator({
 	fun:function(val,elem){
 		if('<?php echo $activity_set["seller_charge_money"];?>' != '' && val <Number( '<?php echo $activity_set["seller_charge_money"];?>')){
-			return '淘宝佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功';
+			return '亚马逊佣金必须大于<?php echo $activity_set["seller_charge_money"];?>%才能审核成功';
 		}
 		return true;
 	}
 }).regexValidator({
 	regexp:'decmal1',
 	datatype:'enum',
-	onerror:'淘宝佣金输入错误'	
+	onerror:'亚马逊佣金输入错误'
 });
 </script>
 <link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />

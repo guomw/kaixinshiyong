@@ -40,7 +40,7 @@ include $this->admin_tpl('header');?>
             <tr>
                 <th><?php echo L('收费价格')?></th>
                 <td class="y-bg">
-                    淘宝客 最低佣金不低于
+                    亚马逊 最低佣金不低于
                     <input type="text" class="input-text" id='charge_money' name="setting[seller_charge_money]" size="3" value="<?php if($setting['seller_charge_money']){echo $setting['seller_charge_money'];}else{echo '5';};?>" maxlength="3" />&nbsp;%&nbsp;&nbsp;(默认：5%)
                 </td>
             </tr>

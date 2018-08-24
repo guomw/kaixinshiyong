@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>绑定淘宝账号-买家个人中心-{C('WEBNAME')}</title>
+		<title>绑定亚马逊账号-买家个人中心-{C('WEBNAME')}</title>
 		<meta name="keywords" content="推荐好友,{C('WEBNAME')}" />
 		<meta name="description" content="推荐好友,{C('WEBNAME')}" />
 		<link rel="stylesheet" type="text/css" href="{THEME_STYLE_PATH}style/css/base.css" />
@@ -31,7 +31,7 @@
 
 
 				<div class="fr u_index_mess user_pd_1">
-					<h2 class="user_page_title">绑定淘宝账号</h2>
+					<h2 class="user_page_title">绑定亚马逊账号</h2>
 
 				<div class="content_right_main">
 					<div class="main_content">
@@ -44,14 +44,14 @@
 						</div>
 						<div class="input" style="height:auto;" >
 							<dl>
-								<dt><span>淘宝账号：</span>请填写您需要认证的淘宝账号</dt>
+								<dt><span>亚马逊账号：</span>请填写您需要认证的亚马逊账号</dt>
 								<dd><input type="text" name="taobao" id="taobao" /></dd>
 
 							</dl>
 
 							<dl>
 								
-								<dt class="tbxyTitle" ><span>淘宝信誉:</span>请选择您的淘宝账号信誉等级</dt>
+								<dt class="tbxyTitle" ><span>亚马逊信誉:</span>请选择您的亚马逊账号信誉等级</dt>
 								<dd>
 									<div  class="taobaoxyz">
 										<div class="selectzzz" id="selectzzz">
@@ -84,7 +84,7 @@
                            
                             {if C('bind_tb_img') ==1}
 							<dl >
-								<dt class="tbxyTitle"><span>信誉截图：</span>请上传您淘宝账号的信誉截图<a href="#" class="help">如何上传?</a></dt>
+								<dt class="tbxyTitle"><span>信誉截图：</span>请上传您亚马逊账号的信誉截图<a href="#" class="help">如何上传?</a></dt>
 								
 								<dd class="clear ">
 									<div class="posi float_left">
@@ -99,9 +99,9 @@
 
 							<dl class="order_id" style="font-size:12px">
 								<dt><span>温馨提示：</span></dt>
-								<dd>1、只有用绑定过的淘宝账号下单,才能获得返利或试用资格</dd>
-								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}淘宝账号</dd>
-								<dd>3、如果发现自己淘宝帐号,被其它人绑定,请联系平台客服更换</dd>
+								<dd>1、只有用绑定过的亚马逊账号下单,才能获得返利或试用资格</dd>
+								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}亚马逊账号</dd>
+								<dd>3、如果发现自己亚马逊帐号,被其它人绑定,请联系平台客服更换</dd>
 							</dl>
 							<span class="msg"></span>
 						</div>
@@ -116,7 +116,7 @@
 					<dd>
 						<table>
 							<tr>
-								<th style="width: 155px;">淘宝账号</th>
+								<th style="width: 155px;">亚马逊账号</th>
 								<th style="width: 146px;">买家信用</th>
 								<th style="width: 146px;">绑定时间</th>
 								<th style="border: none;">操作</th>
@@ -157,26 +157,26 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#taobao").focus(function(){
-		$(".msg").html("请输入淘宝账号");
+		$(".msg").html("请输入亚马逊账号");
 	});
 	$("#taobao").blur(function(){
 		var _this = $(this).val();
 		if(_this == ''){
-			$(".msg").html("淘宝账号不能为空");
+			$(".msg").html("亚马逊账号不能为空");
 		}else{
-			$(".msg").html("<font color='green'>淘宝账号输入正确</font>");
+			$(".msg").html("<font color='green'>亚马逊账号输入正确</font>");
 		}
 	});
 	
-	/*绑定淘宝帐号*/
+	/*绑定亚马逊帐号*/
 	$("#aut_push").click(function(){
 		if("" == $("#taobao").val()){
-			$(".msg").html("请输入淘宝账号");
+			$(".msg").html("请输入亚马逊账号");
 			return false;
 		}
 
 		if($('#img_url1').val() == ''){
-			$(".msg").html("请上传淘宝帐号截图");
+			$(".msg").html("请上传亚马逊帐号截图");
 			return false;
 
 		}
@@ -288,7 +288,7 @@ $("#selectzzz ").click(function(){
 
 $('.help').click(function(){
 
-	var html = "第一步 打开淘宝，登录进去之后，进入个人中心<br/>";
+	var html = "第一步 打开亚马逊，登录进去之后，进入个人中心<br/>";
 	    html += '<img width="500" src="{THEME_STYLE_PATH}style/img/tao_help1.png" /><br/>';
         html += '第二步 截取以下选中区域上传<br/>';
         html += '<img width="500" src="{THEME_STYLE_PATH}style/img/tao_help2.png" /><br/>';

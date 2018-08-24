@@ -86,7 +86,7 @@ include $this->admin_tpl('header','admin');?>
     </tr>
 
 	<tr id="field_taobaoke">
-		<th>淘宝客佣金：</th>
+		<th>亚马逊佣金：</th>
 		<td>
 			<!-- <label><input type="radio" name="info[taobaoke]" value="1" <?php if ($rs['taobaoke'] == 1): ?>checked<?php endif ?>>&nbsp;是</label>
 			<label><input type="radio" name="info[taobaoke]" value="0" <?php if ($rs['taobaoke'] == 0): ?>checked<?php endif ?>>&nbsp;否</label> -->
@@ -273,13 +273,13 @@ $("#goods_content").formValidator({
 
 $("#taobao").formValidator({
 	empty:false,
-	onempty:'淘宝佣金不能为空',
-	onshow:'淘宝佣金不能为空',
-	onfocus:'请输入淘宝佣金'
+	onempty:'亚马逊佣金不能为空',
+	onshow:'亚马逊佣金不能为空',
+	onfocus:'请输入亚马逊佣金'
 }).regexValidator({
 	regexp:'decmal1',
 	datatype:'enum',
-	onerror:'淘宝佣金输入错误'	
+	onerror:'亚马逊佣金输入错误'	
 }).defaultPassed();
 
 function refersh_window() {

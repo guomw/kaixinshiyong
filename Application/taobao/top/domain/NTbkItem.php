@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 淘宝客商品
+ * 亚马逊商品
  * @author auto create
  */
 class NTbkItem

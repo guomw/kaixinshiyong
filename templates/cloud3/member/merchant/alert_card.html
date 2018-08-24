@@ -234,7 +234,7 @@
 		<div class="cmp_right">
 			<div class="shops_list">
 				<p>
-					<span class="s_w">淘宝账号：<b class="c_f60">{if $userinfo['taobao']['account']}<span style="color:#bb0000">{$userinfo['taobao']['account']}</span>{else}该订单未绑定{/if}</b></span>
+					<span class="s_w">亚马逊账号：<b class="c_f60">{if $userinfo['taobao']['account']}<span style="color:#bb0000">{$userinfo['taobao']['account']}</span>{else}该订单未绑定{/if}</b></span>
 				</p>
 
 				{if $userinfo['taobao']}
@@ -271,7 +271,7 @@
 					<span class="s_w">
 						绑定时间：<b>{if ($userinfo['taobao']['inputtime'])}{dgmdate($userinfo['taobao']['inputtime'])}{else}暂无...{/if}</b>
 					</span>
-					<font>(当前淘宝帐号的绑定时间)<b></b></font>
+					<font>(当前亚马逊帐号的绑定时间)<b></b></font>
 					{/if}
 				</p>
 			</div>

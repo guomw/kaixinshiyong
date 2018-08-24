@@ -1883,15 +1883,15 @@ angular
         data4, //修改或者认证邮箱
         data5, //修改QQ
         data6, //修改绑定手机
-        data7, //获取已绑定淘宝帐号
+        data7, //获取已绑定亚马逊帐号
         data8, //获取用户现有收货地址
         data9, //修改用户收货地址
         data10, //修改用户实名认证
         data11,
         data12,
-        data13, // 绑定淘宝
-        data14, //设置默认淘宝帐号
-        data15, //删除淘宝帐号
+        data13, // 绑定亚马逊
+        data14, //设置默认亚马逊帐号
+        data15, //删除亚马逊帐号
         data16, //支持的提现银行
         data17 //绑定支付宝
       var data18 //修改用户昵称
@@ -2013,7 +2013,7 @@ angular
           return data5
         },
 
-        // 获取用户绑定淘宝账号
+        // 获取用户绑定亚马逊账号
         // 首先判断如果缓存不存在则请求服务器 缓存存在则读取缓存
         //
         set_username_taobao: function(userid, random) {
@@ -2021,7 +2021,7 @@ angular
             data6 = StorageFactory.get('taobao')
             $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
           } else {
-            //获取当前用户已绑定淘宝帐号数量
+            //获取当前用户已绑定亚马逊帐号数量
             resource7.save(
               {
                 userid: userid,
@@ -2029,15 +2029,15 @@ angular
               },
               function(r) {
                 data6 = r
-                StorageFactory.set('taobao', data6) //淘宝帐号写入缓存
+                StorageFactory.set('taobao', data6) //亚马逊帐号写入缓存
                 $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
               }
             )
           }
         },
-        //用于绑定淘宝帐号 重新发起请求获取最新淘宝账号及
+        //用于绑定亚马逊帐号 重新发起请求获取最新亚马逊账号及
         set_username_taobao2: function(userid, random) {
-          //获取当前用户已绑定淘宝帐号数量
+          //获取当前用户已绑定亚马逊帐号数量
           resource7.save(
             {
               userid: userid,
@@ -2045,7 +2045,7 @@ angular
             },
             function(r) {
               data6 = r
-              StorageFactory.set('taobao', data6) //淘宝帐号写入缓存
+              StorageFactory.set('taobao', data6) //亚马逊帐号写入缓存
               $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
             }
           )
@@ -2176,7 +2176,7 @@ angular
           return data12
         },
 
-        // 后台请求绑定淘宝账号
+        // 后台请求绑定亚马逊账号
         set_bind_taobao: function(account, userid, random) {
           return resource13.save(
             {
@@ -2195,7 +2195,7 @@ angular
           return data13
         },
 
-        // 后台请求设置默认淘宝账号
+        // 后台请求设置默认亚马逊账号
         set_bind_taobao_setdefault: function(id, userid, random) {
           return resource14.save(
             {
@@ -2214,7 +2214,7 @@ angular
           return data13
         },
 
-        // 后台请求解绑淘宝账号
+        // 后台请求解绑亚马逊账号
         set_bind_del_tb: function(id, userid, random) {
           return resource15.save(
             {

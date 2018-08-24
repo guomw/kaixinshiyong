@@ -8,8 +8,8 @@ include $this->admin_tpl('header');?>
 <input type='hidden' name='activity_type' value="postal"/>
 <div class="pad-10">
     <div class="explain-col">
-        <!--  1.淘宝客api 申请地址 http://www.alimama.com/<br>
-         2.淘宝客api 主要用途 1 获取淘宝.天猫商品信息 2.可用于后续淘宝客商品<br>
+        <!--  1.亚马逊api 申请地址 http://www.alimama.com/<br>
+         2.亚马逊api 主要用途 1 获取亚马逊.天猫商品信息 2.可用于后续亚马逊商品<br>
          3.官方自带的api因多有多平台使用，有可能造成不稳定情况，建议自行申请。 -->
     </div>
     <div class="bk10"></div>
@@ -31,7 +31,7 @@ include $this->admin_tpl('header');?>
             </tr>
 
           <!--   <tr>
-                <th>淘宝客 pid</th>
+                <th>亚马逊 pid</th>
                 <td class="y-bg">
                     <input type="text" class="input-text" name="setting[api_pid]" value="<?php echo C('API_PID')?>"/>&nbsp;
                 </td>

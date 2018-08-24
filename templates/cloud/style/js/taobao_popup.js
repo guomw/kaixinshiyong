@@ -10,18 +10,18 @@ function exitcid_taobao_box(exitcid){
             success: function(data){
 				if(data.success=='0'){
 				$('#error_mas_out').attr('class','error_mas_out_on');
-		        $('#error_mas_out').html('抱歉,请检查淘宝帐号或订单编号！');	
+		        $('#error_mas_out').html('抱歉,请检查亚马逊帐号或订单编号！');
 				}else if(data.success=='2'){
 				$('#error_mas_out').attr('class','error_mas_out_on');
-		        $('#error_mas_out').html('抱歉！此淘宝帐号已被认证过了！');
+		        $('#error_mas_out').html('抱歉！此亚马逊帐号已被认证过了！');
 				}else if(data.success=='3'){
 				$('#error_mas_out').attr('class','error_mas_out_on');
-		        $('#error_mas_out').html('您已认证了5个淘宝帐号了！');
+		        $('#error_mas_out').html('您已认证了5个亚马逊帐号了！');
 				}else if(data.success=='4'){
 				$('#error_mas_out').attr('class','error_mas_out_on');
-		        $('#error_mas_out').html('淘宝帐号或订单编号不能为空！');
+		        $('#error_mas_out').html('亚马逊帐号或订单编号不能为空！');
 				}else if(data.success=='1'){
-				alert('恭喜您,已成功绑定淘宝帐号！');
+				alert('恭喜您,已成功绑定亚马逊帐号！');
 				window.location.reload();
 				}
 				}
@@ -30,7 +30,7 @@ function exitcid_taobao_box(exitcid){
 }
 function for_input_taobao_box(){
         $("#input_taobao").fbmodal({
-            title: "淘宝帐号绑定设置",  //标题
+            title: "亚马逊帐号绑定设置",  //标题
            cancel: "取消",//取消按钮
              okay: "提交",//确定按钮
        okaybutton: true,//确定按钮：true 显示 false 隐藏

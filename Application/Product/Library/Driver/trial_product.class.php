@@ -48,7 +48,7 @@ class trial_product extends \Product\Library\ProductInterface {
     /**
      * 用户抢购
      * $talk : 对商家说点什么
-     * $bind_id : 选择购买的淘宝帐号
+     * $bind_id : 选择购买的亚马逊帐号
      */
     public function pay_submit($talk = '',$bind_id = 0,$data_type=0) {
         // 检测用户权限
@@ -181,10 +181,10 @@ class trial_product extends \Product\Library\ProductInterface {
             return FALSE;
         }
 
-        /* 绑定淘宝账号 */
+        /* 绑定亚马逊账号 */
         $tb_count = model('member_bind')->where(array('userid'=>$this->user_info['userid'],'status'=>array('NEQ',2)))->count();
         if ($config['buyer_join_condition']['bind_taobao'] && $tb_count < 1) {
-            $this->error = '请先绑定淘宝账号';
+            $this->error = '请先绑定亚马逊账号';
             return FALSE;
         }
 

@@ -693,7 +693,7 @@ class AppController extends BaseController
         echo json_encode($lists);
     }
 
-    /*获取用户绑定淘宝帐号*/
+    /*获取用户绑定亚马逊帐号*/
     public function get_tbaccount()
     {
         $param = I('param.');
@@ -2560,7 +2560,7 @@ class AppController extends BaseController
 
     }
 
-    /*绑定淘宝信息    */
+    /*绑定亚马逊信息    */
     public function bind_tb_info()
     {
         if (IS_POST) {
@@ -2586,14 +2586,14 @@ class AppController extends BaseController
             $bind_tb_nums = C('bind_tb_nums');  //  绑定个数
             $count = model('member_bind')->where(array('userid' => $userid, 'status' => array('NEQ', 2)))->count();
             if ($count >= $bind_tb_nums) {
-                $this->json_function(0, '您已绑定了' . $count . '个淘宝帐号，已达到最高绑定数量了！');
+                $this->json_function(0, '您已绑定了' . $count . '个亚马逊帐号，已达到最高绑定数量了！');
                 exit();
             }
 
             /* 该账号是否已经被绑定 */
             $account_count = model('member_bind')->where(array('account' => $account, 'userid' => array('NEQ', $userid)))->count();
             if ($account_count >= 1) {
-                $this->json_function(0, '该淘宝账号已经被绑定过，请更换淘宝账号');
+                $this->json_function(0, '该亚马逊账号已经被绑定过，请更换亚马逊账号');
                 exit();
             }
 
@@ -2611,10 +2611,10 @@ class AppController extends BaseController
                 $update['updatetime'] = NOW_TIME;
                 $result = model('member_bind')->where(array('id' => $update_info['id']))->save($update);
                 if (!$result) {
-                    $this->json_function(0, '绑定淘宝账号失败');
+                    $this->json_function(0, '绑定亚马逊账号失败');
                     exit();
                 } else {
-                    $this->json_function(1, '绑定淘宝账号成功');
+                    $this->json_function(1, '绑定亚马逊账号成功');
                 }
             }
             $data = array();
@@ -2636,10 +2636,10 @@ class AppController extends BaseController
             $data['updatetime'] = $data['inputtime'] = NOW_TIME;
             $result = model('member_bind')->update($data);
             if (!$result) {
-                $this->json_function(0, '绑定淘宝账号失败');
+                $this->json_function(0, '绑定亚马逊账号失败');
                 exit();
             } else {
-                $this->json_function(1, '绑定淘宝账号成功');
+                $this->json_function(1, '绑定亚马逊账号成功');
             }
 
         }
@@ -2647,7 +2647,7 @@ class AppController extends BaseController
     }
 
 
-    /*删除淘宝账号绑定*/
+    /*删除亚马逊账号绑定*/
     public function bind_del_tb()
     {
         if (IS_POST) {
@@ -3190,7 +3190,7 @@ class AppController extends BaseController
             if ($Factory->product_info['mod'] == 'trial' && $bind_set['bind_taobao'] == 4) {
                 $bind_taobao = (int)trim($bind_taobao);
                 if ($bind_taobao < 1) {
-                    $this->json_function(0, '请选择您要购买的淘宝帐号');
+                    $this->json_function(0, '请选择您要购买的亚马逊帐号');
                     exit();
                 }
                 $result = $this->pay_submit($goods_id, $talk_content, $bind_taobao, $userid);
@@ -3234,7 +3234,7 @@ class AppController extends BaseController
         if ($Factory->product_info['mod'] == 'trial' && $bind_set['bind_taobao'] == 4) {
             $bind_taobao = (int)trim($bind_taobao);
             if ($bind_taobao < 1) {
-                $this->json_function(0, '请选择您要购买的淘宝帐号');
+                $this->json_function(0, '请选择您要购买的亚马逊帐号');
                 exit();
             }
             $result = $this->vip_pay_submit($goods_id, $talk_content, $bind_taobao, $userid);
@@ -3255,7 +3255,7 @@ class AppController extends BaseController
     /**
      * vip试客用户抢购
      * $talk : 对商家说点什么
-     * $bind_id : 选择购买的淘宝帐号
+     * $bind_id : 选择购买的亚马逊帐号
      */
     public function vip_pay_submit($goods_id, $talk = '', $bind_id = 0, $userid, $data_type = 1)
     {
@@ -3365,7 +3365,7 @@ class AppController extends BaseController
         if ($Factory->product_info['mod'] == 'trial' && $bind_set['bind_taobao'] == 4) {
             $bind_taobao = (int)trim($bind_taobao);
             if ($bind_taobao < 1) {
-                $this->json_function(0, '请选择您要购买的淘宝帐号');
+                $this->json_function(0, '请选择您要购买的亚马逊帐号');
                 exit();
             }
             $result = $this->point_pay_submit($goods_id, $talk_content, $bind_taobao, $userid);
@@ -3387,7 +3387,7 @@ class AppController extends BaseController
     /**
      * 积分免审
      * $talk : 对商家说点什么
-     * $bind_id : 选择购买的淘宝帐号
+     * $bind_id : 选择购买的亚马逊帐号
      */
     private function point_pay_submit($goods_id, $talk = '', $bind_id = 0, $userid)
     {
@@ -3451,7 +3451,7 @@ class AppController extends BaseController
     /**
      * 用户抢购
      * $talk : 对商家说点什么
-     * $bind_id : 选择购买的淘宝帐号
+     * $bind_id : 选择购买的亚马逊帐号
      */
     public function pay_submit($goods_id, $talk = '', $bind_id = 0, $userid)
     {
@@ -3522,10 +3522,10 @@ class AppController extends BaseController
 
         }
 
-        /* 绑定淘宝账号 */
+        /* 绑定亚马逊账号 */
         $tb_count = model('member_bind')->where(array('userid' => $user_info['userid'], 'status' => array('NEQ', 2)))->count();
         if ($config['buyer_join_condition']['bind_taobao'] && $tb_count < 1) {
-            $this->json_function(0, '请先绑定淘宝账号');
+            $this->json_function(0, '请先绑定亚马逊账号');
             exit();
         }
 
@@ -4001,10 +4001,10 @@ class AppController extends BaseController
             exit();
         }
 
-        /* 绑定淘宝账号 */
+        /* 绑定亚马逊账号 */
         $tb_count = model('member_bind')->where(array('userid' => $user_info['userid'], 'status' => array('NEQ', 2)))->count();
         if ($config['buyer_join_condition']['bind_taobao'] && $tb_count < 1) {
-            $this->json_function(0, '请先绑定淘宝账号');
+            $this->json_function(0, '请先绑定亚马逊账号');
             exit();
         }
 
@@ -4331,12 +4331,12 @@ class AppController extends BaseController
                 $this->json_function(0, '只限于买家参与');
                 exit();
             }
-            //查看该用户是否绑定手机、淘宝账号
-            if (DEFAULT_THEME != 'wap') { //手机没有绑定淘宝号
+            //查看该用户是否绑定手机、亚马逊账号
+            if (DEFAULT_THEME != 'wap') { //手机没有绑定亚马逊号
                 $taobao = model('member_bind')->where(array('userid' => $userinfo['userid']))->find();
 
                 if (!$taobao) {
-                    $this->json_function(0, '您还没有绑定淘宝');
+                    $this->json_function(0, '您还没有绑定亚马逊');
                     exit();
                 }
             }
@@ -4524,7 +4524,7 @@ class AppController extends BaseController
 
             $order_info['cause'] = $order_list['cause'];
 
-            //获得绑定淘宝id
+            //获得绑定亚马逊id
             if ($order_info['bind_id'] > 0) {
                 $data['id'] = $order_info['bind_id'];
                 $order_info['taobao'] = model('member_bind')->where($data)->getField('account');
@@ -5320,7 +5320,7 @@ class AppController extends BaseController
             if ($Factory->product_info['mod'] == 'commission' && $bind_set['bind_taobao'] == 4) {
                 $bind_taobao = (int)trim($taobao);
                 if ($bind_taobao < 1) {
-                    $this->json_function(0, '请选择您要购买的淘宝帐号');
+                    $this->json_function(0, '请选择您要购买的亚马逊帐号');
                     exit();
                 }
                 $result = $this->apply_commission_order($goods_id, $userid, $bind_taobao);
@@ -5339,7 +5339,7 @@ class AppController extends BaseController
     }
 
 
-    /*抢购闪电试用商品  1.增加签名检测 2.增加淘宝账号*/
+    /*抢购闪电试用商品  1.增加签名检测 2.增加亚马逊账号*/
     public function apply_commission_order($goods_id, $userid, $bind_id = 0)
     {
 
@@ -5415,10 +5415,10 @@ class AppController extends BaseController
             exit();
         }
 
-        /* 绑定淘宝账号 */
+        /* 绑定亚马逊账号 */
         $tb_count = model('member_bind')->where(array('userid' => $user_info['userid'], 'status' => array('NEQ', 2)))->count();
         if ($config['buyer_join_condition']['bind_taobao'] && $tb_count < 1) {
-            $this->json_function(0, '请先绑定淘宝账号');
+            $this->json_function(0, '请先绑定亚马逊账号');
             exit();
         }
 

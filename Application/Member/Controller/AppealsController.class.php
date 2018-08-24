@@ -186,7 +186,7 @@ class AppealsController extends InitController {
 					case '1': // 订单ID
 						$sqlMap['id'] = $info['keyword'];
 						break;
-					case '2': // 淘宝订单号
+					case '2': // 亚马逊订单号
 					    $pidss = model('order')->where(array('order_sn'=>array("LIKE", "%".$info['keyword']."%")))->getField("id",true);
 						$sqlMap['order_id'] = array('IN',$pidss);
 						break;

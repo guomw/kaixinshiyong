@@ -23,7 +23,7 @@
 				<select name="type">
 					<option value='0' <?php if(isset($_GET['type']) && $_GET['type']==0){?>selected<?php }?>>商品标题</option>
 					<option value='1' <?php if(isset($_GET['type']) && $_GET['type']==1){?>selected<?php }?>>id</option>
-					<option value='2' <?php if(isset($_GET['type']) && $_GET['type']==2){?>selected<?php }?>>淘宝订单号</option>
+					<option value='2' <?php if(isset($_GET['type']) && $_GET['type']==2){?>selected<?php }?>>亚马逊订单号</option>
 					<option value='3' <?php if(isset($_GET['type']) && $_GET['type']==3){?>selected<?php }?>>昵称</option>
 				</select>				
 				<input name="keyword" type="text" value="<?php if(isset($_GET['keyword'])) {echo $_GET['keyword'];}?>" class="input-text" />

@@ -502,7 +502,7 @@ class MemberController extends InitController {
 		if($userid < 0){$this->error('参数错误');}
 		$memberinfo = member_info($userid);
 
-        /*获取已绑定的淘宝帐号信息*/
+        /*获取已绑定的亚马逊帐号信息*/
 		if($memberinfo['modelid'] == 1){
           $taobaoinfo = model('member_bind')->where(array('userid' =>$userid ))->select();
 		}
@@ -734,7 +734,7 @@ class MemberController extends InitController {
 	}
 
 
-	/* 绑定淘宝设置 */
+	/* 绑定亚马逊设置 */
 	public function set_bind_tb() {
         $setting = $this->setting->getField('key,value');
         $setting['bind_safe_grade'] = string2array($setting['bind_safe_grade']);
@@ -757,7 +757,7 @@ class MemberController extends InitController {
 	}
 
 
-	/* 绑定淘宝设置 */
+	/* 绑定亚马逊设置 */
 	public function set_bind_store() {
         $setting = $this->setting->getField('key,value');
 		if (submitcheck('dosubmit')) {
@@ -828,7 +828,7 @@ class MemberController extends InitController {
         }
     }
 
-    /*淘宝绑定*/
+    /*亚马逊绑定*/
     function bind(){
     	if (IS_GET) {
 			$info = I('get.');

@@ -282,7 +282,7 @@ var page_detail = (function() {
 							art.dialog({
 								lock	: true,
 								fixed	: true,
-								title	: '填写淘宝订单号',
+								title	: '填写亚马逊订单号',
 								content	: diy_form,
 								init	: function(){
 									var dialog = this;
@@ -363,7 +363,7 @@ var page_detail = (function() {
 					buy_succes += '<p class="issue"><a href="'+site.site_root+'/help/?catid=80" target="_blank">搜索下单常见问题</a></p>';
 					buy_succes += '<font class="font f_bg_yes font_2">抢购成功，请使用搜索方式下单</font>';
 					buy_succes += '<ul class="hint_text_2 margin_b_10"><p>搜索下单提示：</p>';
-					buy_succes += '<li>1、进入<em><a href="http://www.taobao.com" target="_blank">淘宝网首页</a></em>，搜索关键词：<b style="color:red;">'+goods.goods_rule.keyword+'</b>。</li>';
+					buy_succes += '<li>1、进入<em><a href="http://www.taobao.com" target="_blank">亚马逊网首页</a></em>，搜索关键词：<b style="color:red;">'+goods.goods_rule.keyword+'</b>。</li>';
 					buy_succes += '<li>2、请使用<em>Ctrl+F 查找</em>旺旺名称:<span style="color:red;">'+goods.__seller__.contact_want+'</span>;进入店铺找到活动宝贝，然后进行下单。</li>';
 					if (goods.goods_rule.keyword2.length > 0 ) {
 						buy_succes += '<li>3、搜索提示：<span style="color:red;">'+ goods.goods_rule.keyword2 +'</span></li>';

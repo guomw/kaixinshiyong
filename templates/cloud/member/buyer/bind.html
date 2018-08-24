@@ -30,7 +30,7 @@
 		<div class="content_wrap overflow_hidden">
 			{include template("member_left","member/common")}
 			<div class="content_right float_right">
-				<h1>绑定淘宝账号</h1>
+				<h1>绑定亚马逊账号</h1>
 				<div class="content_right_main">
 					<div class="main_content">
 						<div class="avatar">
@@ -42,13 +42,13 @@
 						</div>
 						<div class="input">
 							<dl>
-								<dt><span>淘宝账号：</span>请填写您需要认证的淘宝账号<a href="#" class="help">如何认证?</a></dt>
+								<dt><span>亚马逊账号：</span>请填写您需要认证的亚马逊账号<a href="#" class="help">如何认证?</a></dt>
 								<dd><input type="text" name="taobao" id="taobao" /></dd>
 							</dl>
 							<dl class="order_id">
 								<dt><span>温馨提示：</span></dt>
-								<dd>1、只有用绑定过的淘宝账号下单，才能获得返利或试用资格</dd>
-								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}淘宝账号</dd>
+								<dd>1、只有用绑定过的亚马逊账号下单，才能获得返利或试用资格</dd>
+								<dd>2、每个会员账号仅限绑定{C('bind_tb_nums')}个{C('webname')}亚马逊账号</dd>
 								<div id="loader" style="width: 80px; height: 80px"></div>
 							</dl>
 							<span style="margin-left: 15px;" class="msg"></span>
@@ -66,7 +66,7 @@
 					<dd>
 						<table>
 							<tr>
-								<th style="width: 155px;">淘宝账号</th>
+								<th style="width: 155px;">亚马逊账号</th>
 								<th style="width: 146px;">买家信用</th>
 								<th style="width: 127px;">绑定时间</th>
 								<th style="width: 135px;">状态</th>
@@ -112,20 +112,20 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#taobao").focus(function(){
-		$(".msg").html("请输入淘宝账号");
+		$(".msg").html("请输入亚马逊账号");
 	});
 	$("#taobao").blur(function(){
 		var _this = $(this).val();
 		if(_this == ''){
-			$(".msg").html("淘宝账号不能为空");
+			$(".msg").html("亚马逊账号不能为空");
 		}else{
-			$(".msg").html("<font color='green'>淘宝账号输入正确</font>");
+			$(".msg").html("<font color='green'>亚马逊账号输入正确</font>");
 		}
 	});
 	//绑定
 	$("#aut_push").click(function(){
 		if("" == $("#taobao").val()){
-			$(".msg").html("请输入淘宝账号");
+			$(".msg").html("请输入亚马逊账号");
 		}else{
 			$(".msg").html("<font  color='green'>输入正确</font>");
 			  $('#loader').shCircleLoader();
