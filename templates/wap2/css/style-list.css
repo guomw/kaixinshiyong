@@ -525,12 +525,12 @@
     border-radius: 0px;
 }
 .button.button-assertive.button-outline {
-    border-color: #ffffff;
+border-color: #ef473a;
     background: #ef473a;
     color: #ffffff;
 }
 .item {
-    border-color: #fff;
+    border-color: #EDEDED;
 }
 .list_w {
     margin: 0;
@@ -565,7 +565,7 @@
     text-align: center;
     background-color: rgb(239, 71, 58);
 }
-.hot_title {
+.try.hot_title {
     text-align: initial;
     padding: 10px 9px;
     font-size: 14px;
@@ -573,7 +573,7 @@
     margin: 0 auto;
     font-weight: 400;
 }
-.padding-horizontal, .padding-right {
+.padding-horizontal, .padding-right.noneleft {
     padding-right: 10px;
     color: #A9A9A9;
     text-align: center;
@@ -591,7 +591,7 @@
     margin: 10px 0px 0px 0px;
     padding: 0px 5px;
 }
-.padding-horizontal, .padding-left {
+.padding-horizontal, .padding-left.noneleft  {
     padding-left: 0px;
 }
 .popup .popup-buttons {
@@ -628,8 +628,17 @@
     margin-top: 0px;
     background-color: #ffffff;
 }
-
-
+/*帮助中心*/
+.help .item-complex.item-icon-left .item-content {
+    padding: 7px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 0px;
+    margin: 3px 0px;
+}
+.active.borderb{
+	border-bottom: 1px solid #eaeaea;
+}
 
 
 
