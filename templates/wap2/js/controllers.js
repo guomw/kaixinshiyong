@@ -3821,17 +3821,37 @@ angular
           })
           .then(function(res) {
             if (res == false) {
-              alert(order_id,userid,random)
+              alert(order_id, userid, random)
               var star = 5
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
               trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
-              window.location.reload()
+              //接收试用报告  返回结果
+              $scope.$on('trialOrderFactory.set_trial_report', function() {
+                var sybg_data = trialOrderFactory.get_trial_report()
+                alert(sybg_data)
+                if (sybg_data.status == 1) {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+
+                  //跳转返回我的订单页面
+                  window.location.reload()
+                } else {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+                }
+              })
             } else {
               // window.location.href = linkurl
               window.open(linkurl)
             }
-          }) 
+          })
       }
 
       //点击订单跳转填写订单号页面
