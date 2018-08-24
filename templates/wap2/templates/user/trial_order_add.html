@@ -125,13 +125,8 @@
           了解和学习搜索下单流程
           <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
         </ion-item>
-			<div style="color:#A9A9A9;padding:5px 10px;font-size: 14px;">
-          <p>
-            1.打开 <b class="cc">手机{{ txddh_showdata.source | f_source }}</b> 首页,搜索关键词
-            <b class="cc">{{goods_keyword}}</b>
-          </p>
-        <div class="padding-left">
-          <p class="hot_title">了解和学习搜索下单流程</p>
+
+          
           <div style="color:#A9A9A9;padding:0 10px;font-size: 14px;">
             <p>
               1.打开 <b class="cc">手机{{ txddh_showdata.source | f_source }}</b> 首页,搜索关键词
@@ -264,6 +259,7 @@
   <label class="item item-input" >
     <input type="text" ng-pattern="" ng-model="order_vm.mum"  placeholder="请填写您的订单号"  required></label>
       <p style="color:#A9A9A9;text-align: right; " class="padding-right">不会复制订单号? <a href="javascript:;" ng-click="go_order_sn_help()" >看这里</a></p>
+    </p>
     </p>
   </script>
 </ion-view>
