@@ -492,6 +492,7 @@
     margin: 10px 0px 20px 0px;
     font-size: 14px;
 }
+/*订单列表*/
 .item_shop.item{
 	overflow: initial;
     text-overflow: inherit;
@@ -506,6 +507,134 @@
 	 white-space: initial;
 
 }
+/*提交订单评价-我的试用*/
+
+.scroll .list{
+	background-color: #fff;
+}
+.button-bar>.button:last-child {
+    border-right-width: 1px;
+    border-radius: 0px;
+}
+.button.button-assertive.button-outline.xiadan{
+    border-color: #ff958d;
+    background: #ff958d;
+    color: #ffffff;
+}
+.button-bar>.button:first-child {
+    border-radius: 0px;
+}
+.button.button-assertive.button-outline {
+    border-color: #ffffff;
+    background: #ef473a;
+    color: #ffffff;
+}
+.item {
+    border-color: #fff;
+}
+.list_w {
+    margin: 0;
+    border: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    box-sizing: border-box;
+    padding: 0.25em 1%;
+    width: 100%;
+    background-color: #fff;
+}
+.item-complex.item-icon-left .item-content {
+    padding: 7px;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    border: 0px;
+    margin: 3px 0px;
+}
+.item-note {
+    float: right;
+    color: #aaa;
+    font-size: 14px;
+    margin-right: 18px;
+}
+.item-icon-right .icon {
+    right: 0px;
+}
+.padding-left.tip{
+	color: rgb(224, 224, 224);
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    background-color: rgb(239, 71, 58);
+}
+.hot_title {
+    text-align: initial;
+    padding: 10px 9px;
+    font-size: 14px;
+    color: #333;
+    margin: 0 auto;
+    font-weight: 400;
+}
+.padding-horizontal, .padding-right {
+    padding-right: 10px;
+    color: #A9A9A9;
+    text-align: center;
+    margin-top: 4px;
+}
+.popup-body {
+    padding: 10px;
+    overflow: auto;
+    background: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.popup-body .item {
+    border-color: #efefef;
+    margin: 10px 0px 0px 0px;
+    padding: 0px 5px;
+}
+.padding-horizontal, .padding-left {
+    padding-left: 0px;
+}
+.popup .popup-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0px;
+    min-height: 44px;
+}
+.popup .popup-buttons .button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    min-height: 45px;
+    border-radius: 2px;
+    line-height: 20px;
+    margin-right: 0px;
+}
+.view-container .padding_head {
+    padding-top: 0px;
+    margin-top: 0px;
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
 
 
 
