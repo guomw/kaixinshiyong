@@ -4079,7 +4079,6 @@ angular
         $('.backdrop').hide()
         $('body').removeClass('popup-open')
         $state.go('tab.help_order_sn')
-
       }
 
       $scope.$on('$ionicView.beforeEnter', function() {
@@ -4387,6 +4386,42 @@ angular
               }
             }
           ]
+        })
+      }
+
+      $scope.get_href = function() {
+        var alertPopup = $ionicPopup.show({
+          title: '复制地址到浏览器下单',
+          templateUrl: 'b.html',
+          scope: $scope,
+          buttons: [
+            {
+              text: '取消'
+            },
+            {
+              text: '确定',
+              type: 'button-assertive',
+              onTap: function(e) {}
+            }
+          ]
+        })
+      }
+
+      $scope.copyArticle = function() {
+        var clipboard = new ClipboardJS('.copyBT')
+        clipboard.on('success', function(e) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '复制成功',
+            duration: 1000
+          })
+          $('.popup-container.popup-showing.active').hide()
+          $('.backdrop').hide()
+          $('body').removeClass('popup-open')
+        })
+
+        clipboard.on('error', function(e) {
+          console.log(e)
         })
       }
 
