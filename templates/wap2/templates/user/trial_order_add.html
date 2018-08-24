@@ -235,8 +235,12 @@
   <div class="bar bar-footer" style="height:70px;">
     <div class="button-bar">
       <div class="button-bar ">
+        <!-- <button ng-if="order_info.status == 4 || order_info.status == 2  " class="button button-assertive button-outline button-block xiadan "
+          ng-click="To_order(txddh_showdata.type,txddh_showdata.source,txddh_showdata.goods_url)">去下单</button> -->
         <button ng-if="order_info.status == 4 || order_info.status == 2  " class="button button-assertive button-outline button-block xiadan "
-          ng-click="To_order(txddh_showdata.type,txddh_showdata.source,txddh_showdata.goods_url)">去下单</button>
+          ng-click="get_href()">
+          去下单
+        </button>
         <button ng-if="order_info.status == 4 " class="button button-energized button-block " ng-click="Appeal(order_info.status,order_info.id,txddh_showdata.id)">我要申述</button>
         <button ng-if=" (order_info.status == 2 && order_info.order_sn !='') || order_info.status == 4  " class="button button-assertive button-block "
           ng-click="add_order_number()">修改订单号</button>
@@ -253,8 +257,13 @@
   <p style="color:#A9A9A9" class="padding-left">虚假订单号,将被取消资格,冻结帐号</p>
   <p style="color:red" class="padding-left">登录亚马逊后台,复制订单编号</p>
   <label class="item item-input" >
-    <input type="text" ng-pattern="" ng-model="order_vm.mum"  placeholder="请填写您的订单号"  required></label>
-      <p style="color:#A9A9A9;text-align: right; " class="padding-right">不会复制订单号? <a href="javascript:;" ng-click="go_order_sn_help()" >看这里</a></p>
-    </p>
+    <input type="text" ng-pattern="" ng-model="order_vm.mum"  placeholder="请填写您的订单号"  required>
+  </label>
+  <p style="color:#A9A9A9;text-align: right; " class="padding-right">不会复制订单号?<a href="javascript:;" ng-click="go_order_sn_help()" >看这里</a>
+    
+  </script>
+  <script id="b.html" type="text/ng-template"> 
+    <input id="foo" type="text" value="{{txddh_showdata.goods_url}}">
+    <button class='copyBT' ng-click="copyArticle()" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
   </script>
 </ion-view>

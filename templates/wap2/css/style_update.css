@@ -308,7 +308,6 @@ a.weui-btn {
   top: 0;
 }
 
-
 .register_forget {
   margin-top: 150px;
   width: 100%;
@@ -344,4 +343,13 @@ p {
 .loading-container .loading {
   margin: 0 5%;
   font-size: 14px;
+}
+.copyBT {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 125px;
+  height: 45px;
+  z-index: 1000;
+  opacity: 0;
 }
