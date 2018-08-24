@@ -3820,8 +3820,8 @@ angular
             okType: ''
           })
           .then(function(res) {
-            console.log(res)
             if (res == false) {
+              alert(order_id,userid,random)
               var star = 5
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
@@ -3831,7 +3831,7 @@ angular
               // window.location.href = linkurl
               window.open(linkurl)
             }
-          })
+          }) 
       }
 
       //点击订单跳转填写订单号页面
