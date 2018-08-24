@@ -129,7 +129,7 @@
 
           <div style="color:#A9A9A9;padding:0 10px;font-size: 14px;">
             <p>
-              1.打开 <b class="cc">手机{{ txddh_showdata.source | f_source }}</b> 首页,搜索关键词
+              1.打开 <b class="cc">亚马逊</b> 首页,搜索关键词
               <b class="cc">{{goods_keyword}}</b>
             </p>
 
@@ -267,7 +267,8 @@
     
   </script>
   <script id="b.html" type="text/ng-template"> 
-    <input id="foo" type="text" value="{{txddh_showdata.goods_url}}">
+    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+    <textarea id="foo" type="text" cols="30" rows="8" readonly>{{txddh_showdata.goods_url}}</textarea>
     <button class='copyBT' ng-click="copyArticle()" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
   </script>
 </ion-view>

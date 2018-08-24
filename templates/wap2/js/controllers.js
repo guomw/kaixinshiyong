@@ -4396,10 +4396,7 @@ angular
           scope: $scope,
           buttons: [
             {
-              text: '取消'
-            },
-            {
-              text: '确定',
+              text: '复制',
               type: 'button-assertive',
               onTap: function(e) {}
             }
