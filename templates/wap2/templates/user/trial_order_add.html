@@ -9,17 +9,17 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;">
       </ion-spinner>
     </div>
-     <p ng-if="order_info.status == 4 " style="color:#A9A9A9;padding: 10px 15px;font-size: 14px" class="padding-left ">
+     <p ng-if="order_info.status == 4 " style="color:#A9A9A9;padding: 10px 15px;font-size: 14px" class="padding-left tip">
         提示:
-        <b class="cc">{{order_info.cause}}</b>
+        <b style="color: #fff;">{{order_info.cause}}</b>
 
       </p>
       <p class="padding-left " ng-if="order_info.taobao" style="padding: 10px 15px;font-size: 14px">请使用绑定亚马逊帐号<b class="cc">"{{order_info.taobao}}
           "
         </b>下单</p>
-      <p ng-if="order_info.status == 4 && !order_info.trial_report " class="padding-left">
+      <p ng-if="order_info.status == 4 && !order_info.trial_report " class="padding-left tip">
         未在:
-        <b ><span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}" data-time="">
+        <b style="color: #fff;"><span id="{{order_info.complete_time - 0 + buyer_check_update_order_sn}}" data-time="">
             {{ order_info.complete_time - 0 + buyer_check_update_order_sn | f_fomtime }}
           </span></b>
         修改订单号,将失去资格!
@@ -38,6 +38,14 @@
           </span>
         </b>
         填写订单号,将失去资格!
+      </p>
+	        <p ng-if="order_info.status == 2 && order_info.order_sn !=''   " class="padding-left tip">
+        订单号审核中:
+        <b style="color: #fff;">
+          <span id="{{order_info.complete_time - 0 + buyer_write_order_time}}" data-time="">
+            {{ order_info.complete_time - 0 + seller_order_check_time | f_fomtime }}
+          </span>
+        </b>
       </p>
     <ion-list ng-if="txddh_showloading ==false">
       <ion-item class="list_w">
@@ -65,14 +73,7 @@
 
  
 
-      <p ng-if="order_info.status == 2 && order_info.order_sn !=''   " class="padding-left" style="padding: 10px 15px;font-size: 14px">
-        订单号审核中:
-        <b class="cc">
-          <span id="{{order_info.complete_time - 0 + buyer_write_order_time}}" data-time="">
-            {{ order_info.complete_time - 0 + seller_order_check_time | f_fomtime }}
-          </span>
-        </b>
-      </p>
+
 
       <div ng-if="txddh_showdata.protype == 3">
         <ion-item class="item item-icon-left ">
@@ -109,21 +110,24 @@
         </div>
       </div>
       <!-- 普通下单区域 结束区  -->
-
+<!-- ng-show="txddh_showdata.type == 'search' "-->
       <!-- 搜索下单区域   -->
-      <div ng-show="txddh_showdata.type == 'search' ">
+      <div>
+<!--
         <div class="item item-divider item-icon-left ">
-          <!-- <i style="font-size:18px;color:#7687f1" class="icon ion-android-search"></i> -->
+           <i style="font-size:18px;color:#7687f1" class="icon ion-android-search"></i> 
           搜索下单
         </div>
-        <p style="color:#A9A9A9;text-align:right; " class="padding-right">了解和学习搜索下单流程</p>
+-->
+       
 
         <div class="padding-left">
+			 <p  class="hot_title">了解和学习搜索下单流程</p>
+			<div style="color:#A9A9A9;padding:0 10px;font-size: 14px;">
           <p>
             1.打开 <b class="cc">手机{{ txddh_showdata.source | f_source }}</b> 首页,搜索关键词
             <b class="cc">{{goods_keyword}}</b>
           </p>
-          <p>
 
             <p>
               2.按照
@@ -144,10 +148,12 @@
               5.搜索帮助提示
               <b class="cc">{{txddh_showdata.goods_rule.keyword2}}</b>
             </p>
-
+</div>
+<!--
             <div ng-repeat="d in txddh_showdata.goods_search_albums">
               <img style="width:100%" ng-src="{{d.url | imgUrl}}" />
             </div>
+-->
 
         </div>
       </div>

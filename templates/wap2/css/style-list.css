@@ -517,7 +517,7 @@
     border-radius: 0px;
 }
 .button.button-assertive.button-outline.xiadan{
-    border-color: #ffffff;
+    border-color: #ff958d;
     background: #ff958d;
     color: #ffffff;
 }
@@ -558,7 +558,7 @@
 .item-icon-right .icon {
     right: 0px;
 }
-.padding-top.tip{
+.padding-left.tip{
 	color: rgb(224, 224, 224);
     padding: 10px 15px;
     font-size: 14px;
