@@ -1350,15 +1350,6 @@ angular
             duration: 1000
           })
         } else if (reg_status.status == 1) {
-          //注册成功
-          // $ionicLoading.show({
-          //   noBackdrop: true,
-          //   template: '注册成功,请激活账号',
-          //   duration: 1000
-          // })
-          // $scope.userid = reg_status.data.userid
-          // $scope.random = reg_status.data.random
-          // $scope.nextEmail = true
           $state.go('tab.activate_email', {
             id: reg_status.data.userid,
             random: reg_status.data.random,
@@ -1373,76 +1364,6 @@ angular
           })
         }
       })
-
-      //邮箱注册账号激活
-      $scope.email_activate = function(user_email, user_sms) {
-        // console.log(user_email, user_sms)
-        User_register1Factory.activeEmail(user_email, user_sms)
-
-        $scope.$on('User_register1Factory.setEmailActivate', function() {
-          var reg_status = User_register1Factory.get_emaileCode()
-          if (reg_status.status == 0) {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: reg_status.msg,
-              duration: 1000
-            })
-          } else if (reg_status.status == 1) {
-            //注册成功
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '激活成功',
-              duration: 1000
-            })
-            $state.go('tab.user')
-            return false
-          } else {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '亲程序员哥哥正在抢修,请稍后',
-              duration: 1000
-            })
-          }
-        })
-      }
-
-      //邮箱注册获取验证码
-      $scope.get_emailCode = function(user_email) {
-        var title = '邮箱认证码'
-        var user_id = $scope.userid
-        var username_type = '邮箱:' + user_email
-        var random = $scope.random
-        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-        $scope.$on('UserProfileFactory.set_send_email_code', function() {
-          userRel = UserProfileFactory.get_send_email_code()
-
-          if (userRel == undefined) return false
-
-          if (userRel.status == 0) {
-            //    返回失败原因
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: userRel.msg,
-              duration: 2000
-            })
-          } else if (userRel.status == 1) {
-            //成功提示原因
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '验证码已成功发送到' + username_type,
-              duration: 2000
-            })
-          } else {
-            $ionicLoading.show({
-              noBackdrop: true,
-              template: '亲，程序猿哥哥正在抢修！',
-              duration: 1500
-            })
-          }
-        })
-      }
-
-      $scope.text = '获取验证码'
 
       //获取图形验证码
       $scope.getImgText = function() {
@@ -1571,7 +1492,6 @@ angular
       //接受请求处理
       $scope.$on('User_activateEmail.setEmailActivate', function() {
         var reg_status = User_activateEmail.get_emaileCode()
-        console.log(reg_status);
         if (reg_status.status == 0) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -1602,14 +1522,13 @@ angular
 
       //邮箱注册获取验证码
       $scope.get_emailCode = function(user_email) {
-        console.log(user_id, random, user_email)
         var title = '邮箱认证码'
         // var user_id = $scope.userid
         var username_type = '邮箱:' + user_email
         // var random = $scope.random
-        UserProfileFactory.set_send_email_code(user_email, title, user_id, random)
-        $scope.$on('UserProfileFactory.set_send_email_code', function() {
-          userRel = UserProfileFactory.get_send_email_code()
+        User_activateEmail.setSendEmailCode(user_email, title, user_id, random)
+        $scope.$on('User_activateEmail.setSendEmailCode', function() {
+          userRel = User_activateEmail.getSendEmailCode()
 
           if (userRel == undefined) return false
 
@@ -3901,13 +3820,33 @@ angular
             okType: ''
           })
           .then(function(res) {
-            console.log(res)
             if (res == false) {
+              alert(order_id, userid, random)
               var star = 5
               var content = '商品很好，很喜欢'
               var img = 'img/shai_img.jpg'
               trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
-              window.location.reload()
+              //接收试用报告  返回结果
+              $scope.$on('trialOrderFactory.set_trial_report', function() {
+                var sybg_data = trialOrderFactory.get_trial_report()
+                alert(JSON.stringify(sybg_data))
+                if (sybg_data.status == 1) {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+
+                  //跳转返回我的订单页面
+                  window.location.reload()
+                } else {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+                }
+              })
             } else {
               // window.location.href = linkurl
               window.open(linkurl)
@@ -5825,6 +5764,57 @@ angular
         //console.log($scope.trial_getorderlists);
       })
 
+      //试用商品评价
+      $scope.goCommon = function(order_id) {
+        var getorderurl = $scope.trial_getorderlists
+        for (k in getorderurl) {
+          if (getorderurl[k].id == order_id) {
+            linkurl = getorderurl[k].goods_url
+          }
+        }
+        $ionicPopup
+          .confirm({
+            title: '评价',
+            cancelText: '已评价',
+            cancelType: '',
+            okText: '去评价',
+            okType: ''
+          })
+          .then(function(res) {
+            if (res == false) {
+              alert(order_id, userid, random)
+              var star = 5
+              var content = '商品很好，很喜欢'
+              var img = 'img/shai_img.jpg'
+              trialOrderFactory.set_trial_report(order_id, star, img, content, userid, random)
+              //接收试用报告  返回结果
+              $scope.$on('trialOrderFactory.set_trial_report', function() {
+                var sybg_data = trialOrderFactory.get_trial_report()
+                alert(sybg_data)
+                if (sybg_data.status == 1) {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+
+                  //跳转返回我的订单页面
+                  window.location.reload()
+                } else {
+                  $ionicLoading.show({
+                    noBackdrop: true,
+                    template: sybg_data.msg,
+                    duration: 1000
+                  })
+                }
+              })
+            } else {
+              // window.location.href = linkurl
+              window.open(linkurl)
+            }
+          })
+      }
+
       //点击订单跳转填写订单号页面
       $scope.add_order_number = function(order_id, goods_id, order_status, trial_report) {
         //如果订单状态是待审核资格，则跳转商品页面
@@ -5832,10 +5822,18 @@ angular
           // $state.go('tab.rebate_show', {
           //   id: goods_id
           // })
-          // return false
+          $state.go('tab.show_trial', {
+            id: goods_id
+          })
+
+          return false
           //如果订单状态是已通过待填写订单号 则跳转订单号填写页面
         } else if (order_status == 2 || order_status == 4 || order_status == 3) {
-          $state.go('tab.rebate_order_id', {
+          // $state.go('tab.rebate_order_id', {
+          //   id: order_id,
+          //   goodid: goods_id
+          // })
+          $state.go('tab.trial_order_id', {
             id: order_id,
             goodid: goods_id
           })
@@ -5860,6 +5858,10 @@ angular
           // $state.go('tab.rebate_show', {
           //   id: goods_id
           // })
+
+          $state.go('tab.show_trial', {
+            id: goods_id
+          })
         }
 
         //订单状态是已通过(不含试用报告) 跳转订单号填写页面
@@ -5929,16 +5931,19 @@ angular
                     goodid: goods_id
                   })
                 } else if (order_status == 8) {
+                  $scope.goCommon(order_id)
                   //填写试用报告
-
-                  $state.go('tab.trial_order_report', {
-                    id: order_id,
-                    goodid: goods_id
-                  })
+                  // $state.go('tab.trial_order_report', {
+                  //   id: order_id,
+                  //   goodid: goods_id
+                  // })
                 } else {
-                  $state.go('tab.trial_order_id', {
-                    id: order_id,
-                    goodid: goods_id
+                  // $state.go('tab.trial_order_id', {
+                  //   id: order_id,
+                  //   goodid: goods_id
+                  // })
+                  $state.go('tab.show_trial', {
+                    id: goods_id
                   })
                 }
 
