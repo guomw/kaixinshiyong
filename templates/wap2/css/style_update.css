@@ -348,8 +348,11 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 125px;
+  width: 250px;
   height: 45px;
   z-index: 1000;
-  opacity: 0;
+  background-color: #ef473a;
+  border: none;
+  color: #fff;
+  font-size: 16px;
 }
