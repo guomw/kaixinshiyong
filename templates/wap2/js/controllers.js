@@ -3851,6 +3851,7 @@ angular
         $ionicPopup
           .confirm({
             title: '评价',
+            template:'确认收货后,请先在亚马逊对商品进行评价',
             cancelText: '已评价',
             cancelType: '',
             okText: '去评价',
@@ -3872,7 +3873,7 @@ angular
                     duration: 1000
                   })
 
-                  //跳转返回我的订单页面
+                  //页面刷新
                   window.location.reload()
                 } else {
                   $ionicLoading.show({
@@ -3884,7 +3885,7 @@ angular
               })
             } else {
               // window.location.href = linkurl
-              window.open(linkurl)
+              // window.open(linkurl)
             }
           })
       }
