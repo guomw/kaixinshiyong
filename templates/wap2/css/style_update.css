@@ -128,6 +128,8 @@ a.weui-btn {
   flex-direction: row;
   justify-content: flex-start;
   margin-top: 1px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
 }
 
 .user-signIn_account .user-account_blance {
@@ -140,8 +142,9 @@ a.weui-btn {
   background-color: #fff;
 }
 .user-signIn_account .user-account_blance:first-child {
-  margin-right: 1px;
+  border-right: 1px solid #ededed;
 }
+
 .user-signIn_account .user-account_blance span {
   display: block;
   font-size: 14px;
@@ -355,4 +358,35 @@ p {
   border: none;
   color: #fff;
   font-size: 16px;
+}
+
+.profile-card {
+  width: 100%;
+}
+
+.profile-card .weui-uploader__bd {
+  position: relative;
+  margin: 0;
+}
+.profile-card .weui-uploader__file {
+  float: none;
+  margin: 0;
+  width: 100%;
+  height: 200px;
+}
+
+.profile-card .weui-uploader__input-box {
+  float: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-card .weui-uploader__input-box:before,
+.profile-card .weui-uploader__input-box:after {
+  width: 0;
+  height: 0;
 }

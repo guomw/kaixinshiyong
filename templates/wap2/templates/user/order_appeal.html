@@ -12,7 +12,7 @@
         <label class="item item-input item-select">
           <div class="input-label">申诉类型</div>
           <select ng-model="appeal.type">
-            <option value="">--请选择--</option>
+            <option value="0">--请选择--</option>
             <option value="1">订单号错误</option>
             <option value="2">单号审核有误</option>
             <option value="3">取消试用资格</option>
@@ -60,7 +60,7 @@
         <div class="padding-top"></div>
         <label class="item item-input">
           <div class="input-label">联系手机</div>
-          <input type="text" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" ng-model=" appeal.buyer_phone" name="user_phone" placeholder="请输入您的联系手机"
+          <input type="tel" ng-pattern="/^1[3|4|5|8][0-9]\d{4,8}$/" ng-model=" appeal.buyer_phone" name="user_phone" placeholder="请输入您的联系手机"
             ng-maxlength="11" ng-minlength="11" required></label>
 
 
@@ -77,7 +77,7 @@
           <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="set_appeal()">提交</button> -->
           <a href="javascript:;" class="weui-btn" ng-click="set_appeal()">提交</a>
         </div>
-
+        <div style="height:30px;"></div>
       </form>
 
     </ion-list>

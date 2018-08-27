@@ -2830,6 +2830,7 @@ angular
     'StorageFactory',
     'UserProfileFactory',
     'ENV',
+    'uploadFactory',
     function(
       $rootScope,
       $scope,
@@ -2886,6 +2887,46 @@ angular
       //手持身份证
       $scope.person_img = 'img/person_img.jpg'
 
+      $scope.faceImg = function() {
+        $scope.face_id = $('#File1').data('id')
+        $scope.back_id = ''
+        $scope.person_id = ''
+      }
+      $scope.backImg = function() {
+        $scope.back_id = $('#File2').data('id')
+        $scope.face_id = ''
+        $scope.person_id = ''
+      }
+      $scope.personImg = function() {
+        $scope.person_id = $('#File3').data('id')
+        $scope.face_id = ''
+        $scope.back_id = ''
+      }
+
+      $scope.onFileSelect = function($files) {
+        $ionicLoading.show({
+          noBackdrop: true,
+          template: '正在上传 请稍后...',
+          duration: 1000
+        })
+        uploadFactory.upload($files, function(res) {
+          if (res.status == 1) {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '图片上传完成',
+              duration: 1000
+            })
+            if ($scope.face_id == 1) {
+              $scope.face_img = ENV.imgUrl + $.trim(res.data)
+            } else if ($scope.back_id == 2) {
+              $scope.back_img = ENV.imgUrl + $.trim(res.data)
+            } else if ($scope.person_id == 3) {
+              $scope.person_img = ENV.imgUrl + $.trim(res.data)
+            }
+          }
+        })
+      }
+
       //接收文件上传通知
       $scope.$on('uploadFactory.set_upload', function() {
         $ionicLoading.show({
@@ -2919,34 +2960,30 @@ angular
         age
       ) {
         if ($scope.face_img == 'img/face_img.jpg') {
-          /*         $ionicLoading.show({
-           noBackdrop: true,
-           template: '请上传身份证正面',
-           duration: 2000
-         });
-         return false;*/
-          $scope.face_img == ''
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传身份证正面',
+            duration: 2000
+          })
+          return false
         }
 
         if ($scope.fback_img == 'img/back_img.jpg') {
-          /*         $ionicLoading.show({
-           noBackdrop: true,
-           template: '请上传身份证反面',
-           duration: 2000
-         });
-         return false;*/
-          $scope.fback_img == ''
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传身份证反面',
+            duration: 2000
+          })
+          return false
         }
 
         if ($scope.person_img == 'img/person_img.jpg') {
-          /*         $ionicLoading.show({
-           noBackdrop: true,
-           template: '请上传手持身份证图片',
-           duration: 2000
-         });
-         return false;*/
-
-          $scope.person_img == ''
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传手持身份证图片',
+            duration: 2000
+          })
+          return false
         }
 
         $ionicLoading.show({
@@ -3814,6 +3851,7 @@ angular
         $ionicPopup
           .confirm({
             title: '评价',
+            template:'确认收货后,请先在亚马逊对商品进行评价',
             cancelText: '已评价',
             cancelType: '',
             okText: '去评价',
@@ -3835,7 +3873,7 @@ angular
                     duration: 1000
                   })
 
-                  //跳转返回我的订单页面
+                  //页面刷新
                   window.location.reload()
                 } else {
                   $ionicLoading.show({
@@ -3847,7 +3885,7 @@ angular
               })
             } else {
               // window.location.href = linkurl
-              window.open(linkurl)
+              // window.open(linkurl)
             }
           })
       }
@@ -4354,17 +4392,21 @@ angular
       //接收订单详细信息通知
       $scope.$on('trialOrderFactory.set_order_info', function() {
         $scope.order_info = trialOrderFactory.get_order_info()
-        //console.log($scope.order_info);
       })
 
       $scope.add_order_number = function() {
+        $('.backdrop').show()
+        $scope.order_vm.mum = ''
         var alertPopup = $ionicPopup.show({
           title: '填写订单号',
           templateUrl: 'a.html',
           scope: $scope,
           buttons: [
             {
-              text: '取消'
+              text: '取消',
+              onTap: function() {
+                $('.backdrop').hide()
+              }
             },
             {
               text: '确定',
@@ -4390,6 +4432,7 @@ angular
       }
 
       $scope.get_href = function() {
+        $('.backdrop').show()
         var alertPopup = $ionicPopup.show({
           title: '复制地址到浏览器下单',
           templateUrl: 'b.html',
@@ -4425,7 +4468,7 @@ angular
       //接收填写订单号返回结果通知
       $scope.$on('trialOrderFactory.set_fill_order_sn', function() {
         var data_fill_order_sn = trialOrderFactory.get_fill_order_sn()
-
+        $('.backdrop').hide()
         if (data_fill_order_sn.status == 1) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5516,20 +5559,22 @@ angular
 
       //console.log(StorageFactory.get('profile'));
       $scope.images_list = []
-
       //传入的订单id
 
-      //获得用户已存在的手机 QQ
+      $scope.appeal = {
+        type: '',
+        buyer_cause: '',
+        buyer_cause_img1: 'img/pz1.jpg',
+        buyer_cause_img2: 'img/pz2.jpg',
+        buyer_cause_img3: 'img/pz3.jpg',
+        buyer_phone: ''
+      }
 
       $scope.set_appeal = function() {
-        $scope.appeal = {
-          type: '',
-          buyer_cause: '',
-          buyer_cause_img1: $scope.images_list.length > 0 ? $scope.images_list[0] : 'img/pz1.jpg',
-          buyer_cause_img2: $scope.images_list.length > 1 ? $scope.images_list[1] : 'img/pz2.jpg',
-          buyer_cause_img3: $scope.images_list.length > 2 ? $scope.images_list[2] : 'img/pz3.jpg',
-          buyer_phone: StorageFactory.get('profile').phone
-        }
+        $scope.appeal.type = !$scope.appeal.type ? 1 : $scope.appeal.type
+        $scope.appeal.buyer_cause_img1 = $scope.images_list.length > 0 ? $scope.images_list[0] : 'img/pz1.jpg'
+        $scope.appeal.buyer_cause_img2 = $scope.images_list.length > 1 ? $scope.images_list[1] : 'img/pz2.jpg'
+        $scope.appeal.buyer_cause_img3 = $scope.images_list.length > 2 ? $scope.images_list[2] : 'img/pz3.jpg'
         if (!$scope.appeal.type) {
           $ionicLoading.show({
             noBackdrop: true,
@@ -5569,6 +5614,7 @@ angular
 
           return false
         }
+        // console.log($scope.appeal);
         //发起后端申诉请求
         trialOrderFactory.set_appeal_order(
           $scope.order_id,
@@ -5598,7 +5644,7 @@ angular
 
           //跳转返回个人中心
           // $state.go('tab.user')
-          window.location.goBack()
+          window.history.back(-1)
         } else {
           $ionicLoading.show({
             noBackdrop: true,

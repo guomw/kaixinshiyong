@@ -2891,7 +2891,6 @@ angular
               appeal_type: appeal_type,
               buyer_cause: buyer_cause,
               buyer_phone: buyer_phone,
-              buyer_qq: buyer_qq,
               userid: userid,
               random: random
             },

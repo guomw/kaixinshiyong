@@ -29,11 +29,12 @@
       提示:未在
       <b style="color: #fff;">
 
-        <span ng-if="order_info.is_vip_shi == 0 " id="{{d.complete_time - 0 + buyer_write_order_time}}">
+        <span ng-if="order_info.is_vip_shi == 0 " id="{{order_info.complete_time - 0 + buyer_write_order_time}}" data-time="">
           {{ order_info.complete_time - 0 + buyer_write_order_time | f_fomtime }}
         </span>
 
-        <span ng-if="order_info.is_vip_shi == 1 || order_info.is_vip_shi == 2  " id="{{d.inputtime - 0 + buyer_write_order_time}}">
+        <span ng-if="order_info.is_vip_shi == 1 || order_info.is_vip_shi == 2  " id="{{order_info.inputtime - 0 + buyer_write_order_time}}"
+          data-time="">
           {{ order_info.inputtime - 0 + buyer_write_order_time | f_fomtime }}
         </span>
       </b>
@@ -268,7 +269,7 @@
   </script>
   <script id="b.html" type="text/ng-template"> 
     <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-    <textarea id="foo" type="text" cols="30" rows="8" readonly>{{txddh_showdata.goods_url}}</textarea>
+    <textarea id="foo" type="text" cols="30" rows="3" readonly>{{(txddh_showdata.goods_url).split('?')[0]}}</textarea>
     <button class='copyBT' ng-click="copyArticle()" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
   </script>
 </ion-view>
