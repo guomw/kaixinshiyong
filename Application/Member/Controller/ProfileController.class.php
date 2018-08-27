@@ -55,10 +55,10 @@ class ProfileController extends InitController {
             $z_zg = model('order')->where(array('status' =>1,'seller_id' =>$this->userid,'act_mod' =>'trial'))->count();
 
             /*待审核订单号*/
-            $z_order = model('order')->where(array('status' =>2,'seller_id' =>$this->userid,'act_mod' =>'trial','order_sn' =>array('GT',0)))->count();
+            $z_order = model('order')->where(array('status' =>2,'seller_id' =>$this->userid,'act_mod' =>'trial'))->count();
 
             /*待审核试用报告*/
-            $z_bg = model('order')->where(array('status' =>3,'act_mod' =>'trial','seller_id' =>$this->userid,'order_sn' =>array('GT',0)))->count();
+            $z_bg = model('order')->where(array('status' =>3,'act_mod' =>'trial','seller_id' =>$this->userid))->count();
 
             /*闪电试用 待审核订单*/
             $s_order = model('order')->where(array('status' =>3,'act_mod' =>'commission','seller_id' =>$this->userid,'order_sn' =>array('GT',0)))->count();

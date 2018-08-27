@@ -3,6 +3,8 @@
 namespace Api\Controller;
 
 use \Common\Controller\BaseController;
+use Common\Library\database;
+use Think\Exception;
 use Wechat\Library\factory;
 
 header('Access-Control-Allow-Origin:*');
@@ -3580,6 +3582,31 @@ class AppController extends BaseController
                 exit();
             }
         }
+
+        //每5天参与次数
+        if($config['buyer_day_buy_days']>0){
+            try {
+                $o_map = array();
+                $o_map['buyer_id'] = $user_info['userid'];
+                $last_create_time = model('order')->where($o_map)->limit(1)->order('create_time desc')->getField('create_time');
+                $datetime = new \DateTime();
+                //
+                $datetime->setTimestamp($last_create_time);
+                $interval = new \DateInterval('P'.$config['buyer_day_buy_days'].'D');
+                $datetime->add($interval);
+                //当前时间
+                $curDate = new \DateTime();
+                if($datetime->getTimestamp()>$curDate->getTimestamp()){
+                    $this->json_function(0, $config['buyer_day_buy_days'] . '天内只能参与一次抢购哦~');
+                    exit();
+                }
+            }
+            catch (\Exception $exception){
+                $this->json_function(0, $exception->getMessage());
+                exit();
+            }
+        }
+
         //2.每天参与总次数
         if ($config['buyer_day_buy_times'] > 0) {
             $o_map = array();

@@ -262,6 +262,14 @@ $(function(){
                 </td>
             </tr>
             <tr>
+                <th>参与次数限制</th>
+                <td>&nbsp;
+                    每<span id='buyer_day_buy_times'><input type="text" class="input-text" id="buyer_day_buy_days" name="setting[buyer_day_buy_days]" size="5" value="<?php if($setting['buyer_day_buy_days']){echo $setting['buyer_day_buy_days'];}else{ echo 5;} ?>" maxlength='5'/>天之内</span>，只能参与1次
+<!--                    <span id='buyer_day_buy_days_times'><input type="text" class="input-text" id="buyer_day_buy_days_times" name="setting[buyer_day_buy_days_times]" size="5" value="--><?php //if($setting['buyer_day_buy_days_times']){echo $setting['buyer_day_buy_days_times'];}else{ echo 1;} ?><!--" maxlength='5'/>次</span>-->
+                    提示：0则不限制参与次数（默认：5天）
+                </td>
+            </tr>
+            <tr>
                 <th>填写订单号时间</th>
                 <td class="y-bg">
                     <input type="text" class="input-text" id="order_time" name="setting[buyer_write_order_time]" size="6" maxlength="6" value="<?php if($setting['buyer_write_order_time']){echo $setting['buyer_write_order_time'];}else{echo '48';} ?>"/>小时
@@ -511,6 +519,29 @@ $(function(){
         datatype:'enum',
         onerror:'每天参与次数限制只能为数字'
     });
+
+    $("#buyer_day_buy_days").formValidator({
+        empty:false,
+        onempty:'每几天之内不能为空',
+        onshow:'请输入每几天之内天数限制(纯数字)' ,
+        onfocus:"请输入每几天之内天数限制(纯数字)"
+    }).regexValidator({
+        regexp:'num',
+        datatype:'enum',
+        onerror:'每几天之内天数限制只能为数字'
+    });
+
+    $("#buyer_day_buy_days_times")({
+        empty:false,
+        onempty:'每几天之内参与次数不能为空',
+        onshow:'请输入每几天之内天数参与次数限制(纯数字)' ,
+        onfocus:"请输入每几天之内天数参与次数限制(纯数字)"
+    }).regexValidator({
+        regexp:'num',
+        datatype:'enum',
+        onerror:'每几天之内参与次数限制只能为数字'
+    });
+
     // 填写订单号时间
     $("#order_time").formValidator({
         empty:false,

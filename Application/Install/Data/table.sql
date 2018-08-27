@@ -220,7 +220,10 @@ INSERT INTO `prefix_activity_set` (`key`, `value`, `activity_type`, `settime`) V
 ('buyer_day_buy_times', '0', 'trial', 0),
 ('buyer_day_buy_times', '0', 'trial', 0),
 ('buyer_order_fee', '0', 'trial', 0),
-('trial_fee_price', '0', 'trial', 0);
+('trial_fee_price', '0', 'trial', 0),
+('buyer_day_buy_days', '5', 'trial', 0),
+('buyer_day_buy_days_times', '1', 'trial', 0);
+
 
 -- --------------------------------------------------------
 

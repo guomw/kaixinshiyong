@@ -90,7 +90,7 @@ class ActivityController extends InitController{
                     break;
             }
             foreach ($info as $k => $v) {
-                 $this->activity_set->where(array('key' => $k,'activity_type'=>$activity_type))->setField('value', $v);
+                    $this->activity_set->where(array('key' => $k, 'activity_type' => $activity_type))->setField('value', $v);
             }
                  $lists = $this->activity_set->distinct(true)->field('activity_type')->select();
                  foreach ($lists as $k => $v) {
