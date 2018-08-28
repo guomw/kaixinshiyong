@@ -165,7 +165,7 @@ angular
           }
         })
         .state('tab.home_show_trial', {
-          url: '/:home/trial/:id/:userId', //试用活动详情
+          url: '/:home/trial/:id/:inviteId', //试用活动详情
           views: {
             'tab-home': {
               templateUrl: 'templates/trial/show.html',
@@ -205,7 +205,7 @@ angular
         // })
 
         .state('tab.show_trial', {
-          url: '/trial/:id/:userId', //试用活动详情
+          url: '/trial/:id/:inviteId', //试用活动详情
           views: {
             'tab-trial': {
               templateUrl: 'templates/trial/show.html',
