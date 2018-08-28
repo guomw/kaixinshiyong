@@ -1586,13 +1586,13 @@ angular
             }
           )
         },
-        set_emailRegister: function(user_email, verifyCode, password, inviteid) {
+        set_emailRegister: function(user_email, verifyCode, password, inviteId) {
           emailResource.save(
             {
               user_email: user_email,
               verifyCode: verifyCode,
               user_password: password,
-              inviteid: inviteid,
+              inviteid: inviteId,
               version: '1.0',
               platform: 'IOS',
               platform_name: 'ce'

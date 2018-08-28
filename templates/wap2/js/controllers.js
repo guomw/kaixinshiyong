@@ -147,11 +147,11 @@ angular
         $scope.focus = d
         console.log($scope.focus)
       })
-      $scope._goGoodsDetail=function(good_id){
-        console.log(good_id);
-        $state.go('tab.home_show_trial',{
-          id:good_id,
-          userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+      $scope._goGoodsDetail = function(good_id) {
+        console.log(good_id)
+        $state.go('tab.home_show_trial', {
+          id: good_id,
+          inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
         })
       }
     }
@@ -1266,7 +1266,7 @@ angular
       ENV,
       UserProfileFactory
     ) {
-      var inviteId = StorageFactory.get('userId') || ''
+      var inviteId = StorageFactory.get('inviteId') || ''
       $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
       //如果存在会员信息 则不允许注册
 
@@ -1344,7 +1344,7 @@ angular
         $scope.email = user_email
         //发起后端注册请求
 
-        User_register1Factory.set_emailRegister(user_email, verifyCode, password,inviteId)
+        User_register1Factory.set_emailRegister(user_email, verifyCode, password, inviteId)
       }
       //收到注册结果通知
       $scope.$on('User_register1Factory.setEmailRegister', function() {
@@ -2887,17 +2887,17 @@ angular
       }
 
       //身份证正面图片
-      $scope.face_img = 'img/face_img.jpg';
+      $scope.face_img = 'img/face_img.jpg'
 
       //身份证反面
-      $scope.back_img = 'img/back_img.jpg';
+      $scope.back_img = 'img/back_img.jpg'
 
       //手持身份证
-      $scope.person_img = 'img/person_img.jpg';
+      $scope.person_img = 'img/person_img.jpg'
 
-      $scope.face_img1='';
-      $scope.back_img1='';
-      $scope.person_img1='';
+      $scope.face_img1 = ''
+      $scope.back_img1 = ''
+      $scope.person_img1 = ''
 
       $scope.faceImg = function() {
         $scope.face_id = $('#File1').data('id')
@@ -2938,7 +2938,7 @@ angular
           } else {
             $ionicLoading.show({
               noBackdrop: true,
-              template: res.status.msg,
+              template: res.msg,
               duration: 1000
             })
           }
@@ -2957,9 +2957,9 @@ angular
         $scope.response = uploadFactory.get_upload()
         var imgUrl = ENV.imgUrl
         for (x in $scope.response) {
-          if (x == 1) $scope.face_img=$scope.face_img1 = imgUrl + $scope.response[x];
-          if (x == 2) $scope.back_img=$scope.back_img1 = imgUrl + $scope.response[x]
-          if (x == 3) $scope.person_img=$scope.person_img1 = imgUrl + $scope.response[x]
+          if (x == 1) $scope.face_img = $scope.face_img1 = imgUrl + $scope.response[x]
+          if (x == 2) $scope.back_img = $scope.back_img1 = imgUrl + $scope.response[x]
+          if (x == 3) $scope.person_img = $scope.person_img1 = imgUrl + $scope.response[x]
         }
       })
 
@@ -2977,7 +2977,7 @@ angular
         day,
         age
       ) {
-        if ($scope.face_img == 'img/face_img.jpg') {
+        if (face_img == 'img/face_img.jpg') {
           $ionicLoading.show({
             noBackdrop: true,
             template: '请上传身份证正面',
@@ -2986,7 +2986,7 @@ angular
           return false
         }
 
-        if ($scope.back_img == 'img/back_img.jpg') {
+        if (back_img == 'img/back_img.jpg') {
           $ionicLoading.show({
             noBackdrop: true,
             template: '请上传身份证反面',
@@ -2995,7 +2995,7 @@ angular
           return false
         }
 
-        if ($scope.person_img == 'img/person_img.jpg') {
+        if (person_img == 'img/person_img.jpg') {
           $ionicLoading.show({
             noBackdrop: true,
             template: '请上传手持身份证图片',
@@ -3015,9 +3015,9 @@ angular
         UserProfileFactory.set_username_Profile_edit_identity(
           user_Full_name,
           user_ID_number,
-          $scope.face_img1,
-          $scope.back_img1,
-          $scope.person_img1,
+          face_img,
+          back_img,
+          person_img,
           sex,
           year,
           month,
@@ -3915,7 +3915,7 @@ angular
         if (order_status == 1) {
           $state.go('tab.show_trial', {
             id: goods_id,
-            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+            inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
           })
 
           return false
@@ -3938,7 +3938,7 @@ angular
         } else {
           $state.go('tab.show_trial', {
             id: goods_id,
-            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+            inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
           })
         }
 
@@ -3999,7 +3999,7 @@ angular
                 if (order_status == 1) {
                   $state.go('tab.show_trial', {
                     id: goods_id,
-                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+                    inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
                   })
 
                   return false
@@ -4041,7 +4041,7 @@ angular
           if (order_status == 1) {
             $state.go('tab.show_trial', {
               id: goods_id,
-              userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+              inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
             })
 
             return false
@@ -4625,8 +4625,8 @@ angular
       //获得传过来的商品id
       var aid = $stateParams.id
       var home = $stateParams.home
-      var userId =$stateParams.userId
-      StorageFactory.set('userId',userId)
+      var inviteId = $stateParams.inviteId
+      StorageFactory.set('inviteId', inviteId)
       $scope.goBack = function() {
         if (home) {
           $state.go('tab.home')
@@ -4932,7 +4932,10 @@ angular
 
         //判断后台配置开启的参与活动条件 根据配置提示用户完善
         // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||($scope.bind_email == 2 && $scope.emall_status != 1) ||($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
-        if ($scope.realname == 3 && $scope.name_status != 1) {
+        if (
+          ($scope.realname == 3 && $scope.name_status != 1) ||
+          ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
+        ) {
           //弹出提示窗口页面 提示用户完成活动条件
           var alertPopup = $ionicPopup.alert({
             title: '参与条件',
@@ -5931,7 +5934,7 @@ angular
           // })
           $state.go('tab.show_trial', {
             id: goods_id,
-            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+            inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
           })
 
           return false
@@ -5969,7 +5972,7 @@ angular
 
           $state.go('tab.show_trial', {
             id: goods_id,
-            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+            inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
           })
         }
 
@@ -6031,7 +6034,7 @@ angular
                 if (order_status == 1) {
                   $state.go('tab.show_trial', {
                     id: goods_id,
-                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+                    inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
                   })
 
                   return false
@@ -6054,7 +6057,7 @@ angular
                   // })
                   $state.go('tab.show_trial', {
                     id: goods_id,
-                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+                    inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
                   })
                 }
 
