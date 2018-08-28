@@ -2467,11 +2467,32 @@ class AppController extends BaseController
                 $this->json_function(0, '账户信息错误');
                 exit();
             }
+            if(strlen($info['id_number'])==9||strlen($info['id_number']) ==15||strlen($info['id_number']) ==18){
 
-            if (strlen($info['id_number']) < 15 || strlen($info['id_number']) > 18) {
-                $this->error('请输入正确的身份证号码');
-                return FALSE;
             }
+            else{
+//                $this->error('请输入正确的身份证号码');
+//                return FALSE;
+                $this->json_function(0, '请输入正确的证件号码');
+                exit();
+            }
+            //正面
+            if (!$info['face_img']||strlen($info['face_img'])<=0)
+            {
+                $this->json_function(0, '请上传证件正面图片');
+                exit();
+            }
+            //反面
+            if(!$info['back_img']||strlen($info['back_img'])<=0){
+                $this->json_function(0, '请上传证件反面图片');
+                exit();
+            }
+            //手持图片
+            if(!$info['person_img']||strlen($info['person_img'])<=0){
+                $this->json_function(0, '请上传手持证件图片');
+                exit();
+            }
+
 
             $rs = model('member_attesta')->where(array('userid' => $info['userid'], 'type' => 'identity'))->find();
             if ($rs['status'] == 1) {

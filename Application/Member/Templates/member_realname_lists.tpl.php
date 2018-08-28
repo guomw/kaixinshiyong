@@ -40,8 +40,9 @@
 			<th align="left"><?php echo '昵称';?></th>
 			<th align="left"><?php echo '身份证名称';?></th>
 			<th align="left"><?php echo '身份证号'?></th>
-			<!-- <th align="left"><?php echo '正面图片';?></th>
-			<th align="left"><?php echo '反面图片';?></th> -->
+			<th align="left"><?php echo '正面图片';?></th>
+			<th align="left"><?php echo '反面图片';?></th>
+            <th align="left"><?php echo '手持图片';?></th>
 			<th align="left"><?php echo '状态';?></th>
 			<th><?php echo L('operation')?></th>
 		</tr>
@@ -56,9 +57,13 @@
  		<td align="left"><?php echo $v['username']?></td>
  		<td align="left"><?php echo $v['realname']?></td>
 		<td align="left"><?php echo $v['id_number']?></td>
+        <td align="left"><a href="<?php echo $v['face_img']?>" rel="nofollow" target="_blank"><img src="<?php echo $v['face_img']?>" style="width: 100px;"></a></td>
+        <td align="left"><a href="<?php echo $v['back_img']?>" rel="nofollow" target="_blank"><img src="<?php echo $v['back_img']?>" style="width: 100px;"></a></td>
+        <td align="left"><a href="<?php echo $v['person_img']?>" rel="nofollow" target="_blank"><img src="<?php echo $v['person_img']?>" style="width: 100px;"></a></td>
 		<!-- <td align="left"><a href="<?php echo $v['img_url_up']?>" rel="nofollow"><img src="<?php echo $v['img_url_up']?>" width="32" height="26"/></a></td>
 		<td align="left"><a href="<?php echo $v['img_url_down']?>" rel="nofollow"><img src="<?php echo $v['img_url_down']?>" width="32" height="26"/></a></td>
-		 --><td align="left"><?php if($v['status'] == 0){echo ' <span style="color: rgb(255, 0, 0);">未审核</span>';}else if ($v['status'] == 1){echo '<span style="color: rgb(0, 176, 80);">已审核</span>';}else{echo '<span style="color: rgb(255, 0, 0);">未通过</span>';}?></td>
+		 -->
+        <td align="left"><?php if($v['status'] == 0){echo ' <span style="color: rgb(255, 0, 0);">未审核</span>';}else if ($v['status'] == 1){echo '<span style="color: rgb(0, 176, 80);">已审核</span>';}else{echo '<span style="color: rgb(255, 0, 0);">未通过</span>';}?></td>
 		<td align="center">
 		<a href="javascript:confirmurl('<?php echo U('delete', array('ids[]' => $v['id']));?>','<?php echo L('sure_delete')?>');"><?php echo L('delete')?></a> 
 		</td>

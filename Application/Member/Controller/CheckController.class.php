@@ -45,6 +45,9 @@ class CheckController extends InitController{
 			$infos = string2array($v['infos']);
 			$lists[$k]['realname'] = $infos['name'];
 			$lists[$k]['id_number'] = $infos['id_number'];
+			$lists[$k]['face_img']=$infos['face_img'];
+            $lists[$k]['back_img']=$infos['back_img'];
+            $lists[$k]['person_img']=$infos['person_img'];
 			$lists[$k]['img_url_up'] = $infos['img_url'][1];
 			$lists[$k]['img_url_down'] = $infos['img_url'][2];
 		}
