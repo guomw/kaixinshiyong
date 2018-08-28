@@ -165,6 +165,37 @@
     </div>
   </ion-content>
 
+  <div class="-mob-share-ui-button -mob-share-open" style="    position: fixed;
+  right: 0;
+  bottom: 80px;">分享</div>
+  <div class="-mob-share-ui" style="display: none;">
+    <ul class="-mob-share-list">
+      <li class="-mob-share-qzone">
+        <p>QQ空间</p>
+      </li>
+      <li class="-mob-share-qq">
+        <p>QQ好友</p>
+      </li>
+      <li class="-mob-share-douban">
+        <p>豆瓣</p>
+      </li>
+      <li class="-mob-share-facebook">
+        <p>Facebook</p>
+      </li>
+      <li class="-mob-share-twitter">
+        <p>Twitter</p>
+      </li>
+      <li class="-mob-share-linkedin">
+        <p>Linkedin</p>
+      </li>
+      <li class="-mob-share-google">
+        <p>Google</p>
+      </li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+  </div>
+  <div class="-mob-share-ui-bg"></div>
+
   <script id="a.html" type="text/ng-template"> 
           <!-- <ion-item ng-show="bind_phone == 1 && phone_status == 1 " class="item item-icon-left item-icon-right ">
               
@@ -240,7 +271,7 @@
               支付宝
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-          </ion-item>
+          </ion-item> -->
 
           <ion-item ng-show=" bind_taobao == 4 && data_bind_taobao.count > 0 "  class="item item-icon-left item-icon-right " >
               
@@ -253,21 +284,18 @@
               亚马逊帐号
               <i class="item-note">未绑定</i>
               <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
-          </ion-item> -->
+          </ion-item>
   </script>
   <script id="b.html" type="text/ng-template"> 
-
-                <!-- <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
-                  <select ng-model="vm.data_bind_taobao_default.id" ng-options="a.id as a.account for a  in data_bind_taobao.lists">
-                  </select>
-                </label>
-
-                  <p  ng-if=' bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定亚马逊帐号下单</p>
-                  <label ng-if=' reason == 7 ' class="item item-input" >
-                    <textarea  ng-model="vm.Application_reasons"  placeholder="对商家说点什么,提高通过率" rows="4"></textarea>
-                  </label>                
-                  <p style="color:#A9A9A9" class="padding-left">未按要求下单,可能会被取消资格!</p> -->
-
+      <!-- <label ng-if=' bind_taobao == 4' class="item item-input item-select  "  style="height:50px">
+        <select ng-model="vm.data_bind_taobao_default.id" ng-options="a.id as a.account for a  in data_bind_taobao.lists">
+        </select>
+      </label>
+        <p  ng-if=' bind_taobao == 4' style="color:#A9A9A9" class="padding-left">请使用选定亚马逊帐号下单</p>
+        <label ng-if=' reason == 7 ' class="item item-input" >
+          <textarea  ng-model="vm.Application_reasons"  placeholder="对商家说点什么,提高通过率" rows="4"></textarea>
+        </label>                
+        <p style="color:#A9A9A9" class="padding-left">未按要求下单,可能会被取消资格!</p> -->
   </script>
   <script id="c.html" type="text/ng-template">              
                   <ion-item class="height60" >{{showdata.goods_rule.ask.question}}</ion-item>

@@ -147,6 +147,13 @@ angular
         $scope.focus = d
         console.log($scope.focus)
       })
+      $scope._goGoodsDetail=function(good_id){
+        console.log(good_id);
+        $state.go('tab.home_show_trial',{
+          id:good_id,
+          userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
+        })
+      }
     }
   ])
 
@@ -1259,6 +1266,7 @@ angular
       ENV,
       UserProfileFactory
     ) {
+      var inviteId = StorageFactory.get('userId') || ''
       $scope.imgText = ENV.imgUrl + '/index.php?m=Api&c=App&a=createVerifyCode'
       //如果存在会员信息 则不允许注册
 
@@ -1336,7 +1344,7 @@ angular
         $scope.email = user_email
         //发起后端注册请求
 
-        User_register1Factory.set_emailRegister(user_email, verifyCode, password)
+        User_register1Factory.set_emailRegister(user_email, verifyCode, password,inviteId)
       }
       //收到注册结果通知
       $scope.$on('User_register1Factory.setEmailRegister', function() {
@@ -2923,6 +2931,12 @@ angular
             } else if ($scope.person_id == 3) {
               $scope.person_img = ENV.imgUrl + $.trim(res.data)
             }
+          } else {
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: res.status.msg,
+              duration: 1000
+            })
           }
         })
       }
@@ -3851,7 +3865,7 @@ angular
         $ionicPopup
           .confirm({
             title: '评价',
-            template:'确认收货后,请先在亚马逊对商品进行评价',
+            template: '确认收货后,请先在亚马逊对商品进行评价',
             cancelText: '已评价',
             cancelType: '',
             okText: '去评价',
@@ -3896,7 +3910,8 @@ angular
         //如果订单状态是待审核资格，则跳转商品页面
         if (order_status == 1) {
           $state.go('tab.show_trial', {
-            id: goods_id
+            id: goods_id,
+            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
           })
 
           return false
@@ -3918,7 +3933,8 @@ angular
           // })
         } else {
           $state.go('tab.show_trial', {
-            id: goods_id
+            id: goods_id,
+            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
           })
         }
 
@@ -3978,7 +3994,8 @@ angular
 
                 if (order_status == 1) {
                   $state.go('tab.show_trial', {
-                    id: goods_id
+                    id: goods_id,
+                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
                   })
 
                   return false
@@ -4019,7 +4036,8 @@ angular
 
           if (order_status == 1) {
             $state.go('tab.show_trial', {
-              id: goods_id
+              id: goods_id,
+              userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
             })
 
             return false
@@ -4439,6 +4457,9 @@ angular
           scope: $scope,
           buttons: [
             {
+              text: '取消'
+            },
+            {
               text: '复制',
               type: 'button-assertive',
               onTap: function(e) {}
@@ -4600,6 +4621,8 @@ angular
       //获得传过来的商品id
       var aid = $stateParams.id
       var home = $stateParams.home
+      var userId =$stateParams.userId
+      StorageFactory.set('userId',userId)
       $scope.goBack = function() {
         if (home) {
           $state.go('tab.home')
@@ -5571,7 +5594,6 @@ angular
       }
 
       $scope.set_appeal = function() {
-        $scope.appeal.type = !$scope.appeal.type ? 1 : $scope.appeal.type
         $scope.appeal.buyer_cause_img1 = $scope.images_list.length > 0 ? $scope.images_list[0] : 'img/pz1.jpg'
         $scope.appeal.buyer_cause_img2 = $scope.images_list.length > 1 ? $scope.images_list[1] : 'img/pz2.jpg'
         $scope.appeal.buyer_cause_img3 = $scope.images_list.length > 2 ? $scope.images_list[2] : 'img/pz3.jpg'
@@ -5904,7 +5926,8 @@ angular
           //   id: goods_id
           // })
           $state.go('tab.show_trial', {
-            id: goods_id
+            id: goods_id,
+            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
           })
 
           return false
@@ -5941,7 +5964,8 @@ angular
           // })
 
           $state.go('tab.show_trial', {
-            id: goods_id
+            id: goods_id,
+            userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
           })
         }
 
@@ -6002,7 +6026,8 @@ angular
 
                 if (order_status == 1) {
                   $state.go('tab.show_trial', {
-                    id: goods_id
+                    id: goods_id,
+                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
                   })
 
                   return false
@@ -6024,7 +6049,8 @@ angular
                   //   goodid: goods_id
                   // })
                   $state.go('tab.show_trial', {
-                    id: goods_id
+                    id: goods_id,
+                    userId: StorageFactory.get('user')?StorageFactory.get('user').data.userid : ''
                   })
                 }
 

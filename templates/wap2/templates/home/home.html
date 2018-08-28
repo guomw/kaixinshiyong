@@ -1,11 +1,11 @@
 <ion-view hide-nav-bar="true" view-title="{{webinfo.webname}}">
   <!--<div class="bar bar-header bar-color" ng-if=" quyu == 1 " style="display: none">-->
-    <!--<a href="#/tab/trial" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1"></a>-->
-    <!--<h1 class="title">{{webinfo.webname}}</h1>-->
-    <!--<a href="#/tab/so" style="color:#ffffff;" class="button icon ion-search button-clear head_buttonr1"></a>-->
+  <!--<a href="#/tab/trial" style="color:#ffffff;" class="button icon ion-ios-arrow-back button-clear head_button1"></a>-->
+  <!--<h1 class="title">{{webinfo.webname}}</h1>-->
+  <!--<a href="#/tab/so" style="color:#ffffff;" class="button icon ion-search button-clear head_buttonr1"></a>-->
   <!--</div>-->
   <div ng-if="tj_showloading" style="background-color: rgba(255, 255, 255, 0.9);width: 100%;height: 100%;z-index: 9000;position: relative;">
-    <div class='loading_mask' >
+    <div class='loading_mask'>
       <div class='card'>
         <div class='dots-loader'>Loading...</div>
       </div>
@@ -25,15 +25,15 @@
           </ion-slide>
         </ion-slide-box>
         <!--<ion-slide-box does-continue="true" auto-play="true" slide-interval="3000">-->
-          <!--<ion-slide ng-show='focus[0]'>-->
-            <!--<img ng-src="img/ab (1).jpg">-->
-          <!--</ion-slide>-->
-          <!--<ion-slide ng-show='focus[0]'>-->
-            <!--<img ng-src="img/ab (2).jpg">-->
-          <!--</ion-slide>-->
-          <!--<ion-slide ng-show='focus[0]'>-->
-            <!--<img ng-src="img/ab (3).jpg">-->
-          <!--</ion-slide>-->
+        <!--<ion-slide ng-show='focus[0]'>-->
+        <!--<img ng-src="img/ab (1).jpg">-->
+        <!--</ion-slide>-->
+        <!--<ion-slide ng-show='focus[0]'>-->
+        <!--<img ng-src="img/ab (2).jpg">-->
+        <!--</ion-slide>-->
+        <!--<ion-slide ng-show='focus[0]'>-->
+        <!--<img ng-src="img/ab (3).jpg">-->
+        <!--</ion-slide>-->
         <!--</ion-slide-box>-->
       </div>
 
@@ -62,7 +62,7 @@
 
       <ion-slide-box ng-if="!tj_showloading" does-continue="true" auto-play="true" slide-interval="5000" show-pager='false'>
         <ion-slide class="slider-slide">
-          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods.slice(0,3) ">
+          <a class="indexProRecommendPart" ng-click="_goGoodsDetail(d.id)" ng-repeat="d in tj_goods.slice(0,3) ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -78,7 +78,7 @@
         </ion-slide>
 
         <ion-slide class="slider-slide" ng-if="tj_goods2 != false  ">
-          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods2 ">
+          <a class="indexProRecommendPart" ng-click="_goGoodsDetail(d.id)" ng-repeat="d in tj_goods2 ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -96,7 +96,7 @@
 
 
         <ion-slide class="slider-slide" ng-if="tj_goods3 != false ">
-          <a class="indexProRecommendPart" href="#/tab/home/trial/{{d.id}}" ng-repeat="d in tj_goods3 ">
+          <a class="indexProRecommendPart" ng-click="_goGoodsDetail(d.id)" ng-repeat="d in tj_goods3 ">
             <div class="co">
               <div class="a1">
                 <img class="image-center" ng-src="{{d.thumb |imgUrl}}"></div>
@@ -115,7 +115,7 @@
       </ion-slide-box>
 
       <!--  最新上线 -->
-<!--      <div style="height:1px; width: 100%; background-color: #f0eff5"></div>-->
+      <!--      <div style="height:1px; width: 100%; background-color: #f0eff5"></div>-->
 
       <div class="hot_title">
         <span></span>
@@ -131,12 +131,12 @@
 
       <div class="indexProList" ng-if="showloading ==false">
 
-        <a class="part" href="#/tab/home/trial/{{topic.id}}" ng-repeat="topic in goods ">
+        <a class="part" ng-click="_goGoodsDetail(topic.id)" ng-repeat="topic in goods ">
           <div class="co">
             <div class="a1">
               <img class="image-center" ng-src="{{topic.thumb |imgUrl}}" />
             </div>
-            <div class="a2">{{ topic.title  }}</div>
+            <div class="a2">{{ topic.title }}</div>
             <div class="a3">
               <div class="L">限量{{topic.number}}份</div>
               <div class="R">${{topic.goods_price}}</div>
@@ -158,7 +158,8 @@
   </div>
   <div ng-if="quyu == 2" style="height: 100%;">
     <style>
-      .slider,.yindao-slide{
+      .slider,
+      .yindao-slide {
         height: 100% !important;
       }
     </style>
