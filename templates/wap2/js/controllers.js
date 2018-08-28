@@ -2879,13 +2879,17 @@ angular
       }
 
       //身份证正面图片
-      $scope.face_img = 'img/face_img.jpg'
+      $scope.face_img = 'img/face_img.jpg';
 
       //身份证反面
-      $scope.back_img = 'img/back_img.jpg'
+      $scope.back_img = 'img/back_img.jpg';
 
       //手持身份证
-      $scope.person_img = 'img/person_img.jpg'
+      $scope.person_img = 'img/person_img.jpg';
+
+      $scope.face_img1='';
+      $scope.back_img1='';
+      $scope.person_img1='';
 
       $scope.faceImg = function() {
         $scope.face_id = $('#File1').data('id')
@@ -2939,9 +2943,9 @@ angular
         $scope.response = uploadFactory.get_upload()
         var imgUrl = ENV.imgUrl
         for (x in $scope.response) {
-          if (x == 1) $scope.face_img = imgUrl + $scope.response[x]
-          if (x == 2) $scope.back_img = imgUrl + $scope.response[x]
-          if (x == 3) $scope.person_img = imgUrl + $scope.response[x]
+          if (x == 1) $scope.face_img=$scope.face_img1 = imgUrl + $scope.response[x];
+          if (x == 2) $scope.back_img=$scope.back_img1 = imgUrl + $scope.response[x]
+          if (x == 3) $scope.person_img=$scope.person_img1 = imgUrl + $scope.response[x]
         }
       })
 
@@ -2968,7 +2972,7 @@ angular
           return false
         }
 
-        if ($scope.fback_img == 'img/back_img.jpg') {
+        if ($scope.back_img == 'img/back_img.jpg') {
           $ionicLoading.show({
             noBackdrop: true,
             template: '请上传身份证反面',
@@ -2997,9 +3001,9 @@ angular
         UserProfileFactory.set_username_Profile_edit_identity(
           user_Full_name,
           user_ID_number,
-          $scope.face_img,
-          $scope.fback_img,
-          $scope.person_img,
+          $scope.face_img1,
+          $scope.back_img1,
+          $scope.person_img1,
           sex,
           year,
           month,

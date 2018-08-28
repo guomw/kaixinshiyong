@@ -66,7 +66,7 @@ var fromhash = '<?php echo session("FROMHASH");?>';
 
      <div style="width: 310px;" class="header_case"><?php echo L('hello'),$admin_username?>  [<?php echo $rolename?>]<span>|</span>
 		<a href="<?php echo U('public_logout') ?>">[<?php echo L('exit')?>]</a><span>|</span>
-		<a href="<?php echo __APP__; ?>" target="_blank" id="site_homepage"><?php echo L('site_homepage')?></a><span>|</span>
+		<a href="<?php echo HOME_PAGE; ?>" target="_blank" id="site_homepage"><?php echo L('site_homepage')?></a><span>|</span>
 		<a href="?m=Member" target="_blank"><?php echo L('member_center')?></a><span>|</span>
 <!--		<a href="http://help. .cn/?/explore/" target="_blank">帮助中心</a><span>|</span>-->
 <!--		<a href="http://www.dealswill.com/" target="_blank">官方网站</a>-->
