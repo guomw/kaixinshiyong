@@ -79,54 +79,54 @@
 						{/if}
 					</div>
 
-					<div class="list_zh_mess_list clear  {if $userinfo['phone_status'] == 1} old {/if}">
-						<div class="zh_rz_mess  fl clear">
-							<b class="zh_ico phone fl"></b>
-							<span class="fl zh_name">手机认证</span>
-							<span class="fl zh_status">{if $userinfo['phone_status'] == 1}已认证{else}未认证{/if}</span>
-						</div>
-						<p class="fl zh_sm">可用于登录账号，安全地找回密码</p>
-						{if $userinfo['phone_status'] == 1}
-						<a href="{U('Member/Attesta/phone_attesta')}" class="fr zh_b_btn">更换手机</a>
-						{else}
-						<a href="{U('Member/Attesta/phone_attesta')}" class="fr zh_b_btn">去认证</a>
-						{/if}
-					</div>
+					<!--<div class="list_zh_mess_list clear  {if $userinfo['phone_status'] == 1} old {/if}">-->
+						<!--<div class="zh_rz_mess  fl clear">-->
+							<!--<b class="zh_ico phone fl"></b>-->
+							<!--<span class="fl zh_name">手机认证</span>-->
+							<!--<span class="fl zh_status">{if $userinfo['phone_status'] == 1}已认证{else}未认证{/if}</span>-->
+						<!--</div>-->
+						<!--<p class="fl zh_sm">可用于登录账号，安全地找回密码</p>-->
+						<!--{if $userinfo['phone_status'] == 1}-->
+						<!--<a href="{U('Member/Attesta/phone_attesta')}" class="fr zh_b_btn">更换手机</a>-->
+						<!--{else}-->
+						<!--<a href="{U('Member/Attesta/phone_attesta')}" class="fr zh_b_btn">去认证</a>-->
+						<!--{/if}-->
+					<!--</div>-->
 
-					<div class="list_zh_mess_list clear {if $arr['identity'] && $arr['identity']['status'] == 1}old{/if}">
-						<div class="zh_rz_mess  fl clear">
-							<b class="zh_ico sm fl"></b>
-							<span class="fl zh_name">实名认证</span>
-							<span class="fl zh_status">
-								{if $arr['identity'] && $arr['identity']['status'] == 1}已认证{elseif ($arr['identity'] && $arr['identity']['status'] == 0)}审核中{elseif ($arr['identity'] && $arr['identity']['status'] == -1)}未通过{else}未认证{/if}
-							</span>
-						</div>
-						<p class="fl zh_sm" style="margin-top:15px;">
-							为了保障您的资金账户安全
-							<br/>
-							第一次提现须通过实名认证
-						</p>
-						{if empty($arr['identity'])}
-						<a href="{U('Member/Attesta/name_attesta')}" class="fr zh_b_btn">去认证</a>
-						{/if}
-									{if !empty($arr['identity']) && ($arr['identity'] && $arr['identity']['status'] == 0)}
-						<a href="javascript:;" class="fr zh_b_btn">审核中</a>
-						{elseif !empty($arr['identity']) && ($arr['identity'] && $arr['identity']['status'] == -1)}
-						<a href="{U('Member/Attesta/name_attesta')}" class="fr zh_b_btn">重新认证</a>
-						{/if}
-					</div>
+					<!--<div class="list_zh_mess_list clear {if $arr['identity'] && $arr['identity']['status'] == 1}old{/if}">-->
+						<!--<div class="zh_rz_mess  fl clear">-->
+							<!--<b class="zh_ico sm fl"></b>-->
+							<!--<span class="fl zh_name">实名认证</span>-->
+							<!--<span class="fl zh_status">-->
+								<!--{if $arr['identity'] && $arr['identity']['status'] == 1}已认证{elseif ($arr['identity'] && $arr['identity']['status'] == 0)}审核中{elseif ($arr['identity'] && $arr['identity']['status'] == -1)}未通过{else}未认证{/if}-->
+							<!--</span>-->
+						<!--</div>-->
+						<!--<p class="fl zh_sm" style="margin-top:15px;">-->
+							<!--为了保障您的资金账户安全-->
+							<!--<br/>-->
+							<!--第一次提现须通过实名认证-->
+						<!--</p>-->
+						<!--{if empty($arr['identity'])}-->
+						<!--<a href="{U('Member/Attesta/name_attesta')}" class="fr zh_b_btn">去认证</a>-->
+						<!--{/if}-->
+									<!--{if !empty($arr['identity']) && ($arr['identity'] && $arr['identity']['status'] == 0)}-->
+						<!--<a href="javascript:;" class="fr zh_b_btn">审核中</a>-->
+						<!--{elseif !empty($arr['identity']) && ($arr['identity'] && $arr['identity']['status'] == -1)}-->
+						<!--<a href="{U('Member/Attesta/name_attesta')}" class="fr zh_b_btn">重新认证</a>-->
+						<!--{/if}-->
+					<!--</div>-->
 
-					<div class="list_zh_mess_list clear {if $arr['alipay']['status'] == 1}old{/if}">
-						<div class="zh_rz_mess  fl clear">
-							<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/alipay.png) no-repeat;"></b>
-							<span class="fl zh_name">支付宝绑定</span>
-							<span class="fl zh_status">{if $arr['alipay']['status'] == 1}已绑定{else}未绑定{/if}</span>
-						</div>
-						<p class="fl zh_sm">绑定您的支付宝，可有效保障您的资金安全</p>
-						{if $arr['alipay']['status'] != 1}
-						<a href="javascript:;" class="fr zh_b_btn" id="alipaybind">去绑定</a>
-						{/if}
-					</div>
+					<!--<div class="list_zh_mess_list clear {if $arr['alipay']['status'] == 1}old{/if}">-->
+						<!--<div class="zh_rz_mess  fl clear">-->
+							<!--<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/alipay.png) no-repeat;"></b>-->
+							<!--<span class="fl zh_name">支付宝绑定</span>-->
+							<!--<span class="fl zh_status">{if $arr['alipay']['status'] == 1}已绑定{else}未绑定{/if}</span>-->
+						<!--</div>-->
+						<!--<p class="fl zh_sm">绑定您的支付宝，可有效保障您的资金安全</p>-->
+						<!--{if $arr['alipay']['status'] != 1}-->
+						<!--<a href="javascript:;" class="fr zh_b_btn" id="alipaybind">去绑定</a>-->
+						<!--{/if}-->
+					<!--</div>-->
 
 					<!-- 支付宝账号绑定  end-->
 					<script type="text/javascript">
@@ -187,17 +187,17 @@
 								});
 								</script>
 
-					<div class="list_zh_mess_list clear {if $userinfo[bank_status] == 1}old{/if}">
-						<div class="zh_rz_mess  fl clear">
-							<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/bank.png) no-repeat;"></b>
-							<span class="fl zh_name">银行卡绑定</span>
-							<span class="fl zh_status">{if $userinfo[bank_status] == 1}已绑定{else}未绑定{/if}</span>
-						</div>
-						<p class="fl zh_sm">绑定您的银行卡</p>
-						{if $userinfo[bank_status] != 1}
-						<a href="javascript:;" class="fr zh_b_btn" id="bankbind">去绑定</a>
-						{/if}
-					</div>
+					<!--<div class="list_zh_mess_list clear {if $userinfo[bank_status] == 1}old{/if}">-->
+						<!--<div class="zh_rz_mess  fl clear">-->
+							<!--<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/bank.png) no-repeat;"></b>-->
+							<!--<span class="fl zh_name">银行卡绑定</span>-->
+							<!--<span class="fl zh_status">{if $userinfo[bank_status] == 1}已绑定{else}未绑定{/if}</span>-->
+						<!--</div>-->
+						<!--<p class="fl zh_sm">绑定您的银行卡</p>-->
+						<!--{if $userinfo[bank_status] != 1}-->
+						<!--<a href="javascript:;" class="fr zh_b_btn" id="bankbind">去绑定</a>-->
+						<!--{/if}-->
+					<!--</div>-->
 
 				</div>
 

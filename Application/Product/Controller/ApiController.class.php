@@ -598,7 +598,8 @@ class ApiController extends \Common\Controller\BaseController
         if($mod == 'trial' ||  $mod == 'rebate' || $mod == 'commission' ){
 
             if($mod == 'trial' && $status ==2){
-               $z_bgs = model('order')->field('goods_id')->where(array('status' =>$status,'seller_id' =>$userid,'order_sn' =>array('GT',0),'act_mod' =>$mod))->distinct(true)->getField('goods_id',true);
+                //'order_sn' =>array('GT',0)
+               $z_bgs = model('order')->field('goods_id')->where(array('status' =>$status,'seller_id' =>$userid,'act_mod' =>$mod))->distinct(true)->getField('goods_id',true);
 
             }else{
                $z_bgs = model('order')->field('goods_id')->where(array('status' =>$status,'seller_id' =>$userid,'act_mod' =>$mod))->distinct(true)->getField('goods_id',true);
