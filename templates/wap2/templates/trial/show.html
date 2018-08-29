@@ -62,22 +62,35 @@
                 <i>5</i>商家返还
                 <b class="cc">{{ (showdata.goods_bonus -1 +1 ) + (showdata.goods_price -1 +1 ) | currency:"$" }}</b>
                 到您平台账户中
-                <br></div>
-            </div>
-            <!--hang4-->
-            <div class="hang4" ng-show="!ShowHide">
+                <br>
+              </div>
+
+              <div class="ti">搜索下单流程</div>
+              <div class="co c4 lc">
+                <i>1</i>打开 <b class="cc">亚马逊</b> 首页,搜索关键词
+                <b class="cc">{{showdata.goods_rule.goods_keyword}}</b>
+                <br>
+                <i>2</i>按照
+                <b class="cc">{{showdata.goods_rule.sort}}</b> 排序搜索
+                <br>
+                <i>3</i>认准掌柜店铺
+                <b class="cc">{{showdata.goods_ww}}</b>
+                <br>
+                <i>4</i>搜索帮助提示
+                <b class="cc">{{showdata.goods_rule.keyword2}}</b>
+                <br>
+              </div>
               <div class="ti">注意事项</div>
               <div class="co c4">
                 1.与商家聊天的时候不要提及试用相关信息。
                 <br> 2.不要催促商家发货.返款,请遵守平台相关规定。
-                <br></div>
-            </div>
-            <!--hang4-->
-            <div class="hang5" ng-show="!ShowHide">
+                <br>
+              </div>
               <div class="ti">温馨提示</div>
               <div class="co c4">
                 完善个人相关资料，可以提高通过率。
-                <br> </div>
+                <br>
+              </div>
             </div>
           </div>
           <!--hang5 搜索下单流程图-->
@@ -165,7 +178,7 @@
     </div>
   </ion-content>
 
-  <div class="-mob-share-ui-button -mob-share-open" style="    position: fixed;
+  <div class="-mob-share-ui-button -mob-share-open" style="position: fixed;
   right: 0;
   bottom: 80px;">分享</div>
   <div class="-mob-share-ui" style="display: none;">
@@ -283,7 +296,7 @@
 
               亚马逊帐号
               <i class="item-note">未绑定</i>
-              <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+              <!-- <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i> -->
           </ion-item>
   </script>
   <script id="b.html" type="text/ng-template"> 

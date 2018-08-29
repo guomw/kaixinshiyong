@@ -2716,13 +2716,13 @@ angular
         var hideSheet = $ionicActionSheet.show({
           buttons: [
             {
-              text: '<i class="icon ion-share"></i> 设为默认'
+              text: '<i class=""></i> 设为默认'
             },
             {
-              text: '<i class="icon ion-arrow-move"></i> 解除绑定'
+              text: '<i class=""></i> 解除绑定'
             },
             {
-              text: '<i class="icon ion-arrow-move"></i>取消操作 '
+              text: '<i class=""></i>取消操作 '
             }
           ],
           titleText: '您想要进行的操作?',
@@ -4695,6 +4695,13 @@ angular
           // alert($scope.login_status);
         }
       })
+
+      configFactory.set_trial_config()
+      $scope.$on('configFactory.set_trial_config', function() {
+        var trial_config = configFactory.get_trial_config()
+        console.log(trial_config);
+      })
+
 
       //开始测试分享
 
