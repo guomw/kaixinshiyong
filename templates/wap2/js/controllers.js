@@ -148,12 +148,14 @@ angular
         console.log($scope.focus)
       })
       $scope._goGoodsDetail = function(good_id) {
-        console.log(good_id)
         $state.go('tab.home_show_trial', {
           id: good_id,
           inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : '0'
         })
       }
+      var inviteId = window.location.href.split('?')[1] || ''
+      
+      StorageFactory.set('inviteId', inviteId)
     }
   ])
 
@@ -395,15 +397,15 @@ angular
         //console.log($scope.categorylists);
 
         //  alert('产品分类通知来了');
-      });
+      })
 
       $scope._goGoodsDetail = function(good_id) {
-          console.log(good_id)
-          $state.go('tab.show_trial', {
-              id: good_id,
-              inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : '0'
-          })
-      };
+        console.log(good_id)
+        $state.go('tab.show_trial', {
+          id: good_id,
+          inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : '0'
+        })
+      }
     }
   ])
 
@@ -4637,8 +4639,8 @@ angular
       //获得传过来的商品id
       var aid = $stateParams.id
       var home = $stateParams.home
-      var inviteId = $stateParams.inviteId
-      StorageFactory.set('inviteId', inviteId)
+      // var inviteId = $stateParams.inviteId
+      // StorageFactory.set('inviteId', inviteId)
       $scope.goBack = function() {
         if (home) {
           $state.go('tab.home')
@@ -4693,12 +4695,13 @@ angular
         }
       })
 
+      $scope.pid =  StorageFactory.get('user') ?  StorageFactory.get('user').data.userid : ''
+
       configFactory.set_trial_config()
       $scope.$on('configFactory.set_trial_config', function() {
         var trial_config = configFactory.get_trial_config()
-        console.log(trial_config);
+        console.log(trial_config)
       })
-
 
       //开始测试分享
 
@@ -5559,6 +5562,75 @@ angular
 
       $scope.$on('$ionicView.loaded', function() {
         // app.initialize();
+      })
+
+      //初始化分享
+      var ui = getElementsByClassName('-mob-share-ui')[0]
+      var uiTemplate = ui.cloneNode(true)
+      var uiCurrent = ui
+
+      var buttons = getElementsByClassName('share-button')
+      for (var i = 0, len = buttons.length; i < len; i++) {
+        var btn = buttons[i]
+        // var ui = getElementsByClassName("-mob-share-ui")[0];
+        // var uiTemplate = ui.cloneNode(true);
+        // var uiCurrent = ui;
+        btn.onclick = function() {
+          if (uiCurrent) {
+            uiCurrent.parentNode.removeChild(uiCurrent)
+          }
+          uiCurrent = uiTemplate.cloneNode(true)
+          var dataTheme = this.getAttribute('data-theme')
+          var theme = '-mob-share-ui-theme-' + this.getAttribute('data-theme')
+          addClass(uiCurrent, theme)
+          if (dataTheme === 'slide-left' || dataTheme === 'slide-right') {
+            getElementsByClassName('-mob-share-close', uiCurrent)[0].style.display = 'none'
+          }
+          document.body.appendChild(uiCurrent)
+          mobShare.ui.init()
+          mobShare.ui.open()
+        }
+      }
+
+      function getElementsByClassName(classname, main) {
+        var main = main || document
+        if (main.getElementsByClassName) {
+          return main.getElementsByClassName(classname)
+        }
+        var a = []
+        var re = new RegExp('(^| )' + classname + '( |$)')
+        var els = main.getElementsByTagName('*')
+        for (var i = 0, j = els.length; i < j; i++) {
+          if (re.test(els[i].className)) {
+            a.push(els[i])
+          }
+        }
+        return a
+      }
+
+      function hasClass(ele, cls) {
+        return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
+      }
+
+      function addClass(ele, cls) {
+        if (!hasClass(ele, cls)) {
+          ele.className += ' ' + cls
+        }
+      }
+
+      //分享配置
+      mobShare.config({
+        debug: true, // 开启调试，将在浏览器的控制台输出调试信息
+
+        appkey: '27952ac05b250', // appkey
+
+        params: {
+          url: 'http://ml.mifang8.com/#/tab/home?' + $scope.pid, // 分享链接
+          title: '魔力试用', // 分享标题
+          description: '', // 分享内容
+          pic: '', // 分享图片，使用逗号,隔开
+          reason: '' //自定义评论内容，只应用与QQ,QZone与朋友网
+        }
       })
     }
   ])
