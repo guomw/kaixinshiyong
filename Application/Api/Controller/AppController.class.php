@@ -4270,9 +4270,9 @@ class AppController extends BaseController
 //            }
 
             $conditions = array();
-            $conditions[] = $data['buyer_imgs_url_img1'];
-            $conditions[] = $data['buyer_imgs_url_img2'];
-            $conditions[] = $data['buyer_imgs_url_img3'];
+            $conditions[] = $data['buyer_imgs_url_img1']=='img/pz1.jpg'?'':$data['buyer_imgs_url_img1'];
+            $conditions[] = $data['buyer_imgs_url_img2']=='img/pz2.jpg'?'':$data['buyer_imgs_url_img2'];
+            $conditions[] = $data['buyer_imgs_url_img3']=='img/pz3.jpg'?'':$data['buyer_imgs_url_img3'];
 
 
             /* if (!$data['buyer_imgs_url']) {
