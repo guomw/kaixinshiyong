@@ -29,7 +29,7 @@
 
 
           <div ng-repeat="topic in goods" class="active borderb">
-            <a href="#/tab/trial/{{topic.id}}" class="list_w">
+            <a  ng-click="_goGoodsDetail({{topic.id}})" class="list_w">
               <!-- <ion-item  > -->
 
               <div class="img">

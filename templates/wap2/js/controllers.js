@@ -151,7 +151,7 @@ angular
         console.log(good_id)
         $state.go('tab.home_show_trial', {
           id: good_id,
-          inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
+          inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : '0'
         })
       }
     }
@@ -295,6 +295,8 @@ angular
     '$ionicSideMenuDelegate',
     'categorylistsFactory',
     '$ionicHistory',
+    '$state',
+    'StorageFactory',
     function(
       $rootScope,
       $scope,
@@ -306,7 +308,9 @@ angular
       $stateParams,
       $ionicSideMenuDelegate,
       categorylistsFactory,
-      $ionicHistory
+      $ionicHistory,
+      $state,
+      StorageFactory
     ) {
       //console.log($stateParams);
       $scope.ENV = ENV
@@ -391,7 +395,15 @@ angular
         //console.log($scope.categorylists);
 
         //  alert('产品分类通知来了');
-      })
+      });
+
+      $scope._goGoodsDetail = function(good_id) {
+          console.log(good_id)
+          $state.go('tab.show_trial', {
+              id: good_id,
+              inviteId: StorageFactory.get('user') ? StorageFactory.get('user').data.userid : '0'
+          })
+      };
     }
   ])
 

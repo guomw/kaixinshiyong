@@ -1608,6 +1608,7 @@ class AppController extends BaseController
             $info['encrypt'] = random(6);
             $info['point'] = (int)0;
             $info['nickname']='ml_'.$user_email;
+            $info['agent_id']=$inviteid;
             $info['groupid'] = (isset($info['groupid']) && is_numeric($info['groupid']) && $info['groupid'] > 1) ? $info['groupid'] : 1;
             $MemberLogic = D('Member/Member', 'Logic');
             $User = D('Member/Member', 'Model');

@@ -27,12 +27,12 @@ define('TPL_PATH', SITE_PATH.'/templates/');
 
 header('Content-type: text/html; charset='.CHARSET);
 //关闭PC官网，跳转值商家后台页面
-if(!$_GET["m"]){
-    $_REQUEST["m"]=$_GET["m"]="Member";
-    $_REQUEST["c"]=$_GET["c"]="Index";
-    $_REQUEST["a"]=$_GET["a"]="login";
-
-}
+//if(!$_GET["m"]){
+//    $_REQUEST["m"]=$_GET["m"]="Member";
+//    $_REQUEST["c"]=$_GET["c"]="Index";
+//    $_REQUEST["a"]=$_GET["a"]="login";
+//
+//}
 
 define('HOME_PAGE','http://www.dealswill.com/');
 
