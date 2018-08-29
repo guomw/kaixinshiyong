@@ -1,7 +1,7 @@
 function att_show(serverData,file) {
 	var serverData = serverData.replace(/<div.*?<\/div>/g,'');
 	var data = serverData.split(',');
-	var id = data[0];
+	var id =$.trim(data[0]);
 	var src = data[1];
 	var ext = data[2];
 	var filename = data[3];

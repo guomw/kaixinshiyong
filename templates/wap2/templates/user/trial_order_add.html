@@ -246,7 +246,7 @@
           ng-click="get_href()">
           去下单
         </button>
-        <button ng-if="order_info.status == 4 " class="button button-energized button-block " ng-click="Appeal(order_info.status,order_info.id,txddh_showdata.id)">我要申述</button>
+        <button ng-if="order_info.status == 4 " class="button button-energized button-block " ng-click="Appeal(order_info.status,order_info.id,txddh_showdata.id)">我要申诉</button>
         <button ng-if=" (order_info.status == 2 && order_info.order_sn !='') || order_info.status == 4  " class="button button-assertive button-block "
           ng-click="add_order_number()">修改订单号</button>
         <button ng-if="order_info.status == 2 && order_info.order_sn =='' " class="button button-assertive button-outline button-block "
