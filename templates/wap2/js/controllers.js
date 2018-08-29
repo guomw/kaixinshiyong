@@ -4637,8 +4637,11 @@ angular
       //获得传过来的商品id
       var aid = $stateParams.id
       var home = $stateParams.home
-      var inviteId = $stateParams.inviteId
-      StorageFactory.set('inviteId', inviteId)
+      var inviteId = $stateParams.inviteId;
+      if(inviteId&&parseInt(inviteId)>0) {
+          StorageFactory.set('inviteId', inviteId);
+      }
+
       $scope.goBack = function() {
         if (home) {
           $state.go('tab.home')
