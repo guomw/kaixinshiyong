@@ -155,7 +155,9 @@ angular
       }
       var inviteId = window.location.href.split('?')[1] || ''
       
-      StorageFactory.set('inviteId', inviteId)
+      if(inviteId && parseInt(inviteId)>0){
+        StorageFactory.set('inviteId', inviteId)
+      }
     }
   ])
 
