@@ -154,8 +154,8 @@ angular
         })
       }
       var inviteId = window.location.href.split('?')[1] || ''
-      
-      if(inviteId && parseInt(inviteId)>0){
+
+      if (inviteId && parseInt(inviteId) > 0) {
         StorageFactory.set('inviteId', inviteId)
       }
     }
@@ -4413,7 +4413,8 @@ angular
       $scope.$on('NewsContent.rebateshow', function() {
         $scope.txddh_showdata = rebate_showFactory.getshow()
 
-        console.log($scope.txddh_showdata)
+        var urlReg = /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/
+        $scope.url = urlReg.exec($scope.txddh_showdata.goods_url)
         $scope.txddh_showloading = false
 
         //console.log($scope.txddh_showdata);
@@ -4477,7 +4478,12 @@ angular
           scope: $scope,
           buttons: [
             {
-              text: '取消'
+              text: '取消',
+              onTap: function() {
+                $('.popup-container.popup-showing.active').hide()
+                $('.backdrop').hide()
+                $('body').removeClass('popup-open')
+              }
             },
             {
               text: '复制',
@@ -4600,6 +4606,37 @@ angular
 
         //console.log($scope.trial_getorderlists);
       })
+
+      //验证商品
+      $scope.get_goodInformation = function(goods_id, asin) {
+        if (!asin) {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请输入商品编号',
+            duration: 1000
+          })
+          return
+        }
+        trialOrderFactory.check_good(goods_id, asin)
+        $scope.$on('trialOrderFactory.check_good', function() {
+          var check_good = trialOrderFactory.get_check_good()
+          if(check_good.status == 0){
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: check_good.msg,
+              duration: 1000
+            })
+          }
+          if(check_good.status == 1){
+            $ionicLoading.show({
+              noBackdrop: true,
+              template: '恭喜您，快去下单吧',
+              duration: 1000
+            })
+          }
+        })
+      }
+     
     }
   ])
 
@@ -4697,7 +4734,7 @@ angular
         }
       })
 
-      $scope.pid =  StorageFactory.get('user') ?  StorageFactory.get('user').data.userid : ''
+      $scope.pid = StorageFactory.get('user') ? StorageFactory.get('user').data.userid : ''
 
       configFactory.set_trial_config()
       $scope.$on('configFactory.set_trial_config', function() {
