@@ -131,7 +131,7 @@
           <div style="color:#A9A9A9;padding:0 10px;font-size: 14px;">
             <p>
               1.打开 <b class="cc">亚马逊</b> 首页,搜索关键词
-              <b class="cc">{{goods_keyword}}</b>
+              <b class="cc">{{txddh_showdata.goods_rule.keyword}}</b>
             </p>
 
             <p>
@@ -143,16 +143,23 @@
               3.宝贝位置大约在
               <b class="cc">{{txddh_showdata.goods_rule.address}}</b>
             </p>
-
             <p>
-              4.认准掌柜店铺
-              <b class="cc">{{txddh_showdata.goods_ww}}</b>
-            </p>
-
-            <p>
-              5.搜索帮助提示
+              4.搜索帮助提示
               <b class="cc">{{txddh_showdata.goods_rule.keyword2}}</b>
             </p>
+            <p>
+              5.商品验证
+            </p>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__bd">
+                  <input class="weui-input" type="text" ng-model="asin" name="asin" placeholder="您搜索到的商品号" required>
+                </div>
+                <div class="weui-cell__ft">
+                  <button class="weui-vcode-btn" name="user_getsms" ng-click="get_goodInformation(txddh_showdata.id,asin)" style="border-left: none;color: #00a7fd; font-size: 14px;">验证商品</button>
+                </div>
+              </div>
+            </div>
           </div>
           <!--
             <div ng-repeat="d in txddh_showdata.goods_search_albums">
@@ -269,7 +276,7 @@
   </script>
   <script id="b.html" type="text/ng-template"> 
     <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-    <textarea id="foo" type="text" cols="30" rows="3" readonly>{{(txddh_showdata.goods_url).split('?')[0]}}</textarea>
+    <textarea id="foo" type="text" cols="30" rows="2" readonly>{{url[0]}}</textarea>
     <button class='copyBT' ng-click="copyArticle()" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
   </script>
 </ion-view>

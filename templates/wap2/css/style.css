@@ -744,7 +744,9 @@ b.cc {
   border: 1px solid #ccc;
 }
 .i_tryout .s_part8 .list a .hang1 img {
-  width: 100%;
+  /* width: 100%; */
+  width: 67.9px;
+  height: 67.9px;
   border-radius: 50%;
 }
 

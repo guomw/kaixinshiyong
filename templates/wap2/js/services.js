@@ -2609,6 +2609,7 @@ angular
       var resource18 = $resource(APIUrl + '&a=get_shop_log') //获取积分兑换商品记录
       var resource19 = $resource(APIUrl + '&a=complete_order') //获取用户完成试用订单数量
       var resource20 = $resource(APIUrl + '&a=commission_pay_submit') //闪电试用抢购
+      var resource21 = $resource(APIUrl + '&a=checkASIN ') //商品验证
 
       return {
         //处理免费试用订单申请
@@ -3113,6 +3114,23 @@ angular
 
         get_commission_pay_submit: function() {
           return set_data_submit
+        },
+
+        //商品验证
+        check_good: function(goods_id, asin) {
+          resource21.save(
+            {
+              goods_id: goods_id,
+              asin: asin
+            },
+            function(r) {
+              set_dara_check = r
+              $rootScope.$broadcast('trialOrderFactory.check_good')
+            }
+          )
+        },
+        get_check_good: function() {
+          return set_dara_check
         }
       }
     }
