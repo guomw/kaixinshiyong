@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/trial.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/trial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +43,7 @@
           <entry key="js" value="96" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
-          <entry key="php" value="477" />
+          <entry key="php" value="478" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="rnc" value="1" />
@@ -64,7 +61,7 @@
           <entry key="Ini" value="5" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="96" />
-          <entry key="PHP" value="479" />
+          <entry key="PHP" value="480" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="10" />
@@ -81,9 +78,9 @@
           <entry key="htaccess" value="50" />
           <entry key="html" value="1636" />
           <entry key="js" value="1785" />
-          <entry key="php" value="2627" />
+          <entry key="php" value="2840" />
           <entry key="sql" value="43" />
-          <entry key="txt" value="482" />
+          <entry key="txt" value="499" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -92,8 +89,8 @@
           <entry key="HTML" value="1636" />
           <entry key="Ini" value="124" />
           <entry key="JavaScript" value="1785" />
-          <entry key="PHP" value="2627" />
-          <entry key="PLAIN_TEXT" value="612" />
+          <entry key="PHP" value="2840" />
+          <entry key="PLAIN_TEXT" value="629" />
           <entry key="SQL" value="43" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -132,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+            <state relative-caret-position="342">
+              <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -173,6 +170,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="6041" column="6" lean-forward="true" selection-start-line="6041" selection-start-column="6" selection-end-line="6041" selection-end-column="6" />
+              <folding>
+                <element signature="e#34#72#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -184,10 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>card</find>
-      <find>站点首页</find>
-      <find>block_site_index</find>
-      <find>addClass</find>
       <find>__APP__</find>
       <find>status_goods</find>
       <find>HOME_PAGE</find>
@@ -214,6 +219,10 @@
       <find>add</find>
       <find>fields</find>
       <find>keygetkeyget</find>
+      <find>product</find>
+      <find>$sqlmap</find>
+      <find>goods_id</find>
+      <find>setField</find>
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
@@ -284,11 +293,11 @@
         <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/static/js/swfupload/handlers.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html" />
-        <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/product/index.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
       </list>
     </option>
   </component>
@@ -342,6 +351,19 @@
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
@@ -565,21 +587,7 @@
       <workItem from="1535106569237" duration="703000" />
       <workItem from="1535333319299" duration="37034000" />
       <workItem from="1535508028977" duration="12575000" />
-      <workItem from="1535592856080" duration="6676000" />
-    </task>
-    <task id="LOCAL-00013" summary="修改头像上传无法保存问题">
-      <created>1534320996489</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1534320996490</updated>
-    </task>
-    <task id="LOCAL-00014" summary="修改试用报告上传图片问题-未完成">
-      <created>1534321809187</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1534321809187</updated>
+      <workItem from="1535592856080" duration="7784000" />
     </task>
     <task id="LOCAL-00015" summary="修改邮箱注册验证码无效问题">
       <created>1534323727301</created>
@@ -910,7 +918,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535592920293</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="修改.gitigonre">
+      <created>1535620038531</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1535620038531</updated>
+    </task>
+    <task id="LOCAL-00063" summary="添加商品编号">
+      <created>1535620069097</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1535620069097</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -919,7 +941,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263914000" />
+    <option name="totallyTimeSpent" value="265022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -980,8 +1002,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改头像上传无法保存问题" />
-    <MESSAGE value="修改试用报告上传图片问题-未完成" />
     <MESSAGE value="修改邮箱注册验证码无效问题" />
     <MESSAGE value="添加邮件激活接口" />
     <MESSAGE value="注释无用表数据" />
@@ -1005,7 +1025,9 @@
     <MESSAGE value="添加判断邀请id为空时不写入" />
     <MESSAGE value="修改上传图片" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="修改.gitigonre" />
+    <MESSAGE value="添加商品编号" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加商品编号" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1042,7 +1064,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php</url>
-          <line>5600</line>
+          <line>5604</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1062,12 +1084,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php</url>
-          <line>3609</line>
+          <line>3613</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php</url>
-          <line>3608</line>
+          <line>3612</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1279,16 +1301,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81244">
-          <caret line="4279" column="17" selection-start-line="4279" selection-start-column="17" selection-end-line="4279" selection-end-column="17" />
-          <folding>
-            <element signature="e#34#72#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1378,8 +1390,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+        <state relative-caret-position="342">
+          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="6041" column="6" lean-forward="true" selection-start-line="6041" selection-start-column="6" selection-end-line="6041" selection-end-column="6" />
+          <folding>
+            <element signature="e#34#72#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
