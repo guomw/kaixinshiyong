@@ -5,6 +5,7 @@ namespace Api\Controller;
 use \Common\Controller\BaseController;
 use Common\Library\database;
 use Think\Exception;
+use Think\Model;
 use Wechat\Library\factory;
 
 header('Access-Control-Allow-Origin:*');
@@ -278,6 +279,9 @@ class AppController extends BaseController
         if (!$goods_id) $this->error('参数错误！');
         $factory = new \Product\Factory\product($goods_id);
         $rs = $factory->product_info;
+        $rs['hits']=$rs['hits']+1;
+        Model("product")->update($rs);
+
         $lists = array();
         $lists['mod'] = $rs['mod'];
         $lists['status'] = $rs['status'];
@@ -6034,5 +6038,26 @@ class AppController extends BaseController
         $this->get_verify();
     }
 
+    /**
+     *
+     * 检查asin是否存在
+     */
+    public function checkASIN()
+    {
+        if (IS_POST) {
+            $param = I('param.');
+            extract($param);
+
+            $sqlmap = array();
+            $sqlmap['id']=$goods_id;
+            $sqlmap['asin']=$asin;
+
+            $count = model('product')->where($sqlmap)->count();
+            if($count>0){
+                $this->json_function(1, '商品核对成功');
+            }
+        }
+        $this->json_function(0, '商品核对失败');
+    }
 
 }                
