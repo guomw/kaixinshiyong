@@ -89,65 +89,8 @@
                     <input type="text" datatype='url' id="goods_url" value="请粘贴pc端宝贝地址" onclick="if(this.value=='请粘贴pc端宝贝地址'){this.value='';}" name="info[goods_url]" />
                   </label>
                 </div>
-                <!--<div class="R7">-->
-                  <!--<a id="keyget" href="javascript:;" >一键获取</a>-->
-                <!--</div>-->
                 <div class="clear"></div>
               </div>
-                <script>
-                    $("#keyget").click(function(){
-                        var go_link = $("input:text[name='info[goods_url]']").val();
-                        if(!go_link){
-                            art.dialog({
-                                lock: true,
-                                fixed: true,
-                                title: '错误提示',
-                                content: '请输入地址',
-                                ok: true
-                            });
-                            return false;
-                        }
-
-                        $.post('/index.php?m=Product&c=Api&a=go_link', {
-                            go_link : go_link
-                        }, function(ret) {
-                           console.log(ret);
-                            if(ret.status == 1) {
-
-                                if(ret.title == ""){
-
-                                  art.dialog({
-                                      lock: true,
-                                      fixed: true,
-                                      icon: 'face-sad',
-                                      title: '错误提示',
-                                      content: '亲 一键获取失败 请手动发布<br/> 一键获取只支持大部分已加入亚马逊课的亚马逊商品',
-                                      ok: true
-                                  });
-
-                                  return false;
-                                }
-                                $("input:text[name='info[title]']").val(ret.title);
-                                $("input:text[name='info[keyword]']").val(ret.keyword);
-                                $("input:text[name='info[goods_price]']").val(ret.goods_price);
-                                $("input:text[name='info[goods_url]']").val(ret.url);
-
-                                $("input[name='goods_albums_url[1]']").val(ret.img);
-                                $("input[name='goods_albums_url[1]']").prev().attr("src",ret.img);
-                            }else{
-                                art.dialog({
-                                    lock: true,
-                                    fixed: true,
-                                    icon: 'face-sad',
-                                    title: '错误提示',
-                                    content: ret.info,
-                                    ok: true
-                                });
-                            }
-                            return false;
-                        }, 'JSON');
-                    })
-                </script>
               <!--h1-->
 
               <div class="h1">
@@ -157,6 +100,17 @@
                 </div>
                 <div class="R1">
                   <input type="text"  name="info[title]" id="title" value="18个字以内" onclick="if(this.value=='18个字以内'){this.value='';}"  />
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="h1">
+                <div class="L">
+                  <span>*</span>
+                  ASIN(商品编号)
+                </div>
+                <div class="R1">
+                  <input type="text"  name="info[asin]" id="asin" value="" />
                 </div>
                 <div class="clear"></div>
               </div>
@@ -213,13 +167,13 @@
               <div class="h1">
                 <div class="L"> <span>*</span> 搜索排行要求 </div>
                 <div class="R2 js_sort">
-                 <span class="sel" data-id="综合">综合</span>
-                 <span data-id="人气">人气</span>
-                 <span data-id="销量">销量</span>
-                 <span data-id="信用">信用</span>
-                 <span data-id="最新">最新</span>
-                 <span data-id="价格">价格</span> 
-                 <input type="hidden" name="info[goods_rule][sort]" value="综合" id="sort">
+                 <span class="sel" data-id="相关度">相关度</span>
+                 <span data-id="价格(由低到高)">价格(由低到高)</span>
+                 <span data-id="价格(由高到低)">价格(由高到低)</span>
+                 <span data-id="用户评分">用户评分</span>
+                 <span data-id="上架时间">上架时间</span>
+                 <!--<span data-id="价格">价格</span> -->
+                 <input type="hidden" name="info[goods_rule][sort]" value="相关度" id="sort">
                </div>
                 <div class="clear"></div>
               </div>
@@ -831,6 +785,18 @@ $("#title").formValidator({
   min:1,
   onerror:"输入试用品名称,"
 });
+
+
+$("#asin").formValidator({
+    empty:false,
+    onshow:true ,
+    onfocus:"请输入试用品编号ASIN!"
+}).inputValidator({
+    min:1,
+    onerror:"输入试用品编号ASIN,"
+});
+
+
 
 console.log($("#title"));
 //下单价 
