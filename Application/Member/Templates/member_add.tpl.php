@@ -14,7 +14,7 @@ $(function(){
 		datatype : "html",
 		async:'false',
 		success : function(data){
-            if( data == "1" ) {
+            if( $.trim(data) == "1" ) {
                 return true;
 			} else {
                 return false;
@@ -33,7 +33,7 @@ $(function(){
 		datatype : "html",
 		async:'false',
 		success : function(data){	
-            if( data == "1" ) {
+            if( $.trim(data) == "1" ) {
                 return true;
 			} else {
                 return false;

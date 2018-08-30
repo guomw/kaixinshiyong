@@ -92,10 +92,10 @@
              </div>
              <div class="R js_r js_ordertype">
                 {if $activity['seller_general_order'] == 1 && in_array(1,$ordertype)}
-                <span data-type="general" class="sel" >普通试用</span>
+                <span data-type="general" >普通试用</span>
                 {/if}
                 {if $activity['seller_search_order'] == 1 && in_array(2,$ordertype)}
-               <span  data-type="search">搜索试用</span>
+               <span  data-type="search"  class="sel">搜索试用</span>
                {/if}
               {if $activity['seller_answer_order'] == 1 && in_array(3,$ordertype)} 
                <span data-type="answer">答案试用</span>
