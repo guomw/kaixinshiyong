@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="xiu">
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/trial.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/trial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wap2/js/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.INI" beforeDir="false" afterPath="$PROJECT_DIR$/README.INI" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +35,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="INI" value="5" />
+          <entry key="INI" value="6" />
           <entry key="buildpath" value="2" />
           <entry key="css" value="15" />
           <entry key="gitignore" value="3" />
           <entry key="htaccess" value="10" />
-          <entry key="html" value="284" />
+          <entry key="html" value="287" />
           <entry key="inc" value="2" />
           <entry key="js" value="98" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
-          <entry key="php" value="481" />
+          <entry key="php" value="485" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="rnc" value="1" />
@@ -58,12 +58,12 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="15" />
-          <entry key="HTML" value="284" />
+          <entry key="HTML" value="287" />
           <entry key="Image" value="2" />
-          <entry key="Ini" value="5" />
+          <entry key="Ini" value="6" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="98" />
-          <entry key="PHP" value="483" />
+          <entry key="PHP" value="487" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="11" />
@@ -74,25 +74,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="INI" value="124" />
+          <entry key="INI" value="219" />
           <entry key="css" value="36" />
           <entry key="gitignore" value="130" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="1641" />
+          <entry key="html" value="1650" />
           <entry key="js" value="1785" />
           <entry key="php" value="2859" />
           <entry key="sql" value="55" />
-          <entry key="txt" value="532" />
+          <entry key="txt" value="537" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="36" />
-          <entry key="HTML" value="1641" />
-          <entry key="Ini" value="124" />
+          <entry key="HTML" value="1650" />
+          <entry key="Ini" value="219" />
           <entry key="JavaScript" value="1785" />
           <entry key="PHP" value="2859" />
-          <entry key="PLAIN_TEXT" value="662" />
+          <entry key="PLAIN_TEXT" value="667" />
           <entry key="SQL" value="55" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -105,76 +105,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/templates/trial/show.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-583">
-              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#4;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ion-spinner#0;n#div#0;n#div#5;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/product/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="122" column="65" selection-start-line="122" selection-start-column="65" selection-end-line="122" selection-end-column="65" />
-              <folding>
-                <element signature="n#style#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="48" />
               <folding>
                 <element signature="e#6#170#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Install/Data/table.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="7597" column="41" selection-start-line="7597" selection-start-column="41" selection-end-line="7597" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Member/Templates/merchant_add.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-247">
-              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,31 +126,67 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Member/Templates/member_add.tpl.php">
+        <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-760">
-              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="4588">
+              <caret line="6042" column="17" selection-start-line="6042" selection-start-column="17" selection-end-line="6042" selection-end-column="17" />
+              <folding>
+                <element signature="e#34#72#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/wap2/js/services.js">
+        <entry file="file://$PROJECT_DIR$/README.INI">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="3104" column="28" selection-start-line="3104" selection-start-column="28" selection-end-line="3104" selection-end-column="28" />
+            <state relative-caret-position="95">
+              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cloud2/member/merchant/edit_trial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2052">
+              <caret line="108" column="67" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
+        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="6050" column="30" lean-forward="true" selection-start-line="6050" selection-start-column="30" selection-end-line="6050" selection-end-column="30" />
-              <folding>
-                <element signature="e#34#72#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="440">
+              <caret line="171" column="95" selection-start-line="171" selection-start-column="95" selection-end-line="171" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="282" column="98" lean-forward="true" selection-start-line="282" selection-start-column="98" selection-end-line="282" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="895" selection-start-line="895" selection-end-line="895" />
             </state>
           </provider>
         </entry>
@@ -230,8 +202,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>HOME_PAGE</find>
-      <find>_APP_</find>
       <find>toe</find>
       <find>homec</find>
       <find>_goGoodsDetail</find>
@@ -260,6 +230,8 @@
       <find>goods_shyow</find>
       <find>_product</find>
       <find>show_trial</find>
+      <find>您已参加</find>
+      <find>$type</find>
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
@@ -284,8 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cloud3/member/v2_register.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/services.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/home/home.html" />
         <option value="$PROJECT_DIR$/templates/wap2/css/style.css" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/article/about_help.html" />
@@ -325,7 +295,6 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/static/js/swfupload/handlers.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add.html" />
-        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/templates/cloud3/product/index.html" />
@@ -335,6 +304,9 @@
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/select_trial.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/controllers.js" />
         <option value="$PROJECT_DIR$/Application/Api/Controller/AppController.class.php" />
+        <option value="$PROJECT_DIR$/README.INI" />
+        <option value="$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php" />
+        <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" />
       </list>
     </option>
   </component>
@@ -361,7 +333,7 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="192.168.1.210" id="04ec220c-5afd-450b-8357-39e97ae4d1c3" name="Unnamed" port="8081" />
+      <server host="www.demophp.com" id="04ec220c-5afd-450b-8357-39e97ae4d1c3" name="Unnamed" port="8080" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
@@ -393,13 +365,26 @@
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Member" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Member" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Product" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -427,19 +412,6 @@
               <item name="cloud3" type="462c0819:PsiDirectoryNode" />
               <item name="member" type="462c0819:PsiDirectoryNode" />
               <item name="merchant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wap2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wap2" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -615,21 +587,7 @@
       <workItem from="1535106569237" duration="703000" />
       <workItem from="1535333319299" duration="37034000" />
       <workItem from="1535508028977" duration="12575000" />
-      <workItem from="1535592856080" duration="13753000" />
-    </task>
-    <task id="LOCAL-00018" summary="添加loading">
-      <created>1534400391623</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1534400391623</updated>
-    </task>
-    <task id="LOCAL-00019" summary="修复用户设置脚本错误">
-      <created>1534401398346</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1534401398346</updated>
+      <workItem from="1535592856080" duration="16176000" />
     </task>
     <task id="LOCAL-00020" summary="修改路由">
       <created>1534403211160</created>
@@ -960,7 +918,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535623752113</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="修改">
+      <created>1535680762119</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1535680762119</updated>
+    </task>
+    <task id="LOCAL-00068" summary="修改">
+      <created>1535681048578</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1535681048578</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -969,7 +941,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270991000" />
+    <option name="totallyTimeSpent" value="273414000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -981,7 +953,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32947975" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.43756786" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.29098806" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1049,13 +1021,13 @@
     <MESSAGE value="添加参与条件" />
     <MESSAGE value="添加判断邀请id为空时不写入" />
     <MESSAGE value="修改上传图片" />
-    <MESSAGE value="修改" />
     <MESSAGE value="修改.gitigonre" />
     <MESSAGE value="添加商品编号" />
     <MESSAGE value="添加检查asin接口" />
     <MESSAGE value="修改招商页面美元符号" />
     <MESSAGE value="xiu" />
-    <option name="LAST_COMMIT_MESSAGE" value="xiu" />
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1097,11 +1069,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php</url>
-          <line>273</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php</url>
           <line>182</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
@@ -1126,9 +1093,9 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php</url>
-          <line>895</line>
-          <option name="timeStamp" value="44" />
+          <url>file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php</url>
+          <line>101</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/services.js</url>
@@ -1149,17 +1116,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Wechat/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Wechat/Controller/AdminController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Wechat/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Task/Library/Driver/task.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1651" />
@@ -1288,13 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1786">
-          <caret line="140" column="20" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Library/attachment.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1309,24 +1258,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="206" column="44" selection-start-line="206" selection-start-column="44" selection-end-line="206" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Product/Model/ProductModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1348,13 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1445,11 +1373,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="6050" column="30" lean-forward="true" selection-start-line="6050" selection-start-column="30" selection-end-line="6050" selection-end-column="30" />
+        <state relative-caret-position="4588">
+          <caret line="6042" column="17" selection-start-line="6042" selection-start-column="17" selection-end-line="6042" selection-end-column="17" />
           <folding>
             <element signature="e#34#72#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.INI">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud2/member/merchant/edit_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="108" column="67" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Product/Controller/ProductController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="895" selection-start-line="895" selection-end-line="895" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="282" column="98" lean-forward="true" selection-start-line="282" selection-start-column="98" selection-end-line="282" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="171" column="95" selection-start-line="171" selection-start-column="95" selection-end-line="171" selection-end-column="95" />
         </state>
       </provider>
     </entry>

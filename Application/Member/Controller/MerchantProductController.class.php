@@ -99,7 +99,7 @@ class MerchantProductController extends InitController{
 
 		//发布购物返利活动
 		$bonus = I('bonus');
-		$new_ordertype = I('ordertype','general');
+		$new_ordertype = I('ordertype','search');
 		$new_postal = I('postal',0);
 		$new_trial_type = I('trial_type','a');
 		$new_address = I('address',0);
