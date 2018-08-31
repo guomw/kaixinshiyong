@@ -1,14 +1,14 @@
 .DS_Store
 .idea
 .settings/
-~runtime/
-!~runtime/install.lock
-Application/Common/Conf/database.php
-Application/Common/Conf/setting.php
-Application/Common/Conf/data.php
-Application/Common/Conf/trial.php
-Application/Common/Conf/task.php
-Application/Common/Conf/sso.php
-Application/Common/Conf/pay_setting.php
-Application/Install/
+/~runtime/
+!/~runtime/install.lock
+/Application/Common/Conf/database.php
+/Application/Common/Conf/setting.php
+/Application/Common/Conf/data.php
+/Application/Common/Conf/trial.php
+/Application/Common/Conf/task.php
+/Application/Common/Conf/sso.php
+/Application/Common/Conf/pay_setting.php
+/Application/Install/
 
