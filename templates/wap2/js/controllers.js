@@ -5664,10 +5664,10 @@ angular
         appkey: '27952ac05b250', // appkey
 
         params: {
-          url: 'http://ml.mifang8.com/#/tab/home?' + $scope.pid, // 分享链接
+          url: 'http://ml.dealswill.com/#/tab/home?' + $scope.pid, // 分享链接
           title: '魔力试用', // 分享标题
-          description: '', // 分享内容
-          pic: '', // 分享图片，使用逗号,隔开
+          description: '魔力试用-免费试用，每天上新千万件商品', // 分享内容
+          pic: 'http://www.dealswill.com/static/images/logo.png', // 分享图片，使用逗号,隔开
           reason: '' //自定义评论内容，只应用与QQ,QZone与朋友网
         }
       })
