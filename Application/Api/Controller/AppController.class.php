@@ -6055,6 +6055,7 @@ class AppController extends BaseController
             $count = model('product')->where($sqlmap)->count();
             if($count>0){
                 $this->json_function(1, '商品核对成功');
+                return;
             }
         }
         $this->json_function(0, '商品核对失败');

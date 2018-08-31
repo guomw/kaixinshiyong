@@ -88,45 +88,6 @@
                 </div>
                 <div class="clear"></div>
               </div>
-                <script>
-                    $("#keyget").click(function(){
-                        var go_link = $("input:text[name='info[goods_url]']").val();
-                        if(!go_link){
-                            art.dialog({
-                                lock: true,
-                                fixed: true,
-                                title: '错误提示',
-                                content: '请输入地址',
-                                ok: true
-                            });
-                            return false;
-                        }
-
-                        $.post('/index.php?m=Product&c=Api&a=go_link', {
-                            go_link : go_link
-                        }, function(ret) {
-                            if(ret.status == 1) {
-                                $("input:text[name='info[title]']").val(ret.title);
-                                $("input:text[name='info[keyword]']").val(ret.keyword);
-                                $("input:text[name='info[goods_price]']").val(ret.goods_price);
-                                $("input:text[name='info[goods_url]']").val(ret.url);
-
-                                $("input[name='goods_albums_url[1]']").val(ret.img);
-                                $("input[name='goods_albums_url[1]']").prev().attr("src",ret.img);
-                            }else{
-                                art.dialog({
-                                    lock: true,
-                                    fixed: true,
-                                    icon: 'face-sad',
-                                    title: '错误提示',
-                                    content: ret.info,
-                                    ok: true
-                                });
-                            }
-                            return false;
-                        }, 'JSON');
-                    })
-                </script>
               <!--h1-->
 
               <div class="h1">
@@ -142,10 +103,10 @@
                 <div class="h1">
                     <div class="L">
                         <span>*</span>
-                        ASIN(商品编号)
+                        ASIN(商品编号{$type})
                     </div>
                     <div class="R1">
-                        <input type="text"  name="info[asin]" id="asin" value="" />
+                        <input type="text"  name="info[asin]" id="asin" value="{$asin}" />
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -203,13 +164,12 @@
               <div class="h1">
                 <div class="L"> <span>*</span> 搜索排行要求 </div>
                 <div class="R2 js_sort">
-                 <span {if $goods_rule['sort'] == '综合'} class="sel" {/if} data-id="综合">综合</span>
-                 <span {if $goods_rule['sort'] == '人气'} class="sel" {/if} data-id="人气">人气</span>
-                 <span {if $goods_rule['sort'] == '销量'} class="sel" {/if} data-id="销量">销量</span>
-                 <span {if $goods_rule['sort'] == '信用'} class="sel" {/if} data-id="信用">信用</span>
-                 <span {if $goods_rule['sort'] == '最新'} class="sel" {/if} data-id="最新">最新</span>
-                 <span {if $goods_rule['sort'] == '价格'} class="sel" {/if} data-id="价格">价格</span> 
-                 <input type="hidden" name="info[goods_rule][sort]" value="1" id="sort">
+                 <span {if $goods_rule['sort'] == '相关度'} class="sel" {/if} data-id="相关度">相关度</span>
+                 <span {if $goods_rule['sort'] == '价格(由低到高)'} class="sel" {/if} data-id="价格(由低到高)">价格(由低到高)</span>
+                 <span {if $goods_rule['sort'] == '价格(由高到低)'} class="sel" {/if} data-id="价格(由高到低)">价格(由高到低)</span>
+                 <span {if $goods_rule['sort'] == '用户评分'} class="sel" {/if} data-id="用户评分">用户评分</span>
+                 <span {if $goods_rule['sort'] == '上架时间'} class="sel" {/if} data-id="上架时间">上架时间</span>
+                 <input type="hidden" name="info[goods_rule][sort]" value="{$goods_rule['sort']}" id="sort">
                </div>
                 <div class="clear"></div>
               </div>

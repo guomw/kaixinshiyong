@@ -7595,6 +7595,7 @@ CREATE TABLE IF NOT EXISTS `prefix_product` (
   `hits` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '浏览量',
   `isrecommend` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否为推荐商品',
   `goods_price` double(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '下单价格',
+  `asin` varchar(20) NULL COMMENT '商品编号',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 

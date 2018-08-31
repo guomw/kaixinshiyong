@@ -2,10 +2,10 @@
  return array (
   'seller_charge_name' => '推广费',
   'single_mode' => 'array (
-  \'seller_general_order\' => \'1\',
+  \'seller_general_order\' => \'0\',
   \'seller_search_order\' => \'1\',
-  \'seller_answer_order\' => \'1\',
-  \'seller_qrcode_order\' => \'1\',
+  \'seller_answer_order\' => \'0\',
+  \'seller_qrcode_order\' => \'0\',
 )',
   'seller_give_back' => '1',
   'seller_ordersn_check' => '23',
@@ -22,7 +22,7 @@
 )',
   'buyer_write_order_time' => '48',
   'buyer_good_buy_times' => '1',
-  'buyer_day_buy_times' => '1',
+  'buyer_day_buy_times' => '',
   'buyer_write_talk_time' => '15',
   'buyer_check_update_order_sn' => '72',
   'seller_end_time' => '2020-12-15',
@@ -54,7 +54,7 @@
   'trial_point' => '10',
   'buyer_order_fee' => '0',
   'trial_fee_price' => '0',
-  'buyer_day_buy_days' => '2',
+  'buyer_day_buy_days' => '1',
   'buyer_day_buy_days_times' => '3',
 );
 ?>

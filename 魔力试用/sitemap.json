@@ -1,0 +1,324 @@
+{
+	"global": {
+		"webviewParameter": {
+			"titleNView": {
+				"autoBackButton": true,
+				"backgroundColor": "#f7f7f7",//导航栏背景色
+				"titleColor": "#000000",//标题颜色
+				"titleSize": "17px"
+			},
+			"statusbar": {
+				//系统状态栏样式(前景色)
+				"style": "dark"
+			},
+			"appendCss": "",
+			"appendJs": ""
+		},	
+		"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com"
+				}, {
+					"href": "http://ml.dealswill.com/#/tab/home"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/trial"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/rebate"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/user"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/duo"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/article"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/trial_help"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/so"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/order_sn"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/apply"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/about"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/home/trial/*"
+				}, {
+					"href": "http://ml.dealswill.com/#/tab/trial/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/rebate/trial_order/*/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/log"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce/*/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile"
+				},
+					{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/nickname"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/email"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/card"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/password"
+				},
+				{
+					"href":"http://ml.mifang8.com/#/tab/user/profile/taobao"
+				}
+			],	
+		"easyConfig": {			
+			"quit": {
+				"toast": {
+					"showFeedback": false
+				}
+			},
+			"back": {
+				"history": true
+			}
+		}
+	},
+	"pages": [
+		{
+			"webviewId": "__W2A__ml.mifang8.com",//首页
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com"
+				}, {
+					"href": "http://ml.dealswill.com/#/tab/home"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/trial"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/rebate"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/user"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/duo"
+				},{
+					"href": "http://ml.dealswill.com/#/tab/article"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/trial_help"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/so"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/order_sn"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/apply"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/about"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/home/trial/*"
+				}, {
+					"href": "http://ml.dealswill.com/#/tab/trial/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/rebate/trial_order/*/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/log"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce/*/*"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile"
+				},
+					{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/nickname"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/email"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/card"
+				},
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/password"
+				},
+				{
+					"href":"http://ml.mifang8.com/#/tab/user/profile/taobao"
+				}
+			],
+			"webviewParameter": {
+				"titleNView": false,
+				"statusbar": {
+					//状态条背景色，
+					//首页不使用原生导航条，颜色值建议和global->webviewParameter->titleNView->backgroundColor颜色值保持一致
+					//若首页启用了原生导航条，则建议将首页的statusbar配置为false，这样状态条可以和原生导航条背景色保持一致；
+					"background": "#f7f7f7"
+				}
+			}
+		}
+		,		 
+		{
+			"webviewId": "trial", //试用列表
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/trial"
+				}
+			]
+		}, {
+			"webviewId": "rebate", //我的试用进度
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/rebate"
+				}
+			]
+		}, {
+			"webviewId": "user", //个人中心
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user"
+				}
+			]
+		}, {
+			"webviewId": "duo", //更多
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/duo"
+				}
+			]
+		}, {
+			"webviewId": "article", //帮助中心
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/article"
+				}
+			]
+		}
+		, {
+			"webviewId": "trial_help", //帮助中心
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/trial_help"
+				}
+			]
+		}, {
+			"webviewId": "help_so", //试用搜索下单
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/so"
+				}
+			]
+		}
+		, {
+			"webviewId": "help_order_sn", //如何复制订单号
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/order_sn"
+				}
+			]
+		}	, {
+			"webviewId": "help_apply", //如何查询试用结果
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/apply"
+				}
+			]
+		}	, {
+			"webviewId": "help_about", //关于我们
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/help/about"
+				}
+			]
+		}
+		, {
+			"webviewId": "trial_detail", //商品详情
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/home/trial/*"
+				}, {
+					"href": "http://ml.dealswill.com/#/tab/trial/*"
+				}
+			]
+		}	, {
+			"webviewId": "trial_order", //填写订单
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/rebate/trial_order/*/*"
+				}
+			]
+		}, {
+			"webviewId": "user_log", //余额日志
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/log"
+				}
+			]
+		}, {
+			"webviewId": "user_announce", //我的消息
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce"
+				}
+			]
+		}, {
+			"webviewId": "user_announce_details", //消息详情
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/announce/*/*"
+				}
+			]
+		}
+		, {
+			"webviewId": "user_profile", //我的信息
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile"
+				}
+			]
+		}, {
+			"webviewId": "user_profile_nickname", //修改昵称和头像
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/nickname"
+				}
+			]
+		}, {
+			"webviewId": "user_profile_email", //修改email
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/email"
+				}
+			]
+		}, {
+			"webviewId": "user_profile_card", //修改card
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/card"
+				}
+			]
+		}, {
+			"webviewId": "user_profile_password", //修改密码
+			"matchUrls": [
+				{
+					"href": "http://ml.dealswill.com/#/tab/user/profile/password"
+				}
+			]
+		}
+	]
+}
