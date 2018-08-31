@@ -668,6 +668,17 @@ angular
           }
         })
 
+        .state('tab.invite', {
+          url: '/invite',
+          views: {
+            //推荐好友
+            'tab-user': {
+              templateUrl: 'templates/user/invite.html',
+              controller: 'invite'
+            }
+          }
+        })
+
         .state('tab.invitation_log', {
           url: '/invitation_log',
           views: {

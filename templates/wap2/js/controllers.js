@@ -636,6 +636,16 @@ angular
         $state.go('tab.user_profile')
       }
 
+      //邀请好友
+      $scope.invite = function() {
+        if ($scope.logo_status != 1) {
+          $state.go('tab.user_login') //路由跳转登录
+          return false
+        }
+
+        $state.go('tab.invite')
+      }
+
       //更多
       $scope.user_more = function() {
         // console.log();
@@ -793,6 +803,14 @@ angular
         //改变签到状态
       })
     }
+  ])
+
+  .controller('invite', [
+    '$rootScope',
+    '$scope',
+    '$state',
+    'StorageFactory',
+    function($rootScope, $scope, $state, StorageFactory) {}
   ])
 
   // 我的信息 站内信
@@ -4620,14 +4638,14 @@ angular
         trialOrderFactory.check_good(goods_id, asin)
         $scope.$on('trialOrderFactory.check_good', function() {
           var check_good = trialOrderFactory.get_check_good()
-          if(check_good.status == 0){
+          if (check_good.status == 0) {
             $ionicLoading.show({
               noBackdrop: true,
               template: check_good.msg,
               duration: 1000
             })
           }
-          if(check_good.status == 1){
+          if (check_good.status == 1) {
             $ionicLoading.show({
               noBackdrop: true,
               template: '恭喜您，快去下单吧',
@@ -4636,7 +4654,6 @@ angular
           }
         })
       }
-     
     }
   ])
 
