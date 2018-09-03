@@ -669,7 +669,7 @@ angular
         })
 
         .state('tab.invite', {
-          url: '/invite',
+          url: '/invite/:inviteId',
           views: {
             //推荐好友
             'tab-user': {

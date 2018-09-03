@@ -2,10 +2,42 @@
     <ion-content class="padding_head" style="background-color: #cddcfe">
         <div class="ibody">
             <img src="../../img/intive.png" alt="" style="width:100%;">
-
-            <div style="padding:0 20%;position:fixed;bottom:10%;width:100%">
-                <a href="javascript:;" class="weui-btn" style="border-radius:20px;background-color:#2b3a68">立即分享</a>
+            <div style="padding:0 20%;position:fixed;bottom:10%;width:100%" ng-if="logo_status == 0">
+                <a href="javascript:;" class="weui-btn" style="border-radius:20px;background-color:#2b3a68" ng-click='freeHome()'>免费试用</a>
             </div>
+            <div style="padding:0 20%;position:fixed;bottom:10%;width:100%" ng-if="logo_status == 1">
+                <a href="javascript:;" class="weui-btn -mob-share-ui-button -mob-share-open share-button" style="border-radius:20px;background-color:#2b3a68;line-height:inherit">立即分享</a>
+            </div>
+            <!-- <div class="-mob-share-ui-button -mob-share-open share-button" style="position: fixed;
+            right: 0;
+            bottom: 80px;">分享</div> -->
+            <div class="-mob-share-ui" style="display: none;">
+                <ul class="-mob-share-list">
+                    <li class="-mob-share-qzone">
+                        <p>QQ空间</p>
+                    </li>
+                    <li class="-mob-share-qq">
+                        <p>QQ好友</p>
+                    </li>
+                    <li class="-mob-share-douban">
+                        <p>豆瓣</p>
+                    </li>
+                    <li class="-mob-share-facebook">
+                        <p>Facebook</p>
+                    </li>
+                    <li class="-mob-share-twitter">
+                        <p>Twitter</p>
+                    </li>
+                    <li class="-mob-share-linkedin">
+                        <p>Linkedin</p>
+                    </li>
+                    <li class="-mob-share-google">
+                        <p>Google</p>
+                    </li>
+                </ul>
+                <div class="-mob-share-close">取消</div>
+            </div>
+            <div class="-mob-share-ui-bg"></div>
 
         </div>
     </ion-content>

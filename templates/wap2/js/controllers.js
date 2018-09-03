@@ -643,7 +643,9 @@ angular
           return false
         }
 
-        $state.go('tab.invite')
+        $state.go('tab.invite', {
+          inviteId: userid
+        })
       }
 
       //更多
@@ -810,7 +812,92 @@ angular
     '$scope',
     '$state',
     'StorageFactory',
-    function($rootScope, $scope, $state, StorageFactory) {}
+    '$stateParams',
+    function($rootScope, $scope, $state, StorageFactory, $stateParams) {
+      var inviteId = $stateParams.inviteId
+      if (inviteId && parseInt(inviteId) > 0) {
+        StorageFactory.set('inviteId', inviteId)
+      }
+
+      if (!StorageFactory.get('user') || (StorageFactory.get('user') && StorageFactory.get('user').status != 1)) {
+        $scope.logo_status = 0
+      } else {
+        $scope.logo_status = 1
+      }
+
+      $scope.freeHome = function(){
+        $state.go('tab.home')
+      }
+
+      //初始化分享
+      var ui = getElementsByClassName('-mob-share-ui')[0]
+      var uiTemplate = ui.cloneNode(true)
+      var uiCurrent = ui
+
+      var buttons = getElementsByClassName('share-button')
+      for (var i = 0, len = buttons.length; i < len; i++) {
+        var btn = buttons[i]
+        // var ui = getElementsByClassName("-mob-share-ui")[0];
+        // var uiTemplate = ui.cloneNode(true);
+        // var uiCurrent = ui;
+        btn.onclick = function() {
+          if (uiCurrent) {
+            uiCurrent.parentNode.removeChild(uiCurrent)
+          }
+          uiCurrent = uiTemplate.cloneNode(true)
+          var dataTheme = this.getAttribute('data-theme')
+          var theme = '-mob-share-ui-theme-' + this.getAttribute('data-theme')
+          addClass(uiCurrent, theme)
+          if (dataTheme === 'slide-left' || dataTheme === 'slide-right') {
+            getElementsByClassName('-mob-share-close', uiCurrent)[0].style.display = 'none'
+          }
+          document.body.appendChild(uiCurrent)
+          mobShare.ui.init()
+          mobShare.ui.open()
+        }
+      }
+
+      function getElementsByClassName(classname, main) {
+        var main = main || document
+        if (main.getElementsByClassName) {
+          return main.getElementsByClassName(classname)
+        }
+        var a = []
+        var re = new RegExp('(^| )' + classname + '( |$)')
+        var els = main.getElementsByTagName('*')
+        for (var i = 0, j = els.length; i < j; i++) {
+          if (re.test(els[i].className)) {
+            a.push(els[i])
+          }
+        }
+        return a
+      }
+
+      function hasClass(ele, cls) {
+        return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
+      }
+
+      function addClass(ele, cls) {
+        if (!hasClass(ele, cls)) {
+          ele.className += ' ' + cls
+        }
+      }
+
+      //分享配置
+      mobShare.config({
+        debug: true, // 开启调试，将在浏览器的控制台输出调试信息
+
+        appkey: '27952ac05b250', // appkey
+
+        params: {
+          //  url: 'http://ml.dealswill.com/#/tab/home?' + $scope.pid, // 分享链接
+          title: '魔力试用', // 分享标题
+          description: '魔力试用-免费试用，每天上新千万件商品', // 分享内容
+          pic: 'http://www.dealswill.com/static/images/logo.png', // 分享图片，使用逗号,隔开
+          reason: '' //自定义评论内容，只应用与QQ,QZone与朋友网
+        }
+      })
+    }
   ])
 
   // 我的信息 站内信
