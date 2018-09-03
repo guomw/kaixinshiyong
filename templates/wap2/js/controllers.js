@@ -2813,7 +2813,7 @@ angular
       //接收通知 当前用户已绑定亚马逊帐号
       $scope.$on('UserProfileFactory.set_username_taobao', function() {
         $scope.data_bind_taobao = UserProfileFactory.get_username_taobao()
-        //console.log($scope.data_bind_taobao);
+        // console.log($scope.data_bind_taobao);
       })
 
       //用户删除 设为默认亚马逊帐号
@@ -2919,7 +2919,7 @@ angular
       //接收设为默认结果通知
       $scope.$on('UserProfileFactory.set_bind_taobao_setdefault', function() {
         var data_bind_taobao_setdefault = UserProfileFactory.get_bind_taobao_setdefault()
-        UserProfileFactory.set_username_taobao(userid) //重新获取亚马逊帐号
+        UserProfileFactory.set_username_taobao(userid,random) //重新获取亚马逊帐号
 
         $ionicLoading.show({
           noBackdrop: true,
@@ -5098,6 +5098,7 @@ angular
         //判断后台配置开启的参与活动条件 根据配置提示用户完善
         // ($scope.bind_phone == 1 && $scope.phone_status != 1) ||($scope.bind_email == 2 && $scope.emall_status != 1) ||($scope.bind_alipay == 5 && $scope.allpay_status != 1) ||($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
         if (
+          ($scope.bind_email == 2 && $scope.emall_status != 1) ||
           ($scope.realname == 3 && $scope.name_status != 1) ||
           ($scope.bind_taobao == 4 && $scope.data_bind_taobao.count < 1)
         ) {
@@ -5580,9 +5581,11 @@ angular
         })
 
         var taobao_id =
-          $scope.vm.data_bind_taobao_default == undefined ? taobao_default_id : $scope.vm.data_bind_taobao_default.id
+        $scope.vm.data_bind_taobao_default == undefined ? taobao_default_id : $scope.vm.data_bind_taobao_default.id
         taobao_id = $scope.bind_taobao == 4 ? taobao_id : ''
 
+
+        
         console.log(taobao_id)
 
         var reason = $scope.vm.Application_reasons

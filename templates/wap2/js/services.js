@@ -2018,23 +2018,23 @@ angular
         // 首先判断如果缓存不存在则请求服务器 缓存存在则读取缓存
         //
         set_username_taobao: function(userid, random) {
-          if (StorageFactory.get('taobao')) {
-            data6 = StorageFactory.get('taobao')
-            $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
-          } else {
-            //获取当前用户已绑定亚马逊帐号数量
-            resource7.save(
-              {
-                userid: userid,
-                random: random
-              },
-              function(r) {
-                data6 = r
-                StorageFactory.set('taobao', data6) //亚马逊帐号写入缓存
-                $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
-              }
-            )
-          }
+          // if (StorageFactory.get('taobao')) {
+          //   data6 = StorageFactory.get('taobao')
+          //   $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
+          // } else {
+          //获取当前用户已绑定亚马逊帐号数量
+          resource7.save(
+            {
+              userid: userid,
+              random: random
+            },
+            function(r) {
+              data6 = r
+              StorageFactory.set('taobao', data6) //亚马逊帐号写入缓存
+              $rootScope.$broadcast('UserProfileFactory.set_username_taobao')
+            }
+          )
+          // }
         },
         //用于绑定亚马逊帐号 重新发起请求获取最新亚马逊账号及
         set_username_taobao2: function(userid, random) {
