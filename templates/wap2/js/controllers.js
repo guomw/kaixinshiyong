@@ -4898,6 +4898,7 @@ angular
           for (var x in lists) {
             if (lists[x].is_default == 1) {
               $scope.data_bind_taobao_default = lists[x]
+              break; 
             } else {
               $scope.data_bind_taobao_default = lists[0]
             }
@@ -8408,6 +8409,7 @@ angular
           for (var x in lists) {
             if (lists[x].is_default == 1) {
               $scope.data_bind_taobao_default = lists[x]
+              break;
             } else {
               $scope.data_bind_taobao_default = lists[0]
             }
