@@ -79,7 +79,7 @@
 							<form acion="{U('Member/Index/login')}" method="post">
 								<ul>
 									<li class="t">登录名：</li>
-									<li class="i"><input type="text" class="s" placeholder="邮箱/手机号" name="username" value='{cookie('_username')}' id="username" /></li>
+									<li class="i"><input type="text" class="s" placeholder="邮箱" name="username" value='{cookie('_username')}' id="username" /></li>
 									<li class="t">密码：</li>
 									<li class="i"><input type="password" class="s" placeholder="请输入密码" name="password" id="pwd"/></li>
 									<p class="user_verify" style="color:red;height:30px;line-height:30px;" style="display:none;"></p>	
@@ -133,7 +133,7 @@ function dologin () {
 	var remember  = $('.js_checkbox:checked').val();
 	if (name.length == 0) {
 		$("#username").focus();
-		$(".user_verify").html('请输入用户名/邮箱/手机').show();
+		$(".user_verify").html('请输入用户名/邮箱').show();
 		return false;
 	}
 

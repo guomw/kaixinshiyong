@@ -384,6 +384,7 @@ Class AttachmentController extends BaseController {
                         "allowFiles" => $config['fileAllowFiles']
                     );
                     $fieldName = $config['fileFieldName'];
+
                 }    
                 $up = new \Common\Library\upload($fieldName, $params, $base64);
                 echo json_encode($up->getFileInfo());
