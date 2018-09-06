@@ -13,10 +13,11 @@
               {{name_authentication_status | f_name_status }}
             </i>
           </label>
-          <label class="item item-input"> <i style="font-size:18px;color:#ffb400" class=" ion-card  placeholder-icon"></i>
+          <label class="item item-input">
+            <!-- <i style="font-size:18px;color:#ffb400" class=" ion-card  placeholder-icon"></i> -->
             <input bank type="text" ng-model="user_bank" ng-minlength="19" ng-maxlength="23" name="user_bank" placeholder="请输入您的银行卡帐号"
               required></label>
-          <label class="item item-input item-select">
+          <!-- <label class="item item-input item-select">
             <div class="input-label">发卡银行</div>
             <select ng-model="CityData.data.linkageid" ng-options="a.name for a  in bank_info.data">
               <option value="">--请选择--</option>
@@ -43,7 +44,7 @@
           <label class="item item-input">
             <i style="font-size:18px;color:#ff6000" class="ion-home placeholder-icon"></i>
             <input type="text" ng-minlength="4" ng-model="sub_branch" name="sub_branch" placeholder="开户支行名称" required>
-          </label>
+          </label> -->
         </div>
 
         <div class="text-explain">
@@ -53,7 +54,7 @@
         </div>
         <div class="padding-left padding-right">
           <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edilt_bank(user_bank,CityData.data.linkageid.linkageid,sub_branch)">提交</button> -->
-          <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid " ng-click="edilt_bank(user_bank,CityData.data.linkageid.linkageid,sub_branch)">提交</a>
+          <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid " ng-click="edilt_bank(user_bank)">提交</a>
         </div>
       </form>
 

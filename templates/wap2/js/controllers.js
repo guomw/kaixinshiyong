@@ -3089,9 +3089,9 @@ angular
       $scope.edit_identity = function(
         user_Full_name,
         user_ID_number,
+        person_img,
         face_img,
         back_img,
-        person_img,
         sex,
         year,
         month,
@@ -3420,19 +3420,19 @@ angular
 
       //提交后台修改银行卡
 
-      $scope.edilt_bank = function(user_bank, bank_id, sub_branch) {
+      $scope.edilt_bank = function(user_bank) {
         user_bank = user_bank.replace(/\s/g, '')
 
         //console.log(user_bank);
 
-        if (!$scope.country_linkageid || !$scope.province_linkageid || !bank_id) {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请完善开户银行,所在省,市',
-            duration: 1000
-          })
-          return false
-        }
+        // if (!$scope.country_linkageid || !$scope.province_linkageid || !bank_id) {
+        //   $ionicLoading.show({
+        //     noBackdrop: true,
+        //     template: '请完善开户银行,所在省,市',
+        //     duration: 1000
+        //   })
+        //   return false
+        // }
         $ionicLoading.show({
           noBackdrop: true,
           template: '正在提交...',
@@ -3443,14 +3443,8 @@ angular
 
         //第二步请求后台修改银行卡
         UserProfileFactory.set_bind_bank_info(
-          user_bank,
-          bank_id,
-          sub_branch,
-          $scope.country_linkageid,
-          $scope.province_linkageid,
-          $scope.city_linkageid,
-          userid,
-          random
+          $scope.user_Real_name,
+          user_bank
         )
       }
 

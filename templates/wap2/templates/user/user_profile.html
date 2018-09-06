@@ -69,18 +69,18 @@
       <ion-item ng-show="userInfo.alipay_status == 1" class="item item-icon-left item-icon-right ">
         我的支付宝
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status}}</i>
-      </ion-item>
+      </ion-item>-->
 
       <ion-item ng-if="userInfo.bank_status !=1 " class="item item-icon-left item-icon-right " ng-click="profile_bankcard()">
         我的银行卡
         <i class="item-note">{{userInfo.bank_status |f_bank_status }}</i>
-        <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
+        <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item class="item item-icon-left item-icon-right " ng-if="userInfo.bank_status ==1">
         我的银行卡
         <i class="item-note">{{userInfo.bank_status |f_bank_status }}</i>
-      </ion-item> -->
+      </ion-item>
 
       <!-- <div class="padding-top"></div> -->
       <ion-item class="item item-icon-left item-icon-right " ng-click="profile_password()">
