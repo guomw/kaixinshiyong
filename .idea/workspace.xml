@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="修改上传问题">
+    <list default="true" id="963294df-a6fd-4a98-9ba3-edcaf7282474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Framework/Conf/debug.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Framework/Conf/debug.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wap2/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wap2/js/config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,12 +44,12 @@
           <entry key="css" value="15" />
           <entry key="gitignore" value="4" />
           <entry key="htaccess" value="10" />
-          <entry key="html" value="292" />
+          <entry key="html" value="293" />
           <entry key="inc" value="2" />
           <entry key="js" value="99" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
-          <entry key="php" value="489" />
+          <entry key="php" value="494" />
           <entry key="png" value="2" />
           <entry key="project" value="2" />
           <entry key="rnc" value="1" />
@@ -57,12 +62,12 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="15" />
-          <entry key="HTML" value="292" />
+          <entry key="HTML" value="293" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="6" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="99" />
-          <entry key="PHP" value="491" />
+          <entry key="PHP" value="496" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="11" />
@@ -77,21 +82,21 @@
           <entry key="css" value="36" />
           <entry key="gitignore" value="157" />
           <entry key="htaccess" value="50" />
-          <entry key="html" value="1650" />
+          <entry key="html" value="1691" />
           <entry key="js" value="1794" />
-          <entry key="php" value="2874" />
+          <entry key="php" value="2908" />
           <entry key="sql" value="55" />
-          <entry key="txt" value="568" />
+          <entry key="txt" value="572" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="36" />
-          <entry key="HTML" value="1650" />
+          <entry key="HTML" value="1691" />
           <entry key="Ini" value="219" />
           <entry key="JavaScript" value="1794" />
-          <entry key="PHP" value="2874" />
-          <entry key="PLAIN_TEXT" value="725" />
+          <entry key="PHP" value="2908" />
+          <entry key="PLAIN_TEXT" value="729" />
           <entry key="SQL" value="55" />
           <entry key="htaccess" value="50" />
         </counts>
@@ -103,34 +108,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="393" column="31" lean-forward="true" selection-start-line="393" selection-start-column="31" selection-end-line="393" selection-end-column="31" />
+              <caret line="393" column="31" selection-start-line="393" selection-start-column="31" selection-end-line="393" selection-end-column="31" />
+=======
+      <file leaf-file-name="cff4adf2da990bbc3a4833957fc17798.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/~runtime/Cache/Member/cff4adf2da990bbc3a4833957fc17798.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1462">
+              <caret line="86" column="50" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="50" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant_index.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1254">
-              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+            <state>
+              <folding>
+                <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+              </folding>
+=======
+      <file leaf-file-name="email_attesta.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/buyer/email_attesta.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1683">
+              <caret line="99" column="57" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="57" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register_index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -138,47 +152,133 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_register.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
-              <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Common/Library/upload.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6327">
-              <caret line="339" column="20" selection-start-line="339" selection-start-column="20" selection-end-line="339" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2983">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+              <caret line="226" column="28" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+=======
+      <file leaf-file-name="MerchantProductController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5358">
-              <caret line="282" column="98" selection-start-line="282" selection-start-column="98" selection-end-line="282" selection-end-column="98" />
+            <state relative-caret-position="663">
+              <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="App.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/App.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2533">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="1195" column="8" selection-start-line="1195" selection-start-column="8" selection-end-line="1195" selection-end-column="30" />
+=======
+      <file leaf-file-name="Model.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16853">
-              <caret line="895" selection-start-line="895" selection-end-line="895" />
+            <state relative-caret-position="5661">
+              <caret line="341" selection-start-line="341" selection-end-line="341" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Mode/Api/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1177">
+              <caret line="950" column="18" selection-start-line="950" selection-start-column="12" selection-end-line="950" selection-end-column="18" />
+=======
+      <file leaf-file-name="Db.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Db.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5219">
+              <caret line="315" selection-start-line="315" selection-end-line="315" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Common/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-90">
+              <caret line="1259" column="15" selection-start-line="1259" selection-start-column="9" selection-end-line="1259" selection-end-column="15" />
+=======
+      <file leaf-file-name="Mysql.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Db/Driver/Mysql.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2006">
+              <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Common/Helpers/mail.helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+=======
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#input#1;n#li#1;n#form#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#1894#1900#0" expanded="true" />
+              </folding>
+=======
+      <file leaf-file-name="debug.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Conf/debug.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/SettingController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1608">
+              <caret line="144" column="41" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
+=======
+      <file leaf-file-name="Think.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Think.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1904">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -194,15 +294,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_goGoodsDetail</find>
-      <find>trial_list</find>
-      <find>THEME_STYLE_PATH</find>
-      <find>member_register_success</find>
-      <find>flashupload</find>
-      <find>addnew</find>
-      <find>att-status</find>
-      <find>申诉</find>
+<<<<<<< Updated upstream
       <find>申</find>
+=======
+>>>>>>> Stashed changes
       <find>申述</find>
       <find>aper</find>
       <find>apper</find>
@@ -210,7 +305,6 @@
       <find>order_appeal</find>
       <find>id</find>
       <find>submitsubmit</find>
-      <find>add</find>
       <find>fields</find>
       <find>keygetkeyget</find>
       <find>product</find>
@@ -224,11 +318,33 @@
       <find>$type</find>
       <find>uploadimage</find>
       <find>str</find>
+<<<<<<< Updated upstream
+      <find>public_test_mail</find>
+      <find>update</find>
+      <find>v2_send_email</find>
+      <find>Ofe_</find>
+      <find>COOKIE_PREFIX</find>
+      <find>register</find>
+      <find>getverify</find>
+      <find>SetRemainTime</find>
+=======
+      <find>192.168.1.210:8081</find>
+      <find>v2_check</find>
+      <find>$this-&gt;db</find>
+      <find>MerchantProduct</find>
+      <find>verify</find>
+      <find>getCode</find>
+      <find>check_email</find>
+      <find>LOG_LEVEL</find>
+      <find>add</find>
+      <find>地址格式</find>
+>>>>>>> Stashed changes
     </findStrings>
     <replaceStrings>
       <replace>美元</replace>
       <replace>$</replace>
       <replace>亚马逊</replace>
+      <replace>www.p.com</replace>
     </replaceStrings>
     <dirStrings>
       <dir>H:\projects\PHP\kaixinshiyong\static</dir>
@@ -248,8 +364,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/wap2/templates/article/about_help.html" />
+<<<<<<< Updated upstream
+=======
         <option value="$PROJECT_DIR$/templates/wap/common/footer.html" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/templates/wap/member/register.html" />
         <option value="$PROJECT_DIR$/templates/wap/style/default/css/user.css" />
         <option value="$PROJECT_DIR$/templates/wap/member/login.html" />
@@ -277,7 +395,6 @@
         <option value="$PROJECT_DIR$/templates/cloud3/member/common/v2_merchant_header.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Templates/index.tpl.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/complete.html" />
-        <option value="$PROJECT_DIR$/templates/wap2/js/config.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/show.html" />
         <option value="$PROJECT_DIR$/templates/wap2/js/app.js" />
         <option value="$PROJECT_DIR$/templates/wap2/templates/trial/list.html" />
@@ -297,8 +414,16 @@
         <option value="$PROJECT_DIR$/templates/cloud3/member/merchant/edit_trial.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/static/js/ueditor/dialogs/image/image.js" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php" />
         <option value="$PROJECT_DIR$/templates/cloud3/member/login.html" />
+        <option value="$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html" />
+=======
+        <option value="$PROJECT_DIR$/Application/Common/Conf/database.php" />
+        <option value="$PROJECT_DIR$/templates/wap2/js/config.js" />
+        <option value="$PROJECT_DIR$/Application/Framework/Conf/debug.php" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -325,7 +450,7 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="www.demophp.com" id="04ec220c-5afd-450b-8357-39e97ae4d1c3" name="Unnamed" port="8080" />
+      <server host="www.p.com" id="04ec220c-5afd-450b-8357-39e97ae4d1c3" name="Unnamed" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
@@ -346,22 +471,105 @@
         <subPane>
           <expand>
             <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+<<<<<<< Updated upstream
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kaixinshiyong" type="b2602c69:ProjectViewProjectNode" />
               <item name="kaixinshiyong" type="462c0819:PsiDirectoryNode" />
               <item name="~runtime" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+              <item name="Conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud3" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="~runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mlshiyong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mlshiyong" type="462c0819:PsiDirectoryNode" />
+              <item name="魔力试用" type="462c0819:PsiDirectoryNode" />
+>>>>>>> Stashed changes
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< Updated upstream
+=======
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/phpStudy/PHPTutorial/php/php-5.6.27-nts/php.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -372,6 +580,7 @@
       <recent name="H:\projects\PHP\kaixinshiyong\templates\wap2\js" />
     </key>
   </component>
+<<<<<<< Updated upstream
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
       <FILE-GROUP>
@@ -487,6 +696,8 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -500,9 +711,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="gmwphp" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed">
-      <method v="2" />
-    </configuration>
+    <configuration name="gmwphp" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -528,9 +737,22 @@
       <workItem from="1535106569237" duration="703000" />
       <workItem from="1535333319299" duration="37034000" />
       <workItem from="1535508028977" duration="12575000" />
+<<<<<<< Updated upstream
       <workItem from="1535592856080" duration="24198000" />
       <workItem from="1535937706283" duration="1219000" />
-      <workItem from="1536042385221" duration="119000" />
+      <workItem from="1536042385221" duration="4009000" />
+=======
+      <workItem from="1535592856080" duration="22890000" />
+      <workItem from="1535936980676" duration="6730000" />
+      <workItem from="1536109559532" duration="865000" />
+      <workItem from="1536202614202" duration="1250000" />
+    </task>
+    <task id="LOCAL-00022" summary="修改样式">
+      <created>1534406220222</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1534406220222</updated>
     </task>
     <task id="LOCAL-00023" summary="修改路由">
       <created>1534408013055</created>
@@ -538,6 +760,7 @@
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
       <updated>1534408013055</updated>
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00024" summary="修改路由">
       <created>1534408290262</created>
@@ -875,7 +1098,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535706346678</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="修改页面">
+      <created>1536042521031</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1536042521032</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -884,31 +1114,57 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282774000" />
+<<<<<<< Updated upstream
+    <option name="totallyTimeSpent" value="286664000" />
+=======
+    <option name="totallyTimeSpent" value="289001000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
+<<<<<<< Updated upstream
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945712" visible="true" weight="0.21268657" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005429" side_tool="true" weight="0.18123667" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32947975" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29098806" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5200869" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+=======
+      <window_info anchor="right" id="Palette" order="3" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3257329" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32899022" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32947975" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3257329" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945712" visible="true" weight="0.21481876" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3691275" />
+      <window_info id="Favorites" order="2" sideWeight="0.5005429" side_tool="true" weight="0.18123667" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -947,7 +1203,6 @@
     <MESSAGE value="修改路由乱跳问题" />
     <MESSAGE value="修改样式" />
     <MESSAGE value="修改路由" />
-    <MESSAGE value="修改页面" />
     <MESSAGE value="修改图片上传尺寸" />
     <MESSAGE value="用户注册时，添加默认昵称" />
     <MESSAGE value="人民币替换成美元符号" />
@@ -969,7 +1224,8 @@
     <MESSAGE value="修改商家中心编辑商品页面" />
     <MESSAGE value="xiu" />
     <MESSAGE value="修改上传问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改上传问题" />
+    <MESSAGE value="修改页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -986,7 +1242,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php</url>
-          <line>1240</line>
+          <line>1241</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1031,13 +1287,48 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php</url>
-          <line>205</line>
-          <option name="timeStamp" value="42" />
+          <line>207</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php</url>
-          <line>101</line>
-          <option name="timeStamp" value="45" />
+          <url>file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php</url>
+          <line>109</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php</url>
+          <line>341</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Framework/Library/Think/Db.class.php</url>
+          <line>686</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Framework/Library/Think/Db.class.php</url>
+          <line>703</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Common/Helpers/mail.helper.php</url>
+          <line>22</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php</url>
+          <line>1220</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php</url>
+          <line>1192</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php</url>
+          <line>1193</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/wap2/js/services.js</url>
@@ -1050,6 +1341,7 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpWebAppRunConfigurationType">
@@ -1058,34 +1350,15 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Attachment/Templates/swfupload.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_deposite.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user_announce.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/product/list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/product/thread.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/templates/article/trial_help.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/trial_order_add_report.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/trial_order.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/task_order.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1109,25 +1382,9 @@
     <entry file="file://$PROJECT_DIR$/templates/wap2/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="67" column="20" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc" />
     <entry file="file://$PROJECT_DIR$/templates/wap2/templates/user/user.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="46" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Library/attachment.class.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1136,13 +1393,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="566" column="9" selection-start-line="566" selection-start-column="9" selection-end-line="566" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core.php" />
     <entry file="file://$PROJECT_DIR$/Application/Product/Model/ProductModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
@@ -1150,11 +1401,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/data.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/data.php" />
     <entry file="file://$PROJECT_DIR$/Application/Common/Conf/api.php">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1213,16 +1466,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="5681" column="19" selection-start-line="5681" selection-start-column="19" selection-end-line="5681" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Api/Controller/AppController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4588">
+        <state relative-caret-position="102646">
           <caret line="6042" column="17" selection-start-line="6042" selection-start-column="17" selection-end-line="6042" selection-end-column="17" />
           <folding>
             <element signature="e#34#72#0#PHP" expanded="true" />
@@ -1232,7 +1478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.INI">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="85">
           <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
         </state>
       </provider>
@@ -1249,7 +1495,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud2/member/merchant/edit_trial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
+        <state relative-caret-position="1836">
           <caret line="108" column="67" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="67" />
         </state>
       </provider>
@@ -1264,6 +1510,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/static/js/ueditor/dialogs/image/image.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12540">
@@ -1295,6 +1542,11 @@
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2983">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant/add_trial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+>>>>>>> Stashed changes
           <caret line="157" selection-start-line="157" selection-end-line="157" />
         </state>
       </provider>
@@ -1308,20 +1560,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="16853">
           <caret line="895" selection-start-line="895" selection-end-line="895" />
+=======
+        <state relative-caret-position="68">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+>>>>>>> Stashed changes
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="393" column="31" lean-forward="true" selection-start-line="393" selection-start-column="31" selection-end-line="393" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant_index.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1330,8 +1577,120 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/SettingController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1608">
+          <caret line="144" column="41" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Common/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="1259" column="15" selection-start-line="1259" selection-start-column="9" selection-end-line="1259" selection-end-column="15" />
+=======
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/json/json.php" />
+    <entry file="file://$PROJECT_DIR$/Application/Attachment/Controller/AttachmentController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="385" column="58" lean-forward="true" selection-start-line="385" selection-start-column="58" selection-end-line="385" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/ueditor/dialogs/image/image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="717" column="29" lean-forward="true" selection-start-line="717" selection-start-column="29" selection-end-line="717" selection-end-column="29" />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="380">
+          <caret line="393" column="31" selection-start-line="393" selection-start-column="31" selection-end-line="393" selection-end-column="31" />
+=======
+        <state relative-caret-position="522">
+          <caret line="5681" selection-start-line="5681" selection-end-line="5681" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13334" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap2/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wap/member/buyer/email_attesta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Helpers/mail.helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/AttestaController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="109" column="19" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Think.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/buyer/email_attesta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="99" column="57" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/~runtime/Cache/Member/cff4adf2da990bbc3a4833957fc17798.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" column="50" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="50" />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/register_index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1340,8 +1699,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_register.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="361">
-          <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+          <caret line="226" column="28" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/merchant_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Mode/Api/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1177">
+          <caret line="950" column="18" selection-start-line="950" selection-start-column="12" selection-end-line="950" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Helpers/mail.helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="1195" column="8" selection-start-line="1195" selection-start-column="8" selection-end-line="1195" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud3/member/v2_check_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#input#1;n#li#1;n#form#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1894#1900#0" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="442">
+          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Conf/debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/App.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2533">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5661">
+          <caret line="341" selection-start-line="341" selection-end-line="341" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Db.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5219">
+          <caret line="315" selection-start-line="315" selection-end-line="315" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Framework/Library/Think/Db/Driver/Mysql.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Member/Controller/MerchantProductController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>

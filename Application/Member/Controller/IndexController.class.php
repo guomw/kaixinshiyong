@@ -1191,8 +1191,9 @@ class IndexController extends BaseController
     {
         $beginToday = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
         $endToday = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')) - 1;
-        $userid = cookie('_userid');
+        $userid =cookie('_userid');
         $sqlmap = array();
+        if($userid&&$userid>0)
         $email = getUserInfo($userid, 'email');
 
         $sqlmap['posttime'] = array('between', array($beginToday, $endToday));

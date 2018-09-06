@@ -15,10 +15,10 @@
 		<div id="zc-content">
 			<div class="wrap">
 				<div class="zc-top">
-					<div class="tab-title clear">
-						<a href="{U('Member/Index/userregister')}" class="fl {if $modelid == 1} active {/if}" data-id='1'>用户注册</a>
-						<a href="{U('Member/Index/userregister',array('modelid'=>2))}" class="fr {if $modelid == 2} active {/if}" data-id='2'>商家注册</a>
-					</div>
+					<!--<div class="tab-title clear">-->
+						<!--<a href="{U('Member/Index/userregister')}" class="fl {if $modelid == 1} active {/if}" data-id='1'>用户注册</a>-->
+						<!--<a href="{U('Member/Index/userregister',array('modelid'=>2))}" class="fr {if $modelid == 2} active {/if}" data-id='2'>商家注册</a>-->
+					<!--</div>-->
 					<p class="zc-title">
 						已有账号，立即<a href="{U('Member/Index/login')}">登录</a>
 					</p>
@@ -108,12 +108,15 @@ function js_submit(){
 var InterValObj;
 var curCount = 60;
 $(".getverify").click(function(){
+    if(curCount!=60)
+        return false;
     var email = $("#email").val();
 	if(email == '') {
 	    $("#email").focus();
 	    return false;
 	}
-
+    curCount--;
+    $(".getverify").val("正在获取...");
 	$.getJSON("{U('v2_send_email')}", {email:email}, function(ret) {
 	        if(ret.status == 1) {
 	            InterValObj = window.setInterval(SetRemainTime, 1000);
@@ -131,11 +134,11 @@ function SetRemainTime() {
     if (curCount == 1) {
     	curCount = 60;          
         window.clearInterval(InterValObj);//停止计时器
-        $(".getverify").text("重发验证码").removeClass('disabled');   
+        $(".getverify").val("重发验证码").removeClass('disabled');
     }
     else {
         curCount--;
-        $(".getverify").text("" + curCount + "秒后重发").addClass('disabled');
+        $(".getverify").val("" + curCount + "秒后重发").addClass('disabled');
     }
 }
 

@@ -1,21 +1,21 @@
 <?php 
  return array (
-  'WEBNAME' => '试用中心',
+  'WEBNAME' => '我的网站',
   'KEYWORD' => '每折网',
   'DESCRIPTION' => '',
-  'AUTHKEY' => 'k0AeqqzwinAA7V71WrrEpei7',
+  'AUTHKEY' => 'ltr8gMeakK5gP5rktGt6wemb',
   'DEFAULT_STYLE' => 'cloud3',
   'ERRORLOG' => '1',
   'ERRORLOG_SIZE' => '',
   'MAXLOGINFAILEDTIMES' => '0',
   'MINREFRESHTIME' => '3',
-  'ADMIN_EMAIL' => '516985724@163.com',
-  'MAIL_SERVER' => 'smtp.163.com',
+  'ADMIN_EMAIL' => 'guomw@cicadtime.com',
+  'MAIL_SERVER' => 'hwpop.exmail.qq.com',
   'MAIL_PORT' => '25',
-  'MAIL_FROM' => '516985724@163.com',
+  'MAIL_FROM' => 'guomw@cicadtime.com',
   'MAIL_AUTH' => '1',
-  'MAIL_USER' => '516985724@163.com',
-  'MAIL_PASSWORD' => 'gmw_888908012714',
+  'MAIL_USER' => 'guomw@cicadtime.com',
+  'MAIL_PASSWORD' => 'dFxbiFohLVjAb5ZD',
   'UPLOAD_MAXSIZE' => '256',
   'UPLOAD_ALLOWEXT' => 'jpg|jpeg|gif|bmp|png',
   'WATERMARK_MINWIDTH' => '300',
@@ -26,8 +26,8 @@
   'WATERMARK_POS' => '1',
   'MAIL_TYPE' => '1',
   'WATERMARK_ENABLE' => '1',
-  'COOKIE_PREFIX' => 'Ofe',
-  'SESSION_PREFIX' => 'AWQ',
+  'COOKIE_PREFIX' => 'g3D',
+  'SESSION_PREFIX' => 'CGq',
   'SITE_WEB_TITLE' => '每折0元购',
   'SITE_WEB_LOGO' => '/uploadfile/2015/0112/20150112042610362.png',
   'SITE_WEB_COPYRIGHT' => 'adalways inc',
@@ -139,7 +139,7 @@
   'POSTAL_SEO' => 'array (
   \'postal_title\' => \'九块九包邮商品列表 - 限时折扣,品牌折扣店-{site_title}\',
   \'postal_keyword\' => \'折扣商品,超低折扣商品,低折扣商品,1折商品,9.9包邮,19.9包邮,特价商品。\',
-  \'postal_description\' => \'全场折扣商品均由职业买手从亚马逊精选砍价而来,每天10点开抢-速度来抢购。\',
+  \'postal_description\' => \'全场折扣商品均由职业买手从淘宝精选砍价而来,每天10点开抢-速度来抢购。\',
 )',
   'SHAI_SEO' => 'array (
   \'shai_title\' => \'买家晒单,分享您的精彩购物之旅-{site_title}\',
@@ -185,4 +185,5 @@
   'MERCHANT_CODE' => '',
   'BUYER_CODE' => '',
   'SITE_WEB_NOTICE' => '1',
-);	 ?>
+);
+?>
