@@ -1,5 +1,5 @@
 .DS_Store
-.idea/*
+.idea
 .settings/*
 /~runtime/
 !/~runtime/install.lock

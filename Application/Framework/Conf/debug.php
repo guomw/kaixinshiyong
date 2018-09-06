@@ -15,8 +15,8 @@
 defined('THINK_PATH') or exit();
 // 调试模式下面默认设置 可以在应用配置目录下重新定义 debug.php 覆盖
 return  array(
-    'LOG_RECORD'            =>  false,  // 进行日志记录
-    'LOG_EXCEPTION_RECORD'  =>  false,    // 是否记录异常信息日志
+    'LOG_RECORD'            =>  true,  // 进行日志记录
+    'LOG_EXCEPTION_RECORD'  =>  true,    // 是否记录异常信息日志
     'LOG_LEVEL'             =>  'EMERG,ALERT,CRIT,ERR,WARN,NOTIC,INFO,DEBUG,SQL',  // 允许记录的日志级别
     'DB_FIELDS_CACHE'       =>  true, // 字段缓存信息
     'DB_SQL_LOG'            =>  false, // 记录SQL信息
