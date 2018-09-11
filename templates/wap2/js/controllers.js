@@ -3089,61 +3089,60 @@ angular
       $scope.edit_identity = function(
         user_Full_name,
         user_ID_number,
-        person_img,
-        face_img,
-        back_img,
         sex,
         year,
         month,
         day,
         age
       ) {
-        if (face_img == 'img/face_img.jpg') {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请上传身份证正面',
-            duration: 2000
-          })
-          return false
-        }
+        // person_img,
+        // face_img,
+        // back_img,
+        // if (face_img == 'img/face_img.jpg') {
+        //   $ionicLoading.show({
+        //     noBackdrop: true,
+        //     template: '请上传身份证正面',
+        //     duration: 2000
+        //   })
+        //   return false
+        // }
 
-        if (back_img == 'img/back_img.jpg') {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请上传身份证反面',
-            duration: 2000
-          })
-          return false
-        }
+        // if (back_img == 'img/back_img.jpg') {
+        //   $ionicLoading.show({
+        //     noBackdrop: true,
+        //     template: '请上传身份证反面',
+        //     duration: 2000
+        //   })
+        //   return false
+        // }
 
-        if (person_img == 'img/person_img.jpg') {
-          $ionicLoading.show({
-            noBackdrop: true,
-            template: '请上传手持身份证图片',
-            duration: 2000
-          })
-          return false
-        }
+        // if (person_img == 'img/person_img.jpg') {
+        //   $ionicLoading.show({
+        //     noBackdrop: true,
+        //     template: '请上传手持身份证图片',
+        //     duration: 2000
+        //   })
+        //   return false
+        // }
 
-        $ionicLoading.show({
-          noBackdrop: true,
-          template: '正在提交',
-          duration: 2000
-        })
+        // $ionicLoading.show({
+        //   noBackdrop: true,
+        //   template: '正在提交',
+        //   duration: 2000
+        // })
 
         //后台请求修改信息
-
+        // face_img,
+        // back_img,
+        // person_img,
+        // sex,
+        // year,
+        // month,
+        // day,
+        // age,
         UserProfileFactory.set_username_Profile_edit_identity(
           user_Full_name,
           user_ID_number,
-          face_img,
-          back_img,
-          person_img,
-          sex,
-          year,
-          month,
-          day,
-          age,
           userid,
           random
         )
