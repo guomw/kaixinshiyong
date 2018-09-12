@@ -3,7 +3,6 @@
     <a href="#/tab/user" class="button icon ion-ios-arrow-back button-clear head_button1">返回</a>
     <h1 class="title">申请提现</h1>
     <a class="button button-clear" ng-click="deposite_record()">提现记录</a>
-
   </div>
   <div class="bar bar-subheader">
     <div class="button-bar sub_header_list" id="sub_header_list">
@@ -17,14 +16,10 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
     <ion-list ng-if="showloading == false">
-
-
-      <ion-item ng-if=" bank_status ==1 &&   alipay_status == 1  && c_status == 1 && a_status ==2 &&d_status != 2 " class="item item-avatar"
-        ng-click="Present_method1()" ng-model="a_status">
-        <img ng-src="img/allpay.png" />
-        <h2>支付宝</h2>
-        <span class="badge"> <i class="icon ion-ios-arrow-right" style="font-size:20px;color:#666"></i>
-        </span>
+      <ion-item ng-if=" bank_status ==1 &&   alipay_status == 1  && c_status == 1 && a_status ==2 &&d_status != 2 "
+        class="item item-avatar" ng-click="Present_method1()" ng-model="a_status">
+        <img ng-src="img/paypal.jpg" />
+        <h2>Paypal</h2>
         <p>
           <span ng-bind="user_Real_name"></span>
           {{alipay }}
@@ -32,8 +27,8 @@
       </ion-item>
 
       <ion-item ng-if=" d_status == 2 && alipay_status == 1 " class="item item-avatar" ng-model="a_status">
-        <img ng-src="img/allpay.png" />
-        <h2>支付宝</h2>
+        <img ng-src="img/paypal.jpg" />
+        <h2>Paypal</h2>
         <p>
           <span ng-bind="user_Real_name"></span>
           {{alipay }}
@@ -41,20 +36,18 @@
       </ion-item>
 
       <ion-item ng-if=" d_status == 3 && alipay_status == 1 && bank_status !=1 " class="item item-avatar" ng-model="a_status">
-        <img ng-src="img/allpay.png" />
-        <h2>支付宝</h2>
+        <img ng-src="img/paypal.jpg" />
+        <h2>Paypal</h2>
         <p>
           <span ng-bind="user_Real_name"></span>
           {{alipay }}
         </p>
       </ion-item>
 
-      <ion-item ng-if=" bank_status ==1 && d_status != 1 && a_status == 1 && alipay_status == 1 " class="item item-avatar" ng-click="Present_method2()"
-        ng-model="a_status">
+      <ion-item ng-if=" bank_status ==1 && d_status != 1 && a_status == 1 && alipay_status == 1 " class="item item-avatar"
+        ng-click="Present_method2()" ng-model="a_status">
         <img ng-src="img/bank.png">
         <h2>银行卡</h2>
-        <span class="badge"> <i class="icon ion-ios-arrow-right" style="font-size:20px;color:#666"></i>
-        </span>
         <p>{{user_Real_name}} {{bank }}</p>
       </ion-item>
 
@@ -76,7 +69,7 @@
         <p>{{user_Real_name}} {{bank }}</p>
       </ion-item>
 
-      <p style="color:#A9A9A9" class="padding-left">{{deposite_status}}</p>
+      <!-- <p style="color:#A9A9A9" class="padding-left">{{deposite_status}}</p> -->
 
       <ion-item class="item padding-top ">
         到账时间
@@ -93,8 +86,9 @@
       <form name="myform">
         <label class="item item-input">
           <div class="input-label">提现金额</div>
-          <input type="text" ng-minlength="number" ng-pattern="/^[0-9]*$/" ng-model=" t_money" name="sub_branch" placeholder="输入提现金额, 最低{{bank_configure.min_money}}美元"
-            required></label>
+          <input type="text" ng-minlength="number" ng-pattern="/^[0-9]*$/" ng-model=" t_money" name="sub_branch"
+            placeholder="输入提现金额, 最低{{bank_configure.min_money}}美元" required>
+        </label>
       </form>
       <p ng-if="Present_method == 1" style="color:#A9A9A9" class="padding-left">
         手续费{{ t_money * (service_Counter_Fee / 100) | currency:"$" }} ,最终到账

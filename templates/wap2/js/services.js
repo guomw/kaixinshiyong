@@ -2097,23 +2097,33 @@ angular
         },
 
         // 后台请求实名认证信息
-        // person_img,
-        // face_img,
-        // back_img,
-        set_username_Profile_edit_identity: function(name, id_number, userid, random) {
-          //  sex, year, month, day, age,
-          // person_img: person_img, //手持照片
-          // face_img: face_img, //身份证正面
-          // back_img: back_img, //身份证反面
-          // sex: sex, //性别
-          // year: year, // 出生男
-          // month: month, //生日 月
-          // day: day, //出生日
-          // age: age, //年龄
+
+        set_username_Profile_edit_identity: function(
+          name,
+          id_number,
+          person_img,
+          face_img,
+          back_img,
+          sex,
+          year,
+          month,
+          day,
+          age,
+          userid,
+          random
+        ) {
           return resource10.save(
             {
               name: name, //姓名
               id_number: id_number, //身份证
+              person_img: person_img, //手持照片
+              face_img: face_img, //身份证正面
+              back_img: back_img, //身份证反面
+              sex: sex, //性别
+              year: year, // 出生男
+              month: month, //生日 月
+              day: day, //出生日
+              age: age, //年龄
               userid: userid,
               random: random
             },

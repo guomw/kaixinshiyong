@@ -825,7 +825,7 @@ angular
         $scope.logo_status = 1
       }
 
-      $scope.freeHome = function(){
+      $scope.freeHome = function() {
         $state.go('tab.home')
       }
 
@@ -2919,7 +2919,7 @@ angular
       //接收设为默认结果通知
       $scope.$on('UserProfileFactory.set_bind_taobao_setdefault', function() {
         var data_bind_taobao_setdefault = UserProfileFactory.get_bind_taobao_setdefault()
-        UserProfileFactory.set_username_taobao(userid,random) //重新获取亚马逊帐号
+        UserProfileFactory.set_username_taobao(userid, random) //重新获取亚马逊帐号
 
         $ionicLoading.show({
           noBackdrop: true,
@@ -3089,60 +3089,61 @@ angular
       $scope.edit_identity = function(
         user_Full_name,
         user_ID_number,
+        person_img,
+        face_img,
+        back_img,
         sex,
         year,
         month,
         day,
         age
       ) {
-        // person_img,
-        // face_img,
-        // back_img,
-        // if (face_img == 'img/face_img.jpg') {
-        //   $ionicLoading.show({
-        //     noBackdrop: true,
-        //     template: '请上传身份证正面',
-        //     duration: 2000
-        //   })
-        //   return false
-        // }
+        if (face_img == 'img/face_img.jpg') {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传身份证正面',
+            duration: 2000
+          })
+          return false
+        }
 
-        // if (back_img == 'img/back_img.jpg') {
-        //   $ionicLoading.show({
-        //     noBackdrop: true,
-        //     template: '请上传身份证反面',
-        //     duration: 2000
-        //   })
-        //   return false
-        // }
+        if (back_img == 'img/back_img.jpg') {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传身份证反面',
+            duration: 2000
+          })
+          return false
+        }
 
-        // if (person_img == 'img/person_img.jpg') {
-        //   $ionicLoading.show({
-        //     noBackdrop: true,
-        //     template: '请上传手持身份证图片',
-        //     duration: 2000
-        //   })
-        //   return false
-        // }
+        if (person_img == 'img/person_img.jpg') {
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: '请上传手持身份证图片',
+            duration: 2000
+          })
+          return false
+        }
 
-        // $ionicLoading.show({
-        //   noBackdrop: true,
-        //   template: '正在提交',
-        //   duration: 2000
-        // })
+        $ionicLoading.show({
+          noBackdrop: true,
+          template: '正在提交',
+          duration: 2000
+        })
 
         //后台请求修改信息
-        // face_img,
-        // back_img,
-        // person_img,
-        // sex,
-        // year,
-        // month,
-        // day,
-        // age,
+
         UserProfileFactory.set_username_Profile_edit_identity(
           user_Full_name,
           user_ID_number,
+          person_img,
+          face_img,
+          back_img,
+          sex,
+          year,
+          month,
+          day,
+          age,
           userid,
           random
         )
@@ -3226,7 +3227,7 @@ angular
       if (StorageFactory.get('profile').alipay_status == 1) {
         $ionicLoading.show({
           noBackdrop: true,
-          template: '您已绑定支付宝，如需修改请联系平台客服！',
+          template: '您已绑定Paypal，如需修改请联系平台客服！',
           duration: 2000
         })
         return false
@@ -3441,10 +3442,7 @@ angular
         //console.log(user_bank, bank_id, sub_branch, $scope.country_linkageid, $scope.province_linkageid, $scope.city_linkageid);
 
         //第二步请求后台修改银行卡
-        UserProfileFactory.set_bind_bank_info(
-          $scope.user_Real_name,
-          user_bank
-        )
+        UserProfileFactory.set_bind_bank_info($scope.user_Real_name, user_bank, userid, random)
       }
 
       //接收绑定银行卡结果通知
@@ -3551,7 +3549,7 @@ angular
         //获取用户银行卡绑定状态
         $scope.bank_status = profile.bank_status
 
-        //获取用户绑定的支付宝 或者 银行卡
+        //获取用户绑定的Paypal或者 银行卡
         UserDepositeFactory.set_useraccount(userid, random)
       })
 
@@ -3562,7 +3560,7 @@ angular
 
       $scope.Member_group = StorageFactory.get('profile').groupid
 
-      // 默认选择支付宝
+      // 默认选择Paypal
       $scope.a_status = 2
 
       //默认选择普通提现
@@ -3578,20 +3576,20 @@ angular
       } else {
         $ionicLoading.show({
           noBackdrop: true,
-          template: '亲,您还未绑定支付宝或者银行卡,先绑定才能进行提现',
+          template: '亲,您还未绑定Paypal或者银行卡,先绑定才能进行提现',
           duration: 2000
         })
         $state.go('tab.user_profile')
         return false
       }
 
-      //接收通知 获得用户绑定的支付宝 或者银行卡信息
+      //接收通知 获得用户绑定的Paypal 或者银行卡信息
       $scope.$on('UserDepositeFactory.set_useraccount', function() {
         $scope.Bank_account = UserDepositeFactory.get_useraccount()
 
         for (var i = $scope.Bank_account.lists.length - 1; i >= 0; i--) {
           if ($scope.Bank_account.lists[i]['type'] == 'alipay') {
-            /*用户绑定的支付宝*/
+            /*用户绑定的Paypal*/
             $scope.alipay = $scope.Bank_account.lists[i]['account']
           }
 
@@ -3622,12 +3620,12 @@ angular
           $scope.a_status = 1
         } else if (type1 && !type2) {
           //开启支付宝提现
-          $scope.deposite_status = '平台支持提现到支付宝'
+          $scope.deposite_status = '平台支持提现到Paypal'
           $scope.d_status = 2
           $scope.c_status = 1 //开启支付宝
         } else if (type1 && type2) {
           //都已经开启了
-          $scope.deposite_status = '平台支持提现到支付宝和银行卡'
+          $scope.deposite_status = '平台支持提现到Paypal和银行卡'
           $scope.b_status = 3
           $scope.d_status = 3 // 支持银行卡 和支付宝
           $scope.c_status = 1 //开启支付宝
@@ -3680,7 +3678,6 @@ angular
           })
           return false
         }
-
         //发起后端提现请求
         UserDepositeFactory.set_person_cash(t_money, a_status, $scope.paypal, userid, random)
       }
@@ -3735,14 +3732,14 @@ angular
 
       // 选择提现方式
       $scope.Present_method1 = function() {
-        //  隐藏支付宝  //显示银行卡
+        //  隐藏Paypal  //显示银行卡
         $scope.a_status = 1
 
         // $scope.modal.show();
       }
 
       $scope.Present_method2 = function() {
-        //  隐藏银行卡  //显示支付宝
+        //  隐藏银行卡  //显示Paypal
         $scope.a_status = 2
 
         // $scope.modal.show();
@@ -4891,7 +4888,7 @@ angular
           for (var x in lists) {
             if (lists[x].is_default == 1) {
               $scope.data_bind_taobao_default = lists[x]
-              break; 
+              break
             } else {
               $scope.data_bind_taobao_default = lists[0]
             }
@@ -5575,11 +5572,9 @@ angular
         })
 
         var taobao_id =
-        $scope.vm.data_bind_taobao_default == undefined ? taobao_default_id : $scope.vm.data_bind_taobao_default.id
+          $scope.vm.data_bind_taobao_default == undefined ? taobao_default_id : $scope.vm.data_bind_taobao_default.id
         taobao_id = $scope.bind_taobao == 4 ? taobao_id : ''
 
-
-        
         console.log(taobao_id)
 
         var reason = $scope.vm.Application_reasons
@@ -8402,7 +8397,7 @@ angular
           for (var x in lists) {
             if (lists[x].is_default == 1) {
               $scope.data_bind_taobao_default = lists[x]
-              break;
+              break
             } else {
               $scope.data_bind_taobao_default = lists[0]
             }

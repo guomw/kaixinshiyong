@@ -4,7 +4,8 @@
     <h1 class="title">我的信息</h1>
   </div>
   <ion-content class="padding_head">
-    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
+    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c"
+      on-refresh="doRefresh()"></ion-refresher>
 
     <div ng-show="showloading" style="margin-top:60px; text-align: center">
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
@@ -49,7 +50,8 @@
         <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
       </ion-item>
 
-      <ion-item ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right " ng-click="profile_card()">
+      <ion-item ng-show="userInfo.name_status == -1 || !userInfo.name_status  " class="item item-icon-left item-icon-right "
+        ng-click="profile_card()">
         实名认证
         <i class="item-note">{{userInfo.name_status | f_name_status }}</i>
         <i class="icon iconfont icon-you-copy" style="font-size:18px;color:#666"></i>
@@ -60,16 +62,16 @@
         <i class="item-note">{{ userInfo.name_status | f_name_status }}</i>
       </ion-item>
 
-      <!-- <ion-item ng-show="userInfo.alipay_status != 1" ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
-        我的支付宝
+      <ion-item ng-show="userInfo.alipay_status != 1" ng-click="profile_allpay()" class="item item-icon-left item-icon-right ">
+        我的Paypal
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status }}</i>
         <i class="icon ion-ios-arrow-right" style="font-size:18px;color:#666"></i>
       </ion-item>
 
       <ion-item ng-show="userInfo.alipay_status == 1" class="item item-icon-left item-icon-right ">
-        我的支付宝
+        我的Paypal
         <i class="item-note">{{userInfo.alipay_status | f_alipay_status}}</i>
-      </ion-item>-->
+      </ion-item>
 
       <ion-item ng-if="userInfo.bank_status !=1 " class="item item-icon-left item-icon-right " ng-click="profile_bankcard()">
         我的银行卡
