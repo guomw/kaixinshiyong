@@ -756,6 +756,7 @@ class AppController extends BaseController
 
     }
 
+    //获取用户账户信息
     public function get_useraccount()
     {
         $param = I('param.');
@@ -801,7 +802,7 @@ class AppController extends BaseController
                 $r['account'] = $infos['alipay_account'];
                 $r['username'] = $infos['username'];
 
-            } elseif ($v['type'] == 'bank') {
+            } else {
                 $r['account'] = $infos['account'];
                 $r['province'] = $infos['province'];
                 $r['city'] = $infos['city'];
@@ -812,7 +813,6 @@ class AppController extends BaseController
                 $province = model('linkage')->getFieldByLinkageid($infos['province'], 'name');
                 $city = model('linkage')->getFieldByLinkageid($infos['city'], 'name');
                 $r['band_address'] = $province . $city . $infos['sub_branch'];
-
             }
 
             $lists[$k] = $r;
@@ -2791,7 +2791,7 @@ class AppController extends BaseController
             $map['userid'] = $info['userid'];
             $map['dateline'] = NOW_TIME;
             $map['status'] = 1;
-            $map['type'] = 'bank';
+            $map['type'] =  $info['accountType'];
             $infos = model('member_attesta')->where(array('userid' => $info['userid'], 'type' => 'identity'))->find();
             if (empty($infos) || $infos['status'] == 0) {
                 $this->json_function(0, '您实名认证正在审核中，实名认证通过后才可绑定');
@@ -2813,6 +2813,8 @@ class AppController extends BaseController
                 $this->json_function(0, '已绑定，请勿重新绑定');
                 exit();
             }
+
+
             //判断该银行账号是否绑定
             /*$attesta_infos =  model('member_attesta')->where(array('type'=>'bank','userid'=>array('NEQ',$info['userid']),'infos'=>array('LIKE','%'.$info['account'].'%')))->count();
 
@@ -2942,6 +2944,7 @@ class AppController extends BaseController
     }
 
 
+    //提现
     public function person_cash()
     {
 

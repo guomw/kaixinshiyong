@@ -63,14 +63,14 @@
 					<div class="tixian_fs_wrap">
 						<p class="tx_fs_t">选择提现方式:</p>
 						<div class="tixian_list">
-							{if in_array('bank',$type)}
+							{if in_array('paypay',$type) || in_array('quickpay',$type)}
 							<div class="list clear">
 								<input id="bank_bind" type="radio" name="type" {if $bank['status'] != 1 || !$bank} disabled="disabled"{/if} value="1" class="fl tx_mt_1"/> <strong class="fl tx_dd">提现到银行卡</strong>
 								<div class="status clear">
 									<div class="gs fl">
-										<div class="fl" style="height:100%;overflow:hidden;">
-											<img src="{THEME_STYLE_PATH}style/images/user/gs_ico.png" alt=""/>	
-										</div>
+										<!--<div class="fl" style="height:100%;overflow:hidden;">-->
+											<!--<img src="{THEME_STYLE_PATH}style/images/user/quickpay29.png" alt=""/>-->
+										<!--</div>-->
 										<div class="fl">
 											{$bankinfos[sub_branch]}
 											<span class="zf_wh">

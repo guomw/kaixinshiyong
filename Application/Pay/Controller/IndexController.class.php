@@ -233,6 +233,9 @@ class IndexController extends BaseController
 			if($money < 0){
 				$this->error('金额不能小于0');
 			}
+
+			$paymode = $info['paymode'];
+
     		$info['inputtime'] = NOW_TIME;
     		$info['status'] = 0;
             $info['userid'] = $userid;

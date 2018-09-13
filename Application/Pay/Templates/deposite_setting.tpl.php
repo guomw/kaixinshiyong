@@ -57,6 +57,8 @@ function SwapTab(name,cls_show,cls_hide,cnt,cur) {
                 <td class="y-bg">
                     <label><input type="checkbox" class="input-text" name="setting[type][]" value="alipay" <?php if(in_array('alipay',$type)){?>checked<?php }?>/>提现到支付宝</label>&nbsp;&nbsp;
                     <label><input type="checkbox" class="input-text" name="setting[type][]" value="bank"  <?php if(in_array('bank',$type)){?>checked<?php }?>/>提现到银行</label>
+                    <label><input type="checkbox" class="input-text" name="setting[type][]" value="paypal"  <?php if(in_array('paypal',$type)){?>checked<?php }?>/>提现到paypay</label>
+                    <label><input type="checkbox" class="input-text" name="setting[type][]" value="quickpay"  <?php if(in_array('quickpay',$type)){?>checked<?php }?>/>提现到quickpay</label>
                 </td>
             </tr>
             

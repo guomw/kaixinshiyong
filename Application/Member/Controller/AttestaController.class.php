@@ -1104,7 +1104,7 @@ class AttestaController extends InitController {
 			$map['userid'] = $this->userid;
 			$map['dateline'] = NOW_TIME;
 			$map['status'] = 1;
-			$map['type'] = 'bank';
+			$map['type'] = $info['bank_name'];
 			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
 				$this->error('请输入正确的银行卡号');
 				return FALSE;

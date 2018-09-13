@@ -85,7 +85,7 @@
 								{/loop}
 							</select>
 						</dd>
-						<dd class="clear js_css">
+						<dd class="clear js_css" >
 							<label for="new_pass" class="fl">开户人姓名：</label>
 							<input type="text" id="bank_username" name="bank_username" value="{$infos[name]}" disabled class="txt fl" />
 
@@ -96,7 +96,7 @@
 
 						</dd>
 
-						<dd class="clear js_css">
+						<dd class="clear js_css" style="display: none">
 							<label for="new_pass" class="fl">开户行所在地：</label>
 							<select name="province" id="province">
 								<option value="-1">请选择</option>
@@ -112,7 +112,7 @@
 								<?php endforeach ?></select>
 
 						</dd>
-						<dd class="clear js_css">
+						<dd class="clear js_css" style="display: none">
 							<label for="new_pass" class="fl">支行名称:</label>
 							<input type="text" name="sub_branch" id="sub_branch" value="{$bankinfo[sub_branch]}" class="txt fl"  />
 
@@ -145,7 +145,7 @@ $.formValidator.initConfig({
 });
 
 $("#bank_username").formValidator({
-	empty:false,
+	empty:true,
 	onempty:'开户行不能为空',
 	onshow:"",
 	onfocus:"请输入开户行姓名"
@@ -169,16 +169,16 @@ $("#bank_account").formValidator({
 	datatype:'enum',
 	onerror:"银行卡号输入错误"
 });
-$("#sub_branch").formValidator({
-	empty:false,
-	onempty:'开户行不能为空',
-	onshow:"请输入开户行名称",
-	onfocus:"请输入开户行名称"
-}).regexValidator({
-	regexp:'ps_username',
-	datatype:'enum',
-	onerror:"开户行输入错误"
-});
+// $("#sub_branch").formValidator({
+// 	empty:false,
+// 	onempty:'开户行不能为空',
+// 	onshow:"请输入开户行名称",
+// 	onfocus:"请输入开户行名称"
+// }).regexValidator({
+// 	regexp:'ps_username',
+// 	datatype:'enum',
+// 	onerror:"开户行输入错误"
+// });
 
 </script>
 <script type="text/javascript">
@@ -297,24 +297,24 @@ $("#sub_branch").formValidator({
 			$("#bank_account").focus();
 			return false;
 		};
-		if (city < 0 || province < 0) {
-			art.dialog({
-						lock: true,
-						fixed: true,
-						icon: 'face-smile',
-						title: '提示',
-						content: '请选择开户行所在地',
-						okVal: '确定',
-						ok:true
-						});
-			return false;
+		// if (city < 0 || province < 0) {
+		// 	art.dialog({
+		// 				lock: true,
+		// 				fixed: true,
+		// 				icon: 'face-smile',
+		// 				title: '提示',
+		// 				content: '请选择开户行所在地',
+		// 				okVal: '确定',
+		// 				ok:true
+		// 				});
+		// 	return false;
+        //
+		// };
 
-		};
-
-		if (sub_branch == '') {
-			$("#sub_branch").focus();
-			return false;
-		};
+		// if (sub_branch == '') {
+		// 	$("#sub_branch").focus();
+		// 	return false;
+		// };
 
 		$.post("{U('Member/Attesta/bank_attesta')}",{bank_name:bank_name,bank_username:bank_username,account:bank_account,province:province,city:city,area:area,sub_branch:sub_branch},function(data){
 						if (data.status == 1) {

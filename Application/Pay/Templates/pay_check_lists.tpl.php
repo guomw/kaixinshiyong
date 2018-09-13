@@ -38,6 +38,7 @@
 	             <th width="5%"><?php echo '会员组';?></th>
 	            <th width="10%"><?php echo '店铺名称';?></th>
 	            <th width="5%"><?php echo '联系人';?></th>
+                <th width="5%"><?php echo '银行';?></th>
 	            <th width="10%"><?php echo L('order_check_no')?></th>
 	            <th width="10%"><?php echo L('order_time')?></th>
 	            <th width="10%"><?php echo L('deposit_amount')?></th>
@@ -57,6 +58,8 @@ if(is_array($pay_lists)){
 		<td align="center"><?php echo member_group_name($info['userid']);?></td>
 		<td align="center"><?php echo $info['store_name']?></td>
 		<td align="center"><?php echo $info['contact_name']?></td>
+        <td align="center"><?php echo $info['paymode']?></td>
+
 		<td align="center"><?php echo $info['tran_number']?></td>
 		<td align="center"><?php echo date('Y-m-d H:i:s',$info['inputtime'])?></td>
 		<td align="center">$<?php echo $info['money'];?>美元</td>
