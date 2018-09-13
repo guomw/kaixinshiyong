@@ -16,8 +16,8 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
     <ion-list ng-if="showloading == false">
-      <ion-item ng-if=" bank_status ==1 && a_status ==2 && alipay" class="item item-avatar" ng-click="Present_method1()"
-        ng-model="a_status" style="padding-left:16px">
+      <ion-item ng-if=" bank_status ==1 && a_status ==2 && type=='paypal'" class="item item-avatar" ng-model="a_status"
+        style="padding-left:16px">
         <h2>Paypal</h2>
         <p>
           <span ng-bind="user_Real_name"></span>
@@ -25,20 +25,20 @@
         </p>
       </ion-item>
 
-      <ion-item ng-if=" bank_status ==1 && a_status == 1 && bank" class="item item-avatar" ng-click="Present_method2()"
-        ng-model="a_status" style="padding-left:16px">
+      <ion-item ng-if=" bank_status ==1 && a_status == 1 && type=='quickpay'" class="item item-avatar" ng-model="a_status"
+        style="padding-left:16px">
         <h2>quickpay</h2>
         <p>{{user_Real_name}} {{bank }}</p>
       </ion-item>
 
       <!-- <p style="color:#A9A9A9" class="padding-left">{{deposite_status}}</p> -->
 
-      <!-- <ion-item class="item padding-top ">
-        到账时间
-        <i ng-if="Present_method == 0 " class="item-note"><span ng-bind="bank_configure.common_time"></span>
-          ,无手续费</i>
-        <i ng-show="Present_method == 1 " class="item-note">{{bank_configure.quick_time}}, {{service_fee}}</i>
-      </ion-item> -->
+      <ion-item class="item padding-top ">
+        到账时间<span ng-bind="bank_configure.common_time"></span>小时
+        <i ng-if="Present_method == 0 " class="item-note">
+          无手续费</i>
+        <i ng-show="Present_method == 1 " class="item-note">{{service_fee}}</i>
+      </ion-item>
       <p style="color:#A9A9A9" class="padding-left">
         可提现金额:
         <span style='color:red;font-size:14px;'>{{money}}</span>

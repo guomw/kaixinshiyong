@@ -2362,7 +2362,7 @@ angular
           return resource3.save(
             {
               money: money,
-              type: type,
+              bank: type,
               paypal: paypal,
               userid: userid,
               random: random

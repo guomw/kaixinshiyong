@@ -3489,10 +3489,7 @@ angular
       // 获取当前用户会员组 1为普通 2为vip
 
       $scope.Member_group = StorageFactory.get('profile').groupid
-
-      // 默认选择Paypal
-      $scope.a_status = 2
-
+     
       //默认选择普通提现
       $scope.paypal = 1
 
@@ -3521,11 +3518,15 @@ angular
           if ($scope.Bank_account.lists[i]['type'] == 'paypal') {
             /*用户绑定的Paypal*/
             $scope.alipay = $scope.Bank_account.lists[i]['account']
+            $scope.type = $scope.Bank_account.lists[i]['type']
+            $scope.a_status = 2
           }
 
           if ($scope.Bank_account.lists[i]['type'] == 'quickpay') {
             /*用户绑定的quickpay*/
             $scope.bank = $scope.Bank_account.lists[i]['account']
+            $scope.type = $scope.Bank_account.lists[i]['type']
+            $scope.a_status = 1
           }
         }
       })
@@ -3572,8 +3573,7 @@ angular
           })
           return false
         }
-
-        if (money < $scope.bank_configure.min_money) {
+        if (t_money < $scope.bank_configure.min_money) {
           $ionicLoading.show({
             noBackdrop: true,
             template: '亲，提现金额不能低于' + $scope.bank_configure.min_money + '美元',
@@ -3581,7 +3581,7 @@ angular
           })
           return false
         }
-        if(a_status == 1){
+        if(a_status == 2){
           $scope.type = 'paypal'
         }else{
           $scope.type = 'quickpay'
