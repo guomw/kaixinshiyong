@@ -742,12 +742,12 @@ angular
           return false
         }
 
-        if ($scope.userInfo.bank_status == 1 || $scope.userInfo.alipay_status == 1) {
+        if ($scope.userInfo.bank_status == 1) {
           $state.go('tab.user_deposite')
         } else {
           $ionicLoading.show({
             noBackdrop: true,
-            template: '您还未绑定银行卡或支付宝,绑定之后即可申请提现！',
+            template: '您还未绑定Paypal或Quickpay,绑定之后即可申请提现！',
             duration: 3000
           })
           $state.go('tab.user_profile')
@@ -3343,76 +3343,21 @@ angular
       $scope.bank_info = UserProfileFactory.get_bank_info()
 
       //console.log($scope.bank_infoo);
-
-      // 获取开户行所在省市县
-
-      //获取后台联动 第一级 菜单数据
-      $scope.CityData = UserProfileFactory.set_username_address(0)
-
-      //console.log($scope.CityData);
-
-      //获取后台联动菜单 第二级菜单数据
-      function province(provice_id) {
-        $scope.province = UserProfileFactory.set_username_address(provice_id)
+      $scope.accountType = 'quickpay'
+      $scope.Present_method = 0
+      $scope.changeTab = function(idx) {
+        $scope.Present_method = idx
+        if (idx == 0) {
+          $scope.accountType = 'quickpay'
+          $scope.accountText = '请输入您的quickpay账号'
+        } else {
+          $scope.accountType = 'paypal'
+          $scope.accountText = '请输入您的paypal账号'
+        }
       }
-
-      // 获取后台联动菜单第三级菜单数据
-      function city(city_id) {
-        $scope.city = UserProfileFactory.set_username_address(city_id)
-      }
-
-      var vm = ($scope.vm = {})
-
-      //监听用户选择银行
-      $scope.$watch('vm.bank_name', function(province) {
-        if (!province) return false
-        $scope.d2 = '请选择市'
-        $scope.d3 = '请选择县/区'
-        $scope.b3 = false
-
-        //console.log(province);
-      })
-
-      //监听用户选择省市
-      $scope.$watch('vm.country', function(province) {
-        vm.city = null
-        if (!province) return false
-        var data = province
-        //console.log(data);
-        // 后台请求下级
-        $scope.province = UserProfileFactory.set_username_address(data.linkageid)
-
-        $scope.d2 = '请选择市'
-        $scope.d3 = '请选择县/区'
-        $scope.b3 = false
-
-        //获取用户当前选择的省id
-        $scope.country_linkageid = data.linkageid
-        //console.log($scope.country_linkageid);
-      })
-
-      //监听用户选择市区
-      $scope.$watch('vm.province', function(province) {
-        vm.city = null
-        $scope.city_linkageid = ''
-        if (!province) return false
-
-        //选择市清空选择的县
-
-        var city_r = UserProfileFactory.set_username_address(province.linkageid)
-        $scope.city = UserProfileFactory.set_username_address(province.linkageid)
-        $scope.d3 = '请选择县/区'
-        //获取用户当前选择的市id
-        $scope.province_linkageid = province.linkageid
-        //console.log($scope.province_linkageid);
-      })
-
-      //监听用户选择第三级 县
-      $scope.$watch('vm.city', function(province) {
-        if (!province) return false
-        //获取用户当前选择的县id
-        $scope.city_linkageid = province.linkageid
-        //console.log($scope.city_linkageid);
+      $('.bar-subheader .button').bind('click', function() {
+        $('.bar-subheader .button').attr('class', 'button button-clear')
+        $(this).attr('class', 'button button-clear sub_button_select')
       })
 
       //获取用户签名
@@ -3423,26 +3368,14 @@ angular
       $scope.edilt_bank = function(user_bank) {
         user_bank = user_bank.replace(/\s/g, '')
 
-        //console.log(user_bank);
-
-        // if (!$scope.country_linkageid || !$scope.province_linkageid || !bank_id) {
-        //   $ionicLoading.show({
-        //     noBackdrop: true,
-        //     template: '请完善开户银行,所在省,市',
-        //     duration: 1000
-        //   })
-        //   return false
-        // }
         $ionicLoading.show({
           noBackdrop: true,
           template: '正在提交...',
           duration: 1000
         })
-
-        //console.log(user_bank, bank_id, sub_branch, $scope.country_linkageid, $scope.province_linkageid, $scope.city_linkageid);
-
+        console.log($scope.user_Real_name, user_bank, $scope.accountType, userid, random)
         //第二步请求后台修改银行卡
-        UserProfileFactory.set_bind_bank_info($scope.user_Real_name, user_bank, userid, random)
+        UserProfileFactory.set_bind_bank_info($scope.user_Real_name, user_bank, $scope.accountType, userid, random)
       }
 
       //接收绑定银行卡结果通知
@@ -3541,15 +3474,12 @@ angular
         //获取用户支付宝绑定状态
 
         var profile = StorageFactory.get('profile')
-
-        // console.log(profile)
-
-        $scope.alipay_status = profile.alipay_status
+        // $scope.alipay_status = profile.alipay_status
 
         //获取用户银行卡绑定状态
         $scope.bank_status = profile.bank_status
 
-        //获取用户绑定的Paypal或者 银行卡
+        //获取用户绑定的Paypal或者 quickpay
         UserDepositeFactory.set_useraccount(userid, random)
       })
 
@@ -3572,29 +3502,29 @@ angular
       // 如果用户未绑定支付宝 或者银行卡的时候 跳转至个人设置页面
       //  用户绑定了支付宝可以申请提现  绑定了银行卡也可以进入提现 2者当中必须满足一个条件
 
-      if (StorageFactory.get('profile').bank_status == 1 || StorageFactory.get('profile').alipay_status == 1) {
+      if (StorageFactory.get('profile').bank_status == 1) {
       } else {
         $ionicLoading.show({
           noBackdrop: true,
-          template: '亲,您还未绑定Paypal或者银行卡,先绑定才能进行提现',
+          template: '亲,您还未绑定Paypal或者Quickpay,先绑定才能进行提现',
           duration: 2000
         })
-        $state.go('tab.user_profile')
+        // $state.go('tab.user_profile')
         return false
       }
 
-      //接收通知 获得用户绑定的Paypal 或者银行卡信息
+      //接收通知 获得用户绑定的Paypal 或者quickpay信息
       $scope.$on('UserDepositeFactory.set_useraccount', function() {
         $scope.Bank_account = UserDepositeFactory.get_useraccount()
 
         for (var i = $scope.Bank_account.lists.length - 1; i >= 0; i--) {
-          if ($scope.Bank_account.lists[i]['type'] == 'alipay') {
+          if ($scope.Bank_account.lists[i]['type'] == 'paypal') {
             /*用户绑定的Paypal*/
             $scope.alipay = $scope.Bank_account.lists[i]['account']
           }
 
-          if ($scope.Bank_account.lists[i]['type'] == 'bank') {
-            /*用户绑定的银行卡*/
+          if ($scope.Bank_account.lists[i]['type'] == 'quickpay') {
+            /*用户绑定的quickpay*/
             $scope.bank = $scope.Bank_account.lists[i]['account']
           }
         }
@@ -3605,32 +3535,6 @@ angular
         $scope.bank_configure = UserDepositeFactory.get_cash_config_info()
 
         if (!$scope.bank_configure.cash_type) return false
-
-        var type1 = $scope.bank_configure.cash_type[0]
-        var type2 = $scope.bank_configure.cash_type[1]
-
-        if (!type1 && !type2) {
-          // 平台暂时未开放提现
-          $scope.deposite_status = '平台维护中,暂时关闭提现'
-          $scope.d_status = 0
-        } else if (type1 == 'bank') {
-          //开放银行卡提现
-          $scope.deposite_status = '平台支持提现到银行卡'
-          $scope.d_status = 1 // 支持银行卡
-          $scope.a_status = 1
-        } else if (type1 && !type2) {
-          //开启支付宝提现
-          $scope.deposite_status = '平台支持提现到Paypal'
-          $scope.d_status = 2
-          $scope.c_status = 1 //开启支付宝
-        } else if (type1 && type2) {
-          //都已经开启了
-          $scope.deposite_status = '平台支持提现到Paypal和银行卡'
-          $scope.b_status = 3
-          $scope.d_status = 3 // 支持银行卡 和支付宝
-          $scope.c_status = 1 //开启支付宝
-          if ($scope.allpay_status != 1 && $scope.bank_status == 1) $scope.a_status = 1
-        }
 
         //根据不同会员组计算提现手续费
 
@@ -3732,14 +3636,14 @@ angular
 
       // 选择提现方式
       $scope.Present_method1 = function() {
-        //  隐藏Paypal  //显示银行卡
+        //  隐藏Paypal  //显示quickpay
         $scope.a_status = 1
 
         // $scope.modal.show();
       }
 
       $scope.Present_method2 = function() {
-        //  隐藏银行卡  //显示Paypal
+        //  隐藏quickpay  //显示Paypal
         $scope.a_status = 2
 
         // $scope.modal.show();
