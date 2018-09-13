@@ -16,7 +16,9 @@
       <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
     </div>
     <ion-list ng-if="showloading == false">
-      <ion-item ng-if=" bank_status ==1 && a_status ==2" class="item item-avatar" ng-click="Present_method1()" ng-model="a_status">
+      <ion-item ng-if=" bank_status ==1 &&   alipay_status == 1  && c_status == 1 && a_status ==2 &&d_status != 2 "
+        class="item item-avatar" ng-click="Present_method1()" ng-model="a_status">
+        <!-- <img ng-src="img/paypal.jpg" /> -->
         <h2>Paypal</h2>
         <p>
           <span ng-bind="user_Real_name"></span>
@@ -24,8 +26,45 @@
         </p>
       </ion-item>
 
-      <ion-item ng-if=" bank_status ==1 && a_status == 1 " class="item item-avatar" ng-click="Present_method2()"
-        ng-model="a_status">
+      <ion-item ng-if=" d_status == 2 && alipay_status == 1 " class="item item-avatar" ng-model="a_status">
+        <!-- <img ng-src="img/paypal.jpg" /> -->
+        <h2>Paypal</h2>
+        <p>
+          <span ng-bind="user_Real_name"></span>
+          {{alipay }}
+        </p>
+      </ion-item>
+
+      <ion-item ng-if=" d_status == 3 && alipay_status == 1 && bank_status !=1 " class="item item-avatar" ng-model="a_status">
+        <!-- <img ng-src="img/paypal.jpg" /> -->
+        <h2>Paypal</h2>
+        <p>
+          <span ng-bind="user_Real_name"></span>
+          {{alipay }}
+        </p>
+      </ion-item>
+
+      <ion-item ng-if=" bank_status ==1 && d_status != 1 && a_status == 1 && alipay_status == 1 " class="item item-avatar"
+        ng-click="Present_method2()" ng-model="a_status">
+        <!-- <img ng-src="img/bank.png"> -->
+        <h2>quickpay</h2>
+        <p>{{user_Real_name}} {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if="d_status == 1 && bank_status ==1 && alipay_status != 1  " class="item item-avatar" ng-model="a_status">
+        <!-- <img ng-src="img/bank.png"> -->
+        <h2>quickpay</h2>
+        <p>{{user_Real_name}} {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if="d_status == 1 && bank_status ==1  && alipay_status == 1 " class="item item-avatar" ng-model="a_status">
+        <!-- <img ng-src="img/bank.png"> -->
+        <h2>quickpay</h2>
+        <p>{{user_Real_name}} {{bank }}</p>
+      </ion-item>
+
+      <ion-item ng-if="d_status == 3 && bank_status ==1  && alipay_status !=1    " class="item item-avatar" ng-model="a_status">
+        <!-- <img ng-src="img/bank.png"> -->
         <h2>quickpay</h2>
         <p>{{user_Real_name}} {{bank }}</p>
       </ion-item>

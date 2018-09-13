@@ -2097,6 +2097,7 @@ angular
         },
 
         // 后台请求实名认证信息
+
         set_username_Profile_edit_identity: function(
           name,
           id_number,
@@ -2262,16 +2263,13 @@ angular
           return data17
         },
 
-        // 提交后台绑定银行卡
-        set_bind_bank_info: function(account, bank_name, sub_branch, province, area, city, userid, random) {
+        // 提交后台绑定银行卡 bank_name, sub_branch, province, area, city,
+        set_bind_bank_info: function(name, account, accountType, userid, random) {
           return resource18.save(
             {
+              name: name,
               account: account,
-              bank_name: bank_name, //所属银行id
-              sub_branch: sub_branch, //支行地址
-              province: province, // 省
-              city: city, //市
-              area: area, //县
+              accountType: accountType,
               userid: userid,
               random: random
             },
