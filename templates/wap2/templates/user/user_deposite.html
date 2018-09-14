@@ -68,17 +68,17 @@
 
       <div ng-show=" Present_method == 0">
         <p style="color:#A9A9A9" class="padding-left">1.提现金额需是整数,不能包含小数点。</p>
-        <p style="color:#A9A9A9" class="padding-left">2.建议使用快速提现最快{{quick_time}}到账</p>
-        <p ng-show="Member_group ==0 " style="color:#A9A9A9" class="padding-left">3.加入vip,快速提现减免手续费,还有更多特权。</p>
+        <p style="color:#A9A9A9" class="padding-left">2.建议使用快速提现最快{{bank_configure.common_time}}小时到账</p>
+        <p ng-show="Member_group ==1 " style="color:#A9A9A9" class="padding-left">3.加入vip,快速提现减免手续费,还有更多特权。</p>
       </div>
 
       <div ng-show="Present_method == 1">
         <p style="color:#A9A9A9" class="padding-left">
-          1.提现金额需是整数,最少是{{bank_configure.min_money}} 的{{bank_configure.multiple_money}}倍
+          1.提现金额需是整数,最低起提金额${{bank_configure.min_money}}
         </p>
         <p style="color:#A9A9A9" class="padding-left">2.非工作时间内,国家法定节假日,不受理快速提现申请</p>
         <p style="color:#A9A9A9" class="padding-left">3.非工作时间内的快速提现申请,上班之后第一时间处理。</p>
-        <p ng-show="Member_group ==0 " style="color:#A9A9A9" class="padding-left">4.加入vip,快速提现减免手续费,还有更多特权。</p>
+        <p ng-show="Member_group ==1 " style="color:#A9A9A9" class="padding-left">4.加入vip,快速提现减免手续费,还有更多特权。</p>
       </div>
 
       <div class="padding-left padding-right">

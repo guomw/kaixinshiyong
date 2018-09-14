@@ -3538,7 +3538,7 @@ angular
 
         //根据不同会员组计算提现手续费
 
-        if ($scope.Member_group == 0) {
+        if ($scope.Member_group == 1) {
           $scope.service_fee =
             $scope.bank_configure.service_fee == 0
               ? '活动中,免手续费'
@@ -3548,7 +3548,7 @@ angular
 
           // //console.log($scope.service.Counter_Fee);
         }
-        if ($scope.Member_group == 1) {
+        if ($scope.Member_group == 2) { 
           $scope.service_fee =
             $scope.bank_configure.vip_service_fee == 0
               ? 'vip尊享,免手续费 '
@@ -3563,7 +3563,7 @@ angular
       $scope.person_cash = function(t_money, a_status, money) {
         t_money = t_money - 1 + 1 //会员提现金额
 
-        money = money - 1 + 1
+        // money = money - 1 + 1
 
         if (t_money > $scope.money) {
           $ionicLoading.show({
