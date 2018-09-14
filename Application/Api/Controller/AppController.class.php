@@ -17,7 +17,7 @@ header('Content-Type:application/json;charset=utf-8');
 /**
  * @version        $Id$
  * @author         jason
- * @copyright      Copyright (c) 2007 - 2013, Adalways Co. Ltd.
+ * @copyright      Copyright (c) 2007 - 2013, Adalways Co. Ltd.update_identity
  * @link           http://www.dealswill.com
  **/
 class AppController extends BaseController
@@ -2801,11 +2801,11 @@ class AppController extends BaseController
                 exit();
             }
 
-
-            if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
-                $this->json_function(0, '请输入正确的银行卡号');
-                exit();
-            }
+//
+//            if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
+//                $this->json_function(0, '请输入正确的银行卡号');
+//                exit();
+//            }
 
 
             $accounts = model('member')->where(array('userid' => $info['userid']))->find();
@@ -3011,27 +3011,29 @@ class AppController extends BaseController
             $identify = string2array($_identity['infos']);
             $name = $identify['name'];
             //查出该用户提交绑定的账号
-            if ($info['type'] == 1) {//提到银行卡
-                $bank = model('member_attesta')->where(array('userid' => $userid, 'type' => 'bank', 'status' => 1))->find();
+            if ($info['bank'] == 'quickpay' || $info['bank']=='paypal') {//提到银行卡
+                $bank = model('member_attesta')->where(array('userid' => $userid, 'type' =>  $info['bank'], 'status' => 1))->find();
                 if (!$bank) {
-                    $this->json_function(0, '您还没有绑定银行卡账号，请先绑定');
+                    $this->json_function(0, '您还没有绑定账号，请先绑定');
                     exit();
                 }
                 $bankinfos = string2array($bank['infos']);
-                $info['bank'] = model('linkage')->getFieldByLinkageid($bankinfos['bank_name'], 'name');
+//                $info['bank'] = model('linkage')->getFieldByLinkageid($bankinfos['bank_name'], 'name');
                 $info['name'] = $name;
                 $info['cash_alipay_username'] = $bankinfos['account'];
-            } else {//提现到支付宝
-                $alipay = model('member_attesta')->where(array('userid' => $userid, 'type' => 'alipay', 'status' => 1))->find();
-                if (!$alipay) {
-                    $this->json_function(0, '你还没有绑定支付宝账号，请先绑定');
-                    exit();
-                }
-                $alipayinfos = string2array($alipay['infos']);
-                $info['name'] = $name;
-                // $info['bank'] = '';
-                $info['cash_alipay_username'] = $alipayinfos['alipay_account'];
+                $info['type']=1;
             }
+//            else {//提现到支付宝
+//                $alipay = model('member_attesta')->where(array('userid' => $userid, 'type' => 'alipay', 'status' => 1))->find();
+//                if (!$alipay) {
+//                    $this->json_function(0, '你还没有绑定支付宝账号，请先绑定');
+//                    exit();
+//                }
+//                $alipayinfos = string2array($alipay['infos']);
+//                $info['name'] = $name;
+//                // $info['bank'] = '';
+//                $info['cash_alipay_username'] = $alipayinfos['alipay_account'];
+//            }
 
 
             //判断当前金额是否符合条件

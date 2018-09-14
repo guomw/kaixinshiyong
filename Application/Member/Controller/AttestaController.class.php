@@ -368,7 +368,7 @@ class AttestaController extends InitController {
 
 		if($rs){
 			if($rs['status'] == 0){
-				$this->error('您的身份认证信息正在审核中，请勿重复操作',U('person'));
+				$this->error('您的身份认证信息正在审核中，请勿重复操作',U('index'));
 				return false;
 			}elseif($rs['status'] == 1){
 				$this->error('您已经认证，请勿重新认证');
@@ -523,10 +523,10 @@ class AttestaController extends InitController {
 			$map['dateline'] = NOW_TIME;
 			$map['status'] = 1;
 			$map['type'] = 'bank';
-			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
-				$this->error('请输入正确的银行卡号');
-				return FALSE;
-			}
+//			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
+//				$this->error('请输入正确的银行卡号');
+//				return FALSE;
+//			}
 			//判断该银行账号是否绑定
 			$con = array();
 			$con['type'] = array('EQ','bank');
@@ -1105,10 +1105,10 @@ class AttestaController extends InitController {
 			$map['dateline'] = NOW_TIME;
 			$map['status'] = 1;
 			$map['type'] = $info['bank_name'];
-			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
-				$this->error('请输入正确的银行卡号');
-				return FALSE;
-			}
+//			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
+//				$this->error('请输入正确的银行卡号');
+//				return FALSE;
+//			}
 			//判断该银行账号是否绑定
 			$con = array();
 			$con['type'] = array('EQ','bank');

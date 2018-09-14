@@ -158,9 +158,9 @@
 								</div>
 							</li>
 
-							<li class="clear js_show1">到帐时间: 最快{$common[time]}到帐,无手续费用</li>
+							<li class="clear js_show1">到账时间: 最快{$common[time]}到账,无手续费用</li>
 							<li class="clear js_show2" style="display: none;">
-								到帐时间: 最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
+								到账时间: 最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
 								<span class="totalmoney"></span>
 								美元
 							</li>
@@ -205,7 +205,7 @@
 	                       	</li>
 
 	                       	<li class="clear js_show2" >
-	                       		到帐时间: 最快10秒到账，{if $wx_fee >0 }<i class="cc">{$wx_fee}%</i>{else}无{/if} 手续费，实际到账
+	                       		到账时间: 最快10秒到账，{if $wx_fee >0 }<i class="cc">{$wx_fee}%</i>{else}无{/if} 手续费，实际到账
 	                       		<span class="cc totalmoney" ></span>
 	                       		美元
 	                       	</li>
@@ -230,7 +230,7 @@
 			var _money = $(this).val();
 			var type = $('input[name="type"]:checked').val();
 			if(!chek_money(_money)) return false;
-			$.get('{U('Pay/Index/total_money')}',{money:_money,'type':type },function(data){
+			$.post('{U('Pay/Index/total_money')}',{money:_money,'type':type },function(data){
 				$(".totalmoney").text(data);
 			},'json');
 		});

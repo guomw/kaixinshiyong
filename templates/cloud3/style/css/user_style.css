@@ -107,7 +107,7 @@ body .user_r_w_2{ width:1004px; border:none; }
 
 /* 会员充值 */
 .u_index_mess .u_i_form .czje{ height:48px; line-height:48px; }
-.u_index_mess .u_i_form .czje input{ width:110px; padding:0 40px; height:48px; margin-right:10px; }
+.u_index_mess .u_i_form .czje input{ width:110px; padding:0px 0px 0px 0px; height:48px; margin-right:10px; }
 .u_index_mess .u_i_form .czje span{ display:inline-block; margin-left:10px; padding-left:28px; color:#fd0004; background:url(../images/user/hint_ico.jpg) no-repeat left center; }
 
 .u_index_mess .u_i_form .czje span{ display:inline-block; margin-left:10px; padding-left:28px; color:#fd0004; background:url(../images/user/hint_ico.jpg) no-repeat left center; }
