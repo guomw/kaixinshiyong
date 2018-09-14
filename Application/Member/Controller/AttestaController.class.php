@@ -1105,10 +1105,10 @@ class AttestaController extends InitController {
 			$map['dateline'] = NOW_TIME;
 			$map['status'] = 1;
 			$map['type'] = $info['bank_name'];
-			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
-				$this->error('请输入正确的银行卡号');
-				return FALSE;
-			}
+//			if (!is_numeric($info['account']) || strlen($info['account']) < 16 || strlen($info['account']) > 19) {
+//				$this->error('请输入正确的银行卡号');
+//				return FALSE;
+//			}
 			//判断该银行账号是否绑定
 			$con = array();
 			$con['type'] = array('EQ','bank');
