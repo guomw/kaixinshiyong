@@ -63,40 +63,40 @@
 	<div id="content">
 		<div class="wrap">
 			<p class="hint-wz clear hint_wz_2">
-				当前位置： <b>首页 ></b> <b>银行卡绑定</b>
+				当前位置： <b>首页 ></b> <b>提现绑定</b>
 			</p>
 		</div>
 
 		<div class="user_index_content wrap-and clear">
 			{include template('v2_merchant_left','member/common')}
 			<div class="fr u_index_mess user_pd_1">
-				<h2 class="user_page_title">银行卡绑定</h2>
+				<h2 class="user_page_title">提现绑定</h2>
 
 				<dl class="user_pass_box_form" id="goods_albums">
 					<form id="myform">
 
-						<dt>注意，银行卡绑定后不可修改！</dt>
+						<dt>注意，提现绑定后不可修改！</dt>
 						<dd class="clear js_css">
-							<label for="identity_name" class="fl">选择开户银行：</label>
+							<label for="identity_name" class="fl">选择提现方式：</label>
 							<select name="bank_name"  id="bank_name">
-								<option label="请选择银行" value="0">请选择银行</option>
+								<option label="选择提现方式" value="0">选择提现方式</option>
 								{loop $banks $b}
 								<option {if $bankinfo[bank_name] =='工商银行'}selected{/if} value="{$b[linkageid]}">{$b[name]}</option>
 								{/loop}
 							</select>
 						</dd>
-						<dd class="clear js_css">
-							<label for="new_pass" class="fl">开户人姓名：</label>
+						<dd class="clear js_css" >
+							<label for="new_pass" class="fl">姓名：</label>
 							<input type="text" id="bank_username" name="bank_username" value="{$infos[name]}" disabled class="txt fl" />
 
 						</dd>
 						<dd class="clear js_css">
-							<label for="new_pass" class="fl">银行卡卡号：</label>
+							<label for="new_pass" class="fl">卡号或账号：</label>
 							<input type="text" name="account" id="bank_account"  value="{$account[bank_account]}" class="txt fl" />
 
 						</dd>
 
-						<dd class="clear js_css">
+						<dd class="clear js_css" style="display: none">
 							<label for="new_pass" class="fl">开户行所在地：</label>
 							<select name="province" id="province">
 								<option value="-1">请选择</option>
@@ -112,7 +112,7 @@
 								<?php endforeach ?></select>
 
 						</dd>
-						<dd class="clear js_css">
+						<dd class="clear js_css" style="display: none">
 							<label for="new_pass" class="fl">支行名称:</label>
 							<input type="text" name="sub_branch" id="sub_branch" value="{$bankinfo[sub_branch]}" class="txt fl"  />
 
@@ -145,7 +145,7 @@ $.formValidator.initConfig({
 });
 
 $("#bank_username").formValidator({
-	empty:false,
+	empty:true,
 	onempty:'开户行不能为空',
 	onshow:"",
 	onfocus:"请输入开户行姓名"
@@ -161,7 +161,7 @@ $("#bank_username").formValidator({
 
 $("#bank_account").formValidator({
 	empty:false,
-	onempty:'卡号不能为空',
+	onempty:'账号不能为空',
 	onshow:"请输入银行卡号",
 	onfocus:"请输入银行卡号"
 }).regexValidator({
@@ -169,16 +169,16 @@ $("#bank_account").formValidator({
 	datatype:'enum',
 	onerror:"银行卡号输入错误"
 });
-$("#sub_branch").formValidator({
-	empty:false,
-	onempty:'开户行不能为空',
-	onshow:"请输入开户行名称",
-	onfocus:"请输入开户行名称"
-}).regexValidator({
-	regexp:'ps_username',
-	datatype:'enum',
-	onerror:"开户行输入错误"
-});
+// $("#sub_branch").formValidator({
+// 	empty:false,
+// 	onempty:'开户行不能为空',
+// 	onshow:"请输入开户行名称",
+// 	onfocus:"请输入开户行名称"
+// }).regexValidator({
+// 	regexp:'ps_username',
+// 	datatype:'enum',
+// 	onerror:"开户行输入错误"
+// });
 
 </script>
 <script type="text/javascript">
@@ -297,24 +297,24 @@ $("#sub_branch").formValidator({
 			$("#bank_account").focus();
 			return false;
 		};
-		if (city < 0 || province < 0) {
-			art.dialog({
-						lock: true,
-						fixed: true,
-						icon: 'face-smile',
-						title: '提示',
-						content: '请选择开户行所在地',
-						okVal: '确定',
-						ok:true
-						});
-			return false;
+		// if (city < 0 || province < 0) {
+		// 	art.dialog({
+		// 				lock: true,
+		// 				fixed: true,
+		// 				icon: 'face-smile',
+		// 				title: '提示',
+		// 				content: '请选择开户行所在地',
+		// 				okVal: '确定',
+		// 				ok:true
+		// 				});
+		// 	return false;
+        //
+		// };
 
-		};
-
-		if (sub_branch == '') {
-			$("#sub_branch").focus();
-			return false;
-		};
+		// if (sub_branch == '') {
+		// 	$("#sub_branch").focus();
+		// 	return false;
+		// };
 
 		$.post("{U('Member/Attesta/bank_attesta')}",{bank_name:bank_name,bank_username:bank_username,account:bank_account,province:province,city:city,area:area,sub_branch:sub_branch},function(data){
 						if (data.status == 1) {

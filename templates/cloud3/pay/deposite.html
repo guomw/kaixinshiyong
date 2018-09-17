@@ -63,14 +63,14 @@
 					<div class="tixian_fs_wrap">
 						<p class="tx_fs_t">选择提现方式:</p>
 						<div class="tixian_list">
-							{if in_array('bank',$type)}
+							{if in_array('paypay',$type) || in_array('quickpay',$type)}
 							<div class="list clear">
 								<input id="bank_bind" type="radio" name="type" {if $bank['status'] != 1 || !$bank} disabled="disabled"{/if} value="1" class="fl tx_mt_1"/> <strong class="fl tx_dd">提现到银行卡</strong>
 								<div class="status clear">
 									<div class="gs fl">
-										<div class="fl" style="height:100%;overflow:hidden;">
-											<img src="{THEME_STYLE_PATH}style/images/user/gs_ico.png" alt=""/>	
-										</div>
+										<!--<div class="fl" style="height:100%;overflow:hidden;">-->
+											<!--<img src="{THEME_STYLE_PATH}style/images/user/quickpay29.png" alt=""/>-->
+										<!--</div>-->
 										<div class="fl">
 											{$bankinfos[sub_branch]}
 											<span class="zf_wh">
@@ -158,9 +158,9 @@
 								</div>
 							</li>
 
-							<li class="clear js_show1">到帐时间: 最快{$common[time]}到帐,无手续费用</li>
+							<li class="clear js_show1">到账时间: 最快{$common[time]}小时到账,无手续费</li>
 							<li class="clear js_show2" style="display: none;">
-								到帐时间: 最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
+								到账时间: 最快{$quick[time]}小时到账，{if $fee >0}{$fee}%{else}无{/if}手续费，实际到账
 								<span class="totalmoney"></span>
 								美元
 							</li>
@@ -205,7 +205,7 @@
 	                       	</li>
 
 	                       	<li class="clear js_show2" >
-	                       		到帐时间: 最快10秒到账，{if $wx_fee >0 }<i class="cc">{$wx_fee}%</i>{else}无{/if} 手续费，实际到账
+	                       		到账时间: 最快10秒到账，{if $wx_fee >0 }<i class="cc">{$wx_fee}%</i>{else}无{/if} 手续费，实际到账
 	                       		<span class="cc totalmoney" ></span>
 	                       		美元
 	                       	</li>
@@ -230,7 +230,7 @@
 			var _money = $(this).val();
 			var type = $('input[name="type"]:checked').val();
 			if(!chek_money(_money)) return false;
-			$.get('{U('Pay/Index/total_money')}',{money:_money,'type':type },function(data){
+			$.post('{U('Pay/Index/total_money')}',{money:_money,'type':type },function(data){
 				$(".totalmoney").text(data);
 			},'json');
 		});

@@ -122,13 +122,26 @@
 						<dd>
 							<ul class="hint">
 								<li>
-									* 先去支付宝使用转账付款，将活动担保金转入&nbsp;&nbsp;
+									* 先去使用转账付款，将活动担保金转入&nbsp;&nbsp;
 									<b>{$alipay['alipay_account']}</b>
 									。
 								</li>
 								<li>* 然后输入您转账的交易号</li>
-								<li>* 输入（本页面）充值金额且必须与（支付宝）转账金额一致，否则会付款失败！</li>
+								<li>* 输入（本页面）<充值金额且必须与实际></充值金额且必须与实际>转账金额一致，否则会付款失败！</li>
 							</ul>
+						</dd>
+						<dd>
+							<div class="tab_wrap">
+								<ul class="box clear active">
+									<li>
+
+									</li>
+								</ul>
+							</div>
+							<input type="radio" value="paypal"  name="paymode" checked="checked" id="paypal"/>
+							<img src="{THEME_STYLE_PATH}style/images/user/paypal109.png" alt="paypal" />
+							<input type="radio" value="quickpay"  name="paymode" id="quickpay"/>
+							<img src="{THEME_STYLE_PATH}style/images/user/quickpay109.png" alt="quickpay" />
 						</dd>
 						<dd class="clear czje">
 							<strong class="fl">充值金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
@@ -140,24 +153,14 @@
 						</dd>
 
 						<dd class="clear czje">
-							<strong class="fl">支付宝交易号：</strong>
+							<strong class="fl">交 易 号：</strong>
 							<p class="fl">
-								<input style="width: 250px;" type="text" placeholder="输入支付宝成功的交易号" id="tran_number" name="info[tran_number]"/>
+								<input style="width: 250px;" type="text" placeholder="输入成功的交易号" id="tran_number" name="info[tran_number]"/>
 								<span style="padding-left:0;background:none;margin-left:20px;" id="set_note"></span>
 							</p>
 						</dd>
 
-						<dd></dd>
-						<dd>
-							<div class="tab_wrap">
-								<ul class="box clear active">
-									<li>
-										<input type="radio" name="zffs" checked="checked"/>
-										<img src="{THEME_STYLE_PATH}style/images/user/zfb_ico.jpg" alt="" />
-									</li>
-								</ul>
-							</div>
-						</dd>
+
 						<dd>提交成功之后,我们会在24小时审核。</dd>
 						<dd>                                                                                           
 							<input class="button1" disabled type="button" id="myform_submit" value="提交"/>
@@ -469,12 +472,12 @@ $("#normal_money2").formValidator({
 $("#tran_number").formValidator({
 		empty:false,
 	 	validatorgroup:"2",
-	 	onshow: "请输入支付宝交易号",
-	 	onfocus: "请输入支付宝交易号"
+	 	onshow: "请输入交易号",
+	 	onfocus: "请输入交易号"
 	}).regexValidator({
 	 	regexp:'account',
 	 	datatype:'enum',
-	 	onerror:'支付宝交易号输入错误',
+	 	onerror:'交易号输入错误',
 	}).ajaxValidator({
 		    url:"{U('pay/index/check_trade')}",
 		    datatype:'JSON',
@@ -494,7 +497,7 @@ $("#tran_number").formValidator({
 
 		        }
 		    },
-		    onerror:"支付宝交易号已存在"
+		    onerror:"交易号已存在"
 		});
 
 
@@ -515,7 +518,8 @@ $("#tran_number").formValidator({
 
 					var info = {
 						money:money2,
-						tran_number:tran_number
+						tran_number:tran_number,
+                        paymode:$('input[name="paymode"]:checked').val()
 					}
 
              $("#myform_submit").attr("disabled", true);

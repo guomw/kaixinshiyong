@@ -226,13 +226,16 @@ class IndexController extends BaseController
         if(IS_POST){
     		$info = I('info');
 			$tran_number = $info['tran_number'];
-			if(strlen($tran_number) != 28 && strlen($tran_number) != 32){
-				$this->error('交易号输入错误');
-			}
+//			if(strlen($tran_number) != 28 && strlen($tran_number) != 32){
+//				$this->error('交易号输入错误');
+//			}
 			$money = $info['money'];
 			if($money < 0){
 				$this->error('金额不能小于0');
 			}
+
+			$paymode = $info['paymode'];
+
     		$info['inputtime'] = NOW_TIME;
     		$info['status'] = 0;
             $info['userid'] = $userid;

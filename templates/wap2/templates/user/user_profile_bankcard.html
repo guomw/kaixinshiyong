@@ -1,5 +1,11 @@
 <ion-view view-title="我的银行卡">
-  <ion-content class="padding-top" style="background-color:#F8F8F8">
+  <div class="bar bar-subheader">
+    <div class="button-bar sub_header_list" id="sub_header_list">
+      <a class="button button-clear sub_button_select" ng-click="changeTab(0)">quickpay</a>
+      <a class="button button-clear " ng-click="changeTab(1)">paypal</a>
+    </div>
+  </div>
+  <ion-content class="padding-top" style="background-color:#F8F8F8;padding-top:50px">
     <ion-list>
 
       <form name="myform" novalidate="false">
@@ -13,37 +19,9 @@
               {{name_authentication_status | f_name_status }}
             </i>
           </label>
-          <label class="item item-input"> <i style="font-size:18px;color:#ffb400" class=" ion-card  placeholder-icon"></i>
-            <input bank type="text" ng-model="user_bank" ng-minlength="19" ng-maxlength="23" name="user_bank" placeholder="请输入您的银行卡帐号"
-              required></label>
-          <label class="item item-input item-select">
-            <div class="input-label">发卡银行</div>
-            <select ng-model="CityData.data.linkageid" ng-options="a.name for a  in bank_info.data">
-              <option value="">--请选择--</option>
-            </select>
-          </label>
-          <label class="item item-input item-select">
-            <div class="input-label">开户行所在省</div>
-            <select ng-model="vm.country" ng-options="a.name for a  in CityData.data">
-              <option value="">--请选择--</option>
-            </select>
-          </label>
-          <label class="item item-input item-select">
-            <div class="input-label">开户行所在市</div>
-            <select ng-model="vm.province" ng-options="b.name for b in province.data">
-              <option value="">--请选择--</option>
-            </select>
-          </label>
-          <label ng-if="city.msg >0" class="item item-input item-select">
-            <div class="input-label">开户行所在县</div>
-            <select class="form-control" ng-model="vm.city" ng-options="c.name for c in city.data  ">
-              <option value="">-开户行所在县-</option>
-            </select>
-          </label>
           <label class="item item-input">
-            <i style="font-size:18px;color:#ff6000" class="ion-home placeholder-icon"></i>
-            <input type="text" ng-minlength="4" ng-model="sub_branch" name="sub_branch" placeholder="开户支行名称" required>
-          </label>
+            <!-- <i style="font-size:18px;color:#ffb400" class=" ion-card  placeholder-icon"></i> -->
+            <input type="text" ng-model="user_bank" name="user_bank" placeholder="请输入您得Quickpay/Paypal账号" required></label>
         </div>
 
         <div class="text-explain">
@@ -53,7 +31,7 @@
         </div>
         <div class="padding-left padding-right">
           <!-- <button ng-disabled="myform.$invalid " class="button button-block button-assertive  padding-top" ng-click="edilt_bank(user_bank,CityData.data.linkageid.linkageid,sub_branch)">提交</button> -->
-          <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid " ng-click="edilt_bank(user_bank,CityData.data.linkageid.linkageid,sub_branch)">提交</a>
+          <a href="javascript:;" class="weui-btn" ng-disabled="myform.$invalid " ng-click="edilt_bank(user_bank)">提交</a>
         </div>
       </form>
 

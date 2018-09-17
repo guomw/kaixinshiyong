@@ -11,9 +11,10 @@
         </div>
     </div>
 
-    <ion-content class="scroll-content has-subheader" style="background-color:#f0eff5">
+    <ion-content class="scroll-content has-subheader" style="background-color:#fff">
 
-        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-loading-c" refreshing-text="刷新成功" refreshing-icon="ion-loading-c"
+            on-refresh="doRefresh()"></ion-refresher>
 
         <div ng-if="showloading" style="margin-top:60px; text-align: center">
             <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>

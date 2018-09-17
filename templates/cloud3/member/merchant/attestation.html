@@ -187,17 +187,17 @@
 								});
 								</script>
 
-					<!--<div class="list_zh_mess_list clear {if $userinfo[bank_status] == 1}old{/if}">-->
-						<!--<div class="zh_rz_mess  fl clear">-->
-							<!--<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/bank.png) no-repeat;"></b>-->
-							<!--<span class="fl zh_name">银行卡绑定</span>-->
-							<!--<span class="fl zh_status">{if $userinfo[bank_status] == 1}已绑定{else}未绑定{/if}</span>-->
-						<!--</div>-->
-						<!--<p class="fl zh_sm">绑定您的银行卡</p>-->
-						<!--{if $userinfo[bank_status] != 1}-->
-						<!--<a href="javascript:;" class="fr zh_b_btn" id="bankbind">去绑定</a>-->
-						<!--{/if}-->
-					<!--</div>-->
+					<div class="list_zh_mess_list clear {if $userinfo[bank_status] == 1}old{/if}">
+						<div class="zh_rz_mess  fl clear">
+							<b class="zh_ico pass fl" style="background: url({THEME_STYLE_PATH}style/images/bank.png) no-repeat;"></b>
+							<span class="fl zh_name">提现绑定</span>
+							<span class="fl zh_status">{if $userinfo[bank_status] == 1}已绑定{else}未绑定{/if}</span>
+						</div>
+						<p class="fl zh_sm">绑定后可提现</p>
+						{if $userinfo[bank_status] != 1}
+						<a href="javascript:;" class="fr zh_b_btn" id="bankbind">去绑定</a>
+						{/if}
+					</div>
 
 				</div>
 

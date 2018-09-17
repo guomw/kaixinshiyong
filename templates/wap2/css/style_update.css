@@ -392,3 +392,17 @@ p {
   width: 0;
   height: 0;
 }
+
+.i_orderDaily .record {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
+  padding: 10px 0;
+}
+.i_orderDaily .record .record_title {
+  width: 70%;
+}
+.i_orderDaily .record .record_manage_amount {
+  width: 30%;
+}
