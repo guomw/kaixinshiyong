@@ -936,7 +936,7 @@ class IndexController extends BaseController
 
     }
 
-
+//商家注册
     public function v2_register_phone()
     {
         $models = getcache('model', 'commons');

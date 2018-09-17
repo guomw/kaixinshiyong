@@ -77,6 +77,16 @@ class CheckController extends InitController{
 				$this->db->where(array('id'=>$v))->setField('status',1);
 				$uid = $this->db->where(array('id'=>$v))->getField('userid');
 				runhook('member_attesta_name',array('userid' =>$uid,'id' =>$v));
+
+
+				//实名认证给用户加积分
+                $modelid = model('member')->where('userid='.$uid)->getField('modelid');
+                if($modelid==1)
+                {
+                    $reward = model("task")->where('type="name"')->getField('task_reward');
+                    model('member')->where('userid='.$uid)->setInc("point",$reward);
+                }
+
 			}
 			$this->success('审核成功');
 		}else{

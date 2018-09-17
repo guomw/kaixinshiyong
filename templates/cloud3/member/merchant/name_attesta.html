@@ -111,24 +111,36 @@
 $.formValidator.initConfig({
 	formid:"myform",
 	autotip:true,
-	onerror:function(msg,obj){
-		$(obj).focus();
+	onsuccess:function()
+	{
+		alert(1);
+		$("#js_submit").removeAttr("disabled");
+		$("#js_submit").css({"background":"#FF6C00","border-color":"#FF6C00","color":"#fff"});
+	}, onerror:function () {
+			alert(2);
+        $("#js_submit").attr("disabled");
+		$("#js_submit").css({"color":"#777","background":"#e9e9e9"});
 	}
 });
+
+
 /*身份证姓名/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/*/
+var p_name = false;
+var p_card = false;
 $("#name").formValidator({
 	onshow:true,
 	onfocus:"请输入身份证姓名"
 }).inputValidator({
 	min:2,
 	max:50,
-	onerrormin: "身份证不能为空",
+	onerrormin: "身份证姓名不能为空",
     onerrormax: "不超过50个字符，汉字算两个字符"
 }).regexValidator({
 	regexp:'chinese',
 	datatype:'enum',
 	onerror:"姓名输入错误"
-});
+})
+
 /*身份证号验证*/
 $("#id_number").formValidator({
 	empty:false,
@@ -139,24 +151,10 @@ $("#id_number").formValidator({
 	regexp:'idcard',
 	datatype:'enum',
 	onerror:'身份证号码错误'
-}).ajaxValidator({
-    url : "{U('idservice')}",
-    datatype:'json',
-    async:false,
-    success:function(ret) {
-        if(ret == 0) {
-        	$("#js_submit").removeAttr("disabled");
-        	$("#js_submit").css({"background":"#FF6C00","border-color":"#FF6C00","color":"#fff"});
-            return true;
-        } else{
-            return false;
-            $("#js_submit").css({"color":"#777","background":"#e9e9e9"});
+})
 
 
-        }
-    },
-    onerror:'身份证号码联网认证不通过'
-});
+
 
 </script>
 <link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />

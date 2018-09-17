@@ -1641,7 +1641,18 @@ class AppController extends BaseController
                 $userinfo = getUserInfo($userid);
                 if ($info['agent_id'] > 0) {
                     runhook('member_attesta_email', array('userid' => $userid));
+
+
+
+                    //给邀请者加积分
+                    $reward = model("task")->where('type="inviteuser"')->getField('task_reward');
+                    $member = M('member');
+                    $member->where('userid='.$info['agent_id'])->setInc("point",$reward);
+
                 }
+
+
+
 
                 $return = array();
                 $return['userid'] = $userinfo['userid'];
