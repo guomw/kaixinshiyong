@@ -42,6 +42,7 @@ class CheckController extends InitController{
 		$lists = $this->db->where($sqlMap)->page($pagecurr,$pagesize)->order('id DESC')->select();
 		foreach ($lists as $k=>$v){
 			$lists[$k]['username'] = M('Member')->getFieldByUserid($v['userid'],'nickname');
+			if($lists[$k]['username']=='') $lists[$k]['username'] = M('Member')->getFieldByUserid($v['userid'],'email');
 			$infos = string2array($v['infos']);
 			$lists[$k]['realname'] = $infos['name'];
 			$lists[$k]['id_number'] = $infos['id_number'];

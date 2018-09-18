@@ -122,9 +122,9 @@
 						<dd>
 							<ul class="hint">
 								<li>
-									* 先去使用转账付款，将活动担保金转入&nbsp;&nbsp;
-									<b>{$alipay['alipay_account']}</b>
-									。
+									* 先去使用转账付款，将活动担保金转入
+									<b>zhanshengmin2010@gmail.com</b>
+
 								</li>
 								<li>* 然后输入您转账的交易号</li>
 								<li>* 输入（本页面）<充值金额且必须与实际></充值金额且必须与实际>转账金额一致，否则会付款失败！</li>
@@ -474,10 +474,6 @@ $("#tran_number").formValidator({
 	 	validatorgroup:"2",
 	 	onshow: "请输入交易号",
 	 	onfocus: "请输入交易号"
-	}).regexValidator({
-	 	regexp:'account',
-	 	datatype:'enum',
-	 	onerror:'交易号输入错误',
 	}).ajaxValidator({
 		    url:"{U('pay/index/check_trade')}",
 		    datatype:'JSON',

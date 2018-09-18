@@ -388,11 +388,12 @@ class AttestaController extends InitController {
 			$info['userid'] = $this->userid;
 			$info['dateline'] =  NOW_TIME;
 			$info['type'] = 'identity';
+
 			$info['status'] = 0;
-			if (strlen($info['id_number']) < 15 || strlen($info['id_number']) > 18) {
-					$this->error('请输入正确的身份证号码');
-					return FALSE;
-			}
+//			if (strlen($info['id_number']) < 15 || strlen($info['id_number']) > 18) {
+//					$this->error('请输入正确的身份证号码');
+//					return FALSE;
+//			}
 			
 			if($rs){
 				$info['updatetime'] = NOW_TIME;
@@ -533,7 +534,7 @@ class AttestaController extends InitController {
 			$con['infos'] = array('LIKE','%'.$info['account'].'%');
 			$attesta_infos =  model('member_attesta')->where($con)->count();
 			if($attesta_infos > 0){
-				$this->error('该支付宝账号已经认证过');
+				$this->error('该账号已经认证过');
 			}
 			
 			//记录该用户绑定的信息

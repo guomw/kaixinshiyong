@@ -144,31 +144,31 @@ $.formValidator.initConfig({
 	}
 });
 
-$("#bank_username").formValidator({
-	empty:true,
-	onempty:'开户行不能为空',
-	onshow:"",
-	onfocus:"请输入开户行姓名"
-}).regexValidator({
-	regexp:'chinese',
-	datatype:'enum',
-	onerror:"开户行姓名输入错误"
-}).inputValidator({
-	min:4,
-	max:50,
-	onerror:"不超过50个字符，汉字算两个字符"
-});
-
-$("#bank_account").formValidator({
-	empty:false,
-	onempty:'账号不能为空',
-	onshow:"请输入银行卡号",
-	onfocus:"请输入银行卡号"
-}).regexValidator({
-	regexp:'bank_account',
-	datatype:'enum',
-	onerror:"银行卡号输入错误"
-});
+// $("#bank_username").formValidator({
+// 	empty:true,
+// 	onempty:'开户行不能为空',
+// 	onshow:"",
+// 	onfocus:"请输入开户行姓名"
+// }).regexValidator({
+// 	regexp:'chinese',
+// 	datatype:'enum',
+// 	onerror:"开户行姓名输入错误"
+// }).inputValidator({
+// 	min:4,
+// 	max:50,
+// 	onerror:"不超过50个字符，汉字算两个字符"
+// });
+//
+// $("#bank_account").formValidator({
+// 	empty:false,
+// 	onempty:'账号不能为空',
+// 	onshow:"请输入银行卡号",
+// 	onfocus:"请输入银行卡号"
+// }).regexValidator({
+// 	regexp:'bank_account',
+// 	datatype:'enum',
+// 	onerror:"银行卡号输入错误"
+// });
 // $("#sub_branch").formValidator({
 // 	empty:false,
 // 	onempty:'开户行不能为空',
@@ -295,6 +295,15 @@ $("#bank_account").formValidator({
 
 		if (bank_account == '') {
 			$("#bank_account").focus();
+            art.dialog({
+                lock: true,
+                fixed: true,
+                icon: 'face-smile',
+                title: '提示',
+                content: '请输入卡号或账号',
+                okVal: '确定',
+                ok:true
+            });
 			return false;
 		};
 		// if (city < 0 || province < 0) {
