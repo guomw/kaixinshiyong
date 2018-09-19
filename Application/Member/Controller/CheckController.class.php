@@ -84,8 +84,11 @@ class CheckController extends InitController{
                 $modelid = model('member')->where('userid='.$uid)->getField('modelid');
                 if($modelid==1)
                 {
-                    $reward = model("task")->where('type="name"')->getField('task_reward');
-                    model('member')->where('userid='.$uid)->setInc("point",$reward);
+                    $reward = model("task")->where('type="name"  and task_status=1')->getField('task_reward');
+//                    model('member')->where('userid='.$uid)->setInc("point",$reward);
+
+
+                    if($reward>0) action_finance_log($uid, $reward,'point', '实名认证', '');
                 }
 
 			}
