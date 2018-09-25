@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+.dengl {
+	background-color: #fff;
+	padding: 0px 20px;
+	border-radius: 8px;
+}
+.zhuc{
+	background-color: #f49b10;
+	padding: 0px 20px;
+	border-radius: 8px;
+}
+.top-wrapper .top .wrap a.zhuc{
+	color: #fff;
+}
+.big-titile-1{
+	font-size: 70px;
+	color: #ab4a67;
+	font-weight: bold;
+}
+.big-titile-2{
+	font-size: 70px;
+	color: #e47b63;
+	font-weight: bold;
+}
+.big-titile-3{
+	font-size: 70px;
+	color: #d98686;
+	font-weight: bold;
+}
+.big-titile-4{
+	font-size: 70px;
+	color: #eba293;
+	font-weight: bold;
+}
+.eight-font-left{
+	float: left;
+	width: 45%;
+}
+.eight-font-right{
+	float: right;
+	width: 45%;
+}
+.tenlist li{
+	list-style: none;
+}
+.tenlist h4{
+	margin: 0px;
+}
+.tenlist .number-left{
+	float: left;
+	font-size:40px;
+	font-weight: bold;
+}
+.tenlist .font-right{
+	float: right;
+    text-align: left;
+	width: 85%;
+}
+.updown{
+	margin:50px 0px;
+    clear: both;
+}
+.thousand p{
+    float: left;
+    background-color: #f99700;
+    font-size: 16px;
+    margin: 10px;
+    padding: 30px;
+    width: 192px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
