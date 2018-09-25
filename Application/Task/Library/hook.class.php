@@ -84,24 +84,26 @@ class hook {
         $tasks = model('task')->where($sqlmap)->order("sort ASC,id DESC")->select();
         if(!$tasks) return FALSE;
         foreach ($tasks as $key => $task) {
-            $sign = '3-3-'.$this->uid;
-            $rs = model('member_finance_log')->where(array('only'=>$sign))->find();
-            if(!$rs){
+//            $sign = '3-3-'.$this->uid;
+//            $rs = model('member_finance_log')->where(array('only'=>$sign))->find();
+//            if(!$rs){
+//
+//
+//
+//            }
 
-                 if(C('sso_is_open') == 1){
-                    unset($info);
-                    $info = array();
-                    $info['userid'] = $this->uid;
-                    $info['type'] = $task['task_type'];
-                    $info['type_id'] = '1104';
-                    $info['num'] = $task['task_reward'];
-                   _ps_send($task['task_type'],$info);
+            if(C('sso_is_open') == 1){
+                unset($info);
+                $info = array();
+                $info['userid'] = $this->uid;
+                $info['type'] = $task['task_type'];
+                $info['type_id'] = '1104';
+                $info['num'] = $task['task_reward'];
+                _ps_send($task['task_type'],$info);
 
 
-                }
-               action_finance_log($this->uid, $task['task_reward'], $task['task_type'], $task['task_name'],$sign);
             }
-            
+            action_finance_log($this->uid, $task['task_reward'], $task['task_type'], $task['task_name'],$sign);
         }
         return TRUE;        
     }

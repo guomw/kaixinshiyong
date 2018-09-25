@@ -34,14 +34,7 @@
 							<dl class="fl txt s_set_a">
 								<dt>
 									{nickname($this->userinfo['userid'])}
-									<span><?php
-												
-													$h=date("H");
-													if($h<11) echo "早上好!";
-													else if($h<13) echo "中午好！";
-													else if($h<18) echo "下午好！";
-													else echo "晚上好！";
-												?></span>
+
 								</dt>
 								<!--<dd>-->
 									<!--商家类型:<?php echo $groupname;?>-->
@@ -50,7 +43,9 @@
 								<!--</dd>-->
 								<dd> <strong>账户余额：
 										<span class="cd" style="margin-right:5px;"><?php echo $this->userinfo['money'];?></span>
-										美元</strong>  <strong>担保余额：
+										美元</strong>
+
+									<strong style="display: none">担保余额：
 										<span class="cd" style="margin-right:5px;"><?php echo $member_infos['frozen_deposit'];?></span>
 										美元</strong>
 								</dd>

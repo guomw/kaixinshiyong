@@ -1,6 +1,7 @@
 <?php
 namespace Member\Controller;
 use \Admin\Controller\InitController;
+
 class CheckController extends InitController{
 	public function _initialize(){
 		parent::_initialize();
@@ -42,6 +43,7 @@ class CheckController extends InitController{
 		$lists = $this->db->where($sqlMap)->page($pagecurr,$pagesize)->order('id DESC')->select();
 		foreach ($lists as $k=>$v){
 			$lists[$k]['username'] = M('Member')->getFieldByUserid($v['userid'],'nickname');
+			if($lists[$k]['username']=='') $lists[$k]['username'] = M('Member')->getFieldByUserid($v['userid'],'email');
 			$infos = string2array($v['infos']);
 			$lists[$k]['realname'] = $infos['name'];
 			$lists[$k]['id_number'] = $infos['id_number'];
@@ -70,6 +72,7 @@ class CheckController extends InitController{
 
 	/*审核通过*/
 	public function check($ids = array()){
+        //\Think\Log::write('enter check','INFO');
 		$ids = (array) $ids;
 		if(empty($ids)) $this->error('参数错误');
 		if(submitcheck('dosubmit')){
@@ -77,6 +80,21 @@ class CheckController extends InitController{
 				$this->db->where(array('id'=>$v))->setField('status',1);
 				$uid = $this->db->where(array('id'=>$v))->getField('userid');
 				runhook('member_attesta_name',array('userid' =>$uid,'id' =>$v));
+
+
+
+				//实名认证给用户加积分
+                $modelid = model('member')->where('userid='.$uid)->getField('modelid');
+                //\Think\Log::write('md '.$modelid ,'INFO');
+                if($modelid==1)
+                {
+                    $reward = model("task")->where('type="name"  and task_status=1')->getField('task_reward');
+//                    model('member')->where('userid='.$uid)->setInc("point",$reward);
+                    //\Think\Log::write('reward '.$reward,'INFO');
+
+                    if($reward>0) action_finance_log($uid, $reward,'point', '实名认证', '');
+                }
+
 			}
 			$this->success('审核成功');
 		}else{

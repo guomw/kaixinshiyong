@@ -1640,8 +1640,20 @@ class AppController extends BaseController
                 }
                 $userinfo = getUserInfo($userid);
                 if ($info['agent_id'] > 0) {
-                    runhook('member_attesta_email', array('userid' => $userid));
+                   // runhook('member_attesta_email', array('userid' => $userid));
+
+
+
+                    //给邀请者加积分
+                    $reward = model("task")->where('type="inviteuser" and task_status=1')->getField('task_reward');
+//                    $member = M('member');
+//                    $member->where('userid='.$info['agent_id'])->setInc("point",$reward);
+                    if($reward>0) action_finance_log($info['agent_id'], $reward,'point', '邀请注册用户', '');
+
                 }
+
+
+
 
                 $return = array();
                 $return['userid'] = $userinfo['userid'];
@@ -5541,7 +5553,7 @@ class AppController extends BaseController
         return TRUE;
     }
 
-
+//签到
     public function sign()
     {
         if (IS_POST) {
@@ -5570,10 +5582,10 @@ class AppController extends BaseController
                 $sign = model('task')->where(array('type' => 'sign'))->find();
                 $only = '3-5-' . $uid . '-' . date('Y-m-d');
                 $rs = model('member_finance_log')->where(array('only' => $only))->find();
-                $num = $sign['task_reward'] * 2; //双倍签到强烈
+                $num = $sign['task_reward']; //双倍签到强烈
                 if (!$rs) {
                     $result = action_finance_log($uid, $num, $sign['task_type'], 'app每日签到奖励', $only);
-                    $this->json_function(1, '签到成功,您本次APP签到，获得双倍奖励 ' . $num . ' 积分');
+                    $this->json_function(1, '签到成功,您本次APP签到，获得奖励 ' . $num . ' 积分');
                 } else {
                     $this->json_function(0, '签到失败，您今日已经签到过了！');
                     exit();

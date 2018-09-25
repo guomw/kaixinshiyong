@@ -91,13 +91,13 @@
 					</dd>
 					-->
 					<dd class="clear" style="padding-left:147px;padding-top:50px;">
-						<input type="button" disabled style="color: #777;background: #e9e9e9;"  value="提交"  id="js_submit" class="submit  "/>
+						<input type="button"  style="color: #fff;background: #FF6C00;"  value="提交"  id="js_submit" class="submit  "/>
 					</dd>
 
 				</form>
 			</dl>
 
-		</div>
+		</div>fff
 	</div>
 
 </div>
@@ -108,55 +108,53 @@
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>formvalidatorregex.js" charset="UTF-8"></script>
 <script type="text/javascript"> 
 
-$.formValidator.initConfig({
-	formid:"myform",
-	autotip:true,
-	onerror:function(msg,obj){
-		$(obj).focus();
-	}
-});
-/*身份证姓名/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/*/
-$("#name").formValidator({
-	onshow:true,
-	onfocus:"请输入身份证姓名"
-}).inputValidator({
-	min:2,
-	max:50,
-	onerrormin: "身份证不能为空",
-    onerrormax: "不超过50个字符，汉字算两个字符"
-}).regexValidator({
-	regexp:'chinese',
-	datatype:'enum',
-	onerror:"姓名输入错误"
-});
-/*身份证号验证*/
-$("#id_number").formValidator({
-	empty:false,
-	onempty:'身份证号不能为空',
-	onshow:true,
-	onfocus:"请输入身份证号码" 
-}).regexValidator({
-	regexp:'idcard',
-	datatype:'enum',
-	onerror:'身份证号码错误'
-}).ajaxValidator({
-    url : "{U('idservice')}",
-    datatype:'json',
-    async:false,
-    success:function(ret) {
-        if(ret == 0) {
-        	$("#js_submit").removeAttr("disabled");
-        	$("#js_submit").css({"background":"#FF6C00","border-color":"#FF6C00","color":"#fff"});
-            return true;
-        } else{
-            return false;
-            $("#js_submit").css({"color":"#777","background":"#e9e9e9"});
+// $.formValidator.initConfig({
+// 	formid:"myform",
+// 	autotip:true,
+// 	onsuccess:function()
+// 	{
+// 		alert(1);
+// 		$("#js_submit").removeAttr("disabled");
+// 		$("#js_submit").css({"background":"#FF6C00","border-color":"#FF6C00","color":"#fff"});
+// 	}, onerror:function () {
+// 			alert(2);
+//         $("#js_submit").attr("disabled");
+// 		$("#js_submit").css({"color":"#777","background":"#e9e9e9"});
+// 	}
+// });
+//
+//
+// /*身份证姓名/^\s*[\u4e00-\u9fa5]{1,}[\u4e00-\u9fa5.·]{0,15}[\u4e00-\u9fa5]{1,}\s*$/*/
+// var p_name = false;
+// var p_card = false;
+// $("#name").formValidator({
+// 	onshow:true,
+// 	onfocus:"请输入身份证姓名"
+// }).inputValidator({
+// 	min:2,
+// 	max:50,
+// 	onerrormin: "身份证姓名不能为空",
+//     onerrormax: "不超过50个字符，汉字算两个字符"
+// }).regexValidator({
+// 	regexp:'chinese',
+// 	datatype:'enum',
+// 	onerror:"姓名输入错误"
+// })
+//
+// /*身份证号验证*/
+// $("#id_number").formValidator({
+// 	empty:false,
+// 	onempty:'身份证号不能为空',
+// 	onshow:true,
+// 	onfocus:"请输入身份证号码"
+// }).regexValidator({
+// 	regexp:'idcard',
+// 	datatype:'enum',
+// 	onerror:'身份证号码错误'
+// })
+//
 
 
-        }
-    },
-    onerror:'身份证号码联网认证不通过'
-});
 
 </script>
 <link href="{JS_PATH}webuploader/webuploader.css" rel="stylesheet" />
@@ -239,10 +237,26 @@ $(document).ready(function() {
 
 		if (name == '') {
 			$("#name").focus();
+            art.dialog({
+                lock: true,
+                fixed: true,
+                icon: 'face-sad',
+                title: '错误提示',
+                content: '请输入您的姓名',
+                ok: true
+            });
 			return false;
 		};
-		if (id_number == '') {
+		if (id_number == '' || id_number.length!=8) {
 			$("#id_number").focus();
+            art.dialog({
+                lock: true,
+                fixed: true,
+                icon: 'face-sad',
+                title: '错误提示',
+                content: '请输入正确的身份证号码',
+                ok: true
+            });
 			return false;
 		};
 

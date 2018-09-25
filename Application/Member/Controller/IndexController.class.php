@@ -795,7 +795,7 @@ class IndexController extends BaseController
         }
     }
 
-
+//商家注册
     public function userregister()
     {
 
@@ -840,6 +840,7 @@ class IndexController extends BaseController
             }
 
 
+            $info['nickname'] ='ml_'.$info['email'];
             $info['encrypt'] = random(6);
             $info['point'] = (int)0;
             $info['groupid'] = (isset($info['groupid']) && is_numeric($info['groupid']) && $info['groupid'] > 1) ? $info['groupid'] : 1;
@@ -936,7 +937,7 @@ class IndexController extends BaseController
 
     }
 
-
+//商家注册
     public function v2_register_phone()
     {
         $models = getcache('model', 'commons');

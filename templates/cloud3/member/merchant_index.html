@@ -101,14 +101,7 @@
 											<img src="<?php echo $this->userinfo['avatar'];?>"/>
 										</div>
 										<dl class="fl txt s_set_a">
-											<dt>{nickname($this->userinfo['userid'])}<span><?php
-												
-													$h=date("H");
-													if($h<11) echo "早上好!";
-													else if($h<13) echo "中午好！";
-													else if($h<18) echo "下午好！";
-													else echo "晚上好！";
-												?></span></dt>
+											<dt>{nickname($this->userinfo['userid'])}</dt>
 											<!--<dd>商家类型:<?php echo $groupname;?>-->
 
 												<!--<a href="{U('Member/Merchant/becomevip')}">[成为VIP会员]</a><a href="{U('document/index/lists',array('catid'=>87))}">[了解VIP]</a>-->
