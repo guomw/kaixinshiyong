@@ -1640,7 +1640,7 @@ class AppController extends BaseController
                 }
                 $userinfo = getUserInfo($userid);
                 if ($info['agent_id'] > 0) {
-                    runhook('member_attesta_email', array('userid' => $userid));
+                   // runhook('member_attesta_email', array('userid' => $userid));
 
 
 
