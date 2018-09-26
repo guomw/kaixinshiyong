@@ -2216,6 +2216,8 @@ function getGoodsInfo($id = '0') {
  * @return bool
  */
 function action_finance_log($uid = 0, $num = 0, $type = 'money', $cause = '',$only='',$extra = array(),$isrun = TRUE) {
+
+    //\Think\Log::write('$uid '.$uid,'INFO');
     $uid = (int) $uid;
     if($uid < 1 || !in_array($type, array('deposit','money','point','exp','service'))) return FALSE;
     $log = $extra;
@@ -2228,6 +2230,7 @@ function action_finance_log($uid = 0, $num = 0, $type = 'money', $cause = '',$on
     $log['only'] = $only;
 
     $r = model('member_finance_log')->add($log);
+    //\Think\Log::write(' $r  '. model('member_finance_log')->_sql(),'INFO');
     if(!$r) return FALSE;
     if ($isrun === TRUE){
     	$result =  model('member')->where(array('userid' => $uid))->setInc($type, $num);

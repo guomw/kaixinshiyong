@@ -1,6 +1,7 @@
 <?php
 namespace Pay\Controller;
 use Admin\Controller\InitController;
+//消费记录
 class SpendController extends InitController{
 	public function _initialize(){
 		parent::_initialize();
@@ -11,7 +12,18 @@ class SpendController extends InitController{
 		$pagecurr = max(1,I('page',0,'intval'));
 		$pagesize  = 20;
 		$sqlMap = "";
-		$sqlMap['num'] = array('LT',0);
+//		$sqlMap['num'] = array('LT',0);
+//        $sqlMap['num'] = array('GT',0);
+
+        $type = I('type');
+        //积分
+        $sqlMap['type'] = array('eq','point');
+        if($type!='point') {
+            $sqlMap['type'] = array('neq', 'point');
+        }
+
+
+
 		if(submitcheck('dosubmit')){
 			$username = isset($_POST['username']) && trim($_POST['username']) ? trim($_POST['username']) : '';
 			$user_type = isset($_POST['user_type']) && intval($_POST['user_type']) ? intval($_POST['user_type']) : '';
@@ -68,7 +80,7 @@ class SpendController extends InitController{
 		$lists = $this->db->where($sqlMap)->page($pagecurr,$pagesize)->order('id DESC ,dateline DESC')->select();
 		
 		foreach ($lists as $k=>$v) {
-			$lists[$k]['username'] = $this->member_db->getFieldByUserid($v['userid'],'nickname');
+			$lists[$k]['username'] = $this->member_db->getFieldByUserid($v['userid'],'email');
 			$lists[$k]['modelid'] = $this->member_db->getFieldByUserid($v['userid'],'modelid');
 		}
 		$pages = page($count,$pagesize);

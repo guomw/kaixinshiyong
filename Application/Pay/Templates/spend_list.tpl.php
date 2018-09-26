@@ -12,7 +12,7 @@
 		<td>
 		<div class="explain-col">
 		
-		消费时间  <?php echo $form::date('starttime',$format::date($starttime))?> <?php echo L('to')?>   <?php echo $form::date('endtime',$format::date($endtime))?> 
+		时间  <?php echo $form::date('starttime',$format::date($starttime))?> <?php echo L('to')?>   <?php echo $form::date('endtime',$format::date($endtime))?>
 		<?php echo  $form::select(array('1'=>L('昵称'), '2'=>L('userid')), $user_type, 'name="user_type"')?>： <input type="text" value="<?php echo $username?>" class="input-text" name="username"> 
 		<!--<?php echo $form::select(array(''=>L('op'), '1'=>L('username'), '2'=>L('userid')), $op_type, 'name="op_type"')?>：
 		 <input type="text" value="<?php echo $op?>" class="input-text" name="op">  -->

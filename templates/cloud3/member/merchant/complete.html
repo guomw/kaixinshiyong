@@ -599,35 +599,35 @@ $("#contact_want").formValidator({
 
 
 
-{if empty($store_qq)}
-$("#store_qq").formValidator({
-	empty:false,
-	onempty:'联系QQ不能为空',
-	onshow:true,
-	onfocus:"请输入联系QQ"
-}).inputValidator({
-	min:5,
-	onerror:"联系人QQ输入错误"
-}).regexValidator({
-	regexp:'intege',
-	datatype:'enum',
-	onerror:"请输入联系QQ"
-});
-{else}
-$("#store_qq").formValidator({
-	empty:false,
-	onempty:'联系QQ不能为空',
-	onshow:true,
-	onfocus:"请输入联系QQ"
-}).inputValidator({
-	min:5,
-	onerror:"联系人QQ输入错误"
-}).regexValidator({
-	regexp:'intege',
-	datatype:'enum',
-	onerror:"请输入联系QQ"
-});
-{/if}
+// {if empty($store_qq)}
+// $("#store_qq").formValidator({
+// 	empty:false,
+// 	onempty:'联系QQ不能为空',
+// 	onshow:true,
+// 	onfocus:"请输入联系QQ"
+// }).inputValidator({
+// 	min:5,
+// 	onerror:"联系人QQ输入错误"
+// }).regexValidator({
+// 	regexp:'intege',
+// 	datatype:'enum',
+// 	onerror:"请输入联系QQ"
+// });
+// {else}
+// $("#store_qq").formValidator({
+// 	empty:false,
+// 	onempty:'联系QQ不能为空',
+// 	onshow:true,
+// 	onfocus:"请输入联系QQ"
+// }).inputValidator({
+// 	min:5,
+// 	onerror:"联系人QQ输入错误"
+// }).regexValidator({
+// 	regexp:'intege',
+// 	datatype:'enum',
+// 	onerror:"请输入联系QQ"
+// });
+// {/if}
 
 {if empty($store_name)}
 $("#store_name").formValidator({
@@ -742,10 +742,10 @@ $("#file_url").formValidator({
 				 	return false;
 				 }
 				 
-				 if (store_qq == '' ) {
-				 	$("#store_qq").focus();
-				 	return false;
-				 }
+				 // if (store_qq == '' ) {
+				 // 	$("#store_qq").focus();
+				 // 	return false;
+				 // }
 				 
 				 if (industry == '' ) {
 				 	$("#industry").focus();
