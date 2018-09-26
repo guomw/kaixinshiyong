@@ -34,7 +34,7 @@
       <!-- <p style="color:#A9A9A9" class="padding-left">{{deposite_status}}</p> -->
 
       <ion-item class="item padding-top ">
-        到账时间<span ng-bind="bank_configure.common_time"></span>小时
+        到账时间<span ng-bind="Present_method == 1?bank_configure.quick_time: bank_configure.common_time"></span>小时
         <i ng-if="Present_method == 0 " class="item-note">
           无手续费</i>
         <i ng-show="Present_method == 1 " class="item-note">{{service_fee}}</i>
